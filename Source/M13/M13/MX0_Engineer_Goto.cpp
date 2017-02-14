@@ -26,6 +26,7 @@ void MX0_Engineer_Goto::Register_Auto_Save_Variables()
 
 void MX0_Engineer_Goto::Created(GameObject *obj)
 {
+	// Initialize member variables
 	this->field_1C = false;
 }
 
@@ -49,14 +50,12 @@ void MX0_Engineer_Goto::Entered(GameObject *obj, GameObject *enterer)
 {
 	if (!this->field_1C)
 	{
-		this->field_1C = 1;
+		this->field_1C = true;
 
 		int count = Get_Int_Parameter("Count");
-		GameObject *missionStartDME1 = Commands->Find_Object(1200001);
-		Commands->Send_Custom_Event(obj, missionStartDME1, 102, count, 0.0);
-		GameObject *missionStartDME2 = Commands->Find_Object(1200001);
-		Commands->Send_Custom_Event(obj, missionStartDME2, 104, 1, 0.0);
-		GameObject *missionStartDME3 = Commands->Find_Object(1200001);
-		Commands->Send_Custom_Event(obj, missionStartDME3, 104, 2, 0.0);
+		GameObject *missionStartDME = Commands->Find_Object(1200001);
+		Commands->Send_Custom_Event(obj, missionStartDME, 102, count, 0.0);
+		Commands->Send_Custom_Event(obj, missionStartDME, 104, 1, 0.0);
+		Commands->Send_Custom_Event(obj, missionStartDME, 104, 2, 0.0);
 	}
 }

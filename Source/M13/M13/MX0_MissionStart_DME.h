@@ -25,4 +25,16 @@ class MX0_MissionStart_DME : public ScriptImpClass
 	private:
 		virtual	void Register_Auto_Save_Variables();
 		virtual void Created(GameObject *obj);
+		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
+		virtual void Timer_Expired(GameObject *obj, int number);
+		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
+
+		int field_1C;
+		int field_20;
+		int field_24;
+		int field_28;
+		int sniper1ObjId;
+		int sniper2ObjId;
+		int field_34;
+		bool field_38;
 };
