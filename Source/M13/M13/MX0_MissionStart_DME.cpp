@@ -77,7 +77,7 @@ void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 {
 	if (number == 142)
 	{
-		// Start conversation MX0_ENGINEER1_048: 
+		// Create conversation MX0_ENGINEER1_048: 
 		// - We’ll hang tight until the coast is clear
 		int conversationId = Commands->Create_Conversation("MX0_ENGINEER1_048", 97, 2000.0f, false);
 		GameObject *field_1CObject = Commands->Find_Object(this->field_1C);
@@ -189,7 +189,7 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 	{
 		if (!this->field_38)
 		{
-			// Start conversation MX0CON018:
+			// Create conversation MX0CON018:
 			// - There we go!
 			int conversationId = ::Commands->Create_Conversation("MX0CON018", 97, 2000.0f, 0);
 
@@ -240,64 +240,58 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 			Commands->Start_Timer(obj, this, 2.0f, 134);
 		}
 	}
-	if (type == 99)
+	else if (type == 99)
 	{
 		this->field_28 = 0;
-		LODWORD(pos.X) = 0xC314122D;                // -148.071f
-		LODWORD(pos.Y) = 0xC1FA22D1;                // -31.267f
-		LODWORD(pos.Z) = 0xBE9CAC08;                // -0.306f
-		blocker1Obj = ::Commands->Create_Object("Large_Blocker", &pos);
-		::Commands->Set_Facing(blocker1Obj, -30.0);
-		::Commands->Set_Is_Rendered(blocker1Obj, 0);
-		LODWORD(pos.X) = 0xC3143BE7;                // -148.234f
-		LODWORD(pos.Y) = 0xC1FC5604;                // -31.542f
-		LODWORD(pos.Z) = 0x3FADB22D;                // 1.357f
-		blocker2Obj = ::Commands->Create_Object("Large_Blocker", &pos);
-		::Commands->Set_Facing(blocker2Obj, -30.0);
-		::Commands->Set_Is_Rendered(blocker2Obj, 0);
-		::Commands->Start_Timer(obj, &this->base.base, 0.5, 117);
-		::Commands->Start_Timer(obj, &this->base.base, 3.0, 127);
-		::Commands->Start_Timer(obj, &this->base.base, 6.0, 128);
-		::Commands->Start_Timer(obj, &this->base.base, 9.0, 118);
-		::Commands->Start_Timer(obj, &this->base.base, 1.0, 133);
+
+		// Create blocker1 at the rock pile in the beginning and disable rendering
+		GameObject *blocker1Obj = Commands->Create_Object("Large_Blocker", Vector3(-148.071f, -31.267f, -0.306f));
+		Commands->Set_Facing(blocker1Obj, -30.0f);
+		Commands->Set_Is_Rendered(blocker1Obj, false);
+
+		// Create blocker2 at the rock pile in the beginning and disable rendering
+		GameObject *blocker2Obj = Commands->Create_Object("Large_Blocker", Vector3(-148.234f, -31.542f, 1.357f));
+		Commands->Set_Facing(blocker2Obj, -30.0f);
+		Commands->Set_Is_Rendered(blocker2Obj, false);
+
+		Commands->Start_Timer(obj, this, 0.5f, 117);
+		Commands->Start_Timer(obj, this, 3.0f, 127);
+		Commands->Start_Timer(obj, this, 6.0f, 128);
+		Commands->Start_Timer(obj, this, 9.0f, 118);
+		Commands->Start_Timer(obj, this, 1.0f, 133);
 	}
-	if (type == 130)
+	else if (type == 130)
 	{
-		Commands_4 = ::Commands;
-		field_1CObj_1 = ::Commands->Find_Object(this->field_1C);
-		Commands_4->Send_Custom_Event(obj, field_1CObj_1, 131, 0, 0.0);
-		Commands_5 = ::Commands;
-		field_20Obj = ::Commands->Find_Object(this->field_20);
-		Commands_5->Send_Custom_Event(obj, field_20Obj, 131, 0, 0.0);
+		GameObject *field_1CObj_1 = Commands->Find_Object(this->field_1C);
+		Commands->Send_Custom_Event(obj, field_1CObj_1, 131, 0, 0.0f);
+
+		GameObject *field_20Obj = Commands->Find_Object(this->field_20);
+		Commands->Send_Custom_Event(obj, field_20Obj, 131, 0, 0.0f);
 	}
-	if (type == 132)
+	else if (type == 132)
 	{
-		Commands_6 = ::Commands;
-		field_1CObj_2 = ::Commands->Find_Object(this->field_1C);
-		Commands_6->Send_Custom_Event(obj, field_1CObj_2, 132, 0, 0.0);
+		GameObject *field_1CObj_2 = Commands->Find_Object(this->field_1C);
+		Commands->Send_Custom_Event(obj, field_1CObj_2, 132, 0, 0.0f);
 	}
-	if (type == 111)
+	else if (type == 111)
 	{
-		Commands_7 = ::Commands;
-		field_1CObj_3 = ::Commands->Find_Object(this->field_1C);
-		Commands_7->Send_Custom_Event(obj, field_1CObj_3, 112, 0, 0.0);
-		Commands_8 = ::Commands;
-		field_20Obj_1 = ::Commands->Find_Object(this->field_20);
-		Commands_8->Send_Custom_Event(obj, field_20Obj_1, 112, 0, 0.0);
+		GameObject *field_1CObj_3 = Commands->Find_Object(this->field_1C);
+		Commands->Send_Custom_Event(obj, field_1CObj_3, 112, 0, 0.0f);
+
+		GameObject *field_20Obj_1 = Commands->Find_Object(this->field_20);
+		Commands->Send_Custom_Event(obj, field_20Obj_1, 112, 0, 0.0f);
 	}
-	if (type == 102)
+	else if (type == 102)
 	{
 		this->field_28 = param;
-		Commands_9 = ::Commands;
-		field_28 = this->field_28;
-		field_1CObj_4 = ::Commands->Find_Object(this->field_1C);
-		Commands_9->Send_Custom_Event(obj, field_1CObj_4, 108, field_28, 0.0);
-		Commands_10 = ::Commands;
-		field_28_1 = this->field_28;
-		field_20Obj_2 = ::Commands->Find_Object(this->field_20);
-		Commands_10->Send_Custom_Event(obj, field_20Obj_2, 108, field_28_1, 0.0);
+
+		GameObject *field_1CObj_4 = Commands->Find_Object(this->field_1C);
+		Commands->Send_Custom_Event(obj, field_1CObj_4, 108, this->field_28, 0.0f);
+
+		GameObject *field_20Obj_2 = ::Commands->Find_Object(this->field_20);
+		Commands->Send_Custom_Event(obj, field_20Obj_2, 108, this->field_28, 0.0f);
 	}
-	if (type == 103)
+	else if (type == 103)
 	{
 		if (this->field_24)
 		{
@@ -309,25 +303,37 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 			this->field_24 = 1;
 		}
 	}
-	if (type == 104)
+	else if (type == 104)
 	{
 		if (param == 1)
-			::Commands->Send_Custom_Event(obj, sender, 105, this->field_1C, 0.0);
-		if (param == 2)
-			::Commands->Send_Custom_Event(obj, sender, 106, this->field_20, 0.0);
+		{
+			Commands->Send_Custom_Event(obj, sender, 105, this->field_1C, 0.0f);
+		}
+		else if (param == 2)
+		{
+			Commands->Send_Custom_Event(obj, sender, 106, this->field_20, 0.0f);
+		}
 	}
-	if (type == 100001)
+	else if (type == 100001)
 	{
-		conversationId_2 = ::Commands->Create_Conversation("MX0CON001", 99, 2000.0, 0);
-		Commands_11 = ::Commands;
-		field_20Obj_3 = ::Commands->Find_Object(this->field_20);
-		Commands_11->Join_Conversation(field_20Obj_3, conversationId_2, 0, 1, 1);
-		::Commands->Start_Conversation(conversationId_2, 100001);
-		::Commands->Monitor_Conversation(obj, conversationId_2);
+		// Create conversation MX0CON001:
+		// - Clear!
+		int conversationId = Commands->Create_Conversation("MX0CON001", 99, 2000.0f, false);
+
+		GameObject *field_20Obj_3 = ::Commands->Find_Object(this->field_20);
+		Commands->Join_Conversation(field_20Obj_3, conversationId, false, true, true);
+
+		Commands->Start_Conversation(conversationId, 100001);
+		Commands->Monitor_Conversation(obj, conversationId);
 	}
-	if (type == 100002)
+	else if (type == 100002)
 	{
-		conversationId_3 = ::Commands->Create_Conversation("MX0CON002", 97, 2000.0, 0);
+		// Create conversation MX0CON002:
+		// - It sounds like they're still in trouble, Sir!
+		// - Saddle up, let's move.
+		int conversationId = Commands->Create_Conversation("MX0CON002", 97, 2000.0f, false);
+
+		/*
 		Commands_12 = ::Commands;
 		v38 = ::Commands->Find_Object(*(_DWORD *)(param + 28));
 		Commands_12->Join_Conversation(v38, conversationId_3, 0, 1, 1);
@@ -353,34 +359,48 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		v50->Get_Position(&v124, v51);
 		v52 = v50->Get_A_Star(&v124);
 		v50->Join_Conversation(v52, v118, conversationId_3, 1, 1);
-		::Commands->Start_Conversation(conversationId_3, 100002);
-		::Commands->Monitor_Conversation(obj, conversationId_3);
+		*/
+
+		Commands->Start_Conversation(conversationId, 100002);
+		Commands->Monitor_Conversation(obj, conversationId);
 	}
-	if (type == 100003)
+	/*
+	else if (type == 100003)
 	{
-		LODWORD(pos.X) = "MX0CON003";
-		LODWORD(pos.Y) = "MX0CON003alt1";
-		LODWORD(pos.Z) = "MX0CON003alt2";
-		LODWORD(v124.X) = "MX0CON003alt3";
-		v53 = ((int(__cdecl *)(_DWORD))::Commands->Get_Random_Int)(0);
-		v54 = ::Commands->Create_Conversation(*((const char **)&pos.X + v53), 97, 2000.0, 0);
-		v55 = ::Commands;
-		v56 = ::Commands->Find_Object(this->field_20);
-		v55->Join_Conversation(v56, 1, 1, 4, v119);
-		v57 = ::Commands;
-		v58 = (ScriptableGameObj *)(*(int(__cdecl **)(signed int))(v186A3 + 72))(100003);
-		v57->Get_Position((Vector3 *)&v122, v58);
-		v59 = (int)v57->Get_A_Star((Vector3 *)&v122);
-		v60 = v57->Get_ID((ScriptableGameObj *)v59);
-		v61 = ::Commands->Find_Object(*((_DWORD *)obj + 8));
-		v57->Join_Conversation_Facing(v61, v54, v60);
-		v62 = ::Commands;
-		v63 = (ScriptableGameObj *)(*(int(__cdecl **)(ScriptableGameObj *))(*(_DWORD *)obj + 72))(obj);
-		v62->Get_Position((Vector3 *)&v122, v63);
-		v64 = v62->Get_A_Star((Vector3 *)&v122);
-		v62->Join_Conversation(v64, v54, v54, 1, 1);
-		::Commands->Start_Conversation(v54, 100003);
-		::Commands->Monitor_Conversation(obj, v54);
+		static const char * const ENGINEER_WAIT_FOR_SNIPER_CONVERSATIONS[] =
+		{
+			// - Let's go, Havoc!
+			"MX0CON003",
+
+			// - Let's go!
+			"MX0CON003alt1",
+
+			// - This way, Havoc!
+			"MX0CON003alt2",
+
+			// - Over here, Sir!
+			"MX0CON003alt3"
+		};
+
+		int randomConvIndex = Commands->Get_Random_Int(0, 4);
+		int conversationId = Commands->Create_Conversation(ENGINEER_WAIT_FOR_SNIPER_CONVERSATIONS[randomConvIndex], 97, 2000.0f, false);
+
+		GameObject *field_20Obj_4 = Commands->Find_Object(this->field_20);
+		Commands->Join_Conversation(field_20Obj_4, conversationId, true, v57, v120);
+		v58 = ::Commands;
+		v59 = (ScriptableGameObj *)(*(int(__cdecl **)(signed int))(v186A3 + 72))(100003);
+		v58->Get_Position((Vector3 *)&v123, v59);
+		v60 = (int)v58->Get_A_Star((Vector3 *)&v123);
+		v61 = v58->Get_ID((ScriptableGameObj *)v60);
+		v62 = ::Commands->Find_Object(*((_DWORD *)obj + 8));
+		v58->Join_Conversation_Facing(v62, conversationId, v61);
+		v63 = ::Commands;
+		v64 = (ScriptableGameObj *)(*(int(__cdecl **)(ScriptableGameObj *))(*(_DWORD *)obj + 72))(obj);
+		v63->Get_Position((Vector3 *)&v123, v64);
+		v65 = v63->Get_A_Star((Vector3 *)&v123);
+		v63->Join_Conversation(v65, conversationId, conversationId, 1, 1);
+		::Commands->Start_Conversation(conversationId, 100003);
+		::Commands->Monitor_Conversation(obj, conversationId);
 	}
 	if (type == 100004)
 	{
@@ -492,4 +512,6 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 			this->field_34 = 0;
 		::Commands->Start_Timer(obj, &this->base.base, 5.0, 124);
 	}
+
+	*/
 }
