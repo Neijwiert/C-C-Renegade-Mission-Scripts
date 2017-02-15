@@ -33,6 +33,11 @@ void MX0_MissionStart_DME::Register_Auto_Save_Variables()
 
 void MX0_MissionStart_DME::Created(GameObject *obj)
 {
+	// Deselect weapon of the star
+	Vector3 pos = Commands->Get_Position(obj);
+	GameObject *starObj = Commands->Get_A_Star(pos);
+	Commands->Select_Weapon(starObj, NULL);
+
 	// Initialize member variables
 	this->field_34 = 0;
 	this->sniper2ObjId = 0;
@@ -42,11 +47,6 @@ void MX0_MissionStart_DME::Created(GameObject *obj)
 	this->field_20 = 0;
 	this->field_1C = 0;
 	this->field_38 = 0;
-
-	// Deselect weapon of the star
-	Vector3 pos = Commands->Get_Position(obj);
-	GameObject *starObj = Commands->Get_A_Star(pos);
-	Commands->Select_Weapon(starObj, NULL);
 
 	// Fade into intro music
 	Commands->Fade_Background_Music("renegade_intro_no_vox.mp3", 0, 1);
@@ -64,7 +64,7 @@ void MX0_MissionStart_DME::Action_Complete(GameObject *obj, int action_id, Actio
 	}
 	else if (action_id == 100002)
 	{
-		Commands->Start_Timer(obj, this, 5.0, 120);
+		Commands->Start_Timer(obj, this, 5.0f, 120);
 	}
 	else if (action_id == 100004)
 	{
@@ -299,8 +299,8 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		}
 		else
 		{
-			this->field_1C = param;
 			this->field_24 = 1;
+			this->field_1C = param;
 		}
 	}
 	else if (type == 104)
@@ -320,9 +320,10 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		// - Clear!
 		int conversationId = Commands->Create_Conversation("MX0CON001", 99, 2000.0f, false);
 
-		GameObject *field_20Obj_3 = ::Commands->Find_Object(this->field_20);
+		GameObject *field_20Obj_3 = Commands->Find_Object(this->field_20);
 		Commands->Join_Conversation(field_20Obj_3, conversationId, false, true, true);
 
+		// Start conversation and monitor it
 		Commands->Start_Conversation(conversationId, 100001);
 		Commands->Monitor_Conversation(obj, conversationId);
 	}
@@ -333,41 +334,30 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		// - Saddle up, let's move.
 		int conversationId = Commands->Create_Conversation("MX0CON002", 97, 2000.0f, false);
 
-		/*
-		Commands_12 = ::Commands;
-		v38 = ::Commands->Find_Object(*(_DWORD *)(param + 28));
-		Commands_12->Join_Conversation(v38, conversationId_3, 0, 1, 1);
-		v39 = ::Commands;
-		v40 = (ScriptableGameObj *)(*(int(__cdecl **)(int))(*(_DWORD *)param + 72))(param);
-		v39->Get_Position(&v124, v40);
-		v41 = (int)v39->Get_A_Star(&v124);
-		v120 = v39->Get_ID((ScriptableGameObj *)v41);
-		v42 = ::Commands->Find_Object(v186BE);
-		v39->Join_Conversation_Facing(v42, conversationId_3, v120);
-		v43 = ::Commands;
-		v44 = ::Commands->Find_Object(v186C2);
-		v43->Join_Conversation(v44, conversationId_3, 0, 1, 1);
-		v45 = ::Commands;
-		v46 = (ScriptableGameObj *)(*(int(__cdecl **)(signed int))(v186A2 + 72))(100002);
-		v45->Get_Position(&v124, v46);
-		v47 = (int)v45->Get_A_Star(&v124);
-		v48 = v45->Get_ID((ScriptableGameObj *)v47);
-		v49 = ::Commands->Find_Object(*((_DWORD *)obj + 8));
-		v45->Join_Conversation_Facing(v49, conversationId_3, v48);
-		v50 = ::Commands;
-		v51 = (ScriptableGameObj *)(*(int(__cdecl **)(ScriptableGameObj *))(*(_DWORD *)obj + 72))(obj);
-		v50->Get_Position(&v124, v51);
-		v52 = v50->Get_A_Star(&v124);
-		v50->Join_Conversation(v52, v118, conversationId_3, 1, 1);
-		*/
+		GameObject *field1CObj = Commands->Find_Object(this->field_1C);
+		Commands->Join_Conversation(field1CObj, conversationId, false, true, true);
 
+		// Find the star and its id
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+		int starId = Commands->Get_ID(starObj);
+
+		Commands->Join_Conversation_Facing(field1CObj, conversationId, starId);
+
+		GameObject *field20Obj = Commands->Find_Object(this->field_20);
+		Commands->Join_Conversation(field20Obj, conversationId, false, true, true);
+		Commands->Join_Conversation_Facing(field20Obj, conversationId, starId);
+	
+		// Join the star with the conversation
+		Commands->Join_Conversation(starObj, conversationId, true, true, true);
+
+		// Start conversation and monitor it
 		Commands->Start_Conversation(conversationId, 100002);
 		Commands->Monitor_Conversation(obj, conversationId);
 	}
-	/*
 	else if (type == 100003)
 	{
-		static const char * const ENGINEER_WAIT_FOR_SNIPER_CONVERSATIONS[] =
+		static const char * const ENGINEER_WAIT_FOR_HAVOC_CONVERSATIONS[] =
 		{
 			// - Let's go, Havoc!
 			"MX0CON003",
@@ -382,136 +372,154 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 			"MX0CON003alt3"
 		};
 
-		int randomConvIndex = Commands->Get_Random_Int(0, 4);
-		int conversationId = Commands->Create_Conversation(ENGINEER_WAIT_FOR_SNIPER_CONVERSATIONS[randomConvIndex], 97, 2000.0f, false);
+		// Get random int and start the conversation
+		int randomInt = Commands->Get_Random_Int(0, 4);
+		int conversationId = Commands->Create_Conversation(ENGINEER_WAIT_FOR_HAVOC_CONVERSATIONS[randomInt], 97, 2000.0f, false);
+	
+		GameObject *field20Obj = Commands->Find_Object(this->field_20);
+		Commands->Join_Conversation(field20Obj, conversationId, false, true, true);
+		
+		// Find the star and its id
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+		int starId = Commands->Get_ID(starObj);
 
-		GameObject *field_20Obj_4 = Commands->Find_Object(this->field_20);
-		Commands->Join_Conversation(field_20Obj_4, conversationId, true, v57, v120);
-		v58 = ::Commands;
-		v59 = (ScriptableGameObj *)(*(int(__cdecl **)(signed int))(v186A3 + 72))(100003);
-		v58->Get_Position((Vector3 *)&v123, v59);
-		v60 = (int)v58->Get_A_Star((Vector3 *)&v123);
-		v61 = v58->Get_ID((ScriptableGameObj *)v60);
-		v62 = ::Commands->Find_Object(*((_DWORD *)obj + 8));
-		v58->Join_Conversation_Facing(v62, conversationId, v61);
-		v63 = ::Commands;
-		v64 = (ScriptableGameObj *)(*(int(__cdecl **)(ScriptableGameObj *))(*(_DWORD *)obj + 72))(obj);
-		v63->Get_Position((Vector3 *)&v123, v64);
-		v65 = v63->Get_A_Star((Vector3 *)&v123);
-		v63->Join_Conversation(v65, conversationId, conversationId, 1, 1);
-		::Commands->Start_Conversation(conversationId, 100003);
-		::Commands->Monitor_Conversation(obj, conversationId);
+		Commands->Join_Conversation_Facing(field20Obj, conversationId, starId);
+		
+		// Join the star with the conversation
+		Commands->Join_Conversation(starObj, conversationId, true, true, true);
+		
+		// Start conversation and monitor it
+		Commands->Start_Conversation(conversationId, 100003);
+		Commands->Monitor_Conversation(obj, conversationId);
 	}
-	if (type == 100004)
+	else if (type == 100006)
 	{
-		v65 = ::Commands->Create_Conversation("MX0CON004", 95, 2000.0, 0);
-		v66 = ::Commands;
-		v67 = ::Commands->Find_Object(v186C0);
-		v66->Join_Conversation(v67, v65, 1, 1, 1);
-		v68 = ::Commands;
-		v69 = (ScriptableGameObj *)(*(int(__cdecl **)(signed int))(v186A4 + 72))(100004);
-		v68->Get_Position((Vector3 *)&v122, v69);
-		v70 = (int)v68->Get_A_Star((Vector3 *)&v122);
-		v71 = v68->Get_ID((ScriptableGameObj *)v70);
-		v72 = ::Commands->Find_Object(*((_DWORD *)obj + 7));
-		v68->Join_Conversation_Facing(v72, v65, v71);
-		v73 = ::Commands;
-		v74 = (ScriptableGameObj *)(*(int(__cdecl **)(ScriptableGameObj *))(*(_DWORD *)obj + 72))(obj);
-		v73->Get_Position((Vector3 *)&v122, v74);
-		v75 = v73->Get_A_Star((Vector3 *)&v122);
-		v73->Join_Conversation(v75, v118, v65, 1, 1);
-		::Commands->Start_Conversation(v65, 100004);
-		::Commands->Monitor_Conversation(obj, v65);
-		v76 = ::Commands;
-		v77 = ::Commands->Find_Object(this->field_1C);
-		v76->Innate_Disable(v77);
-		v78 = ::Commands;
-		v79 = ::Commands->Find_Object(this->field_20);
-		v78->Innate_Disable(v79);
-	}
-	if (type == 100005)
-	{
-		v80 = ::Commands->Create_Conversation("MX0CON005", 97, 2000.0, 0);
-		v81 = ::Commands;
-		v82 = ::Commands->Find_Object(v186C5);
-		v81->Join_Conversation(v82, v80, 0, 1, 1);
-		v83 = ::Commands;
-		v84 = (ScriptableGameObj *)(*(int(__cdecl **)(signed int))(v186A5 + 72))(100005);
-		v83->Get_Position((Vector3 *)&v122, v84);
-		v85 = (int)v83->Get_A_Star((Vector3 *)&v122);
-		v86 = v83->Get_ID((ScriptableGameObj *)v85);
-		v87 = ::Commands->Find_Object(*((_DWORD *)obj + 8));
-		v83->Join_Conversation_Facing(v87, v80, v86);
-		v88 = ::Commands;
-		v89 = (ScriptableGameObj *)(*(int(__cdecl **)(_DWORD))(*(_DWORD *)obj + 72))(obj);
-		v88->Get_Position((Vector3 *)&v122, v89);
-		v90 = v88->Get_A_Star((Vector3 *)&v122);
-		v88->Join_Conversation(v90, v118, v80, 1, 1);
-		::Commands->Start_Conversation(v80, 100005);
-		::Commands->Monitor_Conversation(obj, v80);
-	}
-	if (type == 100006 && (int)::Commands->Find_Object(this->sniper1ObjId))
-	{
-		v91 = ::Commands;
-		v92 = ::Commands->Find_Object(this->field_20);
-		v91->Send_Custom_Event(obj, v92, 125, 0, 0.0);
-		::Commands->Start_Timer(obj, &this->base.base, 5.0, 124);
-		v93 = ::Commands->Create_Conversation("MX0CON006", 97, 2000.0, 0);
-		v94 = ::Commands;
-		v95 = ::Commands->Find_Object(this->field_20);
-		v94->Join_Conversation(v95, 1, 1, v96, v97);
-		v98 = ::Commands;
-		v99 = (*(int(__cdecl **)(int))(*(_DWORD *)type + 72))(type);
-		v98->Get_Position((Vector3 *)&v122, (ScriptableGameObj *)v99);
-		v100 = (int)v98->Get_A_Star((Vector3 *)&v122);
-		v101 = v98->Get_ID((ScriptableGameObj *)v100);
-		v102 = ::Commands->Find_Object(*((_DWORD *)obj + 8));
-		v98->Join_Conversation_Facing(v102, v93, v101);
-		v103 = ::Commands;
-		v104 = (*(int(__cdecl **)(_DWORD))(*(_DWORD *)obj + 72))(obj);
-		v103->Get_Position((Vector3 *)&v122, (ScriptableGameObj *)v104);
-		v105 = v103->Get_A_Star((Vector3 *)&v122);
-		v103->Join_Conversation(v105, v93, v93, 1, 1);
-		::Commands->Start_Conversation(v93, 100006);
-		::Commands->Monitor_Conversation(obj, v93);
-		this->field_38 = 1;
-	}
-	if (type == 100007 && (int)::Commands->Find_Object(this->sniper1ObjId))
-	{
-		if (!this->field_34 || this->field_34 == 2 || this->field_34 == 4)
+		if (Commands->Find_Object(this->sniper1ObjId) != NULL)
 		{
-			qmemcpy(&v121, &off_8595F90, 24u);
-			v106 = ::Commands->Create_Conversation((const char *)(&v121)[this->field_34], 97, 2000.0, 0);
-			v107 = ::Commands;
-			v108 = ::Commands->Find_Object(this->field_1C);
-			v107->Join_Conversation(v108, v106, 0, 1, 1);
-			v109 = ::Commands;
-			v110 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-			v109->Get_Position((Vector3 *)&v120, v110);
-			v111 = ((int(__stdcall *)(int *))v109->Get_A_Star)(&v120);
-			v109->Join_Conversation((ScriptableGameObj *)v111, v106, 1, 1, 1);
-			::Commands->Start_Conversation(v106, 100007);
-			::Commands->Monitor_Conversation(obj, v106);
-		}
-		if (this->field_34 == 1 || this->field_34 == 3 || this->field_34 == 5)
-		{
-			qmemcpy(&v120, off_8595FA8, 0x18u);
-			v112 = ::Commands->Create_Conversation((const char *)*(&v120 + this->field_34), 97, 2000.0, 0);
-			v113 = ::Commands;
-			v114 = ::Commands->Find_Object(this->field_20);
-			v113->Join_Conversation(v114, v112, 0, 1, 1);
-			v115 = ::Commands;
-			v116 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-			v115->Get_Position(&pos, v116);
-			v117 = v115->Get_A_Star(&pos);
-			v115->Join_Conversation(v117, v112, 1, 1, 1);
-			::Commands->Start_Conversation(v112, 100007);
-			::Commands->Monitor_Conversation(obj, v112);
-		}
-		if (this->field_34 > 4 || (++this->field_34, this->field_34 > 4))
-			this->field_34 = 0;
-		::Commands->Start_Timer(obj, &this->base.base, 5.0, 124);
-	}
+			GameObject *field20Obj = Commands->Find_Object(this->field_20);
+			Commands->Send_Custom_Event(obj, field20Obj, 125, 0, 0.0f);
 
-	*/
+			Commands->Start_Timer(obj, this, 5.0f, 124);
+
+			// Create conversation MX0CON006:
+			// - Up there - snipers!
+			int conversationId = Commands->Create_Conversation("MX0CON006", 97, 2000.0f, false);
+			
+			Commands->Join_Conversation(field20Obj, conversationId, false, true, true);
+			
+			// Find the star and its id
+			Vector3 pos = Commands->Get_Position(obj);
+			GameObject *starObj = Commands->Get_A_Star(pos);
+			int starId = Commands->Get_ID(starObj);
+
+			Commands->Join_Conversation_Facing(field20Obj, conversationId, starId);
+		
+			// Join the star with the conversation
+			Commands->Join_Conversation(starObj, conversationId, true, true, true);
+
+			// Start conversation and monitor it
+			Commands->Start_Conversation(conversationId, 100006);
+			Commands->Monitor_Conversation(obj, conversationId);
+
+			this->field_38 = 1;
+		}
+	}
+	else if (type == 100007)
+	{
+		if (Commands->Find_Object(this->sniper1ObjId) != NULL)
+		{
+			static const char * const ENGINEER_WAIT_FOR_SNIPER_CONVERSATIONS[] =
+			{
+				// - Let's give 'em a little surprise.
+				"MX0CON012",
+
+				// - I can't take them out with this.
+				"MX0CON013",
+
+				// - Havoc will take care of 'em.
+				"MX0CON014",
+
+				// - Snipers, Sir! Take them out!
+				"MX0CON015",
+
+				// - Get 'em, Sir!
+				"MX0CON016",
+
+				// Lock & Load, Havoc. Drop that sniper!
+				"MX0CON017"
+			};
+
+			if (this->field_34 == 0 || this->field_34 == 2 || this->field_34 == 4)
+			{
+				int conversationId = Commands->Create_Conversation(ENGINEER_WAIT_FOR_SNIPER_CONVERSATIONS[this->field_34], 97, 2000.0f, false);
+
+				GameObject *field1CObj = Commands->Find_Object(this->field_1C);
+				Commands->Join_Conversation(field1CObj, conversationId, false, true, true);
+
+				// Join the star with the conversation
+				Vector3 pos = Commands->Get_Position(obj);
+				GameObject *starObj = Commands->Get_A_Star(pos);
+				Commands->Join_Conversation(starObj, conversationId, true, true, true);
+
+				// Start conversation and monitor it
+				Commands->Start_Conversation(conversationId, 100007);
+				Commands->Monitor_Conversation(obj, conversationId);
+			}
+
+			if (this->field_34 == 1 || this->field_34 == 3 || this->field_34 == 5)
+			{
+				int conversationId = Commands->Create_Conversation(ENGINEER_WAIT_FOR_SNIPER_CONVERSATIONS[this->field_34], 97, 2000.0f, false);
+
+				GameObject *field20Obj = Commands->Find_Object(this->field_20);
+				Commands->Join_Conversation(field20Obj, conversationId, false, true, true);
+
+				// Join the star with the conversation
+				Vector3 pos = Commands->Get_Position(obj);
+				GameObject *starObj = Commands->Get_A_Star(pos);
+				Commands->Join_Conversation(starObj, conversationId, true, true, true);
+
+				// Start conversation and monitor it
+				Commands->Start_Conversation(conversationId, 100007);
+				Commands->Monitor_Conversation(obj, conversationId);
+			}
+
+			if (this->field_34 < 5)
+			{
+				this->field_34++;
+			}
+
+			if (this->field_34 >= 5) // Bause of this line, MX0CON017 will never be used
+			{
+				this->field_34 = 0;
+			}
+
+			Commands->Start_Timer(obj, this, 5.0f, 124);
+		}
+	}
+	else if (type == 100005)
+	{
+		// Create conversation MX0CON005:
+		// - You hear that? It's Recon 1. Let's go!
+		int conversationId = Commands->Create_Conversation("MX0CON005", 97, 2000.0f, false);
+		
+		GameObject *field20Obj = Commands->Find_Object(this->field_20);
+		Commands->Join_Conversation(field20Obj, conversationId, false, true, true);
+		
+		// Find the star and its id
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+		int starId = Commands->Get_ID(starObj);
+
+		Commands->Join_Conversation_Facing(field20Obj, conversationId, starId);
+		
+		// Join the star with the conversation
+		Commands->Join_Conversation(starObj, conversationId, true, true, true);
+
+		// Start conversation and monitor it
+		Commands->Start_Conversation(conversationId, 100005);
+		Commands->Monitor_Conversation(obj, conversationId);
+	}
 }
+
+ScriptRegistrant<MX0_MissionStart_DME> MX0_MissionStart_DMERegistrant("MX0_MissionStart_DME", NULL);

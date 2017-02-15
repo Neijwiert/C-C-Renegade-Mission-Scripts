@@ -22,8 +22,10 @@
 
 class MX0_MissionStart_DME : public ScriptImpClass
 {
-	private:
+	public:
 		virtual	void Register_Auto_Save_Variables();
+
+	private:
 		virtual void Created(GameObject *obj);
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 		virtual void Timer_Expired(GameObject *obj, int number);

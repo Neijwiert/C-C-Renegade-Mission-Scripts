@@ -22,8 +22,10 @@
 
 class MX0_Engineer_Goto : public ScriptImpClass
 {
-	private:
+	public:
 		virtual	void Register_Auto_Save_Variables();
+
+	private:
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Entered(GameObject *obj, GameObject *enterer);

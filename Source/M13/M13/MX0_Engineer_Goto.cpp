@@ -35,14 +35,14 @@ void MX0_Engineer_Goto::Custom(GameObject *obj, int type, int param, GameObject 
 	if (type == 105)
 	{
 		int gotoDest1 = Get_Int_Parameter("GotoDest1");
-		GameObject *v1 = Commands->Find_Object(param);
-		Commands->Send_Custom_Event(obj, v1, 100, gotoDest1, 0.0);
+		GameObject *paramObj = Commands->Find_Object(param);
+		Commands->Send_Custom_Event(obj, paramObj, 100, gotoDest1, 0.0f);
 	}
 	else if (type == 106)
 	{
 		int gotoDest2 = Get_Int_Parameter("GotoDest2");
-		GameObject *v10 = Commands->Find_Object(param);
-		Commands->Send_Custom_Event(obj, v10, 100, gotoDest2, 0.0);
+		GameObject *paramObj = Commands->Find_Object(param);
+		Commands->Send_Custom_Event(obj, paramObj, 100, gotoDest2, 0.0f);
 	}
 }
 
@@ -54,8 +54,10 @@ void MX0_Engineer_Goto::Entered(GameObject *obj, GameObject *enterer)
 
 		int count = Get_Int_Parameter("Count");
 		GameObject *missionStartDME = Commands->Find_Object(1200001);
-		Commands->Send_Custom_Event(obj, missionStartDME, 102, count, 0.0);
-		Commands->Send_Custom_Event(obj, missionStartDME, 104, 1, 0.0);
-		Commands->Send_Custom_Event(obj, missionStartDME, 104, 2, 0.0);
+		Commands->Send_Custom_Event(obj, missionStartDME, 102, count, 0.0f);
+		Commands->Send_Custom_Event(obj, missionStartDME, 104, 1, 0.0f);
+		Commands->Send_Custom_Event(obj, missionStartDME, 104, 2, 0.0f);
 	}
 }
+
+ScriptRegistrant<MX0_Engineer_Goto> MX0_Engineer_GotoRegistrant("MX0_Engineer_Goto", "GotoDest1:int, GotoDest2:int, Count:int");
