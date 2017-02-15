@@ -319,3 +319,5 @@ __pycache__/
 *.id2
 *.nam
 *.til
+
+!Scripts2.dll
