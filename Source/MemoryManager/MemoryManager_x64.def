@@ -1,0 +1,23 @@
+EXPORTS
+	?CheckMemoryManagerConfiguration@@YAXH@Z		;void	CheckMemoryManagerConfiguration(int32 config)
+	?SetThreadTrackingInformation@@YAXPEBDI0@Z		;void	SetThreadTrackingInformation(const char* file, unsigned int line, const char* function)
+	?PushAllocationTag@@YAXPEBD@Z					;void	PushAllocationTag(const char* tag)
+	?PopAllocationTag@@YAXXZ						;void	PopAllocationTag()
+	
+	?AllocateMemory@@YAPEAX_K@Z						;DECLSPEC_RESTRICT void* AllocateMemory(size_t size)
+	?AllocateMemory@@YAPEAX_KW4AllocType@@PEBDI2@Z	;DECLSPEC_RESTRICT void* AllocateMemory(size_t size, AllocType type, const char* file, unsigned int line, const char* function)
+	?ReallocateMemory@@YAPEAXPEAX_K@Z				;DECLSPEC_RESTRICT void* ReallocateMemory(void* memory, size_t new_size)
+	?ReallocateMemory@@YAPEAXPEAX_KPEBDI2@Z			;DECLSPEC_RESTRICT void* ReallocateMemory(void* memory, size_t new_size, const char* file, unsigned int line, const char* function)
+	?FreeMemory@@YAXPEAX@Z							;void	FreeMemory(void* memory)
+	?FreeMemory@@YAXPEAXW4DeallocType@@PEBDI2@Z		;void	FreeMemory(void* memory, DeallocType type, const char* file, unsigned int line, const char* function)
+	?GetMemorySize@@YA_KPEAX@Z						;size_t	GetMemorySize(void* memory)
+	
+	??2@YAPEAX_K@Z									;void*	operator new(size_t memory)
+	??2@YAPEAX_KPEBDI@Z								;void*	operator new(size_t size, const char* file, unsigned int line)
+	??3@YAXPEAX@Z									;void	operator delete(void* memory)
+	??3@YAXPEAXPEBDI@Z								;void	operator delete(void* memory, const char* file, unsigned int line)
+
+	??_U@YAPEAX_K@Z									;void*	operator new[](size_t size)
+	??_U@YAPEAX_KPEBDI@Z							;void*	operator new[](size_t size, const char* file, unsigned int line)
+	??_V@YAXPEAX@Z									;void	operator delete[](void* memory)
+	??_V@YAXPEAXPEBDI@Z								;void	operator delete[](void* memory, const char* file, unsigned int line)

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\M13">
+      <UniqueIdentifier>{4b9c9023-3d4a-4cc7-8aa1-d390a0a042e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\M13">
+      <UniqueIdentifier>{1dc7a9cd-8069-4550-ba88-1f7456936d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\M13">
+      <UniqueIdentifier>{be5a3d16-0abf-4ebc-9006-2c74466d959e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Misc">
+      <UniqueIdentifier>{b07c17d8-cdf4-4344-b4b5-80e0376152ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Misc">
+      <UniqueIdentifier>{c84202e0-d717-4912-9deb-0435bcd0e2f4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="General.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SinglePlayerScripts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MX0_Engineer_Goto.cpp">
+      <Filter>Source Files\M13</Filter>
+    </ClCompile>
+    <ClCompile Include="MX0_MissionStart_DME.cpp">
+      <Filter>Source Files\M13</Filter>
+    </ClCompile>
+    <ClCompile Include="Havoc_Script.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="General.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SinglePlayerScripts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_Engineer_Goto.h">
+      <Filter>Header Files\M13</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_MissionStart_DME.h">
+      <Filter>Header Files\M13</Filter>
+    </ClInclude>
+    <ClInclude Include="Havoc_Script.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="x00_intro.txt">
+      <Filter>Resource Files\M13</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
