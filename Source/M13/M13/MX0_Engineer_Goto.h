@@ -30,5 +30,5 @@ class MX0_Engineer_Goto : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
-		bool field_1C;
+		bool isZoneTriggered;
 };

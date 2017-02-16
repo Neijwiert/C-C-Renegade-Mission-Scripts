@@ -21,13 +21,13 @@
 
 void MX0_Engineer_Goto::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(bool), 1);
+	Auto_Save_Variable(&this->isZoneTriggered, sizeof(bool), 1);
 }
 
 void MX0_Engineer_Goto::Created(GameObject *obj)
 {
 	// Initialize member variables
-	this->field_1C = false;
+	this->isZoneTriggered = false;
 }
 
 void MX0_Engineer_Goto::Custom(GameObject *obj, int type, int param, GameObject *sender)
@@ -36,27 +36,30 @@ void MX0_Engineer_Goto::Custom(GameObject *obj, int type, int param, GameObject 
 	{
 		int gotoDest1 = Get_Int_Parameter("GotoDest1");
 		GameObject *paramObj = Commands->Find_Object(param);
+
 		Commands->Send_Custom_Event(obj, paramObj, 100, gotoDest1, 0.0f);
 	}
 	else if (type == 106)
 	{
 		int gotoDest2 = Get_Int_Parameter("GotoDest2");
 		GameObject *paramObj = Commands->Find_Object(param);
+
 		Commands->Send_Custom_Event(obj, paramObj, 100, gotoDest2, 0.0f);
 	}
 }
 
 void MX0_Engineer_Goto::Entered(GameObject *obj, GameObject *enterer)
 {
-	if (!this->field_1C)
+	if (!this->isZoneTriggered)
 	{
-		this->field_1C = true;
+		this->isZoneTriggered = true;
 
 		int count = Get_Int_Parameter("Count");
-		GameObject *missionStartDME = Commands->Find_Object(1200001);
-		Commands->Send_Custom_Event(obj, missionStartDME, 102, count, 0.0f);
-		Commands->Send_Custom_Event(obj, missionStartDME, 104, 1, 0.0f);
-		Commands->Send_Custom_Event(obj, missionStartDME, 104, 2, 0.0f);
+		GameObject *MX0MissionStartDMEObj = Commands->Find_Object(1200001);
+
+		Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 102, count, 0.0f);
+		Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 104, 1, 0.0f);
+		Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 104, 2, 0.0f);
 	}
 }
 
