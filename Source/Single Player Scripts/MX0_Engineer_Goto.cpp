@@ -21,7 +21,7 @@
 
 void MX0_Engineer_Goto::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->isZoneTriggered, sizeof(bool), 1);
+	Auto_Save_Variable(&this->isZoneTriggered, sizeof(this->isZoneTriggered), 1);
 }
 
 void MX0_Engineer_Goto::Created(GameObject *obj)
