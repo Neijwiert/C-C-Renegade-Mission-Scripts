@@ -192,6 +192,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   <ItemGroup>
     <ClCompile Include="Havoc_Script.cpp" />
     <ClCompile Include="MX0_Engineer1.cpp" />
+    <ClCompile Include="MX0_Engineer2.cpp" />
     <ClCompile Include="SinglePlayerScripts.cpp" />
     <ClCompile Include="General.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -205,6 +206,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   <ItemGroup>
     <ClInclude Include="Havoc_Script.h" />
     <ClInclude Include="MX0_Engineer1.h" />
+    <ClInclude Include="MX0_Engineer2.h" />
     <ClInclude Include="SinglePlayerScripts.h" />
     <ClInclude Include="General.h" />
     <ClInclude Include="MX0_Engineer_Goto.h" />
@@ -225,7 +227,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="x00_intro.txt" />
+    <None Include="x00_intro.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

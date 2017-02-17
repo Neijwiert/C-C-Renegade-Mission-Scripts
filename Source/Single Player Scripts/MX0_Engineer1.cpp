@@ -21,11 +21,11 @@
 
 void MX0_Engineer1::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(float), 1);
-	Auto_Save_Variable(&this->lastHealthAmount, sizeof(float), 2);
-	Auto_Save_Variable(&this->field_24, sizeof(int), 3);
-	Auto_Save_Variable(&this->field_28, sizeof(int), 4);
-	Auto_Save_Variable(&this->field_2C, sizeof(bool), 5);
+	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->lastHealthAmount, sizeof(this->lastHealthAmount), 2);
+	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
+	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 4);
+	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 5);
 }
 
 void MX0_Engineer1::Created(GameObject *obj)
@@ -89,7 +89,7 @@ void MX0_Engineer1::Action_Complete(GameObject *obj, int action_id, ActionComple
 	}
 	else if (action_id == 135)
 	{
-		this->field_2C = 0;
+		this->field_2C = false;
 	}
 	else if (action_id == 101)
 	{
@@ -159,9 +159,9 @@ void MX0_Engineer1::Damaged(GameObject *obj, GameObject *damager, float amount)
 
 void MX0_Engineer1::Animation_Complete(GameObject *obj, const char *animation_name)
 {
-	if (!_strcmpi(animation_name, "H_A_J21C")) // Should be == 0
+	if (!_strcmpi(animation_name, "H_A_J21C")) // Should be == 0, but it doesn't appear to be compiled like that
 	{
-		this->field_2C = 0;
+		this->field_2C = false;
 	}
 }
 
@@ -177,7 +177,7 @@ void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sen
 		{
 			Commands->Lock_Soldier_Facing(obj, paramObj, true);
 
-			static int ENGINEER_WAIT_FOR_SNIPER_KILL_OBJECT_IDS[] = 
+			static int ENGINEER_WAIT_FOR_SNIPER_DEATH_OBJECT_IDS[] = 
 			{
 				1200010,
 				1200022,
@@ -189,7 +189,7 @@ void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sen
 			ActionParamsStruct actionParamsStruct;
 			actionParamsStruct.Set_Basic(this, 97.0f, 137);
 
-			GameObject *waitObj = Commands->Find_Object(ENGINEER_WAIT_FOR_SNIPER_KILL_OBJECT_IDS[randomInt]);
+			GameObject *waitObj = Commands->Find_Object(ENGINEER_WAIT_FOR_SNIPER_DEATH_OBJECT_IDS[randomInt]);
 			actionParamsStruct.Set_Movement(waitObj, 0.3f, 0.2f, true);
 			actionParamsStruct.AttackCrouched = true;
 

@@ -19,14 +19,17 @@
     <Filter Include="Source Files\M13">
       <UniqueIdentifier>{1dc7a9cd-8069-4550-ba88-1f7456936d09}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\M13">
-      <UniqueIdentifier>{be5a3d16-0abf-4ebc-9006-2c74466d959e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Misc">
       <UniqueIdentifier>{b07c17d8-cdf4-4344-b4b5-80e0376152ad}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Misc">
       <UniqueIdentifier>{c84202e0-d717-4912-9deb-0435bcd0e2f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\M13">
+      <UniqueIdentifier>{be5a3d16-0abf-4ebc-9006-2c74466d959e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\M13\Cinematic Files">
+      <UniqueIdentifier>{041b1359-5286-4089-92eb-436649e03d33}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +49,9 @@
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
     <ClCompile Include="MX0_Engineer1.cpp">
+      <Filter>Source Files\M13</Filter>
+    </ClCompile>
+    <ClCompile Include="MX0_Engineer2.cpp">
       <Filter>Source Files\M13</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,10 +74,13 @@
     <ClInclude Include="MX0_Engineer1.h">
       <Filter>Header Files\M13</Filter>
     </ClInclude>
+    <ClInclude Include="MX0_Engineer2.h">
+      <Filter>Header Files\M13</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="x00_intro.txt">
-      <Filter>Resource Files\M13</Filter>
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
     </Text>
   </ItemGroup>
 </Project>
