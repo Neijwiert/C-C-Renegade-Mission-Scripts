@@ -45,6 +45,9 @@
     <ClCompile Include="Havoc_Script.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_Engineer1.cpp">
+      <Filter>Source Files\M13</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="Havoc_Script.h">
       <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_Engineer1.h">
+      <Filter>Header Files\M13</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
