@@ -31,12 +31,12 @@ class MX0_MissionStart_DME : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		int field_1C;
-		int field_20;
-		int field_24;
-		int field_28;
+		int engineer1ObjId;
+		int engineer2ObjId;
+		int hasEngineer1ObjId; // This is an integer on purpose
+		int engineerGotoZoneCount;
 		int sniper1ObjId;
 		int sniper2ObjId;
-		int field_34;
+		int engineerWaitForSniperConversationIndex;
 		bool field_38;
 };

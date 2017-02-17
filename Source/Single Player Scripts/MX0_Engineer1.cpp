@@ -101,7 +101,7 @@ void MX0_Engineer1::Action_Complete(GameObject *obj, int action_id, ActionComple
 		if (this->field_24 == 3 && complete_reason == ACTION_COMPLETE_NORMAL)
 		{
 			GameObject *MX0MissionStartDMEObj = Commands->Find_Object(1200001);
-			Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 100004, 0, 0.0f);
+			Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 100004, 0, 0.0f); // type 100004 does not exist
 		}
 	}
 }

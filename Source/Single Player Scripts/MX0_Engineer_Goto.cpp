@@ -54,7 +54,7 @@ void MX0_Engineer_Goto::Entered(GameObject *obj, GameObject *enterer)
 	{
 		this->isZoneTriggered = true;
 
-		int count = Get_Int_Parameter("Count"); // 1
+		int count = Get_Int_Parameter("Count"); 
 		GameObject *MX0MissionStartDMEObj = Commands->Find_Object(1200001);
 
 		Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 102, count, 0.0f);
