@@ -28,6 +28,47 @@ void MX0_Engineer1::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_2C, sizeof(bool), 5);
 }
 
+void MX0_Engineer1::Created(GameObject *obj)
+{
+	this->field_2C = false;
+	this->field_24 = 0;
+	this->field_28 = 0;
+	this->lastHealthAmount = Commands->Get_Health(obj);
+
+	Commands->Start_Timer(obj, this, 4.0f, 121);
+	Commands->Start_Timer(obj, this, 4.0f, 122);
+
+	int objId = Commands->Get_ID(obj);
+	GameObject *MX0MissionStartDMEObj = Commands->Find_Object(1200001);
+	Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 103, objId, 0.0f);
+}
+
+void MX0_Engineer1::Timer_Expired(GameObject *obj, int number)
+{
+	if (number == 116)
+	{
+		ActionParamsStruct actionParamsStruct;
+		actionParamsStruct.Set_Basic(this, 96.0f, 101);
+
+		GameObject *field28Obj = Commands->Find_Object(this->field_28);
+		Vector3 field28ObjPos = Commands->Get_Position(field28Obj);
+		actionParamsStruct.Set_Movement(field28ObjPos, 0.8f, 1.0f);
+
+		Commands->Action_Goto(obj, actionParamsStruct);
+	}
+	else if (number == 122)
+	{
+		ActionParamsStruct actionParamsStruct;
+		actionParamsStruct.Set_Basic(this, 96.0f, 101);
+
+		GameObject *davesArrowWaitingForHavocObj = Commands->Find_Object(1200029);
+		Vector3 davesArrowWaitingForHavocObjPos = Commands->Get_Position(davesArrowWaitingForHavocObj);
+		actionParamsStruct.Set_Movement(davesArrowWaitingForHavocObjPos, 0.80000001f, 0.80000001f);
+
+		Commands->Action_Goto(obj, actionParamsStruct);
+	}
+}
+
 void MX0_Engineer1::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (action_id == 113)
@@ -52,26 +93,166 @@ void MX0_Engineer1::Action_Complete(GameObject *obj, int action_id, ActionComple
 	}
 	else if (action_id == 101)
 	{
+		if (Commands->Get_Action_ID(obj) != 101 && !Commands->Is_Performing_Pathfind_Action(obj) && complete_reason == ACTION_COMPLETE_LOW_PRIORITY) // The Get_Action_ID seems a bit weird
+		{
+			Commands->Start_Timer(obj, this, 5.0f, 116);
+		}
 
-	}
-	/*
-	this_1 = this;
-	switch (action_id)
-	{
-	case 101:
-		if (Commands->Get_Action_ID(obj) != 101
-			&& !Commands->Is_Performing_Pathfind_Action(obj)
-			&& complete_reason == ACTION_COMPLETE_LOW_PRIORITY)
+		if (this->field_24 == 3 && complete_reason == ACTION_COMPLETE_NORMAL)
 		{
-			Commands->Start_Timer(obj, &this_1->ScriptImpClassBase.ScriptClassBase, 5.0, 116);
+			GameObject *MX0MissionStartDMEObj = Commands->Find_Object(1200001);
+			Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 100004, 0, 0.0f);
 		}
-		if (this_1->field_24 == 3 && complete_reason == ACTION_COMPLETE_NORMAL)
-		{
-			Send_Custom_Event = &Commands->Send_Custom_Event;
-			MX0MissionStartDMEObj = Commands->Find_Object(1200001);
-			(*Send_Custom_Event)(obj, MX0MissionStartDMEObj, 100004, 0, 0.0);
-		}
-		break;
 	}
-	*/
 }
+
+void MX0_Engineer1::Damaged(GameObject *obj, GameObject *damager, float amount)
+{
+	float currentHealth = Commands->Get_Health(obj);
+	this->field_1C = currentHealth;
+	float healthDifference = this->lastHealthAmount - currentHealth;
+	float newHealth = this->lastHealthAmount - Get_Float_Parameter("Damage_multiplier") * healthDifference;
+	Commands->Set_Health(obj, newHealth);
+	this->lastHealthAmount = Commands->Get_Health(obj);
+	this->field_1C = Commands->Get_Health(obj);
+
+	Vector3 pos = Commands->Get_Position(obj);
+	if (damager == Commands->Get_A_Star(pos) && !this->field_2C)
+	{
+		static const char * const ENGINEER_TAKING_DAMAGE_CONVERSATIONS[] =
+		{
+			// - Check your fire!
+			"MX0CON008",
+
+			// - Medic!
+			"MX0CON009",
+
+			// - Hey! Watch out!
+			"MX0CON010",
+
+			// - I'm taking fire!
+			"MX0CON011"
+		};
+
+		int randomInt = Commands->Get_Random_Int(0, 4);
+		int conversationId = Commands->Create_Conversation(ENGINEER_TAKING_DAMAGE_CONVERSATIONS[randomInt], 97, 2000.0f, false);
+
+		Commands->Join_Conversation(obj, conversationId, false, true, true);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+		Commands->Join_Conversation(starObj, conversationId, true, true, true);
+
+		Commands->Start_Conversation(conversationId, 100008);
+		Commands->Monitor_Conversation(obj, conversationId);
+
+		this->field_2C = true;
+
+		ActionParamsStruct actionParamsStruct;
+		actionParamsStruct.Set_Basic(this, 100.0f, 135);
+	
+		actionParamsStruct.Set_Animation("H_A_J21C", false);
+
+		Commands->Action_Play_Animation(obj, actionParamsStruct);
+	}
+}
+
+void MX0_Engineer1::Animation_Complete(GameObject *obj, const char *animation_name)
+{
+	if (!_strcmpi(animation_name, "H_A_J21C")) // Should be == 0
+	{
+		this->field_2C = 0;
+	}
+}
+
+void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sender)
+{
+	if (type == 136)
+	{
+		GameObject *paramObj = Commands->Find_Object(param);
+
+		Commands->Unlock_Soldier_Facing(obj);
+
+		if (paramObj)
+		{
+			Commands->Lock_Soldier_Facing(obj, paramObj, true);
+
+			static int ENGINEER_WAIT_FOR_SNIPER_KILL_OBJECT_IDS[] = 
+			{
+				1200010,
+				1200022,
+				1200039
+			};
+
+			int randomInt = Commands->Get_Random_Int(0, 3);
+			
+			ActionParamsStruct actionParamsStruct;
+			actionParamsStruct.Set_Basic(this, 97.0f, 137);
+
+			GameObject *waitObj = Commands->Find_Object(ENGINEER_WAIT_FOR_SNIPER_KILL_OBJECT_IDS[randomInt]);
+			actionParamsStruct.Set_Movement(waitObj, 0.3f, 0.2f, true);
+			actionParamsStruct.AttackCrouched = true;
+
+			Commands->Action_Goto(obj, actionParamsStruct);
+		}
+	}
+	else if (type == 131)
+	{
+		Commands->Action_Reset(obj, 100.0f);
+
+		ActionParamsStruct actionParamsStruct;
+		actionParamsStruct.Set_Basic(this, 97.0f, 131);
+
+		GameObject *engineerStartDavesArrow = Commands->Find_Object(1200006);
+		actionParamsStruct.Set_Movement(engineerStartDavesArrow, 0.8f, 1.0f);
+
+		Commands->Action_Goto(obj, actionParamsStruct);
+	}
+	else if (type == 132)
+	{
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+
+		Commands->Lock_Soldier_Facing(obj, starObj, true);
+
+		ActionParamsStruct actionParamsStruct;
+		actionParamsStruct.Set_Basic(this, 97, 113);
+
+		actionParamsStruct.Set_Animation("h_a_b0c0", true);
+
+		Commands->Action_Play_Animation(obj, actionParamsStruct);
+	}
+	else if (type == 112)
+	{
+		ActionParamsStruct actionParamsStruct;
+		actionParamsStruct.Set_Basic(this, 95, 1);
+
+		GameObject *rightOfHidingRocksDavesArrow = Commands->Find_Object(1200021);
+		actionParamsStruct.Set_Movement(rightOfHidingRocksDavesArrow, 1.2f, 1.0f, true);
+
+		GameObject *nonExistingObject = Commands->Find_Object(1200017);
+		actionParamsStruct.Set_Attack(nonExistingObject, 250.0f, 0.0f, true);
+		actionParamsStruct.AttackCheckBlocked = true;
+
+		Commands->Action_Attack(obj, actionParamsStruct);
+	}
+	else if (type == 108)
+	{
+		this->field_24 = param;
+	}
+	else if (type == 100)
+	{
+		this->field_28 = param;
+
+		ActionParamsStruct actionParamsStruct;
+		actionParamsStruct.Set_Basic(this, 96.0f, 101);
+
+		GameObject *field28Obj = Commands->Find_Object(this->field_28);
+		Vector3 field28ObjPos = Commands->Get_Position(field28Obj);
+		actionParamsStruct.Set_Movement(field28ObjPos, 0.80000001f, 0.80000001f);
+
+		Commands->Action_Goto(obj, actionParamsStruct);
+	}
+}
+
+ScriptRegistrant<MX0_Engineer1> MX0_Engineer1Registrant("MX0_Engineer1", "Damage_multiplier:float");

@@ -26,7 +26,12 @@ class MX0_Engineer1 : public ScriptImpClass
 		virtual void Register_Auto_Save_Variables();
 
 	private:
-		void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
+		virtual void Created(GameObject *obj);
+		virtual void Timer_Expired(GameObject *obj, int number);
+		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
+		virtual void Damaged(GameObject *obj, GameObject *damager, float amount);
+		virtual void Animation_Complete(GameObject *obj, const char *animation_name);
+		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
 		float field_1C;
 		float lastHealthAmount;
