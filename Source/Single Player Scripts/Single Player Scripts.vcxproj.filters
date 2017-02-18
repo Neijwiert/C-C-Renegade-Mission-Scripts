@@ -13,12 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\M13">
-      <UniqueIdentifier>{4b9c9023-3d4a-4cc7-8aa1-d390a0a042e7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\M13">
-      <UniqueIdentifier>{1dc7a9cd-8069-4550-ba88-1f7456936d09}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Misc">
       <UniqueIdentifier>{b07c17d8-cdf4-4344-b4b5-80e0376152ad}</UniqueIdentifier>
     </Filter>
@@ -37,6 +31,12 @@
     <Filter Include="Source Files\M00">
       <UniqueIdentifier>{71dce127-cb1e-413b-bb85-9c3f659d51f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\MX0">
+      <UniqueIdentifier>{4b9c9023-3d4a-4cc7-8aa1-d390a0a042e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MX0">
+      <UniqueIdentifier>{1dc7a9cd-8069-4550-ba88-1f7456936d09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -46,25 +46,34 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MX0_Engineer_Goto.cpp">
-      <Filter>Source Files\M13</Filter>
+      <Filter>Source Files\MX0</Filter>
     </ClCompile>
     <ClCompile Include="MX0_MissionStart_DME.cpp">
-      <Filter>Source Files\M13</Filter>
+      <Filter>Source Files\MX0</Filter>
     </ClCompile>
     <ClCompile Include="Havoc_Script.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
     <ClCompile Include="MX0_Engineer1.cpp">
-      <Filter>Source Files\M13</Filter>
+      <Filter>Source Files\MX0</Filter>
     </ClCompile>
     <ClCompile Include="MX0_Engineer2.cpp">
-      <Filter>Source Files\M13</Filter>
+      <Filter>Source Files\MX0</Filter>
     </ClCompile>
     <ClCompile Include="M00_Soldier_Powerup_Disable.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
     <ClCompile Include="M00_Send_Object_ID.cpp">
       <Filter>Source Files\M00</Filter>
+    </ClCompile>
+    <ClCompile Include="MX0_SniperAction.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
+    <ClCompile Include="MX0_KillNotify.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
+    <ClCompile Include="MX0_NOD_TroopDrop.cpp">
+      <Filter>Source Files\MX0</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -75,19 +84,19 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MX0_Engineer_Goto.h">
-      <Filter>Header Files\M13</Filter>
+      <Filter>Header Files\MX0</Filter>
     </ClInclude>
     <ClInclude Include="MX0_MissionStart_DME.h">
-      <Filter>Header Files\M13</Filter>
+      <Filter>Header Files\MX0</Filter>
     </ClInclude>
     <ClInclude Include="Havoc_Script.h">
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
     <ClInclude Include="MX0_Engineer1.h">
-      <Filter>Header Files\M13</Filter>
+      <Filter>Header Files\MX0</Filter>
     </ClInclude>
     <ClInclude Include="MX0_Engineer2.h">
-      <Filter>Header Files\M13</Filter>
+      <Filter>Header Files\MX0</Filter>
     </ClInclude>
     <ClInclude Include="M00_Soldier_Powerup_Disable.h">
       <Filter>Header Files\M00</Filter>
@@ -95,8 +104,27 @@
     <ClInclude Include="M00_Send_Object_ID.h">
       <Filter>Header Files\M00</Filter>
     </ClInclude>
+    <ClInclude Include="MX0_SniperAction.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_KillNotify.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_NOD_TroopDrop.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="x00_intro.txt" />
+    <None Include="x00_intro.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="mx0_c130troopdrop.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </Text>
+    <Text Include="mx0_c130troopdrop2.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

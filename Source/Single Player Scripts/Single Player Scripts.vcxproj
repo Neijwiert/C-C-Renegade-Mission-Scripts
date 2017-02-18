@@ -195,6 +195,9 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Soldier_Powerup_Disable.cpp" />
     <ClCompile Include="MX0_Engineer1.cpp" />
     <ClCompile Include="MX0_Engineer2.cpp" />
+    <ClCompile Include="MX0_KillNotify.cpp" />
+    <ClCompile Include="MX0_NOD_TroopDrop.cpp" />
+    <ClCompile Include="MX0_SniperAction.cpp" />
     <ClCompile Include="SinglePlayerScripts.cpp" />
     <ClCompile Include="General.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -211,6 +214,9 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Soldier_Powerup_Disable.h" />
     <ClInclude Include="MX0_Engineer1.h" />
     <ClInclude Include="MX0_Engineer2.h" />
+    <ClInclude Include="MX0_KillNotify.h" />
+    <ClInclude Include="MX0_NOD_TroopDrop.h" />
+    <ClInclude Include="MX0_SniperAction.h" />
     <ClInclude Include="SinglePlayerScripts.h" />
     <ClInclude Include="General.h" />
     <ClInclude Include="MX0_Engineer_Goto.h" />
@@ -232,6 +238,10 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   </ItemGroup>
   <ItemGroup>
     <None Include="x00_intro.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mx0_c130troopdrop.txt" />
+    <None Include="mx0_c130troopdrop2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

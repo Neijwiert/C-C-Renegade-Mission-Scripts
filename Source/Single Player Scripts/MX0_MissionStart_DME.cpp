@@ -236,7 +236,7 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		Commands->Set_Facing(blocker2Obj, -30.0f);
 		Commands->Set_Is_Rendered(blocker2Obj, false);
 
-		// Starts the fast paced music, gives weapon to the star and attaches its script
+		// Starts Level0_pt1_music.mp3 music, gives weapon to the star and attaches its script
 		Commands->Start_Timer(obj, this, 0.5f, 117);
 
 		// Shows HUD helptext: 

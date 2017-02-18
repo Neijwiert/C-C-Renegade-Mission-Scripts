@@ -96,24 +96,31 @@ void MX0_Engineer2::Timer_Expired(GameObject *obj, int number)
 	{
 		GameObject *field2CObj = Commands->Find_Object(this->field_2C);
 
-		static int ENGINEER_WAIT_FOR_SNIPER_DEATH_OBJECT_IDS[] =
+		Commands->Unlock_Soldier_Facing(obj);
+
+		if (field2CObj)
 		{
-			1200011,
-			1200021,
-			1200040
-		};
+			Commands->Lock_Soldier_Facing(obj, field2CObj, true);
 
-		int randomInt = Commands->Get_Random_Int(0, 3);
-		int waitObjId = ENGINEER_WAIT_FOR_SNIPER_DEATH_OBJECT_IDS[randomInt];
+			static int ENGINEER_WAIT_FOR_SNIPER_DEATH_OBJECT_IDS[] =
+			{
+				1200011,
+				1200021,
+				1200040
+			};
 
-		ActionParamsStruct actionParamsStruct;
-		actionParamsStruct.Set_Basic(this, 97.0f, 137);
+			int randomInt = Commands->Get_Random_Int(0, 3);
+			int waitObjId = ENGINEER_WAIT_FOR_SNIPER_DEATH_OBJECT_IDS[randomInt];
 
-		GameObject *waitObj = Commands->Find_Object(waitObjId);
-		actionParamsStruct.Set_Movement(waitObj, 0.3f, 0.2f, true);
-		actionParamsStruct.AttackCrouched = true;
+			ActionParamsStruct actionParamsStruct;
+			actionParamsStruct.Set_Basic(this, 97.0f, 137);
 
-		Commands->Action_Goto(obj, actionParamsStruct);
+			GameObject *waitObj = Commands->Find_Object(waitObjId);
+			actionParamsStruct.Set_Movement(waitObj, 0.3f, 0.2f, true);
+			actionParamsStruct.AttackCrouched = true;
+
+			Commands->Action_Goto(obj, actionParamsStruct);
+		}
 	}
 	else if (number == 116)
 	{
