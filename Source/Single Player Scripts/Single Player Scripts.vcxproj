@@ -191,6 +191,8 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Havoc_Script.cpp" />
+    <ClCompile Include="M00_Send_Object_ID.cpp" />
+    <ClCompile Include="M00_Soldier_Powerup_Disable.cpp" />
     <ClCompile Include="MX0_Engineer1.cpp" />
     <ClCompile Include="MX0_Engineer2.cpp" />
     <ClCompile Include="SinglePlayerScripts.cpp" />
@@ -205,6 +207,8 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Havoc_Script.h" />
+    <ClInclude Include="M00_Send_Object_ID.h" />
+    <ClInclude Include="M00_Soldier_Powerup_Disable.h" />
     <ClInclude Include="MX0_Engineer1.h" />
     <ClInclude Include="MX0_Engineer2.h" />
     <ClInclude Include="SinglePlayerScripts.h" />

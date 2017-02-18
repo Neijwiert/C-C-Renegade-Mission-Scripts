@@ -31,6 +31,12 @@
     <Filter Include="Resource Files\M13\Cinematic Files">
       <UniqueIdentifier>{041b1359-5286-4089-92eb-436649e03d33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\M00">
+      <UniqueIdentifier>{a31b1a34-b9b1-40fd-a400-67efb48d031a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\M00">
+      <UniqueIdentifier>{71dce127-cb1e-413b-bb85-9c3f659d51f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -53,6 +59,12 @@
     </ClCompile>
     <ClCompile Include="MX0_Engineer2.cpp">
       <Filter>Source Files\M13</Filter>
+    </ClCompile>
+    <ClCompile Include="M00_Soldier_Powerup_Disable.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
+    <ClCompile Include="M00_Send_Object_ID.cpp">
+      <Filter>Source Files\M00</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,10 +89,14 @@
     <ClInclude Include="MX0_Engineer2.h">
       <Filter>Header Files\M13</Filter>
     </ClInclude>
+    <ClInclude Include="M00_Soldier_Powerup_Disable.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Send_Object_ID.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="x00_intro.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
-    </Text>
+    <None Include="x00_intro.txt" />
   </ItemGroup>
 </Project>
