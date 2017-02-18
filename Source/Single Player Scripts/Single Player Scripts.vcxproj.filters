@@ -75,6 +75,9 @@
     <ClCompile Include="MX0_NOD_TroopDrop.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_Engineer_Goto2.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -113,18 +116,15 @@
     <ClInclude Include="MX0_NOD_TroopDrop.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
+    <ClInclude Include="MX0_Engineer_Goto2.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="x00_intro.txt">
       <Filter>Resource Files\M13\Cinematic Files</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="mx0_c130troopdrop.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
-    </Text>
-    <Text Include="mx0_c130troopdrop2.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
-    </Text>
+    <None Include="mx0_c130troopdrop.txt" />
+    <None Include="mx0_c130troopdrop2.txt" />
   </ItemGroup>
 </Project>
