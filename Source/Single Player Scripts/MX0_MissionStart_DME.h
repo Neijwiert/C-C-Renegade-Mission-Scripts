@@ -38,5 +38,5 @@ class MX0_MissionStart_DME : public ScriptImpClass
 		int sniper1ObjId;
 		int sniper2ObjId;
 		int engineerWaitForSniperConversationIndex;
-		bool field_38;
+		bool starWarnedForSnipers;
 };

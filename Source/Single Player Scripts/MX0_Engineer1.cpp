@@ -21,19 +21,19 @@
 
 void MX0_Engineer1::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->lastHealthAmount, sizeof(this->lastHealthAmount), 2);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
+	Auto_Save_Variable(&this->lastHealthAmount1, sizeof(this->lastHealthAmount1), 1);
+	Auto_Save_Variable(&this->lastHealthAmount2, sizeof(this->lastHealthAmount2), 2);
+	Auto_Save_Variable(&this->unknown, sizeof(this->unknown), 3);
 	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 4);
-	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 5);
+	Auto_Save_Variable(&this->doingDamageAnimation, sizeof(this->doingDamageAnimation), 5);
 }
 
 void MX0_Engineer1::Created(GameObject *obj)
 {
-	this->field_2C = false;
-	this->field_24 = 0;
+	this->doingDamageAnimation = false;
+	this->unknown = 0;
 	this->field_28 = 0;
-	this->lastHealthAmount = Commands->Get_Health(obj);
+	this->lastHealthAmount2 = Commands->Get_Health(obj);
 
 	Commands->Start_Timer(obj, this, 4.0f, 121);
 	Commands->Start_Timer(obj, this, 4.0f, 122);
@@ -89,7 +89,7 @@ void MX0_Engineer1::Action_Complete(GameObject *obj, int action_id, ActionComple
 	}
 	else if (action_id == 135)
 	{
-		this->field_2C = false;
+		this->doingDamageAnimation = false;
 	}
 	else if (action_id == 101)
 	{
@@ -98,7 +98,7 @@ void MX0_Engineer1::Action_Complete(GameObject *obj, int action_id, ActionComple
 			Commands->Start_Timer(obj, this, 5.0f, 116);
 		}
 
-		if (this->field_24 == 3 && complete_reason == ACTION_COMPLETE_NORMAL)
+		if (this->unknown == 3 && complete_reason == ACTION_COMPLETE_NORMAL)
 		{
 			GameObject *MX0MissionStartDMEObj = Commands->Find_Object(1200001);
 			Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 100004, 0, 0.0f); // type 100004 does not exist
@@ -109,15 +109,15 @@ void MX0_Engineer1::Action_Complete(GameObject *obj, int action_id, ActionComple
 void MX0_Engineer1::Damaged(GameObject *obj, GameObject *damager, float amount)
 {
 	float currentHealth = Commands->Get_Health(obj);
-	this->field_1C = currentHealth;
-	float healthDifference = this->lastHealthAmount - currentHealth;
-	float newHealth = this->lastHealthAmount - Get_Float_Parameter("Damage_multiplier") * healthDifference;
+	this->lastHealthAmount1 = currentHealth;
+	float healthDifference = this->lastHealthAmount2 - currentHealth;
+	float newHealth = this->lastHealthAmount2 - Get_Float_Parameter("Damage_multiplier") * healthDifference;
 	Commands->Set_Health(obj, newHealth);
-	this->lastHealthAmount = Commands->Get_Health(obj);
-	this->field_1C = Commands->Get_Health(obj);
+	this->lastHealthAmount2 = Commands->Get_Health(obj);
+	this->lastHealthAmount1 = Commands->Get_Health(obj);
 
 	Vector3 pos = Commands->Get_Position(obj);
-	if (damager == Commands->Get_A_Star(pos) && !this->field_2C)
+	if (damager == Commands->Get_A_Star(pos) && !this->doingDamageAnimation)
 	{
 		static const char * const ENGINEER_TAKING_DAMAGE_CONVERSATIONS[] =
 		{
@@ -146,7 +146,7 @@ void MX0_Engineer1::Damaged(GameObject *obj, GameObject *damager, float amount)
 		Commands->Start_Conversation(conversationId, 100008);
 		Commands->Monitor_Conversation(obj, conversationId);
 
-		this->field_2C = true;
+		this->doingDamageAnimation = true;
 
 		ActionParamsStruct actionParamsStruct;
 		actionParamsStruct.Set_Basic(this, 100.0f, 135);
@@ -161,7 +161,7 @@ void MX0_Engineer1::Animation_Complete(GameObject *obj, const char *animation_na
 {
 	if (!_strcmpi(animation_name, "H_A_J21C")) // Should be == 0, but it doesn't appear to be compiled like that
 	{
-		this->field_2C = false;
+		this->doingDamageAnimation = false;
 	}
 }
 
@@ -238,7 +238,7 @@ void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sen
 	}
 	else if (type == 108)
 	{
-		this->field_24 = param;
+		this->unknown = param;
 	}
 	else if (type == 100)
 	{

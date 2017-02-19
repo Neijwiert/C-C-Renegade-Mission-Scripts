@@ -124,7 +124,11 @@
     <None Include="x00_intro.txt">
       <Filter>Resource Files\M13\Cinematic Files</Filter>
     </None>
-    <None Include="mx0_c130troopdrop.txt" />
-    <None Include="mx0_c130troopdrop2.txt" />
+    <None Include="mx0_c130troopdrop.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </None>
+    <None Include="mx0_c130troopdrop2.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

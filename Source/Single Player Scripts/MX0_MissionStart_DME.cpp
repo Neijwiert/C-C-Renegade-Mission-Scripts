@@ -28,7 +28,7 @@ void MX0_MissionStart_DME::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->sniper1ObjId, sizeof(this->sniper1ObjId), 5);
 	Auto_Save_Variable(&this->sniper2ObjId, sizeof(this->sniper2ObjId), 6);
 	Auto_Save_Variable(&this->engineerWaitForSniperConversationIndex, sizeof(this->engineerWaitForSniperConversationIndex), 7);
-	Auto_Save_Variable(&this->field_38, sizeof(this->field_38), 8);
+	Auto_Save_Variable(&this->starWarnedForSnipers, sizeof(this->starWarnedForSnipers), 8);
 }
 
 void MX0_MissionStart_DME::Created(GameObject *obj)
@@ -46,7 +46,7 @@ void MX0_MissionStart_DME::Created(GameObject *obj)
 	this->hasEngineer1ObjId = false;
 	this->engineer2ObjId = 0;
 	this->engineer1ObjId = 0;
-	this->field_38 = 0;
+	this->starWarnedForSnipers = false;
 
 	// Fade into intro music
 	Commands->Fade_Background_Music("renegade_intro_no_vox.mp3", 0, 1);
@@ -73,18 +73,23 @@ void MX0_MissionStart_DME::Action_Complete(GameObject *obj, int action_id, Actio
 	// - Saddle up, let's move.
 	else if (action_id == 100002)
 	{
+		// Engineer calls for the star in 5 seconds when no MX0_Engineer_Goto1/2 zone has been entered yet
 		Commands->Start_Timer(obj, this, 5.0f, 120);
 	}
+
+	// TODO
 	else if (action_id == 100004)
 	{
-		GameObject *scriptZoneObj = Commands->Find_Object(1200015);
-		Commands->Send_Custom_Event(obj, scriptZoneObj, 110, 0, 0.0f);
+		GameObject *engineerGoto2ZoneCount4Obj = Commands->Find_Object(1200015);
+
+		// TODO
+		Commands->Send_Custom_Event(obj, engineerGoto2ZoneCount4Obj, 110, 0, 0.0f);
 	}
 }
 
 void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 {
-	// The following events occur when Havoc is done with his animation in the intro cinematic. 
+	// The following events occur when the star is done with his animation in the intro cinematic. 
 	if (number == 117) // Triggered after 0.5 seconds
 	{
 		// Start the background music
@@ -94,10 +99,14 @@ void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 		Vector3 pos = Commands->Get_Position(obj);
 		GameObject *starObj = Commands->Get_A_Star(pos);
 
-		//Give weapons, select autorifle and attach script 
+		//Give weapons
 		Commands->Give_PowerUp(starObj, "POW_AutoRifle_Player", false);
 		Commands->Give_PowerUp(starObj, "POW_AutoRifle_Player", false);
+
+		// Select autorifle
 		Commands->Select_Weapon(starObj, "Weapon_AutoRifle_Player");
+
+		// Fails the mission when owner gets killed
 		Commands->Attach_Script(starObj, "Havoc_Script", "");
 	}
 	else if (number == 133) // Triggered after 1.0 seconds
@@ -111,6 +120,7 @@ void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 		Vector3 sniper2Pos = Commands->Get_Position(sniper2PosObj);
 
 		// Create sniper 1, attach scripts and store its id
+		// TODO
 		GameObject *sniper1Obj = Commands->Create_Object("NOD_Minigunner_2SF", sniper1Pos);
 		Commands->Attach_Script(sniper1Obj, "M00_Soldier_Powerup_Disable", "");
 		Commands->Attach_Script(sniper1Obj, "M00_Send_Object_ID", "1200001, 1, 0.0f");
@@ -119,6 +129,7 @@ void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 		this->sniper1ObjId = Commands->Get_ID(sniper1Obj);
 
 		// Create sniper 2, attach scripts and store its id
+		// TODO
 		GameObject *sniper2Obj = Commands->Create_Object("NOD_Minigunner_2SF", sniper2Pos);
 		Commands->Attach_Script(sniper2Obj, "M00_Soldier_Powerup_Disable", "");
 		Commands->Attach_Script(sniper2Obj, "M00_Send_Object_ID", "1200001, 2, 0.0f");
@@ -145,28 +156,66 @@ void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 	// - !Clear 
 	else if (number == 119) 
 	{
+		// Engineer starts conversation:
+		// - It sounds like they're still in trouble, Sir!
+		// - Saddle up, let's move.
 		Commands->Send_Custom_Event(obj, obj, 100002, 0, 0.0f);
 	}
 
-	// Tirggered 5.0 seconds after the engineer finished his conversation:
+	// Triggered 5.0 seconds after the engineer finished his conversation:
 	// - It sounds like they're still in trouble, Sir!
 	// - Saddle up, let's move.
 	else if (number == 120)
 	{
-		if (this->engineerGotoZoneCount <= 1)
+		// When no MX0_Engineer_Goto1/2 zone has been entered yet
+		if (this->engineerGotoZoneCount <= 1) 
 		{
+			// Engineer calls for star conversation 
 			Commands->Send_Custom_Event(obj, obj, 100003, 0, 0.0f);
+
+			// Check again after 5 seconds
 			Commands->Start_Timer(obj, this, 5.0f, 120);
 		}
 	}
 
+	// Triggered 2.0 seconds after MX0_Engineer_Goto2 zone is entered with count 5
+	else if (number == 136)
+	{
+		if (Commands->Find_Object(this->sniper1ObjId) != NULL) // Is sniper 1 still alive?
+		{
+			// TODO
+			GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
+			Commands->Send_Custom_Event(obj, engineer1Obj, 136, this->sniper1ObjId, 0.0f);
+
+			// TODO
+			GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
+			Commands->Send_Custom_Event(obj, engineer2Obj, 136, sniper1ObjId, 0.0f);
+
+			// Check again in 3 seconds
+			Commands->Start_Timer(obj, this, 3.0f, 136);
+		}
+	}
+
+	// Triggered 5.0 seconds after MX0_Engineer_Goto2 zone is entered with count 5
+	else if (number == 124)
+	{
+		if (Commands->Find_Object(this->sniper1ObjId) != NULL) // Is sniper 1 still alive?
+		{
+			// Engineer asks the star to take out the sniper conversation
+			Commands->Send_Custom_Event(obj, obj, 100007, 0, 0.0f);
+		}
+	}
+
+	// TODO
 	else if (number == 142)
 	{
 		// Create conversation MX0_ENGINEER1_048: 
 		// - We’ll hang tight until the coast is clear
 		int conversationId = Commands->Create_Conversation("MX0_ENGINEER1_048", 97, 2000.0f, false);
-		GameObject *field_1CObject = Commands->Find_Object(this->engineer1ObjId);
-		Commands->Join_Conversation(field_1CObject, conversationId, false, true, true);
+
+		// Let engineer 1 join the conversation
+		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
+		Commands->Join_Conversation(engineer1Obj, conversationId, false, true, true);
 
 		// Let the star join the conversation
 		Vector3 pos = Commands->Get_Position(obj);
@@ -177,31 +226,13 @@ void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 		Commands->Start_Conversation(conversationId, 100048);
 		Commands->Monitor_Conversation(obj, conversationId);
 	}
-	else if (number == 136)
-	{
-		if (Commands->Find_Object(this->sniper1ObjId) != NULL) // Is sniper 1 still alive?
-		{
-			GameObject *field_1CObj = Commands->Find_Object(this->engineer1ObjId);
-			Commands->Send_Custom_Event(obj, field_1CObj, 136, this->sniper1ObjId, 0.0f);
 
-			GameObject *field_20Obj = Commands->Find_Object(this->engineer2ObjId);
-			Commands->Send_Custom_Event(obj, field_20Obj, 136, sniper1ObjId, 0.0f);
-
-			Commands->Start_Timer(obj, this, 3.0f, 136);
-		}
-	}
+	// TODO
 	else if (number == 134)
 	{
+		// TODO
 		GameObject *MX0A02ControllerObj = Commands->Find_Object(1100000);
 		Commands->Send_Custom_Event(obj, MX0A02ControllerObj, 202, 0, 0.0f);
-	}
-	
-	else if (number == 124)
-	{
-		if (Commands->Find_Object(this->sniper1ObjId) != NULL) // Is sniper 1 still alive?
-		{
-			Commands->Send_Custom_Event(obj, obj, 100007, 0, 0.0f);
-		}
 	}
 }
 
@@ -221,7 +252,7 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		}
 	}
 
-	// Triggered when Havoc is done with his animation in the intro cinematic
+	// Triggered when the star is done with his animation in the intro cinematic
 	else if (type == 99) 
 	{
 		this->engineerGotoZoneCount = 0;
@@ -262,8 +293,9 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		// - Clear!
 		int conversationId = Commands->Create_Conversation("MX0CON001", 99, 2000.0f, false);
 
-		GameObject *field_20Obj_3 = Commands->Find_Object(this->engineer2ObjId);
-		Commands->Join_Conversation(field_20Obj_3, conversationId, false, true, true);
+		// Let engineer 2 join the conversation
+		GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
+		Commands->Join_Conversation(engineer2Obj, conversationId, false, true, true);
 
 		// Start conversation and monitor it
 		Commands->Start_Conversation(conversationId, 100001);
@@ -279,19 +311,22 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		// - Saddle up, let's move.
 		int conversationId = Commands->Create_Conversation("MX0CON002", 97, 2000.0f, false);
 
-		GameObject *field1CObj = Commands->Find_Object(this->engineer1ObjId);
-		Commands->Join_Conversation(field1CObj, conversationId, false, true, true);
+		// Let engineer 1 join the conversation
+		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
+		Commands->Join_Conversation(engineer1Obj, conversationId, false, true, true);
 
 		// Find the star and its id
 		Vector3 pos = Commands->Get_Position(obj);
 		GameObject *starObj = Commands->Get_A_Star(pos);
 		int starId = Commands->Get_ID(starObj);
 
-		Commands->Join_Conversation_Facing(field1CObj, conversationId, starId);
+		// Let engineer 1 join the conversation again and this time face the star
+		Commands->Join_Conversation_Facing(engineer1Obj, conversationId, starId);
 
-		GameObject *field20Obj = Commands->Find_Object(this->engineer2ObjId);
-		Commands->Join_Conversation(field20Obj, conversationId, false, true, true);
-		Commands->Join_Conversation_Facing(field20Obj, conversationId, starId);
+		// Let engineer 2 join the conversation twice
+		GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
+		Commands->Join_Conversation(engineer2Obj, conversationId, false, true, true);
+		Commands->Join_Conversation_Facing(engineer2Obj, conversationId, starId);
 
 		// Join the star with the conversation
 		Commands->Join_Conversation(starObj, conversationId, true, true, true);
@@ -301,41 +336,68 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		Commands->Monitor_Conversation(obj, conversationId);
 	}
 
-	// Received from Mx0_Engineer_Goto when entered, with param being its 'Count' parameter
+	// Received from MX0_Engineer_Goto when entered, with param being its 'Count' parameter
+	// Received from MX0_Engineer_Goto2 TODO
 	else if (type == 102)
 	{
 		this->engineerGotoZoneCount = param;
 
+		// TODO
 		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
 		Commands->Send_Custom_Event(obj, engineer1Obj, 108, this->engineerGotoZoneCount, 0.0f);
 
+		// TODO
 		GameObject *engineer2Obj = ::Commands->Find_Object(this->engineer2ObjId);
 		Commands->Send_Custom_Event(obj, engineer2Obj, 108, this->engineerGotoZoneCount, 0.0f);
 	}
 
-	// Received from Mx0_Engineer_Goto when entered, with param being 1 or 2
+	// Received from MX0_Engineer_Goto when entered, with param being 1 or 2
+	// Received from MX0_Engineer_Goto2 TODO
 	else if (type == 104)
 	{
 		if (param == 1)
 		{
+			// TODO
 			Commands->Send_Custom_Event(obj, sender, 105, this->engineer1ObjId, 0.0f);
 		}
 		else if (param == 2)
 		{
+			// TODO
 			Commands->Send_Custom_Event(obj, sender, 106, this->engineer2ObjId, 0.0f);
 		}
 	}
 
+	// Received from MX0_NOD_TroopDrop when entered with param 0
+	else if (type == 114)
+	{
+		// TODO
+		GameObject *sniper1Obj = Commands->Find_Object(this->sniper1ObjId);
+		Commands->Send_Custom_Event(obj, sniper1Obj, 114, 0, 0.0f);
+
+		// TODO
+		GameObject *sniper2Obj = Commands->Find_Object(this->sniper2ObjId);
+		Commands->Send_Custom_Event(obj, sniper2Obj, 114, 0, 0.0f);
+	}
+
+	// Received from MX0_Engineer_Goto2 when entered and count 5 with param 0
+	else if (type == 136)
+	{
+		// TODO
+		Commands->Start_Timer(obj, this, 2.0f, 136);
+	}
+
+	// Received from MX0_KillNotify when killed by a star with param 0
 	else if (type == 138)
 	{
-		if (!this->field_38)
+		if (!this->starWarnedForSnipers)
 		{
 			// Create conversation MX0CON018:
 			// - There we go!
 			int conversationId = ::Commands->Create_Conversation("MX0CON018", 97, 2000.0f, 0);
 
-			GameObject *field_1CObj = Commands->Find_Object(this->engineer1ObjId);
-			Commands->Join_Conversation(field_1CObj, conversationId, false, true, true);
+			// Let engineer 1 join the conversation
+			GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
+			Commands->Join_Conversation(engineer1Obj, conversationId, false, true, true);
 
 			// Find the star and join to conversation
 			Vector3 pos = Commands->Get_Position(obj);
@@ -349,26 +411,68 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 			Commands->Start_Timer(obj, this, 3.0f, 142);
 		}
 	}
-	else if (type == 136)
-	{
-		Commands->Start_Timer(obj, this, 2.0f, 136);
-	}
-	else if (type == 114)
-	{
-		GameObject *sniper1Obj = Commands->Find_Object(this->sniper1ObjId);
-		Commands->Send_Custom_Event(obj, sniper1Obj, 114, 0, 0.0f);
 
-		GameObject *sniper2Obj = Commands->Find_Object(this->sniper2ObjId);
-		Commands->Send_Custom_Event(obj, sniper2Obj, 114, 0, 0.0f);
+	// Received from MX0_Engineer2 TODO
+	else if (type == 132)
+	{
+		// TODO
+		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
+		Commands->Send_Custom_Event(obj, engineer1Obj, 132, 0, 0.0f);
 	}
+
+	// Received from MX0_Engineer_Goto2 when entered and count 5 with param 1
+	else if (type == 100006)
+	{
+		if (Commands->Find_Object(this->sniper1ObjId) != NULL)
+		{
+			// TODO
+			GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
+			Commands->Send_Custom_Event(obj, engineer2Obj, 125, 0, 0.0f);
+
+			// Engineer asks star to take out snipers conversation if sniper 1 is still alive
+			Commands->Start_Timer(obj, this, 5.0f, 124);
+
+			// Create conversation MX0CON006:
+			// - Up there - snipers!
+			int conversationId = Commands->Create_Conversation("MX0CON006", 97, 2000.0f, false);
+
+			// Let engineer 2 join the conversation
+			Commands->Join_Conversation(engineer2Obj, conversationId, false, true, true);
+
+			// Find the star and its id
+			Vector3 pos = Commands->Get_Position(obj);
+			GameObject *starObj = Commands->Get_A_Star(pos);
+			int starId = Commands->Get_ID(starObj);
+
+			// Let engineer 2 join the conversation again and face the star
+			Commands->Join_Conversation_Facing(engineer2Obj, conversationId, starId);
+
+			// Join the star with the conversation
+			Commands->Join_Conversation(starObj, conversationId, true, true, true);
+
+			// Start conversation and monitor it
+			Commands->Start_Conversation(conversationId, 100006);
+			Commands->Monitor_Conversation(obj, conversationId);
+
+			this->starWarnedForSnipers = true;
+		}
+	}
+	
+	// TODO
 	else if (type == 223)
 	{
+		// TODO
 		Commands->Send_Custom_Event(obj, sender, 223, this->sniper1ObjId, 0.0f);
 	}
+
+	// TODO
 	else if (type == 224)
 	{
+		// TODO
 		Commands->Send_Custom_Event(obj, sender, 224, this->sniper2ObjId, 0.0f);
 	}
+
+	// TODO
 	else if (type == 9035)
 	{
 		if (param == 1)
@@ -378,33 +482,37 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		else if (param == 2)
 		{
 			this->sniper2ObjId = Commands->Get_ID(sender);
+
+			// TODO
 			Commands->Start_Timer(obj, this, 2.0f, 134);
 		}
 	}
+
+	// TODO
 	else if (type == 130)
 	{
-		GameObject *field_1CObj_1 = Commands->Find_Object(this->engineer1ObjId);
-		Commands->Send_Custom_Event(obj, field_1CObj_1, 131, 0, 0.0f);
+		// TODO
+		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
+		Commands->Send_Custom_Event(obj, engineer1Obj, 131, 0, 0.0f);
 
-		GameObject *field_20Obj = Commands->Find_Object(this->engineer2ObjId);
-		Commands->Send_Custom_Event(obj, field_20Obj, 131, 0, 0.0f);
+		// TODO
+		GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
+		Commands->Send_Custom_Event(obj, engineer2Obj, 131, 0, 0.0f);
 	}
-	else if (type == 132)
-	{
-		GameObject *field_1CObj_2 = Commands->Find_Object(this->engineer1ObjId);
-		Commands->Send_Custom_Event(obj, field_1CObj_2, 132, 0, 0.0f);
-	}
+	
+	// TODO
 	else if (type == 111)
 	{
-		GameObject *field_1CObj_3 = Commands->Find_Object(this->engineer1ObjId);
-		Commands->Send_Custom_Event(obj, field_1CObj_3, 112, 0, 0.0f);
+		// TODO
+		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
+		Commands->Send_Custom_Event(obj, engineer1Obj, 112, 0, 0.0f);
 
-		GameObject *field_20Obj_1 = Commands->Find_Object(this->engineer2ObjId);
-		Commands->Send_Custom_Event(obj, field_20Obj_1, 112, 0, 0.0f);
+		// TODO
+		GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
+		Commands->Send_Custom_Event(obj, engineer2Obj, 112, 0, 0.0f);
 	}
-	
-	
-	
+
+	// TODO
 	else if (type == 100003)
 	{
 		static const char * const ENGINEER_WAIT_FOR_HAVOC_CONVERSATIONS[] =
@@ -426,15 +534,17 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		int randomInt = Commands->Get_Random_Int(0, 4);
 		int conversationId = Commands->Create_Conversation(ENGINEER_WAIT_FOR_HAVOC_CONVERSATIONS[randomInt], 97, 2000.0f, false);
 	
-		GameObject *field20Obj = Commands->Find_Object(this->engineer2ObjId);
-		Commands->Join_Conversation(field20Obj, conversationId, false, true, true);
+		// Let engineer 2 join the conversation
+		GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
+		Commands->Join_Conversation(engineer2Obj, conversationId, false, true, true);
 		
 		// Find the star and its id
 		Vector3 pos = Commands->Get_Position(obj);
 		GameObject *starObj = Commands->Get_A_Star(pos);
 		int starId = Commands->Get_ID(starObj);
 
-		Commands->Join_Conversation_Facing(field20Obj, conversationId, starId);
+		// Let engineer 2 join the conversation again and face the star
+		Commands->Join_Conversation_Facing(engineer2Obj, conversationId, starId);
 		
 		// Join the star with the conversation
 		Commands->Join_Conversation(starObj, conversationId, true, true, true);
@@ -443,41 +553,11 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		Commands->Start_Conversation(conversationId, 100003);
 		Commands->Monitor_Conversation(obj, conversationId);
 	}
-	else if (type == 100006)
-	{
-		if (Commands->Find_Object(this->sniper1ObjId) != NULL)
-		{
-			GameObject *field20Obj = Commands->Find_Object(this->engineer2ObjId);
-			Commands->Send_Custom_Event(obj, field20Obj, 125, 0, 0.0f);
-
-			Commands->Start_Timer(obj, this, 5.0f, 124);
-
-			// Create conversation MX0CON006:
-			// - Up there - snipers!
-			int conversationId = Commands->Create_Conversation("MX0CON006", 97, 2000.0f, false);
-			
-			Commands->Join_Conversation(field20Obj, conversationId, false, true, true);
-			
-			// Find the star and its id
-			Vector3 pos = Commands->Get_Position(obj);
-			GameObject *starObj = Commands->Get_A_Star(pos);
-			int starId = Commands->Get_ID(starObj);
-
-			Commands->Join_Conversation_Facing(field20Obj, conversationId, starId);
-		
-			// Join the star with the conversation
-			Commands->Join_Conversation(starObj, conversationId, true, true, true);
-
-			// Start conversation and monitor it
-			Commands->Start_Conversation(conversationId, 100006);
-			Commands->Monitor_Conversation(obj, conversationId);
-
-			this->field_38 = 1;
-		}
-	}
+	
+	// TODO
 	else if (type == 100007)
 	{
-		if (Commands->Find_Object(this->sniper1ObjId) != NULL)
+		if (Commands->Find_Object(this->sniper1ObjId) != NULL) // Is sniper 1 still alive?
 		{
 			static const char * const ENGINEER_WAIT_FOR_SNIPER_CONVERSATIONS[] =
 			{
@@ -504,8 +584,9 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 			{
 				int conversationId = Commands->Create_Conversation(ENGINEER_WAIT_FOR_SNIPER_CONVERSATIONS[this->engineerWaitForSniperConversationIndex], 97, 2000.0f, false);
 
-				GameObject *field1CObj = Commands->Find_Object(this->engineer1ObjId);
-				Commands->Join_Conversation(field1CObj, conversationId, false, true, true);
+				// Let engineer 1 join the conversation
+				GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
+				Commands->Join_Conversation(engineer1Obj, conversationId, false, true, true);
 
 				// Join the star with the conversation
 				Vector3 pos = Commands->Get_Position(obj);
@@ -521,8 +602,9 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 			{
 				int conversationId = Commands->Create_Conversation(ENGINEER_WAIT_FOR_SNIPER_CONVERSATIONS[this->engineerWaitForSniperConversationIndex], 97, 2000.0f, false);
 
-				GameObject *field20Obj = Commands->Find_Object(this->engineer2ObjId);
-				Commands->Join_Conversation(field20Obj, conversationId, false, true, true);
+				// Let engineer 2 join the conversation
+				GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
+				Commands->Join_Conversation(engineer2Obj, conversationId, false, true, true);
 
 				// Join the star with the conversation
 				Vector3 pos = Commands->Get_Position(obj);
@@ -533,7 +615,8 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 				Commands->Start_Conversation(conversationId, 100007);
 				Commands->Monitor_Conversation(obj, conversationId);
 			}
-
+			
+			// Check and increment index field
 			if (this->engineerWaitForSniperConversationIndex < 5)
 			{
 				this->engineerWaitForSniperConversationIndex++;
@@ -544,24 +627,29 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 				this->engineerWaitForSniperConversationIndex = 0;
 			}
 
+			// TODO
 			Commands->Start_Timer(obj, this, 5.0f, 124);
 		}
 	}
+
+	// TODO
 	else if (type == 100005)
 	{
 		// Create conversation MX0CON005:
 		// - You hear that? It's Recon 1. Let's go!
 		int conversationId = Commands->Create_Conversation("MX0CON005", 97, 2000.0f, false);
 		
-		GameObject *field20Obj = Commands->Find_Object(this->engineer2ObjId);
-		Commands->Join_Conversation(field20Obj, conversationId, false, true, true);
+		// Let engineer 2 join the conversation
+		GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
+		Commands->Join_Conversation(engineer2Obj, conversationId, false, true, true);
 		
 		// Find the star and its id
 		Vector3 pos = Commands->Get_Position(obj);
 		GameObject *starObj = Commands->Get_A_Star(pos);
 		int starId = Commands->Get_ID(starObj);
 
-		Commands->Join_Conversation_Facing(field20Obj, conversationId, starId);
+		// Let engineer 2 join the conversation again and face the star
+		Commands->Join_Conversation_Facing(engineer2Obj, conversationId, starId);
 		
 		// Join the star with the conversation
 		Commands->Join_Conversation(starObj, conversationId, true, true, true);
