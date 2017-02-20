@@ -633,6 +633,40 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 	}
 
 	// TODO
+	else if (type == 100004)
+	{
+		// Create conversation MX0CON004:
+		// - Looks like they were boxed in.
+		int conversationId = Commands->Create_Conversation("MX0CON004", 95, 2000.0f, false);
+
+		// Let engineer 1 join the conversation
+		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
+		Commands->Join_Conversation(engineer1Obj, conversationId, true, true, true);
+		
+		// Get the star obj and id
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+		int starId = Commands->Get_ID(starObj);
+
+		// Let engineer 1 join the conversation again and face the star
+		Commands->Join_Conversation_Facing(engineer1Obj, conversationId, starId);
+	
+		// Join the star with the conversation
+		Commands->Join_Conversation(starObj, conversationId, true, true, true);
+
+		// Start conversation and monitor it
+		Commands->Start_Conversation(conversationId, 100004);
+		Commands->Monitor_Conversation(obj, conversationId);
+
+		// Innate disable of engineer 1
+		Commands->Innate_Disable(engineer1Obj);
+		
+		// Innate disable of engineer 2
+		GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
+		Commands->Innate_Disable(engineer2Obj);
+	}
+
+	// TODO
 	else if (type == 100005)
 	{
 		// Create conversation MX0CON005:

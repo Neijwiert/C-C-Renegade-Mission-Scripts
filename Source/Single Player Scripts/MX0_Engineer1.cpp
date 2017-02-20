@@ -23,21 +23,26 @@ void MX0_Engineer1::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->lastHealthAmount1, sizeof(this->lastHealthAmount1), 1);
 	Auto_Save_Variable(&this->lastHealthAmount2, sizeof(this->lastHealthAmount2), 2);
-	Auto_Save_Variable(&this->unknown, sizeof(this->unknown), 3);
-	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 4);
+	Auto_Save_Variable(&this->engineerGotoZoneCount, sizeof(this->engineerGotoZoneCount), 3);
+	Auto_Save_Variable(&this->gotoDestObjId, sizeof(this->gotoDestObjId), 4);
 	Auto_Save_Variable(&this->doingDamageAnimation, sizeof(this->doingDamageAnimation), 5);
 }
 
 void MX0_Engineer1::Created(GameObject *obj)
 {
+	// Initialize member variables
 	this->doingDamageAnimation = false;
-	this->unknown = 0;
-	this->field_28 = 0;
+	this->engineerGotoZoneCount = 0;
+	this->gotoDestObjId = 0;
 	this->lastHealthAmount2 = Commands->Get_Health(obj);
 
+	// Set innate is stationary
 	Commands->Start_Timer(obj, this, 4.0f, 121);
+
+	// Moves engineer to wait position for star to come
 	Commands->Start_Timer(obj, this, 4.0f, 122);
 
+	// Send our id to the start controller where it is stored for later use
 	int objId = Commands->Get_ID(obj);
 	GameObject *MX0MissionStartDMEObj = Commands->Find_Object(1200001);
 	Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 103, objId, 0.0f);
@@ -45,33 +50,70 @@ void MX0_Engineer1::Created(GameObject *obj)
 
 void MX0_Engineer1::Timer_Expired(GameObject *obj, int number)
 {
-	if (number == 116)
+	// Triggered 4.0 seconds after script creation 
+	if (number == 121)
 	{
-		ActionParamsStruct actionParamsStruct;
-		actionParamsStruct.Set_Basic(this, 96.0f, 101);
-
-		GameObject *field28Obj = Commands->Find_Object(this->field_28);
-		Vector3 field28ObjPos = Commands->Get_Position(field28Obj);
-		actionParamsStruct.Set_Movement(field28ObjPos, 0.8f, 1.0f);
-
-		Commands->Action_Goto(obj, actionParamsStruct);
+		Commands->Set_Innate_Is_Stationary(obj, true);
 	}
+
+	// Triggered 4.0 seconds after script creation
 	else if (number == 122)
 	{
+		// Initialize ActionParamsStruct
 		ActionParamsStruct actionParamsStruct;
 		actionParamsStruct.Set_Basic(this, 96.0f, 101);
 
+		// Set movement to the wait position for the star to come
 		GameObject *davesArrowWaitingForHavocObj = Commands->Find_Object(1200029);
 		Vector3 davesArrowWaitingForHavocObjPos = Commands->Get_Position(davesArrowWaitingForHavocObj);
 		actionParamsStruct.Set_Movement(davesArrowWaitingForHavocObjPos, 0.80000001f, 0.80000001f);
 
+		// Execute movement
+		Commands->Action_Goto(obj, actionParamsStruct);
+	}
+
+	// TODO
+	else if (number == 116)
+	{
+		// Initialize ActionParamsStruct
+		ActionParamsStruct actionParamsStruct;
+		actionParamsStruct.Set_Basic(this, 96.0f, 101);
+
+		// Find and set movement to the stored goto dest obj
+		GameObject *gotoDestObj = Commands->Find_Object(this->gotoDestObjId);
+		Vector3 gotoDestObjPos = Commands->Get_Position(gotoDestObj);
+		actionParamsStruct.Set_Movement(gotoDestObjPos, 0.8f, 1.0f);
+
+		// Execute movement
 		Commands->Action_Goto(obj, actionParamsStruct);
 	}
 }
 
 void MX0_Engineer1::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
-	if (action_id == 113)
+	// Triggered when we are at the wait position for star and goto dest obj pos 
+	if (action_id == 101)
+	{
+		// If we're not doing the same action now AND not doing a pathfind action AND we completed this one on low priority
+		if (Commands->Get_Action_ID(obj) != 101 && !Commands->Is_Performing_Pathfind_Action(obj) && complete_reason == ACTION_COMPLETE_LOW_PRIORITY)
+		{
+			// Move to the goto dest obj
+			Commands->Start_Timer(obj, this, 5.0f, 116);
+		}
+
+		// If we're in the small passageway AND we completed this one normally
+		if (this->engineerGotoZoneCount == 3 && complete_reason == ACTION_COMPLETE_NORMAL)
+		{
+			// Starts conversation of engineer 1 MX0CON004:
+			// - Looks like they were boxed in.
+			// And it disables engineer 1 and 2's innate
+			GameObject *MX0MissionStartDMEObj = Commands->Find_Object(1200001);
+			Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 100004, 0, 0.0f); 
+		}
+	}
+
+	// TODO
+	else if (action_id == 113)
 	{
 		// Initialize ActionParamsStruct
 		ActionParamsStruct actionParamsStruct;
@@ -91,19 +133,7 @@ void MX0_Engineer1::Action_Complete(GameObject *obj, int action_id, ActionComple
 	{
 		this->doingDamageAnimation = false;
 	}
-	else if (action_id == 101)
-	{
-		if (Commands->Get_Action_ID(obj) != 101 && !Commands->Is_Performing_Pathfind_Action(obj) && complete_reason == ACTION_COMPLETE_LOW_PRIORITY) // The Get_Action_ID seems a bit weird
-		{
-			Commands->Start_Timer(obj, this, 5.0f, 116);
-		}
-
-		if (this->unknown == 3 && complete_reason == ACTION_COMPLETE_NORMAL)
-		{
-			GameObject *MX0MissionStartDMEObj = Commands->Find_Object(1200001);
-			Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 100004, 0, 0.0f); // type 100004 does not exist
-		}
-	}
+	
 }
 
 void MX0_Engineer1::Damaged(GameObject *obj, GameObject *damager, float amount)
@@ -238,16 +268,16 @@ void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sen
 	}
 	else if (type == 108)
 	{
-		this->unknown = param;
+		this->engineerGotoZoneCount = param;
 	}
 	else if (type == 100)
 	{
-		this->field_28 = param;
+		this->gotoDestObjId = param;
 
 		ActionParamsStruct actionParamsStruct;
 		actionParamsStruct.Set_Basic(this, 96.0f, 101);
 
-		GameObject *field28Obj = Commands->Find_Object(this->field_28);
+		GameObject *field28Obj = Commands->Find_Object(this->gotoDestObjId);
 		Vector3 field28ObjPos = Commands->Get_Position(field28Obj);
 		actionParamsStruct.Set_Movement(field28ObjPos, 0.80000001f, 0.80000001f);
 

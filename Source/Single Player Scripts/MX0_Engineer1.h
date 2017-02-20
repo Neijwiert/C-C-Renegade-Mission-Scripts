@@ -35,7 +35,7 @@ class MX0_Engineer1 : public ScriptImpClass
 
 		float lastHealthAmount1;
 		float lastHealthAmount2;
-		int unknown;
-		int field_28;
+		int engineerGotoZoneCount;
+		int gotoDestObjId;
 		bool doingDamageAnimation;
 };
