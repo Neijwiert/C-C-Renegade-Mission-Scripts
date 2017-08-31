@@ -31,6 +31,7 @@ void MX0_MissionStart_DME::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->starWarnedForSnipers, sizeof(this->starWarnedForSnipers), 8);
 }
 
+// On level start
 void MX0_MissionStart_DME::Created(GameObject *obj)
 {
 	// Deselect weapon of the star
@@ -351,7 +352,7 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		Commands->Send_Custom_Event(obj, engineer2Obj, 108, this->engineerGotoZoneCount, 0.0f);
 	}
 
-	// Received from MX0_Engineer_Goto when entered, with param being 1 or 2
+	// Received from MX0_Engineer_Goto when entered, with param being its 'Count' parameter 
 	// Received from MX0_Engineer_Goto2 TODO
 	else if (type == 104)
 	{

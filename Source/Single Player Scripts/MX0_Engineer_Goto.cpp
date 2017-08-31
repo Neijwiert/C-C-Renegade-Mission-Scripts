@@ -24,6 +24,7 @@ void MX0_Engineer_Goto::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->isZoneTriggered, sizeof(this->isZoneTriggered), 1);
 }
 
+// On level start
 void MX0_Engineer_Goto::Created(GameObject *obj)
 {
 	// Initialize member variables
@@ -32,6 +33,7 @@ void MX0_Engineer_Goto::Created(GameObject *obj)
 
 void MX0_Engineer_Goto::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_MissionStart_DME, param is engineer1ObjId
 	if (type == 105)
 	{
 		int gotoDest1 = Get_Int_Parameter("GotoDest1"); // 1200029
@@ -39,6 +41,8 @@ void MX0_Engineer_Goto::Custom(GameObject *obj, int type, int param, GameObject 
 
 		Commands->Send_Custom_Event(obj, paramObj, 100, gotoDest1, 0.0f);
 	}
+
+	// Received from MX0_MissionStart_DME, param is engineer2ObjId
 	else if (type == 106)
 	{
 		int gotoDest2 = Get_Int_Parameter("GotoDest2"); // 1200026
