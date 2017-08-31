@@ -36,6 +36,10 @@
 #define CID_Airstrip 0xD006
 #define CID_Cinematic 0x3011
 #define CID_ComCenter 0xD008
+#define CID_Weapon 0xB001
+#define CID_Ammo 0xB002
+#define CID_Explosion 0xB003
+#define CID_Spawner 0x300D
 
 int SCRIPTS_API Get_Object_Type(GameObject *obj); //get the team of an object,0 = Nod,1 = GDI,2 = neutral,works on buildings
 void SCRIPTS_API Set_Object_Type(GameObject *obj,int type); //set the team of an object,0 = Nod,1 = GDI,2 = neutral,works on buildings

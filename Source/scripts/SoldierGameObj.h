@@ -200,6 +200,9 @@ public:
 	void Set_Movement_Loiters_Allowed(bool allowed){movementLoitersAllowed = allowed;};
 	bool Get_Movement_Loiter_Allowed(){return movementLoitersAllowed;};
 	bool Get_Use_Stock_Ghost_Behavior(){return useStockGhostBehavior;}
+	void Set_Override_Muzzle_Direction(bool override){OverrideMuzzleDirection = override; Set_Object_Dirty_Bit(BIT_RARE, true);};
+	bool Get_Override_Muzzle_Direction(){return OverrideMuzzleDirection;};
+	virtual int Get_Contact_Surface_Type();
 protected:
 	RenderObjClass		*	WeaponRenderModel; //2416
 	RenderObjClass		*	BackWeaponRenderModel; //2420
@@ -268,6 +271,9 @@ protected:
 	float						LastScale;
 	bool						movementLoitersAllowed;
 	bool						useStockGhostBehavior;
+	bool						OverrideMuzzleDirection;
+	bool						UpdatedTarget;
+	bool						DoTilt;
 	TT_DEPRECATED("Do not use") int						Check(void);
 }; // size: 3404
 

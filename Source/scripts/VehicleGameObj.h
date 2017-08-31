@@ -234,6 +234,10 @@ protected:
 	bool HasUpdatedTargeting;
 	bool CanDrive; //used to identify if it should apply analog control or not, for EMP purposes
 	bool DamageMeshesNetworkUpdate;
+	bool FixedTurretFacing;
+	bool LockedTurretFacing;
+	float DesiredTurretTurn;
+	float DesiredBarrelTilt;
 
 	void		Remove_Transitions( TransitionDataClass::StyleType transition_type );
 	void		Create_New_Transitions( TransitionDataClass::StyleType transition_type );
@@ -252,5 +256,69 @@ protected:
 	virtual bool Is_Visible();
 public:
 	virtual int		Check_If_On_Surface(int surface_type);
+
+	void VehicleGameObj::Set_Fixed_Turret_Facing(bool fixed)
+	{
+		if(!LockedTurretFacing)
+		{
+			FixedTurretFacing = fixed;
+		}
+	}
+
+	void VehicleGameObj::Set_Locked_Turret_Facing(bool locked)
+	{
+		LockedTurretFacing = locked;
+	}
+
+	bool VehicleGameObj::Get_Fixed_Turret_Facing()
+	{
+		return FixedTurretFacing;
+	}
+
+	bool VehicleGameObj::Get_Locked_Turret_Facing()
+	{
+		return LockedTurretFacing;
+	}
+
+	void VehicleGameObj::Set_Desired_Turret_Turn(float angle)
+	{
+		DesiredTurretTurn = angle;
+	}
+
+	void VehicleGameObj::Set_Desired_Barrel_Tilt(float angle)
+	{
+		DesiredBarrelTilt = angle;
+	}
+
+	float VehicleGameObj::Get_Desired_Turret_Turn()
+	{
+		return DesiredTurretTurn;
+	}
+
+	float VehicleGameObj::Get_Desired_Barrel_Tilt()
+	{
+		return DesiredBarrelTilt;
+	}
+
+	float VehicleGameObj::Get_Turret_Turn()
+	{
+		return TurretTurn;
+	}
+
+	float VehicleGameObj::Get_Barrel_Tilt()
+	{
+		return BarrelTilt;
+	}
+
+	void VehicleGameObj::Set_Turret_Turn(float turn)
+	{
+		TurretTurn=turn;
+	}
+
+	void VehicleGameObj::Set_Barrel_Tilt(float tilt)
+	{
+		BarrelTilt=tilt;
+	}
+
 }; // size: 2541
 #endif

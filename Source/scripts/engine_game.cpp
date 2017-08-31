@@ -643,7 +643,7 @@ BuildingAggregateClass *BuildingGameObj::Find_MCT()
 	{
 		if (it->Is_MCT())
 		{
-			return it.Get_Obj();
+			return it.Peek_Obj();
 		}
 	}
 	return 0;

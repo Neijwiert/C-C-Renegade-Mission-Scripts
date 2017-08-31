@@ -727,9 +727,9 @@ void SCRIPTS_API Ranged_Variable_Percent_Vehicle_Damage(float EnemyPercentage, f
 						if(Commands->Get_Player_Type(Damager) == Commands->Get_Player_Type(o)) 
 						{
 							float Damage = (Max_Health + Max_Shield) * FriendPercentage;
-							if ((Get_Vehicle_Mode(o) != VEHICLE_TYPE_TURRET) || The_Game()->Is_Friendly_Fire_Permitted())
+							if ((Get_Vehicle_Mode(o) != VEHICLE_TYPE_TURRET))
 							{
-								if(ForceFriendly)
+								if(ForceFriendly || The_Game()->Is_Friendly_Fire_Permitted())
 								{
 									Commands->Apply_Damage(o,Damage,Warhead,0);
 								}
@@ -739,7 +739,7 @@ void SCRIPTS_API Ranged_Variable_Percent_Vehicle_Damage(float EnemyPercentage, f
 								}
 							}
 						}
-						else
+						else if(Get_Vehicle_Mode(o) != VEHICLE_TYPE_TURRET)
 						{
 							float Damage = (Max_Health + Max_Shield) * EnemyPercentage;
 							Commands->Apply_Damage(o,Damage,Warhead,Damager);
@@ -775,16 +775,13 @@ void SCRIPTS_API Ranged_Variable_Percent_Vehicle_Damage(float EnemyPercentage, f
 							if (Commands->Get_Player_Type(Damager) == Commands->Get_Player_Type(o))
 							{
 								float Damage = (Max_Health + Max_Shield) * FriendPercentage;
-								if (The_Game()->Is_Friendly_Fire_Permitted())
+								if (ForceFriendly || The_Game()->Is_Friendly_Fire_Permitted())
 								{
-									if (ForceFriendly)
-									{
-										Commands->Apply_Damage(o, Damage, Warhead, 0);
-									}
-									else
-									{
-										Commands->Apply_Damage(o, Damage, Warhead, Damager);
-									}
+									Commands->Apply_Damage(o, Damage, Warhead, 0);
+								}
+								else
+								{
+									Commands->Apply_Damage(o, Damage, Warhead, Damager);
 								}
 							}
 							else

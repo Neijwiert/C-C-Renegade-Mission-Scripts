@@ -867,6 +867,7 @@ void dp88_AI_Turret::attackLocation ( GameObject* obj, Vector3 location, bool pr
 		// be implemented in a derived class)
 		dp88_AI_Turret::stopAttacking(obj);
 
+		params.AttackObject = 0;
 		params.Set_Basic( this, 100.0f, 8951 );
 		params.Set_Attack( location, (primary)?(float)primary_maxRange:(float)secondary_maxRange, 0.0, primary);
 		params.AttackCheckBlocked = false;

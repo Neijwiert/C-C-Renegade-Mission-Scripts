@@ -35,6 +35,7 @@ public:
 	int											Get_Encyclopedia_ID (void) const		{ return EncyclopediaID; }
 	const StringClass &						Get_Icon_Filename (void) const		{ return InfoIconTextureFilename; }
 	int											Get_Translated_Name_ID (void) const	{ return TranslatedNameID; }
+	void											Set_Translated_Name_ID (int TransID) {TranslatedNameID = TransID; }
 	const DefenseObjectDefClass &			Get_DefenseObjectDef( void ) const	{ return DefenseObjectDef; }
 	int											Get_Default_Player_Type(void) const { return DefaultPlayerType; }
 	void Set_Name_ID(int id) {TranslatedNameID = id;}

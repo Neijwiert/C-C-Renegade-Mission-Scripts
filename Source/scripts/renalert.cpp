@@ -112,6 +112,15 @@ void RA_Infantry_Spy::Created(GameObject *obj)
 	Commands->Set_Is_Visible(obj,false);
 }
 
+void RA_Infantry_Spy::Detach(GameObject *obj)
+{
+	ScriptImpClass::Detach(obj);
+	if (Exe != 4)
+	{
+		Commands->Set_Is_Visible(obj,true);
+	}
+}
+
 //////////////RA_Infantry_NotSpy//////////////
 
 void RA_Infantry_NotSpy::Created(GameObject *obj)
@@ -1214,6 +1223,11 @@ void RA_Base_Defense_Simple::Created(GameObject *obj)
 
 void RA_Base_Defense_Simple::Damaged(GameObject *obj, GameObject *damager, float amount)
 {
+	if(Get_Object_Type(obj)==-2)
+	{
+		return;
+	}
+
 	if (!damager || amount <= 0)
 	{
 		return;
@@ -1329,14 +1343,12 @@ void RA_Base_Defense_Simple::Timer_Expired(GameObject *obj, int number)
 			}
 			ActionParamsStruct params;
 			params.Set_Basic(this, 1, 30); //priority low
-			params.Set_Face_Location(pos, 4);
+			params.Set_Face_Location(pos, 6);
 			Commands->Action_Face_Location(obj, params);
 		}
 	}
 	else
 	{
-		//force ceasefire before checking to continue (helps fight client glitches... I hope...)
-		Commands->Action_Reset(obj, 100); //I have no idea what this number does...
 		attacking = false;
 		current_priority = 10;
 		GameObject *target = Commands->Find_Object(targetID);
@@ -1383,13 +1395,15 @@ void RA_Base_Defense_Simple::Timer_Expired(GameObject *obj, int number)
 				}
 			}
 		}
-		if (call_attack) //if attack and if call_attack was not turned false
+		if (call_attack && obj->As_DamageableGameObj()->Is_Enemy(target->As_DamageableGameObj())) //if attack and if call_attack was not turned false
 		{
 			if (Commands->Get_Health(target))
 			{
 				Attack(obj, target);
 			}
 		}
+		else 
+			Commands->Action_Reset(obj, 100);
 	}
 	if (loop_count > 4)
 	{
@@ -1427,7 +1441,7 @@ void RA_Base_Defense_Simple::Attack(GameObject *obj, GameObject *target)
 		FinalTarget = Select_Target(obj, FinalTarget); //Was Rate_Target
 	}
 	/****************Execute Final Attack****************/
-	if (FinalTarget && Commands->Get_Player_Type(FinalTarget) == PTTEAM(Commands->Get_Player_Type(obj))) //Check if I can still fire
+	if (FinalTarget && FinalTarget->As_DamageableGameObj()->Is_Enemy(obj->As_DamageableGameObj()))
 	{
 		targetID = Commands->Get_ID(FinalTarget); //remember new target, or re-remember old target
 		Vector3 objPos = Commands->Get_Position(obj);
@@ -1441,6 +1455,7 @@ void RA_Base_Defense_Simple::Attack(GameObject *obj, GameObject *target)
 			params.Set_Basic(this,(float)current_priority, 100);
 			if (Adjust_For_Infantry(FinalTarget))
 			{
+				params.AttackObject = NULL;
 				params.Set_Attack(targetPos, range, 0, true);
 				params.AttackCheckBlocked = false;
 			}
@@ -1455,6 +1470,7 @@ void RA_Base_Defense_Simple::Attack(GameObject *obj, GameObject *target)
 		}
 		else
 		{
+			Commands->Action_Reset(obj, 100);
 			attacking = false;
 			targetID = 0;
 			current_priority = 10;
@@ -1820,7 +1836,7 @@ void RA_Base_Defense_Powered::Timer_Expired(GameObject *obj, int number)
 		return; //If its not the timer we're interested in, end now
 	}
 	bool call_attack = true;
-	if (!attacking)	//skip facing action if attacking
+	if (!attacking && Is_Base_Powered(Get_Object_Type(obj)))	//skip facing action if attacking
 	{
 		if (loop_count > 4) //only face new direction every 5th loop
 		{
@@ -1861,14 +1877,12 @@ void RA_Base_Defense_Powered::Timer_Expired(GameObject *obj, int number)
 			}
 			ActionParamsStruct params;
 			params.Set_Basic(this, 1, 30); //priority low
-			params.Set_Face_Location(pos, 4);
+			params.Set_Face_Location(pos, 6);
 			Commands->Action_Face_Location(obj, params);
 		}
 	}
 	else
 	{
-		//force ceasefire before checking to continue (helps fight client glitches... I hope...)
-		Commands->Action_Reset(obj, 100); //I have no idea what this number does...
 		attacking = false;
 		current_priority = 10;
 		GameObject *target = Commands->Find_Object(targetID);
@@ -1915,13 +1929,15 @@ void RA_Base_Defense_Powered::Timer_Expired(GameObject *obj, int number)
 				}
 			}
 		}
-		if (call_attack) //if attack and if call_attack was not turned false
+		if (call_attack && obj->As_DamageableGameObj()->Is_Enemy(target->As_DamageableGameObj())) //if attack and if call_attack was not turned false
 		{
 			if (Commands->Get_Health(target))
 			{
 				Attack(obj, target);
 			}
 		}
+		else 
+			Commands->Action_Reset(obj, 100);
 	}
 	if (loop_count > 4)
 	{
@@ -1959,7 +1975,7 @@ void RA_Base_Defense_Powered::Attack(GameObject *obj, GameObject *target)
 		FinalTarget = Select_Target(obj, FinalTarget); //Was Rate_Target
 	}
 	/****************Execute Final Attack****************/
-	if (FinalTarget && Commands->Get_Player_Type(FinalTarget) == PTTEAM(Commands->Get_Player_Type(obj))) //Check if I can still fire
+	if (FinalTarget && FinalTarget->As_DamageableGameObj()->Is_Enemy(obj->As_DamageableGameObj()))
 	{
 		targetID = Commands->Get_ID(FinalTarget); //remember new target, or re-remember old target
 		Vector3 objPos = Commands->Get_Position(obj);
@@ -1973,6 +1989,7 @@ void RA_Base_Defense_Powered::Attack(GameObject *obj, GameObject *target)
 			params.Set_Basic(this,(float)current_priority, 100);
 			if (Adjust_For_Infantry(FinalTarget))
 			{
+				params.AttackObject = NULL;
 				params.Set_Attack(targetPos, range, 0, true);
 				params.AttackCheckBlocked = false;
 			}
@@ -1987,6 +2004,7 @@ void RA_Base_Defense_Powered::Attack(GameObject *obj, GameObject *target)
 		}
 		else
 		{
+			Commands->Action_Reset(obj, 100);
 			attacking = false;
 			targetID = 0;
 			current_priority = 10;
@@ -2411,7 +2429,7 @@ void RA_Base_Defense_Chargeup::Timer_Expired(GameObject *obj, int number)
 			}
 			ActionParamsStruct params;
 			params.Set_Basic(this, 1, 30); //priority low
-			params.Set_Face_Location(pos, 4);
+			params.Set_Face_Location(pos, 6);
 			Commands->Action_Face_Location(obj, params);
 		}
 	}
@@ -2465,7 +2483,7 @@ void RA_Base_Defense_Chargeup::Timer_Expired(GameObject *obj, int number)
 				}
 			}
 		}
-		if (call_attack) //if attack and if call_attack was not turned false
+		if (call_attack && obj->As_DamageableGameObj()->Is_Enemy(target->As_DamageableGameObj())) //if attack and if call_attack was not turned false
 		{
 			Attack_Charged(obj, target);
 		}
@@ -2506,7 +2524,7 @@ void RA_Base_Defense_Chargeup::Attack(GameObject *obj, GameObject *target)
 		FinalTarget = Select_Target(obj, FinalTarget); //Was Rate_Target
 	}
 	/****************Execute Final Attack****************/
-	if (FinalTarget && Commands->Get_Player_Type(FinalTarget) == PTTEAM(Commands->Get_Player_Type(obj))) //Check if I can still fire
+	if (FinalTarget && FinalTarget->As_DamageableGameObj()->Is_Enemy(obj->As_DamageableGameObj()))
 	{
 		targetID = Commands->Get_ID(FinalTarget); //remember new target, or re-remember old target
 		Vector3 objPos = Commands->Get_Position(obj);

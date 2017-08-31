@@ -59,7 +59,7 @@ BOOL SCRIPTSAPI __stdcall DllMain(HINSTANCE hinstDLL,
 	{
 		case DLL_PROCESS_ATTACH:
 			TT_ASSERT(Exe != 6);
-
+/*
 #ifdef SSGM
 			if (Exe != 1)
 			{
@@ -67,7 +67,7 @@ BOOL SCRIPTSAPI __stdcall DllMain(HINSTANCE hinstDLL,
 				exit(0);
 			}
 #endif
-
+*/
 			if ((!Exe) || (Exe == 1))
 			{
 				if (GetFileAttributes("scripts2.dll") == 0xFFFFFFFF)
@@ -273,6 +273,8 @@ bool SCRIPTSAPI Set_Script_Commands(ScriptCommandsClass* commands)
 	Update_Network_Object_Player = (unop)Address(tt,"Update_Network_Object_Player");
 	Send_Client_Text = (sct)Address(tt,"Send_Client_Text");
 	Send_Client_Announcement = (sca)Address(tt,"Send_Client_Announcement");
+	Send_Player_Kill_Message = (spkm)Address(tt, "Send_Player_Kill_Message");
+	Send_Purchase_Response = (spr)Address(tt, "Send_Purchase_Response");
 	AddShaderNotify = (asn)Address(tt,"AddShaderNotify");
 	RemoveShaderNotify = (rsn)Address(tt,"RemoveShaderNotify");
 	Do_Objectives_Dlg = (dod)Address(tt,"Do_Objectives_Dlg");
@@ -358,6 +360,20 @@ bool SCRIPTSAPI Set_Script_Commands(ScriptCommandsClass* commands)
 	Stop_Timer = (ss)Address(tt,"Stop_Timer");
 	Create_2D_Wave_Sound_Dialog_Player = (cwsdp)Address(tt,"Create_2D_Wave_Sound_Dialog_Player");
 	Force_Position_Update_Player = (fpup)Address(tt,"Force_Position_Update_Player");
+	Stop_Timer2 = (ss2)Address(tt,"Stop_Timer2");
+	Has_Timer = (htm)Address(tt,"Has_Timer");
+	Set_Background_Music_Player_Offset = (sbgmo)Address(tt,"Set_Background_Music_Player_Offset");
+	Set_Camera_Player = (setcam)Address(tt,"Set_Camera_Player");
+	Set_Definition_TranslationID_Player = (settran)Address(tt,"Set_Definition_TranslationID_Player");
+	Set_Net_Update_Rate_Player = (setnur)Address(tt,"Set_Net_Update_Rate_Player");
+	Force_Orientation_Update = (fou)Address(tt,"Force_Orientation_Update");
+	Force_Orientation_Update_Player = (foup)Address(tt,"Force_Orientation_Update_Player");
+	Create_2D_Wave_Sound_Cinematic_Player = (cwscp)Address(tt,"Create_2D_Wave_Sound_Cinematic_Player");
+	Force_Turret_Update = (ftu)Address(tt,"Force_Turret_Update");
+	Force_Turret_Update_Player = (ftup)Address(tt,"Force_Turret_Update_Player");
+	Force_Velocity_Update = (fvu)Address(tt,"Force_Velocity_Update");
+	Force_Velocity_Update_Player = (fvup)Address(tt,"Force_Velocity_Update_Player");
+
 #ifdef SSGM
 	SSGMGameManager::Init();
 #endif

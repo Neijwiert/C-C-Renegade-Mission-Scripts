@@ -274,7 +274,7 @@ public:
 		{
 			if (random && value == Current->value)
 				random--;
-			if (!random)
+			if (!random && value == Current->value)
 				return Current;
 			Current = Current->next;
 			if (!Current && original != random)
@@ -399,12 +399,8 @@ public:
 			if (!random)
 				return current;
 			current = current->next;
-			if (!current)
-			{
+			if (!current && originalRandom != random)
 				current = SimplePositionNodeList;
-				if (originalRandom == random)
-					return NULL;
-			}
 		}
 		return NULL;
 	}
@@ -421,12 +417,8 @@ public:
 			if (!random)
 				return current;
 			current = current->next;
-			if (!current)
-			{
+			if (!current && originalRandom != random)
 				current = SimplePositionNodeList;
-				if (originalRandom == random)
-					return NULL;
-			}
 		}
 		return NULL;
 	}
@@ -443,12 +435,8 @@ public:
 			if (!random)
 				return current;
 			current = current->next;
-			if (!current)
-			{
+			if (!current && originalRandom != random)
 				current = SimplePositionNodeList;
-				if (originalRandom == random)
-					return NULL;
-			}
 		}
 		return NULL;
 	}
@@ -465,12 +453,8 @@ public:
 			if (!random)
 				return current;
 			current = current->next;
-			if (!current)
-			{
+			if (!current && originalRandom != random)
 				current = SimplePositionNodeList;
-				if (originalRandom == random)
-					return NULL;
-			}
 		}
 		return NULL;
 	}
@@ -521,14 +505,69 @@ public:
 					return current;
 			}
 			current = current->next;
-			if (!current)
-			{
+			if (!current && originalRandom != random)
 				current = SimplePositionNodeList;
-				if (originalRandom == random)
-					return NULL;
-			}
 		}
 		return NULL;
+	}
+	SimplePositionNode *GetSpotNotVisibileFromSpots(int points,Vector3 pos[],float ranges[])
+	{
+		for (int x = 0;x < points;x++)
+			pos[x].Z += 2;
+		SimplePositionNode *current = SimplePositionNodeList;
+		int random = Commands->Get_Random_Int(0,ObjectCount*2)+1;
+		int originalRandom = random;
+		while (current)
+		{
+			Vector3 targetpos = current->position;
+			targetpos.Z += 2.0f;
+			CastResultStruct res;
+			bool clear = true;
+			for (int x = 0;x < points;x++)
+			{
+				LineSegClass ray(pos[x],targetpos);
+				PhysRayCollisionTestClass coltest(ray, &res, SOLDIER_GHOST_COLLISION_GROUP);
+				PhysicsSceneClass::Get_Instance()->Cast_Ray(coltest,false);
+				if (JmgUtility::SimpleDistance(pos[x],current->position) < ranges[x] || !coltest.CollidedRenderObj)
+				{
+					clear = false;
+					break;
+				}
+			}
+			if (clear)
+			{
+				if (random)
+					random--;
+				if (!random)
+					return current;
+			}
+			current = current->next;
+			if (!current && originalRandom != random)
+				current = SimplePositionNodeList;
+		}
+		return NULL;
+	}
+	SimplePositionNode *GetFurthestSpotFromSpots(int points,Vector3 pos[],float weight[])
+	{
+		float furthestDistance = 0;
+		SimplePositionNode *current = SimplePositionNodeList,*furthest = NULL;
+		while (current)
+		{
+			float tempBest = -1;
+			for (int x = 0;x < points;x++)
+			{
+				float tempDistance = JmgUtility::SimpleDistance(pos[x],current->position)*weight[x];
+				if (tempBest == -1 || tempDistance < tempBest)
+					tempBest = tempDistance;
+			}
+			if (furthestDistance < tempBest)
+			{
+				furthest = current;
+				furthestDistance = tempBest;
+			}
+			current = current->next;
+		}
+		return furthest;
 	}
 	void DecreaseValue()
 	{
@@ -739,12 +778,9 @@ public:
 		{
 			SimpleObjectNode *Current = SimpleObjectNodeList;
 			int id = Current->ID;
-			if (SimpleObjectNodeList)
-			{
-				SimpleObjectNodeList = SimpleObjectNodeList->next;
-				delete Current;
-			}
-			if (Commands->Find_Object(Current->ID))
+			SimpleObjectNodeList = SimpleObjectNodeList->next;
+			delete Current;
+			if (Commands->Find_Object(id))
 				return id;
 		}
 		return 0;
@@ -1080,6 +1116,40 @@ public:
 			return BestNode->pos;
 		return Vector3(0.0f,0.0f,0.0f);
 	}
+	bool getRandomPosition(Vector3 *pos,float minRange,float range)
+	{
+		if (BearHunterBearPositionNodeGrouping)
+		{
+			int Random = Commands->Get_Random_Int(0,(NodeCount ? NodeCount : 1)+1);
+			int original = Random;
+			BearHunterBearPositionNode *table = BearHunterBearPositionNodeGrouping;
+			while (table)
+			{
+				BearHunterBearPositionNode *y = table->yNodes;
+				while (y)
+				{
+					float tempDist = JmgUtility::SimpleDistance(y->pos,*pos);
+					if (tempDist <= range && tempDist >= minRange)
+					{
+						Random--;
+						if (!Random)
+						{
+							*pos = y->pos;
+							return true;
+						}
+					}
+					y = y->yNodes;
+				}
+				table = table->xNodes;
+				if (!table && Random != original)
+				{
+					original = Random;
+					table = BearHunterBearPositionNodeGrouping;
+				}
+			}
+		}
+		return false;
+	}
 	void emptyList()
 	{
 		builtNetwork = false;
@@ -1221,6 +1291,7 @@ public:
 	static bool truckTimeExtended;
 	static int spawnKarma;
 	static bool hasBeenInjured;
+	static int karmaDeerIds[6];
 };
 GameObject *JMG_Bear_Hunter_Game_Control::myObject = NULL;
 int JMG_Bear_Hunter_Game_Control::mutantTargetId = 600172;
@@ -1259,11 +1330,12 @@ Vector3 JMG_Bear_Hunter_Game_Control::centerOfBase = Vector3(45.146f,-689.362f,-
 bool JMG_Bear_Hunter_Game_Control::truckTimeExtended = false;
 int JMG_Bear_Hunter_Game_Control::spawnKarma = 0;
 bool JMG_Bear_Hunter_Game_Control::hasBeenInjured = false;
+int JMG_Bear_Hunter_Game_Control::karmaDeerIds[6] = {0};
 
 struct BearHunterScoreSystem
 {
 public:
-	#define BHHighScoreListCount 78
+	#define BHHighScoreListCount 95
 	struct BHScoreNode
 	{
 		char PlayerName[256];
@@ -1345,7 +1417,23 @@ public:
 		unsigned long NeverInjured;
 		unsigned long MooseKilled;
 		unsigned long EatenByRabbit;
-
+		unsigned long PickedUpDeerStatue;
+		unsigned long DroppedDeerStatue;
+		unsigned long ReturnedDeerStatue;
+		unsigned long TinyDeerKilled;
+		unsigned long MutantSquirrelsKilled;
+		unsigned long WildDeerKilled;
+		unsigned long WildSquirrelsKilled;
+		unsigned long ArmoredCarsLost;
+		unsigned long WarriorsLost;
+		unsigned long TimeOnFoot;
+		unsigned long TimeInAJazzs;
+		unsigned long TimeInACleasans;
+		unsigned long TimeInASecurityTruck;
+		unsigned long TimeInArmoredCars;
+		unsigned long TimeInAUDVs;
+		unsigned long TimeInGatlingTanks;
+		unsigned long TimeInIFVs;
 
 		bool startedRound;
 		unsigned long totalObjectivesCompleted;
@@ -1437,7 +1525,24 @@ public:
 			NeverInjured = 0;
 			MooseKilled = 0;
 			EatenByRabbit = 0;
-
+			PickedUpDeerStatue = 0;
+			DroppedDeerStatue = 0;
+			ReturnedDeerStatue = 0;
+			TinyDeerKilled = 0;
+			MutantSquirrelsKilled = 0;
+			WildDeerKilled = 0;
+			WildSquirrelsKilled = 0;
+			ArmoredCarsLost = 0;
+			WarriorsLost = 0;
+			TimeOnFoot = 0;
+			TimeInAJazzs = 0;
+			TimeInACleasans = 0;
+			TimeInASecurityTruck = 0;
+			TimeInArmoredCars = 0;
+			TimeInAUDVs = 0;
+			TimeInGatlingTanks = 0;
+			TimeInIFVs = 0;
+			
 			startedRound = JMG_Bear_Hunter_Game_Control::gameState >= JMG_Bear_Hunter_Game_Control::HuntBears ? true : false;
 			totalObjectivesCompleted = 0;
 			totalPowerupsPickedup = 0;
@@ -1536,7 +1641,7 @@ public:
 		}
 		FILE *SaveScores;
 		FILE *SaveScores2;
-		char tempPath[256],textPath[256],realPath[256];
+		char tempPath[512],textPath[512],realPath[512];
 		_mkdir(savePath);
 		sprintf(tempPath,"%sBearHunterPlayerRecords.tmp",savePath);
 		sprintf(realPath,"%sBearHunterPlayerRecords.dat",savePath);
@@ -1551,7 +1656,7 @@ public:
 			if (!JMG_Bear_Hunter_Game_Control::hasBeenInjured)
 				Current->NeverInjured++;
 			char EncryptString[2048];
- 			sprintf(EncryptString,"%lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu 0",Current->PlayTime,Current->PreGameTime,Current->IdleTime,Current->RoundsPlayed,Current->RoundsCompleted,Current->RoundsQuit,Current->RoundsWon,Current->RoundsLost,Current->MostKillsInARound,Current->MostDeathsInARound,Current->MostBonusObjectivesCompletedInARound,Current->Deaths,Current->Kills,Current->VehicleKills,Current->KilledSelf,Current->KilledPlayers,Current->KilledPresident,Current->KilledTurrets,Current->KilledBears,Current->KilledBlackBears,Current->KilledMutantBears,Current->KilledMutantDeer,Current->KilledMutantCats,Current->KilledMutantCatsB,Current->KilledMutantCatsR,Current->KilledMutantRabbits,Current->ObjectiveActivatedAlarm,Current->ObjectiveTurretTruck,Current->ObjectiveTurretTruckAlarm,Current->ObjectiveOilRigsActivated,Current->ObjectiveOilRigsRepaired,Current->ObjectiveEngineersSaved,Current->ObjectiveWeaponsFound,Current->ObjectiveWeaponsReturned,Current->ObjectivePlasmaRifleReturned,Current->BonusObjectivesCompleted,Current->PickedupHealthPowerups,Current->PickedupArmorPowerups,Current->PickedupCashPowerups,Current->PickedupAmmoPowerups,Current->PickedupHealthTotal,Current->PickedupArmorTotal,Current->PickedupCashTotal,Current->PickedupAmmoTotal,Current->PickedupTotalPowerups,Current->PickedupTotalPowerupsInARound,Current->KilledHumanAi,Current->VehiclesDestroyed,Current->VehiclesLost,Current->JazzsLost,Current->CleasansLost,Current->TrucksLost,Current->TanksLost,Current->TurretTruckLost,Current->C4VestPowerups,Current->ActivatedCommTower,Current->PlayedGamesWithDefenseTurrets,Current->PlayedGamesWithGuardianHelicopter,Current->TimesDrown,Current->TimesFallen,Current->KillsWithSentryTurret,Current->KilledSentryTurrets,Current->SentryTurretsPlaced,Current->SentryTurretsLost,Current->PickedUpMedicalNeedle,Current->ReturnedMedicalNeedle,Current->RepairedSubstation,Current->SubstationOnLineAtEnd,Current->SubstationNotDamaged,Current->GiantDeerKilled,Current->SurvivedAlarm,Current->WolfKilled,Current->MutantDogKilled,Current->BlueDeerKilled,Current->CheatedRounds,Current->NeverInjured,Current->MooseKilled,Current->MooseKilled,Current->EatenByRabbit,Current->EatenByRabbit);
+ 			sprintf(EncryptString,"%lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu 0",Current->PlayTime,Current->PreGameTime,Current->IdleTime,Current->RoundsPlayed,Current->RoundsCompleted,Current->RoundsQuit,Current->RoundsWon,Current->RoundsLost,Current->MostKillsInARound,Current->MostDeathsInARound,Current->MostBonusObjectivesCompletedInARound,Current->Deaths,Current->Kills,Current->VehicleKills,Current->KilledSelf,Current->KilledPlayers,Current->KilledPresident,Current->KilledTurrets,Current->KilledBears,Current->KilledBlackBears,Current->KilledMutantBears,Current->KilledMutantDeer,Current->KilledMutantCats,Current->KilledMutantCatsB,Current->KilledMutantCatsR,Current->KilledMutantRabbits,Current->ObjectiveActivatedAlarm,Current->ObjectiveTurretTruck,Current->ObjectiveTurretTruckAlarm,Current->ObjectiveOilRigsActivated,Current->ObjectiveOilRigsRepaired,Current->ObjectiveEngineersSaved,Current->ObjectiveWeaponsFound,Current->ObjectiveWeaponsReturned,Current->ObjectivePlasmaRifleReturned,Current->BonusObjectivesCompleted,Current->PickedupHealthPowerups,Current->PickedupArmorPowerups,Current->PickedupCashPowerups,Current->PickedupAmmoPowerups,Current->PickedupHealthTotal,Current->PickedupArmorTotal,Current->PickedupCashTotal,Current->PickedupAmmoTotal,Current->PickedupTotalPowerups,Current->PickedupTotalPowerupsInARound,Current->KilledHumanAi,Current->VehiclesDestroyed,Current->VehiclesLost,Current->JazzsLost,Current->CleasansLost,Current->TrucksLost,Current->TanksLost,Current->TurretTruckLost,Current->C4VestPowerups,Current->ActivatedCommTower,Current->PlayedGamesWithDefenseTurrets,Current->PlayedGamesWithGuardianHelicopter,Current->TimesDrown,Current->TimesFallen,Current->KillsWithSentryTurret,Current->KilledSentryTurrets,Current->SentryTurretsPlaced,Current->SentryTurretsLost,Current->PickedUpMedicalNeedle,Current->ReturnedMedicalNeedle,Current->RepairedSubstation,Current->SubstationOnLineAtEnd,Current->SubstationNotDamaged,Current->GiantDeerKilled,Current->SurvivedAlarm,Current->WolfKilled,Current->MutantDogKilled,Current->BlueDeerKilled,Current->CheatedRounds,Current->NeverInjured,Current->MooseKilled,Current->MooseKilled,Current->EatenByRabbit,Current->EatenByRabbit,Current->PickedUpDeerStatue,Current->DroppedDeerStatue,Current->ReturnedDeerStatue,Current->TinyDeerKilled,Current->MutantSquirrelsKilled,Current->WildDeerKilled,Current->WildSquirrelsKilled,Current->ArmoredCarsLost,Current->WarriorsLost,Current->TimeOnFoot,Current->TimeInAJazzs,Current->TimeInACleasans,Current->TimeInASecurityTruck,Current->TimeInArmoredCars,Current->TimeInAUDVs,Current->TimeInGatlingTanks,Current->TimeInIFVs);
 			fprintf(SaveScores2,"%s\n%s\n",Current->PlayerName,EncryptString);
 			fprintf(SaveScores,"%s\n%s",JmgUtility::Rp2Encrypt(Current->PlayerName,25,5),JmgUtility::Rp2Encrypt2(EncryptString,Current->PlayerName[0],Current->PlayerName[1]));
 			fprintf(SaveScores,"\n%s",JmgUtility::Rp2Encrypt(EncryptString,Current->PlayerName[1],Current->PlayerName[0]));
@@ -1569,7 +1674,7 @@ public:
 		hasLoaded = true;
 		char PlayerName[256];
 		FILE *LoadScores;
-		char realPath[256];
+		char realPath[512];
 		sprintf(realPath,"%sBearHunterPlayerRecords.dat",savePath);
 		LoadScores = fopen(realPath,"r");
 		if (LoadScores)
@@ -1603,7 +1708,7 @@ public:
 							break;
 						}
 				if (match)
-					sscanf(decryptedString,"%lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu",&Current->PlayTime,&Current->PreGameTime,&Current->IdleTime,&Current->RoundsPlayed,&Current->RoundsCompleted,&Current->RoundsQuit,&Current->RoundsWon,&Current->RoundsLost,&Current->MostKillsInARound,&Current->MostDeathsInARound,&Current->MostBonusObjectivesCompletedInARound,&Current->Deaths,&Current->Kills,&Current->VehicleKills,&Current->KilledSelf,&Current->KilledPlayers,&Current->KilledPresident,&Current->KilledTurrets,&Current->KilledBears,&Current->KilledBlackBears,&Current->KilledMutantBears,&Current->KilledMutantDeer,&Current->KilledMutantCats,&Current->KilledMutantCatsB,&Current->KilledMutantCatsR,&Current->KilledMutantRabbits,&Current->ObjectiveActivatedAlarm,&Current->ObjectiveTurretTruck,&Current->ObjectiveTurretTruckAlarm,&Current->ObjectiveOilRigsActivated,&Current->ObjectiveOilRigsRepaired,&Current->ObjectiveEngineersSaved,&Current->ObjectiveWeaponsFound,&Current->ObjectiveWeaponsReturned,&Current->ObjectivePlasmaRifleReturned,&Current->BonusObjectivesCompleted,&Current->PickedupHealthPowerups,&Current->PickedupArmorPowerups,&Current->PickedupCashPowerups,&Current->PickedupAmmoPowerups,&Current->PickedupHealthTotal,&Current->PickedupArmorTotal,&Current->PickedupCashTotal,&Current->PickedupAmmoTotal,&Current->PickedupTotalPowerups,&Current->PickedupTotalPowerupsInARound,&Current->KilledHumanAi,&Current->VehiclesDestroyed,&Current->VehiclesLost,&Current->JazzsLost,&Current->CleasansLost,&Current->TrucksLost,&Current->TanksLost,&Current->TurretTruckLost,&Current->C4VestPowerups,&Current->ActivatedCommTower,&Current->PlayedGamesWithDefenseTurrets,&Current->PlayedGamesWithGuardianHelicopter,&Current->TimesDrown,&Current->TimesFallen,&Current->KillsWithSentryTurret,&Current->KilledSentryTurrets,&Current->SentryTurretsPlaced,&Current->SentryTurretsLost,&Current->PickedUpMedicalNeedle,&Current->ReturnedMedicalNeedle,&Current->RepairedSubstation,&Current->SubstationOnLineAtEnd,&Current->SubstationNotDamaged,&Current->GiantDeerKilled,&Current->SurvivedAlarm,&Current->WolfKilled,&Current->MutantDogKilled,&Current->BlueDeerKilled,&Current->CheatedRounds,&Current->NeverInjured,&Current->MooseKilled,&Current->MooseKilled,&Current->EatenByRabbit,&Current->EatenByRabbit);
+					sscanf(decryptedString,"%lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu %lu",&Current->PlayTime,&Current->PreGameTime,&Current->IdleTime,&Current->RoundsPlayed,&Current->RoundsCompleted,&Current->RoundsQuit,&Current->RoundsWon,&Current->RoundsLost,&Current->MostKillsInARound,&Current->MostDeathsInARound,&Current->MostBonusObjectivesCompletedInARound,&Current->Deaths,&Current->Kills,&Current->VehicleKills,&Current->KilledSelf,&Current->KilledPlayers,&Current->KilledPresident,&Current->KilledTurrets,&Current->KilledBears,&Current->KilledBlackBears,&Current->KilledMutantBears,&Current->KilledMutantDeer,&Current->KilledMutantCats,&Current->KilledMutantCatsB,&Current->KilledMutantCatsR,&Current->KilledMutantRabbits,&Current->ObjectiveActivatedAlarm,&Current->ObjectiveTurretTruck,&Current->ObjectiveTurretTruckAlarm,&Current->ObjectiveOilRigsActivated,&Current->ObjectiveOilRigsRepaired,&Current->ObjectiveEngineersSaved,&Current->ObjectiveWeaponsFound,&Current->ObjectiveWeaponsReturned,&Current->ObjectivePlasmaRifleReturned,&Current->BonusObjectivesCompleted,&Current->PickedupHealthPowerups,&Current->PickedupArmorPowerups,&Current->PickedupCashPowerups,&Current->PickedupAmmoPowerups,&Current->PickedupHealthTotal,&Current->PickedupArmorTotal,&Current->PickedupCashTotal,&Current->PickedupAmmoTotal,&Current->PickedupTotalPowerups,&Current->PickedupTotalPowerupsInARound,&Current->KilledHumanAi,&Current->VehiclesDestroyed,&Current->VehiclesLost,&Current->JazzsLost,&Current->CleasansLost,&Current->TrucksLost,&Current->TanksLost,&Current->TurretTruckLost,&Current->C4VestPowerups,&Current->ActivatedCommTower,&Current->PlayedGamesWithDefenseTurrets,&Current->PlayedGamesWithGuardianHelicopter,&Current->TimesDrown,&Current->TimesFallen,&Current->KillsWithSentryTurret,&Current->KilledSentryTurrets,&Current->SentryTurretsPlaced,&Current->SentryTurretsLost,&Current->PickedUpMedicalNeedle,&Current->ReturnedMedicalNeedle,&Current->RepairedSubstation,&Current->SubstationOnLineAtEnd,&Current->SubstationNotDamaged,&Current->GiantDeerKilled,&Current->SurvivedAlarm,&Current->WolfKilled,&Current->MutantDogKilled,&Current->BlueDeerKilled,&Current->CheatedRounds,&Current->NeverInjured,&Current->MooseKilled,&Current->MooseKilled,&Current->EatenByRabbit,&Current->EatenByRabbit,&Current->PickedUpDeerStatue,&Current->DroppedDeerStatue,&Current->ReturnedDeerStatue,&Current->TinyDeerKilled,&Current->MutantSquirrelsKilled,&Current->WildDeerKilled,&Current->WildSquirrelsKilled,&Current->ArmoredCarsLost,&Current->WarriorsLost,&Current->TimeOnFoot,&Current->TimeInAJazzs,&Current->TimeInACleasans,&Current->TimeInASecurityTruck,&Current->TimeInArmoredCars,&Current->TimeInAUDVs,&Current->TimeInGatlingTanks,&Current->TimeInIFVs);
 			}
 			fclose(LoadScores);	
 		}
@@ -1704,6 +1809,23 @@ public:
 		case 75: return EveluateHighestScore(High->NeverInjured,Current->NeverInjured,High,Current);
 		case 76: return EveluateHighestScore(High->MooseKilled,Current->MooseKilled,High,Current);
 		case 77: return EveluateHighestScore(High->EatenByRabbit,Current->EatenByRabbit,High,Current);
+		case 78: return EveluateHighestScore(High->PickedUpDeerStatue,Current->PickedUpDeerStatue,High,Current);
+		case 79: return EveluateHighestScore(High->DroppedDeerStatue,Current->DroppedDeerStatue,High,Current);
+		case 80: return EveluateHighestScore(High->ReturnedDeerStatue,Current->ReturnedDeerStatue,High,Current);
+		case 81: return EveluateHighestScore(High->TinyDeerKilled,Current->TinyDeerKilled,High,Current);
+		case 82: return EveluateHighestScore(High->MutantSquirrelsKilled,Current->MutantSquirrelsKilled,High,Current);
+		case 83: return EveluateHighestScore(High->WildDeerKilled,Current->WildDeerKilled,High,Current);
+		case 84: return EveluateHighestScore(High->WildSquirrelsKilled,Current->WildSquirrelsKilled,High,Current);
+		case 85: return EveluateHighestScore(High->ArmoredCarsLost,Current->ArmoredCarsLost,High,Current);
+		case 86: return EveluateHighestScore(High->WarriorsLost,Current->WarriorsLost,High,Current);
+		case 87: return EveluateHighestScore(High->TimeOnFoot,Current->TimeOnFoot,High,Current);
+		case 88: return EveluateHighestScore(High->TimeInAJazzs,Current->TimeInAJazzs,High,Current);
+		case 89: return EveluateHighestScore(High->TimeInACleasans,Current->TimeInACleasans,High,Current);
+		case 90: return EveluateHighestScore(High->TimeInASecurityTruck,Current->TimeInASecurityTruck,High,Current);
+		case 91: return EveluateHighestScore(High->TimeInArmoredCars,Current->TimeInArmoredCars,High,Current);
+		case 92: return EveluateHighestScore(High->TimeInAUDVs,Current->TimeInAUDVs,High,Current);
+		case 93: return EveluateHighestScore(High->TimeInGatlingTanks,Current->TimeInGatlingTanks,High,Current);
+		case 94: return EveluateHighestScore(High->TimeInIFVs,Current->TimeInIFVs,High,Current);
 		default: return High;
 		}
 	}
@@ -1791,6 +1913,23 @@ public:
 		case 75: return Node->NeverInjured ? true : false;
 		case 76: return Node->MooseKilled ? true : false;
 		case 77: return Node->EatenByRabbit ? true : false;
+		case 78: return Node->PickedUpDeerStatue ? true : false;
+		case 79: return Node->DroppedDeerStatue ? true : false;
+		case 80: return Node->ReturnedDeerStatue ? true : false;
+		case 81: return Node->TinyDeerKilled ? true : false;
+		case 82: return Node->MutantSquirrelsKilled ? true : false;
+		case 83: return Node->WildDeerKilled ? true : false;
+		case 84: return Node->WildSquirrelsKilled ? true : false;
+		case 85: return Node->ArmoredCarsLost ? true : false;
+		case 86: return Node->WarriorsLost ? true : false;
+		case 87: return Node->TimeOnFoot ? true : false;
+		case 88: return Node->TimeInAJazzs ? true : false;
+		case 89: return Node->TimeInACleasans ? true : false;
+		case 90: return Node->TimeInASecurityTruck ? true : false;
+		case 91: return Node->TimeInArmoredCars ? true : false;
+		case 92: return Node->TimeInAUDVs ? true : false;
+		case 93: return Node->TimeInGatlingTanks ? true : false;
+		case 94: return Node->TimeInIFVs ? true : false;
 		default: Console_Input("msg SCORE SYSTEM ERROR: Out of bounds!");return false;
 		}
 	}
@@ -1879,6 +2018,23 @@ public:
 		case 75: sprintf(RetChar,"Server Record: %s has been in %s games without the president getting hurt by mutants.",High->PlayerName,JmgUtility::formatDigitGrouping(High->NeverInjured));return RetChar;
 		case 76: sprintf(RetChar,"Server Record: %s has killed %s Moose.",High->PlayerName,JmgUtility::formatDigitGrouping(High->MooseKilled));return RetChar;
 		case 77: sprintf(RetChar,"Server Record: %s has been eaten by the rabbit %s times.",High->PlayerName,JmgUtility::formatDigitGrouping(High->EatenByRabbit));return RetChar;
+		case 78: sprintf(RetChar,"Server Record: %s has picked up the golden deer statue %s times.",High->PlayerName,JmgUtility::formatDigitGrouping(High->PickedUpDeerStatue));return RetChar;
+		case 79: sprintf(RetChar,"Server Record: %s has dropped up the golden deer statue %s times.",High->PlayerName,JmgUtility::formatDigitGrouping(High->DroppedDeerStatue));return RetChar;
+		case 80: sprintf(RetChar,"Server Record: %s has returned up the golden deer statue %s times.",High->PlayerName,JmgUtility::formatDigitGrouping(High->ReturnedDeerStatue));return RetChar;
+		case 81: sprintf(RetChar,"Server Record: %s has killed %s tiny deer.",High->PlayerName,JmgUtility::formatDigitGrouping(High->TinyDeerKilled));return RetChar;
+		case 82: sprintf(RetChar,"Server Record: %s has killed %s mutant squirrels.",High->PlayerName,JmgUtility::formatDigitGrouping(High->MutantSquirrelsKilled));return RetChar;
+		case 83: sprintf(RetChar,"Server Record: %s has killed %s wild deer.",High->PlayerName,JmgUtility::formatDigitGrouping(High->WildDeerKilled));return RetChar;
+		case 84: sprintf(RetChar,"Server Record: %s has killed %s wild squirrels.",High->PlayerName,JmgUtility::formatDigitGrouping(High->WildSquirrelsKilled));return RetChar;
+		case 85: sprintf(RetChar,"Server Record: %s has lost %s Armored Cars.",High->PlayerName,JmgUtility::formatDigitGrouping(High->ArmoredCarsLost));return RetChar;
+		case 86: sprintf(RetChar,"Server Record: %s has lost %s Warrior Infantry Fighting Vehicles.",High->PlayerName,JmgUtility::formatDigitGrouping(High->WarriorsLost));return RetChar;
+		case 87: sprintf(RetChar,"Server Record: %s has spent %s minutes on foot.",High->PlayerName,JmgUtility::formatDigitGrouping(High->TimeOnFoot/60.0f));return RetChar;
+		case 88: sprintf(RetChar,"Server Record: %s has spent %s minutes in Punda Jazzes.",High->PlayerName,JmgUtility::formatDigitGrouping(High->TimeInAJazzs/60.0f));return RetChar;
+		case 89: sprintf(RetChar,"Server Record: %s has spent %s minutes in Cleasan Primeras.",High->PlayerName,JmgUtility::formatDigitGrouping(High->TimeInACleasans/60.0f));return RetChar;
+		case 90: sprintf(RetChar,"Server Record: %s has spent %s minutes in Turret Trucks.",High->PlayerName,JmgUtility::formatDigitGrouping(High->TimeInASecurityTruck/60.0f));return RetChar;
+		case 91: sprintf(RetChar,"Server Record: %s has spent %s minutes in Armored Cars.",High->PlayerName,JmgUtility::formatDigitGrouping(High->TimeInArmoredCars/60.0f));return RetChar;
+		case 92: sprintf(RetChar,"Server Record: %s has spent %s minutes in Urban Defense Vehicles.",High->PlayerName,JmgUtility::formatDigitGrouping(High->TimeInAUDVs/60.0f));return RetChar;
+		case 93: sprintf(RetChar,"Server Record: %s has spent %s minutes in Gatling Tanks.",High->PlayerName,JmgUtility::formatDigitGrouping(High->TimeInGatlingTanks/60.0f));return RetChar;
+		case 94: sprintf(RetChar,"Server Record: %s has spent %s minutes in Warrior Infantry Fighting Vehicles.",High->PlayerName,JmgUtility::formatDigitGrouping(High->TimeInIFVs/60.0f));return RetChar;
 		default: sprintf(RetChar,"Server Record ERROR: Record index out of bounds!"); return RetChar;
 		}
 	}
@@ -1982,7 +2138,32 @@ BHStartOfHighScoreSelectProcess:
 					continue;
 				}
 				else
+				{
 					pobj->idleDelay++;
+					GameObject *pVehicle = Get_Vehicle(Player);
+					if (pVehicle)
+					{
+						switch (Commands->Get_Preset_ID(pVehicle))
+						{
+						case 1000001144:case 1000001158:case 1000001162:case 1000001160:
+							pobj->TimeInAJazzs++;break;
+						case 1000001321:case 1000001323:case 1000001327:case 1000001325:
+							pobj->TimeInACleasans++;break;
+						case 1000001310:
+							pobj->TimeInAUDVs++;break;
+						case 1000001306:
+							pobj->TimeInGatlingTanks++;break;
+						case 1000001174:
+							pobj->TimeInASecurityTruck++;break;
+						case 1000001811:
+							pobj->TimeInArmoredCars++;break;
+						case 1000003594:
+							pobj->TimeInIFVs++;break;
+						}
+					}
+					else
+						pobj->TimeOnFoot++;
+				}
 			else
 				pobj->idleDelay = 0;
 			pobj->isMoving = IsMoving;
@@ -2207,6 +2388,7 @@ class JMG_Bear_Hunt_Final_Boss : public ScriptImpClass {
 	void Respawn(GameObject *obj);
 	void ChooseTarget(GameObject *obj,Vector3 pos,GameObject *target);
 	bool inRange(GameObject *obj);
+	void SnackTime(GameObject *obj,GameObject *target);
 public:
 	static Vector3 bossPos;
 	static int bossChoose;
@@ -3027,6 +3209,9 @@ bool JMG_Wandering_AI_Controller::setup = false;
 class JMG_Wandering_AI_Wander_Point : public ScriptImpClass {
 	void Created(GameObject *obj);
 };
+class JMG_Wandering_AI_Wander_Point_Dont_Remove : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
 class JMG_Utility_Custom_Spawn_System_Controller : public ScriptImpClass {
 	void Destroyed(GameObject *obj);
 public:
@@ -3297,4 +3482,44 @@ class JMG_Bear_Hunt_Final_Boss_Support : public ScriptImpClass {
 	void Created(GameObject *obj);
 	void Timer_Expired(GameObject *obj,int number);
 	void Damaged(GameObject *obj,GameObject *damager,float damage);
+};
+
+class JMG_Bear_Hunter_Golden_Deer_Statue : public ScriptImpClass {
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+public:
+	static int playerWithTheStatue;
+	static int tinyDeerIds[25];
+	static int statueId;
+};
+
+class JMG_Bear_Hunter_Golden_Deer_Statue_Standin : public ScriptImpClass {
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+class JMG_Bear_Hunter_Golden_Deer_Statue_Attached : public ScriptImpClass {
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Destroyed(GameObject *obj);
+};
+
+class JMG_Bear_Hunter_AI_Avoid_Enemies : public ScriptImpClass {
+	int fleeTime;
+	int originalFleeTime;
+	Vector3 movePosition;
+	void Created(GameObject *obj);
+	void Enemy_Seen(GameObject *obj,GameObject *seen);
+	void Timer_Expired(GameObject *obj,int number);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void Destroyed(GameObject *obj);
+	void GotoLocation(GameObject *obj,const Vector3 &pos,GameObject *Enemy,float speed);
+	void setRetreatLocation(GameObject *obj,GameObject *enemy);
+	void getRandomLocation(GameObject *obj);
+public:
+	static int wildAnimalCount;
+};
+
+class JMG_Security_Camera_Behavior_Ignore : public ScriptImpClass {
+	void Created(GameObject *obj);
 };

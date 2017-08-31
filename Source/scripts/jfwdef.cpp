@@ -231,6 +231,7 @@ void JFW_Base_Defence::Enemy_Seen(GameObject *obj,GameObject *enemy)
 		params.AttackCheckBlocked = false;
 		Commands->Action_Attack(obj,params);
 		attacktimer = Get_Float_Parameter("AttackTimer");
+		Stop_Timer2(obj,this,2);
 		Commands->Start_Timer(obj,this,attacktimer,2);
 	}
 }
@@ -359,6 +360,7 @@ void JFW_Base_Defence_No_Aircraft::Enemy_Seen(GameObject *obj,GameObject *enemy)
 			params.AttackCheckBlocked = false;
 			Commands->Action_Attack(obj,params);
 			attacktimer = Get_Float_Parameter("AttackTimer");
+			Stop_Timer2(obj,this,2);
 			Commands->Start_Timer(obj,this,attacktimer,2);
 		}
 	}
@@ -488,6 +490,7 @@ void JFW_Base_Defence_Aircraft_Only::Enemy_Seen(GameObject *obj,GameObject *enem
 			params.AttackCheckBlocked = false;
 			Commands->Action_Attack(obj,params);
 			attacktimer = Get_Float_Parameter("AttackTimer");
+			Stop_Timer2(obj,this,2);
 			Commands->Start_Timer(obj,this,attacktimer,2);
 		}
 	}
@@ -616,6 +619,7 @@ void JFW_Base_Defence_Secondary::Enemy_Seen(GameObject *obj,GameObject *enemy)
 		params.AttackCheckBlocked = false;
 		Commands->Action_Attack(obj,params);
 		attacktimer = Get_Float_Parameter("AttackTimer");
+		Stop_Timer2(obj,this,2);
 		Commands->Start_Timer(obj,this,attacktimer,2);
 		if (primary)
 		{
@@ -754,6 +758,7 @@ void JFW_Base_Defence_No_Aircraft_Secondary::Enemy_Seen(GameObject *obj,GameObje
 			params.AttackCheckBlocked = false;
 			Commands->Action_Attack(obj,params);
 			attacktimer = Get_Float_Parameter("AttackTimer");
+			Stop_Timer2(obj,this,2);
 			Commands->Start_Timer(obj,this,attacktimer,2);
 			if (primary)
 			{
@@ -893,6 +898,7 @@ void JFW_Base_Defence_Aircraft_Only_Secondary::Enemy_Seen(GameObject *obj,GameOb
 			params.AttackCheckBlocked = false;
 			Commands->Action_Attack(obj,params);
 			attacktimer = Get_Float_Parameter("AttackTimer");
+			Stop_Timer2(obj,this,2);
 			Commands->Start_Timer(obj,this,attacktimer,2);
 			if (primary)
 			{
@@ -989,6 +995,7 @@ void JFW_Base_Defence_Animated::Enemy_Seen(GameObject *obj,GameObject *enemy)
 		popup = true;
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 		Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+		Stop_Timer2(obj,this,1);
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 	}
 	else if (attack)
@@ -1049,6 +1056,7 @@ void JFW_Base_Defence_Animated_No_Aircraft::Enemy_Seen(GameObject *obj,GameObjec
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -1110,6 +1118,7 @@ void JFW_Base_Defence_Animated_Aircraft_Only::Enemy_Seen(GameObject *obj,GameObj
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -1170,6 +1179,7 @@ void JFW_Base_Defence_Animated_Secondary::Enemy_Seen(GameObject *obj,GameObject 
 		popup = true;
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 		Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+		Stop_Timer2(obj,this,1);
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 	}
 	else if (attack)
@@ -1240,6 +1250,7 @@ void JFW_Base_Defence_Animated_No_Aircraft_Secondary::Enemy_Seen(GameObject *obj
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -1311,6 +1322,7 @@ void JFW_Base_Defence_Animated_Aircraft_Only_Secondary::Enemy_Seen(GameObject *o
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -1421,6 +1433,7 @@ void JFW_Base_Defence_No_VTOL::Enemy_Seen(GameObject *obj,GameObject *enemy)
 			params.AttackCheckBlocked = false;
 			Commands->Action_Attack(obj,params);
 			attacktimer = Get_Float_Parameter("AttackTimer");
+			Stop_Timer2(obj,this,2);
 			Commands->Start_Timer(obj,this,attacktimer,2);
 		}
 	}
@@ -1519,6 +1532,7 @@ void JFW_Base_Defence_No_VTOL_No_Stealth::Enemy_Seen(GameObject *obj,GameObject 
 				params.AttackCheckBlocked = false;
 				Commands->Action_Attack(obj,params);
 				attacktimer = Get_Float_Parameter("AttackTimer");
+				Stop_Timer2(obj,this,2);
 				Commands->Start_Timer(obj,this,attacktimer,2);
 			}
 		}
@@ -1587,6 +1601,7 @@ void JFW_Base_Defence_VTOL_Only::Enemy_Seen(GameObject *obj,GameObject *enemy)
 			params.AttackCheckBlocked = false;
 			Commands->Action_Attack(obj,params);
 			attacktimer = Get_Float_Parameter("AttackTimer");
+			Stop_Timer2(obj,this,2);
 			Commands->Start_Timer(obj,this,attacktimer,2);
 		}
 	}
@@ -1717,6 +1732,7 @@ void JFW_Base_Defence_No_VTOL_Secondary::Enemy_Seen(GameObject *obj,GameObject *
 			params.AttackCheckBlocked = false;
 			Commands->Action_Attack(obj,params);
 			attacktimer = Get_Float_Parameter("AttackTimer");
+			Stop_Timer2(obj,this,2);
 			Commands->Start_Timer(obj,this,attacktimer,2);
 			if (primary)
 			{
@@ -1856,6 +1872,7 @@ void JFW_Base_Defence_VTOL_Only_Secondary::Enemy_Seen(GameObject *obj,GameObject
 			params.AttackCheckBlocked = false;
 			Commands->Action_Attack(obj,params);
 			attacktimer = Get_Float_Parameter("AttackTimer");
+			Stop_Timer2(obj,this,2);
 			Commands->Start_Timer(obj,this,attacktimer,2);
 			if (primary)
 			{
@@ -1954,6 +1971,7 @@ void JFW_Base_Defence_Animated_No_VTOL::Enemy_Seen(GameObject *obj,GameObject *e
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2015,6 +2033,7 @@ void JFW_Base_Defence_Animated_VTOL_Only::Enemy_Seen(GameObject *obj,GameObject 
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2077,6 +2096,7 @@ void JFW_Base_Defence_Animated_No_VTOL_Secondary::Enemy_Seen(GameObject *obj,Gam
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2148,6 +2168,7 @@ void JFW_Base_Defence_Animated_VTOL_Only_Secondary::Enemy_Seen(GameObject *obj,G
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2217,6 +2238,7 @@ void JFW_Base_Defence_Animated_Sound::Enemy_Seen(GameObject *obj,GameObject *ene
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 		Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 		Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+		Stop_Timer2(obj,this,1);
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 	}
 	else if (attack)
@@ -2278,6 +2300,7 @@ void JFW_Base_Defence_Animated_Sound_No_Aircraft::Enemy_Seen(GameObject *obj,Gam
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2340,6 +2363,7 @@ void JFW_Base_Defence_Animated_Sound_Aircraft_Only::Enemy_Seen(GameObject *obj,G
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2401,6 +2425,7 @@ void JFW_Base_Defence_Animated_Sound_Secondary::Enemy_Seen(GameObject *obj,GameO
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 		Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 		Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+		Stop_Timer2(obj,this,1);
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 	}
 	else if (attack)
@@ -2472,6 +2497,7 @@ void JFW_Base_Defence_Animated_Sound_No_Aircraft_Secondary::Enemy_Seen(GameObjec
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2544,6 +2570,7 @@ void JFW_Base_Defence_Animated_Sound_Aircraft_Only_Secondary::Enemy_Seen(GameObj
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2615,6 +2642,7 @@ void JFW_Base_Defence_Animated_Sound_No_VTOL::Enemy_Seen(GameObject *obj,GameObj
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2677,6 +2705,7 @@ void JFW_Base_Defence_Animated_Sound_VTOL_Only::Enemy_Seen(GameObject *obj,GameO
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2740,6 +2769,7 @@ void JFW_Base_Defence_Animated_Sound_No_VTOL_Secondary::Enemy_Seen(GameObject *o
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2812,6 +2842,7 @@ void JFW_Base_Defence_Animated_Sound_VTOL_Only_Secondary::Enemy_Seen(GameObject 
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -2921,6 +2952,7 @@ void JFW_Base_Defence_Swap::Enemy_Seen(GameObject *obj,GameObject *enemy)
 		params.AttackCheckBlocked = false;
 		Commands->Action_Attack(obj,params);
 		attacktimer = Get_Float_Parameter("AttackTimer");
+		Stop_Timer2(obj,this,2);
 		Commands->Start_Timer(obj,this,attacktimer,2);
 	}
 }
@@ -3271,6 +3303,7 @@ void JFW_Base_Defence_Animated_Swap::Enemy_Seen(GameObject *obj,GameObject *enem
 		popup = true;
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 		Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+		Stop_Timer2(obj,this,1);
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 	}
 	else if (attack)
@@ -3333,6 +3366,7 @@ void JFW_Base_Defence_Animated_No_Aircraft_Swap::Enemy_Seen(GameObject *obj,Game
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -3396,6 +3430,7 @@ void JFW_Base_Defence_Animated_Aircraft_Only_Swap::Enemy_Seen(GameObject *obj,Ga
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -3499,6 +3534,7 @@ void JFW_Base_Defence_No_VTOL_Swap::Enemy_Seen(GameObject *obj,GameObject *enemy
 			params.AttackCheckBlocked = false;
 			Commands->Action_Attack(obj,params);
 			attacktimer = Get_Float_Parameter("AttackTimer");
+			Stop_Timer2(obj,this,2);
 			Commands->Start_Timer(obj,this,attacktimer,2);
 		}
 	}
@@ -3630,6 +3666,7 @@ void JFW_Base_Defence_VTOL_Only_Swap::Enemy_Seen(GameObject *obj,GameObject *ene
 			params.AttackCheckBlocked = false;
 			Commands->Action_Attack(obj,params);
 			attacktimer = Get_Float_Parameter("AttackTimer");
+			Stop_Timer2(obj,this,2);
 			Commands->Start_Timer(obj,this,attacktimer,2);
 		}
 	}
@@ -3721,6 +3758,7 @@ void JFW_Base_Defence_Animated_No_VTOL_Swap::Enemy_Seen(GameObject *obj,GameObje
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -3784,6 +3822,7 @@ void JFW_Base_Defence_Animated_VTOL_Only_Swap::Enemy_Seen(GameObject *obj,GameOb
 			popup = true;
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -3846,6 +3885,7 @@ void JFW_Base_Defence_Animated_Sound_Swap::Enemy_Seen(GameObject *obj,GameObject
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 		Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 		Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+		Stop_Timer2(obj,this,1);
 		Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 	}
 	else if (attack)
@@ -3909,6 +3949,7 @@ void JFW_Base_Defence_Animated_Sound_No_Aircraft_Swap::Enemy_Seen(GameObject *ob
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -3973,6 +4014,7 @@ void JFW_Base_Defence_Animated_Sound_Aircraft_Only_Swap::Enemy_Seen(GameObject *
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -4037,6 +4079,7 @@ void JFW_Base_Defence_Animated_Sound_No_VTOL_Swap::Enemy_Seen(GameObject *obj,Ga
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)
@@ -4101,6 +4144,7 @@ void JFW_Base_Defence_Animated_Sound_VTOL_Only_Swap::Enemy_Seen(GameObject *obj,
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("PopupTime"),2);
 			Commands->Set_Animation(obj,Get_Parameter("Animation"),false,0,0,Get_Float_Parameter("LastFrame"),false);
 			Commands->Create_Sound(Get_Parameter("Sound"),Commands->Get_Position(enemy),obj);
+			Stop_Timer2(obj,this,1);
 			Commands->Start_Timer(obj,this,Get_Float_Parameter("AttackTimer"),1);
 		}
 		else if (attack)

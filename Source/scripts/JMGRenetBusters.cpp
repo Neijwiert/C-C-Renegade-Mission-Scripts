@@ -59,12 +59,6 @@ void JMG_Create_Ship_On_Poke::Poked(GameObject *obj,GameObject *poker)
 		Commands->Start_Timer(obj,this,0.15f,6546587);
 	}
 }
-/*void JMG_Create_Ship_On_Poke::Custom(GameObject *obj,int message,int param,GameObject *sender)
-{
-	if (message == 54231684)
-	{
-	}
-}*/
 void JMG_Create_Ship_On_Poke::Timer_Expired(GameObject *obj,int number)
 {
 	if (number == 6546585)
@@ -223,7 +217,7 @@ void JMG_Random_Music::Timer_Expired(GameObject *obj,int number)
 				int tempsongnumber = Commands->Get_Random_Int(0,2);
 				if (tempsongnumber == 1)
 				{
-					int tempsongnumber = Commands->Get_Random_Int(0,2);
+					tempsongnumber = Commands->Get_Random_Int(0,2);
 					if (tempsongnumber == 1)
 					{
 						tempsongnumber = 2;
@@ -442,17 +436,6 @@ void JMG_Ship_Shield_Control_Script::Killed(GameObject *obj, GameObject *damager
 		Console_Input(Text);
 	}
 }
-/*void JMG_Ship_Shield_Control_Script::Timer_Expired(GameObject *obj,int number)
-{
-	if (number == 543424421)
-	{
-		ison = 0;
-	}
-	if (number == 543424420)
-	{
-		ison = 1;
-	}
-}*/
 void JMG_Kill_Self_And_Sender_On_Custom_Ship::Created(GameObject *obj)
 {
 	canbekilled = 1;
@@ -683,17 +666,17 @@ void JMG_CMTB_Main_Game_Control::Created(GameObject *obj)
 {
 	MoonHolderID = 0;
 	PlayerSOSBeaconDealy = 0;
-	PlayerSOSBeaconID = 0;
-	DroneSwarmCount = 0;
+	JMG_CMTB_Main_Game_Control::PlayerSOSBeaconID = 0;
+	JMG_CMTB_Main_Game_Control::DroneSwarmCount = 0;
 	CurrentMusic = MusicNone;
 	BabySit = 20;
 	Commands->Start_Timer(obj,this,5.0,5438);
 	UFOSpawnTime = Commands->Get_Random_Int(600,1800);
 	AddPerkTypes();
 	RenCometBustersScoreControl.Cleanup();
-	RenCometBustersScoreControl.LoadData();
+	RenCometBustersScoreControl.LoadData(1);
 	PlayerPerkSystemControl.LoadData();
-	CMTBLevel = 0;
+	JMG_CMTB_Main_Game_Control::CMTBLevel = 0;
 	NextLevelDelay = -1;
 	LastPlayerCount = 0;
 	LastCometCount = -1;
@@ -705,6 +688,9 @@ void JMG_CMTB_Main_Game_Control::Created(GameObject *obj)
 		char Spot[32];
 		sprintf(Spot,"SpecSpot0%d",x);
 		MiniGamePlayerControlSystem[x].SpectatorObject = Commands->Create_Object_At_Bone(obj,"Spectator_Vehicle",Spot);
+		Commands->Attach_Script(MiniGamePlayerControlSystem[x].SpectatorObject,"JMG_CMTB_Vehicle_Face_Turret","");
+		MiniGamePlayerControlSystem[x].specCreateSpot = Commands->Get_Position(MiniGamePlayerControlSystem[x].SpectatorObject);
+		MiniGamePlayerControlSystem[x].SpectatorObject->As_PhysicalGameObj()->Peek_Physical_Object()->Set_Collision_Group(TERRAIN_ONLY_COLLISION_GROUP);
 		Set_Max_Shield_Strength(MiniGamePlayerControlSystem[x].SpectatorObject,8.0f);
 		sprintf(params,"%d,%d",Commands->Get_ID(obj),x);
 		Commands->Attach_Script(MiniGamePlayerControlSystem[x].SpectatorObject,"JMG_CMTB_Spectator_Object",params);
@@ -759,12 +745,13 @@ void JMG_CMTB_Main_Game_Control::Custom(GameObject *obj,int message,int param,Ga
 			}
 			return;
 		}
+		JMG_CMTB_Main_Game_Control::GameInProgress = true;
 		MaxPlayerCount = 0;
 		PlayerSOSBeaconDealy = 0;
-		if (PlayerSOSBeaconID)
+		if (JMG_CMTB_Main_Game_Control::PlayerSOSBeaconID)
 		{
-			Commands->Destroy_Object(Commands->Find_Object(PlayerSOSBeaconID));
-			PlayerSOSBeaconID = 0;
+			Commands->Destroy_Object(Commands->Find_Object(JMG_CMTB_Main_Game_Control::PlayerSOSBeaconID));
+			JMG_CMTB_Main_Game_Control::PlayerSOSBeaconID = 0;
 		}
 		for (int x = 0;x < MaxGamePlayerCount;x++)
 		{
@@ -795,10 +782,9 @@ void JMG_CMTB_Main_Game_Control::Custom(GameObject *obj,int message,int param,Ga
 		if (moonHolder)
 			Commands->Destroy_Object(moonHolder);
 		RenCometBustersList.ClearAllObjects();
-		CMTBLevel = 0;
+		JMG_CMTB_Main_Game_Control::CMTBLevel = 0;
 		NextLevelDelay = 0;
 		UFOSpawnTime = Commands->Get_Random_Int(600,1800);
-		GAMEINPROGRESS = true;
 	}
 	if (message == 57448)
 	{
@@ -841,15 +827,15 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 {
 	if (number == 5435)
 	{
-		if (!PlayerSOSBeaconDealy && PlayerSOSBeaconID)
+		if (!PlayerSOSBeaconDealy && JMG_CMTB_Main_Game_Control::PlayerSOSBeaconID)
 			PlayerSOSBeaconDealy = 140;
 		if (PlayerSOSBeaconDealy)
 		{
 			PlayerSOSBeaconDealy--;
 			if (!PlayerSOSBeaconDealy)
 			{
-				Commands->Destroy_Object(Commands->Find_Object(PlayerSOSBeaconID));
-				PlayerSOSBeaconID = 0;
+				Commands->Destroy_Object(Commands->Find_Object(JMG_CMTB_Main_Game_Control::PlayerSOSBeaconID));
+				JMG_CMTB_Main_Game_Control::PlayerSOSBeaconID = 0;
 			}
 		}
 		for (int x = 0;x < MaxGamePlayerCount;x++)
@@ -887,11 +873,11 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 						switch (MiniGamePlayerControlSystem[x].SelectedPerk)
 						{
 						case 1:
-							if (CMTBLevel == 1 || !(CMTBLevel%25))
+							if (JMG_CMTB_Main_Game_Control::CMTBLevel == 1 || !(JMG_CMTB_Main_Game_Control::CMTBLevel%25))
 								Commands->Send_Custom_Event(obj,MiniGamePlayerControlSystem[x].PlayerShip,CMTBPowerUpCustomMessage+5,-1337,0);
 							break;
 						case 2:
-							if (CMTBLevel == 1)
+							if (JMG_CMTB_Main_Game_Control::CMTBLevel == 1)
 								Commands->Send_Custom_Event(obj,MiniGamePlayerControlSystem[x].PlayerShip,CMTBPowerUpCustomMessage+14,-1337,0);
 							break;
 						case 3:
@@ -908,9 +894,9 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 							break;
 						}
 					}
-					if (!(CMTBLevel % 6))
+					if (!(JMG_CMTB_Main_Game_Control::CMTBLevel % 6))
 					{
-						unsigned int Count = (int)(CMTBLevel * 0.5);
+						unsigned int Count = (int)(JMG_CMTB_Main_Game_Control::CMTBLevel * 0.5);
 						for (unsigned int x = 0;x < Count;x++)
 						{//Drones
 							GameObject *Comet = Commands->Create_Object("CMTB_Drone",Random_Map_Position());
@@ -922,16 +908,16 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 					}
 					else
 					{
-						unsigned int Count = CMTBLevel;
-						if (!(CMTBLevel % 25))
-							Count = CMTBLevel/4;
-						else if (!(CMTBLevel % 10))
-							Count = CMTBLevel/3;
+						unsigned int Count = JMG_CMTB_Main_Game_Control::CMTBLevel;
+						if (!(JMG_CMTB_Main_Game_Control::CMTBLevel % 25))
+							Count = JMG_CMTB_Main_Game_Control::CMTBLevel/4;
+						else if (!(JMG_CMTB_Main_Game_Control::CMTBLevel % 10))
+							Count = JMG_CMTB_Main_Game_Control::CMTBLevel/3;
 						for (unsigned int x = 0;x < Count;x++)
 						{//Comet2
-							GameObject *Comet = Commands->Create_Object(((CMTBLevel % 10) ? "Comet2" : "CMTB_UFO"),Random_Map_Position());
+							GameObject *Comet = Commands->Create_Object(((JMG_CMTB_Main_Game_Control::CMTBLevel % 10) ? "Comet2" : "CMTB_UFO"),Random_Map_Position());
 							Commands->Set_Facing(Comet,Commands->Get_Random(-180.0f,180.0f));
-							if (CMTBLevel % 10)
+							if (JMG_CMTB_Main_Game_Control::CMTBLevel % 10)
 							{
 								char params[512];
 								sprintf(params,"2,%.3f %.3f %.3f",Commands->Get_Position(Comet).X+(Commands->Get_Random(0.0,1.0f) < 0.5 ? 1 : -1)*Commands->Get_Random(15,25),(Commands->Get_Random(0.0,1.0f) < 0.5 ? 1 : -1)*Commands->Get_Position(Comet).Y+Commands->Get_Random(15,25),Commands->Get_Position(Comet).Z);
@@ -944,7 +930,7 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 								Commands->Set_Position(Comet,Random_Map_Position());
 						}
 					}
-					if (!(CMTBLevel % 25))
+					if (!(JMG_CMTB_Main_Game_Control::CMTBLevel % 25))
 					{
 						GameObject *moonHolder = Commands->Create_Object("Daves Arrow",Vector3(0.0f,-50.0f,0.0f));
 						Commands->Set_Model(moonHolder,"TheMoon!ANIM");
@@ -955,7 +941,7 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 						Set_Max_Health(Moon,200.0f*MaxPlayerCount);
 						Commands->Set_Health(Moon,200.0f*MaxPlayerCount);
 					}
-					if (!(CMTBLevel % 15))
+					if (!(JMG_CMTB_Main_Game_Control::CMTBLevel % 15))
 					{
 						GameObject *Ship = Commands->Create_Object("CMTB_Cargo_Ship",Vector3(0.0f,0.0f,1.481f));
 						Commands->Attach_Script(Ship,"JMG_CMTB_Cargo_Ship_Script","-1");
@@ -966,8 +952,8 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 			}
 			else if (RenCometBustersList.CheckIfLevelComplete())
 			{
-				CMTBLevel++;
-				if (CMTBLevel == 11)
+				JMG_CMTB_Main_Game_Control::CMTBLevel++;
+				if (JMG_CMTB_Main_Game_Control::CMTBLevel == 11)
 				{
 					for (int x = 0;x < MaxGamePlayerCount;x++)
 					{
@@ -980,7 +966,7 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 					}
 				}
 				LastCometCount = -1;
-				if (CMTBLevel == 1)
+				if (JMG_CMTB_Main_Game_Control::CMTBLevel == 1)
 					for (int x = 0;x < MaxGamePlayerCount;x++)
 					{
 						MiniGamePlayerControlSystem[x].NumberOfLives = 0;
@@ -993,21 +979,21 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 						MiniGamePlayerControlSystem[x].RespawnTime = 0;
 					}
 				char LevelString[32];
-				sprintf(LevelString,"***********Level %d***********",CMTBLevel);
+				sprintf(LevelString,"***********Level %d***********",JMG_CMTB_Main_Game_Control::CMTBLevel);
 				for (int x = 1;x < 128;x++)
 				{
 					GameObject *Player = Get_GameObj(x);
 					if (!Player)
 						continue;
 					JmgUtility::DisplayChatMessage(Player,6,145,148,LevelString);
-					sprintf_s(LevelString,"Level %d",CMTBLevel);
+					sprintf_s(LevelString,"Level %d",JMG_CMTB_Main_Game_Control::CMTBLevel);
 					Set_HUD_Help_Text_Player_Text(Player,7233,LevelString,Vector3(0.19599999f,1.0f,0.19599999f));
-					if ((CMTBLevel-1) % 10 && (CMTBLevel-1) % 25)
+					if ((JMG_CMTB_Main_Game_Control::CMTBLevel-1) % 10 && (JMG_CMTB_Main_Game_Control::CMTBLevel-1) % 25)
 						Create_2D_Sound_Player(Player,"SFX.Bonus_Mission_Update");
 					else
 						Create_2D_Sound_Player(Player,"SFX.Primary_Mission_Update");
 				}
-				if (CMTBLevel % 10 && CMTBLevel % 25)
+				if (JMG_CMTB_Main_Game_Control::CMTBLevel % 10 && JMG_CMTB_Main_Game_Control::CMTBLevel % 25)
 				{
 					if (CurrentMusic != MusicNormal)
 					{
@@ -1041,6 +1027,7 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 			LastPlayerCount = ContinueGame;
 			if (!ContinueGame)
 			{
+				JMG_CMTB_Main_Game_Control::GameInProgress = false;
 				bool teamHasPerks = false;
 				for (int x = 0;x < MaxGamePlayerCount;x++)
 					if (MiniGamePlayerControlSystem[x].SelectedPerk)
@@ -1048,7 +1035,6 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 						teamHasPerks = true;
 						break;
 					}
-				GAMEINPROGRESS = false;
 				for (int x = 0;x < MaxGamePlayerCount;x++)
 				{
 					MiniGamePlayerControlSystem[x].RespawnTime = 30;
@@ -1109,52 +1095,52 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 					if (MaxPlayerCount > 1)
 						if (teamHasPerks)
 						{
-							if (TempNode->TeamHighestLevel < CMTBLevel)
+							if (TempNode->TeamHighestLevel < JMG_CMTB_Main_Game_Control::CMTBLevel)
 							{
 								Create_2D_Sound_Player(Player,"SFX.Primary_Mission_Complete");
-								sprintf(ScoreMessage,"You scored %.2f points and through teamwork made it to a new high level as a team: Level %d while using perks!",MiniGamePlayerControlSystem[x].Score,CMTBLevel);
-								TempNode->TeamHighestLevel = CMTBLevel;
-								PerkSystemIncreasePlayerPerkUnlockAmount(Player,61,CMTBLevel);
+								sprintf(ScoreMessage,"You scored %.2f points and through teamwork made it to a new high level as a team: Level %d while using perks!",MiniGamePlayerControlSystem[x].Score,JMG_CMTB_Main_Game_Control::CMTBLevel);
+								TempNode->TeamHighestLevel = JMG_CMTB_Main_Game_Control::CMTBLevel;
+								PerkSystemIncreasePlayerPerkUnlockAmount(Player,61,JMG_CMTB_Main_Game_Control::CMTBLevel);
 							}
 							else
-								sprintf(ScoreMessage,"You scored %.2f points and through teamwork made it to Level %d while using perks!",MiniGamePlayerControlSystem[x].Score,CMTBLevel);
+								sprintf(ScoreMessage,"You scored %.2f points and through teamwork made it to Level %d while using perks!",MiniGamePlayerControlSystem[x].Score,JMG_CMTB_Main_Game_Control::CMTBLevel);
 						}
 						else
 						{
-							if (TempNode->HighestCleanTeamLevel < CMTBLevel)
+							if (TempNode->HighestCleanTeamLevel < JMG_CMTB_Main_Game_Control::CMTBLevel)
 							{
 								Create_2D_Sound_Player(Player,"SFX.Primary_Mission_Complete");
-								sprintf(ScoreMessage,"You scored %.2f points and through teamwork made it to a new high level as a team: Level %d!",MiniGamePlayerControlSystem[x].Score,CMTBLevel);
-								TempNode->HighestCleanTeamLevel = CMTBLevel;
-								PerkSystemIncreasePlayerPerkUnlockAmount(Player,61,CMTBLevel);
+								sprintf(ScoreMessage,"You scored %.2f points and through teamwork made it to a new high level as a team: Level %d!",MiniGamePlayerControlSystem[x].Score,JMG_CMTB_Main_Game_Control::CMTBLevel);
+								TempNode->HighestCleanTeamLevel = JMG_CMTB_Main_Game_Control::CMTBLevel;
+								PerkSystemIncreasePlayerPerkUnlockAmount(Player,61,JMG_CMTB_Main_Game_Control::CMTBLevel);
 							}
 							else
-								sprintf(ScoreMessage,"You scored %.2f points and through teamwork made it to Level %d!",MiniGamePlayerControlSystem[x].Score,CMTBLevel);
+								sprintf(ScoreMessage,"You scored %.2f points and through teamwork made it to Level %d!",MiniGamePlayerControlSystem[x].Score,JMG_CMTB_Main_Game_Control::CMTBLevel);
 						}
 					else
 						if (teamHasPerks)
 						{
-							if (TempNode->HighestLevel < CMTBLevel)
+							if (TempNode->HighestLevel < JMG_CMTB_Main_Game_Control::CMTBLevel)
 							{
 								Create_2D_Sound_Player(Player,"SFX.Primary_Mission_Complete");
-								sprintf(ScoreMessage,"You scored %.2f points and made it to a new personal highest level: Level %d while using perks!",MiniGamePlayerControlSystem[x].Score,CMTBLevel);
-								TempNode->HighestLevel = CMTBLevel;
-								PerkSystemIncreasePlayerPerkUnlockAmount(Player,61,CMTBLevel);
+								sprintf(ScoreMessage,"You scored %.2f points and made it to a new personal highest level: Level %d while using perks!",MiniGamePlayerControlSystem[x].Score,JMG_CMTB_Main_Game_Control::CMTBLevel);
+								TempNode->HighestLevel = JMG_CMTB_Main_Game_Control::CMTBLevel;
+								PerkSystemIncreasePlayerPerkUnlockAmount(Player,61,JMG_CMTB_Main_Game_Control::CMTBLevel);
 							}
 							else
 								sprintf(ScoreMessage,"You scored %.2f points and made it to level %d while using perks!",MiniGamePlayerControlSystem[x].Score,MiniGamePlayerControlSystem[x].HighestLevel);
 						}
 						else
 						{
-							if (TempNode->HighestCleanLevel < CMTBLevel)
+							if (TempNode->HighestCleanLevel < JMG_CMTB_Main_Game_Control::CMTBLevel)
 							{
 								Create_2D_Sound_Player(Player,"SFX.Primary_Mission_Complete");
-								sprintf(ScoreMessage,"You scored %.2f points and made it to a new personal highest level: Level %d!",MiniGamePlayerControlSystem[x].Score,CMTBLevel);
-								TempNode->HighestCleanLevel = CMTBLevel;
-								PerkSystemIncreasePlayerPerkUnlockAmount(Player,61,CMTBLevel);
+								sprintf(ScoreMessage,"You scored %.2f points and made it to a new personal highest level: Level %d!",MiniGamePlayerControlSystem[x].Score,JMG_CMTB_Main_Game_Control::CMTBLevel);
+								TempNode->HighestCleanLevel = JMG_CMTB_Main_Game_Control::CMTBLevel;
+								PerkSystemIncreasePlayerPerkUnlockAmount(Player,61,JMG_CMTB_Main_Game_Control::CMTBLevel);
 							}
 							else
-								sprintf(ScoreMessage,"You scored %.2f points and made it to level %d",MiniGamePlayerControlSystem[x].Score,CMTBLevel);
+								sprintf(ScoreMessage,"You scored %.2f points and made it to level %d",MiniGamePlayerControlSystem[x].Score,JMG_CMTB_Main_Game_Control::CMTBLevel);
 						}
 					JmgUtility::DisplayChatMessage(Player,6,145,148,ScoreMessage);
 					MiniGamePlayerControlSystem[x].Score = 0;
@@ -1172,6 +1158,8 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 						JmgUtility::DisplayChatMessage(Player,6,145,148,"Game Over!");
 					Set_HUD_Help_Text_Player_Text(Player,7233,"Game Over!",Vector3(0.19599999f,1.0f,0.19599999f));
 				}
+				for (int x = 0;x < MaxGamePlayerCount;x++)
+					MiniGamePlayerControlSystem[x].endGamePadding = 3;
 				CurrentMusic = MusicGameOver;
 				FadeMusic("Thunder.mp3");
 				NextLevelDelay = -1;
@@ -1219,9 +1207,8 @@ void JMG_CMTB_Main_Game_Control::Timer_Expired(GameObject *obj,int number)
 		Commands->Start_Timer(obj,this,0.1f,5434);
 	}
 	if (number == 5436)
-	{
+	{//OutOfBoundsObjectsCheck
 		Vector3 Pos = Commands->Get_Position(obj);
-OutOfBoundsObjectsCheck:
 		AnObject *Current = RenCometBustersList.ObjectsList;
 		while(Current)
 		{
@@ -1230,7 +1217,6 @@ OutOfBoundsObjectsCheck:
 				{
 					Current->AllowReplaceTime = 1;
 					Commands->Apply_Damage(Current->Object,9999.9f,"BlamoKiller",obj);
-					goto OutOfBoundsObjectsCheck;
 				}
 			Current = Current->next;
 		}
@@ -1287,23 +1273,15 @@ OutOfBoundsObjectsCheck:
 }
 void JMG_CMTB_Main_Game_Control::Destroyed(GameObject *obj)
 {
-	CMTBLevel = 0;
+	JMG_CMTB_Main_Game_Control::CMTBLevel = 0;
 	RenCometBustersScoreControl.Cleanup();
 	RenCometBustersList.ClearAllObjects();
 	PlayerPerkSystemControl.ClearPerksList();
 	PerkTypeSystem.Clean_Up();
 }
 void JMG_CMTB_Main_Game_Control::Create_Player_Ship(GameObject *obj,int PlayerNumber)
-{//TODO Reenable if not working correctly
-	/*if (!MiniGamePlayerControlSystem[PlayerNumber].GamePlayerID)
-		return;*/
+{
 	GameObject *Player = Commands->Find_Object(MiniGamePlayerControlSystem[PlayerNumber].GamePlayerID);
-	/*if (!Player)
-	{
-		MiniGamePlayerControlSystem[PlayerNumber].GamePlayerID = 0;
-		MiniGamePlayerControlSystem[PlayerNumber].PlayerID = 0;
-		return;
-	}*/
 	if (MiniGamePlayerControlSystem[PlayerNumber].RespawnTime > 30 && Player)
 		MiniGamePlayerControlSystem[PlayerNumber].RespawnTime = 30;
 	if (abs(MiniGamePlayerControlSystem[PlayerNumber].LastNewLifeScore-MiniGamePlayerControlSystem[PlayerNumber].Score) > 100000.0f)
@@ -1417,7 +1395,7 @@ void JMG_CMTB_Main_Game_Control::Create_Player_Ship(GameObject *obj,int PlayerNu
 		if (Player)
 		{
 			Commands->Set_Position(Player,Commands->Get_Position(MiniGamePlayerControlSystem[PlayerNumber].SpectatorObject));
-			Soldier_Transition_Vehicle(Player);
+			Force_Vehicle_Entry(Player,MiniGamePlayerControlSystem[PlayerNumber].SpectatorObject);
 			Force_Camera_Look_Player(Player,MiniGamePlayerControlSystem[PlayerNumber].DeathLocation);
 		}
 		DisableGun(Player);
@@ -1480,13 +1458,13 @@ void JMG_CMTB_UFO_Random_Fire_Control::Timer_Expired(GameObject *obj,int number)
 			RenCometBustersList += TypeObject(obj,9.0f,3.0f,UFO);
 		Commands->Set_Model(obj,"UFO");
 		Commands->Set_Animation(obj,"UFO.UFO",true,0,0,-1,true);
-		Commands->Start_Timer(obj,this,Commands->Get_Random(0.25,1.25),5434);
+		Commands->Start_Timer(obj,this,Commands->Get_Random(0.25,1.25)*JMG_CMTB_Main_Game_Control::DifficultyMultiplierInv,5434);
 	}
 	if (number == 5434)
 	{
 		Set_Current_Bullets(obj,1);
 		Set_Current_Clip_Bullets(obj,Commands->Get_Random_Int(0,3));
-		Commands->Start_Timer(obj,this,Commands->Get_Random(0.25,1.25),5434);
+		Commands->Start_Timer(obj,this,Commands->Get_Random(0.25,1.25)*JMG_CMTB_Main_Game_Control::DifficultyMultiplierInv,5434);
 	}
 	if (number == 5435)
 	{
@@ -1505,7 +1483,7 @@ void JMG_CMTB_UFO_Random_Fire_Control::Timer_Expired(GameObject *obj,int number)
 void JMG_CMTB_UFO_Random_Fire_Control::Killed(GameObject *obj, GameObject *damager)
 {
 	if (!(Get_Int_Parameter("UFOBoss") && RenCometBustersList.CountType(UFOBoss) == 1))
-		if (Commands->Get_Random_Int(0,100) < 20+(CMTBLevel*0.2))// was originally 0.1 and 10
+		if (Commands->Get_Random_Int(0,100) < 20+(JMG_CMTB_Main_Game_Control::CMTBLevel*0.2))// was originally 0.1 and 10
 			JMG_CMTB_Random_Ship_Powerup(Commands->Get_Position(obj));
 	RenCometBustersList.GrantScoreToKiller(damager,250.0f,UFO);
 }
@@ -1624,9 +1602,9 @@ void JMG_CMTB_Ship_Control_Script::Custom(GameObject *obj,int message,int param,
 						return;
 					char playermsg[256];
 					sprintf(playermsg,"%s forfeited %s lives!",Get_Player_Name(theplayer),(JmgUtility::JMG_Get_Sex(theplayer) == 'A' ? "his" : "her"));
-					for (int x = 1;x < 128;x++)
+					for (int y = 1;y < 128;y++)
 					{
-						GameObject *Player = Get_GameObj(x);
+						GameObject *Player = Get_GameObj(y);
 						if (!Player)
 							continue;	
 						JmgUtility::DisplayChatMessage(Player,200,125,125,playermsg);
@@ -1994,13 +1972,13 @@ SHIPFAILEDTOGETPOWERUP:
 			Create_2D_Sound_Player(sender,"SFX.Comet_Busters_UI_Failed_Sound");
 			return;
 		}
-		if (PlayerSOSBeaconID)
+		if (JMG_CMTB_Main_Game_Control::PlayerSOSBeaconID)
 		{
 			JmgUtility::DisplayChatMessage(sender,200,200,125,"Sorry, there is already a SOS Beacon deployed, please wait for it to burn out before deploying another!");
 			Create_2D_Sound_Player(sender,"SFX.Comet_Busters_UI_Failed_Sound");
 			return;
 		}
-		if (!(CMTBLevel % 25))
+		if (!(JMG_CMTB_Main_Game_Control::CMTBLevel % 25))
 		{
 			JmgUtility::DisplayChatMessage(sender,200,200,125,"Due to sensor interference, it would do no good to deploy a beacon on this level!");
 			Create_2D_Sound_Player(sender,"SFX.Comet_Busters_UI_Failed_Sound");
@@ -2038,7 +2016,7 @@ SHIPFAILEDTOGETPOWERUP:
 		ShipTargetPos.Z = 1.481f;
 		GameObject *ShipBeacon = Commands->Create_Object("Daves Arrow",ShipTargetPos);
 		Commands->Set_Model(ShipBeacon,"SOS_Beacon");
-		PlayerSOSBeaconID = Commands->Get_ID(ShipBeacon);
+		JMG_CMTB_Main_Game_Control::PlayerSOSBeaconID = Commands->Get_ID(ShipBeacon);
 
 		GameObject *Ship = Commands->Create_Object("CMTB_Cargo_Ship",ShipTargetPos);
 		Commands->Attach_Script(Ship,"JMG_CMTB_Cargo_Ship_Script",Params);
@@ -2072,14 +2050,6 @@ SHIPFAILEDTOGETPOWERUP:
 					sprintf(params,"%d,100,1,1",x);
 					GameObject *Drone = Commands->Create_Object("CMTB_Player_Attack_Drone",Random_Map_Position());
 					Commands->Attach_Script(Drone,"JMG_CMTB_Player_Drone",params);
-					/*for (int j = 0;j < 8;j++)
-						for (int y = 0;y < 2;y++)
-						{
-							char params[32];
-							sprintf(params,"%d",j);
-							GameObject *Drone = Commands->Create_Object("CMTB_Player_Attack_Drone",Random_Map_Position());
-							Commands->Attach_Script(Drone,"JMG_CMTB_Player_Drone",params);
-						}*/
 				}
 				else
 				{
@@ -2092,7 +2062,7 @@ SHIPFAILEDTOGETPOWERUP:
 	}
 	if (message == 77454833)
 	{
-		if (DroneSwarmCount > 2)
+		if (JMG_CMTB_Main_Game_Control::DroneSwarmCount > 2)
 		{
 			JmgUtility::DisplayChatMessage(sender,200,200,125,"Sorry, a drone swarm is already present in this sector!");
 			Create_2D_Sound_Player(sender,"SFX.Comet_Busters_UI_Failed_Sound");
@@ -2451,7 +2421,6 @@ void JMG_CMTB_Ship_Control_Script::Damaged(GameObject *obj,GameObject *damager,f
 {
 	if (!damage && damager == Get_Vehicle_Driver(obj) && !ChangingWeapons)
 	{
-		//Set_Current_Bullets(obj,Get_Current_Bullets(obj)+1);
 		if (!OverPoweredWeapons)
 		{
 			if (Get_Current_Total_Bullets(obj) < (ExtraShotActive ? 5 : 4))
@@ -2460,11 +2429,6 @@ void JMG_CMTB_Ship_Control_Script::Damaged(GameObject *obj,GameObject *damager,f
 				else
 					Set_Current_Clip_Bullets(obj,Get_Current_Clip_Bullets(obj)+1);
 		}
-		/*else if (DrainPower(obj,4))
-		{
-			Set_Current_Bullets(obj,0);
-			Set_Current_Clip_Bullets(obj,0);
-		}*/
 		RenCometBustersScoreControl.Get_Current_Player_Score_Node(Get_Player_ID(Get_Vehicle_Driver(obj)))->RoundsFired++;
 	}
 	else if (!Commands->Is_A_Star(damager))
@@ -2499,7 +2463,7 @@ void JMG_CMTB_Ship_Control_Script::Destroyed(GameObject *obj)
 			MiniGamePlayerControlSystem[x].DeathLocation = Commands->Get_Position(obj);
 			MiniGamePlayerControlSystem[x].PlayerShip = NULL;
 			MiniGamePlayerControlSystem[x].ShipObject = NULL;
-			MiniGamePlayerControlSystem[x].HighestLevel = CMTBLevel;
+			MiniGamePlayerControlSystem[x].HighestLevel = JMG_CMTB_Main_Game_Control::CMTBLevel;
 			if (!MiniGamePlayerControlSystem[x].GamePlayerID)
 				continue;
 			GameObject *Player = Commands->Find_Object(MiniGamePlayerControlSystem[x].GamePlayerID);
@@ -2554,16 +2518,16 @@ void JMG_CMTB_Ship_Control_Script::Destroyed(GameObject *obj)
 				}
 				for (int y = 0;y < MaxGamePlayerCount;y++)
 				{
-					GameObject *Player = Commands->Find_Object(MiniGamePlayerControlSystem[y].GamePlayerID);
-					if (!Player)
+					GameObject *tempPlayer = Commands->Find_Object(MiniGamePlayerControlSystem[y].GamePlayerID);
+					if (!tempPlayer)
 						continue;
 					if (y == x)
-						JmgUtility::DisplayChatMessage(Player,125,200,200,"You are out of lives!");
+						JmgUtility::DisplayChatMessage(tempPlayer,125,200,200,"You are out of lives!");
 					else
 					{
 						char LifeMsg[220];
 						sprintf(LifeMsg,"Player %d (%s) is out of lives!",x,Get_Player_Name_By_ID(MiniGamePlayerControlSystem[x].PlayerID));
-						JmgUtility::DisplayChatMessage(Player,125,200,200,LifeMsg);
+						JmgUtility::DisplayChatMessage(tempPlayer,125,200,200,LifeMsg);
 					}
 				}
 			}
@@ -2646,10 +2610,10 @@ void JMG_CMTB_Comet_Script::Created(GameObject *obj)
 		sprintf(anim,"CometSpin%d.CometSpin%d",Random,Random);
 		Commands->Set_Animation(obj,anim,true,0,0,-1,true);
 	}
-	if (Commands->Get_Random(0.0f,1.0f) < 0.25f && CMTBLevel)
-		Set_Current_Clip_Bullets(obj,Commands->Get_Random_Int(0,CMTBLevel)+1);
+	if (Commands->Get_Random(0.0f,1.0f) < 0.25f && JMG_CMTB_Main_Game_Control::CMTBLevel)
+		Set_Current_Clip_Bullets(obj,max((int)((Commands->Get_Random_Int(0,JMG_CMTB_Main_Game_Control::CMTBLevel)+1)*JMG_CMTB_Main_Game_Control::DifficultyMultiplier),1));
 	else
-		Set_Current_Clip_Bullets(obj,CMTBLevel);
+		Set_Current_Clip_Bullets(obj,max((int)(JMG_CMTB_Main_Game_Control::CMTBLevel*JMG_CMTB_Main_Game_Control::DifficultyMultiplier),1));
 	Vector3 Position = Commands->Get_Position(obj);
 	Position.Z = 0.5;
 	GameObject *SPOT = Commands->Create_Object("Daves Arrow",Position);
@@ -2707,7 +2671,7 @@ void JMG_CMTB_Comet_Script::Destroyed(GameObject *obj)
 	RenCometBustersList -= obj;
 	if (!Get_Int_Parameter("Size"))
 	{
-		if (Commands->Get_Random_Int(0,100) < 10+(CMTBLevel*0.2))// was originally 0.1 and 8
+		if (Commands->Get_Random_Int(0,100) < 10+(JMG_CMTB_Main_Game_Control::CMTBLevel*0.2))// was originally 0.1 and 8
 			JMG_CMTB_Random_Ship_Powerup(Commands->Get_Position(obj));
 		return;
 	}
@@ -2727,7 +2691,7 @@ void JMG_CMTB_Comet_Script::Destroyed(GameObject *obj)
 		Number = 0;
 		break;
 	}
-	if (Get_Int_Parameter("Size") && CMTBLevel > 10 && Commands->Get_Random_Int(0,100) < (5.0f+CMTBLevel*0.1f))
+	if (Get_Int_Parameter("Size") && JMG_CMTB_Main_Game_Control::CMTBLevel > 10 && Commands->Get_Random_Int(0,100) < (5.0f+JMG_CMTB_Main_Game_Control::CMTBLevel*0.1f))
 	{
 		for (int x = 0;x < Get_Int_Parameter("Size")*2;x++)
 		{
@@ -2798,6 +2762,8 @@ void JMG_CMTB_Zone_Realign_Enter::Entered(GameObject *obj,GameObject *enter)
 }
 void JMG_CMTB_Spectator_Object::Created(GameObject *obj)
 {
+	machineNumber = Get_Int_Parameter("Number");
+	MiniGamePlayerControlSystem[machineNumber].endGamePadding = 0;
 	RequestLifeDelay = 30;
 	Commands->Start_Timer(obj,this,1.0f,5436);
 }
@@ -2805,11 +2771,11 @@ void JMG_CMTB_Spectator_Object::Timer_Expired(GameObject *obj,int number)
 {
 	if (number == 5436)
 	{
-		if (RequestLifeDelay && PlayerRequestingALife[Get_Int_Parameter("Number")])
+		if (RequestLifeDelay && PlayerRequestingALife[machineNumber])
 		{
-			GameObject *Player = Commands->Find_Object(MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].GamePlayerID);
+			GameObject *Player = Commands->Find_Object(MiniGamePlayerControlSystem[machineNumber].GamePlayerID);
 			if (!Player)
-				PlayerRequestingALife[Get_Int_Parameter("Number")] = false;
+				PlayerRequestingALife[machineNumber] = false;
 			else
 			{
 				RequestLifeDelay--;
@@ -2818,13 +2784,42 @@ void JMG_CMTB_Spectator_Object::Timer_Expired(GameObject *obj,int number)
 					RequestLifeDelay = 20;
 					for (int x = 0;x < MaxGamePlayerCount;x++)
 					{
-						GameObject *Player = Commands->Find_Object(MiniGamePlayerControlSystem[x].GamePlayerID);
-						if (Player && (MiniGamePlayerControlSystem[x].NumberOfLives && MiniGamePlayerControlSystem[x].PlayerShip) || (!MiniGamePlayerControlSystem[x].PlayerShip && MiniGamePlayerControlSystem[x].NumberOfLives > 1))
+						GameObject *TempPlayer = Commands->Find_Object(MiniGamePlayerControlSystem[x].GamePlayerID);
+						if (TempPlayer && (MiniGamePlayerControlSystem[x].NumberOfLives && MiniGamePlayerControlSystem[x].PlayerShip) || (!MiniGamePlayerControlSystem[x].PlayerShip && MiniGamePlayerControlSystem[x].NumberOfLives > 1))
 						{
 							char LifeMsg[220];
-							sprintf(LifeMsg,"%s is out of lives, you can give them one of you own by pressing the ShipPlayer%d key!",Get_Player_Name_By_ID(MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].PlayerID),Get_Int_Parameter("Number"));
-							JmgUtility::DisplayChatMessage(Player,200,125,200,LifeMsg);
+							sprintf(LifeMsg,"%s is out of lives, you can give them one of you own by pressing the ShipPlayer%d key!",Get_Player_Name_By_ID(MiniGamePlayerControlSystem[machineNumber].PlayerID),machineNumber);
+							JmgUtility::DisplayChatMessage(TempPlayer,200,125,200,LifeMsg);
 						}
+					}
+				}
+			}
+		}
+		if (MiniGamePlayerControlSystem[machineNumber].endGamePadding)
+			MiniGamePlayerControlSystem[machineNumber].endGamePadding--;
+		if (!JMG_CMTB_Main_Game_Control::GameInProgress)
+		{
+			GameObject *player = Get_Vehicle_Driver(obj);
+			if (player)
+			{
+				bool readyPlayers = false;
+				for (int x = 0;x < MaxGamePlayerCount;x++)
+					if (MiniGamePlayerControlSystem[x].isReady)
+					{
+						readyPlayers = true;
+						break;
+					}
+				if (readyPlayers)
+				{
+					MiniGamePlayerControlSystem[machineNumber].kickoutOfSpecTime++;
+					if (!(MiniGamePlayerControlSystem[machineNumber].kickoutOfSpecTime % 10))
+						Set_HUD_Help_Text_Player_Text(player,7233,"Press spacebar to start the game!",Vector3(0.19599999f,1.0f,0.19599999f));
+					if (MiniGamePlayerControlSystem[machineNumber].kickoutOfSpecTime >= 54)
+					{
+						char kickoutMsg[220];
+						sprintf(kickoutMsg,"%s has been kicked out of the lobby!",Get_Player_Name(player));
+						JmgUtility::MessageAllPlayers(255,255,128,kickoutMsg);
+						Soldier_Transition_Vehicle(player);
 					}
 				}
 			}
@@ -2840,7 +2835,7 @@ void JMG_CMTB_Spectator_Object::Custom(GameObject *obj,int message,int param,Gam
 		JmgUtility::DisplayChatMessage(sender,200,200,125,"Spacebar - Vote to start game");
 		JmgUtility::DisplayChatMessage(sender,200,200,125,"Page Up - Request a life");
 		JmgUtility::DisplayChatMessage(sender,200,200,125,"E - Quit game.");
-		switch (MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].SelectedPerk)
+		switch (MiniGamePlayerControlSystem[machineNumber].SelectedPerk)
 		{
 		case 1:	JmgUtility::DisplayChatMessage(sender,200,200,125,"Selected Special Ability: Extra Life");break;
 		case 2: JmgUtility::DisplayChatMessage(sender,200,200,125,"Selected Special Ability: Hyperjump Powerup");break;
@@ -2865,30 +2860,31 @@ void JMG_CMTB_Spectator_Object::Custom(GameObject *obj,int message,int param,Gam
 				hasPerksToSelect = true;
 				break;
 			}
-		if (hasPerksToSelect && !MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].SecondSpace && !MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].SelectedPerk)
+		if (hasPerksToSelect && !MiniGamePlayerControlSystem[machineNumber].SecondSpace && !MiniGamePlayerControlSystem[machineNumber].SelectedPerk)
 		{
 			JmgUtility::DisplayChatMessage(sender,200,200,125,"You have special abilities that you could assign, or press space again to start the round:");
 			SpecialAbilitiesList(sender);
-			MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].SecondSpace = true;
+			MiniGamePlayerControlSystem[machineNumber].SecondSpace = true;
 			return;
 		}
-		MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].isReady = true;
+		MiniGamePlayerControlSystem[machineNumber].isReady = true;
 		Commands->Send_Custom_Event(Get_Vehicle_Driver(obj),Commands->Find_Object(Get_Int_Parameter("ControllerID")),57447,0,0);
 	}
 	if (message == CUSTOM_EVENT_VEHICLE_EXITED)
 	{
+		Commands->Set_Position(obj,MiniGamePlayerControlSystem[machineNumber].specCreateSpot);
+		Commands->Enable_Engine(obj,true);
 		Commands->Send_Custom_Event(obj,sender,90000029,1,0);
-		int MachineNumber = Get_Int_Parameter("Number");
-		if (!MiniGamePlayerControlSystem[MachineNumber].RespawnTime)
+		if (!MiniGamePlayerControlSystem[machineNumber].RespawnTime)
 			return;
-		Commands->Set_Position(sender,MiniGamePlayerControlSystem[MachineNumber].OriginalLocation);
-		Set_Skin(sender,MiniGamePlayerControlSystem[MachineNumber].OriginalSkin);
-		Commands->Set_Shield_Type(sender,MiniGamePlayerControlSystem[MachineNumber].OriginalArmor);
-		MiniGamePlayerControlSystem[MachineNumber].GamePlayerID = 0;
-		MiniGamePlayerControlSystem[MachineNumber].PlayerID = 0;
-		MiniGamePlayerControlSystem[MachineNumber].RespawnTime = 30;
-		GameObject *FakeSoldier = Commands->Find_Object(MiniGamePlayerControlSystem[MachineNumber].FakeSoldierID);
-		MiniGamePlayerControlSystem[MachineNumber].FakeSoldierID = 0;
+		Commands->Set_Position(sender,MiniGamePlayerControlSystem[machineNumber].OriginalLocation);
+		Set_Skin(sender,MiniGamePlayerControlSystem[machineNumber].OriginalSkin);
+		Commands->Set_Shield_Type(sender,MiniGamePlayerControlSystem[machineNumber].OriginalArmor);
+		MiniGamePlayerControlSystem[machineNumber].GamePlayerID = 0;
+		MiniGamePlayerControlSystem[machineNumber].PlayerID = 0;
+		MiniGamePlayerControlSystem[machineNumber].RespawnTime = 30;
+		GameObject *FakeSoldier = Commands->Find_Object(MiniGamePlayerControlSystem[machineNumber].FakeSoldierID);
+		MiniGamePlayerControlSystem[machineNumber].FakeSoldierID = 0;
 		if (!FakeSoldier)
 			return;
 		Commands->Set_Model(sender,Get_Model(FakeSoldier));
@@ -2899,28 +2895,30 @@ void JMG_CMTB_Spectator_Object::Custom(GameObject *obj,int message,int param,Gam
 	}
 	if (message == CUSTOM_EVENT_VEHICLE_ENTERED)
 	{
-		if (!GAMEINPROGRESS)
+		if (!JMG_CMTB_Main_Game_Control::GameInProgress)
 			ResetCurrentAbility(sender);
-		int MachineNumber = Get_Int_Parameter("Number");
-		if (MiniGamePlayerControlSystem[MachineNumber].RespawnTime > 30)
-			MiniGamePlayerControlSystem[MachineNumber].RespawnTime = 30;
+		if (MiniGamePlayerControlSystem[machineNumber].RespawnTime > 30)
+			MiniGamePlayerControlSystem[machineNumber].RespawnTime = 30;
+		MiniGamePlayerControlSystem[machineNumber].kickoutOfSpecTime = 0;
+		if (!JMG_CMTB_Main_Game_Control::GameInProgress)
+			if (!MiniGamePlayerControlSystem[machineNumber].endGamePadding)
+			Set_HUD_Help_Text_Player_Text(sender,7233,"Press spacebar to start the game!",Vector3(0.19599999f,1.0f,0.19599999f));
 	}
 	if (message == 77454817)
 	{
-		if (!GAMEINPROGRESS)
+		if (!JMG_CMTB_Main_Game_Control::GameInProgress)
 		{
 			JmgUtility::DisplayChatMessage(sender,200,125,200,"A game must be in progress in order to request lives!");
 			return;
 		}
-		int x = Get_Int_Parameter("Number");
-		if (MiniGamePlayerControlSystem[x].SpectatorObject == obj)
+		if (MiniGamePlayerControlSystem[machineNumber].SpectatorObject == obj)
 		{
-			if (PlayerRequestingALife[x])
+			if (PlayerRequestingALife[machineNumber])
 			{
 				JmgUtility::DisplayChatMessage(sender,200,125,200,"Your request for a life has been withdrawn!");
-				PlayerRequestingALife[x] = false;
+				PlayerRequestingALife[machineNumber] = false;
 			}
-			else if (!MiniGamePlayerControlSystem[x].NumberOfLives && !MiniGamePlayerControlSystem[x].PlayerShip)
+			else if (!MiniGamePlayerControlSystem[machineNumber].NumberOfLives && !MiniGamePlayerControlSystem[machineNumber].PlayerShip)
 			{
 				int AvailablePlayers = 0;
 				for (int y = 0;y < MaxGamePlayerCount;y++)
@@ -2929,7 +2927,7 @@ void JMG_CMTB_Spectator_Object::Custom(GameObject *obj,int message,int param,Gam
 				if (AvailablePlayers)
 				{
 					RequestLifeDelay = 5;
-					PlayerRequestingALife[x] = true;
+					PlayerRequestingALife[machineNumber] = true;
 					JmgUtility::DisplayChatMessage(sender,200,125,200,"Your request for a life has been dispatched to the other players in game!");
 				}
 				else
@@ -2941,7 +2939,7 @@ void JMG_CMTB_Spectator_Object::Custom(GameObject *obj,int message,int param,Gam
 	}
 	if (message >= 77454820 && message <= 77454829)
 	{
-		if (GAMEINPROGRESS)
+		if (JMG_CMTB_Main_Game_Control::GameInProgress)
 		{
 			JmgUtility::DisplayChatMessage(sender,200,200,125,"Sorry, you cannot change your special ability once the game is in progress.");
 			return;
@@ -2953,8 +2951,8 @@ void JMG_CMTB_Spectator_Object::Custom(GameObject *obj,int message,int param,Gam
 			JmgUtility::DisplayChatMessage(sender,200,200,125,"Sorry, you do not have that perk unlocked yet!");
 			return;
 		}
-		MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].SelectedPerk = selectedPerk;
-		switch (MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].SelectedPerk)
+		MiniGamePlayerControlSystem[machineNumber].SelectedPerk = selectedPerk;
+		switch (MiniGamePlayerControlSystem[machineNumber].SelectedPerk)
 		{
 		case 1:	JmgUtility::DisplayChatMessage(sender,200,200,125,"Selected Special Ability: Extra Life");break;
 		case 2: JmgUtility::DisplayChatMessage(sender,200,200,125,"Selected Special Ability: Hyperjump Powerup");break;
@@ -2992,10 +2990,10 @@ void JMG_CMTB_Spectator_Object::SpecialAbilitiesList(GameObject *player)
 }
 void JMG_CMTB_Spectator_Object::ResetCurrentAbility(GameObject *player)
 {
-	if (_stricmp(MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].PlayerName,Get_Player_Name(player)))
+	if (_stricmp(MiniGamePlayerControlSystem[machineNumber].PlayerName,Get_Player_Name(player)))
 	{
-		MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].SelectedPerk = 0;
-		sprintf(MiniGamePlayerControlSystem[Get_Int_Parameter("Number")].PlayerName,"%s",Get_Player_Name(player));
+		MiniGamePlayerControlSystem[machineNumber].SelectedPerk = 0;
+		sprintf(MiniGamePlayerControlSystem[machineNumber].PlayerName,"%s",Get_Player_Name(player));
 	}
 }
 void JMG_CMTB_Arcade_Machine::Created(GameObject *obj)
@@ -3110,7 +3108,7 @@ void JMG_CMTB_Motion_Mine::Created(GameObject *obj)
 	NewTarget = 0;
 	NewRandom = true;
 	ArriveDistance = 0;
-	Speed = 0.1f;
+	Speed = max(0.1f,0.1f*JMG_CMTB_Main_Game_Control::DifficultyMultiplierMine);
 	LastPosition = Commands->Get_Position(obj);
 	FollowObjectID = 0;
 	Commands->Set_Obj_Radar_Blip_Color(obj,RADAR_BLIP_COLOR_NOD);
@@ -3132,19 +3130,18 @@ void JMG_CMTB_Motion_Mine::Timer_Expired(GameObject *obj,int number)
 		if (JmgUtility::SimpleDistance(Pos,LastPosition) > 0.05)
 		{
 			StuckCount = 0;
-			Speed = Clamp_Value(Speed+0.05f,0.1f,1.25f+CMTBLevel*0.01f);
+			Speed = max(0.1f,Clamp_Value(Speed+0.05f*JMG_CMTB_Main_Game_Control::DifficultyMultiplierMine,0.1f,(1.25f+JMG_CMTB_Main_Game_Control::CMTBLevel*0.01f)*JMG_CMTB_Main_Game_Control::DifficultyMultiplierMine));
 		}
 		else
 		{
 			NewRandom = true;
-			Speed = 0.1f;
+			Speed = max(0.1f,0.1f*JMG_CMTB_Main_Game_Control::DifficultyMultiplierMine);
 			GameObject *FollowObject = Commands->Find_Object(FollowObjectID);
 			if (FollowObject)
 			{
 				StuckCount++;
 				if (!(StuckCount % 10))
 				{
-					Vector3 Pos = Commands->Get_Position(obj);
 					Pos.X += Commands->Get_Random(1.0f,5.0f)*(cos(Commands->Get_Random(-180.0f,180.0f)*3.14159265f/180));
 					Pos.Y += Commands->Get_Random(1.0f,5.0f)*(sin(Commands->Get_Random(-180.0f,180.0f)*3.14159265f/180));
 					Commands->Set_Position(obj,Pos);
@@ -3227,7 +3224,7 @@ void JMG_CMTB_Motion_Mine::Timer_Expired(GameObject *obj,int number)
 void JMG_CMTB_Motion_Mine::Killed(GameObject *obj, GameObject *damager)
 {
 	if (!(Get_Int_Parameter("Is_Boss") && RenCometBustersList.CountType(MineBoss) == 1))
-		if (Commands->Get_Random_Int(0,100) < 15+(CMTBLevel*0.2))// was 0.1 and 12
+		if (Commands->Get_Random_Int(0,100) < 15+(JMG_CMTB_Main_Game_Control::CMTBLevel*0.2))// was 0.1 and 12
 			JMG_CMTB_Random_Ship_Powerup(Commands->Get_Position(obj));
 	Commands->Create_Explosion("Explosion_Comet_Small",Commands->Get_Position(obj),0);
 	RenCometBustersList.GrantScoreToKiller(damager,200,Mine);
@@ -3291,7 +3288,7 @@ void JMG_CMTB_The_Moon_Script::Timer_Expired(GameObject *obj,int number)
 						break;
 					}
 			}
-		Commands->Start_Timer(obj,this,Commands->Get_Random(5.0f,8.75f),5437);
+		Commands->Start_Timer(obj,this,Commands->Get_Random(5.0f,8.75f)*JMG_CMTB_Main_Game_Control::DifficultyMultiplierInv,5437);
 	}
 }
 void JMG_CMTB_The_Moon_Script::Damaged(GameObject *obj,GameObject *damager,float damage)
@@ -3299,16 +3296,17 @@ void JMG_CMTB_The_Moon_Script::Damaged(GameObject *obj,GameObject *damager,float
 	if (!damager || damage <= 0 || obj == damager)
 		return;
 	lastHealth = Commands->Get_Health(obj);
-	if (Get_Player_Type(obj) == Get_Player_Type(damager))
+	int damagerId = Commands->Get_Preset_ID(damager);
+	if (damagerId != 1000000077 && damagerId != 1000000091 && damagerId != 1000000250 && !Commands->Is_A_Star(damager))
 		Commands->Apply_Damage(obj,-damage,"None",damager);
 }
 void JMG_CMTB_The_Moon_Script::Killed(GameObject *obj, GameObject *damager)
 {
-	if (damager || !GAMEINPROGRESS)//TODO remove this to remove end game lage blast
+	if (damager || !JMG_CMTB_Main_Game_Control::GameInProgress)//TODO remove this to remove end game lage blast
 	{
 		moonKilled = true;
 		Commands->Create_Explosion_At_Bone("Explosion_Moon",obj,"Scale",0);
-		int Number = (int)(CMTBLevel*0.2f);
+		int Number = (int)(JMG_CMTB_Main_Game_Control::CMTBLevel*0.2f);
 		char params[512];
 		sprintf(params,"%d,%.3f %.3f %.3f",3,Commands->Get_Position(obj).X,Commands->Get_Position(obj).Y,Commands->Get_Position(obj).Z);
 		for (int x = 0;x < Number;x++)
@@ -3328,7 +3326,7 @@ void JMG_CMTB_The_Moon_Script::Killed(GameObject *obj, GameObject *damager)
 }
 void JMG_CMTB_The_Moon_Script::Destroyed(GameObject *obj)
 {
-	if (!moonKilled && GAMEINPROGRESS)
+	if (!moonKilled && JMG_CMTB_Main_Game_Control::GameInProgress)
 	{
 		GameObject *moonHolder = Commands->Find_Object(JMG_CMTB_Main_Game_Control::MoonHolderID);
 		if (moonHolder)
@@ -3583,6 +3581,9 @@ void JMG_CMTB_Cargo_Ship_Script::Damaged(GameObject *obj,GameObject *damager,flo
 {
 	if (damage && damager && Commands->Get_Player_Type(obj) != Commands->Get_Player_Type(damager))
 	{
+		int presetId = Commands->Get_Preset_ID(damager);
+		if (presetId == 1000000074 || presetId == 1000000077)
+			return;
 		if (Commands->Is_A_Star(damager))
 			for (int x = 0;x < MaxGamePlayerCount;x++)
 			{
@@ -3616,9 +3617,9 @@ void JMG_CMTB_Cargo_Ship_Script::Damaged(GameObject *obj,GameObject *damager,flo
 					}
 					MiniGamePlayerControlSystem[x].CargoWarnedCount++;
 					if (MiniGamePlayerControlSystem[x].CargoWarnedCount > 5 || MiniGamePlayerControlSystem[x].CargoTotalWarnedCount > 2)
-						for (int x = 0;x < 6;x++)
+						for (int y = 0;y < 6;y++)
 						{
-							GameObject *SPOT = Commands->Find_Object(Turrets[x]);
+							GameObject *SPOT = Commands->Find_Object(Turrets[y]);
 							if (SPOT)
 								Commands->Send_Custom_Event(damager,SPOT,95959500,0,0);
 						}
@@ -3697,7 +3698,8 @@ void JMG_CMTB_Cargo_Ship_Turret::Created(GameObject *obj)
 }
 void JMG_CMTB_Cargo_Ship_Turret::Enemy_Seen(GameObject *obj,GameObject *seen)	
 {
-	if (HuntingPlayer || Commands->Is_A_Star(seen) || Get_Vehicle_Driver(seen) || Commands->Get_Preset_ID(seen) == PLAYERDRONE_ID)
+	int presetId = Commands->Get_Preset_ID(seen);
+	if (HuntingPlayer || Commands->Is_A_Star(seen) || Get_Vehicle_Driver(seen) || presetId == PLAYERDRONE_ID || presetId == 1000000074 || presetId == 1000000077)
 		return;
 	int TargetID = Commands->Get_ID(seen);
 	Vector3 TargetPos = Commands->Get_Position(seen);
@@ -3714,10 +3716,7 @@ void JMG_CMTB_Cargo_Ship_Turret::Enemy_Seen(GameObject *obj,GameObject *seen)
 		GiveUpTime = 30;
 		ReaimRequired = true;
 		EnemyID = TargetID;
-		NearestDistance = ShortDistance;/*
-		char msg[245];
-		sprintf(msg,"MESSAGE %s",Commands->Get_Preset_Name(seen));
-		Console_Input(msg);*/
+		NearestDistance = ShortDistance;
 	}
 }
 void JMG_CMTB_Cargo_Ship_Turret::Custom(GameObject *obj,int message,int param,GameObject *sender)
@@ -3785,8 +3784,8 @@ void JMG_CMTB_Cargo_Ship_Turret::Timer_Expired(GameObject *obj,int number)
 					Vector3 Movement = Vector3(LastPosition[0].X - LastPosition[1].X,LastPosition[0].Y - LastPosition[1].Y,0.0f);
 					Vector3 Movement2 = Vector3(LastPosition[1].X - LastPosition[2].X,LastPosition[1].Y - LastPosition[2].Y,0.0f);
 					Vector3 Acceleration = Vector3(SafeDiv(Movement.X,Movement2.X),SafeDiv(Movement.Y,Movement2.Y),0.0f);
-					TargetSpot.X += (/*Acceleration.X **/10.0f * Movement.X * TravelTime);
-					TargetSpot.Y += (/*Acceleration.Y **/10.0f * Movement.Y * TravelTime);
+					TargetSpot.X += (10.0f * Movement.X * TravelTime);
+					TargetSpot.Y += (10.0f * Movement.Y * TravelTime);
 					TargetSpot.Z = Commands->Get_Bone_Position(obj,"Barrel").Z;
 
 					ActionParamsStruct params;
@@ -3832,7 +3831,7 @@ bool JMG_CMTB_Cargo_Ship_Turret::CheckIfInTargetableRange(GameObject *obj,const 
 void JMG_CMTB_Player_Drone::Created(GameObject *obj)
 {
 	if (!Get_Int_Parameter("PlayerEscort"))
-		DroneSwarmCount++;
+		JMG_CMTB_Main_Game_Control::DroneSwarmCount++;
 	ShieldOverride = false;
 	SearchTimeDelay = 0;
 	TargetSize = 0.0f;
@@ -3985,15 +3984,15 @@ void JMG_CMTB_Player_Drone::Timer_Expired(GameObject *obj,int number)
 		}
 		Vector3 Pos = Commands->Get_Position(obj);
 		CurrentSpeed = JmgUtility::SimpleDistance(Pos,LastPosition);
-		float AvoidDistance = 0;
-		int ObjectID = RenCometBustersList.FindDroneAvoidObjectInRange(obj,&Pos,56.25f+CurrentSpeed,&AvoidDistance);
+		float AvoidanceDistance = 0;
+		int ObjectID = RenCometBustersList.FindDroneAvoidObjectInRange(obj,&Pos,56.25f+CurrentSpeed,&AvoidanceDistance);
 		if (ObjectID && !ShieldOverride)
 		{
 			if  (LastTargetID)
 				LastTargetID = 0;
 			ChangeState(DroneAvoiding);
 			AvoidObjectID = ObjectID;
-			if (AvoidDistance < 100*CurrentSpeed*0.5)
+			if (AvoidanceDistance < 100*CurrentSpeed*0.5)
 			{
 				if (MyObject->Type != PlayerDroneShield && Power)
 					ShieldOn(obj);
@@ -4050,12 +4049,6 @@ void JMG_CMTB_Player_Drone::Timer_Expired(GameObject *obj,int number)
 				Commands->Action_Reset(obj,100);
 			}
 		}
-		/*if (!Get_Current_Total_Bullets(obj))
-		{
-			Set_Current_Bullets(obj,2);
-			PrimaryFire = true;
-			Drone_Attack(obj);
-		}*/
 		AI_Update(obj);
 		if ((Commands->Get_Bone_Position(obj,"LWing").Z > Pos.Z || Commands->Get_Bone_Position(obj,"RWing").Z > Pos.Z) && !ShieldOverride)
 		{
@@ -4096,7 +4089,7 @@ void JMG_CMTB_Player_Drone::Killed(GameObject *obj, GameObject *damager)
 void JMG_CMTB_Player_Drone::Destroyed(GameObject *obj)
 {
 	if (!Get_Int_Parameter("PlayerEscort"))
-		DroneSwarmCount--;
+		JMG_CMTB_Main_Game_Control::DroneSwarmCount--;
 	MyObject = NULL;
 	RenCometBustersList -= obj;
 	for (int x = 0;x < 2;x++)
@@ -4163,8 +4156,6 @@ void JMG_CMTB_Player_Drone::AI_Update(GameObject *obj,bool Reset)
 		{
 			if (!SearchTimeDelay)
 			{
-				//if (abs(TargetPos.X) > 75.0f || abs(TargetPos.Y) > 75.0f)
-				//	TargetPos = Vector3(Commands->Get_Random(-70.0f,70),Commands->Get_Random(-70.0f,70.0f),0.2f);
 				SearchTimeDelay = Commands->Get_Random_Int(5,15);
 				Distance = 100.0f;
 				TargetPos = Commands->Get_Position(obj);
@@ -4286,6 +4277,151 @@ void JMG_CMTB_Player_Drone::ShieldOn(GameObject *obj)
 	Set_Skin(obj,"Blamo");
 	Commands->Set_Animation(obj,myAnimation,false,0,2,2,false);
 }
+void JMG_CMTB_Vehicle_Face_Turret::Created(GameObject *obj)
+{	
+	GameObject *DavesArrow = Commands->Create_Object("Daves Arrow",Commands->Get_Position(obj));
+	Commands->Attach_To_Object_Bone(DavesArrow,obj,"Turret");
+	Commands->Set_Model(DavesArrow,"null");
+	davesArrowId = Commands->Get_ID(DavesArrow);
+	Commands->Start_Timer(obj,this,0.1f,1);
+}
+void JMG_CMTB_Vehicle_Face_Turret::Timer_Expired(GameObject *obj, int number)
+{	
+	if (number == 1)
+	{
+		GameObject *davesArrow = Commands->Find_Object(davesArrowId);
+		if (davesArrow)
+			Commands->Set_Facing(obj,Commands->Get_Facing(davesArrow));
+		Commands->Start_Timer(obj,this,0.1f,1);
+	}
+}
+void JMG_CMTB_Vehicle_Face_Turret::Destroyed(GameObject *obj)
+{
+	GameObject *davesArrow = Commands->Find_Object(davesArrowId);
+	if (davesArrow)
+		Commands->Destroy_Object(davesArrow);
+}
+void JMG_CMTB_Poke_End_Map::Created(GameObject *obj)
+{
+	Commands->Set_Animation(obj,"powerbox.powerbox",false,0,0.0,0.0,false);
+	startDelay = 25;
+	time = 0;
+	Commands->Start_Timer(obj,this,1.0f,1);
+}
+void JMG_CMTB_Poke_End_Map::Poked(GameObject *obj,GameObject *poker)
+{
+	if (!JMG_CMTB_Main_Game_Control::EndGameSwitchEnabled)
+	{
+		JmgUtility::DisplayChatMessage(poker,0,255,0,"Sorry, this switch is not enabled.");
+		return;
+	}
+	if (JMG_CMTB_Main_Game_Control::GameInProgress)
+	{
+		JmgUtility::DisplayChatMessage(poker,0,255,0,"Please wait for the current game to end before pulling the switch.");
+		return;
+	}
+	if (startDelay)
+	{
+		char startDelayMsg[220];
+		sprintf(startDelayMsg,"Please wait %d seconds before pulling the switch.",startDelay);
+		JmgUtility::DisplayChatMessage(poker,0,255,0,startDelayMsg);
+		return;
+	}
+	if (time)
+	{
+		FlipSwitch(obj,0.0f);
+		Console_Input("win 0");
+		return;
+	}
+	time = 5;
+	JmgUtility::DisplayChatMessage(poker,0,255,0,"Pull the switch all the way down to proceed to the next map.");
+	FlipSwitch(obj,1.0f);
+}
+void JMG_CMTB_Poke_End_Map::Timer_Expired(GameObject *obj, int number)
+{	
+	if (number == 1)
+	{
+		if (startDelay)
+		{
+			startDelay--;
+			if (!startDelay)
+				FlipSwitch(obj,2.0f);
+		}
+		if (time)
+		{
+			time--;
+			if (!time)
+				FlipSwitch(obj,2.0f);
+		}
+		Commands->Start_Timer(obj,this,1.0f,1);
+	}
+}
+void JMG_CMTB_Poke_End_Map::FlipSwitch(GameObject *obj,float frame)
+{
+	Vector3 soundPos = Commands->Get_Position(obj);
+	soundPos.Z += 1.25f;
+	Commands->Create_Sound("SFX.Comet_Busters_Flip_Switch",soundPos,obj);
+	Commands->Set_Animation(obj,"powerbox.powerbox",false,0,frame,frame,false);
+}
+void JMG_CMTB_Poke_Change_Difficulty::Created(GameObject *obj)
+{
+	difficulty = 1;
+	JMG_CMTB_Main_Game_Control::DifficultyMultiplier = 1.0f;
+	JMG_CMTB_Main_Game_Control::DifficultyMultiplierMine = 1.0f;
+	JMG_CMTB_Main_Game_Control::DifficultyMultiplierInv = 1.0f;
+	Commands->Set_Animation(obj,"powerbox2.powerbox2",false,0,1.0,1.0,false);
+}
+void JMG_CMTB_Poke_Change_Difficulty::Poked(GameObject *obj,GameObject *poker)
+{
+	if (JMG_CMTB_Main_Game_Control::GameInProgress)
+	{
+		JmgUtility::DisplayChatMessage(poker,0,255,0,"Please wait for the current game to end before pulling the switch.");
+		return;
+	}
+	Vector3 soundPos = Commands->Get_Position(obj);
+	soundPos.Z += 1.25f;
+	Commands->Create_Sound("SFX.Comet_Busters_Flip_Switch",soundPos,obj);
+	difficulty++;
+	if (difficulty >= 4)
+		difficulty = 0;
+	RenCometBustersScoreControl.SaveData();
+	RenCometBustersScoreControl.Cleanup();
+	switch (difficulty)
+	{
+	case 0:
+		Commands->Set_Animation(obj,"powerbox2.powerbox2",false,0,0.0f,0.0f,false);
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplier = 0.5f;
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplierMine = 0.75f;
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplierInv = 2.0f;
+		RenCometBustersScoreControl.LoadData(0);
+		JmgUtility::MessageAllPlayers(6,145,148,"[DIFFICULTY SET TO EASY]");
+		break;
+	case 1:
+		Commands->Set_Animation(obj,"powerbox2.powerbox2",false,0,1.0f,1.0f,false);
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplier = 1.0f;
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplierMine = 1.0f;
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplierInv = 1.0f;
+		RenCometBustersScoreControl.LoadData(1);
+		JmgUtility::MessageAllPlayers(6,145,148,"DIFFICULTY SET TO NORMAL]");
+		break;
+	case 2:
+		Commands->Set_Animation(obj,"powerbox2.powerbox2",false,0,2.0f,2.0f,false);
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplier = 2.0f;
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplierMine = 1.5f;
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplierInv = 0.75f;
+		RenCometBustersScoreControl.LoadData(2);
+		JmgUtility::MessageAllPlayers(6,145,148,"[DIFFICULTY SET TO HARD]");
+		break;
+	case 3:
+		Commands->Set_Animation(obj,"powerbox2.powerbox2",false,0,3.0f,3.0f,false);
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplier = 3.0f;
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplierMine = 2.0f;
+		JMG_CMTB_Main_Game_Control::DifficultyMultiplierInv = 0.5f;
+		RenCometBustersScoreControl.LoadData(3);
+		JmgUtility::MessageAllPlayers(6,145,148,"[DIFFICULTY SET TO DOOMSDAY]");
+		break;
+	}
+}
 ScriptRegistrant<JMG_Create_Ship_On_Poke> JMG_Create_Ship_On_Poke_Registrant("JMG_Create_Ship_On_Poke","CreateSpot:vector3,ShipPreset=Comet_Busters_Ship_Blue:string,SpawnSpotExplosion=Explosion_Clear_Spawn_Point:string,InvisibleObject=Invisible_Spectator_Box:string");
 ScriptRegistrant<JMG_Advanced_Bounce_Zone> JMG_Advanced_Bounce_Zone_Registrant("JMG_Advanced_Bounce_Zone","XAmount=0:float,YAmount=0:float,ZAmount=0:float");
 ScriptRegistrant<JMG_Ship_Random_Hyperspace> JMG_Ship_Random_Hyperspace_Registrant("JMG_Ship_Random_Hyperspace","HyperspacingModel=cometbshs:string,HyperSpaceSound=Ship_Teleport:string");
@@ -4320,4 +4456,7 @@ ScriptRegistrant<JMG_CMTB_Powerup_Script> JMG_CMTB_Powerup_Script_Registrant("JM
 ScriptRegistrant<JMG_CMTB_Cargo_Ship_Script> JMG_CMTB_Cargo_Ship_Script_Registrant("JMG_CMTB_Cargo_Ship_Script","PlayerNumber:int");
 ScriptRegistrant<JMG_CMTB_Cargo_Ship_Turret> JMG_CMTB_Cargo_Ship_Turret_Registrant("JMG_CMTB_Cargo_Ship_Turret","");
 ScriptRegistrant<JMG_CMTB_Player_Drone> JMG_CMTB_Player_Drone_Registrant("JMG_CMTB_Player_Drone","PlayerNumber:int,Power:int,RePosition:int,PlayerEscort:int");
+ScriptRegistrant<JMG_CMTB_Vehicle_Face_Turret> JMG_CMTB_Vehicle_Face_Turret_Registrant("JMG_CMTB_Vehicle_Face_Turret","");
+ScriptRegistrant<JMG_CMTB_Poke_End_Map> JMG_CMTB_Poke_End_Map_Registrant("JMG_CMTB_Poke_End_Map","");
+ScriptRegistrant<JMG_CMTB_Poke_Change_Difficulty> JMG_CMTB_Poke_Change_Difficulty_Registrant("JMG_CMTB_Poke_Change_Difficulty","");
 

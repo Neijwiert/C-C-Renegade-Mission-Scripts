@@ -1,4 +1,4 @@
-Renegade Scripts.dll
+/*  Renegade Scripts.dll
 	Copyright 2013 Tiberian Technologies
 
 	This file is part of the Renegade scripts.dll

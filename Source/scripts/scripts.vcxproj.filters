@@ -362,6 +362,18 @@
     <ClCompile Include="JMGRenetBusters.cpp">
       <Filter>01. Sources</Filter>
     </ClCompile>
+    <ClCompile Include="DBIKScripts.cpp">
+      <Filter>01. Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="DBScripts.cpp">
+      <Filter>01. Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="DB_Research_Terminals.cpp">
+      <Filter>01. Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="DB_Innate.cpp">
+      <Filter>01. Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArmedGameObj.h">
@@ -1245,6 +1257,24 @@
     </ClInclude>
     <ClInclude Include="ConversationClass.h">
       <Filter>02. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="DBIKScripts.h">
+      <Filter>01. Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="DB_Research_Terminals.h">
+      <Filter>01. Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="DB_General.h">
+      <Filter>01. Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="cPurchaseResponseEvent.h">
+      <Filter>02. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="cPlayerKill.h">
+      <Filter>02. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="DB_Innate.h">
+      <Filter>01. Sources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

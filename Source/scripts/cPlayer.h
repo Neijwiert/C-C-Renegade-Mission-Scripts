@@ -147,6 +147,14 @@ public:
 	bool isFriendly(const DamageableGameObj& object) const;
 	bool isHostile(const DamageableGameObj& object) const;
 
+private:
+	SimpleDynVecClass<unsigned long> FloodCounter;
+
+public:
+	virtual void Increment_Flood_Counter();
+	virtual void Decrement_Flood_Counter();
+	virtual bool Is_Flooding();
+
 };
 
 #endif

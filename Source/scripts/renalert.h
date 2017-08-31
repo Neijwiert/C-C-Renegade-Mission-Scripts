@@ -22,6 +22,7 @@ class RA_Repair_Script : public ScriptImpClass {
 
 class RA_Infantry_Spy : public ScriptImpClass {
 	void Created(GameObject *obj);
+	void Detach(GameObject *obj);
 };
 
 class RA_Infantry_NotSpy : public ScriptImpClass {

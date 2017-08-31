@@ -57,4 +57,5 @@ SCRIPTS_API bool Is_Active(int ID); //Is a player active
 SCRIPTS_API void Set_Kills(int ID,int kills); //Set kills for a player
 SCRIPTS_API void Set_Deaths(int ID,int deaths); //Set deaths for a player
 SCRIPTS_API void Set_Team_Score(int ID,float score); //Set score for a team
+SCRIPTS_API void ChangeTeamDeaths(int teamId,int amount);
 #endif

@@ -412,10 +412,10 @@ public:
 			{
 				for (int i = 0;i < sz;i++)
 				{
-					if (buf[i] == 0xA)
+					if (buf[i] == '\n')
 					{
 						buf[i + 1] = 0;
-						Seek(1 - sz - i,1);
+						Seek(i - sz + 1,1);
 						b = false;
 					}
 				}

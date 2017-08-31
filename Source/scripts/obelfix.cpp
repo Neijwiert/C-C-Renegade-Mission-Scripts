@@ -151,7 +151,7 @@ void Obelisk_Weapon_CnC::FireAt(GameObject* WeaponObj, GameObject* EnemyObj)
 	}
 	else
 	{
-		pos = Commands->Get_Position(EnemyObj);
+		pos = Commands->Get_Bone_Position(EnemyObj,"target");
 	}
 
 	
@@ -424,7 +424,7 @@ void Obelisk_Weapon_CnC_Ground::FireAt(GameObject* WeaponObj, GameObject* EnemyO
 	}
 	else
 	{
-		pos = Commands->Get_Position(EnemyObj);
+		pos = Commands->Get_Bone_Position(EnemyObj,"target");
 	}
 
 	ActionParamsStruct AttackParams;

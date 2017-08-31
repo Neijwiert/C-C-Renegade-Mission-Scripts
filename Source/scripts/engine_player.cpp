@@ -23,6 +23,9 @@
 #include "engine_tdb.h"
 #include "SysTimeClass.h"
 #include "cTeam.h"
+#include "engine_tt.h"
+#include "SCAnnouncement.h"
+
 RENEGADE_FUNCTION
 int SCRIPTS_API Get_Player_Count()
 AT2(0x00417040,0x00417040);
@@ -682,4 +685,17 @@ void cTeam::Set_Score(float _score)
 {
 	score = _score;
 	Set_Object_Dirty_Bit(NetworkObjectClass::BIT_OCCASIONAL, true);
+}
+
+void cTeam::Set_Deaths(int _deaths)
+{
+	deaths = _deaths;
+	Set_Object_Dirty_Bit(NetworkObjectClass::BIT_RARE, true);
+}
+
+SCRIPTS_API void ChangeTeamDeaths(int teamId,int amount)
+{
+	cTeam *teamdata = Find_Team(teamId);
+	if (teamdata)
+		teamdata->Set_Deaths(teamdata->Get_Deaths()+amount);
 }

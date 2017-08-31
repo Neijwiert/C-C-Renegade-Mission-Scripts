@@ -94,6 +94,9 @@ public:
 	float			GrenadeSafetyTime;
 	bool            C4Animation;
 	safe_float		TargetingRange;//new
+	int             C4Preset;
+	bool			DisableHitscan;
+	bool			TrackingIgnoreTarget;
 
 #if (PARAM_EDITING_ON) || (DDBEDIT) || (W3DVIEWER)
     Vector3 ProjectileExtent;
@@ -159,6 +162,9 @@ public:
 	bool			AreaEffectWeaponAffectFriendly;
 	bool			AreaEffectWeaponAffectEnemy;
 	bool			AreaEffectWeaponAffectNeutral;
+	StringClass		FirstPersonAnim;
+	bool            DoTiltWhileReloading;
+	bool			AllowEmptyShots;
 	friend class PresetDump;
 }; // 00AC
 

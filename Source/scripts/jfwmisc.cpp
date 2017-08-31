@@ -751,10 +751,36 @@ void JFW_Change_Spawn_Character::Created(GameObject *obj)
 {
 	if (Get_Int_Parameter("Player_Type") == 0)
 	{
+		if(!The_Game()-> Get_Game_Duration_S())
+		{
+			SLNode<SoldierGameObj> *x = GameObjManager::StarGameObjList.Head();
+			while (x)
+			{
+				GameObject *o = x->Data();
+				if (o && Get_Object_Type(o)==0)
+				{
+					Change_Character(o,Get_Parameter("Character"));
+				}
+				x = x->Next();
+			}
+		}
 		Set_Nod_Soldier_Name(Get_Parameter("Character"));
 	}
 	else
 	{
+		if(!The_Game()-> Get_Game_Duration_S())
+		{
+			SLNode<SoldierGameObj> *x = GameObjManager::StarGameObjList.Head();
+			while (x)
+			{
+				GameObject *o = x->Data();
+				if (o && Get_Object_Type(o)==1)
+				{
+					Change_Character(o,Get_Parameter("Character"));
+				}
+				x = x->Next();
+			}
+		}
 		Set_GDI_Soldier_Name(Get_Parameter("Character"));
 	}
 	Destroy_Script();
@@ -2456,6 +2482,15 @@ void JFW_Custom_Create_Object_At_Bone::Killed(GameObject *obj,GameObject *killer
 	{
 		Commands->Destroy_Object(Commands->Find_Object(id));
 		id = 0;
+	}
+}
+
+void JFW_Custom_Create_Object_At_Bone::Destroyed(GameObject *obj)
+{
+	if (id)
+	{
+		if(Commands->Find_Object(id))
+			Commands->Destroy_Object(Commands->Find_Object(id));
 	}
 }
 

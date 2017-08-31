@@ -89,6 +89,7 @@ public:
 	const char *	Get_Model_Name( void ) 		{ return Definition->Model; }
 	const char *	Get_Back_Model_Name( void ){ return Definition->BackModel; }
 	const char *	Get_Anim_Name( void )  		{ return (NextAnimState != WEAPON_ANIM_NOT_FIRING) ? Definition->FireAnim : Definition->IdleAnim; }
+	const char *	Get_First_Person_Anim_Name( void ) const { return Definition->FirstPersonAnim; }
 	int				Get_Style( void )		  		{ return Definition->Style; }
 	float			Get_Key_Number( void )		{ return Definition->KeyNumber; }
 	bool				Get_Can_Snipe( void )		{ return Definition->CanSnipe; }
@@ -153,7 +154,7 @@ public:
 
 	//new
 	SCRIPTS_API float	Get_Targeting_Range(void);
-	bool				Tilt_Gun_While_Reloading(){return tiltGunWhileReloading;}
+	bool				Tilt_Gun_While_Reloading(){return tiltGunWhileReloading && Definition->DoTiltWhileReloading;}
 private:
 	void				Fire_C4( const AmmoDefinitionClass *ammo_def );
 	bool				Fire_Beacon( const AmmoDefinitionClass *ammo_def );

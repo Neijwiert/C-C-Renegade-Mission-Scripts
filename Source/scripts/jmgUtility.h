@@ -8,6 +8,8 @@
 #include "SoldierGameObj.h"
 #include "PhysicsSceneClass.h"
 #include "MoveablePhysClass.h"
+#define PI 3.14159265f
+#define PI180 PI/180
 
 /*!
 * \brief Displays a message if the script named isn't in the scripts build on the server.
@@ -86,8 +88,8 @@ class JMG_Utility_Change_Model_On_Timer : public ScriptImpClass {
 * \Repaired_Explosion - Explosion to create when fully repaired
 * \Play_Twitches_To_Completion - Can the twitch animations be interrupted
 * \Send_To_ID - ID to send custom messages to
-* \Death_Message - Message to send when object dies
-* \Repaired_Message - Message to send when object repaired
+* \Death_Custom - Message to send when object dies
+* \Repaired_Custom - Message to send when object repaired
 * \Damage_Points - Points you get for damaging the object
 * \Death_Points - Points you get for killing the object
 * \Heal_Points - Points you get for healing the object
@@ -166,7 +168,8 @@ class JMG_Turret_Spawn : public ScriptImpClass
   int turretId;
   bool hasDriver;
   void Created(GameObject *obj);
-  void Custom(GameObject *obj,int type,int param,GameObject *sender);
+  void Custom(GameObject *obj,int message,int param,GameObject *sender);
+  void Killed(GameObject *obj,GameObject *killer);
   void Destroyed(GameObject *obj);
 };
 
@@ -201,14 +204,15 @@ class JMG_Utility_AI_Engineer : public ScriptImpClass {
 	float targetDistance;
 	int targetUpdate;
 	int samePosition;
-	int repairTargetId;
 	Vector3 lastPos;
 	Vector3 moveLocation;
-	int lastRepairTargetId;
+	int repairTargetId;
 	GameObject *lastTarget;
 	GameObject *lastSecondaryTarget;
 	bool lastRepairTarget;
 	bool lastUseRepairGun;
+	int wanderPointGroup;
+	int randomResetAmount;
 	void Created(GameObject *obj);
 	void Enemy_Seen(GameObject *obj,GameObject *seen);
 	void Timer_Expired(GameObject *obj,int number);
@@ -218,10 +222,11 @@ class JMG_Utility_AI_Engineer : public ScriptImpClass {
 	bool inRange(GameObject *obj);
 	inline bool Valid_Repair_Target(GameObject *obj,GameObject *target,int playerType);
 	inline bool Valid_Repair_Target_C4(GameObject *obj,GameObject *target,int playerType);
+	bool Get_Random_Wander_Point(Vector3 *position);
 };
 /*!
 * \brief Will change the visibility of an object on custom for the specified player id
-* \Message - Message to trigger this script on
+* \Custom - Custom to trigger this script on
 * \PlayerID - What player to make it visible or invisible for
 * \Visible - Should the object be visible or not
 * \author jgray
@@ -233,6 +238,12 @@ class JMG_Utility_Set_Object_Visibility_For_Player_On_Custom : public ScriptImpC
 class JmgUtility
 {
 public:
+	static bool IsInPathfindZone(Vector3 spot)
+	{
+		if (!Get_Random_Pathfind_Spot(spot,5.0f,&spot))
+			return false;
+		return true;
+	}
 	static void RotateZoneBox(float Angle,Matrix3 Basis)
 	{
 		Angle = Angle*3.14159265f/180.0f;
@@ -687,7 +698,6 @@ public:
 	}
 };
 
-
 class NewObjectiveSystem
 {
 	bool objectiveStringIdsLoaded;
@@ -1088,6 +1098,17 @@ public:
 		}
 		return NotDefined;
 	}
+	Priority Get_Objective_Priority(int objectiveId)
+	{
+		ObjectiveNode *current = objectiveNodeList;
+		while (current)
+		{
+			if (current->id == objectiveId)
+				return current->priority;
+			current = current->next;
+		}
+		return Undefined;
+	}
 	int Get_Objective_Status_Count(Status status,Priority requiredPriority = Undefined)
 	{
 		int count = 0;
@@ -1111,6 +1132,19 @@ public:
 			current = current->next;
 		}
 		return count;
+	}
+	void Dispaly_First_Pending_Primary_Objective_On_Hud(GameObject *obj)
+	{
+		ObjectiveNode *current = objectiveNodeList;
+		while (current)
+		{
+			if (current->active && current->status == Pending && current->priority == Priority::Primary && current->nameId)
+			{
+				Set_HUD_Help_Text_Player(obj,current->nameId,Vector3(0,1,0));
+				return;
+			}
+			current = current->next;
+		}
 	}
 	void Display_Current_Objectives(GameObject *player,Priority priority)
 	{
@@ -1149,6 +1183,20 @@ public:
 			current = current->next;
 		}
 		return 0;
+	}
+	Vector3 Get_Hud_Help_Text_Color(Priority priority)
+	{
+		switch (priority)
+		{
+		case Priority::Primary:
+			return Vector3(0.196f,0.882f,0.196f);
+		case Priority::Secondary:
+			return Vector3(0.196f,0.588f,0.98f);
+		case Priority::Tertiary:
+			return Vector3(0.588f,0.196f,0.588f);
+		default:
+			return Vector3(1.0f,1.0f,1.0f);
+		}
 	}
 };
 
@@ -1202,7 +1250,7 @@ public:
 		int id = Commands->Get_ID(obj);
 		SyncObjectNode *current = syncObjectNodeList;
 		if (!syncObjectNodeList)
-			syncObjectNodeList = new SyncObjectNode(obj);
+			return syncObjectNodeList = new SyncObjectNode(obj);
 		while (current)
 		{
 			if (!current->id)
@@ -1319,12 +1367,12 @@ class JMG_Utility_Sync_Object_Periodically : public ScriptImpClass
 };
 
 /*!
-* \brief Turns a placed object into a renstyle spawner that can be sent customs like a normal object
+* \brief Turns a placed object into a renstyle spawner that can be sent customs like a normal object, don't put this on an object that will fall through the level!
 * \SpawnPreset - Preset to spawn
 * \RespawnTime - Time it takes between spawns after last object was killed
 * \RespawnTimeRandom - Random time to add or subtract from the spawn time
 * \StartsEnabled - Can the object spawn on script create
-* \EnableMessage - Message used to enable the spawner
+* \EnableOrDisableCustom - Message used to enable the spawner, the parameter sent with it tell whether to enable or disable (1 for enable, 0 for disable, -1 disables and kills the spawned object, -2 disables and destroys the spawned object)
 * \SpawnLimit - How many objects can this script spawn
 * \DelayOnStartup - Day to spawn the first object when enabled
 * \author jgray
@@ -1340,9 +1388,11 @@ class JMG_Utility_Basic_Spawner : public ScriptImpClass
 	void Timer_Expired(GameObject *obj,int number);
 	void Custom(GameObject *obj,int message,int param,GameObject *sender);
 	void CalculateRespawnTime();
+public:
+	static Vector3 preSpawnLocation;
 };
 
-class JMG_Utility_Basic_Spawner_Attach : public ScriptImpClass
+class JMG_Utility_Basic_Spawner_Spawned_Object : public ScriptImpClass
 {
 	void Destroyed(GameObject *obj);
 };
@@ -1384,18 +1434,6 @@ struct JMGVehicleAction
 	}
 };
 
-struct JMGVehicleAmmo
-{
-	bool allowError;
-	float range;
-	float speed;
-	JMGVehicleAmmo()
-	{
-		allowError = false;
-		range = 0.0f;
-		speed = 400.0f;
-	}
-};
 
 /*!
 * \brief Vehicle AI that can be used for both aircraft and wheeled vehicles, the AI will attempt to backup when stuck and can choose different weapons depending on what foe it faces
@@ -1417,10 +1455,23 @@ struct JMGVehicleAmmo
 * \DisableEngineOnArrival - Tells the unit whether it should shutdown its engine when it finishes moving, useful for wheeled vehicles so they don't go rolling away.
 * \WeaponError - This tells the max weapon error the vehicle can use, if weapon error is -1 it dynamically determines a weapon error to use, this calculation has to do with bullet speed and enemy distance.
 * \MaxHuntRange - This variable makes it so the AI can't see anything that is further than x meters from the wander point (or home position) it is currently moving too, if 0 this setting is ignored.
+* \NextWanderPointWhenLastReached - When 0 MinRandWander and MaxRandWander are used, when greater than 0 this is the distance the Vehicle must get to a wander point before choosing its next one
 * \author jgray
 * \ingroup JmgUtility
 */
 class JMG_Utility_AI_Vehicle : public ScriptImpClass {
+	struct JMGVehicleAmmo
+	{
+		bool allowError;
+		float range;
+		float speed;
+		JMGVehicleAmmo()
+		{
+			allowError = false;
+			range = 0.0f;
+			speed = 400.0f;
+		}
+	};
 	JMGVehicleAmmo primary;
 	JMGVehicleAmmo secondary;
 	JMGVehicleAction currentAction;
@@ -1444,6 +1495,7 @@ class JMG_Utility_AI_Vehicle : public ScriptImpClass {
 	bool drivingBackward;
 	float maxHuntRangeSquared;
 	Vector3 lastWanderPointSpot;
+	float grabNextPointDistance;
 	void Created(GameObject *obj);
 	void Action_Complete(GameObject *obj,int action,ActionCompleteReason reason);
 	void Custom(GameObject *obj,int message,int param,GameObject *sender);
@@ -1603,7 +1655,6 @@ class JMG_Utility_Reset_Screen_Color_When_Destroyed : public ScriptImpClass
   void Destroyed(GameObject *obj);
 };
 
-
 /*!
 * \brief Plays music for a player on join, the music can be changed for all players by calling JMG_Utility_Play_Music_On_Join::Set_Music
 * \Music - Name of the music file to play, you need the file extension.
@@ -1762,6 +1813,7 @@ class JMG_Utility_PCT_Inaccessible_Zone_Attach : public ScriptImpClass {
 class JMG_Utility_Display_HUD_Info_Text_All_Players_Custom_Replace_String : public ScriptImpClass {
 	void Custom(GameObject *obj,int message,int param,GameObject *sender);
 };
+
 /*!
 * \brief Displays a hud message to all players on custom, allows user to override string with custom string
 * \Custom - Custom message to trigger the script on
@@ -1815,10 +1867,6 @@ class JMG_Utility_AI_Aggressive_Melee : public ScriptImpClass {
 	float maxHuntDistance;
 	Vector3 lastPos;
 	int stuckTime;
-	int togglePathfind;
-	bool pathfindOn;
-	bool forcePathfindOverride;
-	int stuckReturnHome;
 	void Created(GameObject *obj);
 	void Timer_Expired(GameObject *obj,int number);
 	void Enemy_Seen(GameObject *obj,GameObject *seen);
@@ -1884,12 +1932,21 @@ class JMG_Utility_Lock_Weapon_Selection_While_Script_Attached : public ScriptImp
 };
 
 /*!
+* \brief Used to set the default fog values of the map if there is no water but there are soldiers with the swimming script JMG_Utility_Swimming_Zone
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Swimming_zDefault_Map_Fog_Values : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+/*!
 * \brief Used to trigger the simple swimming animation system this is to be used along side JMG_Utility_Swimming_Infantry, 
 * \ any soldiers that enter the script zone without JMG_Utility_Swimming_Infantry attached will die.
 * \WaterColor[R|G|B] - Color to fade the screen while in this swimming zone
 * \WaterOpacity - How transparent the screen is while in this zone
 * \WaterMinViewDistance - The min distance that the fog shows up when underwater
 * \WaterMaxViewDistance - The max distance of the fog when underwater
+* \SwimmingSpeedMultiplier - Speed multiplier when in water
 * \author jgray
 * \ingroup JmgUtility
 */
@@ -1922,6 +1979,7 @@ public:
 	static JMG_Utility_Swimming_Zone::PlayerWaterNode waterNode[128];
 	static float fogMinDistance;
 	static float fogMaxDistance;
+	SCRIPTS_API static void Update_Fog_Settings(float minFog,float maxFog);
 };
 
 /*! 
@@ -1937,6 +1995,10 @@ public:
 * \HeartBeatSoundEmitterModel - This 3d object is attached to the player and should be a looped sound effect, it exists while catching your breath 
 * \DrownDamageRate - Damage applied 10 times a second while drowning
 * \CatchBreathRate - Rate at which a character catches its breath when out of the water, 0.1 would recover 1 second of air every second
+* \WaterDamageAmount - Amount of damage to apply to the character while swimming, is applied 10 tiems a second, default is 0
+* \WaterDamageWarhead - Warhead to use when in the water, default is None
+* \EnterWaterMessageStringId - ID of the string in strings.tbl to display when a player enters the water, the message only displays once every 10 seconds
+* \WaterEnterMessageColor[R|G|B] - Color of the hud message when entering the water, 0.0-1.0 RGB
 * \author jgray
 * \ingroup JmgUtility
 */
@@ -1949,6 +2011,9 @@ class JMG_Utility_Swimming_Infantry : public ScriptImpClass {
 	float drownTime;
 	bool underwater;
 	int waterZoneCount;
+	int lastWaterZoneId;
+	time_t lastDisplayTime;
+	float defaultSpeed;
 	void Created(GameObject *obj);
 	void Timer_Expired(GameObject *obj,int number);
 	void Custom(GameObject *obj,int message,int param,GameObject *sender);
@@ -1960,6 +2025,8 @@ class JMG_Utility_Swimming_Infantry : public ScriptImpClass {
 public:
 	static bool isUnderwater[128];
 	static bool isInWater[128];
+	static bool getInWater(int playerId){return isUnderwater[playerId];}
+	static bool getIsUnderwater(int playerId){return isInWater[playerId];}
 };
 
 /*!
@@ -1968,6 +2035,7 @@ public:
 * \EndID - ID to stop at
 * \PlayerType - Player type the zone triggers for
 * \Enable - Enable or disable all the spawners in the range
+* \TriggerOnce - Allows the script only to trigger the first time the zone is entered
 * \author jgray
 * \ingroup JmgUtility
 */
@@ -2051,9 +2119,9 @@ class JMG_Utility_Switch_Weapon_While_Primary_Empty : public ScriptImpClass {
 
 /*!
 * \brief Sends a custom when an object gets near a building or moves away from a building
-* \SendMessageObjectID - ID of the object to send the message to, if 0 it sends the messages to itself
-* \NearToBuildingMessage - Message to send when a building is within range
-* \FarFromBuildingMessage - Message to send when buildings are no longer within range
+* \SendCustomObjectID - ID of the object to send the message to, if 0 it sends the messages to itself
+* \NearToBuildingCustom - Message to send when a building is within range
+* \FarFromBuildingCustom - Message to send when buildings are no longer within range
 * \CloseToBuildingDistance - Distance to the nearest POLYGONS CENTER POINT of the building to count as being in range
 * \BuildingPlayerType - Player type required to detect the building
 * \CheckDeadBuildings - If true dead buildings are also checked
@@ -2079,4 +2147,3552 @@ class JMG_Utility_AI_Engineer_Repair_Target : public ScriptImpClass {
 class JMG_Utility_Reset_Screen_Fade_And_Fog_On_Destroy : public ScriptImpClass {
 	void Destroyed(GameObject *obj);
 	void Detach(GameObject *obj);
+};
+
+/*!
+* \brief This script makes the AI hunt down the nearest player, it works for infantry and vehicles
+* \HuntSearchDistance - Distance to scan for players to magically find and move to, -1 means infinite range
+* \HuntSpeed - Speed at which the bot moves once its moving to a player
+* \HuntArriveDistance - Distance at which to arrive from the player
+* \RandomHuntArriveDistance - Random amount to arrive from the player
+* \HuntStealth - Can the bot magically know where invisible players are
+* \AttackSpeed - Speed to move at once an attack is begun
+* \AttackDistance - Distance to arrive from a target when attacking, -1 uses the weapon effective distance
+* \RandomAttackDistance - Random amount to add or subtract from the Attack distance
+* \ReturnHome - Return to the create location when the action completes? (If wanderpoints are enabled this will never be used)
+* \ReturnHomeSpeed - Speed to move at when going home
+* \WanderingAIGroupID - Group of wander points to use when nothing else is going on
+* \WanderSpeed - Speed to move at between the points
+* \CanSeeStealth - Can the AI see stealth targets? 0 = No at all, 1 is within the ranges set in LE globals file, 2 means it can see stealth everywhere, think of stock AI.
+* \ShutdownEngineOnArrival - Used for vehicles, turn on if you have issues with your vehicle rolling away from its move positions after it arrives
+* \AttackCheckBlocked - Defines whether they should check if they can actually hit the player before shooting
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Goto_Player : public ScriptImpClass {
+	enum aiState{IDLE,HUNTING_STAR,ATTACKING_TARGET,RETURNING_HOME,WANDERING_GROUP,ACTION_BADPATH};
+	struct LastAction
+	{
+		int targetId;
+		Vector3 location;
+		float speed;
+		float distance;
+		bool attack;
+		bool overrideLocation;
+		LastAction()
+		{
+		}
+		LastAction(int targetId,Vector3 location,float speed,float distance,bool attack,bool overrideLocation)
+		{
+			this->targetId = targetId;
+			this->location = location;
+			this->speed = speed;
+			this->distance = distance;
+			this->attack = attack;
+			this->overrideLocation = overrideLocation;
+		}
+	};
+	LastAction lastAction;
+	aiState state;
+	Vector3 homeLocation;
+	bool huntStealth;
+	int targetId;
+	int lastSeenTime;
+	float weaponRange;
+	float weaponEffectiveRange;
+	int huntingStarId;
+	int ignoreStarsTime[128];
+	float huntSearchDistance;
+	float huntArriveDistance;
+	float attackArriveDistance;
+	int stuckTime;
+	int reverseTime;
+	Vector3 lastPosition;
+	bool moveBackward;
+	void Created(GameObject *obj);
+	void Enemy_Seen(GameObject *obj,GameObject *seen);
+	void Timer_Expired(GameObject *obj,int number);
+	void Action_Complete(GameObject *obj,int action_id,ActionCompleteReason reason);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void Attack_Move(GameObject *obj,GameObject *target,Vector3 location,float speed,float distance,bool attack,bool overrideLocation);
+	GameObject *findClosestStar(GameObject *obj);
+	void Return_Home(GameObject *obj);
+	void Stuck_Check(GameObject *obj,Vector3 targetPos);
+	void Cant_Get_To_target(GameObject *obj);
+	bool GetRandomPosition(Vector3 *position);
+	bool Choose_Target(GameObject *obj,GameObject *target);
+};
+
+class AggressiveAttackSpotSystem
+{
+public:
+	struct AggressiveAttackSpotNode
+	{
+		int id;
+		Vector3 position;
+		Vector3 attackOffset;
+		bool alive;
+		int groupId;
+		struct AggressiveAttackSpotNode *next;
+		AggressiveAttackSpotNode(GameObject *obj,int groupId,Vector3 attackOffset)
+		{
+			this->id = Commands->Get_ID(obj);
+			this->position = Commands->Get_Position(obj);
+			this->attackOffset = attackOffset;
+			this->alive = true;
+			this->groupId = groupId;
+			this->next = NULL;
+		}
+	};
+private:
+	int nodeCount;
+	AggressiveAttackSpotNode *aggressiveAttackSpotNodeList;
+public:
+	AggressiveAttackSpotSystem()
+	{
+		nodeCount = 0;
+		aggressiveAttackSpotNodeList = NULL;
+	}
+	AggressiveAttackSpotNode *addNode(GameObject *obj,int groupId,Vector3 attackOffset)
+	{
+		int id = Commands->Get_ID(obj);
+		AggressiveAttackSpotNode *current = aggressiveAttackSpotNodeList;
+		nodeCount++;
+		if (!aggressiveAttackSpotNodeList)
+			return aggressiveAttackSpotNodeList = new AggressiveAttackSpotNode(obj,groupId,attackOffset);
+		while (current)
+		{
+			if (current->id == id)
+			{
+				nodeCount--;
+				return current;
+			}
+			if (!current->next)
+			{
+				current->next = new AggressiveAttackSpotNode(obj,groupId,attackOffset);
+				return current->next;
+			}
+			current = current->next;
+		}
+		return NULL;
+	}
+	void killNode(GameObject *obj)
+	{
+		int id = Commands->Get_ID(obj);
+		AggressiveAttackSpotNode *current = aggressiveAttackSpotNodeList;
+		while (current)
+		{
+			if (current->id == id)
+				current->alive = false;
+			current = current->next;
+		}
+	}
+	AggressiveAttackSpotNode *GetRandomNode(int groupId)
+	{
+		if (The_Game()->Is_Game_Over())
+			return NULL;
+		int lastCount = -1;
+		int random = nodeCount > 0 ? Commands->Get_Random_Int(0,nodeCount*2) : 0;
+		AggressiveAttackSpotNode *current = aggressiveAttackSpotNodeList;
+		while (current)
+		{
+			if (current->alive && (groupId == -1 || current->groupId == groupId))
+			{
+				if (random)
+					random--;
+				if (!random)
+					return current;
+			}
+			current = current->next;
+			if (!current && lastCount != random)
+			{
+				lastCount = random;
+				current = aggressiveAttackSpotNodeList;
+			}
+		}
+		return NULL;
+	}
+	void Empty_List()
+	{
+		nodeCount = 0;
+		AggressiveAttackSpotNode *temp = aggressiveAttackSpotNodeList,*die;
+		while (temp)
+		{
+			die = temp;
+			temp = temp->next;
+			delete die;
+		}
+		aggressiveAttackSpotNodeList = NULL;
+	}
+};
+
+/*!
+* \brief Used to clean up the attack point list at gameover
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Aggressive_Attack_Spot_Control : public ScriptImpClass
+{
+	void Created(GameObject *obj);
+	void Destroyed(GameObject *obj);
+};
+
+/*!
+* \brief Used to specify a point that JMG_Utility_AI_Aggressive_Attack_Spot should use to attack
+* \GroupId - defines a group id for this point to belong to
+* \AttackOffset - defines an offset for the AI to aim at when it arrives at the point
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Aggressive_Attack_Spot_Point : public ScriptImpClass
+{
+	AggressiveAttackSpotSystem::AggressiveAttackSpotNode *node;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Destroyed(GameObject *obj);
+public:
+	JMG_Utility_AI_Aggressive_Attack_Spot_Point()
+	{
+		node = NULL;
+	}
+};
+
+/*!
+* \brief Used to specify a point that JMG_Utility_AI_Aggressive_Attack_Spot should use to attack, this one sets the absolute position to fire at
+* \GroupId - defines a group id for this point to belong to
+* \AbsolutePosition - defines the exact spot for the AI to aim at when it arrives at the point
+* \ObjectID - ID of an object to use as the absolute position (WARNING: This object is destroyed by this script)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Aggressive_Attack_Spot_Point2 : public ScriptImpClass
+{
+	AggressiveAttackSpotSystem::AggressiveAttackSpotNode *node;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Destroyed(GameObject *obj);
+public:
+	JMG_Utility_AI_Aggressive_Attack_Spot_Point2()
+	{
+		node = NULL;
+	}
+};
+
+/*!
+* \brief Used to designate repair targets for the Engineer AI that are things other than vehicles, turrets, and soldiers
+* \GroupId - Group of attack points to move and fire at, -1 means it can use any attack point group
+* \SecondaryGroupId - Secondary group to atttack if primary is gone
+* \AttackPointSpeed - What speed to move at when moving to attack an attack point
+* \AttackPointDistance - What distance to arrive at when attacking an attack point
+* \RandomAttackPointDistance - What random distance to arrive at when attacking an attack point (only randomly generated once)
+* \AttackSpeed - What speed to move at when moving to attacking a target
+* \AttackDistance - What distance to arrive at when attacking a target
+* \RandomAttackDistance - What random distance to arrive at when attacking a target (only randomly generated once)
+* \ReturnHome - Should it return to its home location if it cannot find any attack points?
+* \ReturnHomeSpeed - Speed it should move at when returning home
+* \ReactToAttackChance - The chance that the AI will react to an attack, the flag to acknowledge the damage is updated once every time the timer expires below
+* \ReactToAttackRate - Rate at which the AI will recalculate whether or not it'll acknowledge attack damage
+* \ShutdownEngineOnArrival - used for vehicles to shut off their engines when they arrive at the point
+* \EnableDebug - If true the bot will print out any points it cannot get to WARNING: this will print off both when the bot can't reach it due to the point being in a bad spot AND the bot being in a bad spot
+* \UseSecondaryFire - Should secondary fire be used when attacking
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Aggressive_Attack_Spot : public ScriptImpClass {
+	enum aiState{IDLE,ATTACKING_POINT,RETURNING_HOME,ATTACKING_ATTACKER,ACTION_BADPATH};
+	struct LastAction
+	{
+		int targetId;
+		Vector3 location;
+		float speed;
+		float distance;
+		bool attack;
+		bool overrideLocation;
+		bool attackingPoint;
+		LastAction()
+		{
+		}
+		LastAction(int targetId,Vector3 location,float speed,float distance,bool attack,bool overrideLocation,bool attackingPoint)
+		{
+			this->targetId = targetId;
+			this->location = location;
+			this->speed = speed;
+			this->distance = distance;
+			this->attack = attack;
+			this->overrideLocation = overrideLocation;
+			this->attackingPoint = attackingPoint;
+		}
+	};
+	AggressiveAttackSpotSystem::AggressiveAttackSpotNode *attackNode;
+	LastAction lastAction;
+	aiState state;
+	Vector3 homeLocation;
+	int targetId;
+	int lastSeenTime;
+	float weaponRange;
+	float weaponEffectiveRange;
+	float attackArriveDistance;
+	float attackPointArriveDistance;
+	int stuckTime;
+	int reverseTime;
+	bool reactToAttackChance;
+	Vector3 lastPosition;
+	bool moveBackward;
+	bool usePrimaryFire;
+	void Created(GameObject *obj);
+	void Enemy_Seen(GameObject *obj,GameObject *seen);
+	void Timer_Expired(GameObject *obj,int number);
+	void Action_Complete(GameObject *obj,int action_id,ActionCompleteReason reason);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void Attack_Move(GameObject *obj,GameObject *target,Vector3 location,float speed,float distance,bool attack,bool overrideLocation,bool attackingPoint);
+	void Stuck_Check(GameObject *obj,Vector3 targetPos);
+	void IdleChoice(GameObject *obj,bool allowAttackPoint);
+	bool Choose_Target(GameObject *obj,GameObject *target);
+public:
+	JMG_Utility_AI_Aggressive_Attack_Spot()
+	{
+		attackNode = NULL;
+	}
+};
+
+class JMG_Utility_Destroy_Objects_In_ID_Range_On_Death : public ScriptImpClass
+{
+	void Destroyed(GameObject *obj);
+};
+
+/*!
+* \brief Used to enable or disable all spawners within an ID range on zone enter
+* \StartID - ID to start at
+* \EndID - ID to stop at
+* \Custom - Custom used to trigger the enable/disable
+* \Enable - Enable or disable all the spawners in the range, if -1 the param is used to determin this
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Enable_Spawners_In_Range : public ScriptImpClass {
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sends a custom message when the player count condition is hit
+* \PlayerCount - Player count to trigger on
+* \ID - Id to send the message to, if 0 it sends to itself
+* \Custom - Custom to send
+* \Param - Parameter to send with the message
+* \Delay - Time delay to add to the sent message
+* \TriggerOn[eq|<|>] - Defines what to trigger on, putting a 1 in the parameter makes that value checked, (obviously = means equal to the player count, < means less than the player count, > means greater than the player count) 
+* \SupressMatchSpam - Makes it so the condition can't trigger again until the condition has not been meet then is meet again, useful for < or >
+* \DestroyAfterTrigger - Makes the script remove itself after it fires once
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_On_Player_Count : public ScriptImpClass
+{
+	int custom;
+	int param;
+	float delay;
+	int id;
+	bool supressMatchSpam;
+	Vector3 triggerEq;
+	int playerCountParam;
+	int playerCount;
+	bool conditionMatching;
+	bool destroyAfterTrigger;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Send_The_Message(GameObject *obj,int tempCount);
+};
+
+/*!
+* \brief Sends a custom when the player count condition is hit
+* \TriggerCustom - Custom to trigger the script on
+* \Preset - Preset group to send the message too
+* \Custom - Custom to send to the presets
+* \Param - Param to send to the presets
+* \Delay - Delay to add to the message before sending
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_To_Preset_On_Message : public ScriptImpClass {
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Attaches the script supplied to anything spawned by a basic spawner
+* \Script - Name of the script to attach
+* \Params - The parameters to use for the script
+* \Delim - The character to use in place of a ',' swapped at script creation
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Basic_Spawner_Attach_Script : public ScriptImpClass {
+	char *params;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sends a custom message when a preset enters the zone
+* \PresetName - preset to trigger on
+* \ID - Id of the object to send the custom to, 0 sends to itself, -1 sends to enterer
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Delay - Time amount to wait before sending the custom
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_On_Preset_Enter : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enter);
+};
+
+/*!
+* \brief Allows you to set where the spawner creates the original spawn (this allows you to hide the flash when an object is created before its moved to the actual spawn spot)
+* \OverrideLocation - Allows you to manually set the location to use for the prespawn, if its <0.0 0.0 0.0> it uses the location of the attached object.
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Basic_Spawner_Set_Prespawn_Location : public ScriptImpClass
+{
+	void Created(GameObject *obj);
+	void Destroyed(GameObject *obj);
+};
+
+
+/*!
+* \brief Teleports a player to a location when they pickup a powerup, will move the player within the range defined if the spot is blocked
+* \ObjectID - Id to teleport to
+* \Position - Position to teleport to if ID isn't supplied
+* \MaxDistance - Max range allowed to move the object if the spot is blocked
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Teleport_On_Pickup : public ScriptImpClass {
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sets the animation of an object when the script zone is entered
+* \ObjectID - ID of the object to animated
+* \Animation - Animation to play
+* \Looping - Loop the animation
+* \StartFrame - First frame to play
+* \EndFrame - Last frame to play
+* \Blended - Should the animation be blended
+* \TriggerOnce - if 1 the script will be destroyed after being triggered once
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Set_Animation : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enter);
+};
+
+/*!
+* \brief Only use this script once unless you want to risk crashing
+* \Scale - Scale to set the infantry to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Scale_Infantry : public ScriptImpClass
+{
+	void Created(GameObject *obj);
+};
+
+/*!
+* \brief Allows you to Enable/Disable an AI's Innate behavior on create
+* \Enable - Should it be enabled
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Innate_On_Create : public ScriptImpClass
+{
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Allows you to Enable/Disable a soldiers damage animations
+* \Enable - Should it be enabled
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Soldier_Damage_Animations : public ScriptImpClass
+{
+	void Created(GameObject *obj);
+};
+
+/*!
+* \brief  Switches what music is playing when an object enters the attached zone, you must have a JMG_Utility_Play_Music_On_Join_Controller on the map!
+* \Music - Name of the music file to play, you need the file extension.
+* \FadeOut - Amount of time the last song takes to fade out.
+* \FadeIn - Amount of time the last song takes to fade in.
+* \PlayerType - The player type the script triggers on
+* \TriggerOnce - Only allow the script to trigger once
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Play_Music_On_Join_Enter_Change_Music : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enter);
+};
+
+/*!
+* \brief  Switches what music is playing when the attached object is killed, you must have a JMG_Utility_Play_Music_On_Join_Controller on the map!
+* \Music - Name of the music file to play, you need the file extension.
+* \FadeOut - Amount of time the last song takes to fade out.
+* \FadeIn - Amount of time the last song takes to fade in.
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Play_Music_On_Join_Killed_Change_Music : public ScriptImpClass {
+	void Killed(GameObject *obj,GameObject *killer);
+};
+
+/*!
+============================================================================================================================================================
+The objective system makes use of the following hard-coded string definitions, make sure to add them to your strings library if you plan on using my system:
+============================================================================================================================================================
+IDS_OBJ2_CANCELLED					%s mission objective canceled
+IDS_OBJ2_CANCELLED_NUMBERED			%s mission objective %d canceled
+IDS_OBJ2_LIST						%s Mission Objectives:
+IDS_OBJ2_NEW_OBJ					New %s mission objective:
+IDS_OBJ2_PRIORITY_0					Unknown
+IDS_OBJ2_PRIORITY_1					Primary
+IDS_OBJ2_PRIORITY_2					Secondary
+IDS_OBJ2_PRIORITY_3					Tertiary
+IDS_OBJ2_PRIORITY_4					Quaternary
+IDS_OBJ2_PRIORITY_5					Quinary
+IDS_OBJ2_PRIORITY_6					Senary
+IDS_OBJ2_PRIORITY_7					Septenary
+IDS_OBJ2_PRIORITY_8					Octonary
+IDS_OBJ2_PRIORITY_9					Nonary
+IDS_OBJ2_PRIORITY_10				Denary
+IDS_OBJ2_PRIORITY_11				Bonus
+IDS_OBJ2_STATE_0					Pending
+IDS_OBJ2_STATE_1					Accomplished
+IDS_OBJ2_STATE_2					Failed
+IDS_OBJ2_STATE_3					Hidden
+IDS_OBJ2_STATUS_CHANGED				%s mission objective %s
+IDS_OBJ2_STATUS_CHANGED_NUMBERED	%s mission objective %d %s
+IDS_OBJ2_UPDATED					%s mission objective updated:
+IDS_OBJ2_UPDATED_NUMBERED			%s mission objective %d updated:
+============================================================================================================================================================
+*/
+/*!
+* \brief Used to control a basic objective system
+* \ShowMarkersOnRadar - Should stars be shown on the radar
+* \PrimaryObjectiveModel - Visible 3d model to show for Primary Objectives
+* \SecondaryObjectiveModel - Visible 3d model to show for Secondary Objectives
+* \TertiaryObjectiveModel - Visible 3d model to show for Tertiary Objectives
+* \Team - Team to show the objectives for
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Objective_System_Controller : public ScriptImpClass
+{
+	char playerNames[128][256];
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Destroyed(GameObject *obj);
+public:
+	static bool controllerPlaced;
+};
+
+/*!
+* \brief Used to update your objectives
+* \NewObjectiveID - ID of the new objective to add
+* \NewObjectiveStringID - Strings.tbl id for the objective message
+* \ObjectiveMarkerObjectID - ID of the object where the marker should be displayed (-1 sets the enter as the marker)
+* \CompleteObjectiveID - Objective to complete when this is trigger
+* \Delay - Delay for Objective before adding the new one
+* \NewObjectivePriority - Priority of the new objective {Undefined=-1,Unknown = 0,Primary = 1,Secondary = 2,Tertiary = 3,Quaternary = 4,Quinary = 5,Senary = 6,Septenary = 7,Octonary = 8,Nonary = 9,Denary = 10,Bonus = 11}
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Objective_System_Objective_Update_Enter : public ScriptImpClass {
+	bool triggered;
+	void Entered(GameObject *obj,GameObject *enter);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+public:
+	JMG_Utility_Objective_System_Objective_Update_Enter()
+	{
+		triggered = false;
+	}
+};
+
+/*!
+* \brief Used to update your objectives
+* \NewObjectiveID - ID of the new objective to add
+* \NewObjectiveStringID - Strings.tbl id for the objective message
+* \ObjectiveMarkerObjectID - ID of the object where the marker should be displayed (-1 sets this object that picked it up as the marker)
+* \CompleteObjectiveID - Objective to complete when this is trigger
+* \Delay - Delay for Objective before adding the new one
+* \NewObjectivePriority - Priority of the new objective {Undefined=-1,Unknown = 0,Primary = 1,Secondary = 2,Tertiary = 3,Quaternary = 4,Quinary = 5,Senary = 6,Septenary = 7,Octonary = 8,Nonary = 9,Denary = 10,Bonus = 11}
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Objective_System_Objective_Update_Pickup : public ScriptImpClass {
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Used to update your objectives
+* \NewObjectiveID - ID of the new objective to add
+* \NewObjectiveStringID - Strings.tbl id for the objective message
+* \ObjectiveMarkerObjectID - ID of the object where the marker should be displayed (-1 sets the killer as the marker)
+* \CompleteObjectiveID - Objective to complete when this is trigger
+* \Delay - Delay for Objective before adding the new one
+* \NewObjectivePriority - Priority of the new objective {Undefined=-1,Unknown = 0,Primary = 1,Secondary = 2,Tertiary = 3,Quaternary = 4,Quinary = 5,Senary = 6,Septenary = 7,Octonary = 8,Nonary = 9,Denary = 10,Bonus = 11}
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Objective_System_Objective_Update_Killed : public ScriptImpClass {
+	void Killed(GameObject *obj, GameObject *damager);
+};
+
+
+/*!
+* \brief Used to update your objectives
+* \NewObjectiveID - ID of the new objective to add
+* \NewObjectiveStringID - Strings.tbl id for the objective message
+* \ObjectiveMarkerObjectID - ID of the object where the marker should be displayed (-1 sets the sender as the marker)
+* \CompleteObjectiveID - Objective to complete when this is trigger
+* \Delay - Delay for Objective before adding the new one
+* \NewObjectivePriority - Priority of the new objective {Undefined=-1,Unknown = 0,Primary = 1,Secondary = 2,Tertiary = 3,Quaternary = 4,Quinary = 5,Senary = 6,Septenary = 7,Octonary = 8,Nonary = 9,Denary = 10,Bonus = 11}
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Objective_System_Objective_Update_Custom : public ScriptImpClass {
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Applies damage to the target when DESTROYED
+* \ID - Id of the object to damage
+* \Damage - Amount of damage to apply
+* \Warhead - Warhead to use
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Destroyed_Apply_Damage : public ScriptImpClass {
+	void Destroyed(GameObject *obj);
+};
+
+/*!
+* \brief This script refunds damage on the attached object by a percentage of the number of players there are in game out of the max players supplied as a parameter
+* \Math for this one basically is -PlayerCount/MaxPlayerCount*damage
+* \MaxPlayersToScaleFor - This amount divides the players that are currently in game to get the base scale amount (The number of players is player count - 1, so when its just 1 player in game the scale is normal)
+* \MaxScaleFactor - The maximum percent of damage that can be refunded
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Scale_Damage_By_Player_Count : public ScriptImpClass
+{
+	int maxPlayersToScaleFor;
+	float maxScaleFactor;
+	float damageRefund;
+	int resurrectCount;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+};
+
+/*!
+* \brief This script refunds damage on the attached object by a percentage of the number of players there are in game out of the max players supplied as a parameter
+* \Math for this one basically is -(PlayerCount*PlayerCount)/(MaxPlayerCount*MaxPlayerCount)*damage
+* \MaxPlayersToScaleFor - This amount divides the players that are currently in game to get the base scale amount (The number of players is player count - 1, so when its just 1 player in game the scale is normal)
+* \MaxScaleFactor - The maximum percent of damage that can be refunded
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Scale_Damage_Square_By_Player_Count : public ScriptImpClass
+{
+	int maxPlayersToScaleFor;
+	float maxScaleFactor;
+	float damageRefund;
+	int resurrectCount;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+};
+
+/*!
+* \brief Regen's health via set health/shield  strength instead of Apply_Damage, useful for infantry if you don't want the Regen affect
+* \ Health (if enabled) must regen all the way before the armor starts coming back, unless regen armor is -1, then armor must be regen'd full before health starts
+* \RegenHealth - Can this regen health
+* \HealthAmount - Amount of health to regen
+* \HealthPerPlayer - Amount of health per player to regen (amount*player count)
+* \RegenArmor - Can this regen armor, if the value here is -1 it'll regen armor first before health
+* \ArmorAmount - Amount of armor to regen
+* \ArmorPerPlayer - Amount of armor per player to regen (amount*player count)
+* \Rate - Speed to regen
+* \DamageDelay - Amount of time regen must wait to start again after taking damage
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Regen_HitPoints : public ScriptImpClass
+{
+	bool regenHealth;
+	int regenArmor;
+	float healthAmount;
+	float armorAmount;
+	float healthPerPlayer;
+	float armorPerPlayer;
+	float rate;
+	float damageDelay;
+	bool enabled;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+};
+
+/*!
+* \brief Toggles flight after delay completes
+* \Delay - Time to wait before toggling flight
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Toggle_Flight_On_Delay : public ScriptImpClass
+{
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+	
+
+/*!
+* \brief Plays an animation and locks the soldier in place when they run out of armor, when armor is full again they stand back up
+* \FaintAnimation - Animation to play when the armor hits 0
+* \LayAnimation - Animation to play while laying on the ground
+* \StandAnimation - Animation to play when armor is full
+* \FaintSound - Sound to play when the soldier faints
+* \StandSound - Sound to play when the soldier stands up
+* \ChangeArmorTypeWhenKnockedOut - Should the armor type change while knocked out
+* \ArmorTypeWhileKnockedOut - What to change the armor type to while knocked out
+* \TeamWhileKnockedOut - What team to change to when knocked out (-99 to make the team not change)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Fainting_Soldier : public ScriptImpClass
+{
+	int posLockId;
+	bool fainted;
+	char faintAnimation[32];
+	char layAnimation[32];
+	char standAnimation[32];
+	char faintSound[256];
+	char standSound[256];
+	bool changeArmorTypeWhenKnockedOut;
+	char armorTypeWhileKnockedOut[256];
+	char armorType[256];
+	int originalTeam;
+	int teamWhileKnockedOut;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Animation_Complete(GameObject *obj,const char *animation);
+	void Destroyed(GameObject *obj);
+};
+
+/*!
+* \brief Makes a unit move between wander points, it'll strafe at the target while it has one, clone of JMG_Utility_AI_Guardian_Aircraft but with pathfind enabled
+* \WanderingAIGroupID - Group of points to wander between
+* \WanderSpeed - Speed the unit moves at 
+* \FireRange - Max range that it can use it's guns
+* \CheckBlocked - Whether to check if the target spot is blocked before firing
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Guardian_Infantry : public ScriptImpClass {
+	Vector3 dpPosition;
+	int EnemyID;
+	int EnemyTimeOutTime;
+	Vector3 LastPos;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Enemy_Seen(GameObject *obj,GameObject *seen);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void Goto_Location(GameObject *obj);
+	bool Get_A_Defense_Point(Vector3 *position);
+};
+
+/*!
+* \brief Sets the maximum distance an AI can wander before returning home (the location it was created)
+* \Distance - Max distance to wander to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Innate_Max_Wander_Distance : public ScriptImpClass
+{
+	void Created(GameObject *obj);
+};
+
+/*!
+* \brief Selects empty hands on create, the weapon it was holding before script attach is counted as the primary weapon, 
+* \ once a custom is received it switches back to the primary weapon.
+* \Custom - Custom to trigger switching back to the primary weapon on.
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Switch_Weapon_To_Empty_Hands_Until_Custom : public ScriptImpClass {
+	int custom;
+	char weaponName[256];
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+
+/*!
+* \brief Sets the skin type and armor type on a custom
+* \Custom - Custom to trigger setting the armor and skin types
+* \SkinType - Skin Type to switch to
+* \ShieldType - Shield Type to switch to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Skin_And_Shield_Type_On_Custom : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Used to damage all objects in an id range on enter
+* \StartID - ID to start at
+* \EndID - ID to stop at
+* \PlayerType - Player type the zone triggers for
+* \Damage - Amount of damage to apply
+* \Warhead - Warhead to use
+* \Damager - Object to do the damage (0 = NULL, 1 = The Enter, 2 = The Zone)
+* \TriggerOnce - Allows the script only to trigger the first time the zone is entered
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Damage_All_In_ID_Range_On_Enter : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+/*!
+* \brief Sends a custom to all objects with the specified script attached, sender is the enter
+* \PlayerType - Player type the zone triggers for
+* \AttachedScript - Name of the script that must be attached
+* \Custom - Custom to send
+* \Param - Parameter to send
+* \Delay - Delay to wait before sending the customs
+* \TriggerOnce - Allows the script only to trigger the first time the zone is entered
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Send_Custom_To_All_With_Script : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+/*!
+* \brief Changes the model of an object when its total HitPoint Percent enters a range
+* \LowerHitPointsPercent - Lower end of the range (percent of HitPoints)
+* \UpperHitPointsPercent - Upper end of the range (percent of HitPoints)
+* \Model - W3d model to switch to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_HitPoints_In_Range_Change_Model : public ScriptImpClass {
+	bool modelSet;
+	float upperHP;
+	float lowerHP;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Attaches a preset to the object while its total HitPoint Percent are inside a range (object is destroyed on controller death)
+* \LowerHitPointsPercent - Lower end of the range (percent of HitPoints)
+* \UpperHitPointsPercent - Upper end of the range (percent of HitPoints)
+* \Preset - Name of the preset to attach
+* \BoneName - Name of the bone to attach to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_HitPoints_In_Range_Attach_Preset : public ScriptImpClass {
+	int presetId;
+	float upperHP;
+	float lowerHP;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Killed(GameObject *obj,GameObject *killer);
+	void Destroyed(GameObject *obj);
+};
+
+/*!
+* \brief Enables a spawner while the HitPoint Percent is inside a range
+* \LowerHitPointsPercent - Lower end of the range (percent of HitPoints)
+* \UpperHitPointsPercent - Upper end of the range (percent of HitPoints)
+* \SpawnerID - ID of the spawner to enable/disable
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_HitPoints_In_Range_Enable_Spawner : public ScriptImpClass {
+	bool enabled;
+	float upperHP;
+	float lowerHP;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Creates a preset at the location specified while total HitPoint Percent are inside a range (object is destroyed on controller death)
+* \LowerHitPointsPercent - Lower end of the range (percent of HitPoints)
+* \UpperHitPointsPercent - Upper end of the range (percent of HitPoints)
+* \Preset - Name of the preset to attach
+* \Location - Location to place the object
+* \Facing - Direction to face the object
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_HitPoints_In_Range_Create_Preset : public ScriptImpClass {
+	int presetId;
+	float upperHP;
+	float lowerHP;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Killed(GameObject *obj,GameObject *killer);
+	void Destroyed(GameObject *obj);
+};
+
+/*!
+* \brief Sends a custom upon entering the HP range
+* \LowerHitPointsPercent - Lower end of the range (percent of HitPoints)
+* \UpperHitPointsPercent - Upper end of the range (percent of HitPoints)
+* \ID - Id of the object to send the custom to, if 0 sends to self
+* \Custom - Custom to send when within the range
+* \Param - Parameter to send when in the range
+* \Delay - Delay to add to the custom
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_HitPoints_In_Range_Send_Custom : public ScriptImpClass {
+	bool inRange;
+	float upperHP;
+	float lowerHP;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Receiving a custom changes the Precipitation on the map
+* \Custom - Custom event to trigger the change
+* \Set[Rain|Snow|Ash|] - The value to set each type of precipitation (yes you can have more than one on at a time)
+* \Change[Rain|Snow|Ash|] - Signals you want to change this value, if you leave it 0 the precipitation type will not be updated
+* \TransitionTime - Amount of time it takes for the new value to be at full effect
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Set_Weather_Precipitation : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Receiving a custom changes the Fog on the map
+* \Custom - Custom event to trigger the change
+* \StartDistance - Range at which the fog starts
+* \EndDistance - Range at which the fog is at its thickest
+* \TransitionTime - Amount of time it takes for the new value to be at full effect
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Set_Weather_Fog : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Receiving a custom changes the Wind on the map
+* \Custom - Custom event to trigger the change
+* \Heading - Direction the wind blows
+* \Speed - Speed the wind is blowing
+* \Variability - How much the wind can change direction
+* \TransitionTime - Amount of time it takes for the new value to be at full effect
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Set_Weather_Wind : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Receiving a custom changes the Lightning on the map
+* \Custom - Custom event to trigger the change
+* \Intensity - How intense the lightning is
+* \StartDistance - How far away is the cloest lightning strikes
+* \EndDistance - How far away is the furthest lightning strikes
+* \Heading - What direction is the lightning 
+* \Distribution - How spread out is the lightning
+* \TransitionTime - Amount of time it takes for the new value to be at full effect
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Set_Weather_Lightning : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Receiving a custom changes the Warblitz on the map
+* \Custom - Custom event to trigger the change
+* \Intensity - How intense the warblitz is
+* \StartDistance - How far away is the cloest warblitz strikes
+* \EndDistance - How far away is the furthest warblitz strikes
+* \Heading - What direction is the warblitz 
+* \Distribution - How spread out is the warblitz
+* \TransitionTime - Amount of time it takes for the new value to be at full effect
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Set_Weather_War_Blitz : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Receiving a custom changes the Clouds on the map
+* \Custom - Custom event to trigger the change
+* \Cover - How thick are the clouds
+* \Gloominess - How dark are the clouds
+* \TransitionTime - Amount of time it takes for the new value to be at full effect
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Set_Weather_Clouds : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Switches what music is playing on custom, you must have a JMG_Utility_Play_Music_On_Join_Controller on the map!
+* \Custom - Custom event to trigger the change
+* \Music - Name of the music file to play, you need the file extension.
+* \FadeOut - Amount of time the last song takes to fade out.
+* \FadeIn - Amount of time the last song takes to fade in.
+* \Repeat - Can this be triggered more than once
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Play_Music_On_Join_Custom_Change_Music : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sends a custom if the object entering the zone has a weapon
+* \PlayerType - Player type the zone triggers for
+* \WeaponName - Name of the weapon needed to trigger the zone
+* \ID - ID to send the custom to, 0 sends to self, -1 sends to enter
+* \Custom - Custom message to send
+* \Param - Param to send
+* \Delay - Delay to add before sending custom
+* \TriggerOnce - Allows the script only to trigger the first time the zone is entered
+* \RemoveWeapon - Removes the weapon from the player if true
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Send_Custom_If_Has_Weapon : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+
+/*!
+* \brief  Requires all customs to be received before custom can be sent (unless the custom has a value of 0)
+* \Custom[0-9] - Customs needed, once all have been received send custom triggers
+* \ID - ID to send the custom to, 0 sends to self, -1 sends to sender
+* \Custom - Custom message to send
+* \Param - Param to send
+* \Delay - Delay to add before sending custom
+* \TriggerOnce - Allows the script only to trigger the first time all customs are received
+* \ResetCustom - Resets the current progress of the script
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Receive_All_Customs_To_Send_Custom : public ScriptImpClass {
+	int resetCustom;
+	int customs[10];
+	bool receivedCustoms[10];
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Teleports the object that enters the zone to a random wander point
+* \WanderingAIGroupID - Group of points to teleport to
+* \SafeTeleportDistance - How far can infantry be moved if the spot is blocked
+* \ChangeGroupIDCustom - Changes the wander point group id to a new one, uses the parameter on the custom sent in
+* \PlayerType - Playertype the zone triggers for
+* \RetryOnFailure - If this is true a script will be attached that will continue to try to teleport the player until successful (Warning: Turning this on hides error messages)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Teleport_To_Random_Wander_Point : public ScriptImpClass {
+	bool retryOnFailure;
+	int playerType;
+	float safeTeleportDistance;
+	int wanderPointGroup;
+	int changeGroupIDCustom;
+	void Created(GameObject *obj);
+	void Entered(GameObject *obj,GameObject *enterer);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	bool Get_A_Defense_Point(Vector3 *position,float *facing);
+	bool Grab_Teleport_Spot(GameObject *enter,int attempts);
+};
+
+
+/*!
+* \brief Used by JMG_Utility_Zone_Teleport_To_Random_Wander_Point
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Teleport_To_Random_Wander_Point_Attach : public ScriptImpClass {
+	float safeTeleportDistance;
+	int wanderPointGroup;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	bool Get_A_Defense_Point(Vector3 *position,float *facing);
+};
+
+/*!
+* \brief Changes the player type of the player's game object (not the player's team)
+* \RequiredPlayerType - Player type that the player must be in order to be changed
+* \SetPlayerType - Player type to change the player to once they enter the zone
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Set_Player_Type : public ScriptImpClass {
+	int requiredPlayerType;
+	int setPlayerType;
+	void Created(GameObject *obj);
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+/*!
+* \brief Sends a custom to an object on entry
+* \PlayerType - Player type the zone triggers for
+* \ID - ID to send the custom to, 0 sends to self, -1 sends to enter
+* \Custom - Custom message to send
+* \Param - Param to send
+* \Delay - Delay to add before sending custom
+* \TriggerOnce - Allows the script only to trigger the first time the zone is entered
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Send_Custom_Enter : public ScriptImpClass {
+	int playerType;
+	int custom;
+	int param;
+	float delay;
+	int id;
+	bool triggerOnce;
+	void Created(GameObject *obj);
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+/*!
+* \brief Destroys the closest preset to the position (works with powerups and other "dumb" objects)
+* \Custom - Custom to trigger the script
+* \PresetName - Name of the preset to hunt down and kill
+* \Position - Position to search near
+* \MaxDistance - Max distance to scan, 0 = infinite
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Destroy_Closest_Object_To_Position : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Used to enable or disable a spawner, allows you to only have it trigger the script once
+* \SpawnerID - ID of the spawner to enable/disable
+* \PlayerType - Player type the zone triggers for
+* \Enable - Enable or disable all the spawners in the range
+* \TriggerOnce - Allows the script only to trigger the first time the zone is entered
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Set_Spawner : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+/*!
+* \brief Attach this script to the powerup of the weapon you wish not to be lost throughout the game
+* \WeaponName - Name of the weapon the powerup grants
+* \PowerupNameOverride - Use this if you want a different powerup to be used after the initial pickup of this powerup (Default value = null)
+* \DisarmCustom - Sending a soldier that currently has the weapon from this powerup will have the weapon remove and the script as well
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Persistant_Weapon_Powerup : public ScriptImpClass {
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Script used by JMG_Utility_Persistant_Weapon_Powerup
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Persistant_Weapon_zStandin : public ScriptImpClass {
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Script used by JMG_Utility_Persistant_Weapon_Powerup
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Persistant_Weapon_zAttached : public ScriptImpClass {
+	int disarmCustom;
+	char weaponName[256];
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void Destroyed(GameObject *obj);
+};
+
+/*!
+* \brief Teleports the object that enters the zone to a random wander point
+* \Custom - Custom to trigger the teleport
+* \ScanTeleportSpot - Center of the area for the distance
+* \TeleportIgnoreDistance - Distance players must be outside of to be teleported
+* \WanderingAIGroupID - Group of points to teleport to
+* \SafeTeleportDistance - How far can infantry be moved if the spot is blocked
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Teleport_Players_Outside_Range_To_Wanderpoints : public ScriptImpClass {
+	Vector3 scanTeleportSpot;
+	int playerType;
+	float safeTeleportDistance;
+	float teleportIgnoreDistance;
+	int wanderPointGroup;
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	bool Get_A_Defense_Point(Vector3 *position,float *facing);
+	bool Grab_Teleport_Spot(GameObject *enter,int attempts);
+};
+
+
+/*!
+* \brief Sets the animation frame of a tile when a custom is received
+* \Custom - Custom to trigger the teleport
+* \ID - Id of the tile to animate
+* \Animation - Animation to use
+* \Frame - Frame to goto
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Set_Tile_Frame : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sends a custom if the object entering the zone does not have a weapon
+* \PlayerType - Player type the zone triggers for
+* \WeaponName - Name of the weapon you don't want
+* \ID - ID to send the custom to, 0 sends to self, -1 sends to enter
+* \Custom - Custom message to send
+* \Param - Param to send
+* \Delay - Delay to add before sending custom
+* \TriggerOnce - Allows the script only to trigger the first time the zone is entered
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Send_Custom_No_Weapon : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+
+
+/*!
+* \brief Reads text from a file and displays it to the screen, 
+* \ the text in a file is broken every 150 characters (tries to end the current word) and then delayed by 6 seconds
+* \ Note: This will only work once because of how it works
+* \Custom - Custom to trigger this script on
+* \FileName - Name of the file to read from
+* \TextTag - Name of the tag to grab text from
+* \MessageColor - Color to display the chat message in
+* \LineDelayTime - Delay between each message displayed
+* \UISound - 2D sound to play when custom received
+* \Repeatable - Allows the script to trigger more than once
+* \File Format Example
+[Tag]
+Text typed here will be displayed for this tag when the custom is received, the line can be up to 16384 characters long.
+[AnotherTag]
+Use this character ''(there is a character in there, you'll have to copy it out) to end the line, you can also use a bunch of them to add a delay to the message.
+[LastTag]
+The expected format of the file is always Tag Line Tag Line, never add blank lines or new line returns in tag text.
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Display_Briefing_Message : public ScriptImpClass {
+	struct BriefingTextNode
+	{
+		char Text[256];
+		float Delay;
+		BriefingTextNode *next;
+		BriefingTextNode(const char *text)
+		{
+			Delay = 0.0f;
+			sprintf(Text,"%s",text); 
+			next = NULL;
+		}
+		BriefingTextNode(const char *text,float delay)
+		{
+			Delay = delay;
+			sprintf(Text,"%s",text); 
+			next = NULL;
+		}
+		BriefingTextNode()
+		{
+			next = NULL;
+		}
+	};
+	BriefingTextNode *BriefingText;
+	BriefingTextNode *CurrentNode;
+	bool triggered;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void Destroyed(GameObject *obj);
+	void AddNewTextNode();
+	void RemoveTextNodes();
+};
+
+/*!
+* \brief Changes the player's team the value
+* \RequiredPlayerTeam - Player team that the player has to be in order to be changed
+* \SetPlayerTeam - Player team to change the player to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Set_Player_Team : public ScriptImpClass {
+	int requiredPlayerTeam;
+	int setPlayerTeam;
+	void Created(GameObject *obj);
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+/*!
+* \brief Used to update your objectives
+* \NewObjectiveID - ID of the new objective to add
+* \NewObjectiveStringID - Strings.tbl id for the objective message
+* \ObjectiveMarkerObjectID - ID of the object where the marker should be displayed (-1 sets this object as the marker)
+* \CompleteObjectiveID - Objective to complete when this is trigger
+* \Delay - Delay for Objective before adding the new one
+* \NewObjectivePriority - Priority of the new objective {Undefined=-1,Unknown = 0,Primary = 1,Secondary = 2,Tertiary = 3,Quaternary = 4,Quinary = 5,Senary = 6,Septenary = 7,Octonary = 8,Nonary = 9,Denary = 10,Bonus = 11}
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Objective_System_Objective_Update_Create : public ScriptImpClass {
+	bool triggered;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+public:
+	JMG_Utility_Objective_System_Objective_Update_Create()
+	{
+		triggered = false;
+	}
+};
+
+/*!
+* \brief Used to remove an objective on custom
+* \Custom - Custom to trigger this script
+* \ObjectiveID - ID of the new objective to remove
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Objective_System_Objective_Remove_Custom : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Rotates the player's camera after a delay
+* \Time - Time amount to wait
+* \Facing - Direction to rotate to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Delay_Then_Rotate_Camera : public ScriptImpClass {
+	bool triggered;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Applies damage to all smart game objects in range
+* \Range - Range to damage objects inside of
+* \Damage - Damage to do each update
+* \Warhead - warhead to use to apply the damage
+* \Rate - the speed at which to apply the damage
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Damage_SmartGameObjects_In_Range : public ScriptImpClass {
+	float range;
+	float damage;
+	char warhead[128];
+	float rate;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Use this script to get AI back out of the ground
+* \Distance - Max distance to try to move the infantry if stuck in the ground
+* \Rate - How often should it check if the infantry is stuck in the ground
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Unstick_Infantry_If_Stuck : public ScriptImpClass {
+	float distance;
+	float rate;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Sends a custom when a custom has been received x times
+* \Custom - Custom to count
+* \Count - how many customs needed
+* \ID - ID to send to, 0 sends to self, -1 sends to sender
+* \SendCustom - custom to send
+* \Param - param to send
+* \Delay - delay to add
+* \ResetCustom - custom to reset the count
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Send_Custom_On_Count : public ScriptImpClass {
+	int custom;
+	int resetCustom;
+	int count;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Destroy self when a custom is received
+* \Custom - Custom to trigger on
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Destroy_Self : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+/*!
+* \brief Changes the player's team to the value specified, then kills the player, finally subtracting 1 from the death count
+* \RequiredPlayerTeam - Player team that the player has to be in order to be changed
+* \SetPlayerTeam - Player team to change the player to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Set_Player_Team2 : public ScriptImpClass {
+	int requiredPlayerTeam;
+	int setPlayerTeam;
+	void Created(GameObject *obj);
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+/*!
+* \brief Sends a custom message on poke, also enables the pokable indicator icon
+* \ID - ID to send the custom to, 0 sends to self, -1 sends to poker
+* \Custom - Custom message to send
+* \Param - Param to send
+* \Delay - Delay to add before sending custom
+* \TriggerOnce - Allows the script only to trigger the first time all customs are received
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Poke_Send_Custom : public ScriptImpClass {
+	void Created(GameObject *obj);
+	void Poked(GameObject *obj, GameObject *poker);
+};
+
+/*!
+* \brief Locks the collision mode of an object on create
+* \CollisionGroupID - ID of the collision mode to use
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Collision_Group : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+
+
+/*!
+* \brief Used to cap the credits of a team, can be updated by sending a custom
+* \Credits - What is the max amount of credits the player can have
+* \Team - Team that the script affects
+* \Custom - A custom message that is used to update the max credits, parameter is the amount
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Cap_Credits : public ScriptImpClass {
+	int team;
+	float credits;
+	int custom;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Applys damage to an object when custom is received
+* \Custom - Custom to trigger on
+* \ID - ID of the object to damage 0 = itself
+* \Damage - Damage to do to the object
+* \Warhead - Warhead to use
+* \DamagerID - ID of what does the damage, -1 = sender, 0 = itself, -2 = object script is attached to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Apply_Damage : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief This script makes the AI hunt down the nearest enemy, it works for infantry and vehicles
+* \HuntSearchDistance - Distance to scan for players to magically find and move to, -1 means infinite range
+* \HuntSpeed - Speed at which the bot moves once its moving to a player
+* \HuntArriveDistance - Distance at which to arrive from the player
+* \RandomHuntArriveDistance - Random amount to arrive from the player
+* \HuntStealth - Can the bot magically know where invisible players are
+* \AttackSpeed - Speed to move at once an attack is begun
+* \AttackDistance - Distance to arrive from a target when attacking, -1 uses the weapon effective distance
+* \RandomAttackDistance - Random amount to add or subtract from the Attack distance
+* \ReturnHome - Return to the create location when the action completes? (If wanderpoints are enabled this will never be used)
+* \ReturnHomeSpeed - Speed to move at when going home
+* \WanderingAIGroupID - Group of wander points to use when nothing else is going on
+* \WanderSpeed - Speed to move at between the points
+* \CanSeeStealth - Can the AI see stealth targets? 0 = No at all, 1 is within the ranges set in LE globals file, 2 means it can see stealth everywhere, think of stock AI.
+* \ShutdownEngineOnArrival - Used for vehicles, turn on if you have issues with your vehicle rolling away from its move positions after it arrives
+* \AttackCheckBlocked - Defines whether they should check if they can actually hit the player before shooting
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Goto_Enemy : public ScriptImpClass {
+	enum aiState{IDLE,HUNTING_STAR,ATTACKING_TARGET,RETURNING_HOME,WANDERING_GROUP,ACTION_BADPATH};
+	struct LastAction
+	{
+		int targetId;
+		Vector3 location;
+		float speed;
+		float distance;
+		bool attack;
+		bool overrideLocation;
+		LastAction()
+		{
+		}
+		LastAction(int targetId,Vector3 location,float speed,float distance,bool attack,bool overrideLocation)
+		{
+			this->targetId = targetId;
+			this->location = location;
+			this->speed = speed;
+			this->distance = distance;
+			this->attack = attack;
+			this->overrideLocation = overrideLocation;
+		}
+	};
+	LastAction lastAction;
+	aiState state;
+	Vector3 homeLocation;
+	bool huntStealth;
+	int targetId;
+	int lastSeenTime;
+	float weaponRange;
+	float weaponEffectiveRange;
+	int huntingEnemyId;
+	int removeIgnoreTime;
+	int ignoreEnemyId;
+	float huntSearchDistance;
+	float huntArriveDistance;
+	float attackArriveDistance;
+	int stuckTime;
+	int reverseTime;
+	Vector3 lastPosition;
+	bool moveBackward;
+	void Created(GameObject *obj);
+	void Enemy_Seen(GameObject *obj,GameObject *seen);
+	void Timer_Expired(GameObject *obj,int number);
+	void Action_Complete(GameObject *obj,int action_id,ActionCompleteReason reason);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void Attack_Move(GameObject *obj,GameObject *target,Vector3 location,float speed,float distance,bool attack,bool overrideLocation);
+	GameObject *findClosestStar(GameObject *obj);
+	void Return_Home(GameObject *obj);
+	void Stuck_Check(GameObject *obj,Vector3 targetPos);
+	void Cant_Get_To_target(GameObject *obj);
+	bool GetRandomPosition(Vector3 *position);
+	bool Choose_Target(GameObject *obj,GameObject *target);
+};
+
+/*!
+* \brief This script makes the AI seek out the nearest enemy, players are ignored, it works for infantry and vehicles
+* \HuntSearchDistance - Distance to scan for players to magically find and move to, -1 means infinite range
+* \HuntSpeed - Speed at which the bot moves once its moving to a player
+* \HuntArriveDistance - Distance at which to arrive from the player
+* \RandomHuntArriveDistance - Random amount to arrive from the player
+* \HuntStealth - Can the bot magically know where invisible players are
+* \AttackSpeed - Speed to move at once an attack is begun
+* \AttackDistance - Distance to arrive from a target when attacking, -1 uses the weapon effective distance
+* \RandomAttackDistance - Random amount to add or subtract from the Attack distance
+* \ReturnHome - Return to the create location when the action completes? (If wanderpoints are enabled this will never be used)
+* \ReturnHomeSpeed - Speed to move at when going home
+* \WanderingAIGroupID - Group of wander points to use when nothing else is going on
+* \WanderSpeed - Speed to move at between the points
+* \CanSeeStealth - Can the AI see stealth targets? 0 = No at all, 1 is within the ranges set in LE globals file, 2 means it can see stealth everywhere, think of stock AI.
+* \ShutdownEngineOnArrival - Used for vehicles, turn on if you have issues with your vehicle rolling away from its move positions after it arrives
+* \AttackCheckBlocked - Defines whether they should check if they can actually hit the player before shooting
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Goto_Enemy_Not_Star : public ScriptImpClass {
+	enum aiState{IDLE,HUNTING_STAR,ATTACKING_TARGET,RETURNING_HOME,WANDERING_GROUP,ACTION_BADPATH};
+	struct LastAction
+	{
+		int targetId;
+		Vector3 location;
+		float speed;
+		float distance;
+		bool attack;
+		bool overrideLocation;
+		LastAction()
+		{
+		}
+		LastAction(int targetId,Vector3 location,float speed,float distance,bool attack,bool overrideLocation)
+		{
+			this->targetId = targetId;
+			this->location = location;
+			this->speed = speed;
+			this->distance = distance;
+			this->attack = attack;
+			this->overrideLocation = overrideLocation;
+		}
+	};
+	LastAction lastAction;
+	aiState state;
+	Vector3 homeLocation;
+	bool huntStealth;
+	int targetId;
+	int lastSeenTime;
+	float weaponRange;
+	float weaponEffectiveRange;
+	int huntingEnemyId;
+	int removeIgnoreTime;
+	int ignoreEnemyId;
+	float huntSearchDistance;
+	float huntArriveDistance;
+	float attackArriveDistance;
+	int stuckTime;
+	int reverseTime;
+	Vector3 lastPosition;
+	bool moveBackward;
+	void Created(GameObject *obj);
+	void Enemy_Seen(GameObject *obj,GameObject *seen);
+	void Timer_Expired(GameObject *obj,int number);
+	void Action_Complete(GameObject *obj,int action_id,ActionCompleteReason reason);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void Attack_Move(GameObject *obj,GameObject *target,Vector3 location,float speed,float distance,bool attack,bool overrideLocation);
+	GameObject *findClosestStar(GameObject *obj);
+	void Return_Home(GameObject *obj);
+	void Stuck_Check(GameObject *obj,Vector3 targetPos);
+	void Cant_Get_To_target(GameObject *obj);
+	bool GetRandomPosition(Vector3 *position);
+	bool Choose_Target(GameObject *obj,GameObject *target);
+};
+
+/*!
+* \brief Grants or removes a key on attach
+* \Key - Key number to grant
+* \Grant - 1 to grant, 0 to remove
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Grant_Key_On_Create : public ScriptImpClass
+{
+	AggressiveAttackSpotSystem::AggressiveAttackSpotNode *node;
+	void Created(GameObject *obj);
+};
+
+/*!
+* \brief Sends a custom on a custom
+* \Custom - Custom to count
+* \ID - ID to send to, 0 sends to self, -1 sends to sender
+* \SendCustom - custom to send
+* \Param - param to send
+* \Delay - delay to add
+* \ResetCustom - custom to reset the count
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Send_Custom : public ScriptImpClass {
+	int recieveMessage;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Empty vehicles slowly die if not occupied by a player (a player must enter the vehicle once first)
+* \Rate - how fast to damage the vehicle
+* \Delay - how long must it be unoccupied before taking damage
+* \DecreaseTick - how much should be subtracted each update from the delay when unoccupied
+* \IncreaseTick - how much should be added when occupied
+* \Damage - how much damage to do
+* \Warhead - warhead to use
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Damage_Unoccupied_Vehicle : public ScriptImpClass {
+	bool hasBeenOccupied;
+	float rate;
+	float damage;
+	char warhead[128];
+	float delay;
+	float maxDelay;
+	float decreaseTick;
+	float increaseTick;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Kills all soldiers on a team when a custom is received
+* \Custom - Custom to count
+* \Team - team to wipe out
+* \Damage - how much damage to apply
+* \Warhead - warhead to use
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Damage_All_Soldiers_On_Team : public ScriptImpClass {
+	int custom;
+	int team;
+	float damage;
+	char warhead[128];
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Makes a unit move between wander points, it'll strafe at the target while it has one, clone of JMG_Utility_AI_Guardian_Aircraft but with pathfind enabled and allows you to turn off the engine on arrival
+* \WanderingAIGroupID - Group of points to wander between
+* \WanderSpeed - Speed the unit moves at 
+* \FireRange - Max range that it can use it's guns
+* \CheckBlocked - Whether to check if the target spot is blocked before firing
+* \AimAtFeet - Should the vehicle aim at the feet of infantry
+* \TurnOffEngineOnArrival - Should the vehicle turn off its engine when it gets to its points (useful for wheeled vehicles that roll away)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Guardian_Vehicle : public ScriptImpClass {
+	bool aimAtFeet;
+	Vector3 dpPosition;
+	int EnemyID;
+	int EnemyTimeOutTime;
+	Vector3 LastPos;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Enemy_Seen(GameObject *obj,GameObject *seen);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void Goto_Location(GameObject *obj);
+	bool Get_A_Defense_Point(Vector3 *position);
+};
+
+/*!
+* \brief Destroys the closest object with the 3d model to the position (works with powerups and other "dumb" objects)
+* \Custom - Custom to trigger the script
+* \Model - Model of the object to kill
+* \Position - Position to search near
+* \MaxDistance - Max distance to scan, 0 = infinite
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Destroy_Closest_Model_To_Position : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Counts the deaths of any object with the reporter script attached, displays hud messages at a set interval, once the cap is reached a custom is sent
+* \MaxDeaths - Once the death count reaches this a custom is sent
+* \DeathReminder - A hud custom is displayed every time the death count hits a mod of this value
+* \UrgentDeathReminder - Once the death count exceeds this the death messages show up at every death
+* \StringID - ID of the string to replace for the death messages
+* \ReminderMessage - Message to display on the hud as the player lives get low, use %d to display the remaining lives and %s to add a "s " or " " to the end of the noun.
+* \Delim - Character to swap with a comma in the ReminderMessage
+* \ReminderColor - Color of the warning HUD messages
+* \ReminderMessageOrder - Specifies what order the kill arguments are handed out, 0 = deathCount remainingLives, 1 = remainingLives deathCount, 2 = remainingLives
+* \DeathSingular - Specifies the word or letters to use when only one death has happened
+* \DeathPlural - Specifies the word or letters to use when only many deaths have happened
+* \RemainingSingular - Specifies the word or letters to use when only one life remains
+* \RemainingPlural - Specifies the word or letters to use when only many lives remain
+* \ID - Id to send the message to, if 0 it sends to itself
+* \Custom - Custom to send
+* \Param - Parameter to send with the message
+* \Delay - Time delay to add to the sent message
+* \ReminderCustom - custom to send every time a reminder message shows up, param is the remaining lives, no delay
+* \AddDeathsWhenNoPlayers - Increases the death count (by one) at the rate specified here when no players are in game, if 0 no increase
+* \NoPlayersAddDeathSaftyTime - This amount of time must pass before deaths will start to be added, if a player rejoins the time will reset
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_On_Deaths_Controller : public ScriptImpClass
+{
+	float addDeathsWhenNoPlayers;
+	int noPlayersAddDeathSaftyTime;
+	int currentNoPlayersAddDeathSaftyTime;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void Destroyed(GameObject *obj);
+public:
+	static int deathCount;
+	static int maxDeaths;
+	static int deathReminder;
+	static int urgentDeathReminder;
+	static int stringId;
+	static int myId;
+	static Vector3 reminderColor;
+	static char reminderMessage[220];
+	static char deathSingular[220];
+	static char deathPlural[220];
+	static char remainingSingular[220];
+	static char remainingPlural[220];
+	static int reminderMessageOrder;
+	static bool controllerPlaced;
+};
+
+/*!
+* \brief Attach this to the objects you want the death tracking system applied to, requires JMG_Utility_Send_Custom_On_Deaths_Controller
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_On_Deaths_Reporter : public ScriptImpClass
+{
+	void Killed(GameObject *obj,GameObject *killer);
+	char *formatReminderString(const char *format,...);
+};
+
+/*!
+* \brief Tell objects with JMG_Utility_AI_Goto_Player to ignore this object
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Goto_Player_Ignore_Object : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+
+
+/*!
+* \brief Tell objects with JMG_Utility_AI_Goto_Enemy_Ignore_Object to ignore this object
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Goto_Enemy_Ignore_Object : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+
+
+/*!
+* \brief Tell objects with JMG_Utility_AI_Goto_Enemy_Not_Star_Ignore_Object to ignore this object
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Goto_Enemy_Not_Star_Ignore_Object : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+
+/*!
+* \brief Changes the model, team, and resets the action of an object on custom.
+* \Custom - Custom to trigger the script
+* \Model - Model to change to on custom
+* \Team - Team to change to on custom
+* \ResetActionPriority - Priority of the action to reset (usually 100)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Set_Team_And_Model : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Spawns an object if the last warhead that damaged the object matches the specified warhead
+* \Warhead - Name of the warhead
+* \Chance - Chance that object will be spawned (0 - 1.0)
+* \Preset - Object to create
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Death_Warhead_Create_Object : public ScriptImpClass {
+	unsigned int lastDamageWarhead;
+	void Created(GameObject *obj);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void Killed(GameObject *obj,GameObject *killer);
+};
+
+/*!
+* \brief Changes the soldier's preset on enter if the original preset matches
+* \EntererPreset - required preset of the soldier that enters
+* \PlayerType - required player type of the enterer
+* \Preset - name of the preset to change to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Change_Character_On_Preset_Enter : public ScriptImpClass {
+	int playerType;
+	char entererPreset[256];
+	void Created(GameObject *obj);
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+/*!
+* \brief Syncs the health of an object with the ID of the object specified, object is destroyed if id object doesn't exist
+* \ID - Id of the object to sync with
+* \Rate - How often to sync the HP
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Sync_HP_With_Object : public ScriptImpClass {
+	int id;
+	float rate;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Sets the screen opacity and color of all people that join the game, also resets the screen fade for JMG_Utility_Swimming_Zone when exiting the water
+* \Color - color to set the screen (0.0 - 1.0)
+* \Opacity - opacity to set the screen (0.0 - 1.0)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Screen_Color_Fade_Controller : public ScriptImpClass {
+	bool syncedScreen[128];
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Destroyed(GameObject *obj);
+	static Vector3 controllerDefaultColor;
+	static float controllerDefaultOpacity;
+public:
+	JMG_Utility_Set_Screen_Color_Fade_Controller()
+	{
+		controllerPlaced = true;
+	}
+	static bool controllerPlaced;
+	static Vector3 color[128];
+	static float opacity[128];
+	SCRIPTS_API static void Update_Colors(Vector3 Color,float Opacity);
+	SCRIPTS_API static void Update_Player_Colors(GameObject *player,Vector3 Color,float Opacity);
+	SCRIPTS_API static void Reset_To_Default(GameObject *player);
+	SCRIPTS_API static void Update_Player(GameObject *player,float transition);
+	SCRIPTS_API static void Update_All_Players(float transition);
+};
+
+/*!
+* \brief Switches the default screen color and opacity of the map on a custom and updates all players
+* \Custom - custom to trigger on
+* \Color - Color to set (0.0 - 1.0)
+* \Opacity - Opacity to set (0.0 - 1.0)
+* \Transition - how long to fade to the new settings
+* \TriggerOnce- can this script trigger more than once
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Screen_Color_Fade_On_Custom : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Updates the screen of the attached player when the object is created
+* \Transition - how long to fade to the new settings
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Screen_Color_Fade_Reset_Player_Create : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+
+/*!
+* \brief Fades the screen back to the values set by JMG_Utility_Set_Screen_Color_Fade_Controller for a specific player
+* \Transition - how long to fade to the new settings
+* \PlayerType - team the player has to be on to trigger the script
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Screen_Color_Fade_Reset_Player_Enter : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enter);
+};
+
+/*!
+* \brief A simplified script for mech walking animatons, use w3danimsound to provide synced walk sounds
+* \ForwardAnimation - animation to play while going forward
+* \BackwardAnimation - animation to play while going backward
+* \IdleAnimation - animation to play while idle, leave this blank and the animtion will stop on the last frame used
+* \TurnLeftAnimation - animation to play while turning left
+* \TurnRightAnimation - animation to play while turning right
+* \ReleaseDelay - amount of time in 10ths of a second before the animation can chance after a key is released (useful to keep the animaton from skipping)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Simple_Mech : public ScriptImpClass {
+	enum mvmtDir{IDLE,FORWARD,BACKWARD,LEFT,RIGHT};
+	char idleAnimation[32];
+	char forwardAnimation[32];
+	char backwardAnimation[32];
+	char turnLeftAnimation[32];
+	char turnRightAnimation[32];
+	int idleCooldown;
+	int releaseDelay;
+	bool hasIdleAnimation;
+	mvmtDir currentDirection;
+	mvmtDir lastMovementDirection;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Animation_Complete(GameObject *obj,const char *animation_name);
+	void PlayAnimation(GameObject *obj,mvmtDir direction,float startFrame,float endFrame,bool looped);
+};
+
+/*!
+* \brief Sends a custom message when a preset gets into range
+* \Preset - Preset to detect
+* \Range - Range to detect the preset
+* \Rate - how often to scan for the preset
+* \ID - Id to send the message to, if 0 it sends to itself, if -1 send to the object that triggered it
+* \Custom - Custom to send
+* \Param - Parameter to send with the message
+* \Delay - Time delay to add to the sent message
+* \TriggerOnce - Can the script only trigger once
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_When_Preset_In_Range : public ScriptImpClass {
+	float range;
+	char preset[128];
+	float rate;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+/*!
+* \brief Basic turret attach script, turrets match team of vehicle attached to, turrets are destroyed by destroy event
+* \Preset - Preset to create
+* \Bone - Bone to create the preset at
+* \MaxDistance - Once the object is created it can be displaced if another object is in its position, this is how far it can be moved
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Death_Create_Object_At_Bone_Position : public ScriptImpClass
+{
+	void Killed(GameObject *obj,GameObject *killer);
+};
+
+/*!
+* \brief Enables loiter animations
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Enable_Loiter : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+
+/*!
+* \brief Switches the current weapon to a different weapon on custom
+* \Custom - custom to trigger on
+* \Weapon - name of the weapon to switch to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Switch_Weapon : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Displays HUD messages once at each hour, 30 min, 20 min, 10 min, 5 4 3 2 1 min, 30 sec 10 9 8 7 6 5 4 3 2 1 seconds. Custom messages can be 
+* \ sent by attaching JMG_Utility_HUD_Count_Down_Messages
+* \TimeInSeconds - Time in seconds that the countdown goes for
+* \StringID - ID of the string to replace and use for the HUD message
+* \Color - RGB Color to use for the HUD message
+* \WarningMessage - Message to display on screen as the countdown goes down, format order goes Time then specifier
+* \Delim - Character to swap with a comma in the WarningMessage
+* \HourSingular - This is the part of the message that displays hours singular
+* \HourPlural - This is the part of the message that displays hours plural
+* \MinuteSingular - This is the part of the message that displays minute singular
+* \MinutePlural - This is the part of the message that displays minutes plural
+* \SecondSingular - This is the part of the message that displays second singular
+* \SecondPlural - This is the part of the message that displays seconds plural
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_HUD_Count_Down : public ScriptImpClass {
+public:
+	struct SendCustomOnSecondNode
+	{
+		int triggerSecond;
+		int id;
+		int custom;
+		int param;
+		float delay;
+		struct SendCustomOnSecondNode *next;
+		SendCustomOnSecondNode(int triggerSecond,int id,int custom,int param,float delay)
+		{
+			this->triggerSecond = triggerSecond;
+			this->id = id;
+			this->custom = custom;
+			this->param = param;
+			this->delay = delay;
+			this->next = NULL;
+		}
+	};
+	static SendCustomOnSecondNode *sendCustomOnSecondController;
+	static void AddSecondNode(int triggerSecond,int id,int custom,int param,float delay)
+	{
+		SendCustomOnSecondNode *current = sendCustomOnSecondController;
+		if (!sendCustomOnSecondController)
+			sendCustomOnSecondController = new SendCustomOnSecondNode(triggerSecond,id,custom,param,delay);
+		while (current)
+		{
+			if (current->triggerSecond == triggerSecond)
+			{
+				Console_Input("msg ERROR: A custom for this trigger second already exists!");
+				return;
+			}
+			if (!current->next)
+			{
+				current->next = new SendCustomOnSecondNode(triggerSecond,id,custom,param,delay);
+				return;
+			}
+			current = current->next;
+		}
+	}
+	static bool controllerPlaced;
+private:
+	int stringId;
+	Vector3 color;
+	char warningMessage[220];
+	char hourSingular[220];
+	char hourPlural[220];
+	char minuteSingular[220];
+	char minutePlural[220];
+	char secondSingular[220];
+	char secondPlural[220];
+	int seconds;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Destroyed(GameObject *obj);
+	char *formatReminderString(const char *format,...);
+	
+	SendCustomOnSecondNode *FindSecondNode(int second)
+	{
+		if (!sendCustomOnSecondController)
+			return NULL;
+		SendCustomOnSecondNode *current = sendCustomOnSecondController;
+		while (current)
+		{
+			if (current->triggerSecond == second)
+				return current;
+			current = current->next;
+		}
+		return NULL;
+	}
+	void CleanupSecondNodes()
+	{
+		SendCustomOnSecondNode *temp = sendCustomOnSecondController,*die;
+		while (temp)
+		{
+			die = temp;
+			temp = temp->next;
+			delete die;
+		}
+	}
+};
+/*!
+* \brief Sends a custom when TimeInSeconds (on JMG_Utility_HUD_Count_Down) matches the TriggerTime 
+* \TriggerTime - Time in which to send the custom
+* \ID - ID to send the custom to, if 0 it sends it to the object this script is attached too
+* \Custom - Custom to send
+* \Param - Param to send
+* \Delay - Delay to wait before sending the message
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_HUD_Count_Down_Send_Custom : public ScriptImpClass {
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Fades the screen of a specific player
+* \Color - color to fade to (if Red (X) is set to less than 0 color won't be set))
+* \Opacity - opacity to fade to (if opacity is less than 0 it won't be set)
+* \Transition - how long to fade to the new settings
+* \PlayerType - team the player has to be on to trigger the script
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Screen_Fade : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enter);
+};
+
+/*!
+* \brief Sets whether AI with Enemy Seen can see this object
+* \Custom - custom to trigger on
+* \Visible - Does enemy seen trigger on this object
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Triggers_Enemy_Seen : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Fades the screen red when damage, mixes with colors provided by the swimming script and JMG_Utility_Set_Screen_Color_Fade_Controller (ported from ECW)
+* \FadeColor - Color to fade to when damaged
+* \FadeOpacity - Opacity to fade to when damaged
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Screen_Fade_Red_On_Damage : public ScriptImpClass {
+	int playerId;
+	Vector3 fadeColor;
+	float fadeOpacity;
+	float injuryRatio;
+	float lastInjuryRatio;
+	float screenOpacity;
+	float lastScreenOpacity;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void ScreenFade(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Enables spawners when player count meets specified values, disables when outside of values
+* \StartID - ID to start at
+* \EndID - ID to stop at
+* \PlayerCount[eq|<|>] - Set the player count for the conditions to enable the spawners, enter -1 ignores the condition (equal, less than, greater than)
+* \PlayerCount[neq|between(|)] - Set the player count for the conditions to enable the spawners, enter -1 ignores the condition (not equal, between)
+* \EnableOrDisableCustom - Custom pauses the script or unpauses it, param enables/disables (spawner current state is left enabled/disabled)
+* \StartsEnabled - Should this script be running on map load
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Player_Count_Enable_Spawners : public ScriptImpClass
+{
+	bool enabled;
+	int enableCustom;
+	Vector3 playerCount;
+	Vector3 playerCount2;
+	bool conditionMatching;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void EnableSpawners(bool enable);
+};
+
+/*!
+* \brief Used to designate targets that the engineer AI should ignore
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Engineer_Ignore_Target : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+/*!
+* \brief Grants specified weapon to all players in range
+* \WeaponName - Name of the weapon to grant to the player
+* \Location - Location to grant the weapon at
+* \Range - Range from the location to grant the weapon
+* \EnableOrDisableCustom - Custom to enable the scanning, parameter determines if its enabled or disabled 1 = enabled, 0 = disabled
+* \StartsEnabled - Should to script start running 1 = true, 0 = false
+* \Rate - Speed at which to scan, 0.0 will disable the repeated scanning and then only enable custom will trigger a scan
+* \SelectWeapon - Should the player pull out the weapon when its granted
+* \WeaponAmmo - Amount of ammo to grant with initial weapon grant
+* \RefillRate - How fast the gun should be refilled while in the zone
+* \RefillAmount - How much ammo to refill
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Give_Weapon_In_Range : public ScriptImpClass
+{
+	float rate;
+	float refillRate;
+	float range;
+	Vector3 location;
+	bool enabled;
+	int enableCustom;
+	char weaponName[256];
+	bool selectWeapon;
+	int weaponAmmo;
+	int refillAmount;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void GrantWeapon();
+};
+
+/*!
+* \brief Needed for AI using JMG_Utility_AI_Follow_Player_On_Poke, this script controls the limits of how many bots each player can have following them
+* \MaxFollowers - Any value greater than 0 makes it so a player can only have that many followers at a time
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Follow_Player_On_Poke_Controller : public ScriptImpClass {
+	void Created(GameObject *obj);
+	void Destroyed(GameObject *obj);
+public:
+	static bool controllerPlaced;
+	static int maxFollowers;
+	static int followingPlayer[128];
+	JMG_Utility_AI_Follow_Player_On_Poke_Controller()
+	{
+		controllerPlaced = true;
+	}
+};
+
+/*!
+* \brief Makes an AI follow the player that pokes it, if the player dies it goes to its original position
+* \FollowDistance - How far should the AI follow the player
+* \FollowNearSpeed - How fast should the AI follow the player when it is near by
+* \FollowFarDistance - How far must the AI be away in order to run faster to the player
+* \FollowFarSpeed - How fast should the AI follow the player when it is far away
+* \FollowVeryFarDistance - How far must the AI be away in order to run faster to the player
+* \FollowVeryFarSpeed - How fast should the AI follow the player when it is far away
+* \FallBackWhenOutOfArmor - Should the AI return to its spawn location when it runs out of armor
+* \RunHomeSpeed - How fast should the AI run home
+* \HealWhileAtHomeLocation - The amount of health the AI regenerates while at its home location
+* \HUDMessagesColor - Color of the HUD messages that are displayed to the player that the AI is following (0.0 - 1.0)
+* \MessagePokeFollowerID - Message to display when a player pokes a follower, it displays the current number of followers out of total IE: %d/%d
+* \MessageFollowingYouID - Message to display if the player pokes the bot when it is already following them
+* \MessageFollowingPlayerID - Message to display to the player if they poke a bot that is following someone else
+* \MessageMaxFollowersID - Message to display if the player attempts to have more followers than allowed (message is formatted: You can only have %d creature%sfollowing you.)
+* \MessageHealingRequiredID - Message to display when the follower is hurt and has to heal before following again, only available when FallBackWhenOutOfArmor is on
+* \MessageFollowerLostID - Message to display when the player the follower is following wanders out of the pathfind zone or if they follow the player for to long
+* \MessageFollowerInjuredID - Message to display when the follower runs out of armor, FallBackWhenOutOfArmor must be on
+* \MessageFollowerKilledID - Message to display when the follower dies following someone
+* \SendCustomID - ID of the object customs should be sent to
+* \PokedCustom - Custom to send when the follower is poked and starts following
+* \LostCustom - Message to send if the follower gets lost or if they follow the player for to long
+* \InjuredCustom - Message to send when the follower gets injured, requires FallBackWhenOutOfArmor be on
+* \KilledCustom - Message to send if the follower is killed 
+* \HealedCustom - Message to send when the follower gets to full health, requires FallBackWhenOutOfArmor be on
+* \MaxFollowTime - Amount of time the AI can follow the player before getting bored and running home (in 10ths of a second)
+* \MaxIdleTime - Max amount of time an AI can stand still while "following" a player before running home (in 10ths of a second)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Follow_Player_On_Poke : public ScriptImpClass {
+	GameObject *lastFollow;
+	GameObject *lastTarget;
+	Vector3 lastPos;
+	int maxFollowTime;
+	int maxIdleTime;
+	int currentFollowTime;
+	int currentIdleTime;
+	bool detached;
+	float followDistance;
+	float followNearSpeed;
+	float followFarSpeed;
+	float followFarDistance;
+	float followVeryFarSpeed;
+	float followVeryFarDistance;
+	float runHomeSpeed;
+	int actionUpdate;
+	float weaponRange;
+	float targetDistance;
+	int enemyId;
+	int pokerPlayerId;
+	int playerObjectId;
+	Vector3 homeLocation;
+	Vector3 lastLocation;
+	int enemySeen;
+	bool fallbackWithoutArmor;
+	float healWhileAtHomeLocation;
+	int sendCustomId;
+	int pokedCustom;
+	int lostCustom;
+	int killedCustom;
+	int healedCustom;
+	int injuredCustom;
+	Vector3 messageColor;
+	int messagePokeFollowerId;
+	char messagePokeFollower[220];
+	int messageFollowingYouId;
+	int messageFollowingPlayerId;
+	int messageMaxFollowersId;
+	char messageMaxFollowers[220];
+	int messageHealingRequiredId;
+	int messageFollowerInjuredId;
+	int messageFollowerKilledId;
+	int messageFollowerLostId;
+	bool hurt;
+	void Created(GameObject *obj);
+	void Enemy_Seen(GameObject *obj,GameObject *seen);
+	void Timer_Expired(GameObject *obj,int number);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void Poked(GameObject *obj, GameObject *poker);
+	void Action_Complete(GameObject *obj,int action_id,ActionCompleteReason reason);
+	void Destroyed(GameObject *obj);
+	void Detach(GameObject *obj);
+	void AttackTarget(GameObject *obj,GameObject *follow,GameObject *target,Vector3 location,float speed,float distance);
+	void GiveUpOnPlayer(GameObject *obj,bool pokeable);
+	void ForgetEnemy(GameObject *obj);
+	void SendCustom(GameObject *obj,int custom);
+	char *formatMaxFollowingString(const char *format,...);
+	void ShowPlayerMessage(GameObject *player,int stringId,Vector3 color);
+public:
+	JMG_Utility_AI_Follow_Player_On_Poke()
+	{
+		detached = false;
+		pokerPlayerId = 0;
+	}
+};
+
+/*!
+* \brief Damages the attached object and teleports it after a timed delay
+* \Delay - Amount of time in seconds to wait
+* \TeleportToObjectID - ID of the object to teleport to
+* \Location - Location to teleport to if no object ID was supplied 
+* \DamageAmount - Amount of damage to apply
+* \DamageWarhead - Warhead to use to damage the object
+* \DamageSelf - Should the applied damage count for the object the script is attached to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Timer_Damage_And_Teleport : public ScriptImpClass {
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Sends a custom if the object entering the zone has a weapon
+* \PlayerType - Player type the zone triggers for
+* \ScriptName - Name of the script needed to trigger the zone
+* \ID - ID to send the custom to, 0 sends to self, -1 sends to enter
+* \Custom - Custom message to send
+* \Param - Param to send
+* \Delay - Delay to add before sending custom
+* \TriggerOnce - Allows the script only to trigger the first time the zone is entered
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Send_Custom_If_Has_Script : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+/*!
+* \brief Fades the screen and applies damage as the player gets further from the spot on the map, kills player if they wander outside a max range, uses JMG_Utility_Set_Screen_Color_Fade_Controller for default screen colors
+* \Warn_Distance - Distance at which the warning message appears on the HUD for infantry
+* \Damage_Distance - Distance at which the infantry starts taking damage
+* \Vehicle_Warn_Distance - Distance at which the warning message appears on the HUD for vehicle
+* \Vehicle_Damage_Distance - Distance at which the vehicle starts taking damage
+* \Aircraft_Warn_Distance - Distance at which the warning message appears on the HUD for aircraft
+* \Aircraft_Damage_Distance - Distance at which the aircraft starts taking damage
+* \Max_Survive_Distance - Distance at which anything the player is in (or the player their self) dies
+* \Warning_StringID - String ID to use for the HUD warning message
+* \Warning_Color - Color to display the warning HUD message
+* \Screen_Fade_Color - Color to fade the screen to
+* \DamageWarhead - Warhead to use to damage the units
+* \InstantKillWarhead - Warhead to use to kill targets instantly 
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Damage_When_Outside_Of_Range : public ScriptImpClass {
+	float warnDistance;
+	float damageDistance;
+	float vehicleWarnDistance;
+	float vehicleDamageDistance;
+	float aircraftWarnDistance;
+	float aircraftDamageDistance;
+	float maxSurviveDistance;
+	Vector3 errorMessageColor;
+	Vector3 screenFadeColor;
+	int warnTime[128];
+	bool screenEffectOn[128];
+	int leavingFieldStringId;
+	char damageWarhead[128];
+	char instantKillWarhead[128];
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Sends a custom message when no more objects of the preset name exist on the map, then removes itself
+* \PresetName - preset name to search for 
+* \StartsEnabled - If 0 it doesn't start scanning until enabled, otherwise starts scanning on attach
+* \EnableOrDisableCustom - Custom used to enable the script, a param of 0 disables the script again, anything besides 0 enables
+* \ID - Id of the object to send the custom to, 0 sends to itself
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Delay - Time amount to wait before sending the custom
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_When_No_More_Presets_Of_Type_Exist : public ScriptImpClass {
+	char presetName[128];
+	int enableCustom;
+	bool enabled;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Sends a custom message when a player goes beyond a certain range of this object
+* \Distance - how far away can the plaeyrs go
+* \ID - Id of the object to send the custom to, 0 sends to itself
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Delay - Time amount to wait before sending the custom
+* \TriggerOnce - If true the script can only fire once
+* \SleepTime - Value in 10ths of a second the script must wait before sending the custom again
+* \MaxRange - Players beyond this won't be detected, if 0 the param is ignored
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_When_Player_Outside_Of_Range : public ScriptImpClass {
+	int sleepTime;
+	int sleeping;
+	bool triggerOnce;
+	bool enabled;
+	float distance;
+	float delay;
+	float maxRange;
+	int id;
+	int param;
+	int custom;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Sets the player type to -2 when no armor, sets player type back to the original player type when armor is full
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Team_To_Neutral_When_No_Armor : public ScriptImpClass {
+	bool hurt;
+	int originalPlayerType;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Sends a custom message when no more objects on the specified team exist 
+* \Team - team that should be scanned for
+* \StartsEnabled - If 0 it doesn't start scanning until enabled, otherwise starts scanning on attach
+* \EnableOrDisableCustom - Custom used to enable the script, a param of 0 disables the script again, anything besides 0 enables
+* \ID - Id of the object to send the custom to, 0 sends to itself
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Delay - Time amount to wait before sending the custom
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_When_No_More_Units_On_Team_Exist : public ScriptImpClass {
+	int team;
+	int enableCustom;
+	bool enabled;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Creates a 3D sound at the specified bone on custom
+* \Sound - Sound preset to play
+* \Bone - Bone to play the sound from
+* \Custom - Custom message to trigger the sound
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Create_Sound_At_Object_Bone : public ScriptImpClass {
+	char sound[128];
+	char bone[32];
+	int custom;
+	bool enabled;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sends a custom when a custom has been received x times with addition of a player count multiplier, script destroys itself after it triggers once
+* \Custom - Custom to count
+* \BaseCount - how many customs needed
+* \PlayerCount - added to the base count, multiplied by the number of players in game
+* \ID - ID to send to, 0 sends to self, -1 sends to sender
+* \SendCustom - custom to send
+* \Param - param to send
+* \Delay - delay to add
+* \ResetCustom - custom to reset the count
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Send_Custom_On_Player_Count : public ScriptImpClass {
+	int custom;
+	int resetCustom;
+	int baseCount;
+	int playerCount;
+	int runningCount;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sends a custom message when killed by a player
+* \ID - Id of the object to send the custom to, 0 sends to itself, -1 to killer
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Delay - Time amount to wait before sending the custom
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Killed_By_Player_Send_Custom : public ScriptImpClass {
+	void Killed(GameObject *obj,GameObject *killer);
+};
+
+/*!
+* \brief Makes this unit ignored by all the Guardian AI scripts
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Guardian_Ignored : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+
+/*!
+* \brief Makes this unit ignored by all JMG_Utility_AI_Vehicle
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Vehicle_Ignored : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+
+/*!
+* \brief Sends a custom message when killed by a specific PresetID
+* \PresetID - Preset ID to detect
+* \ID - Id of the object to send the custom to, 0 sends to itself, -1 to killer
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Delay - Time amount to wait before sending the custom
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Killed_By_PresetID_Send_Custom : public ScriptImpClass {
+	void Killed(GameObject *obj,GameObject *killer);
+};
+
+/*!
+* \brief Makes an AI able to shoot directions the gun isn't aiming
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Created_Override_AI_Soldier_Muzzle_Direction : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+
+/*!
+* \brief Sends a custom when a custom has been received x times with addition of a player count multiplier, script destroys itself after it triggers once, also displays the current count on the HUD
+* \Custom - Custom to count
+* \BaseCount - how many customs needed
+* \PlayerCount - added to the base count, multiplied by the number of players in game
+* \ID - ID to send to, 0 sends to self, -1 sends to sender
+* \SendCustom - custom to send
+* \Param - param to send
+* \Delay - delay to add
+* \ResetCustom - custom to reset the count
+* \HudStringId - stringId for the string to be parsed and displayed on the HUD, formatting goes %d/%d (current count out of calculated total)
+* \HudStringColor - RGB value for the HUD message (0.0-1.0)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Send_Custom_On_Player_Count_HUD : public ScriptImpClass {
+	Vector3 hudStringColor;
+	char hudMessage[220];
+	int hudStringId;
+	int custom;
+	int resetCustom;
+	int baseCount;
+	int playerCount;
+	int runningCount;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	char *formatHUDMessage(const char *format,...);
+};
+
+/*!
+* \brief Sends a custom if the object entering the zone has a weapon, one custom is sent for each ammo count the weapon has
+* \PlayerType - Player type the zone triggers for
+* \WeaponName - Name of the weapon needed to trigger the zone
+* \ID - ID to send the custom to, 0 sends to self, -1 sends to enter
+* \Custom - Custom message to send
+* \Param - Param to send
+* \Delay - Delay to add before sending custom
+* \RemoveWeapon - Should the weapon be removed when entering the zone
+* \TriggerOnce - Allows the script only to trigger the first time the zone is entered
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Send_Custom_If_Has_Weapon_Ammo : public ScriptImpClass {
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+/*!
+* \brief Removes a weapon from all the players in game when a custom is received
+* \Custom - Custom to count
+* \WeaponName - name of the weapon preset to remove
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Remove_Weapon_From_All_Players : public ScriptImpClass {
+	int custom;
+	char weaponName[128];
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Destroys all the objects on the map with matching preset name
+* \Custom - Custom to trigger the script
+* \PresetName - Name of the preset to hunt down and destroy
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Destroy_All_Presets_By_Name : public ScriptImpClass {
+	int custom;
+	char presetName[128];
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sends a custom when an object has been damaged over a specified amount, also can have a delay how often the custom can be sent again
+* \DamageThreshold - Amount of damage that must be done to trigger the script
+* \LockoutTime - Amount of time that must go by before the script can trigger again
+* \ID - ID to send the custom to, 0 sends to self, -1 sends to enter
+* \Custom - Custom message to send
+* \Param - Param to send
+* \Delay - Delay to add before sending custom
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_When_Damage_Exceedes_Threshold : public ScriptImpClass {
+	int id;
+	int custom;
+	int param;
+	float delay;
+	float damageThreshold;
+	float lockoutTime;
+	float timeRemaining;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+};
+
+/*!
+* \brief Sends a chat message to all players on custom
+* \Custom - Custom message to trigger the script on
+* \StringId - String ID to send through the chat console to all players
+* \ColorRGB - Color of the HUD message to display 0-255
+* \Repeatable - Can the script trigger more than once
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Send_Translated_String_To_All_Players : public ScriptImpClass {
+	int custom;
+	Vector3 color;
+	int stringId;
+	bool repeatable;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Creates a powerup at the objects origin when it is destroyed if it has that weapon
+* \WeaponPreset - Weapon that is needed to do the drop
+* \PowerupName - Powerup to create
+* \HeightAdjust - Height to add to the object's origin to create the powerup at
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Destroyed_Drop_Powerup : public ScriptImpClass
+{
+	void Destroyed(GameObject *obj);
+};
+
+/*!
+* \brief Attaches a script to the soldier that picked up the powerup
+* \Script - Script to attach
+* \Params - Params to use
+* \Delim - char to use in place of ,
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Pickup_Attach_Script : public ScriptImpClass
+{
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Used to update the status of an objective
+* \Custom - Custom to trigger on
+* \ObjectiveID - ID of the new objective to update
+* \NewObjectiveStringID - Strings.tbl id for the objective message
+* \NewObjectiveMarkerObjectID - ID of the object where the marker should be displayed (-1 sets the sender as the marker)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Objective_System_Objective_Status_Update_Custom : public ScriptImpClass {
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Used to make an objective show up as failed
+* \Custom - Custom to trigger this script
+* \ObjectiveID - ID of the new objective to remove
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Objective_System_Objective_Failed_Custom : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Places all players on the same team at the end of the round
+* \Team - Team to force all players to
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Force_Player_Team_At_Gameover : public ScriptImpClass {
+	int team;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Makes a unit move between wander points, it'll strafe at the target while it has one, clone of JMG_Utility_AI_Guardian_Aircraft but with pathfind enabled
+* \WanderingAIGroupID - Group of points to wander between
+* \WanderSpeed - Speed the unit moves at 
+* \FireRange - Max range that it can use it's guns
+* \CheckBlocked - Whether to check if the target spot is blocked before firing
+* \ArriveDistance - Distance to get close to
+* \FlightHeight - How high should the aircraft fly (use 0 if not an aircraft)
+* \TurnOffEngineOnArrival - Should the vehicle kill its engine when it arrives
+* \UseSecondaryAttack - Should the unit attack with its secondary fire instead
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_AI_Guardian_Generic : public ScriptImpClass {
+	float flightHeight;
+	float arriveDistance;
+	float arriveDistanceSq;
+	Vector3 dpPosition;
+	int EnemyID;
+	int EnemyTimeOutTime;
+	Vector3 LastPos;
+	bool primaryFire;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Enemy_Seen(GameObject *obj,GameObject *seen);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void Goto_Location(GameObject *obj);
+	bool Get_A_Defense_Point(Vector3 *position);
+};
+
+/*!
+* \brief Creates an object in front of this object
+* \Custom - Custom to trigger the script
+* \PresetName - Name of the preset to create
+* \Distance - Distance in front of the object to place the new object
+* \Height - Height to add to the new object
+* \Rotation - Rotation to add to the new object (base rotation is the same as the old object)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Create_Object_In_Front_Of_Self : public ScriptImpClass {
+	int custom;
+	char presetName[128];
+	float distance;
+	float height;
+	float rotation;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Makes this unit ignored by JMG_Utility_Send_Custom_When_No_More_Units_On_Team_Exist
+* \Ignore - Does nothing, just here so you can tell which script this is beings the name is cut off
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_When_No_More_Units_On_Team_Exist_Ignore : public ScriptImpClass {
+	void Created(GameObject *obj);
+};
+
+/*!
+* \brief Damages all vehicles on a team when a custom is received
+* \Custom - Custom to count
+* \Team - team to wipe out
+* \Damage - how much damage to apply
+* \Warhead - warhead to use
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Damage_All_Vehicles_On_Team : public ScriptImpClass {
+	int custom;
+	int team;
+	float damage;
+	char warhead[128];
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Kills a unit if it doesn't manage to move more than the specified distance in the specified time
+* \Time - amount of time the unit has to move
+* \Distance - the distance the unit has to move
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Kill_Unit_If_Not_Moving_Enough : public ScriptImpClass {
+	int time;
+	int resetTime;
+	float distance;
+	Vector3 lastPos;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+
+/*!
+* \brief Reads text from a file and displays it to the screen, 
+* \ the text in a file is broken every 150 characters (tries to end the current word) and then delayed by 6 seconds
+* \ Note: This will only work once because of how it works
+* \Custom - Custom to trigger this script on
+* \StringID - ID of the string from strings.tbl to parse and play out
+* \MessageColor - Color to display the chat message in
+* \LineDelayTime - Delay between each message displayed
+* \UISound - 2D sound to play when custom received
+* \Repeatable - Allows the script to trigger more than once
+* \Special Notes:
+-String max length is 16384 characters long
+-Line break/delay - Use this character ''(there is a character in there, you'll have to copy it out) to end the line, you can also use a bunch of them to add a delay to the message.
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Display_Briefing_Message_StringID : public ScriptImpClass {
+	struct BriefingTextNode
+	{
+		char Text[256];
+		float Delay;
+		BriefingTextNode *next;
+		BriefingTextNode(const char *text)
+		{
+			Delay = 0.0f;
+			sprintf(Text,"%s",text); 
+			next = NULL;
+		}
+		BriefingTextNode(const char *text,float delay)
+		{
+			Delay = delay;
+			sprintf(Text,"%s",text); 
+			next = NULL;
+		}
+		BriefingTextNode()
+		{
+			next = NULL;
+		}
+	};
+	BriefingTextNode *BriefingText;
+	BriefingTextNode *CurrentNode;
+	bool triggered;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void Destroyed(GameObject *obj);
+	void AddNewTextNode();
+	void RemoveTextNodes();
+};
+
+/*!
+* \brief Same as JMG_Utility_Destroy_Objects_In_ID_Range_On_Destroy but tiggers on death instead of destroy
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Destroy_Objects_In_ID_Range_On_Killed : public ScriptImpClass
+{
+	void Killed(GameObject *obj,GameObject *killer);
+};
+
+/*!
+* \brief Basically exactly the same as JFW_Timer_Custom except an id of 0 sends to itself
+* \Time - delay to send the custom
+* \ID - Id of the object to send the custom to, 0 sends to itself
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Repeat - 1 to make it trigger again
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Timer_Custom : public ScriptImpClass {
+	int id;
+	int message;
+	int param;
+	bool repeat;
+	float time;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Changes the model of any soldier that enters the zone
+* \NewModel - W3D Model to change it to
+* \PlayerType - required player type of the enterer
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Change_Character_Model : public ScriptImpClass {
+	int playerType;
+	char newModel[16];
+	void Created(GameObject *obj);
+	void Entered(GameObject *obj,GameObject *enterer);
+};
+
+/*!
+* \brief Changes the model of any soldier that enters the zone
+* \Time - delay to send the custom
+* \NewModel - W3D Model to change it to
+* \PlayerType - required player type of the enterer
+* \Repeat - 1 to make it trigger again
+* \StartsEnabled - Should the script be running from the get go?
+* \EnableCustom - custom that should enable/disable the script, non 0 param = enable
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Timer_Change_Character_Models_On_Team : public ScriptImpClass {
+	bool enabled;
+	int enableCustom;
+	bool repeat;
+	float time;
+	int playerType;
+	char newModel[16];
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Changes the model of any soldier that enters the zone
+* \Time - delay to send the custom
+* \NewModel - W3D Model to change it to
+* \PlayerType - required player type of the enterer
+* \MaxHP - Min Hitpoints required to match to trigger for this character
+* \MinHP - Max Hitpoints required to match to trigger for this character
+* \Repeat - 1 to make it trigger again
+* \StartsEnabled - Should the script be running from the get go?
+* \EnableCustom - custom that should enable/disable the script, non 0 param = enable
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Timer_Change_Character_Models_On_HP : public ScriptImpClass {
+	bool enabled;
+	int enableCustom;
+	bool repeat;
+	float time;
+	int playerType;
+	float maxHp;
+	float minHp;
+	char newModel[16];
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sends a custom when an object is destroyed
+* \ID - Id of the object to send the custom to, 0 sends to itself
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Delay - Delay to add to the send
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Destroy_Send_Custom : public ScriptImpClass {
+  void Destroyed(GameObject *obj);
+};
+
+/*!
+* \brief Sets the Vehicle's collision to soldier ghost when all players exit (excluding on build) and then sets it back to its original when a player gets in
+* \ Useful on maps that you desire to prevent players from blocking the bots coming out of tunnels.
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Vehicle_Collisions_Ghost_When_Unoccupied : public ScriptImpClass {
+	bool attemptingCollidable;
+	bool ghost;
+	Collision_Group_Type myCollisionGroup;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Attaches a script to all players in game (can only attach the designated distinct script name once)
+* \Script - Script to attach
+* \Params - Params to use for that script, use a delim instead of a ,
+* \Delim - Character to parse out of the params and replace with a ,
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Attach_Script_To_All_Players : public ScriptImpClass {
+	char scriptName[256];
+	char params[256];
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Sends a custom when an object is destroyed
+* \ID - Id of the object to send the custom to, 0 sends to itself, -1 sends it to the person who picked it up
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Delay - Delay to add to the send
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_On_Powerup_Pickup : public ScriptImpClass {
+  void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sets the objects bullet count when it is damaged or receives a custom
+* \WeaponName - Name of the weapon to change, if "null" it uses the current weapon on script create
+* \Custom - custom message to trigger on
+* \TriggerOnDamage - Can this script trigger on damage
+* \SetBackpackBullets - bullet count to put in the backpack when damaged or custom received
+* \StartWithNoBullets - If one the object gets set to have no bullets when the script is attached
+* \Repeat - Can it trigger more than once
+* \FullClip - Does the unit automatically have a full clip when the script is triggered
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Set_Bullets_On_Custom_Or_Damage : public ScriptImpClass {
+	char setWeapon[128];
+	bool repeat;
+	int custom;
+	int setBackpackBullets;
+	bool triggerOnDamage;
+	bool fullClip;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void UpdateBullets(GameObject *obj);
+};
+
+/*!
+* \brief Damages all units of a preset type when a custom is received
+* \Custom - Custom to count
+* \PresetName - presets to damage
+* \Damage - how much damage to apply
+* \Warhead - warhead to use
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Damage_All_Presets : public ScriptImpClass {
+	int custom;
+	char preset[128];
+	float damage;
+	char warhead[128];
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Spawns an object if the weapon that killed the object matches the specified weapon preset (warhead script is a better choice, less exploitable)
+* \WeaponPreset - Name of the weapon
+* \Chance - Chance that object will be spawned (0 - 1.0)
+* \Preset - Object to create
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Death_Weapon_Create_Object : public ScriptImpClass {
+	void Killed(GameObject *obj,GameObject *killer);
+};
+
+/*!
+* \brief Sends a custom if the object's speed reaches or exceeds a certain amount
+* \Speed - speed to watch for
+* \Rate - how long to wait between each speed check
+* \ID - Id of the object to send the custom to, 0 sends to itself
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Repeat - 1 to make it trigger again after sending a custom
+* \StartsEnabled - Non-zero makes the script run on create
+* \EnableCustom - Custom to enable or disable the script, send a non-zero param to enable
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_When_Speed_Exceeds_Amount : public ScriptImpClass {
+	float speed;
+	int id;
+	int message;
+	int param;
+	bool repeat;
+	float rate;
+	bool enabled;
+	int enableCustom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Sends a custom if the object's speed is below a certain amount
+* \Speed - speed to watch for
+* \Rate - how long to wait between each speed check
+* \ID - Id of the object to send the custom to, 0 sends to itself
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Repeat - 1 to make it trigger again after sending a custom
+* \StartsEnabled - Non-zero makes the script run on create
+* \EnableCustom - Custom to enable or disable the script, send a non-zero param to enable
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_When_Speed_Below_Amount : public ScriptImpClass {
+	float speed;
+	int id;
+	int message;
+	int param;
+	bool repeat;
+	float rate;
+	bool enabled;
+	int enableCustom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Sends a custom if the object's speed is below a certain amount when going a direction
+* \MinVelocity[Forward|Backward|Left] - Speed that must be exceeded when going these directions
+* \MinVelocity[Right|Up|Down] - Speed that must be exceeded when going these directions
+* \OnlyTriggerOn - Use this to make it so the script can only trigger if its moving faster horizontal than vertical or vice versia (0 doesn't matter, 1 for horizontal, 2 for vertical)
+* \OnlyTriggerOnMin[Horizontal|Vertical] - Min Speeds required for Only Trigger On to be able to work
+* \OnlyTriggerOnMax[Horizontal|Vertical] - Max Speeds required for Only Trigger On to be able to work
+* \Rate - how long to wait between each speed check
+* \ID - Id of the object to send the custom to, 0 sends to itself
+* \Message - Custom to send
+* \Param - parameter to send with the custom, it param is -1 it will send a differnt param for each direction (1 = forward, 2 = backward, 3 = left, 4 = right, 5 = up, 6 = down)
+* \Repeat - 1 to make it trigger again after sending a custom
+* \StartsEnabled - Non-zero makes the script run on create
+* \EnableCustom - Custom to enable or disable the script, send a non-zero param to enable
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_When_Velocity_Exceeds_Amount : public ScriptImpClass {
+	enum SpecialCondition{DOES_NOT_MATTER,HORIZANTAL_IS_GREATER,VERTICAL_IS_GREATER,DOES_NOT_MEET_CONDITION};
+	Vector3 velocityFBL;
+	Vector3 velocityRUD;
+	int id;
+	int message;
+	int param;
+	bool repeat;
+	float rate;
+	bool enabled;
+	int enableCustom;
+	SpecialCondition onlyTriggerOn;
+	Vector3 onlyTriggerOnMinHV;
+	Vector3 onlyTriggerOnMaxHV;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void Timer_Expired(GameObject *obj,int number);
+	void SendCustom(GameObject *obj,int paramOverride);
+	Vector3 SquareVectorSpecial(Vector3 in);
+	bool OnlyTriggerOnTest(float horizontalSpeed,float verticalSpeed);
+};
+
+/*!
+* \brief Changes the character of the sender object (only works on infantry)
+* \Custom - custom to trigger on (Hint: Picking up a powerup is 1000000025)
+* \Preset - preset to switch to
+* \Cost - price it costs to change character
+* \SuccessSound - Sound to play when purchase was successful 
+* \FailSound - Sound to play when purchase failed
+* \AllowRepurchase - If this is 0 the failed sound will play if you already have the char
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Change_Character : public ScriptImpClass {
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Applies damage while in the zone by attaching the script below (JMG_Utility_Apply_Damage_While_In_Zone_Attached)
+* \Rate - How often to apply the damage
+* \DamageAmount - How much damage to apply
+* \Warhead - What warhead to use
+* \DamagerId - ID of what is applying the damage, 0 = nothing, -1 = enter, -2 = zone
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Apply_Damage_While_In_Zone : public ScriptImpClass {
+	char params[512];
+	void Created(GameObject *obj);
+	void Entered(GameObject *obj,GameObject *enterer);
+	void Exited(GameObject *obj,GameObject *exiter);
+};
+
+/*!
+* \brief Applies damage to object at a specified rate (JMG_Utility_Apply_Damage_On_Timer)
+* \Rate - How often to apply the damage
+* \DamageAmount - How much damage to apply
+* \Warhead - What warhead to use
+* \DamagerId - ID of what is applying the damage, 0 = nothing, -1 = self
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Apply_Damage_On_Timer_Base : public ScriptImpClass {
+	float rate;
+	int damagerId;
+	char warhead[128];
+	float damageAmount;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Sends a custom to an object on exit
+* \PlayerType - Player type the zone triggers for
+* \ID - ID to send the custom to, 0 sends to self, -1 sends to enter
+* \Custom - Custom message to send
+* \Param - Param to send
+* \Delay - Delay to add before sending custom
+* \TriggerOnce - Allows the script only to trigger the first time the zone is entered
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Zone_Send_Custom_Exit : public ScriptImpClass {
+	int playerType;
+	int custom;
+	int param;
+	float delay;
+	int id;
+	bool triggerOnce;
+	void Created(GameObject *obj);
+	void Exited(GameObject *obj,GameObject *exiter);
+};
+
+/*!
+* \brief Used to enable or disable all spawners within an ID range on zone enter but only enables the IDs that Mod to 0
+* \StartID - ID to start at
+* \EndID - ID to stop at
+* \Custom - Custom used to trigger the enable/disable
+* \Enable - Enable or disable all the spawners in the range, if -1 the param is used to determin this
+* \Mod - Mod to use, if -1 param will be used instead
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Enable_Spawners_In_Range_Modular : public ScriptImpClass {
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Creates an explosion at the bone specified on the attached object
+* \Custom - Custom to trigger the explosion on
+* \Explosion - Explosion to create 
+* \Bone - Bone to create the explosion at
+* \Owner - Who own's the explosion (-1 = sender, 0 = self, positive numbers = id of object)
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Create_Explosion_At_Bone : public ScriptImpClass {
+	char explosion[256];
+	char bone[32];
+	int owner;
+	int custom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sends a custom when a custom is recieved, ignore time makes it unable to send another custom until timer expires 
+* \Custom - Custom to trigger on
+* \ID - ID to send the custom to, 0 sends to self, -1 sends to sender
+* \SendCustom - Custom message to send
+* \Param - Param to send
+* \Delay - Delay to add before sending custom
+* \IgnoreTime - Time during which customs can't be sent again
+* \StartsEnabled - Does the script start enabled
+* \EnableCustom - Custom enables or disables this script, param of 1 = enable
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Send_Custom_Repeat_Ignore_Time : public ScriptImpClass {
+	int custom;
+	int sendCustom;
+	int params;
+	float delay;
+	int id;
+	time_t lastTriggerTime;
+	int ignoreTime;
+	bool enable;
+	int enableCustom;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sends a custom when damaged
+* \MinDamage - min damage required to trigger the script
+* \ID - ID to send the custom to, 0 sends to self, -1 sends to sender
+* \Custom - Custom message to send
+* \Param - Param to send
+* \Delay - Delay to add before sending custom
+* \SenderID - ID of the object that sent the custom, 0 for itself, -1 for damager
+* \StartsEnabled - Does the script start enabled
+* \EnableCustom - Custom enables or disables this script, param of 1 = enable
+* \Repeat - Can the script trigger more than once
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Damage_Send_Custom : public ScriptImpClass {
+	int custom;
+	int params;
+	float delay;
+	int id;
+	int senderId;
+	bool enable;
+	int enableCustom;
+	bool repeat;
+	float minDamage;
+	void Created(GameObject *obj);
+	void Damaged(GameObject *obj,GameObject *damager,float damage);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Sends a custom message when a player comes into range of this object
+* \Distance - how far away can the plaeyrs go
+* \ID - Id of the object to send the custom to, 0 sends to itself
+* \Message - Custom to send
+* \Param - parameter to send with the custom
+* \Delay - Time amount to wait before sending the custom
+* \TriggerOnce - If true the script can only fire once
+* \SleepTime - Value in 10ths of a second the script must wait before sending the custom again
+* \MaxRange - Players beyond this won't be detected, if 0 the param is ignored
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Send_Custom_When_Player_Inside_Of_Range : public ScriptImpClass {
+	int sleepTime;
+	int sleeping;
+	bool triggerOnce;
+	bool enabled;
+	float distance;
+	float delay;
+	float maxRange;
+	int id;
+	int param;
+	int custom;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+};
+
+/*!
+* \brief Works exactly like JMG_Utility_Custom_Enable_Spawners_In_Range_Mod but player count subtracts from the mod (min is 1)
+* \StartID - ID to start at
+* \EndID - ID to stop at
+* \Custom - Custom used to trigger the enable/disable
+* \Enable - Enable or disable all the spawners in the range, if -1 the param is used to determin this
+* \Mod - Mod to use, if -1 param will be used instead
+* \PlayerMulti - Multiply the player count by this before subtracting the mod
+* \Invert - if non zero it will disable or enable the ones that don't fit the mod's criteria but are in range
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Custom_Enable_Spawners_In_Range_ModPlayer : public ScriptImpClass {
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+};
+
+/*!
+* \brief Needs to be placed on the map to make JMG_Utility_Spawn_With_Last_Selected_Gun_Player work
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Spawn_With_Last_Selected_Gun_Control : public ScriptImpClass {
+	void Created(GameObject *obj);
+	void Destroyed(GameObject *obj);
+public:
+	static bool controllerPlaced;
+	static char playerWeapons[128][256];
+	static char playerNames[128][256];
+};
+
+/*!
+* \brief When attached to a player preset, it tracks what weapon the player was holding when they died and tries to select it again when they respawn
+* \GrantWeapon - Grants the weapon they had last with full ammo if they don't have it
+* \GrantDelay - Time to wait before granting the weapon again
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Spawn_With_Last_Selected_Gun_Player : public ScriptImpClass {
+	int playerId;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj,int number);
+	void Destroyed(GameObject *obj);
+	void InitialSetup(GameObject *obj);
+	void GrantPlayersWeapon(GameObject *obj);
+public:
+	JMG_Utility_Spawn_With_Last_Selected_Gun_Player()
+	{
+		playerId = 0;
+	}
+};
+
+/*!
+* \brief Gives a weapon to the player without need of a powerup
+* \WeaponName - Name of the weapon to give
+* \GrantWeapon - Should the weapon be given or just rounds for the weapon
+* \GrantRounds - How many rounds to give (-1 for infintie) 
+* \GrantClips - Should rounds be put in your "backpack"
+* \author jgray
+* \ingroup JmgUtility
+*/
+class JMG_Utility_Created_Give_Weapon : public ScriptImpClass {
+	void Created(GameObject *obj);
 };

@@ -1429,25 +1429,25 @@ public:
 		void AddPoint(GameObject *obj)
 		{
 			Vector3 Pos = Commands->Get_Position(obj);
-			int ID = Commands->Get_ID(obj);
+			int id = Commands->Get_ID(obj);
 			Commands->Destroy_Object(obj);
 			AmbushPointNode *Current = AmbushPointNodeList;
 			AmbushPoints++;
 			if (!Current)
-				AmbushPointNodeList = new AmbushPointNode(Pos,ID);
+				AmbushPointNodeList = new AmbushPointNode(Pos,id);
 			while (Current)
 			{
-				if (Current->ID == ID)
+				if (Current->ID == id)
 				{
 					AmbushPoints--;
 					char Err[512];
-					sprintf(Err,"msg ERROR: Ambush Point %d already in list!",ID);
+					sprintf(Err,"msg ERROR: Ambush Point %d already in list!",id);
 					Console_Input(Err);
 					return;
 				}
 				if (!Current->next)
 				{
-					Current->next = new AmbushPointNode(Pos,ID);
+					Current->next = new AmbushPointNode(Pos,id);
 					return;
 				}
 				Current = Current->next;
@@ -2922,12 +2922,12 @@ private:
 				Current = Current->next;
 			}
 		}
-		bool EnemyKilled(int ID)
+		bool EnemyKilled(int killedId)
 		{
 			SpawnedEnemyNode *Current = SpawnedEnemyNodeList;
 			while (Current)
 			{
-				if (Current->ID == ID)
+				if (Current->ID == killedId)
 				{
 					if (RandomRespawnDelay)
 						Current->DeadTime = RespawnDelay+Commands->Get_Random_Int(-RandomRespawnDelay,RandomRespawnDelay);
@@ -2941,14 +2941,14 @@ private:
 			}
 			return false;
 		}
-		void RemoveEnemy(int ID)
+		void RemoveEnemy(int removedId)
 		{
 			if (!SpawnedEnemyNodeList)
 				return;
 			SpawnedEnemyNode *Current = SpawnedEnemyNodeList,*Prev = NULL;
 			while (Current)
 			{
-				if (Current->ID == ID)
+				if (Current->ID == removedId)
 				{
 					if (!Prev)
 						SpawnedEnemyNodeList = SpawnedEnemyNodeList->next;
@@ -4508,4 +4508,13 @@ class JMG_AI_Artillery_Targeting_Fire_Vehicle_Projectile_Attach : public ScriptI
 class JMG_Metroid_Miniboss_Turret : public ScriptImpClass {
 	void Created(GameObject *obj);
 	void Destroyed(GameObject *obj);
+};
+
+class JMG_AI_Artillery_Targeting_Fire_Vehicle_Projectile_Custom_Player : public ScriptImpClass {
+	bool reloadComplete;
+	void Created(GameObject *obj);
+	void Custom(GameObject *obj,int message,int param,GameObject *sender);
+	void Timer_Expired(GameObject *obj,int number);
+	bool CalculateAngle(double *returnAngle,double distance,double height,bool highAngle);
+	void FireProjectile(GameObject *obj,double zAngle,double aimAngle);
 };

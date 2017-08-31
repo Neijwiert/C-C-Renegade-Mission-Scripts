@@ -13,7 +13,7 @@
 #define TT_INCLUDE_GMPLUGIN_H
 #include "scripts.h"
 #include "engine.h"
-#define INTERFACE_VERSION 4.2f
+#define INTERFACE_VERSION 4.5f
 
 enum EventType {
 	EVENT_GLOBAL_INI = 0,

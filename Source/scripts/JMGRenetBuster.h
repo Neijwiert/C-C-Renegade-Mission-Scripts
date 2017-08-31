@@ -26,7 +26,6 @@ bool PlayerRequestingALife[MaxGamePlayerCount] = {false};
 
 #define PERKCOUNT 126
 #define PERKCATEGORIES 11
-int USEABLEPERKCOUNT = 0;
 enum PerkTypeCategories{INVALID = -1,PerkPurchase = 0,PerkJob = 1,PerkSwimming = 2,PerkCharacterHealth = 3,PerkVehicle = 4,PerkCombat = 5,PerkDeath = 6,PerkMisc = 7,PerkWeapon = 8,PerkSpawnCharacter = 9,PerkUnusable = 999};
 
 struct PerkSystemPerkTypeNode
@@ -69,6 +68,7 @@ private:
 	}
 	int PerkTypeCategoryCounts[PERKCATEGORIES];
 public:
+	static int USEABLEPERKCOUNT;
 	PerkSystemPerkTypeList()
 	{
 		Reset();
@@ -103,7 +103,7 @@ public:
 			PerkSystemPerkTypeNodeList[x].CategoryPerkID = (PerkTypeCategoryCounts[PerkSystemPerkTypeNodeList[x].Category] = (PerkTypeCategoryCounts[PerkSystemPerkTypeNodeList[x].Category]+1));
 	}
 };
-
+int PerkSystemPerkTypeList::USEABLEPERKCOUNT = 0;
 // Player Perks
 
 struct PlayerPerkDataNode
@@ -344,9 +344,9 @@ public:
 			return;
 		}
 		char filePath[256], tempPath[256];
-		sprintf(filePath,"%s\\Save",Get_File_Path());
+		sprintf(filePath,"%sSave",Get_File_Path());
 		_mkdir(filePath);
-		sprintf(tempPath,"%s\\Save\\BetaRp2PlayerPerks.tmp",Get_File_Path());
+		sprintf(tempPath,"%sSave\\BetaRp2PlayerPerks.tmp",Get_File_Path());
 		FILE *SavePerks = fopen(tempPath,"w");
 		if (!SavePerks)
 			return;
@@ -363,11 +363,11 @@ public:
 			Current = Current->next;
 		}
 		fclose(SavePerks);
-		sprintf(tempPath,"%s\\Save\\BetaRp2PlayerPerks.tmp",Get_File_Path());
-		sprintf(filePath,"%s\\Save\\BetaRp2PlayerPerks.Rp2",Get_File_Path());
+		sprintf(tempPath,"%sSave\\BetaRp2PlayerPerks.tmp",Get_File_Path());
+		sprintf(filePath,"%sSave\\BetaRp2PlayerPerks.Rp2",Get_File_Path());
 		remove(filePath);
 		rename(tempPath,filePath);
-		sprintf(tempPath,"%s\\Save\\BetaRp2PlayerPerks.txt",Get_File_Path());
+		sprintf(tempPath,"%sSave\\BetaRp2PlayerPerks.txt",Get_File_Path());
 		FILE *SavePerks2 = fopen(tempPath,"w");
 		Current = PlayerPerksDataNodeList;
 		while (Current)
@@ -384,7 +384,7 @@ public:
 	void LoadData()
 	{
 		char loadPath[256];
-		sprintf(loadPath,"%s\\Save\\BetaRp2PlayerPerks.Rp2",Get_File_Path());
+		sprintf(loadPath,"%sSave\\BetaRp2PlayerPerks.Rp2",Get_File_Path());
 		FILE *LoadPerks = fopen(loadPath,"r");
 		if (LoadPerks)
 		{
@@ -464,15 +464,16 @@ void AddPerkTypes()
 		PerkTypeSystem.AddAPerkType(x,"N/A",1000000,false,false,false,PerkUnusable,0,"N/A");
 
 	PerkTypeSystem.Finalize_Perks();
-	USEABLEPERKCOUNT = 0;
+	PerkSystemPerkTypeList::USEABLEPERKCOUNT = 0;
 	for (int x = 0;x < PERKCOUNT;x++)
 		if (PerkSystemPerkTypeNodeList[x].PerkID)
-			USEABLEPERKCOUNT++;
+			PerkSystemPerkTypeList::USEABLEPERKCOUNT++;
 }
 
 
 struct RenCometBustersScoreSystem
 {
+	int difficulty;
 public:
 	#define RCMTBHIGHSCORELISTCOUNT 61
 	struct CMTBHighScoresNode
@@ -608,7 +609,6 @@ public:
 		}
 	};
 private:
-	char SavePath[256];
 	CMTBHighScoresNode *CMTBHighScoresNodeList;
 	CMTBHighScoresNode *CMTBHighScoresNodeEmptyNode;
 	CMTBHighScoresNode *CMTBPlayerHighScoreNodes[128];
@@ -691,10 +691,6 @@ private:
 public:
 	RenCometBustersScoreSystem()
 	{
-		if (Exe != EXE_LEVELEDIT)
-		{
-			sprintf(SavePath, "%s\\Save\\", Get_File_Path());
-		}
 		CMTBHighScoresNodeList = NULL;
 		CMTBHighScoresNodeEmptyNode = NULL;
 		for (int x = 0;x < 128;x++)
@@ -767,11 +763,19 @@ public:
 	{
 		FILE *SaveScores;
 		FILE *SaveScores2;
-		char FileName[64];
-		char FileName2[64];
-		sprintf(FileName,"%sBetaCMBTPlayerRecords.tmp",SavePath);
-		SaveScores = fopen(FileName,"w");
-		sprintf(FileName,"%sCMBTPlayerRecords.txt",SavePath);
+		char FileName[256];
+		char FileNameTmp[256];
+		char SavePath[256];
+		sprintf(SavePath, "%sSave\\", Get_File_Path());
+		sprintf(FileNameTmp,"%sBetaCMBTPlayerRecords.tmp",SavePath);
+		SaveScores = fopen(FileNameTmp,"w");
+		switch (difficulty)
+		{
+		case 0:sprintf(FileName,"%sBetaCMBTPlayerRecordsEasy.txt",SavePath);break;
+		case 1:sprintf(FileName,"%sBetaCMBTPlayerRecords.txt",SavePath);break;
+		case 2:sprintf(FileName,"%sBetaCMBTPlayerRecordsHard.txt",SavePath);break;
+		case 3:sprintf(FileName,"%sBetaCMBTPlayerRecordsDoomsday.txt",SavePath);break;
+		};
 		SaveScores2 = fopen(FileName,"w");
 		CMTBHighScoresNode *Current = CMTBHighScoresNodeList;
 		if (!SaveScores || !SaveScores2)
@@ -794,20 +798,34 @@ public:
 		}
 		fclose(SaveScores);
 		fclose(SaveScores2);
-		sprintf(FileName,"%sBetaCMBTPlayerRecords.Rp2",SavePath);
+		switch (difficulty)
+		{
+		case 0:sprintf(FileName,"%sBetaCMBTPlayerRecordsEasy.Rp2",SavePath);break;
+		case 1:sprintf(FileName,"%sBetaCMBTPlayerRecords.Rp2",SavePath);break;
+		case 2:sprintf(FileName,"%sBetaCMBTPlayerRecordsHard.Rp2",SavePath);break;
+		case 3:sprintf(FileName,"%sBetaCMBTPlayerRecordsDoomsday.Rp2",SavePath);break;
+		};
 		remove(FileName);
-		sprintf(FileName,"%sBetaCMBTPlayerRecords.tmp",SavePath);
-		sprintf(FileName2,"%sBetaCMBTPlayerRecords.Rp2",SavePath);
-		rename(FileName,FileName2);
+		sprintf(FileNameTmp,"%sBetaCMBTPlayerRecords.tmp",SavePath);
+		rename(FileNameTmp,FileName);
 	}
 
-	void LoadData()
+	void LoadData(int setDifficulty)
 	{
+		difficulty = setDifficulty;
 		Cleanup();
 		char PlayerName[256];
 		FILE *LoadScores;
-		char FileName[64];
-		sprintf(FileName,"%sBetaCMBTPlayerRecords.Rp2",SavePath);
+		char FileName[256];
+		char SavePath[256];
+		sprintf(SavePath, "%sSave\\", Get_File_Path());
+		switch (difficulty)
+		{
+		case 0:sprintf(FileName,"%sBetaCMBTPlayerRecordsEasy.Rp2",SavePath);break;
+		case 1:sprintf(FileName,"%sBetaCMBTPlayerRecords.Rp2",SavePath);break;
+		case 2:sprintf(FileName,"%sBetaCMBTPlayerRecordsHard.Rp2",SavePath);break;
+		case 3:sprintf(FileName,"%sBetaCMBTPlayerRecordsDoomsday.Rp2",SavePath);break;
+		}
 		LoadScores = fopen(FileName,"r");
 		if (LoadScores)
 		{
@@ -1272,7 +1290,6 @@ MAStartOfHighScoreSelectProcess:
 
 RenCometBustersScoreSystem RenCometBustersScoreControl = RenCometBustersScoreSystem();
 
-int PrioritizeTargets[17] = {2,2,0,1,0,3,2,0,2,0,0,1,1,3,2,0,2};
 enum ObjectType{NormalPlayerShip=0,UFO=1,Asteroid=2,Mine=3,TheMoon=4,PlayerShield=5,UFOBoss=6,PlayerCloak=7,PlayerSuper=8,CMTPowerup=9,CargoShip=10,MineBoss=11,PlayerDrone=12,PlayerDroneShield=13,PlayerShipJumpable=14,PlayerShipJumping=15,PlayerShipDisrupter=16};
 struct TypeObject
 {
@@ -1298,6 +1315,17 @@ struct AnObject
 	ObjectType Type;
 	int AllowReplaceTime;
 	struct AnObject *next;
+	AnObject(GameObject *obj,float Size,float RealSize,ObjectType Type)
+	{
+		this->AllowReplaceTime = -1;
+		this->Object = obj;
+		this->ObjectID = Commands->Get_ID(obj);
+		this->Size = Size;
+		this->RealSize = RealSize;
+		this->Type = Type;
+		this->AllowReplaceTime = 0;
+		this->next = NULL;
+	};
 };
 
 struct RenCometBustersPlayerNode
@@ -1336,6 +1364,9 @@ struct RenCometBustersPlayerNode
 	int SelectedPerk;
 	bool SecondSpace;
 	char PlayerName[128];
+	int kickoutOfSpecTime;
+	int endGamePadding;
+	Vector3 specCreateSpot;
 	AnObject *ShipObject;
 	RenCometBustersPlayerNode()
 	{
@@ -1374,6 +1405,9 @@ struct RenCometBustersPlayerNode
 		sprintf(PlayerModel,"\0");
 		sprintf(OriginalSkin,"\0");
 		sprintf(OriginalArmor,"\0");
+		kickoutOfSpecTime = 0;
+		endGamePadding = 0;
+		specCreateSpot = Vector3();
 	};
 };
 
@@ -1382,18 +1416,7 @@ struct RenCometBustersPlayerNode MiniGamePlayerControlSystem[MaxGamePlayerCount]
 class RenCometBustersGameObjects
 {
 private:
-	AnObject *New_Object_Node(AnObject *Node,GameObject *obj,float Size,float RealSize,ObjectType Type)
-	{
-		Node->AllowReplaceTime = -1;
-		Node->Object = obj;
-		Node->ObjectID = Commands->Get_ID(obj);
-		Node->Size = Size;
-		Node->RealSize = RealSize;
-		Node->Type = Type;
-		Node->AllowReplaceTime = 0;
-		Node->next = NULL;
-		return Node;
-	};
+	static int PrioritizeTargets[17];
 public:
 	struct AnObject *ObjectsList;
 	RenCometBustersGameObjects()
@@ -1422,7 +1445,7 @@ public:
 		AnObject *Current = ObjectsList;
 		if (!ObjectsList)
 		{
-			ObjectsList = New_Object_Node(new AnObject,obj.obj,obj.Size,obj.RealSize,obj.Type);
+			ObjectsList = new AnObject(obj.obj,obj.Size,obj.RealSize,obj.Type);
 			return *this;
 		}
 		while (Current)
@@ -1445,7 +1468,7 @@ public:
 			}
 			if (!Current->next)
 			{
-				Current->next = New_Object_Node(new AnObject,obj.obj,obj.Size,obj.RealSize,obj.Type);
+				Current->next = new AnObject(obj.obj,obj.Size,obj.RealSize,obj.Type);
 				return *this;
 			}
 			Current = Current->next;
@@ -1493,6 +1516,16 @@ public:
 		}
 		return NULL;
 	};
+	void SpecialApplyDamage(GameObject *obj,float damage,const char *warhead,GameObject *damager)
+	{
+		GameObject *driver = Get_Vehicle_Driver(obj);
+		int originalDriverTeam = driver ? Get_Player_Type(driver) : 1;
+		Commands->Set_Player_Type(obj,-2);
+		Commands->Set_Player_Type(driver,-2);
+		Commands->Apply_Damage(obj,damage,warhead,damager);
+		if (driver)
+			Commands->Set_Player_Type(driver,originalDriverTeam);
+	}
 	bool DoesCollide(AnObject *Obj,AnObject *OtherObj)
 	{
 		if (!Obj || !OtherObj || Obj->AllowReplaceTime || OtherObj->AllowReplaceTime)
@@ -1598,14 +1631,14 @@ public:
 						Commands->Send_Custom_Event(Other,Other,7043453,10,0.0f);
 				}
 				if (OtherObj->Type != PlayerShield && OtherObj->Type != PlayerSuper && OtherObj->Type != PlayerDroneShield && OtherObj->Type != TheMoon)
-					Commands->Apply_Damage(Other,99999.9f,"BlamoKiller",Hitter);
+					SpecialApplyDamage(Other,99999.9f,"BlamoKiller",Hitter);
 				else
 					if (Obj->Type == NormalPlayerShip || Obj->Type == PlayerCloak || Obj->Type == PlayerShipJumpable || Obj->Type == PlayerShipDisrupter)
 						Commands->Send_Custom_Event(Other,Other,7043453,33,0.0f);
-					else;
+					else
 						Commands->Send_Custom_Event(Other,Other,7043453,5,0.0f);
 				if (Obj->Type != PlayerShield && Obj->Type != PlayerSuper && Obj->Type != PlayerDroneShield && OtherObj->Type != TheMoon)
-					Commands->Apply_Damage(Hitter,99999.9f,"BlamoKiller",Other);
+					SpecialApplyDamage(Hitter,99999.9f,"BlamoKiller",Other);
 				else
 					if (OtherObj->Type == NormalPlayerShip || OtherObj->Type == PlayerCloak || OtherObj->Type == PlayerShipJumpable  || OtherObj->Type == PlayerShipDisrupter)
 						Commands->Send_Custom_Event(Hitter,Hitter,7043453,33,0.0f);
@@ -1889,6 +1922,7 @@ AddKilledObjctToPlayersScoreListSwitch:
 				case PlayerSuper:
 				case PlayerShipJumpable:
 				case PlayerShipDisrupter:
+				case PlayerShipJumping:
 					RenCometBustersScoreControl.Get_Current_Player_Score_Node(Get_Player_ID(Player))->OtherPlayers++;break;
 				case UFO:case UFOBoss:
 					RenCometBustersScoreControl.Get_Current_Player_Score_Node(Get_Player_ID(Player))->UFO++;break;
@@ -1909,6 +1943,7 @@ AddKilledObjctToPlayersScoreListSwitch:
 					RenCometBustersScoreControl.Get_Current_Player_Score_Node(Get_Player_ID(Player))->CargoShip++;break;
 				case PlayerDrone: case PlayerDroneShield:
 					RenCometBustersScoreControl.Get_Current_Player_Score_Node(Get_Player_ID(Player))->DronesKilled++;break;
+				case CMTPowerup:break;
 				}
 				return;
 			}
@@ -1936,7 +1971,7 @@ AddKilledObjctToPlayersScoreListSwitch:
 		AnObject *Current = ObjectsList;
 		while (Current)
 		{
-			if (!Current->AllowReplaceTime && Current->Object != obj && (Current->Type != PlayerCloak && Current->Type != Asteroid && Current->Type != TheMoon))
+			if (!Current->AllowReplaceTime && Current->Object != obj && (Current->Type != PlayerCloak && Current->Type != Asteroid && Current->Type != TheMoon && Current->Type != CMTPowerup))
 			{
 				float TempDistance = JmgUtility::SimpleDistance(Commands->Get_Position(Current->Object),MyPos);
 				if (TempDistance <= 22500)
@@ -1984,7 +2019,6 @@ AddKilledObjctToPlayersScoreListSwitch:
 	}
 	void KillInRange(GameObject *Player,const Vector3 &Position,float MinRange,float MaxRange)
 	{
-		int giveUp = 0;
 KillInRangeCheckStart:
 		AnObject *Current = ObjectsList;
 		while (Current)
@@ -1994,10 +2028,7 @@ KillInRangeCheckStart:
 				float Dist = JmgUtility::SimpleDistance(Position,Commands->Get_Position(Current->Object));
 				if (Dist <= MaxRange && Dist >= MinRange)
 				{
-					if (giveUp > 1)
-						break;
-					giveUp++;
-					Commands->Apply_Damage(Current->Object,1.0f,"None",Player);
+					SpecialApplyDamage(Current->Object,1.0f,"None",Player);
 					goto KillInRangeCheckStart;
 				}
 			}
@@ -2041,7 +2072,7 @@ KillInRangeCheckStart:
 		{
 			int TempID = Current->ObjectID;
 			GameObject *Target = Current->Object;
-			if (!Current->AllowReplaceTime && (Obj != Target && Current->Type != PlayerDrone && Current->Type != PlayerDroneShield && Current->Type != CMTPowerup && Current->Type != NormalPlayerShip && Current->Type != PlayerShield && Current->Type != PlayerCloak && Current->Type != PlayerSuper && Current->Type != PlayerShipJumpable && Current->Type != PlayerShipDisrupter))
+			if (Target && !Current->AllowReplaceTime && (Obj != Target && Current->Type != PlayerDrone && Current->Type != PlayerDroneShield && Current->Type != CMTPowerup && Current->Type != NormalPlayerShip && Current->Type != PlayerShield && Current->Type != PlayerCloak && Current->Type != PlayerSuper && Current->Type != PlayerShipJumpable && Current->Type != PlayerShipDisrupter))
 			{
 				float Dist = JmgUtility::SimpleDistance(*Position,Commands->Get_Position(Target))-Current->Size;
 				if (!ReturnID)
@@ -2092,11 +2123,8 @@ KillInRangeCheckStart:
 		return Closest->Object;
 	}
 };
+int RenCometBustersGameObjects::PrioritizeTargets[17] = {2,2,0,1,0,3,2,0,2,0,0,1,1,3,2,0,2};
 
-bool GAMEINPROGRESS = false;
-unsigned int CMTBLevel = 0;
-unsigned int PlayerSOSBeaconID = 0;
-unsigned int DroneSwarmCount = 0;
 Vector3 Random_Map_Position()
 {
 	int Random = Commands->Get_Random_Int(0,2);
@@ -2123,8 +2151,24 @@ class JMG_CMTB_Main_Game_Control : public ScriptImpClass {
 	void FadeMusic(const char *music);
 public:
 	static int MoonHolderID;
+	static bool GameInProgress;
+	static unsigned int CMTBLevel;
+	static unsigned int PlayerSOSBeaconID;
+	static unsigned int DroneSwarmCount;
+	static bool EndGameSwitchEnabled;
+	static float DifficultyMultiplier;
+	static float DifficultyMultiplierMine;
+	static float DifficultyMultiplierInv;
 };
 int JMG_CMTB_Main_Game_Control::MoonHolderID = 0;
+bool JMG_CMTB_Main_Game_Control::GameInProgress = false;
+unsigned int JMG_CMTB_Main_Game_Control::CMTBLevel = 0;
+unsigned int JMG_CMTB_Main_Game_Control::PlayerSOSBeaconID = 0;
+unsigned int JMG_CMTB_Main_Game_Control::DroneSwarmCount = 0;
+bool JMG_CMTB_Main_Game_Control::EndGameSwitchEnabled = true;
+float JMG_CMTB_Main_Game_Control::DifficultyMultiplier = 1.0f;
+float JMG_CMTB_Main_Game_Control::DifficultyMultiplierMine = 1.0f;
+float JMG_CMTB_Main_Game_Control::DifficultyMultiplierInv = 1.0f;
 
 class JMG_CMTB_UFO_Random_Fire_Control : public ScriptImpClass {
 	void Created(GameObject *obj);
@@ -2173,6 +2217,7 @@ class JMG_CMTB_Zone_Realign_Enter : public ScriptImpClass {
 };
 
 class JMG_CMTB_Spectator_Object : public ScriptImpClass {
+	int machineNumber;
 	int RequestLifeDelay;
 	void Created(GameObject *obj);
 	void Timer_Expired(GameObject *obj,int number);
@@ -2433,4 +2478,26 @@ class JMG_User_Auto_Enter_Ship : public ScriptImpClass {
 class JMG_Apply_Damage_On_Timer : public ScriptImpClass {
 	void Created(GameObject *obj);
 	void Timer_Expired(GameObject *obj,int number);
+};
+
+class JMG_CMTB_Vehicle_Face_Turret : public ScriptImpClass {
+	int davesArrowId;
+	void Created(GameObject *obj);
+	void Timer_Expired(GameObject *obj, int number);
+	void Destroyed(GameObject *obj);
+};
+
+class JMG_CMTB_Poke_End_Map : public ScriptImpClass {
+	int time;
+	int startDelay;
+	void Created(GameObject *obj);
+	void Poked(GameObject *obj,GameObject *poker);
+	void Timer_Expired(GameObject *obj, int number);
+	void FlipSwitch(GameObject *obj,float frame);
+};
+
+class JMG_CMTB_Poke_Change_Difficulty : public ScriptImpClass {
+	int difficulty;
+	void Created(GameObject *obj);
+	void Poked(GameObject *obj,GameObject *poker);
 };

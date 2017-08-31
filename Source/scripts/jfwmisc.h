@@ -635,6 +635,7 @@ class JFW_Custom_Create_Object_At_Bone : public ScriptImpClass {
 	void Custom(GameObject *obj,int type,int param,GameObject *sender);
 	void Timer_Expired(GameObject *obj,int number);
 	void Killed(GameObject *obj,GameObject *killer);
+	void Destroyed(GameObject *obj);
 	int id;
 };
 
