@@ -84,6 +84,9 @@
     <ClCompile Include="M00_BuildingStateSoundController.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Play_Sound.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -129,6 +132,9 @@
       <Filter>Header Files\M00</Filter>
     </ClInclude>
     <ClInclude Include="M00_BuildingStateSoundController.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Play_Sound.h">
       <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
