@@ -1,3 +1,4 @@
 Havoc_Script
 MX0_Engineer_Goto
 M00_Soldier_Powerup_Disable
+M00_Send_Object_ID

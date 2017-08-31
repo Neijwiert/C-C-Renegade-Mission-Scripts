@@ -39,7 +39,7 @@ void M00_Send_Object_ID::Created(GameObject *obj)
 	else
 	{
 		int objId = Commands->Get_ID(obj);
-		Commands->Debug_Message("M00_Send_Object_ID on object_id %d Warning! Receiver_ID %d does not exist! /n", objId, receiverId);	
+		Commands->Debug_Message("M00_Send_Object_ID on object_id %d Warning! Receiver_ID %d does not exist! /n", objId, receiverId); // Yes, forward slash
 	}
 }
 

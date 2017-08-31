@@ -21,13 +21,14 @@
 
 void M00_BuildingStateSoundSpeaker::Register_Auto_Save_Variables()
 {
+	// Yes, doExplosions is forgotten
 	Auto_Save_Variable(&this->soundId, sizeof(this->soundId), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 3);
+	Auto_Save_Variable(&this->isDestroyed, sizeof(this->isDestroyed), 3);
 }
 
 void M00_BuildingStateSoundSpeaker::Created(GameObject *obj)
 {
-	this->field_20 = false;
+	this->isDestroyed = false;
 	this->doExplosions = true;
 
 	int buildingControllerId = Get_Int_Parameter("BuildingController_ID");
@@ -63,7 +64,7 @@ void M00_BuildingStateSoundSpeaker::Custom(GameObject *obj, int type, int param,
 	// Received when the sound has ended
 	if (type == CUSTOM_EVENT_SOUND_ENDED)
 	{
-		if (this->field_20)
+		if (this->isDestroyed)
 		{
 			if (Get_Int_Parameter("Frequency_Min_Destroyed") != -1)
 			{
@@ -126,7 +127,7 @@ void M00_BuildingStateSoundSpeaker::Custom(GameObject *obj, int type, int param,
 
 void M00_BuildingStateSoundSpeaker::Timer_Expired(GameObject *obj, int number)
 {
-	if (this->field_20)
+	if (this->isDestroyed)
 	{
 		bool is3DDestroyed = (Get_Int_Parameter("Is_3D_Destroyed") == 1);
 

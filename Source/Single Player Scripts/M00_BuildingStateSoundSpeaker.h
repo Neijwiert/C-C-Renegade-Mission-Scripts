@@ -31,6 +31,6 @@ class M00_BuildingStateSoundSpeaker : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 
 		int soundId;
-		bool field_20;
+		bool isDestroyed;
 		bool doExplosions;
 };
