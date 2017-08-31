@@ -87,6 +87,9 @@
     <ClCompile Include="M00_Play_Sound.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_A02_ZONE_STARTUP.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -136,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="M00_Play_Sound.h">
       <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_A02_ZONE_STARTUP.h">
+      <Filter>Header Files\MX0</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
