@@ -5,3 +5,4 @@ M00_Send_Object_ID
 MX0_NOD_TroopDrop
 M00_Play_Sound
 MX0_A02_ZONE_STARTUP
+M00_Cinematic_Attack_Command_DLS
