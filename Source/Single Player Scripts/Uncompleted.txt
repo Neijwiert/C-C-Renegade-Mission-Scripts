@@ -1,7 +1,6 @@
 M00_BuildingStateSoundController
 M00_BuildingStateSoundSpeaker
 M00_Send_Object_ID
-M00_Soldier_Powerup_Disable
 MX0_Engineer_Goto2
 MX0_Engineer1
 MX0_Engineer2

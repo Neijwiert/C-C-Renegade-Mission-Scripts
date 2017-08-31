@@ -26,10 +26,11 @@ void M00_Soldier_Powerup_Disable::Created(GameObject *obj)
 
 void M00_Soldier_Powerup_Disable::Timer_Expired(GameObject *obj, int number) 
 {
+	// Triggered 1 Second after creation
 	if (number == 1)
 	{
 		Commands->Send_Custom_Event(obj, obj, 9024, 0, 0.0f);
 	}
 }
 
-ScriptRegistrant<M00_Soldier_Powerup_Disable> M00_Soldier_Powerup_DisableRegistrant("M00_Soldier_Powerup_Disable", ""); // Is param string empty? 
+ScriptRegistrant<M00_Soldier_Powerup_Disable> M00_Soldier_Powerup_DisableRegistrant("M00_Soldier_Powerup_Disable", ""); 
