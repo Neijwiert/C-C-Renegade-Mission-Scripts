@@ -8,3 +8,4 @@ MX0_A02_ZONE_STARTUP
 M00_Cinematic_Attack_Command_DLS
 M00_Cinematic_Kill_Object_DAY
 M00_Disable_Loiter_DAY
+M00_Generic_Conv_DME
