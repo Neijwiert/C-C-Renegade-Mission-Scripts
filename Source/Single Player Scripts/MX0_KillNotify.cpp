@@ -42,7 +42,7 @@ void MX0_KillNotify::Timer_Expired(GameObject *obj, int number)
 {
 	if (number == 139)
 	{
-		int conversationId = Commands->Create_Conversation("MX0CON020", 95, 2000.0f, false);
+		int conversationId = Commands->Create_Conversation("MX0CON020", 95, 2000.0f, false); //NOD control,  I count 5 GDI targets.
 
 		Commands->Join_Conversation(obj, conversationId, true, true, true);
 
@@ -51,7 +51,7 @@ void MX0_KillNotify::Timer_Expired(GameObject *obj, int number)
 	}
 	else if (number == 140)
 	{
-		int conversationId = Commands->Create_Conversation("MX0CON021", 99, 2000.0f, false);
+		int conversationId = Commands->Create_Conversation("MX0CON021", 99, 2000.0f, false); //Correction.  Make that 4.
 
 		Commands->Join_Conversation(obj, conversationId, true, true, true);
 
@@ -66,12 +66,12 @@ void MX0_KillNotify::Timer_Expired(GameObject *obj, int number)
 		{
 			static const char * const CONVERSATIONS[] =
 			{
-				"Mx0_NODSNIPER_Alt01",
-				"Mx0_NODSNIPER_Alt02",
-				"Mx0_NODSNIPER_Alt03",
-				"Mx0_NODSNIPER_Alt04",
-				"Mx0_NODSNIPER_Alt05",
-				"Mx0_NODSNIPER_Alt06"
+				"Mx0_NODSNIPER_Alt01", //Tracking targets…
+				"Mx0_NODSNIPER_Alt02", //Stay right there, infidel.
+				"Mx0_NODSNIPER_Alt03", //Don’t move, infidel.
+				"Mx0_NODSNIPER_Alt04", //Easy…
+				"Mx0_NODSNIPER_Alt05", //Heh!
+				"Mx0_NODSNIPER_Alt06" //Steady…
 			};
 
 			int randomInt = Commands->Get_Random_Int(0, 6);
