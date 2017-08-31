@@ -96,6 +96,9 @@
     <ClCompile Include="M00_Cinematic_Kill_Object_DAY.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Disable_Loiter_DAY.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -153,6 +156,9 @@
       <Filter>Header Files\M00</Filter>
     </ClInclude>
     <ClInclude Include="M00_Cinematic_Kill_Object_DAY.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Disable_Loiter_DAY.h">
       <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
