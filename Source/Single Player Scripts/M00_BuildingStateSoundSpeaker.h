@@ -32,5 +32,5 @@ class M00_BuildingStateSoundSpeaker : public ScriptImpClass
 
 		int soundId;
 		bool field_20;
-		bool field_21;
+		bool doExplosions;
 };

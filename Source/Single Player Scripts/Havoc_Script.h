@@ -20,7 +20,7 @@
 
 #include <scripts.h>
 
-class Havoc_Script
+class Havoc_Script : public ScriptImpClass
 {
 	private:
 		virtual void Killed(GameObject *obj, GameObject *killer);

@@ -23,3 +23,5 @@ void Havoc_Script::Killed(GameObject *obj, GameObject *killer)
 {
 	Commands->Mission_Complete(false);
 }
+
+ScriptRegistrant<Havoc_Script> Havoc_ScriptRegistrant("M09_Havoc_Script", "");

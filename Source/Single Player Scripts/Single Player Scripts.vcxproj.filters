@@ -81,6 +81,9 @@
     <ClCompile Include="M00_BuildingStateSoundSpeaker.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M00_BuildingStateSoundController.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -125,6 +128,9 @@
     <ClInclude Include="M00_BuildingStateSoundSpeaker.h">
       <Filter>Header Files\M00</Filter>
     </ClInclude>
+    <ClInclude Include="M00_BuildingStateSoundController.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="x00_intro.txt">
@@ -136,5 +142,13 @@
     <None Include="mx0_c130troopdrop2.txt">
       <Filter>Resource Files\M13\Cinematic Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Completed.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Uncompleted.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

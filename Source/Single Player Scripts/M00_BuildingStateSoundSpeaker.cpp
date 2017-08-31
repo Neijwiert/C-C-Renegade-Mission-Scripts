@@ -28,7 +28,7 @@ void M00_BuildingStateSoundSpeaker::Register_Auto_Save_Variables()
 void M00_BuildingStateSoundSpeaker::Created(GameObject *obj)
 {
 	this->field_20 = false;
-	this->field_21 = true;
+	this->doExplosions = true;
 
 	int buildingControllerId = Get_Int_Parameter("BuildingController_ID");
 	GameObject *buildingControllerObj = Commands->Find_Object(buildingControllerId);
@@ -60,6 +60,7 @@ void M00_BuildingStateSoundSpeaker::Created(GameObject *obj)
 
 void M00_BuildingStateSoundSpeaker::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received when the sound has ended
 	if (type == CUSTOM_EVENT_SOUND_ENDED)
 	{
 		if (this->field_20)
@@ -84,6 +85,8 @@ void M00_BuildingStateSoundSpeaker::Custom(GameObject *obj, int type, int param,
 			Commands->Start_Timer(obj, this, randFrequency, 0);
 		}
 	}
+
+	// Received when the building controller has died
 	else if (type == 9026)
 	{
 		if (param == 1)
@@ -93,9 +96,11 @@ void M00_BuildingStateSoundSpeaker::Custom(GameObject *obj, int type, int param,
 			Timer_Expired(obj, 0);
 		}
 	}
+
+	// Received when the building controller has died or the random interval has expired
 	else if (type == 9027)
 	{
-		if (this->field_21)
+		if (this->doExplosions)
 		{
 			Vector3 pos = Commands->Get_Position(obj);
 			pos.X += Commands->Get_Random(2.0, 5.0);
@@ -111,11 +116,11 @@ void M00_BuildingStateSoundSpeaker::Custom(GameObject *obj, int type, int param,
 	}
 	else if (type == 9028)
 	{
-		this->field_21 = false;
+		this->doExplosions = false;
 	}
 	else if (type == 9029)
 	{
-		this->field_21 = true;
+		this->doExplosions = true;
 	}
 }
 

@@ -191,6 +191,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Havoc_Script.cpp" />
+    <ClCompile Include="M00_BuildingStateSoundController.cpp" />
     <ClCompile Include="M00_BuildingStateSoundSpeaker.cpp" />
     <ClCompile Include="M00_Send_Object_ID.cpp" />
     <ClCompile Include="M00_Soldier_Powerup_Disable.cpp" />
@@ -212,6 +213,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Havoc_Script.h" />
+    <ClInclude Include="M00_BuildingStateSoundController.h" />
     <ClInclude Include="M00_BuildingStateSoundSpeaker.h" />
     <ClInclude Include="M00_Send_Object_ID.h" />
     <ClInclude Include="M00_Soldier_Powerup_Disable.h" />
@@ -246,6 +248,10 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt" />
     <None Include="mx0_c130troopdrop2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Completed.txt" />
+    <Text Include="Uncompleted.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
