@@ -62,7 +62,7 @@ void MX0_Engineer_Goto2::Timer_Expired(GameObject *obj, int number)
 {
 	if (number == 126)
 	{
-		Commands->Set_HUD_Help_Text(8579, Vector3(0.196f, 0.882f, 0.196f));
+		Commands->Set_HUD_Help_Text(8579, Vector3(0.196f, 0.882f, 0.196f)); // MX0_HELPTEXT_04: Left-Click to Fire your Weapon (Default)
 	}
 }
 
@@ -74,7 +74,7 @@ void MX0_Engineer_Goto2::Entered(GameObject *obj, GameObject *enterer)
 		{
 			this->field_1C = true;
 		}
-		if (Get_Int_Parameter("Count") == 5)
+		else
 		{
 			this->field_1C = true;
 
