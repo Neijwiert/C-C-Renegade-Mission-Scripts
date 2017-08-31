@@ -5,5 +5,4 @@ MX0_Engineer1
 MX0_Engineer2
 MX0_KillNotify
 MX0_MissionStart_DME
-MX0_NOD_TroopDrop
 MX0_SniperAction

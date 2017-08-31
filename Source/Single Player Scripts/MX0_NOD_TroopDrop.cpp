@@ -31,22 +31,23 @@ void MX0_NOD_TroopDrop::Created(GameObject *obj)
 
 void MX0_NOD_TroopDrop::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered 3 seconds after entered
 	if (number == 109)
 	{
-		GameObject *obj1200018 = Commands->Find_Object(1200018);
-		Vector3 obj1200018Pos = Commands->Get_Position(obj1200018);
-		float obj1200018Facing = Commands->Get_Facing(obj1200018);
+		GameObject *cinObj = Commands->Find_Object(1200018);
+		Vector3 cinObjPos = Commands->Get_Position(cinObj);
+		float cinObjFacing = Commands->Get_Facing(cinObj);
 
-		GameObject *invisObj = Commands->Create_Object("Invisible_Object", obj1200018Pos);
-		Commands->Set_Facing(invisObj, obj1200018Facing);
+		GameObject *invisObj = Commands->Create_Object("Invisible_Object", cinObjPos);
+		Commands->Set_Facing(invisObj, cinObjFacing);
 		Commands->Attach_Script(invisObj, "Test_Cinematic", "MX0_C130Troopdrop.txt");
 
-		GameObject *obj1200020 = Commands->Find_Object(1200020);
-		Vector3 obj1200020Pos = Commands->Get_Position(obj1200020);
-		float obj1200020Facing = Commands->Get_Facing(obj1200020);
+		GameObject *cinObj2 = Commands->Find_Object(1200020);
+		Vector3 cinObj2Pos = Commands->Get_Position(cinObj2);
+		float cinObj2Facing = Commands->Get_Facing(cinObj2);
 
-		GameObject *invisObj2 = Commands->Create_Object("Invisible_Object", obj1200020Pos);
-		Commands->Set_Facing(invisObj2, obj1200020Facing);
+		GameObject *invisObj2 = Commands->Create_Object("Invisible_Object", cinObj2Pos);
+		Commands->Set_Facing(invisObj2, cinObj2Facing);
 		Commands->Attach_Script(invisObj2, "Test_Cinematic", "MX0_C130Troopdrop2.txt");
 	}
 }
@@ -57,20 +58,20 @@ void MX0_NOD_TroopDrop::Entered(GameObject *obj, GameObject *enterer)
 	{
 		this->isZoneTriggered = true;
 
-		GameObject *obj1200018 = Commands->Find_Object(1200018);
-		Vector3 obj1200018Pos = Commands->Get_Position(obj1200018);
-		float obj1200018Facing = Commands->Get_Facing(obj1200018);
+		GameObject *cinObj = Commands->Find_Object(1200018);
+		Vector3 cinObjPos = Commands->Get_Position(cinObj);
+		float cinObjFacing = Commands->Get_Facing(cinObj);
 
-		GameObject *invisObj = Commands->Create_Object("Invisible_Object", obj1200018Pos);
-		Commands->Set_Facing(invisObj, obj1200018Facing);
+		GameObject *invisObj = Commands->Create_Object("Invisible_Object", cinObjPos);
+		Commands->Set_Facing(invisObj, cinObjFacing);
 		Commands->Attach_Script(invisObj, "Test_Cinematic", "MX0_C130Troopdrop.txt");
 
-		GameObject *obj1200020 = Commands->Find_Object(1200020);
-		Vector3 obj1200020Pos = Commands->Get_Position(obj1200020);
-		float obj1200020Facing = Commands->Get_Facing(obj1200020);
+		GameObject *cinObj2 = Commands->Find_Object(1200020);
+		Vector3 cinObj2Pos = Commands->Get_Position(cinObj2);
+		float cinObj2Facing = Commands->Get_Facing(cinObj2);
 
-		GameObject *invisObj2 = Commands->Create_Object("Invisible_Object", obj1200020Pos);
-		Commands->Set_Facing(invisObj2, obj1200020Facing);
+		GameObject *invisObj2 = Commands->Create_Object("Invisible_Object", cinObj2Pos);
+		Commands->Set_Facing(invisObj2, cinObj2Facing);
 		Commands->Attach_Script(invisObj2, "Test_Cinematic", "MX0_C130Troopdrop2.txt");
 
 		Commands->Start_Timer(obj, this, 3.0f, 109);
