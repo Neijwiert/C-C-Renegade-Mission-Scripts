@@ -21,30 +21,37 @@
 
 void MX0_Engineer_Goto2::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->isZoneTriggered, sizeof(this->isZoneTriggered), 1);
 }
 
+// On level start
 void MX0_Engineer_Goto2::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->isZoneTriggered = false;
 }
 
 void MX0_Engineer_Goto2::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_MissionStart_DME when custom 110 has been received
 	if (type == 105)
 	{
 		int gotoDest1 = Get_Int_Parameter("GotoDest1");
 
-		GameObject *paramObj = Commands->Find_Object(param);
-		Commands->Send_Custom_Event(obj, paramObj, 100, gotoDest1, 0.0f);
+		GameObject *engineer1Obj = Commands->Find_Object(param);
+		Commands->Send_Custom_Event(obj, engineer1Obj, 100, gotoDest1, 0.0f);
 	}
+
+	// Received from MX0_MissionStart_DME when custom 110 has been received
 	else if (type == 106)
 	{
 		int gotoDest2 = Get_Int_Parameter("GotoDest2");
 
-		GameObject *paramObj = Commands->Find_Object(param);
-		Commands->Send_Custom_Event(obj, paramObj, 100, gotoDest2, 0.0f);
+		GameObject *engineer2Obj = Commands->Find_Object(param);
+		Commands->Send_Custom_Event(obj, engineer2Obj, 100, gotoDest2, 0.0f);
 	}
+
+	// Received from MX0_MissionStart_DME after the engineer finished the conversation:
+	// - Looks like they were boxed in.
 	else if (type == 110)
 	{
 		GameObject *MX0MissionStartDMEObj = Commands->Find_Object(1200001);
@@ -60,6 +67,7 @@ void MX0_Engineer_Goto2::Custom(GameObject *obj, int type, int param, GameObject
 
 void MX0_Engineer_Goto2::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered 3 seconds after the zone is entered
 	if (number == 126)
 	{
 		Commands->Set_HUD_Help_Text(8579, Vector3(0.196f, 0.882f, 0.196f)); // MX0_HELPTEXT_04: Left-Click to Fire your Weapon (Default)
@@ -68,15 +76,15 @@ void MX0_Engineer_Goto2::Timer_Expired(GameObject *obj, int number)
 
 void MX0_Engineer_Goto2::Entered(GameObject *obj, GameObject *enterer)
 {
-	if (!this->field_1C)
+	if (!this->isZoneTriggered)
 	{
 		if (Get_Int_Parameter("Count") != 5)
 		{
-			this->field_1C = true;
+			this->isZoneTriggered = true;
 		}
 		else
 		{
-			this->field_1C = true;
+			this->isZoneTriggered = true;
 
 			Commands->Start_Timer(obj, this, 3.0f, 126);
 

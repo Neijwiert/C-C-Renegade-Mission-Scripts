@@ -78,12 +78,12 @@ void MX0_MissionStart_DME::Action_Complete(GameObject *obj, int action_id, Actio
 		Commands->Start_Timer(obj, this, 5.0f, 120);
 	}
 
-	// TODO
+	// Triggered when the engineer finished the conversation:
+	// - Looks like they were boxed in.
 	else if (action_id == 100004)
 	{
 		GameObject *engineerGoto2ZoneCount4Obj = Commands->Find_Object(1200015);
 
-		// TODO
 		Commands->Send_Custom_Event(obj, engineerGoto2ZoneCount4Obj, 110, 0, 0.0f);
 	}
 }
@@ -121,7 +121,6 @@ void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 		Vector3 sniper2Pos = Commands->Get_Position(sniper2PosObj);
 
 		// Create sniper 1, attach scripts and store its id
-		// TODO
 		GameObject *sniper1Obj = Commands->Create_Object("NOD_Minigunner_2SF", sniper1Pos);
 		Commands->Attach_Script(sniper1Obj, "M00_Soldier_Powerup_Disable", "");
 		Commands->Attach_Script(sniper1Obj, "M00_Send_Object_ID", "1200001, 1, 0.0f");
@@ -130,7 +129,6 @@ void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 		this->sniper1ObjId = Commands->Get_ID(sniper1Obj);
 
 		// Create sniper 2, attach scripts and store its id
-		// TODO
 		GameObject *sniper2Obj = Commands->Create_Object("NOD_Minigunner_2SF", sniper2Pos);
 		Commands->Attach_Script(sniper2Obj, "M00_Soldier_Powerup_Disable", "");
 		Commands->Attach_Script(sniper2Obj, "M00_Send_Object_ID", "1200001, 2, 0.0f");
@@ -184,11 +182,9 @@ void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 	{
 		if (Commands->Find_Object(this->sniper1ObjId) != NULL) // Is sniper 1 still alive?
 		{
-			// TODO
 			GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
 			Commands->Send_Custom_Event(obj, engineer1Obj, 136, this->sniper1ObjId, 0.0f);
 
-			// TODO
 			GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
 			Commands->Send_Custom_Event(obj, engineer2Obj, 136, sniper1ObjId, 0.0f);
 
@@ -207,7 +203,7 @@ void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 		}
 	}
 
-	// TODO
+	// Triggered 3 seconds after custom type 138
 	else if (number == 142)
 	{
 		// Create conversation MX0_ENGINEER1_048: 
@@ -228,10 +224,9 @@ void MX0_MissionStart_DME::Timer_Expired(GameObject *obj, int number)
 		Commands->Monitor_Conversation(obj, conversationId);
 	}
 
-	// TODO
+	// Triggered 2 seconds after custom type 9035, which received sniper2 object id
 	else if (number == 134)
 	{
-		// TODO
 		GameObject *MX0A02ControllerObj = Commands->Find_Object(1100000);
 		Commands->Send_Custom_Event(obj, MX0A02ControllerObj, 202, 0, 0.0f);
 	}
@@ -338,32 +333,31 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 	}
 
 	// Received from MX0_Engineer_Goto when entered, with param being its 'Count' parameter
-	// Received from MX0_Engineer_Goto2 TODO
+	// Received from MX0_Engineer_Goto2 after the engineer finished the conversation:
+	// - Looks like they were boxed in.
+	// and param 'Count' parameter
 	else if (type == 102)
 	{
 		this->engineerGotoZoneCount = param;
 
-		// TODO
 		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
 		Commands->Send_Custom_Event(obj, engineer1Obj, 108, this->engineerGotoZoneCount, 0.0f);
 
-		// TODO
 		GameObject *engineer2Obj = ::Commands->Find_Object(this->engineer2ObjId);
 		Commands->Send_Custom_Event(obj, engineer2Obj, 108, this->engineerGotoZoneCount, 0.0f);
 	}
 
-	// Received from MX0_Engineer_Goto when entered, with param being its 'Count' parameter 
-	// Received from MX0_Engineer_Goto2 TODO
+	// Received from MX0_Engineer_Goto when entered
+	// Received from MX0_Engineer_Goto2 after the engineer finished the conversation:
+	// - Looks like they were boxed in.
 	else if (type == 104)
 	{
 		if (param == 1)
 		{
-			// TODO
 			Commands->Send_Custom_Event(obj, sender, 105, this->engineer1ObjId, 0.0f);
 		}
 		else if (param == 2)
 		{
-			// TODO
 			Commands->Send_Custom_Event(obj, sender, 106, this->engineer2ObjId, 0.0f);
 		}
 	}
@@ -371,11 +365,9 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 	// Received from MX0_NOD_TroopDrop when entered with param 0
 	else if (type == 114)
 	{
-		// TODO
 		GameObject *sniper1Obj = Commands->Find_Object(this->sniper1ObjId);
 		Commands->Send_Custom_Event(obj, sniper1Obj, 114, 0, 0.0f);
 
-		// TODO
 		GameObject *sniper2Obj = Commands->Find_Object(this->sniper2ObjId);
 		Commands->Send_Custom_Event(obj, sniper2Obj, 114, 0, 0.0f);
 	}
@@ -383,7 +375,6 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 	// Received from MX0_Engineer_Goto2 when entered and count 5 with param 0
 	else if (type == 136)
 	{
-		// TODO
 		Commands->Start_Timer(obj, this, 2.0f, 136);
 	}
 
@@ -413,10 +404,9 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		}
 	}
 
-	// Received from MX0_Engineer2 TODO
+	// Received from MX0_Engineer2 when action_id 101 is triggered
 	else if (type == 132)
 	{
-		// TODO
 		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
 		Commands->Send_Custom_Event(obj, engineer1Obj, 132, 0, 0.0f);
 	}
@@ -426,7 +416,6 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 	{
 		if (Commands->Find_Object(this->sniper1ObjId) != NULL)
 		{
-			// TODO
 			GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
 			Commands->Send_Custom_Event(obj, engineer2Obj, 125, 0, 0.0f);
 
@@ -459,21 +448,19 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		}
 	}
 	
-	// TODO
+	// TODO (No custom)
 	else if (type == 223)
 	{
-		// TODO
 		Commands->Send_Custom_Event(obj, sender, 223, this->sniper1ObjId, 0.0f);
 	}
 
-	// TODO
+	// TODO (No custom)
 	else if (type == 224)
 	{
-		// TODO
 		Commands->Send_Custom_Event(obj, sender, 224, this->sniper2ObjId, 0.0f);
 	}
 
-	// TODO
+	// Received from M00_Send_Object_ID with params identifying the sniper
 	else if (type == 9035)
 	{
 		if (param == 1)
@@ -484,36 +471,31 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		{
 			this->sniper2ObjId = Commands->Get_ID(sender);
 
-			// TODO
 			Commands->Start_Timer(obj, this, 2.0f, 134);
 		}
 	}
 
-	// TODO
+	// TODO (No custom)
 	else if (type == 130)
 	{
-		// TODO
 		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
 		Commands->Send_Custom_Event(obj, engineer1Obj, 131, 0, 0.0f);
 
-		// TODO
 		GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
 		Commands->Send_Custom_Event(obj, engineer2Obj, 131, 0, 0.0f);
 	}
 	
-	// TODO
+	// TODO (No custom)
 	else if (type == 111)
 	{
-		// TODO
 		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);
 		Commands->Send_Custom_Event(obj, engineer1Obj, 112, 0, 0.0f);
 
-		// TODO
 		GameObject *engineer2Obj = Commands->Find_Object(this->engineer2ObjId);
 		Commands->Send_Custom_Event(obj, engineer2Obj, 112, 0, 0.0f);
 	}
 
-	// TODO
+	// Triggered after timer number 120 triggered
 	else if (type == 100003)
 	{
 		static const char * const ENGINEER_WAIT_FOR_HAVOC_CONVERSATIONS[] =
@@ -555,7 +537,7 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		Commands->Monitor_Conversation(obj, conversationId);
 	}
 	
-	// TODO
+	// Triggered after timer number 124 triggered
 	else if (type == 100007)
 	{
 		if (Commands->Find_Object(this->sniper1ObjId) != NULL) // Is sniper 1 still alive?
@@ -628,12 +610,11 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 				this->engineerWaitForSniperConversationIndex = 0;
 			}
 
-			// TODO
 			Commands->Start_Timer(obj, this, 5.0f, 124);
 		}
 	}
 
-	// TODO
+	// Received from MX0_Engineer1 when action id 101 has triggered and some conditions have been met
 	else if (type == 100004)
 	{
 		// Create conversation MX0CON004:
@@ -667,7 +648,7 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		Commands->Innate_Disable(engineer2Obj);
 	}
 
-	// TODO
+	// Received from MX0_Engineer2 when action id 113 is triggered
 	else if (type == 100005)
 	{
 		// Create conversation MX0CON005:

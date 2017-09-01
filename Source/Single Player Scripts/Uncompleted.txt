@@ -1,8 +1,5 @@
 M00_BuildingStateSoundController
 M00_BuildingStateSoundSpeaker
-MX0_Engineer_Goto2
 MX0_Engineer1
 MX0_Engineer2
 MX0_MissionStart_DME
-MX0_SniperAction
-MX0_KillNotify

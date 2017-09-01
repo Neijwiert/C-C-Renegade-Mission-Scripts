@@ -25,6 +25,7 @@ void MX0_SniperAction::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->health, sizeof(this->health), 2);
 }
 
+// 1 Second later when the star is done with his animation in the intro cinematic. 
 void MX0_SniperAction::Created(GameObject *obj)
 {
 	this->health = Commands->Get_Health(obj);
@@ -34,6 +35,7 @@ void MX0_SniperAction::Created(GameObject *obj)
 
 void MX0_SniperAction::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_MissionStart_DME after MX0_NOD_TroopDrop sent custom to it
 	if (type == 114)
 	{
 		Commands->Start_Timer(obj, this, 5.0f, 108);
@@ -63,6 +65,7 @@ void MX0_SniperAction::Damaged(GameObject *obj, GameObject *damager, float amoun
 
 void MX0_SniperAction::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered 5 seconds after custom type 114 received from MX0_MissionStart_DME
 	if (number == 108)
 	{
 		ActionParamsStruct actionParamsStruct;

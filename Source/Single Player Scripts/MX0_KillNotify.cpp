@@ -21,16 +21,18 @@
 
 void MX0_KillNotify::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->doTaunts, sizeof(this->doTaunts), 1);
 }
 
+// 1 Second later when the star is done with his animation in the intro cinematic. 
 void MX0_KillNotify::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->doTaunts = false;
 }
 
 void MX0_KillNotify::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_MissionStart_DME after MX0_NOD_TroopDrop sent custom to it
 	if (type == 114)
 	{
 		Commands->Start_Timer(obj, this, 3.0f, 139);
@@ -40,6 +42,7 @@ void MX0_KillNotify::Custom(GameObject *obj, int type, int param, GameObject *se
 
 void MX0_KillNotify::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered 3 seconds after custom type 114 received from MX0_MissionStart_DME
 	if (number == 139)
 	{
 		int conversationId = Commands->Create_Conversation("MX0CON020", 95, 2000.0f, false); //NOD control,  I count 5 GDI targets.
@@ -49,6 +52,8 @@ void MX0_KillNotify::Timer_Expired(GameObject *obj, int number)
 		Commands->Start_Conversation(conversationId, 100020);
 		Commands->Monitor_Conversation(obj, conversationId);
 	}
+
+	// Triggered 7 seconds after custom type 114 received from MX0_MissionStart_DME
 	else if (number == 140)
 	{
 		int conversationId = Commands->Create_Conversation("MX0CON021", 99, 2000.0f, false); //Correction.  Make that 4.
@@ -60,9 +65,11 @@ void MX0_KillNotify::Timer_Expired(GameObject *obj, int number)
 
 		Commands->Start_Timer(obj, this, 5.0f, 141);
 	}
+
+	// Triggered 5 seconds after timer 140 triggered or 5 seconds after this triggered
 	else if (number == 141)
 	{
-		if (this->field_1C)
+		if (this->doTaunts)
 		{
 			static const char * const CONVERSATIONS[] =
 			{

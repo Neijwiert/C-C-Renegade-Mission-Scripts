@@ -9,3 +9,6 @@ M00_Cinematic_Attack_Command_DLS
 M00_Cinematic_Kill_Object_DAY
 M00_Disable_Loiter_DAY
 M00_Generic_Conv_DME
+MX0_SniperAction
+MX0_KillNotify
+MX0_Engineer_Goto2

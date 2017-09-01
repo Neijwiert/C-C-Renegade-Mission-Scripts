@@ -31,5 +31,5 @@ class MX0_KillNotify : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 		virtual void Killed(GameObject *obj, GameObject *killer);
 
-		bool field_1C;
+		bool doTaunts;
 };

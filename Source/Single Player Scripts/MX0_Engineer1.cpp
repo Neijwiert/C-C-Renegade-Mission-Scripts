@@ -28,6 +28,7 @@ void MX0_Engineer1::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->doingDamageAnimation, sizeof(this->doingDamageAnimation), 5);
 }
 
+// 1980 cinematic frames after level start
 void MX0_Engineer1::Created(GameObject *obj)
 {
 	// Initialize member variables
@@ -72,7 +73,7 @@ void MX0_Engineer1::Timer_Expired(GameObject *obj, int number)
 		Commands->Action_Goto(obj, actionParamsStruct);
 	}
 
-	// TODO
+	// Triggered 5 seconds after action id 101 is done and some conditions are met
 	else if (number == 116)
 	{
 		// Initialize ActionParamsStruct
@@ -112,7 +113,7 @@ void MX0_Engineer1::Action_Complete(GameObject *obj, int action_id, ActionComple
 		}
 	}
 
-	// TODO
+	// Triggered when done playing animation h_a_b0c0
 	else if (action_id == 113)
 	{
 		// Initialize ActionParamsStruct
@@ -129,6 +130,8 @@ void MX0_Engineer1::Action_Complete(GameObject *obj, int action_id, ActionComple
 		// Execute movement
 		Commands->Action_Goto(obj, actionParamsStruct);
 	}
+
+	// Triggered when done playing animation H_A_J21C
 	else if (action_id == 135)
 	{
 		this->doingDamageAnimation = false;
@@ -197,15 +200,16 @@ void MX0_Engineer1::Animation_Complete(GameObject *obj, const char *animation_na
 
 void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_MissionStart_DME 2.0 seconds after MX0_Engineer_Goto2 zone is entered with count 5
 	if (type == 136)
 	{
-		GameObject *paramObj = Commands->Find_Object(param);
+		GameObject *sniper1Obj = Commands->Find_Object(param);
 
 		Commands->Unlock_Soldier_Facing(obj);
 
-		if (paramObj)
+		if (sniper1Obj)
 		{
-			Commands->Lock_Soldier_Facing(obj, paramObj, true);
+			Commands->Lock_Soldier_Facing(obj, sniper1Obj, true);
 
 			static int ENGINEER_WAIT_FOR_SNIPER_DEATH_OBJECT_IDS[] = 
 			{
@@ -226,6 +230,8 @@ void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sen
 			Commands->Action_Goto(obj, actionParamsStruct);
 		}
 	}
+
+	// TODO (No custom)
 	else if (type == 131)
 	{
 		Commands->Action_Reset(obj, 100.0f);
@@ -238,6 +244,8 @@ void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sen
 
 		Commands->Action_Goto(obj, actionParamsStruct);
 	}
+
+	// Received from MX0_MissionStart_DME when custom type 132 has been received
 	else if (type == 132)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
@@ -252,6 +260,8 @@ void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sen
 
 		Commands->Action_Play_Animation(obj, actionParamsStruct);
 	}
+
+	// TODO (No custom)
 	else if (type == 112)
 	{
 		ActionParamsStruct actionParamsStruct;
@@ -266,10 +276,14 @@ void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sen
 
 		Commands->Action_Attack(obj, actionParamsStruct);
 	}
+
+	// Received from MX0_MissionStart_DME after MX0_Engineer_Goto is entered or when MX0_Engineer_Goto2 received custom for engineer finishing convo - Looks like they were boxed in.
 	else if (type == 108)
 	{
 		this->engineerGotoZoneCount = param;
 	}
+
+	// Received from MX0_Engineer_Goto/2 when custom 105 has been received
 	else if (type == 100)
 	{
 		this->gotoDestObjId = param;

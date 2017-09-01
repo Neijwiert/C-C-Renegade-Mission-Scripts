@@ -31,5 +31,5 @@ class MX0_Engineer_Goto2 : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
-		bool field_1C;
+		bool isZoneTriggered;
 };

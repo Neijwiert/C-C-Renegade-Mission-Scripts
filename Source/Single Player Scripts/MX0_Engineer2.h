@@ -33,10 +33,10 @@ class MX0_Engineer2 : public ScriptImpClass
 		virtual void Animation_Complete(GameObject *obj, const char *animation_name);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		float field_1C;
-		float lastHealthAmount;
-		int field_24;
-		int field_28;
-		int field_2C;
-		bool field_30;
+		float lastHealthAmount1;
+		float lastHealthAmount2;
+		int engineerGotoZoneCount;
+		int gotoDestObjId;
+		int sniper1ObjId;
+		bool doingDamageAnimation;
 };

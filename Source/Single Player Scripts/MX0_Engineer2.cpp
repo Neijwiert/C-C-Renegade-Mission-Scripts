@@ -21,21 +21,22 @@
 
 void MX0_Engineer2::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->lastHealthAmount, sizeof(this->lastHealthAmount), 2);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
-	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 4);
-	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 5);
-	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 6);
+	Auto_Save_Variable(&this->lastHealthAmount1, sizeof(this->lastHealthAmount1), 1);
+	Auto_Save_Variable(&this->lastHealthAmount2, sizeof(this->lastHealthAmount2), 2);
+	Auto_Save_Variable(&this->engineerGotoZoneCount, sizeof(this->engineerGotoZoneCount), 3);
+	Auto_Save_Variable(&this->gotoDestObjId, sizeof(this->gotoDestObjId), 4);
+	Auto_Save_Variable(&this->doingDamageAnimation, sizeof(this->doingDamageAnimation), 5);
+	Auto_Save_Variable(&this->sniper1ObjId, sizeof(this->sniper1ObjId), 6);
 }
 
+// 2030 cinematic frames after level start
 void MX0_Engineer2::Created(GameObject *obj)
 {
-	this->field_2C = 0;
-	this->field_24 = 0;
-	this->field_28 = 0;
-	this->lastHealthAmount = Commands->Get_Health(obj);
-	this->field_30 = false;
+	this->sniper1ObjId = 0;
+	this->engineerGotoZoneCount = 0;
+	this->gotoDestObjId = 0;
+	this->lastHealthAmount2 = Commands->Get_Health(obj);
+	this->doingDamageAnimation = false;
 
 	Commands->Start_Timer(obj, this, 4.0f, 121);
 	Commands->Start_Timer(obj, this, 3.5f, 123);
@@ -47,6 +48,7 @@ void MX0_Engineer2::Created(GameObject *obj)
 
 void MX0_Engineer2::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// Triggered when done playing animation H_A_A0A0_L32
 	if (action_id == 113)
 	{
 		ActionParamsStruct actionParamsStruct;
@@ -60,10 +62,14 @@ void MX0_Engineer2::Action_Complete(GameObject *obj, int action_id, ActionComple
 
 		Commands->Send_Custom_Event(obj, obj, 100005, 0, 0.60000002f);
 	}
+
+	// Triggered when done playing animation H_A_J21C
 	else if (action_id == 135)
 	{
-		this->field_30 = false;
+		this->doingDamageAnimation = false;
 	}
+
+	// Triggered when done with a Goto action
 	else if (action_id == 101)
 	{
 		if (Commands->Get_Action_ID(obj) != 101 && !Commands->Is_Performing_Pathfind_Action(obj) && (complete_reason == ACTION_COMPLETE_LOW_PRIORITY || complete_reason == ACTION_COMPLETE_PATH_BAD_DEST))
@@ -71,7 +77,7 @@ void MX0_Engineer2::Action_Complete(GameObject *obj, int action_id, ActionComple
 			Commands->Start_Timer(obj, this, 5.0f, 116);
 		}
 
-		if (this->field_24 == 4 && complete_reason == ACTION_COMPLETE_NORMAL)
+		if (this->engineerGotoZoneCount == 4 && complete_reason == ACTION_COMPLETE_NORMAL)
 		{
 			GameObject *MX0MissionStartDMEObj = Commands->Find_Object(1200001);
 			Commands->Send_Custom_Event(obj, MX0MissionStartDMEObj, 132, 0, 0.0f);
@@ -92,15 +98,16 @@ void MX0_Engineer2::Action_Complete(GameObject *obj, int action_id, ActionComple
 
 void MX0_Engineer2::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered 5 seconds after custom type 136 has been received
 	if (number == 137)
 	{
-		GameObject *field2CObj = Commands->Find_Object(this->field_2C);
+		GameObject *sniper1Obj = Commands->Find_Object(this->sniper1ObjId);
 
 		Commands->Unlock_Soldier_Facing(obj);
 
-		if (field2CObj)
+		if (sniper1Obj)
 		{
-			Commands->Lock_Soldier_Facing(obj, field2CObj, true);
+			Commands->Lock_Soldier_Facing(obj, sniper1Obj, true);
 
 			static int ENGINEER_WAIT_FOR_SNIPER_DEATH_OBJECT_IDS[] =
 			{
@@ -122,21 +129,27 @@ void MX0_Engineer2::Timer_Expired(GameObject *obj, int number)
 			Commands->Action_Goto(obj, actionParamsStruct);
 		}
 	}
+
+	// Triggered after action id 101 has finished
 	else if (number == 116)
 	{
 		ActionParamsStruct actionParamsStruct;
 		actionParamsStruct.Set_Basic(this, 96.0f, 101);
 
-		GameObject *field28Obj = Commands->Find_Object(this->field_28);
+		GameObject *field28Obj = Commands->Find_Object(this->gotoDestObjId);
 		Vector3 field28ObjPos = Commands->Get_Position(field28Obj);
 		actionParamsStruct.Set_Movement(field28ObjPos, 0.80000001f, 1.0f);
 
 		Commands->Action_Goto(obj, actionParamsStruct);
 	}
+
+	// Triggered 4 seconds after creation
 	else if (number == 121)
 	{
 		Commands->Set_Innate_Is_Stationary(obj, true);
 	}
+
+	// Triggered 3.5 seconds after creation
 	else if (number == 123)
 	{
 		ActionParamsStruct actionParamsStruct;
@@ -151,15 +164,15 @@ void MX0_Engineer2::Timer_Expired(GameObject *obj, int number)
 void MX0_Engineer2::Damaged(GameObject *obj, GameObject *damager, float amount)
 {
 	float currentHealth = Commands->Get_Health(obj);
-	this->field_1C = currentHealth;
-	float healthDifference = this->lastHealthAmount - currentHealth;
-	float newHealth = this->lastHealthAmount - Get_Float_Parameter("Damage_multiplier") * healthDifference;
+	this->lastHealthAmount1 = currentHealth;
+	float healthDifference = this->lastHealthAmount2 - currentHealth;
+	float newHealth = this->lastHealthAmount2 - Get_Float_Parameter("Damage_multiplier") * healthDifference;
 	Commands->Set_Health(obj, newHealth);
-	this->lastHealthAmount = Commands->Get_Health(obj);
-	this->field_1C = Commands->Get_Health(obj);
+	this->lastHealthAmount2 = Commands->Get_Health(obj);
+	this->lastHealthAmount1 = Commands->Get_Health(obj);
 
 	Vector3 pos = Commands->Get_Position(obj);
-	if (damager == Commands->Get_A_Star(pos) && !this->field_30)
+	if (damager == Commands->Get_A_Star(pos) && !this->doingDamageAnimation)
 	{
 		static const char * const ENGINEER_TAKING_DAMAGE_CONVERSATIONS[] =
 		{
@@ -187,7 +200,7 @@ void MX0_Engineer2::Damaged(GameObject *obj, GameObject *damager, float amount)
 		Commands->Start_Conversation(conversationId, 100008);
 		Commands->Monitor_Conversation(obj, conversationId);
 
-		this->field_30 = true;
+		this->doingDamageAnimation = true;
 
 		ActionParamsStruct actionParamsStruct;
 		actionParamsStruct.Set_Basic(this, 100.0f, 135);
@@ -202,17 +215,20 @@ void MX0_Engineer2::Animation_Complete(GameObject *obj, const char *animation_na
 {
 	if (!_strcmpi(animation_name, "H_A_J21C"))   // Should be == 0, but it doesn't appear to be compiled like that
 	{
-		this->field_30 = false;
+		this->doingDamageAnimation = false;
 	}
 }
 
 void MX0_Engineer2::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_MissionStart_DME 2.0 seconds after MX0_Engineer_Goto2 zone is entered with count 5
 	if (type == 136)
 	{
-		this->field_2C = param;
+		this->sniper1ObjId = param;
 		Commands->Start_Timer(obj, this, 5.0f, 137);
 	}
+
+	// TODO (No custom)
 	else if (type == 131)
 	{
 		Commands->Action_Reset(obj, 100.0f);
@@ -225,6 +241,8 @@ void MX0_Engineer2::Custom(GameObject *obj, int type, int param, GameObject *sen
 
 		Commands->Action_Goto(obj, actionParamsStruct);
 	}
+
+	// Received from MX0_MissionStart_DME when MX0_Engineer_Goto2 is entered with count 5
 	else if (type == 125)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
@@ -238,6 +256,8 @@ void MX0_Engineer2::Custom(GameObject *obj, int type, int param, GameObject *sen
 
 		Commands->Set_Animation(obj, "H_A_A0A0_L53", false, NULL, 0.0f, -1.0f, true);
 	}
+
+	// TODO (No custom)
 	else if (type == 112)
 	{
 		ActionParamsStruct actionParamsStruct;
@@ -252,18 +272,22 @@ void MX0_Engineer2::Custom(GameObject *obj, int type, int param, GameObject *sen
 
 		Commands->Action_Attack(obj, actionParamsStruct);
 	}
+
+	// Received from MX0_MissionStart_DME after MX0_Engineer_Goto is entered or when MX0_Engineer_Goto2 received custom for engineer finishing convo - Looks like they were boxed in.
 	else if (type == 108)
 	{
-		this->field_24 = param;
+		this->engineerGotoZoneCount = param;
 	}
+
+	// Received from MX0_Engineer_Goto/2 when custom 106 has been received
 	else if (type == 100)
 	{
-		this->field_28 = param;
+		this->gotoDestObjId = param;
 
 		ActionParamsStruct actionParamsStruct;
 		actionParamsStruct.Set_Basic(this, 96.0f, 101);
 
-		GameObject *field28Obj = Commands->Find_Object(this->field_28);
+		GameObject *field28Obj = Commands->Find_Object(this->gotoDestObjId);
 		Vector3 field28ObjPos = Commands->Get_Position(field28Obj);
 		actionParamsStruct.Set_Movement(field28ObjPos, 0.80000001f, 0.80000001f);
 

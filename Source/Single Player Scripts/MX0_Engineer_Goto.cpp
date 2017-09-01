@@ -37,18 +37,18 @@ void MX0_Engineer_Goto::Custom(GameObject *obj, int type, int param, GameObject 
 	if (type == 105)
 	{
 		int gotoDest1 = Get_Int_Parameter("GotoDest1"); // 1200029
-		GameObject *paramObj = Commands->Find_Object(param);
+		GameObject *engineer1Obj = Commands->Find_Object(param);
 
-		Commands->Send_Custom_Event(obj, paramObj, 100, gotoDest1, 0.0f);
+		Commands->Send_Custom_Event(obj, engineer1Obj, 100, gotoDest1, 0.0f);
 	}
 
 	// Received from MX0_MissionStart_DME, param is engineer2ObjId
 	else if (type == 106)
 	{
 		int gotoDest2 = Get_Int_Parameter("GotoDest2"); // 1200026
-		GameObject *paramObj = Commands->Find_Object(param);
+		GameObject *engineer2Obj = Commands->Find_Object(param);
 
-		Commands->Send_Custom_Event(obj, paramObj, 100, gotoDest2, 0.0f);
+		Commands->Send_Custom_Event(obj, engineer2Obj, 100, gotoDest2, 0.0f);
 	}
 }
 

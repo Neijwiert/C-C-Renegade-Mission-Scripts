@@ -24,6 +24,7 @@ void MX0_NOD_TroopDrop::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->isZoneTriggered, sizeof(this->isZoneTriggered), 1);
 }
 
+// On level start
 void MX0_NOD_TroopDrop::Created(GameObject *obj)
 {
 	this->isZoneTriggered = false;
