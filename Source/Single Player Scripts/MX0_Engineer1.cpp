@@ -189,7 +189,7 @@ void MX0_Engineer1::Damaged(GameObject *obj, GameObject *damager, float amount)
 
 void MX0_Engineer1::Animation_Complete(GameObject *obj, const char *animation_name)
 {
-	if (!_strcmpi(animation_name, "H_A_J21C")) // Should be == 0, but it doesn't appear to be compiled like that
+	if (!_stricmp(animation_name, "H_A_J21C")) // Should be == 0, but it doesn't appear to be compiled like that
 	{
 		this->doingDamageAnimation = false;
 	}
