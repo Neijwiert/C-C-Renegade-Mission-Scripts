@@ -32,5 +32,5 @@ class MX0_SniperAction : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 
 		unsigned int field_1C; // Unused
-		float field_20; // Initialized but unused
+		float health; // Initialized, but unused
 };

@@ -22,12 +22,12 @@
 void MX0_SniperAction::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->health, sizeof(this->health), 2);
 }
 
 void MX0_SniperAction::Created(GameObject *obj)
 {
-	this->field_20 = Commands->Get_Health(obj);
+	this->health = Commands->Get_Health(obj);
 
 	Commands->Innate_Disable(obj);
 }
@@ -50,7 +50,7 @@ void MX0_SniperAction::Damaged(GameObject *obj, GameObject *damager, float amoun
 		GameObject *starObj = Commands->Get_A_Star(pos);
 		Commands->Apply_Damage(obj, 10000.0f, "Blamokiller", starObj);
 
-		if (Commands->Reveal_Encyclopedia_Character(41) == 1) // Nod_Minigunner_2SF's encyclopedia id
+		if (Commands->Reveal_Encyclopedia_Character(41)) // Nod_Minigunner_2SF's encyclopedia id
 		{
 			Commands->Display_Encyclopedia_Event_UI();
 		}
