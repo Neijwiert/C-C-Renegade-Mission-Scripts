@@ -111,6 +111,9 @@
     <ClCompile Include="MX0_A02_GDI_VEHICLE.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_A02_GDI_APC.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -183,6 +186,9 @@
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
     <ClInclude Include="MX0_A02_GDI_VEHICLE.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_A02_GDI_APC.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
   </ItemGroup>
