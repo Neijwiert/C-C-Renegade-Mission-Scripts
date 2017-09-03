@@ -117,6 +117,9 @@
     <ClCompile Include="MX0_A02_HELICOPTER.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_A02_GDI_MEDTANK.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -197,6 +200,9 @@
     <ClInclude Include="MX0_A02_HELICOPTER.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
+    <ClInclude Include="MX0_A02_GDI_MEDTANK.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="x00_intro.txt">
@@ -215,6 +221,15 @@
     </Text>
     <Text Include="Uncompleted.txt">
       <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="x0i_drop02_a02_e01.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </Text>
+    <Text Include="x0i_drop02_a02_e02.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </Text>
+    <Text Include="x0i_gdi_drop02_engineer.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
     </Text>
   </ItemGroup>
 </Project>

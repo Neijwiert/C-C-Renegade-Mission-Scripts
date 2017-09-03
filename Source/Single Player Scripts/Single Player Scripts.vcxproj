@@ -203,6 +203,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_A02_ACTOR.cpp" />
     <ClCompile Include="MX0_A02_Controller.cpp" />
     <ClCompile Include="MX0_A02_GDI_APC.cpp" />
+    <ClCompile Include="MX0_A02_GDI_MEDTANK.cpp" />
     <ClCompile Include="MX0_A02_GDI_VEHICLE.cpp" />
     <ClCompile Include="MX0_A02_HELICOPTER.cpp" />
     <ClCompile Include="MX0_A02_ZONE_STARTUP.cpp" />
@@ -236,6 +237,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_A02_ACTOR.h" />
     <ClInclude Include="MX0_A02_Controller.h" />
     <ClInclude Include="MX0_A02_GDI_APC.h" />
+    <ClInclude Include="MX0_A02_GDI_MEDTANK.h" />
     <ClInclude Include="MX0_A02_GDI_VEHICLE.h" />
     <ClInclude Include="MX0_A02_HELICOPTER.h" />
     <ClInclude Include="MX0_A02_ZONE_STARTUP.h" />
@@ -274,6 +276,9 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   <ItemGroup>
     <Text Include="Completed.txt" />
     <Text Include="Uncompleted.txt" />
+    <Text Include="x0i_drop02_a02_e01.txt" />
+    <Text Include="x0i_drop02_a02_e02.txt" />
+    <Text Include="x0i_gdi_drop02_engineer.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
