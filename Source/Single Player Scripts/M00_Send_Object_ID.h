@@ -28,6 +28,6 @@ class M00_Send_Object_ID : public ScriptImpClass
 	private:
 		virtual void Created(GameObject *obj);
 
-		unsigned int field_1C; // Unused
-		unsigned char field_20; // Unused
+		DWORD field_1C; // Unused
+		BYTE field_20; // Unused
 };

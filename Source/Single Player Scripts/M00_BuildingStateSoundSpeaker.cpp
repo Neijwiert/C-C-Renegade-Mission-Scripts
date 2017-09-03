@@ -115,10 +115,14 @@ void M00_BuildingStateSoundSpeaker::Custom(GameObject *obj, int type, int param,
 			Commands->Send_Custom_Event(obj, obj, 9027, 1, randInterval);
 		}
 	}
+
+	// TODO
 	else if (type == 9028)
 	{
 		this->doExplosions = false;
 	}
+
+	// TODO
 	else if (type == 9029)
 	{
 		this->doExplosions = true;
