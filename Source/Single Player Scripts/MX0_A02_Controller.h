@@ -43,12 +43,12 @@ class MX0_A02_Controller : public ScriptImpClass
 		BYTE field_47;
 		DWORD field_48;
 		DWORD field_4C;
-		DWORD field_50;
-		DWORD field_54;
-		DWORD field_58;
+		int destroyedHumveeObjId;
+		int destroyedMedTankObjId;
+		int apcObjId;
 		DWORD field_5C;
 		DWORD field_60;
-		DWORD field_64;
+		int blockageObjId;
 		DWORD field_68;
 		DWORD field_6C;
 		DWORD field_70;

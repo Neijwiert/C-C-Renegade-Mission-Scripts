@@ -24,9 +24,9 @@ void MX0_A02_Controller::Register_Auto_Save_Variables()
 	Auto_Save_Variable(this->field_1C, sizeof(this->field_1C), 1);
 	Auto_Save_Variable(&this->field_40, sizeof(this->field_40), 2);
 	Auto_Save_Variable(&this->field_4C, sizeof(this->field_4C), 3);
-	Auto_Save_Variable(&this->field_50, sizeof(this->field_50), 4);
-	Auto_Save_Variable(&this->field_54, sizeof(this->field_54), 5);
-	Auto_Save_Variable(&this->field_58, sizeof(this->field_58), 6);
+	Auto_Save_Variable(&this->destroyedHumveeObjId, sizeof(this->destroyedHumveeObjId), 4);
+	Auto_Save_Variable(&this->destroyedMedTankObjId, sizeof(this->destroyedMedTankObjId), 5);
+	Auto_Save_Variable(&this->apcObjId, sizeof(this->apcObjId), 6);
 	Auto_Save_Variable(&this->field_5C, sizeof(this->field_5C), 7);
 	Auto_Save_Variable(&this->field_60, sizeof(this->field_60), 8);
 	Auto_Save_Variable(&this->field_42, sizeof(this->field_42), 9);
@@ -34,7 +34,7 @@ void MX0_A02_Controller::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_43, sizeof(this->field_43), 11);
 	Auto_Save_Variable(&this->field_6C, sizeof(this->field_6C), 12);
 	Auto_Save_Variable(&this->field_44, sizeof(this->field_44), 13);
-	Auto_Save_Variable(&this->field_64, sizeof(this->field_64), 14);
+	Auto_Save_Variable(&this->blockageObjId, sizeof(this->blockageObjId), 14);
 	Auto_Save_Variable(&this->field_45, sizeof(this->field_45), 15);
 	Auto_Save_Variable(&this->field_46, sizeof(this->field_46), 16);
 	Auto_Save_Variable(&this->field_48, sizeof(this->field_48), 17);
@@ -60,12 +60,12 @@ void MX0_A02_Controller::Created(GameObject *obj)
 	this->field_47 = 0;
 	this->field_48 = 0;
 	this->field_4C = 0;
-	this->field_50 = 0;
-	this->field_54 = 0;
-	this->field_58 = 0;
+	this->destroyedHumveeObjId = 0;
+	this->destroyedMedTankObjId = 0;
+	this->apcObjId = 0;
 	this->field_5C = 0;
 	this->field_60 = 0;
-	this->field_64 = 0;
+	this->blockageObjId = 0;
 	this->field_68 = 0;
 	this->field_6C = 0;
 	this->field_70 = 0;
