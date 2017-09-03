@@ -204,6 +204,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_A02_Controller.cpp" />
     <ClCompile Include="MX0_A02_GDI_APC.cpp" />
     <ClCompile Include="MX0_A02_GDI_VEHICLE.cpp" />
+    <ClCompile Include="MX0_A02_HELICOPTER.cpp" />
     <ClCompile Include="MX0_A02_ZONE_STARTUP.cpp" />
     <ClCompile Include="MX0_Engineer1.cpp" />
     <ClCompile Include="MX0_Engineer2.cpp" />
@@ -236,6 +237,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_A02_Controller.h" />
     <ClInclude Include="MX0_A02_GDI_APC.h" />
     <ClInclude Include="MX0_A02_GDI_VEHICLE.h" />
+    <ClInclude Include="MX0_A02_HELICOPTER.h" />
     <ClInclude Include="MX0_A02_ZONE_STARTUP.h" />
     <ClInclude Include="MX0_Engineer1.h" />
     <ClInclude Include="MX0_Engineer2.h" />
