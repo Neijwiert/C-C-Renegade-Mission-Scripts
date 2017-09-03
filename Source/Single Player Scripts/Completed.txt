@@ -12,3 +12,4 @@ M00_Generic_Conv_DME
 MX0_SniperAction
 MX0_KillNotify
 MX0_Engineer_Goto2
+MX0_A02_GDI_VEHICLE
