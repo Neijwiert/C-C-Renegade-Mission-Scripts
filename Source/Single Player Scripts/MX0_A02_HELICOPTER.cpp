@@ -19,6 +19,7 @@
 #include "General.h"
 #include "MX0_A02_HELICOPTER.h"
 
+// After MX0_A02_Controller receives custom type 232 and progressCounter is 3 or 4
 void MX0_A02_HELICOPTER::Created(GameObject *obj)
 {
 	if (Get_Int_Parameter("ActorID"))
@@ -49,6 +50,7 @@ void MX0_A02_HELICOPTER::Killed(GameObject *obj, GameObject *killer)
 
 void MX0_A02_HELICOPTER::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered 23 seconds after created with an ActorID > 0
 	if (number == 211)
 	{
 		Commands->Apply_Damage(obj, 10000.0f, "Blamokiller", NULL);

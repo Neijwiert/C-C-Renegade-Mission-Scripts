@@ -28,5 +28,5 @@ class MX0_A02_GDI_APC : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Enemy_Seen(GameObject *obj, GameObject *enemy);
 
-		bool field_1C;
+		bool canBeDamaged;
 };

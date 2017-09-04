@@ -19,6 +19,7 @@
 #include "General.h"
 #include "MX0_A02_GDI_VEHICLE.h"
 
+// After MX0_A02_Controller receives custom type 202
 void MX0_A02_GDI_VEHICLE::Created(GameObject *obj)
 {
 	Commands->Set_Health(obj, 10.0f);

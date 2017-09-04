@@ -24,6 +24,7 @@ void MX0_A02_GDI_MEDTANK::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->vehicleEntered, sizeof(this->vehicleEntered), 1);
 }
 
+// After MX0_A02_ACTOR triggers the timer with number 215
 void MX0_A02_GDI_MEDTANK::Created(GameObject *obj)
 {
 	this->vehicleEntered = false;

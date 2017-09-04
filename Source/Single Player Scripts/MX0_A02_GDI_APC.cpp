@@ -19,14 +19,15 @@
 #include "General.h"
 #include "MX0_A02_GDI_APC.h"
 
+// After MX0_A02_Controller receives custom type 202
 void MX0_A02_GDI_APC::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->canBeDamaged = false;
 }
 
 void MX0_A02_GDI_APC::Damaged(GameObject *obj, GameObject *damager, float amount)
 {
-	if (!this->field_1C)
+	if (!this->canBeDamaged)
 	{
 		float maxHealth = Commands->Get_Max_Health(obj);
 		Commands->Set_Health(obj, maxHealth);
@@ -35,12 +36,15 @@ void MX0_A02_GDI_APC::Damaged(GameObject *obj, GameObject *damager, float amount
 
 void MX0_A02_GDI_APC::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_A02_Controller when custom type 240 has been received
 	if (type == 210)
 	{
-		this->field_1C = true;
+		this->canBeDamaged = true;
 
 		Commands->Apply_Damage(obj, 10000.0f, "Blamokiller", sender);
 	}
+
+	// Received from MX0_A02_Controller when custom 215 has been received
 	else if (type == 215)
 	{
 		Commands->Innate_Enable(obj);

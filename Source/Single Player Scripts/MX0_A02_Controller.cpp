@@ -22,62 +22,64 @@
 void MX0_A02_Controller::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(this->soldierActorIds, sizeof(this->soldierActorIds), 1);
-	Auto_Save_Variable(&this->field_40, sizeof(this->field_40), 2);
-	Auto_Save_Variable(&this->field_4C, sizeof(this->field_4C), 3);
+	Auto_Save_Variable(&this->starAtSniperArea, sizeof(this->starAtSniperArea), 2);
+	Auto_Save_Variable(&this->soldierActorWaitForHavocTauntActionId, sizeof(this->soldierActorWaitForHavocTauntActionId), 3);
 	Auto_Save_Variable(&this->destroyedHumveeObjId, sizeof(this->destroyedHumveeObjId), 4);
 	Auto_Save_Variable(&this->destroyedMedTankObjId, sizeof(this->destroyedMedTankObjId), 5);
 	Auto_Save_Variable(&this->apcObjId, sizeof(this->apcObjId), 6);
-	Auto_Save_Variable(&this->field_5C, sizeof(this->field_5C), 7);
-	Auto_Save_Variable(&this->field_60, sizeof(this->field_60), 8);
-	Auto_Save_Variable(&this->field_42, sizeof(this->field_42), 9);
-	Auto_Save_Variable(&this->field_68, sizeof(this->field_68), 10);
-	Auto_Save_Variable(&this->field_43, sizeof(this->field_43), 11);
-	Auto_Save_Variable(&this->field_6C, sizeof(this->field_6C), 12);
-	Auto_Save_Variable(&this->field_44, sizeof(this->field_44), 13);
+	Auto_Save_Variable(&this->sniper1ObjId, sizeof(this->sniper1ObjId), 7);
+	Auto_Save_Variable(&this->sniper2ObjId, sizeof(this->sniper2ObjId), 8);
+	Auto_Save_Variable(&this->canDoYeahTaunt, sizeof(this->canDoYeahTaunt), 9);
+	Auto_Save_Variable(&this->progressCounter, sizeof(this->progressCounter), 10);
+	Auto_Save_Variable(&this->doingEvent, sizeof(this->doingEvent), 11);
+	Auto_Save_Variable(&this->nodRocketSoldierActorIndex, sizeof(this->nodRocketSoldierActorIndex), 12);
+	Auto_Save_Variable(&this->shouldWaitForFreeSlots, sizeof(this->shouldWaitForFreeSlots), 13);
 	Auto_Save_Variable(&this->blockageObjId, sizeof(this->blockageObjId), 14);
-	Auto_Save_Variable(&this->field_45, sizeof(this->field_45), 15);
-	Auto_Save_Variable(&this->field_46, sizeof(this->field_46), 16);
-	Auto_Save_Variable(&this->field_48, sizeof(this->field_48), 17);
-	Auto_Save_Variable(&this->field_70, sizeof(this->field_70), 18);
-	Auto_Save_Variable(&this->field_74, sizeof(this->field_74), 19);
-	Auto_Save_Variable(&this->field_78, sizeof(this->field_78), 20);
-	Auto_Save_Variable(&this->field_7C, sizeof(this->field_7C), 21);
-	Auto_Save_Variable(&this->field_47, sizeof(this->field_47), 22);
-	Auto_Save_Variable(&this->field_80, sizeof(this->field_80), 23);
-	Auto_Save_Variable(&this->field_84, sizeof(this->field_84), 24);
-	Auto_Save_Variable(&this->field_41, sizeof(this->field_41), 25);
+	Auto_Save_Variable(&this->shouldDestroySpawners, sizeof(this->shouldDestroySpawners), 15);
+	Auto_Save_Variable(&this->helicopter0Killed, sizeof(this->helicopter0Killed), 16);
+	Auto_Save_Variable(&this->soldierActorTankReadyTauntNumber, sizeof(this->soldierActorTankReadyTauntNumber), 17);
+	Auto_Save_Variable(&this->reinforcementsEngineer1ObjId, sizeof(this->reinforcementsEngineer1ObjId), 18);
+	Auto_Save_Variable(&this->reinforcementsEngineer2ObjId, sizeof(this->reinforcementsEngineer2ObjId), 19);
+	Auto_Save_Variable(&this->soldierActorCallingHavocTauntActionId, sizeof(this->soldierActorCallingHavocTauntActionId), 20);
+	Auto_Save_Variable(&this->soldierActorEnemyKilledTauntActionId, sizeof(this->soldierActorEnemyKilledTauntActionId), 21);
+	Auto_Save_Variable(&this->medTankEntered, sizeof(this->medTankEntered), 22);
+	Auto_Save_Variable(&this->starKillCount, sizeof(this->starKillCount), 23);
+	Auto_Save_Variable(&this->soldierActorWrongWayTauntActorIndex, sizeof(this->soldierActorWrongWayTauntActorIndex), 24);
+	Auto_Save_Variable(&this->spawnedA02Objects, sizeof(this->spawnedA02Objects), 25);
 }
 
+// On level start
 void MX0_A02_Controller::Created(GameObject *obj)
 {
-	this->field_41 = 0;
-	this->field_40 = 0;
-	this->field_42 = 0;
-	this->field_43 = 1;
-	this->field_44 = 0;
-	this->field_45 = 0;
-	this->field_46 = 0;
-	this->field_47 = 0;
-	this->field_48 = 0;
-	this->field_4C = 0;
+	this->spawnedA02Objects = false;
+	this->starAtSniperArea = false;
+	this->canDoYeahTaunt = false;
+	this->doingEvent = true;
+	this->shouldWaitForFreeSlots = false;
+	this->shouldDestroySpawners = false;
+	this->helicopter0Killed = false;
+	this->medTankEntered = false;
+	this->soldierActorTankReadyTauntNumber = 0;
+	this->soldierActorWaitForHavocTauntActionId = 0;
 	this->destroyedHumveeObjId = 0;
 	this->destroyedMedTankObjId = 0;
 	this->apcObjId = 0;
-	this->field_5C = 0;
-	this->field_60 = 0;
+	this->sniper1ObjId = 0;
+	this->sniper2ObjId = 0;
 	this->blockageObjId = 0;
-	this->field_68 = 0;
-	this->field_6C = 0;
-	this->field_70 = 0;
-	this->field_74 = 0;
-	this->field_78 = 0;
-	this->field_7C = 0;
-	this->field_80 = 0;
-	this->field_84 = 1;
+	this->progressCounter = 0;
+	this->nodRocketSoldierActorIndex = 0;
+	this->reinforcementsEngineer1ObjId = 0;
+	this->reinforcementsEngineer2ObjId = 0;
+	this->soldierActorCallingHavocTauntActionId = 0;
+	this->soldierActorEnemyKilledTauntActionId = 0;
+	this->starKillCount = 0;
+	this->soldierActorWrongWayTauntActorIndex = 1;
 }
 
 void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// TODO (No custom)
 	if (type == 203)
 	{
 		for (int x = 1; x < 9; x++)
@@ -92,33 +94,43 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Destroy_Object(obj);
 	}
+
+	// TODO (No custom)
 	else if (type == 225)
 	{
 		if (sender)
 		{
-			Commands->Send_Custom_Event(obj, sender, 213, this->field_5C, 0.0f);
+			Commands->Send_Custom_Event(obj, sender, 213, this->sniper1ObjId, 0.0f);
 		}
 	}
+
+	// Received from MX0_A02_ACTOR when when custom 213 has been received
 	else if (type == 226)
 	{
 		if (sender)
 		{
-			Commands->Send_Custom_Event(obj, sender, 214, this->field_60, 0.0f);
+			Commands->Send_Custom_Event(obj, sender, 214, this->sniper2ObjId, 0.0f);
 		}
 	}
+
+	// Received from MX0_MissionStart_DME when custom type 223 is received
 	else if (type == 223)
 	{
-		this->field_5C = param;
+		this->sniper1ObjId = param;
 	}
+
+	// Received from MX0_MissionStart_DME when custom type 224 is received
 	else if (type == 224)
 	{
-		this->field_60 = param;
+		this->sniper2ObjId = param;
 	}
+
+	// Received from MX0_MissionStart_DME when timer number 134 triggers
 	else if (type == 202)
 	{
-		if (!this->field_41)
+		if (!this->spawnedA02Objects)
 		{
-			this->field_41 = true;
+			this->spawnedA02Objects = true;
 
 			GameObject *davesArrowObj = Commands->Find_Object(1100006);
 			if (davesArrowObj)
@@ -234,8 +246,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 				}
 			}
 
-			this->field_40 = true;
-			this->field_4C = 1;
+			this->starAtSniperArea = true;
+			this->soldierActorWaitForHavocTauntActionId = 1;
 
 			Commands->Start_Timer(obj, this, 1.0f, 204);
 
@@ -284,6 +296,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 			Commands->Start_Timer(obj, this, 1.0f, 220);
 		}
 	}
+
+	// Received from MX0_A02_ACTOR when movements with action ids 206/207 ended
 	else if (type == 209)
 	{
 		if (sender)
@@ -309,33 +323,35 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 			Commands->Send_Custom_Event(obj, sender, 209, this->soldierActorIds[static_cast<size_t>(randSoldierActorIndex)], 0.0f);
 		}
 	}
+
+	// Received from MX0_A02_ZONE_STARTUP after it is entered
 	else if (type == 215)
 	{
-		if (this->field_42)
+		if (this->canDoYeahTaunt)
 		{
-			this->field_40 = false;
+			this->starAtSniperArea = false;
 			
 			Commands->Start_Timer(obj, this, 1.0f, 207);
 
 			return;
 		}
 
-		this->field_42 = true;
+		this->canDoYeahTaunt = true;
 
-		if (Commands->Find_Object(this->field_5C))
+		if (Commands->Find_Object(this->sniper1ObjId))
 		{
 			GameObject *soldierActorObj1 = Commands->Find_Object(this->soldierActorIds[3]);
 			if (soldierActorObj1)
 			{
-				Commands->Send_Custom_Event(obj, soldierActorObj1, 213, this->field_5C, 0.0f);
+				Commands->Send_Custom_Event(obj, soldierActorObj1, 213, this->sniper1ObjId, 0.0f);
 			}
 		}
 		else
 		{
 			GameObject *soldierActorObj1 = Commands->Find_Object(this->soldierActorIds[3]);
-			if (soldierActorObj1 && Commands->Find_Object(this->field_60))
+			if (soldierActorObj1 && Commands->Find_Object(this->sniper2ObjId))
 			{
-				Commands->Send_Custom_Event(obj, soldierActorObj1, 214, this->field_60, 0.0f);
+				Commands->Send_Custom_Event(obj, soldierActorObj1, 214, this->sniper2ObjId, 0.0f);
 			}
 		}
 
@@ -351,16 +367,20 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 			Commands->Send_Custom_Event(obj, apcObj, 215, 0, 0.0f);
 		}
 
-		this->field_40 = false;
+		this->starAtSniperArea = false;
 
 		Commands->Start_Timer(obj, this, 1.0f, 207);
 	}
+
+	// TODO (No custom)
 	else if (type == 212)
 	{
-		this->field_40 = false;
+		this->starAtSniperArea = false;
 
 		Commands->Start_Timer(obj, this, 1.0f, 207);
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 206 has ended
 	else if (type == 222)
 	{
 		for (int x = 5; x < 9; x++)
@@ -372,11 +392,13 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 			}
 		}
 
-		this->field_43 = false;
-		this->field_68 = 0;
+		this->doingEvent = false;
+		this->progressCounter = 0;
 
 		Commands->Create_2D_Sound("MX0_NODOFFICER_044");
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 202 has ended
 	else if (type == 218)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[2]);
@@ -387,6 +409,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 218, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 205 has ended
 	else if (type == 219)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[1]);
@@ -397,6 +421,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 219, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 203 has ended
 	else if (type == 220)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[2]);
@@ -407,6 +433,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 220, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 204 has ended
 	else if (type == 221)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[3]);
@@ -417,6 +445,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 221, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when killed by the star
 	else if (type == 227)
 	{
 		float randSoldierActorObjIndex = Commands->Get_Random(1.0f, 4.9998999f);
@@ -428,38 +458,44 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[static_cast<size_t>(randSoldierActorObjIndex)]);
 		if (soldierActorObj)
 		{
-			if (this->field_78 > 9)
+			if (this->soldierActorCallingHavocTauntActionId > 9)
 			{
-				this->field_78 = 0;
+				this->soldierActorCallingHavocTauntActionId = 0;
 			}
 
-			Commands->Send_Custom_Event(obj, soldierActorObj, 229, this->field_78, 0.0f);
+			Commands->Send_Custom_Event(obj, soldierActorObj, 229, this->soldierActorCallingHavocTauntActionId, 0.0f);
 
-			this->field_78++;
+			this->soldierActorCallingHavocTauntActionId++;
 		}
 	}
+
+	// Received from MX0_A02_ACTOR when not killed by the star
 	else if (type == 228)
 	{
-		GameObject *paramObj = Commands->Find_Object(param);
-		if (paramObj)
+		GameObject *soldierActorObjKiller = Commands->Find_Object(param);
+		if (soldierActorObjKiller)
 		{
-			if (this->field_7C > 3)
+			if (this->soldierActorEnemyKilledTauntActionId > 3)
 			{
-				this->field_7C = 0;
+				this->soldierActorEnemyKilledTauntActionId = 0;
 			}
 
-			Commands->Send_Custom_Event(obj, paramObj, 230, this->field_7C, 0.0f);
+			Commands->Send_Custom_Event(obj, soldierActorObjKiller, 230, this->soldierActorEnemyKilledTauntActionId, 0.0f);
 
-			this->field_7C++;
+			this->soldierActorEnemyKilledTauntActionId++;
 		}
 	}
+
+	// Received from ourself when timer number 209 ended or MX0_A02_ACTOR is done with movement action id 215
 	else if (type == 235)
 	{
-		this->field_6C = 0;
-		this->field_43 = false;
+		this->nodRocketSoldierActorIndex = 0;
+		this->doingEvent = false;
 
-		this->field_68++;
+		this->progressCounter++;
 	}
+
+	// Received from MX0_A02_ACTOR when killed or every 3 seconds if no free slot is available
 	else if (type == 232)
 	{
 		int freeSlotsAvailable = 0;
@@ -473,19 +509,19 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 			if (!this->soldierActorIds[x])
 			{
-				this->field_80++;
+				this->starKillCount++;
 				freeSlotsAvailable++;
 			}
 		}
 
-		if (this->field_80 - 3 <= 95)
+		if (this->starKillCount > 2 && this->starKillCount < 99)
 		{
-			this->field_80 = 99;
+			this->starKillCount = 99;
 
 			Commands->Fade_Background_Music("Level 0 Hero.mp3", 2, 2);
 		}
 
-		if (this->field_45)
+		if (this->shouldDestroySpawners)
 		{
 			GameObject *nodSoldierSpawner1 = Commands->Find_Object(1100026);
 			if (nodSoldierSpawner1)
@@ -507,17 +543,17 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 		}
 		else
 		{
-			if (this->field_43 && this->field_6C == param && this->field_6C)
+			if (this->doingEvent && this->nodRocketSoldierActorIndex == param && this->nodRocketSoldierActorIndex)
 			{
-				this->field_6C = 0;
-				this->field_43 = false;
-				this->field_68++;
+				this->nodRocketSoldierActorIndex = 0;
+				this->doingEvent = false;
+				this->progressCounter++;
 			}
-			if (!this->field_44)
+			if (!this->shouldWaitForFreeSlots)
 			{
-				this->field_44 = true;
+				this->shouldWaitForFreeSlots = true;
 
-				if (!this->field_43)
+				if (!this->doingEvent)
 				{
 					if (!freeSlotsAvailable)
 					{
@@ -526,51 +562,51 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 						return;
 					}
 
-					if (this->field_68 == 0)
+					if (this->progressCounter == 0)
 					{
 						GameObject *nodSoldierObj = Commands->Create_Object("MX0_Nod_Minigunner_0", Vector3(-78.442f, -78.044f, 6.404f));
 						if (nodSoldierObj)
 						{
 							freeSlotsAvailable--;
-							this->field_43 = true;
+							this->doingEvent = true;
 
 							Commands->Attach_Script(nodSoldierObj, "MX0_A02_ACTOR", "1");
 
 							MX0_A02_Fill_Empty_Slot(nodSoldierObj, true);
 						}
 					}
-					else if (this->field_68 == 1)
+					else if (this->progressCounter == 1)
 					{
 						GameObject *nodSoldierObj = Commands->Create_Object("MX0_Nod_Minigunner_0", Vector3(-102.985f, -73.331f, 4.415f));
 						if (nodSoldierObj)
 						{
 							freeSlotsAvailable--;
-							this->field_43 = true;
+							this->doingEvent = true;
 
 							Commands->Attach_Script(nodSoldierObj, "MX0_A02_ACTOR", "2");
 
 							MX0_A02_Fill_Empty_Slot(nodSoldierObj, true);
 						}
 					}
-					else if (this->field_68 == 2)
+					else if (this->progressCounter == 2)
 					{
 						GameObject *nodSoldierObj = Commands->Create_Object("Nod_RocketSoldier_0", Vector3(-78.442f, -78.044f, 6.404f));
 						if (nodSoldierObj)
 						{
 							freeSlotsAvailable--;
-							this->field_43 = true;
+							this->doingEvent = true;
 
 							Commands->Attach_Script(nodSoldierObj, "MX0_A02_ACTOR", "3");
 
 							MX0_A02_Fill_Empty_Slot(nodSoldierObj, false);
 						}
 					}
-					else if (this->field_68 == 3)
+					else if (this->progressCounter == 3)
 					{
 						GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-71.497f, -47.387f, 9.0f));
 						if (invisObj)
 						{
-							this->field_43 = true;
+							this->doingEvent = true;
 
 							Commands->Set_Facing(invisObj, -100.0f);
 							Commands->Attach_Script(invisObj, "MX0_A02_HELICOPTER", "0");
@@ -585,14 +621,14 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 							Commands->Send_Custom_Event(obj, soldierActorObj, 242, 0, 10.0f);
 						}
 					}
-					else if (this->field_68 == 4)
+					else if (this->progressCounter == 4)
 					{
-						this->field_68 = 5;
+						this->progressCounter = 5;
 
 						GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-83.454f, -70.323f, 9.6f));
 						if (invisObj)
 						{
-							this->field_43 = true;
+							this->doingEvent = true;
 
 							Commands->Set_Facing(invisObj, 90.0f);
 							Commands->Attach_Script(invisObj, "MX0_A02_HELICOPTER", "1");
@@ -648,26 +684,32 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 			}
 		}
 	}
+
+	// Received from MX0_A02_ACTOR when done with movement with action id 209
 	else if (type == 233)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[1]);
-		if (!soldierActorObj || !Commands->Find_Object(this->soldierActorIds[this->field_6C]))
+		if (!soldierActorObj || !Commands->Find_Object(this->soldierActorIds[this->nodRocketSoldierActorIndex]))
 		{
 			return;
 		}
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 233, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 225 has ended
 	else if (type == 234)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[2]);
-		if (!soldierActorObj || !Commands->Find_Object(this->soldierActorIds[this->field_6C]))
+		if (!soldierActorObj || !Commands->Find_Object(this->soldierActorIds[this->nodRocketSoldierActorIndex]))
 		{
 			return;
 		}
 
-		Commands->Send_Custom_Event(obj, soldierActorObj, 234, this->soldierActorIds[this->field_6C], 0.0f);
+		Commands->Send_Custom_Event(obj, soldierActorObj, 234, this->soldierActorIds[this->nodRocketSoldierActorIndex], 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when damaged
 	else if (type == 236)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[1]);
@@ -678,16 +720,20 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 236, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when done with movement with action id 211
 	else if (type == 237)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[4]);
-		if (!soldierActorObj || !Commands->Find_Object(this->soldierActorIds[this->field_6C]))
+		if (!soldierActorObj || !Commands->Find_Object(this->soldierActorIds[this->nodRocketSoldierActorIndex]))
 		{
 			return;
 		}
 
-		Commands->Send_Custom_Event(obj, soldierActorObj, 237, this->soldierActorIds[this->field_6C], 0.0f);
+		Commands->Send_Custom_Event(obj, soldierActorObj, 237, this->soldierActorIds[this->nodRocketSoldierActorIndex], 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when it 'killed' the apc (custom type 240)
 	else if (type == 239)
 	{
 		GameObject *apcObj = Commands->Find_Object(this->apcObjId);
@@ -698,6 +744,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, apcObj, 210, 0, 2.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when done with movement with action id 213
 	else if (type == 240)
 	{
 		if (!sender)
@@ -714,6 +762,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 			Commands->Send_Custom_Event(obj, sender, 240, 0, 0.0f);
 		}
 	}
+
+	// Received from MX0_A02_HELICOPTER when killed with ActorID > 0
 	else if (type == 241)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[2]);
@@ -724,6 +774,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 241, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR on create with ActorID == 5 (flamethrower)
 	else if (type == 244)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[3]);
@@ -734,6 +786,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 244, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR with timer number 210
 	else if (type == 245)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[4]);
@@ -744,15 +798,17 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 245, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_HELICOPTER when killed with ActorID <= 0
 	else if (type == 246)
 	{
-		if (this->field_46)
+		if (this->helicopter0Killed)
 		{
 			return;
 		}
 
-		this->field_42 = false;
-		this->field_46 = true;
+		this->canDoYeahTaunt = false;
+		this->helicopter0Killed = true;
 
 		GameObject *soldierActorObj1 = Commands->Find_Object(this->soldierActorIds[2]);
 		if (soldierActorObj1)
@@ -768,6 +824,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Start_Timer(obj, this, 1.0f, 212);
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 234 has ended
 	else if (type == 250)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[4]);
@@ -778,6 +836,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 250, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 235 has ended
 	else if (type == 251)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[1]);
@@ -788,6 +848,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 251, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 236 has ended
 	else if (type == 252)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[2]);
@@ -798,6 +860,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 252, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 237 has ended
 	else if (type == 253)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[3]);
@@ -808,12 +872,16 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, soldierActorObj, 253, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 238 has ended
 	else if (type == 254)
 	{
 		Commands->Create_2D_Sound("MX0_GDIEAGLEBASE_110");
 
 		Commands->Start_Timer(obj, this, 5.0f, 218);
 	}
+
+	// Received from MX0_A02_ACTOR with timer number 216
 	else if (type == 255)
 	{
 		if (!sender)
@@ -821,10 +889,12 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 			return;
 		}
 
-		this->field_70 = Commands->Get_ID(sender);
+		this->reinforcementsEngineer1ObjId = Commands->Get_ID(sender);
 
 		Commands->Send_Custom_Event(obj, sender, 255, this->destroyedMedTankObjId, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 240 has ended
 	else if (type == 256)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[1]);
@@ -835,20 +905,24 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 			Commands->Start_Timer(obj, this, 5.0f, 219);
 		}
 	}
+
+	// Received from MX0_A02_ACTOR with timer number 217
 	else if (type == 258)
 	{
-		this->field_74 = Commands->Get_ID(sender);
+		this->reinforcementsEngineer2ObjId = Commands->Get_ID(sender);
 	}
+
+	// Received from MX0_A02_GDI_MEDTANK when entered
 	else if (type == 262)
 	{
-		this->field_47 = true;
+		this->medTankEntered = true;
 		GameObject *MX0A03ControllerObj = Commands->Find_Object(1400041);
 		if (MX0A03ControllerObj)
 		{
 			Commands->Send_Custom_Event(obj, MX0A03ControllerObj, 401, 0, 2.0f);
 		}
 
-		GameObject *field74Obj = Commands->Find_Object(this->field_74);
+		GameObject *field74Obj = Commands->Find_Object(this->reinforcementsEngineer2ObjId);
 		if (!field74Obj)
 		{
 			return;
@@ -856,6 +930,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Send_Custom_Event(obj, field74Obj, 263, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR with timer number 245
 	else if (type == 264)
 	{
 		GameObject *blockageObj = Commands->Find_Object(this->blockageObjId);
@@ -875,6 +951,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 		Commands->Start_Timer(obj, this, 1.0f, 222);
 	}
+
+	// Received from MX0_A02_ACTOR when attack action with action_id 214 is complete
 	else if (type == 267)
 	{
 		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[3]);
@@ -883,6 +961,8 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 			Commands->Send_Custom_Event(obj, soldierActorObj, 267, 0, 0.0f);
 		}
 	}
+
+	// Received from MX0_A02_ACTOR when conversation with action id 229 has ended
 	else if (type == 268)
 	{
 		for (int x = 1; x < 5; x++)
@@ -898,12 +978,13 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 
 void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered 1 second after custom 202 has been received, after that a random interval
 	if (number == 204)
 	{
-		if (this->field_40)
+		if (this->starAtSniperArea)
 		{
 			GameObject *soldierActorObj;
-			switch (this->field_4C)
+			switch (this->soldierActorWaitForHavocTauntActionId)
 			{
 				case 1:
 				case 4:
@@ -931,12 +1012,12 @@ void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 
 			if (soldierActorObj)
 			{
-				Commands->Send_Custom_Event(obj, soldierActorObj, 211, this->field_4C, 0.0f);
+				Commands->Send_Custom_Event(obj, soldierActorObj, 211, this->soldierActorWaitForHavocTauntActionId, 0.0f);
 			}
 
-			if (++this->field_4C > 11)
+			if (++this->soldierActorWaitForHavocTauntActionId > 11)
 			{
-				this->field_4C = 1;
+				this->soldierActorWaitForHavocTauntActionId = 1;
 			}
 
 			float randInterval = Commands->Get_Random(2.0f, 4.9998999f);
@@ -948,9 +1029,11 @@ void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 			Commands->Start_Timer(obj, this, randInterval, 204);
 		}
 	}
+
+	// Triggered 1 second after custom type 215 has been received
 	else if (number == 207)
 	{
-		if (this->field_42)
+		if (this->canDoYeahTaunt)
 		{
 			Vector3 pos = Commands->Get_Position(obj);
 			GameObject *starObj = Commands->Get_A_Star(pos);
@@ -972,25 +1055,31 @@ void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 			}
 		}
 	}
+
+	// Triggered 3 seconds after custom type 232 received (soldier killed)
 	else if (number == 208)
-	{
-		if (!this->field_45)
+	{ 
+		if (!this->shouldDestroySpawners)
 		{
-			this->field_44 = false;
+			this->shouldWaitForFreeSlots = false;
 
 			Commands->Send_Custom_Event(obj, obj, 232, 0, 0.1f);
 		}
 	}
+
+	// Triggered 20 seconds after custom type 232 received (when helicopter 0 is spawned)
 	else if (number == 209)
 	{
 		Commands->Send_Custom_Event(obj, obj, 235, 0, 0.0f);
 	}
+
+	// Triggered 1 second after custom type 246 (helicopter 0 killed)
 	else if (number == 212)
 	{
-		this->field_43 = false;
-		this->field_44 = true;
-		this->field_45 = true;
-		this->field_42 = false;
+		this->doingEvent = false;
+		this->shouldWaitForFreeSlots = true;
+		this->shouldDestroySpawners = true;
+		this->canDoYeahTaunt = false;
 
 		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-106.497f, -37.154f, 1.093f));
 		if (invisObj)
@@ -1021,6 +1110,8 @@ void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 
 		Commands->Start_Timer(obj, this, 3.0f, 213);
 	}
+
+	// Triggered 3 seconds after timer number 212
 	else if (number == 213)
 	{
 		for (int x = 1; x < 5; x++)
@@ -1037,18 +1128,22 @@ void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 			}
 		}
 	}
+
+	// Triggered 5 seconds after custom type 254
 	else if (number == 218)
 	{
 		Commands->Create_2D_Sound("MX0_GDIEAGLEBASE_116");
 	}
+
+	// Triggered 5 seconds after custom type 256 or in this block (when the tank is repaired)
 	else if (number == 219)
 	{
-		if (this->field_48 > 2 || this->field_47)
+		if (this->soldierActorTankReadyTauntNumber > 2 || this->medTankEntered)
 		{
 			return;
 		}
 
-		if (!this->field_48)
+		if (!this->soldierActorTankReadyTauntNumber)
 		{
 			GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[2]);
 			if (soldierActorObj)
@@ -1056,7 +1151,7 @@ void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 				Commands->Send_Custom_Event(obj, soldierActorObj, 261, 0, 0.0f);
 			}
 		}
-		else if (this->field_48 == 1)
+		else if (this->soldierActorTankReadyTauntNumber == 1)
 		{
 			GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[1]);
 			if (soldierActorObj)
@@ -1064,7 +1159,7 @@ void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 				Commands->Send_Custom_Event(obj, soldierActorObj, 260, 0, 0.0f);
 			}
 		}
-		else if (this->field_48 == 2)
+		else if (this->soldierActorTankReadyTauntNumber == 2)
 		{
 			GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[2]);
 			if (soldierActorObj)
@@ -1073,13 +1168,15 @@ void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 			}
 		}
 
-		this->field_48++;
+		this->soldierActorTankReadyTauntNumber++;
 
 		Commands->Start_Timer(obj, this, 5.0f, 219);
 	}
+
+	// Triggered 1 second after custom 202 has been received, after that a random interval
 	else if (number == 220)
 	{
-		if (!this->field_45)
+		if (!this->shouldDestroySpawners)
 		{
 			float random = Commands->Get_Random(1.0f, 16.999901f);
 			if (random > 16.0f)
@@ -1175,6 +1272,8 @@ void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 			}
 		}
 	}
+
+	// Triggered 2 seconds after custom type 264
 	else if (number == 221)
 	{
 		GameObject *blockageObj = Commands->Find_Object(this->blockageObjId);
@@ -1183,14 +1282,16 @@ void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 			Commands->Destroy_Object(blockageObj);
 		}
 	}
+
+	// Triggered 1 second after custom type 264 or 5 seconds in this block
 	else if (number == 222)
 	{
-		if (++this->field_84 > 4)
+		if (++this->soldierActorWrongWayTauntActorIndex > 4)
 		{
-			this->field_84 = 2;
+			this->soldierActorWrongWayTauntActorIndex = 2;
 		}
 
-		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[this->field_84]);
+		GameObject *soldierActorObj = Commands->Find_Object(this->soldierActorIds[this->soldierActorWrongWayTauntActorIndex]);
 		if (soldierActorObj)
 		{
 			Commands->Send_Custom_Event(obj, soldierActorObj, 269, 0, 0.0f);
@@ -1200,14 +1301,14 @@ void MX0_A02_Controller::Timer_Expired(GameObject *obj, int number)
 	}
 }
 
-void MX0_A02_Controller::MX0_A02_Fill_Empty_Slot(GameObject *nodSoldierObj, bool a3)
+void MX0_A02_Controller::MX0_A02_Fill_Empty_Slot(GameObject *nodSoldierObj, bool isMinigunner)
 {
 	for (int x = 5; x < 9; x++)
 	{
 		if (!this->soldierActorIds[x])
 		{
 			this->soldierActorIds[x] = Commands->Get_ID(nodSoldierObj);
-			this->field_6C = (a3 ? 0 : x);
+			this->nodRocketSoldierActorIndex = (isMinigunner ? 0 : x);
 
 			Commands->Send_Custom_Event(nodSoldierObj, nodSoldierObj, 204, x, 0.1f);
 			

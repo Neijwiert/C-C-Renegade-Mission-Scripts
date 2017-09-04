@@ -448,13 +448,13 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		}
 	}
 	
-	// TODO (No custom)
+	// Received from MX0_A02_Controller after custom 202 received
 	else if (type == 223)
 	{
 		Commands->Send_Custom_Event(obj, sender, 223, this->sniper1ObjId, 0.0f);
 	}
 
-	// TODO (No custom)
+	// Received from MX0_A02_Controller after custom 202 received
 	else if (type == 224)
 	{
 		Commands->Send_Custom_Event(obj, sender, 224, this->sniper2ObjId, 0.0f);

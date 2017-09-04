@@ -36,15 +36,15 @@ class MX0_A02_ACTOR : public ScriptImpClass
 
 		void MX0_A02_Say_Something(GameObject *obj, int actionId, bool unknown);
 
-		bool field_1C;
-		bool field_1D;
-		bool field_1E;
-		bool field_1F;
+		bool canBeKilled;
+		bool starFarAway;
+		bool actorActive;
+		bool startedFallingDeathAnimation;
 		float health;
 		float shield;
 		DWORD field_28; // Initialized, but unused
-		int field_2C;
-		int field_30;
-		int field_34;
-		int field_38;
+		int soldierActorIndex;
+		int sniper1ObjId;
+		int sniper2ObjId;
+		int destroyedMedTankObjId;
 };
