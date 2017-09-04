@@ -1406,7 +1406,7 @@ void MX0_A02_ACTOR::Timer_Expired(GameObject *obj, int number)
 				GameObject *medTank = Commands->Create_Object("GDI_Medium_Tank_Player", destroyedMedTankObjPos);
 				if (medTank)
 				{
-					Commands->Attach_Script(obj, "M00_Send_Object_ID", "1400041,13,0.0f"); // Is obj here correct?
+					Commands->Attach_Script(obj, "M00_Send_Object_ID", "1400041,13,0.0f"); // TODO Is obj here correct?
 					Commands->Set_Facing(medTank, destroyedMedTankObjFacing);
 
 					MX0_A02_Say_Something(obj, 240, true);
