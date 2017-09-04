@@ -27,34 +27,34 @@ class MX0_A02_Controller : public ScriptImpClass
 
 	private:
 		virtual void Created(GameObject *obj);
-		virtual void Timer_Expired(GameObject *obj, int number);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
+		virtual void Timer_Expired(GameObject *obj, int number);
 
-		void MX0_A02_Fill_Empty_Slot(GameObject *a2, bool a3);
+		void MX0_A02_Fill_Empty_Slot(GameObject *nodSoldierObj, bool a3);
 
-		int field_1C[9];
-		BYTE field_40;
-		BYTE field_41;
-		BYTE field_42;
-		BYTE field_43;
-		BYTE field_44;
-		BYTE field_45;
-		BYTE field_46;
-		BYTE field_47;
+		int soldierActorIds[9];
+		bool field_40;
+		bool field_41;
+		bool field_42;
+		bool field_43;
+		bool field_44;
+		bool field_45;
+		bool field_46;
+		bool field_47;
 		DWORD field_48;
 		DWORD field_4C;
 		int destroyedHumveeObjId;
 		int destroyedMedTankObjId;
 		int apcObjId;
 		DWORD field_5C;
-		DWORD field_60;
+		int field_60;
 		int blockageObjId;
-		DWORD field_68;
-		DWORD field_6C;
+		int field_68;
+		int field_6C;
 		DWORD field_70;
 		DWORD field_74;
-		DWORD field_78;
-		DWORD field_7C;
-		DWORD field_80;
+		int field_78;
+		int field_7C;
+		int field_80;
 		DWORD field_84;
 };
