@@ -283,7 +283,7 @@ void MX0_A02_ACTOR::Custom(GameObject *obj, int type, int param, GameObject *sen
 			this->starFarAway = true;
 		}
 
-
+		// TODO (No custom)
 		else if (type == 208)
 		{
 			this->starFarAway = false;
