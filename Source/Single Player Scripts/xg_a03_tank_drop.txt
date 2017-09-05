@@ -1,0 +1,89 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* Transport Helicopter Hummvee Drop _ Straight  ************************
+
+
+
+; ****************************** Trajectory Transport
+
+-1	Create_Object,		1, "XG_HDB_TTraj",			0, 0, 0, 0
+-1	Play_Animation,		1, "XG_HDB_TTraj.XG_HDB_TTraj", 1
+-365	destroy_object,		1
+
+; ****************************** Trajectory Humvee
+
+-1	Create_Object,		3, "XG_HDB_HTraj",			0, 0, 0, 0
+-1	Play_Animation,		3, "XG_HDB_HTraj.XG_HDB_HTraj", 1
+-365	destroy_object,		3
+
+; ****************************** Transport
+
+-1	Create_Real_Object,	2, "GDI_Transport_Helicopter", 1, "BN_Trajectory"
+-1	Attach_Script,		2, "M00_Damage_Modifier_DME", "0.15,1,1,0,0"
+-1	Attach_to_Bone,		2,1,"BN_Trajectory"
+-1	Set_Primary,		2
+-1	Play_Animation,		2, "v_GDI_trnspt.v_GDI_trnspt",1
+-365	destroy_object,		2
+
+; ****************************** Humvee
+
+-1	Create_Real_Object,	4, "GDI_Medium_Tank", 3, "BN_Trajectory" 
+-1	Attach_to_Bone,		4,3,"BN_Trajectory"
+-148	Attach_to_Bone,		4,-1,"BN_Trajectory"
+-1	Attach_Script,		4, "M00_Damage_Modifier_DME", "0.05,1,1,1,1"
+-148	Attach_Script,		4, "MX0_A03_TANK", ""
+-148	Move_Slot,		7, 4
+
+
+; ****************************** Harness
+
+-1	Create_Object,		6, "XG_HDB_Harness",			0, 0, 0, 0
+-1	Play_Animation,		6, "XG_HDB_Harness.XG_HDB_Harness", 0
+-365	destroy_object,		6
+
+; ****************************** Primary Destroyed
+
+;1000000	Destroy_Object, 1
+;1000000	Destroy_Object, 3
+;1000000	Destroy_Object, 4
+;1000000	Destroy_Object, 6
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -214,6 +214,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_Engineer1.cpp" />
     <ClCompile Include="MX0_Engineer2.cpp" />
     <ClCompile Include="MX0_Engineer_Goto2.cpp" />
+    <ClCompile Include="MX0_GDI_ORCA.cpp" />
     <ClCompile Include="MX0_GDI_Soldier_DLS.cpp" />
     <ClCompile Include="MX0_KillNotify.cpp" />
     <ClCompile Include="MX0_NOD_INFANTRY.cpp" />
@@ -254,6 +255,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_Engineer1.h" />
     <ClInclude Include="MX0_Engineer2.h" />
     <ClInclude Include="MX0_Engineer_Goto2.h" />
+    <ClInclude Include="MX0_GDI_ORCA.h" />
     <ClInclude Include="MX0_GDI_Soldier_DLS.h" />
     <ClInclude Include="MX0_KillNotify.h" />
     <ClInclude Include="MX0_NOD_INFANTRY.h" />
@@ -290,10 +292,12 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="mx0_a03_nod_ledgedrop.txt" />
     <Text Include="mx0_gdi_troopdrop_area4.txt" />
     <Text Include="Uncompleted.txt" />
+    <Text Include="x0f_harvester.txt" />
     <Text Include="x0i_drop02_a02_e01.txt" />
     <Text Include="x0i_drop02_a02_e02.txt" />
     <Text Include="x0i_gdi_drop02_engineer.txt" />
     <Text Include="xg_a03_humveedrop_b.txt" />
+    <Text Include="xg_a03_tank_drop.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

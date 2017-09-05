@@ -1,0 +1,61 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 0: Harvester _ Destruct ************************
+
+
+; ****************************** Orca Trajectory
+
+-0	Create_Object,		1, "X0F_Orca_TRAJ",			0, 0, 0, 0,
+-0	Play_Animation,		1, "X0F_Orca_TRAJ.X0F_Orca_TRAJ",0
+-416	destroy_object,		1
+
+
+
+; ****************************** Orca
+
+
+-0	Create_real_Object,	2, "GDI_Orca_FLyover",1		,"BN_trajectory"
+-0	Attach_Script,		2, "M00_Damage_Modifier_DME", "0.15,1,1,0,0"	
+-0	Set_Primary,		2		
+-0	Play_Animation,		2, "V_GDI_Orca.V_GDI_Orca",1
+-0	Attach_to_Bone,		2,1,"BN_trajectory"
+-416	destroy_object,		2
+
+
+; ****************************** Explosions
+
+-0	Create_Object,		1, "X0F_AG_EFFECTS",			0, 0, 0, 0,
+-0	Play_Animation,		1, "X0F_EFFECTS.X0F_EFFECTS",0
+-416	destroy_object,		1
+
+
+
+
+

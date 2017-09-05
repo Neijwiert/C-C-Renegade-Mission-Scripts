@@ -144,6 +144,9 @@
     <ClCompile Include="MX0_NOD_INFANTRY.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_GDI_ORCA.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -245,6 +248,9 @@
     <ClInclude Include="MX0_NOD_INFANTRY.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
+    <ClInclude Include="MX0_GDI_ORCA.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="x00_intro.txt">
@@ -280,6 +286,12 @@
       <Filter>Resource Files\M13\Cinematic Files</Filter>
     </Text>
     <Text Include="xg_a03_humveedrop_b.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </Text>
+    <Text Include="x0f_harvester.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </Text>
+    <Text Include="xg_a03_tank_drop.txt">
       <Filter>Resource Files\M13\Cinematic Files</Filter>
     </Text>
   </ItemGroup>
