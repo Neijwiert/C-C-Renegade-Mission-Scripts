@@ -159,6 +159,9 @@
     <ClCompile Include="MX0_A03_NOD_HARVESTER.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_A03_NOD_BUGGIE.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -273,6 +276,9 @@
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
     <ClInclude Include="MX0_A03_NOD_HARVESTER.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_A03_NOD_BUGGIE.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
   </ItemGroup>
