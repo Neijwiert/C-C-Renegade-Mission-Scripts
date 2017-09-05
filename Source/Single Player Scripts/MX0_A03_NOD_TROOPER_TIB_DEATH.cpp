@@ -30,6 +30,7 @@ void MX0_A03_NOD_TROOPER_TIB_DEATH::Killed(GameObject *obj, GameObject *killer)
 
 void MX0_A03_NOD_TROOPER_TIB_DEATH::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// TODO (No custom)
 	if (type == 9035)
 	{
 		this->field_1C = param;

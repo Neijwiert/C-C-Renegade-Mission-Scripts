@@ -19,6 +19,7 @@
 #include "General.h"
 #include "MX0_A03_NOD_BUGGIE.h"
 
+// On level start
 void MX0_A03_NOD_BUGGIE::Created(GameObject *obj)
 {
 
@@ -34,6 +35,7 @@ void MX0_A03_NOD_BUGGIE::Killed(GameObject *obj, GameObject *killer)
 
 void MX0_A03_NOD_BUGGIE::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_A03_CONTROLL_DAK after custom type 401 received
 	if (type == 1)
 	{
 		ActionParamsStruct params;
@@ -47,6 +49,7 @@ void MX0_A03_NOD_BUGGIE::Custom(GameObject *obj, int type, int param, GameObject
 
 void MX0_A03_NOD_BUGGIE::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// Any movement action complete
 	if (!action_id)
 	{
 		ActionParamsStruct params;

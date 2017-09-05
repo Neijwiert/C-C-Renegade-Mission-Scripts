@@ -25,6 +25,7 @@ void MX0_A03_NOD_HARVESTER::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
 }
 
+// On level start
 void MX0_A03_NOD_HARVESTER::Created(GameObject *obj)
 {
 	Commands->Set_Health(obj, 1200.0f);
@@ -55,6 +56,7 @@ void MX0_A03_NOD_HARVESTER::Damaged(GameObject *obj, GameObject *damager, float 
 
 void MX0_A03_NOD_HARVESTER::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_GDI_ORCA on action_complete
 	if (type == 413)
 	{
 		Commands->Apply_Damage(obj, 200.0f, "EXPLOSIVE", NULL);
@@ -63,6 +65,7 @@ void MX0_A03_NOD_HARVESTER::Custom(GameObject *obj, int type, int param, GameObj
 
 void MX0_A03_NOD_HARVESTER::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// Moving done
 	if (obj)
 	{
 		Commands->Set_Animation(obj, "V_NOD_HRVSTR.V_NOD_HRVSTR", false, NULL, 0.0f, -1.0f, false);
@@ -71,6 +74,7 @@ void MX0_A03_NOD_HARVESTER::Action_Complete(GameObject *obj, int action_id, Acti
 
 void MX0_A03_NOD_HARVESTER::Animation_Complete(GameObject *obj, const char *animation_name)
 {
+	// Harvy anim done
 	if (this->atEndOfWaypath)
 	{
 		this->atEndOfWaypath = false;

@@ -28,32 +28,33 @@ void MX0_A03_CONTROLLER_DAK::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->MX0A03TankObjId, sizeof(this->MX0A03TankObjId), 5);
 	Auto_Save_Variable(&this->MX0GDIMiniGunner0BObjId, sizeof(this->MX0GDIMiniGunner0BObjId), 6);
 	Auto_Save_Variable(&this->reinforcementsEngineer1ObjId, sizeof(this->reinforcementsEngineer1ObjId), 7);
-	Auto_Save_Variable(&this->field_38, sizeof(this->field_38), 8);
-	Auto_Save_Variable(&this->field_3C, sizeof(this->field_3C), 9);
-	Auto_Save_Variable(&this->field_40, sizeof(this->field_40), 10);
-	Auto_Save_Variable(&this->field_44, sizeof(this->field_44), 11);
+	Auto_Save_Variable(&this->aliveTurretCount, sizeof(this->aliveTurretCount), 8);
+	Auto_Save_Variable(&this->nodinfantryCount, sizeof(this->nodinfantryCount), 9);
+	Auto_Save_Variable(&this->nodInfantryObj1Id, sizeof(this->nodInfantryObj1Id), 10);
+	Auto_Save_Variable(&this->nodInfantryObj2Id, sizeof(this->nodInfantryObj2Id), 11);
 	Auto_Save_Variable(&this->field_48, sizeof(this->field_48), 12);
-	Auto_Save_Variable(&this->field_4C, sizeof(this->field_4C), 14);
-	Auto_Save_Variable(&this->field_50, sizeof(this->field_50), 15);
-	Auto_Save_Variable(&this->field_4D, sizeof(this->field_4D), 16);
-	Auto_Save_Variable(&this->field_4E, sizeof(this->field_4E), 17);
+	Auto_Save_Variable(&this->isNodHarvesterKilled, sizeof(this->isNodHarvesterKilled), 14);
+	Auto_Save_Variable(&this->nodLedgeDropCount, sizeof(this->nodLedgeDropCount), 15);
+	Auto_Save_Variable(&this->isNodBuggyDriverKilled, sizeof(this->isNodBuggyDriverKilled), 16);
+	Auto_Save_Variable(&this->isStarStillInA03, sizeof(this->isStarStillInA03), 17);
 }
 
 void MX0_A03_CONTROLLER_DAK::Created(GameObject *obj)
 {
-	this->field_50 = 1;
-	this->field_4C = false;
-	this->field_4D = false;
-	this->field_38 = 0;
-	this->field_3C = 0;
-	this->field_4E = true;
+	this->nodLedgeDropCount = 1;
+	this->isNodHarvesterKilled = false;
+	this->isNodBuggyDriverKilled = false;
+	this->aliveTurretCount = 0;
+	this->nodinfantryCount = 0;
+	this->isStarStillInA03 = true;
 }
 
 void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from ourselves when custom type 415 is received
 	if (!type)
 	{
-		if (this->field_4D && this->field_4C && this->field_4E)
+		if (this->isNodBuggyDriverKilled && this->isNodHarvesterKilled && this->isStarStillInA03)
 		{
 			Commands->Send_Custom_Event(obj, obj, 405, 0, 0.0f);
 
@@ -65,23 +66,25 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 	// Received from MX0_A03_NOD_TURRET on create
 	else if (type == 403)
 	{
-		this->field_38++;
+		this->aliveTurretCount++;
 	}
 
 	// Received from MX0_A03_NOD_TURRET when killed
 	else if (type == 404)
 	{
-		this->field_38--;
+		this->aliveTurretCount--;
 	}
+
+	// Received from MX0_NOD_INFANTRY when created
 	else if (type == 406)
 	{
-		this->field_3C++;
+		this->nodinfantryCount++;
 	}
 
 	// Received from MX0_NOD_INFRANTRY when killed
 	else if (type == 407)
 	{
-		if (!--this->field_3C && this->field_50 <= 4 && !this->field_4C)
+		if (!--this->nodinfantryCount && this->nodLedgeDropCount <= 4 && !this->isNodHarvesterKilled)
 		{
 			GameObject *nodLedgeDropLocObj = Commands->Find_Object(1400152);
 			Vector3 nodLedgeDropLocObjPos = Commands->Get_Position(nodLedgeDropLocObj);
@@ -89,12 +92,14 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", nodLedgeDropLocObjPos);
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "MX0_A03_NOD_LedgeDrop.txt");
 
-			this->field_50++;
+			this->nodLedgeDropCount++;
 		}
 	}
+
+	// Received from MX0_A03_END_ZONE when entered or from ourselves at custom type <= 0
 	else if (type == 405)
 	{
-		this->field_4E = false;
+		this->isStarStillInA03 = false;
 
 		GameObject *gdiTroopDropLocObj = Commands->Find_Object(1500051);
 		Vector3 gdiTroopDropLocObjPos = Commands->Get_Position(gdiTroopDropLocObj);
@@ -170,7 +175,7 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 	// Received from MX0_A03_NOD_TROOPER_TIB_DEATH when killed
 	else if (type == 415)
 	{
-		this->field_4D = true;
+		this->isNodBuggyDriverKilled = true;
 
 		Commands->Send_Custom_Event(obj, obj, 0, 0, 0.0f);
 	}
@@ -181,16 +186,18 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 	// Received from MX0_A02_Controller after custom type 202
 	// Received from MX0_A03_HUMVEE when created
 	// Received from MX0_A03_TANK when created
+	// Received from MX0_NOD_INFANTRY when created
+	// Received from MX0_A03_END_ZONE when entered
 	else if (type == 408 || type == 9035)
 	{
 		if (type == 408)
 		{
-			this->field_4C = true;
+			this->isNodHarvesterKilled = true;
 
 			GameObject *MX0GDIMiniGunner0BObj = Commands->Find_Object(this->MX0GDIMiniGunner0BObjId);
 			if (MX0GDIMiniGunner0BObj)
 			{
-				if (this->field_4E)
+				if (this->isStarStillInA03)
 				{
 					int conversationId = Commands->Create_Conversation("MX0_A03_08", 0, 0.0f, true); // Nice!   That’ll cost 'em!
 					Commands->Join_Conversation(MX0GDIMiniGunner0BObj, conversationId, false, false, true);
@@ -211,19 +218,19 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 			case 2:
 				Commands->Send_Custom_Event(obj, sender, 9035, this->humveeObjId, 0.0f);
 				break;
-			case 3:
+			case 3: // TODO (no custom)
 				this->field_2C = Commands->Get_ID(sender);
 				break;
 			case 4:
 				Commands->Send_Custom_Event(obj, sender, 9035, this->field_2C, 0.0f);
 				break;
-			case 5:
+			case 5: // TODO (no custom)
 				this->field_30 = Commands->Get_ID(sender);
 				break;
 			case 6:
 				Commands->Send_Custom_Event(obj, sender, 9035, this->field_30, 0.0f);
 				break;
-			case 7:
+			case 7: // TODO (no custom)
 				this->field_34 = Commands->Get_ID(sender);
 				break;
 			case 8:
@@ -250,16 +257,16 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 				Commands->Send_Custom_Event(obj, sender, 9035, this->reinforcementsEngineer1ObjId, 0.0f);
 				break;
 			case 15:
-				this->field_40 = Commands->Get_ID(sender);
+				this->nodInfantryObj1Id = Commands->Get_ID(sender);
 				break;
 			case 16:
-				Commands->Send_Custom_Event(obj, sender, 9035, this->field_40, 0.0f);
+				Commands->Send_Custom_Event(obj, sender, 9035, this->nodInfantryObj1Id, 0.0f);
 				break;
 			case 17:
-				this->field_44 = Commands->Get_ID(sender);
+				this->nodInfantryObj2Id = Commands->Get_ID(sender);
 				break;
 			case 18:
-				Commands->Send_Custom_Event(obj, sender, 9035, this->field_44, 0.0f);
+				Commands->Send_Custom_Event(obj, sender, 9035, this->nodInfantryObj2Id, 0.0f);
 				break;
 			default:
 				break;

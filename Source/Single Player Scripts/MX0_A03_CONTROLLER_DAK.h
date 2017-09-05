@@ -36,13 +36,13 @@ class MX0_A03_CONTROLLER_DAK : public ScriptImpClass
 		int field_2C;
 		int field_30;
 		int field_34;
-		DWORD field_38;
-		DWORD field_3C;
-		int field_40;
-		int field_44;
+		DWORD aliveTurretCount;
+		DWORD nodinfantryCount;
+		int nodInfantryObj1Id;
+		int nodInfantryObj2Id;
 		DWORD field_48; // Not initialized and not used
-		bool field_4C;
-		bool field_4D;
-		bool field_4E;
-		DWORD field_50;
+		bool isNodHarvesterKilled;
+		bool isNodBuggyDriverKilled;
+		bool isStarStillInA03;
+		DWORD nodLedgeDropCount;
 };

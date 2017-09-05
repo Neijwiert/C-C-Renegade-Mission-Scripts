@@ -250,7 +250,7 @@ void MX0_A02_ACTOR::Custom(GameObject *obj, int type, int param, GameObject *sen
 {
 	if (this->actorActive)
 	{
-		// TODO (No custom)
+		// Received from MX0_A02_Controller on custom type 203
 		if (type == 203)
 		{
 			this->actorActive = false;

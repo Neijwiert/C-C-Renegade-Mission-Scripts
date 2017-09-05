@@ -24,6 +24,7 @@ void MX0_A03_END_ZONE::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->canSendCustoms, sizeof(this->canSendCustoms), 1);
 }
 
+// On level start
 void MX0_A03_END_ZONE::Created(GameObject *obj)
 {
 	this->canSendCustoms = true;
@@ -31,10 +32,13 @@ void MX0_A03_END_ZONE::Created(GameObject *obj)
 
 void MX0_A03_END_ZONE::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_A03_CONTROLLER_DAK when type <= 0
 	if (type == 414)
 	{
 		this->canSendCustoms = false;
 	}
+
+	// TODO (No custom)
 	else if (type == 9035)
 	{
 		this->field_1C = param;

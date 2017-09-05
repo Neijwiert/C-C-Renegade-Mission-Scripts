@@ -31,6 +31,6 @@ class MX0_GDI_ORCA : public ScriptImpClass
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
-		int field_1C;
+		int MX0GDIMiniGunner0BObjId;
 		bool canDropTank;
 };

@@ -24,6 +24,7 @@ void MX0_GDI_ORCA::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->canDropTank, sizeof(this->canDropTank), 1);
 }
 
+// On level start
 void MX0_GDI_ORCA::Created(GameObject *obj)
 {
 	this->canDropTank = true;
@@ -31,14 +32,17 @@ void MX0_GDI_ORCA::Created(GameObject *obj)
 
 void MX0_GDI_ORCA::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received by ourselves 1.5 seconds after action_complete
 	if (type == 1)
 	{
 		// Orca 6 to Eagle base.  I have visual on the harvester.
 		// Starting my run, now.
 		int conversationId = Commands->Create_Conversation("MX0_A03_03", 0, 0.0f, true);
-		Commands->Join_Conversation(0, conversationId, true, true, true);
+		Commands->Join_Conversation(NULL, conversationId, true, true, true);
 		Commands->Start_Conversation(conversationId, 1);
 	}
+
+	// Received by ourselves 9.5 seconds after action_complete
 	else if (type == 2)
 	{
 		GameObject *MX0A03ControllerObj = Commands->Find_Object(1400041);
@@ -47,30 +51,33 @@ void MX0_GDI_ORCA::Custom(GameObject *obj, int type, int param, GameObject *send
 			Commands->Send_Custom_Event(obj, MX0A03ControllerObj, 9035, 12, 0.0f);
 		}
 
-		GameObject *field1CObj = Commands->Find_Object(this->field_1C);
+		GameObject *MX0GDIMiniGunner0BObj = Commands->Find_Object(this->MX0GDIMiniGunner0BObjId);
 
 		// This is Orca 6 – Bingo fuel.  Returning to base.
 		// Copy, Orca Six.  Your ball, Havoc.
 		// Finish off that Harvester!
 		int conversationId = Commands->Create_Conversation("MX0_A03_04", 0, 0.0f, true);
-		Commands->Join_Conversation(field1CObj, conversationId, false, false, true);
+		Commands->Join_Conversation(MX0GDIMiniGunner0BObj, conversationId, false, false, true);
 		Commands->Join_Conversation(NULL, conversationId, true, true, true);
 		Commands->Start_Conversation(conversationId, 2);
 
-		if (field1CObj)
+		if (MX0GDIMiniGunner0BObj)
 		{
-			Commands->Send_Custom_Event(obj, field1CObj, 5, 0, 0.0f);
-			Commands->Send_Custom_Event(obj, field1CObj, 3, 0, 10.0f);
+			Commands->Send_Custom_Event(obj, MX0GDIMiniGunner0BObj, 5, 0, 0.0f);
+			Commands->Send_Custom_Event(obj, MX0GDIMiniGunner0BObj, 3, 0, 10.0f);
 		}
 	}
+
+	// Received MX0_A03_Controller_DAK at type 9035 when we sent it custom 9035 in custom type 2
 	else if (type == 9035)
 	{
-		this->field_1C = param;
+		this->MX0GDIMiniGunner0BObjId = param;
 	}
 }
 
 void MX0_GDI_ORCA::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// Triggered after conversion in entered complete
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED && action_id == 1)
 	{
 		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));

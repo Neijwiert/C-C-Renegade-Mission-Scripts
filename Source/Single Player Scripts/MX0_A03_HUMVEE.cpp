@@ -26,6 +26,7 @@ void MX0_A03_HUMVEE::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->currentTargetObjId, sizeof(this->currentTargetObjId), 3);
 }
 
+// After 148 cinematic frames in xg_a03_humveedrop_b
 void MX0_A03_HUMVEE::Created(GameObject *obj)
 {
 	this->targetObjectIndex = 1;
@@ -54,6 +55,7 @@ void MX0_A03_HUMVEE::Created(GameObject *obj)
 
 void MX0_A03_HUMVEE::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// TODO (no custom)
 	if (type == 1)
 	{
 		ActionParamsStruct params;
@@ -65,6 +67,8 @@ void MX0_A03_HUMVEE::Custom(GameObject *obj, int type, int param, GameObject *se
 		float randInterval = Commands->Get_Random(1.0f, 3.0f);
 		Commands->Send_Custom_Event(obj, obj, 2, 0, randInterval);
 	}
+
+	// TODO (no custom)
 	else if (type == 2)
 	{
 		if (Commands->Find_Object(this->currentTargetObjId))
@@ -79,6 +83,8 @@ void MX0_A03_HUMVEE::Custom(GameObject *obj, int type, int param, GameObject *se
 			Commands->Send_Custom_Event(obj, obj, 1, 0, randInterval);
 		}
 	}
+
+	// Received from MX0_A03_CONTROLLER_DAK 1.25 seconds after custom type 405 has been received
 	else if (type == 3)
 	{
 		Commands->Debug_Message("***** DAK ***** Humvee: Recieved custom to move to section 4.\n");
@@ -96,6 +102,7 @@ void MX0_A03_HUMVEE::Custom(GameObject *obj, int type, int param, GameObject *se
 
 void MX0_A03_HUMVEE::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// Triggered after we followed the long waypath in a03 on created
 	if (!action_id)
 	{
 		this->currentTargetObjId = this->targetObjectIds[this->targetObjectIndex];
@@ -109,6 +116,8 @@ void MX0_A03_HUMVEE::Action_Complete(GameObject *obj, int action_id, ActionCompl
 			Commands->Action_Attack(obj, params);
 		}
 	}
+
+	// Triggered after we start/stopped attacking in custom type 1 and 2
 	else if (action_id == 1)
 	{
 		this->currentTargetObjId = this->targetObjectIds[++this->targetObjectIndex]; // This is unsafe and it will go out of bounds if the current target is not killed yet

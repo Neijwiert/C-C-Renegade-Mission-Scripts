@@ -41,7 +41,7 @@ void M00_BuildingStateSoundController::Killed(GameObject *obj, GameObject *kille
 
 void M00_BuildingStateSoundController::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
-	// TODO
+	// TODO (No custom)
 	if (type == 9028)
 	{
 		GameObject *buildingSpeakerObj = Commands->Find_Object(this->buildingSpeakerId);
@@ -51,7 +51,7 @@ void M00_BuildingStateSoundController::Custom(GameObject *obj, int type, int par
 		}
 	}
 
-	// TODO
+	// TODO (No custom)
 	else if (type == 9029)
 	{
 		GameObject *buildingSpeakerObj = Commands->Find_Object(this->buildingSpeakerId);

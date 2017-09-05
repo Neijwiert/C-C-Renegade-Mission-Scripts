@@ -9,6 +9,7 @@ void MX0_GDI_Soldier_DLS::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->moveAttemptCount, sizeof(this->moveAttemptCount), 4);
 }
 
+// After 489 cinematic frames in mx0_gdi_troopdrop_area4
 void MX0_GDI_Soldier_DLS::Created(GameObject *obj)
 {
 	Commands->Enable_Enemy_Seen(obj, true);
@@ -38,6 +39,7 @@ void MX0_GDI_Soldier_DLS::Created(GameObject *obj)
 
 void MX0_GDI_Soldier_DLS::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// TODO (No custom)
 	if (type == 445006)
 	{
 		this->attackLocationIndex = param;
@@ -59,6 +61,8 @@ void MX0_GDI_Soldier_DLS::Custom(GameObject *obj, int type, int param, GameObjec
 
 		Commands->Debug_Message("Attack_Loc [%d] = %d \n", this->attackLocationIndex, this->attackLocations[this->attackLocationIndex]);
 	}
+
+	// TODO (No custom)
 	else if (type == 445002)
 	{
 		if (param == 445012)                      
@@ -129,6 +133,7 @@ void MX0_GDI_Soldier_DLS::Enemy_Seen(GameObject *obj, GameObject *enemy)
 
 void MX0_GDI_Soldier_DLS::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// Triggered after attacking one of the attack locations in timer number 445006 or custom type 445006
 	if (action_id == 445006)
 	{
 		if (complete_reason && this->moveAttemptCount < 4)
@@ -140,6 +145,8 @@ void MX0_GDI_Soldier_DLS::Action_Complete(GameObject *obj, int action_id, Action
 			Commands->Debug_Message("Attempt %d for MX0_SOLDIER_MOVE on loc %d", this->moveAttemptCount, this->attackLocationIndex);
 		}
 	}
+
+	// Triggered after attacking one of the attack locations on created or in enemy_seen
 	else if (action_id == 10)
 	{
 		Commands->Debug_Message("Action_Complete");
@@ -148,6 +155,7 @@ void MX0_GDI_Soldier_DLS::Action_Complete(GameObject *obj, int action_id, Action
 
 void MX0_GDI_Soldier_DLS::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered 4 seconds after action_id 445006
 	if (number == 445006)
 	{
 		ActionParamsStruct params;

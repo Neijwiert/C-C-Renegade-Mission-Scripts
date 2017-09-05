@@ -24,6 +24,7 @@ void MX0_NOD_INFANTRY::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->troopNum, sizeof(this->troopNum), 1);
 }
 
+// After 489 cinematic frames in mx0_a03_nod_ledgedrop
 void MX0_NOD_INFANTRY::Created(GameObject *obj)
 {
 	this->troopNum = Get_Int_Parameter("troop_num");
@@ -55,6 +56,7 @@ void MX0_NOD_INFANTRY::Killed(GameObject *obj, GameObject *killer)
 
 void MX0_NOD_INFANTRY::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// TODO (No custom)
 	if (!type)
 	{
 		if (sender)
@@ -66,6 +68,8 @@ void MX0_NOD_INFANTRY::Custom(GameObject *obj, int type, int param, GameObject *
 			Commands->Action_Attack(obj, params);
 		}
 	}
+
+	// Triggered 0.33 seconds after animation_complete
 	else if (type == 1)
 	{
 		Commands->Action_Reset(obj, 100.0f);
