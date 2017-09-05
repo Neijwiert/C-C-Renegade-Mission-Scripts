@@ -10,3 +10,4 @@ M08_Petra_C_Helo
 M00_Damage_Modifier_DME
 MX0_A03_HUMVEE
 MX0_GDI_Soldier_DLS
+MX0_NOD_INFANTRY

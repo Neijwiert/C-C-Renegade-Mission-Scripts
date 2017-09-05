@@ -73,6 +73,8 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 	{
 		this->field_3C++;
 	}
+
+	// Received from MX0_NOD_INFRANTRY when killed
 	else if (type == 407)
 	{
 		if (!--this->field_3C && this->field_50 <= 4 && !this->field_4C)
