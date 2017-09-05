@@ -132,6 +132,12 @@
     <ClCompile Include="M08_Petra_C_Helo.cpp">
       <Filter>Source Files\M08</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Damage_Modifier_DME.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
+    <ClCompile Include="MX0_A03_HUMVEE.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -220,6 +226,12 @@
     </ClInclude>
     <ClInclude Include="M08_Petra_C_Helo.h">
       <Filter>Header Files\M08</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Damage_Modifier_DME.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_A03_HUMVEE.h">
+      <Filter>Header Files\MX0</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

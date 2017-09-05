@@ -21,7 +21,7 @@
 
 void MX0_A03_CONTROLLER_DAK::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->humveeObjId, sizeof(this->humveeObjId), 1);
 	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 2);
 	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 3);
 	Auto_Save_Variable(&this->field_34, sizeof(this->field_34), 4);
@@ -110,10 +110,10 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 			Commands->Action_Goto(field28Obj, params);
 		}
 
-		GameObject *field1CObj = Commands->Find_Object(this->field_1C);
-		if (field1CObj)
+		GameObject *humveeObj = Commands->Find_Object(this->humveeObjId);
+		if (humveeObj)
 		{
-			Commands->Send_Custom_Event(obj, field1CObj, 3, 0, 1.25f);
+			Commands->Send_Custom_Event(obj, humveeObj, 3, 0, 1.25f);
 		}
 
 		GameObject *MX0GDIMiniGunner0BObj = Commands->Find_Object(this->MX0GDIMiniGunner0BObjId);
@@ -166,6 +166,10 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 
 		Commands->Send_Custom_Event(obj, obj, 0, 0, 0.0f);
 	}
+
+	// Received from MX0_A02_ACTOR after timer number 215 triggered
+	// Received from MX0_A02_Controller after custom type 202
+	// Received from MX0_A03_HUMVEE when created
 	else if (type == 408 || type == 9035)
 	{
 		if (type == 408)
@@ -191,10 +195,10 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 		switch (param)
 		{
 			case 1:
-				this->field_1C = Commands->Get_ID(sender);
+				this->humveeObjId = Commands->Get_ID(sender);
 				break;
 			case 2:
-				Commands->Send_Custom_Event(obj, sender, 9035, this->field_1C, 0.0f);
+				Commands->Send_Custom_Event(obj, sender, 9035, this->humveeObjId, 0.0f);
 				break;
 			case 3:
 				this->field_2C = Commands->Get_ID(sender);

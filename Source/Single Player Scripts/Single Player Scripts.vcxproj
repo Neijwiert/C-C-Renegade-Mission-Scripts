@@ -195,6 +195,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_BuildingStateSoundSpeaker.cpp" />
     <ClCompile Include="M00_Cinematic_Attack_Command_DLS.cpp" />
     <ClCompile Include="M00_Cinematic_Kill_Object_DAY.cpp" />
+    <ClCompile Include="M00_Damage_Modifier_DME.cpp" />
     <ClCompile Include="M00_Disable_Loiter_DAY.cpp" />
     <ClCompile Include="M00_Generic_Conv_DME.cpp" />
     <ClCompile Include="M00_Play_Sound.cpp" />
@@ -209,6 +210,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_A02_HELICOPTER.cpp" />
     <ClCompile Include="MX0_A02_ZONE_STARTUP.cpp" />
     <ClCompile Include="MX0_A03_CONTROLLER_DAK.cpp" />
+    <ClCompile Include="MX0_A03_HUMVEE.cpp" />
     <ClCompile Include="MX0_Engineer1.cpp" />
     <ClCompile Include="MX0_Engineer2.cpp" />
     <ClCompile Include="MX0_Engineer_Goto2.cpp" />
@@ -231,6 +233,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_BuildingStateSoundSpeaker.h" />
     <ClInclude Include="M00_Cinematic_Attack_Command_DLS.h" />
     <ClInclude Include="M00_Cinematic_Kill_Object_DAY.h" />
+    <ClInclude Include="M00_Damage_Modifier_DME.h" />
     <ClInclude Include="M00_Disable_Loiter_DAY.h" />
     <ClInclude Include="M00_Generic_Conv_DME.h" />
     <ClInclude Include="M00_Play_Sound.h" />
@@ -245,6 +248,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_A02_HELICOPTER.h" />
     <ClInclude Include="MX0_A02_ZONE_STARTUP.h" />
     <ClInclude Include="MX0_A03_CONTROLLER_DAK.h" />
+    <ClInclude Include="MX0_A03_HUMVEE.h" />
     <ClInclude Include="MX0_Engineer1.h" />
     <ClInclude Include="MX0_Engineer2.h" />
     <ClInclude Include="MX0_Engineer_Goto2.h" />
