@@ -162,6 +162,8 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 			Commands->Send_Custom_Event(obj, nodPlacedMinigunner2, 417, 0, 0.0f);
 		}
 	}
+
+	// Received from MX0_A03_NOD_TROOPER_TIB_DEATH when killed
 	else if (type == 415)
 	{
 		this->field_4D = true;
