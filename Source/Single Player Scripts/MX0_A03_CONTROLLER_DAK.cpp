@@ -61,10 +61,14 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 			Commands->Send_Custom_Event(obj, MX0A03ENDZONEObj, 414, 0, 0.0f);
 		}
 	}
+	
+	// Received from MX0_A03_NOD_TURRET on create
 	else if (type == 403)
 	{
 		this->field_38++;
 	}
+
+	// Received from MX0_A03_NOD_TURRET when killed
 	else if (type == 404)
 	{
 		this->field_38--;
