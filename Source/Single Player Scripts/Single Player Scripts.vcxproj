@@ -200,6 +200,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Play_Sound.cpp" />
     <ClCompile Include="M00_Send_Object_ID.cpp" />
     <ClCompile Include="M00_Soldier_Powerup_Disable.cpp" />
+    <ClCompile Include="M08_Petra_C_Helo.cpp" />
     <ClCompile Include="MX0_A02_ACTOR.cpp" />
     <ClCompile Include="MX0_A02_Controller.cpp" />
     <ClCompile Include="MX0_A02_GDI_APC.cpp" />
@@ -235,6 +236,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Play_Sound.h" />
     <ClInclude Include="M00_Send_Object_ID.h" />
     <ClInclude Include="M00_Soldier_Powerup_Disable.h" />
+    <ClInclude Include="M08_Petra_C_Helo.h" />
     <ClInclude Include="MX0_A02_ACTOR.h" />
     <ClInclude Include="MX0_A02_Controller.h" />
     <ClInclude Include="MX0_A02_GDI_APC.h" />
@@ -277,10 +279,13 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   </ItemGroup>
   <ItemGroup>
     <Text Include="Completed.txt" />
+    <Text Include="mx0_a03_nod_ledgedrop.txt" />
+    <Text Include="mx0_gdi_troopdrop_area4.txt" />
     <Text Include="Uncompleted.txt" />
     <Text Include="x0i_drop02_a02_e01.txt" />
     <Text Include="x0i_drop02_a02_e02.txt" />
     <Text Include="x0i_gdi_drop02_engineer.txt" />
+    <Text Include="xg_a03_humveedrop_b.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

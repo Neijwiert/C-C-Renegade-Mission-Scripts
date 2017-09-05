@@ -30,8 +30,8 @@ class MX0_A03_CONTROLLER_DAK : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
 		int field_1C;
-		int field_20;
-		int field_24;
+		int MX0GDIMiniGunner0BObjId;
+		int reinforcementsEngineer1ObjId;
 		int field_28;
 		int field_2C;
 		int field_30;

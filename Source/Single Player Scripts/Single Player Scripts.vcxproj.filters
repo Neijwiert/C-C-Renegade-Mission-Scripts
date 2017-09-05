@@ -37,6 +37,12 @@
     <Filter Include="Source Files\MX0">
       <UniqueIdentifier>{1dc7a9cd-8069-4550-ba88-1f7456936d09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\M08">
+      <UniqueIdentifier>{ae01b741-a99b-40b3-8698-2f8d847e04f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\M08">
+      <UniqueIdentifier>{afa29a12-af6e-4737-a54d-0389929617b9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -122,6 +128,9 @@
     </ClCompile>
     <ClCompile Include="MX0_A03_CONTROLLER_DAK.cpp">
       <Filter>Source Files\MX0</Filter>
+    </ClCompile>
+    <ClCompile Include="M08_Petra_C_Helo.cpp">
+      <Filter>Source Files\M08</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -209,6 +218,9 @@
     <ClInclude Include="MX0_A03_CONTROLLER_DAK.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
+    <ClInclude Include="M08_Petra_C_Helo.h">
+      <Filter>Header Files\M08</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="x00_intro.txt">
@@ -235,6 +247,15 @@
       <Filter>Resource Files\M13\Cinematic Files</Filter>
     </Text>
     <Text Include="x0i_gdi_drop02_engineer.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </Text>
+    <Text Include="mx0_a03_nod_ledgedrop.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </Text>
+    <Text Include="mx0_gdi_troopdrop_area4.txt">
+      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    </Text>
+    <Text Include="xg_a03_humveedrop_b.txt">
       <Filter>Resource Files\M13\Cinematic Files</Filter>
     </Text>
   </ItemGroup>

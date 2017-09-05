@@ -26,8 +26,8 @@ void MX0_A03_CONTROLLER_DAK::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 3);
 	Auto_Save_Variable(&this->field_34, sizeof(this->field_34), 4);
 	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 5);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 6);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 7);
+	Auto_Save_Variable(&this->MX0GDIMiniGunner0BObjId, sizeof(this->MX0GDIMiniGunner0BObjId), 6);
+	Auto_Save_Variable(&this->reinforcementsEngineer1ObjId, sizeof(this->reinforcementsEngineer1ObjId), 7);
 	Auto_Save_Variable(&this->field_38, sizeof(this->field_38), 8);
 	Auto_Save_Variable(&this->field_3C, sizeof(this->field_3C), 9);
 	Auto_Save_Variable(&this->field_40, sizeof(this->field_40), 10);
@@ -116,12 +116,14 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 			Commands->Send_Custom_Event(obj, field1CObj, 3, 0, 1.25f);
 		}
 
-		GameObject *field20Obj = Commands->Find_Object(this->field_20);
-		if (field20Obj)
+		GameObject *MX0GDIMiniGunner0BObj = Commands->Find_Object(this->MX0GDIMiniGunner0BObjId);
+		if (MX0GDIMiniGunner0BObj)
 		{
-			Commands->Send_Custom_Event(obj, field20Obj, 2, 0, 0.0f);
+			Commands->Send_Custom_Event(obj, MX0GDIMiniGunner0BObj, 2, 0, 0.0f);
 		}
 	}
+
+	// Received from MX0_A02_Controller 2 seconds after custom type 262 is triggered
 	else if (type == 401)
 	{
 		Commands->Scale_AI_Awareness(2.0f, 1.0f);
@@ -139,11 +141,11 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 			Commands->Send_Custom_Event(obj, nodBuggyObj, 1, 0, 0.0f);
 		}
 
-		GameObject *field28Obj = Commands->Find_Object(this->field_20);
-		if (field28Obj)
+		GameObject *MX0GDIMiniGunner0BObj = Commands->Find_Object(this->MX0GDIMiniGunner0BObjId);
+		if (MX0GDIMiniGunner0BObj)
 		{
-			Commands->Attach_Script(field28Obj, "MX0_A03_GDI_TROOPER_ONE", "");
-			Commands->Send_Custom_Event(obj, field28Obj, 1, 0, 2.0f);
+			Commands->Attach_Script(MX0GDIMiniGunner0BObj, "MX0_A03_GDI_TROOPER_ONE", "");
+			Commands->Send_Custom_Event(obj, MX0GDIMiniGunner0BObj, 1, 0, 2.0f);
 		}
 
 		GameObject *nodMinigunnerSpawner1 = Commands->Find_Object(1400150);
@@ -170,17 +172,17 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 		{
 			this->field_4C = true;
 
-			GameObject *field20Obj = Commands->Find_Object(this->field_20);
-			if (field20Obj)
+			GameObject *MX0GDIMiniGunner0BObj = Commands->Find_Object(this->MX0GDIMiniGunner0BObjId);
+			if (MX0GDIMiniGunner0BObj)
 			{
 				if (this->field_4E)
 				{
-					int conversationId = Commands->Create_Conversation("MX0_A03_08", 0, 0.0f, true);
-					Commands->Join_Conversation(field20Obj, conversationId, false, false, true);
+					int conversationId = Commands->Create_Conversation("MX0_A03_08", 0, 0.0f, true); // Nice!   That’ll cost 'em!
+					Commands->Join_Conversation(MX0GDIMiniGunner0BObj, conversationId, false, false, true);
 					Commands->Start_Conversation(conversationId, 0);
 				}
 
-				Commands->Send_Custom_Event(obj, field20Obj, 4, 0, 0.0f);
+				Commands->Send_Custom_Event(obj, MX0GDIMiniGunner0BObj, 4, 0, 0.0f);
 			}
 
 			Commands->Send_Custom_Event(obj, obj, 0, 0, 0.0f);
@@ -219,18 +221,18 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 				Commands->Send_Custom_Event(obj, sender, 9035, this->field_28, 0.0f);
 				break;
 			case 11:
-				this->field_20 = Commands->Get_ID(sender);
+				this->MX0GDIMiniGunner0BObjId = Commands->Get_ID(sender);
 				Commands->Debug_Message("***** DAK ***** A03: recieved trooper1 ID.\n");
 				break;
 			case 12:
-				Commands->Send_Custom_Event(obj, sender, 9035, this->field_20, 0.0f);
+				Commands->Send_Custom_Event(obj, sender, 9035, this->MX0GDIMiniGunner0BObjId, 0.0f);
 				break;
 			case 13:
-				this->field_24 = Commands->Get_ID(sender);
+				this->reinforcementsEngineer1ObjId = Commands->Get_ID(sender);
 				Commands->Attach_Script(obj, "M00_Send_Object_ID", "1500017,10,1.0f");
 				break;
 			case 14:
-				Commands->Send_Custom_Event(obj, sender, 9035, this->field_24, 0.0f);
+				Commands->Send_Custom_Event(obj, sender, 9035, this->reinforcementsEngineer1ObjId, 0.0f);
 				break;
 			case 15:
 				this->field_40 = Commands->Get_ID(sender);

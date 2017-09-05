@@ -1,0 +1,149 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* Gobal : Nod 2-man Troop rope Drop Template ************************
+
+; ********************************** AUDIO
+
+-280	Create_Object,		9, "XG_RT_AudioA"
+-280	Play_Animation,		9, "XG_RT_AudioA.XG_RT_AudioA", 0
+-280	Play_Audio, 		"Door_Open", 9, "BN_CH_Dooropen"
+-281	Play_Audio,		"Rope_Out", 9, "BN_Rope"
+
+-401	Create_Object,		10, "XG_RT_AudioL"
+-401	Play_Animation,		10, "XG_RT_AudioL.XG_RT_AudioL", 0
+-402	Play_Audio,		"Rope_Zip", 10, "BN_Troops"
+
+-489	Create_Object,		11, "XG_RT_AudioL"
+-489	Play_Animation,		11, "XG_RT_AudioL.XG_RT_AudioL", 0
+-489	Play_Audio,		"Rope_Zip", 11, "BN_Troops"
+
+-579	Create_Object,		12, "XG_RT_AudioZ"
+-579	Play_Animation,		12, "XG_RT_AudioZ.XG_RT_AudioZ", 0
+-579	Play_Audio,		"Door_Close", 12, "BN_CH_Doorclose"
+-579	Play_Audio,		"Rope_Retract", 12, "BN_Rope"
+
+
+; ****************************** Trajectory
+
+-0	Create_Object,		1, "XG_TransprtBone",			0, 0, 0, 0
+-0	Play_Animation,		1, "XG_TransprtBone.XG_RT_TrajA", 0
+-401	Play_Animation,		1, "XG_TransprtBone.XG_RT_TrajL", 1
+-579	Play_Animation,		1, "XG_TransprtBone.XG_RT_TrajZ", 0
+-910	destroy_object,		1
+
+
+; ****************************** NOD Transport
+
+-0	Create_Real_Object,	2, "Nod_Transport_Helicopter", 1, "BN_Trajectory"
+-0      Attach_Script,          2, "M08_Petra_C_Helo", "2"	
+-0	Attach_Script,		2, "M00_Damage_Modifier_DME", "0.15,1,1,0,0"
+-0	Set_Primary,		2
+-0	Attach_to_Bone,		2,1,"BN_Trajectory"
+-0	Play_Animation,		2, "v_NOD_trnspt.XG_RTN_trnsptA",0
+-401	Play_Animation,		2, "v_NOD_trnspt.XG_RTN_trnsptL",1
+-579	Play_Animation,		2, "v_NOD_trnspt.XG_RTN_trnsptz",0
+-910	destroy_object,		2
+
+
+; ****************************** GDI Transport
+
+;-0	Create_Real_Object,	2, "GDI_Transport_Helicopter", 1, "BN_Trajectory"
+;-0	Set_Primary,		2
+;-0	Attach_to_Bone,		2,1,"BN_Trajectory"
+;-0	Play_Animation,		2, "v_GDI_trnspt.XG_RT_trnsptA",0
+;-401	Play_Animation,		2, "v_GDI_trnspt.XG_RT_trnsptL",1
+;-579	Play_Animation,		2, "v_GDI_trnspt.XG_RT_trnsptz",0
+;-910	destroy_object,		2
+
+; ****************************** Rope
+
+-0	Create_Object,		3, "XG_RT_rope",			0, 0, 0, 0
+-0	Play_Animation,		3, "XG_RT_rope.XG_RT_ropeA", 0
+-401	Play_Animation,		3, "XG_RT_rope.XG_RT_ropeL", 1
+-579	Play_Animation,		3, "XG_RT_rope.XG_RT_ropeZ", 0
+-760	destroy_object,		3
+
+; ****************************** Troop Bone
+
+-401	Create_Object,		4, "XG_RT_TroopBone",			0, 0, 0, 0, 
+-401	Play_Animation,		4, "XG_RT_TroopBone.XG_RT_TroopBone",0
+-490	destroy_object,		4
+
+; ****************************** Character
+
+-401	Create_Real_Object,	5, "Nod_Minigunner_0", 2, "SPAWNER"
+-401    Attach_Script,          5, "MX0_NOD_INFANTRY", "1"
+-401	Play_Animation,		5, "S_A_Human.H_A_TroopDrop", 0
+-401	Attach_to_Bone,		5,4,"Troop_L"
+-490	Attach_to_Bone,		5,-1,"Troop_L"
+		
+
+
+; ****************************** Troop Bone
+
+-489	Create_Object,		6, "XG_RT_TroopBone",			0, 0, 0, 0, 
+-489	Play_Animation,		6, "XG_RT_TroopBone.XG_RT_TroopBone",0
+-579	destroy_object,		6
+
+
+; ****************************** Character
+
+-489	Create_Real_Object,	7, "Nod_Minigunner_0", 2, "SPAWNER"
+-489    Attach_Script,          7, "MX0_NOD_INFANTRY", "2"
+-489	Play_Animation,		7, "S_A_Human.H_A_TroopDrop", 0
+-489	Attach_to_Bone,		7,6,"Troop_L"
+-579	Attach_to_Bone,		7, -1,"Troop_L"
+
+
+
+; ****************************** Air Turbulence
+
+-401	Create_Object,		8, "XG_AG_RT_BnAir",			0, 0, 0, 0, 
+-581	destroy_object,		8
+
+
+; ****************************** Primary Destroyed
+
+1000000	Destroy_Object, 1
+1000000	Destroy_Object, 2
+1000000	Destroy_Object, 3
+1000000	Destroy_Object, 4
+1000000	Destroy_Object, 6
+1000000	Destroy_Object, 8
+1000000	Destroy_Object, 9
+1000000	Destroy_Object, 10
+1000000	Destroy_Object, 11
+1000000	Destroy_Object, 12
+
+
+
+
+
+

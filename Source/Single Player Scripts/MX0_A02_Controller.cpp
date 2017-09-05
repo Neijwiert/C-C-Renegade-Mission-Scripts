@@ -922,13 +922,13 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 			Commands->Send_Custom_Event(obj, MX0A03ControllerObj, 401, 0, 2.0f);
 		}
 
-		GameObject *field74Obj = Commands->Find_Object(this->reinforcementsEngineer2ObjId);
-		if (!field74Obj)
+		GameObject *reinforcementsEngineer2Obj = Commands->Find_Object(this->reinforcementsEngineer2ObjId);
+		if (!reinforcementsEngineer2Obj)
 		{
 			return;
 		}
 
-		Commands->Send_Custom_Event(obj, field74Obj, 263, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, reinforcementsEngineer2Obj, 263, 0, 0.0f);
 	}
 
 	// Received from MX0_A02_ACTOR with timer number 245
