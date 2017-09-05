@@ -150,16 +150,16 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 			Commands->Send_Custom_Event(obj, MX0GDIMiniGunner0BObj, 1, 0, 2.0f);
 		}
 
-		GameObject *nodMinigunnerSpawner1 = Commands->Find_Object(1400150);
-		if (nodMinigunnerSpawner1)
+		GameObject *nodPlacedMinigunner1 = Commands->Find_Object(1400150);
+		if (nodPlacedMinigunner1)
 		{
-			Commands->Send_Custom_Event(obj, nodMinigunnerSpawner1, 417, 0, 0.0f);
+			Commands->Send_Custom_Event(obj, nodPlacedMinigunner1, 417, 0, 0.0f);
 		}
 
-		GameObject *nodMinigunnerSpawner2 = Commands->Find_Object(1400149);
-		if (nodMinigunnerSpawner2)
+		GameObject *nodPlacedMinigunner2 = Commands->Find_Object(1400149);
+		if (nodPlacedMinigunner2)
 		{
-			Commands->Send_Custom_Event(obj, nodMinigunnerSpawner2, 417, 0, 0.0f);
+			Commands->Send_Custom_Event(obj, nodPlacedMinigunner2, 417, 0, 0.0f);
 		}
 	}
 	else if (type == 415)
