@@ -25,7 +25,7 @@ void MX0_A03_CONTROLLER_DAK::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 2);
 	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 3);
 	Auto_Save_Variable(&this->field_34, sizeof(this->field_34), 4);
-	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 5);
+	Auto_Save_Variable(&this->MX0A03TankObjId, sizeof(this->MX0A03TankObjId), 5);
 	Auto_Save_Variable(&this->MX0GDIMiniGunner0BObjId, sizeof(this->MX0GDIMiniGunner0BObjId), 6);
 	Auto_Save_Variable(&this->reinforcementsEngineer1ObjId, sizeof(this->reinforcementsEngineer1ObjId), 7);
 	Auto_Save_Variable(&this->field_38, sizeof(this->field_38), 8);
@@ -99,17 +99,17 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 		Commands->Set_Facing(invisObj, 0.0f);
 		Commands->Attach_Script(invisObj, "Test_Cinematic", "MX0_GDI_TroopDrop_Area4.txt");
 
-		GameObject *field28Obj = Commands->Find_Object(this->field_28);
-		if (field28Obj)
+		GameObject *MX0A03TankObj = Commands->Find_Object(this->MX0A03TankObjId);
+		if (MX0A03TankObj)
 		{
-			Commands->Action_Reset(field28Obj, 100.0f);
+			Commands->Action_Reset(MX0A03TankObj, 100.0f);
 
 			ActionParamsStruct params;
 			params.Set_Basic(this, 91.0f, 1);
 			params.Set_Movement(Vector3(0.0f, 0.0f, 0.0f), 1.0f, 1.0f);
 			params.WaypathID = 1400058;
 
-			Commands->Action_Goto(field28Obj, params);
+			Commands->Action_Goto(MX0A03TankObj, params);
 		}
 
 		GameObject *humveeObj = Commands->Find_Object(this->humveeObjId);
@@ -172,6 +172,7 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 	// Received from MX0_A02_ACTOR after timer number 215 triggered
 	// Received from MX0_A02_Controller after custom type 202
 	// Received from MX0_A03_HUMVEE when created
+	// Received from MX0_A03_TANK when created
 	else if (type == 408 || type == 9035)
 	{
 		if (type == 408)
@@ -221,10 +222,10 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 				Commands->Send_Custom_Event(obj, sender, 9035, this->field_34, 0.0f);
 				break;
 			case 9:
-				this->field_28 = Commands->Get_ID(sender);
+				this->MX0A03TankObjId = Commands->Get_ID(sender);
 				break;
 			case 10:
-				Commands->Send_Custom_Event(obj, sender, 9035, this->field_28, 0.0f);
+				Commands->Send_Custom_Event(obj, sender, 9035, this->MX0A03TankObjId, 0.0f);
 				break;
 			case 11:
 				this->MX0GDIMiniGunner0BObjId = Commands->Get_ID(sender);

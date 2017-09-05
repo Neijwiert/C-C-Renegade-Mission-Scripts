@@ -32,7 +32,7 @@ class MX0_A03_CONTROLLER_DAK : public ScriptImpClass
 		int humveeObjId;
 		int MX0GDIMiniGunner0BObjId;
 		int reinforcementsEngineer1ObjId;
-		int field_28;
+		int MX0A03TankObjId;
 		int field_2C;
 		int field_30;
 		int field_34;
