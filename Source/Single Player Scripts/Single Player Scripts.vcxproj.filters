@@ -165,6 +165,9 @@
     <ClCompile Include="MX0_A03_NOD_TROOPER_TIB_DEATH.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Nod_Turret.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -286,6 +289,9 @@
     </ClInclude>
     <ClInclude Include="MX0_A03_NOD_TROOPER_TIB_DEATH.h">
       <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Nod_Turret.h">
+      <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
