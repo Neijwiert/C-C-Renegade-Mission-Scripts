@@ -169,6 +169,8 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 		Commands->Send_Custom_Event(obj, obj, 0, 0, 0.0f);
 	}
 
+	// Received from MX0_A03_NOD_HARVESTER when killed (408)
+
 	// Received from MX0_A02_ACTOR after timer number 215 triggered
 	// Received from MX0_A02_Controller after custom type 202
 	// Received from MX0_A03_HUMVEE when created
