@@ -26,18 +26,18 @@ void MX0_Area4_Controller_DLS::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
 	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 4);
 	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 5);
-	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 6);
-	Auto_Save_Variable(&this->field_34, sizeof(this->field_34), 7);
+	Auto_Save_Variable(&this->nodLightTankObjId, sizeof(this->nodLightTankObjId), 6);
+	Auto_Save_Variable(&this->nodBuggyObjId, sizeof(this->nodBuggyObjId), 7);
 	Auto_Save_Variable(&this->field_38, sizeof(this->field_38), 8);
 	Auto_Save_Variable(&this->field_3C, sizeof(this->field_3C), 9);
 	Auto_Save_Variable(&this->field_40, sizeof(this->field_40), 10);
 	Auto_Save_Variable(&this->field_44, sizeof(this->field_44), 11);
 	Auto_Save_Variable(&this->field_48, sizeof(this->field_48), 12);
 	Auto_Save_Variable(&this->field_4C, sizeof(this->field_4C), 13);
-	Auto_Save_Variable(&this->field_50, sizeof(this->field_50), 14);
-	Auto_Save_Variable(&this->field_54, sizeof(this->field_54), 15);
+	Auto_Save_Variable(&this->MX0ObeliskObjId, sizeof(this->MX0ObeliskObjId), 14);
+	Auto_Save_Variable(&this->MX0NodObeliskObjId, sizeof(this->MX0NodObeliskObjId), 15);
 	Auto_Save_Variable(&this->field_58, sizeof(this->field_58), 16);
-	Auto_Save_Variable(&this->field_5C, sizeof(this->field_5C), 17);
+	Auto_Save_Variable(&this->nodMobileArtilleryObjId, sizeof(this->nodMobileArtilleryObjId), 17);
 	Auto_Save_Variable(&this->field_60, sizeof(this->field_60), 18);
 	Auto_Save_Variable(&this->field_64, sizeof(this->field_64), 19);
 	Auto_Save_Variable(&this->field_68, sizeof(this->field_68), 20);
@@ -67,8 +67,8 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 	// Received after 228 cinematic frames from x0e_obelisk
 	if (type == 445018)
 	{
-		GameObject *field50Obj = Commands->Find_Object(this->field_50);
-		Commands->Destroy_Object(field50Obj);
+		GameObject *MX0ObeliskObj = Commands->Find_Object(this->MX0ObeliskObjId);
+		Commands->Destroy_Object(MX0ObeliskObj);
 	}
 
 	// Received from MX0_Area4_Zone_DLS when entered by a star, param being area
@@ -118,10 +118,10 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 				this->field_2C = Commands->Get_ID(sender);
 				break;
 			case 5:
-				this->field_30 = Commands->Get_ID(sender);
+				this->nodLightTankObjId = Commands->Get_ID(sender);
 				break;
 			case 6:
-				this->field_34 = Commands->Get_ID(sender);
+				this->nodBuggyObjId = Commands->Get_ID(sender);
 				break;
 			case 8:
 				this->field_38 = Commands->Get_ID(sender);
@@ -142,16 +142,16 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 				this->field_4C = Commands->Get_ID(sender);
 				break;
 			case 14:
-				this->field_50 = Commands->Get_ID(sender);
+				this->MX0ObeliskObjId = Commands->Get_ID(sender);
 				break;
 			case 15:
-				this->field_54 = Commands->Get_ID(sender);
+				this->MX0NodObeliskObjId = Commands->Get_ID(sender);
 				break;
 			case 16:
 				this->field_58 = Commands->Get_ID(sender);
 				break;
 			case 17:
-				this->field_5C = Commands->Get_ID(sender);
+				this->nodMobileArtilleryObjId = Commands->Get_ID(sender);
 				break;
 			case 18:
 				this->field_64 = Commands->Get_ID(sender);
@@ -176,8 +176,8 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 	// Received after 90 cinematic frames from x0d_a10_crash
 	else if (type == 445008)
 	{
-		GameObject *field5CObj = Commands->Find_Object(this->field_5C);
-		Commands->Apply_Damage(field5CObj, 50000.0f, "STEEL", NULL);
+		GameObject *nodMobileArtilleryObj = Commands->Find_Object(this->nodMobileArtilleryObjId);
+		Commands->Apply_Damage(nodMobileArtilleryObj, 50000.0f, "STEEL", NULL);
 	}
 	else if (type == 445009)
 	{
@@ -248,14 +248,14 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 			GameObject *field4CObj = Commands->Find_Object(this->field_4C);
 			Commands->Send_Custom_Event(obj, field4CObj, 445006, 1, 0.0f);
 			
-			GameObject *field30Obj = Commands->Find_Object(this->field_30);
-			Commands->Attach_Script(field30Obj, "MX0_Vehicle_DLS", "1500033, 1500034, 0, 0, 0.4f");
+			GameObject *nodLightTankObj = Commands->Find_Object(this->nodLightTankObjId);
+			Commands->Attach_Script(nodLightTankObj, "MX0_Vehicle_DLS", "1500033, 1500034, 0, 0, 0.4f");
 
-			GameObject *field34Obj = Commands->Find_Object(this->field_34);
-			Commands->Attach_Script(field34Obj, "MX0_Vehicle_DLS", "0, 0, 0, 0, 0.0f");
+			GameObject *nodBuggyObj = Commands->Find_Object(this->nodBuggyObjId);
+			Commands->Attach_Script(nodBuggyObj, "MX0_Vehicle_DLS", "0, 0, 0, 0, 0.0f");
 
-			GameObject *field5CObj = Commands->Find_Object(this->field_5C);
-			Commands->Attach_Script(field5CObj, "MX0_Vehicle_DLS", "1500084, 1500085, 0, 0, 1.0f");
+			GameObject *nodMobileArtilleryObj = Commands->Find_Object(this->nodMobileArtilleryObjId);
+			Commands->Attach_Script(nodMobileArtilleryObj, "MX0_Vehicle_DLS", "1500084, 1500085, 0, 0, 1.0f");
 
 			Commands->Start_Timer(obj, this, 2.0f, 1);
 
@@ -274,8 +274,8 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 		}
 		else
 		{
-			GameObject *field30Obj = Commands->Find_Object(this->field_30);
-			Commands->Send_Custom_Event(obj, field30Obj, 445001, 1, 0.0f);
+			GameObject *nodLightTankObj = Commands->Find_Object(this->nodLightTankObjId);
+			Commands->Send_Custom_Event(obj, nodLightTankObj, 445001, 1, 0.0f);
 
 			GameObject *MX0NodObeliskObj = Commands->Find_Object(1500020);
 			Commands->Send_Custom_Event(obj, MX0NodObeliskObj, 445003, 1, 0.0f);
@@ -332,8 +332,8 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 			GameObject *field2CObj = Commands->Find_Object(this->field_2C);
 			Commands->Send_Custom_Event(obj, field2CObj, 445001, 2, 0.0f);
 
-			GameObject *field5CObj = Commands->Find_Object(this->field_5C);
-			Commands->Send_Custom_Event(obj, field5CObj, 445001, 1, 0.0f);
+			GameObject *nodMobileArtilleryObj = Commands->Find_Object(this->nodMobileArtilleryObjId);
+			Commands->Send_Custom_Event(obj, nodMobileArtilleryObj, 445001, 1, 0.0f);
 
 			Commands->Start_Timer(obj, this, 8.0f, 3);
 
@@ -391,8 +391,8 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 			Commands->Set_Facing(invisObj, 0.0f);
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X0E_Obelisk.txt");
 
-			GameObject *field54Obj = Commands->Find_Object(this->field_54);
-			Commands->Destroy_Object(field54Obj);
+			GameObject *MX0NodObeliskObj = Commands->Find_Object(this->MX0NodObeliskObjId);
+			Commands->Destroy_Object(MX0NodObeliskObj);
 
 			Commands->Start_Timer(obj, this, 5.0f, 7);
 			Commands->Start_Timer(obj, this, 10.0f, 8);
