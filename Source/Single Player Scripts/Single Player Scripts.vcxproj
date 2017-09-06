@@ -314,8 +314,11 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   <ItemGroup>
     <Text Include="Completed.txt" />
     <Text Include="mx0_a03_nod_ledgedrop.txt" />
+    <Text Include="mx0_gdi_reinforce_area4.txt" />
     <Text Include="mx0_gdi_troopdrop_area4.txt" />
     <Text Include="Uncompleted.txt" />
+    <Text Include="x0d_a10_crash.txt" />
+    <Text Include="x0e_obelisk.txt" />
     <Text Include="x0f_harvester.txt" />
     <Text Include="x0i_drop02_a02_e01.txt" />
     <Text Include="x0i_drop02_a02_e02.txt" />

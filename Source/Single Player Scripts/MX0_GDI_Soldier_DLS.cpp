@@ -9,7 +9,10 @@ void MX0_GDI_Soldier_DLS::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->moveAttemptCount, sizeof(this->moveAttemptCount), 4);
 }
 
+// After 401 cinematic frames in mx0_gdi_troopdrop_area4
 // After 489 cinematic frames in mx0_gdi_troopdrop_area4
+// After 401 cinematic frames in mx0_gdi_reinforce_area4
+// After 489 cinematic frames in mx0_gdi_reinforce_area4
 void MX0_GDI_Soldier_DLS::Created(GameObject *obj)
 {
 	Commands->Enable_Enemy_Seen(obj, true);

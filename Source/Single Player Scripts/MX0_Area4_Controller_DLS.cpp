@@ -64,6 +64,7 @@ void MX0_Area4_Controller_DLS::Created(GameObject *obj)
 
 void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received after 228 cinematic frames from x0e_obelisk
 	if (type == 445018)
 	{
 		GameObject *field50Obj = Commands->Find_Object(this->field_50);
@@ -171,6 +172,8 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 		GameObject *leftSamSiteObj = Commands->Find_Object(1500016);
 		Commands->Send_Custom_Event(obj, leftSamSiteObj, 445007, this->field_58, 0.0f);
 	}
+
+	// Received after 90 cinematic frames from x0d_a10_crash
 	else if (type == 445008)
 	{
 		GameObject *field5CObj = Commands->Find_Object(this->field_5C);

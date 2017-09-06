@@ -1,0 +1,87 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 0: Obelisk _destruct ************************
+
+
+
+
+
+
+; ****************************** Collapsing_Obelisk
+
+
+;-228	Create_Object,		0, "X0E_Obelisk",			0, 0, 0, 0
+-228	Create_Object,		0, "X0E_Obelisk",			0, 0, 0, 0
+-228	Send_Custom,		1500017, 445018, 1
+-228	Play_Animation,		0, "X0E_Obelisk.X0E_Obelisk",0
+-350	destroy_object,		0
+
+
+
+; ****************************** Orca Trajectory
+
+-0	Create_Object,		1, "X0E_Orca",			0, 0, 0, 0,
+-0	Play_Animation,		1, "X0E_Orca.X0E_Orca",0
+-232	destroy_object,		1
+
+
+
+
+; ****************************** Orca
+
+-0	Create_real_Object,	2, "GDI_Orca_FLyover",1		,"BN_trajectory"
+-0	Attach_Script,		2, "M00_Send_Object_ID", "1500017, 16, 1.0f"
+; Custom to controller for SAMs to start attacking Orca
+-100	Send_Custom,		1500017, 445007, 1			
+-0	Play_Animation,		2, "V_GDI_Orca.V_GDI_Orca",0
+-0	Attach_to_Bone,		2,1,"BN_trajectory"
+-230	Attach_Script,          2, "M00_Cinematic_Kill_Object_DAY"
+
+
+; ****************************** Orca Parts
+
+
+-230	Create_Object,		3, "X0E_AG_OrcaPart",			0, 0, 0, 0
+-230	Play_Animation,		3, "X0E_OrcaParts.X0E_OrcaParts",0
+-300	destroy_object,		3
+
+
+; ****************************** Remains
+
+
+-350	Create_Object,		4, "X0E_Remains",			0, 0, 0, 0
+
+; ****************************** Orca Smoke
+
+
+-190	Create_Object,		5, "X0E_OrcaSmoke",			0, 0, 0, 0
+-190	Play_Animation,		5, "X0E_OrcaSmoke.X0E_OrcaSmoke",0
+-230	destroy_object,		5
+

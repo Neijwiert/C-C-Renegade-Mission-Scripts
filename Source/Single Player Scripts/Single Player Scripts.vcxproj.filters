@@ -49,6 +49,9 @@
     <Filter Include="Source Files\M03">
       <UniqueIdentifier>{9443995c-59bb-4b2e-b166-bdcd76800db5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\M13\Cinematic Files\M13">
+      <UniqueIdentifier>{a0f3b80a-d7ac-470f-9069-d26b76ff532d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -331,14 +334,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="x00_intro.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
-    </None>
     <None Include="mx0_c130troopdrop.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
     </None>
     <None Include="mx0_c130troopdrop2.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+    </None>
+    <None Include="x00_intro.txt">
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -348,29 +351,38 @@
     <Text Include="Uncompleted.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="x0i_drop02_a02_e01.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
-    </Text>
-    <Text Include="x0i_drop02_a02_e02.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
-    </Text>
-    <Text Include="x0i_gdi_drop02_engineer.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
-    </Text>
     <Text Include="mx0_a03_nod_ledgedrop.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+    </Text>
+    <Text Include="mx0_gdi_reinforce_area4.txt">
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="mx0_gdi_troopdrop_area4.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
     </Text>
-    <Text Include="xg_a03_humveedrop_b.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
+    <Text Include="x0d_a10_crash.txt">
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+    </Text>
+    <Text Include="x0e_obelisk.txt">
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="x0f_harvester.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+    </Text>
+    <Text Include="x0i_drop02_a02_e01.txt">
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+    </Text>
+    <Text Include="x0i_drop02_a02_e02.txt">
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+    </Text>
+    <Text Include="x0i_gdi_drop02_engineer.txt">
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+    </Text>
+    <Text Include="xg_a03_humveedrop_b.txt">
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="xg_a03_tank_drop.txt">
-      <Filter>Resource Files\M13\Cinematic Files</Filter>
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
     </Text>
   </ItemGroup>
 </Project>
