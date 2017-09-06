@@ -204,6 +204,9 @@
     <ClCompile Include="M03_Destroyed_SAM_Site.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_Vehicle_DLS.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -349,6 +352,9 @@
     </ClInclude>
     <ClInclude Include="M03_Destroyed_SAM_Site.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_Vehicle_DLS.h">
+      <Filter>Header Files\MX0</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
