@@ -43,6 +43,12 @@
     <Filter Include="Source Files\M08">
       <UniqueIdentifier>{afa29a12-af6e-4737-a54d-0389929617b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\M03">
+      <UniqueIdentifier>{f30c138c-c403-455b-8f1d-40ef2d59ceda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\M03">
+      <UniqueIdentifier>{9443995c-59bb-4b2e-b166-bdcd76800db5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -180,6 +186,9 @@
     <ClCompile Include="MX0_Nod_Bunker_DLS.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="M03_SAM_Site_Logic.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -316,6 +325,9 @@
     </ClInclude>
     <ClInclude Include="MX0_Nod_Bunker_DLS.h">
       <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_SAM_Site_Logic.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
