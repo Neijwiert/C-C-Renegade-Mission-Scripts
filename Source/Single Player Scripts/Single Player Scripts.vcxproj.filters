@@ -52,6 +52,12 @@
     <Filter Include="Resource Files\M13\Cinematic Files\M13">
       <UniqueIdentifier>{a0f3b80a-d7ac-470f-9069-d26b76ff532d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\M01">
+      <UniqueIdentifier>{b169dfe7-27db-4966-a4b2-abaf5a3ba25d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\M01">
+      <UniqueIdentifier>{4a135601-cb9e-41c4-9e20-7d1c6f56c7a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -192,6 +198,9 @@
     <ClCompile Include="M03_SAM_Site_Logic.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M01_Destroyed_SAMSITE_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -331,6 +340,9 @@
     </ClInclude>
     <ClInclude Include="M03_SAM_Site_Logic.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_Destroyed_SAMSITE_JDG.h">
+      <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
