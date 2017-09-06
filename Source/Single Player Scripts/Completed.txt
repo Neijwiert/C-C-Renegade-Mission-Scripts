@@ -26,3 +26,4 @@ MX0_A03_NOD_BUGGIE
 MX0_Area4_Zone_DLS
 MX0_Nod_Bunker_DLS
 M01_Destroyed_SAMSITE_JDG
+M03_Destroyed_SAM_Site
