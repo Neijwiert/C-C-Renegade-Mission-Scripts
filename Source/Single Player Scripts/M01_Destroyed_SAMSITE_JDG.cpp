@@ -27,7 +27,7 @@ void M01_Destroyed_SAMSITE_JDG::Created(GameObject *obj)
 	Vector3 pos = Commands->Get_Position(obj);
 
 	params.Set_Basic(this, 100.0f, 20);
-	params.Set_Attack(Vector3(pos.X, pos.Y, pos.Z -5.0f), 0.0f, 0.0f, true);
+	params.Set_Attack(Vector3(pos.X, pos.Y, pos.Z + 5.0f), 0.0f, 0.0f, true);
 	params.AttackCheckBlocked = true;
 
 	Commands->Action_Attack(obj, params);
