@@ -237,6 +237,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_NOD_INFANTRY.cpp" />
     <ClCompile Include="MX0_Nod_RocketSoldier_DLS.cpp" />
     <ClCompile Include="MX0_NOD_TroopDrop.cpp" />
+    <ClCompile Include="MX0_Obelisk_Weapon_DLS.cpp" />
     <ClCompile Include="MX0_SAM_DLS.cpp" />
     <ClCompile Include="MX0_SniperAction.cpp" />
     <ClCompile Include="MX0_Vehicle_DLS.cpp" />
@@ -298,6 +299,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_NOD_INFANTRY.h" />
     <ClInclude Include="MX0_Nod_RocketSoldier_DLS.h" />
     <ClInclude Include="MX0_NOD_TroopDrop.h" />
+    <ClInclude Include="MX0_Obelisk_Weapon_DLS.h" />
     <ClInclude Include="MX0_SAM_DLS.h" />
     <ClInclude Include="MX0_SniperAction.h" />
     <ClInclude Include="MX0_Vehicle_DLS.h" />
@@ -333,12 +335,15 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="mx0_gdi_reinforce_area4.txt" />
     <Text Include="mx0_gdi_troopdrop_area4.txt" />
     <Text Include="Uncompleted.txt" />
+    <Text Include="x0c_flyovers_01.txt" />
+    <Text Include="x0c_flyovers_02.txt" />
     <Text Include="x0d_a10_crash.txt" />
     <Text Include="x0e_obelisk.txt" />
     <Text Include="x0f_harvester.txt" />
     <Text Include="x0i_drop02_a02_e01.txt" />
     <Text Include="x0i_drop02_a02_e02.txt" />
     <Text Include="x0i_gdi_drop02_engineer.txt" />
+    <Text Include="x0z_finale.txt" />
     <Text Include="xg_a03_humveedrop_b.txt" />
     <Text Include="xg_a03_tank_drop.txt" />
   </ItemGroup>

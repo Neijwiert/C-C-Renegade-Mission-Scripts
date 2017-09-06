@@ -179,6 +179,8 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 		GameObject *nodMobileArtilleryObj = Commands->Find_Object(this->nodMobileArtilleryObjId);
 		Commands->Apply_Damage(nodMobileArtilleryObj, 50000.0f, "STEEL", NULL);
 	}
+
+	// Received after 440 cinematic frames from x0z_finale
 	else if (type == 445009)
 	{
 		Commands->Mission_Complete(true);

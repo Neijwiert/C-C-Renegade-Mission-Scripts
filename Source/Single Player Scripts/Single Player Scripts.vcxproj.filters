@@ -222,6 +222,9 @@
     <ClCompile Include="MX0_Gun_Emplacement_DLS.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_Obelisk_Weapon_DLS.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -386,6 +389,9 @@
     <ClInclude Include="MX0_Gun_Emplacement_DLS.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
+    <ClInclude Include="MX0_Obelisk_Weapon_DLS.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -436,6 +442,15 @@
       <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="xg_a03_tank_drop.txt">
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+    </Text>
+    <Text Include="x0z_finale.txt">
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+    </Text>
+    <Text Include="x0c_flyovers_01.txt">
+      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+    </Text>
+    <Text Include="x0c_flyovers_02.txt">
       <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
     </Text>
   </ItemGroup>
