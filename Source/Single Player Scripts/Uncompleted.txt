@@ -17,3 +17,4 @@ MX0_Area4_Controller_DLS
 M03_SAM_Site_Logic
 MX0_Vehicle_DLS
 MX0_SAM_DLS
+MX0_Nod_RocketSoldier_DLS
