@@ -18,3 +18,4 @@ M03_SAM_Site_Logic
 MX0_Vehicle_DLS
 MX0_SAM_DLS
 MX0_Nod_RocketSoldier_DLS
+MX0_Gun_Emplacement_DLS
