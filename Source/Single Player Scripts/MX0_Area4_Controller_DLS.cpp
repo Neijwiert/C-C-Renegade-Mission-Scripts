@@ -21,7 +21,7 @@
 
 void MX0_Area4_Controller_DLS::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->starAtAreaNumber, sizeof(this->starAtAreaNumber), 1);
 	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
 	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
 	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 4);
@@ -50,7 +50,7 @@ void MX0_Area4_Controller_DLS::Register_Auto_Save_Variables()
 
 void MX0_Area4_Controller_DLS::Created(GameObject *obj)
 {
-	this->field_1C = 0;
+	this->starAtAreaNumber = 0;
 	this->field_20 = false;
 
 	Commands->Scale_AI_Awareness(3.0f, 1.0f);
@@ -69,9 +69,11 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 		GameObject *field50Obj = Commands->Find_Object(this->field_50);
 		Commands->Destroy_Object(field50Obj);
 	}
+
+	// Received from MX0_Area4_Zone_DLS when entered by a star, param being area
 	else if (type == 445000)
 	{
-		this->field_1C = param;
+		this->starAtAreaNumber = param;
 
 		if (param == 1 && !this->field_20)
 		{
@@ -209,7 +211,7 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 
 	if (!number)
 	{
-		if (this->field_1C <= 0)
+		if (this->starAtAreaNumber <= 0)
 		{
 			if (!this->field_7C)
 			{
@@ -258,7 +260,7 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	}
 	else if (number == 1)
 	{
-		if (this->field_1C <= 1)
+		if (this->starAtAreaNumber <= 1)
 		{
 			GameObject *field48Obj = Commands->Find_Object(this->field_48);
 			Commands->Send_Custom_Event(obj, field48Obj, 445002, 445021, 0.0f);
@@ -295,7 +297,7 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	}
 	else if (number == 2)
 	{
-		if (this->field_1C == 0 || this->field_1C == 1)
+		if (this->starAtAreaNumber == 0 || this->starAtAreaNumber == 1)
 		{
 			if (this->field_78 == 4)
 			{
@@ -310,11 +312,11 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 
 			Commands->Start_Timer(obj, this, 5.0f, 2);
 		}
-		else if (this->field_1C == 2)
+		else if (this->starAtAreaNumber == 2)
 		{
 			Commands->Start_Timer(obj, this, 5.0f, 2);
 		}
-		else if (this->field_1C == 3)
+		else if (this->starAtAreaNumber == 3)
 		{
 			Commands->Enable_Spawner(1500042, true);     // Left wall soldier
 			Commands->Enable_Spawner(1500044, true);     // Right wall soldier
@@ -357,7 +359,7 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	}
 	else if (number == 3)
 	{
-		if (this->field_1C == 0 || this->field_1C == 1)
+		if (this->starAtAreaNumber == 0 || this->starAtAreaNumber == 1)
 		{
 			if (this->field_78 == 4)
 			{
@@ -372,11 +374,11 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 
 			Commands->Start_Timer(obj, this, 5.0f, 3);
 		}
-		else if (this->field_1C == 2)
+		else if (this->starAtAreaNumber == 2)
 		{
 			Commands->Start_Timer(obj, this, 5.0f, 3);
 		}
-		else if (this->field_1C == 3)
+		else if (this->starAtAreaNumber == 3)
 		{
 			Commands->Create_2D_Sound("MX0_A4_Orca_Mix");
 
@@ -421,7 +423,7 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	}
 	else if (number == 4)
 	{
-		if (this->field_1C == 0 || this->field_1C == 1)
+		if (this->starAtAreaNumber == 0 || this->starAtAreaNumber == 1)
 		{
 			if (this->field_78 == 4)
 			{
@@ -436,11 +438,11 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 
 			Commands->Start_Timer(obj, this, 5.0f, 4);
 		}
-		else if (this->field_1C == 2)
+		else if (this->starAtAreaNumber == 2)
 		{
 			Commands->Start_Timer(obj, this, 5.0f, 4);
 		}
-		else if (this->field_1C == 3)
+		else if (this->starAtAreaNumber == 3)
 		{
 			if (!Commands->Find_Object(1500015) && !Commands->Find_Object(1500016))// Right and left samsite
 			{
@@ -498,7 +500,7 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	}
 	else if (number == 5)
 	{
-		if (this->field_1C == 0 || this->field_1C == 1)
+		if (this->starAtAreaNumber == 0 || this->starAtAreaNumber == 1)
 		{
 			if (this->field_78 == 4)
 			{
@@ -513,11 +515,11 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 
 			Commands->Start_Timer(obj, this, 5.0f, 5);
 		}
-		else if (this->field_1C == 2)
+		else if (this->starAtAreaNumber == 2)
 		{
 			Commands->Start_Timer(obj, this, 5.0f, 5);
 		}
-		else if (this->field_1C == 3)
+		else if (this->starAtAreaNumber == 3)
 		{
 			Commands->Fade_Background_Music("Renegade_A10_Outro.mp3", 1, 1);
 

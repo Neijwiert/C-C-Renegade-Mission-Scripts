@@ -30,7 +30,7 @@ class MX0_Area4_Controller_DLS : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Timer_Expired(GameObject *obj, int number);
 
-		int field_1C;
+		int starAtAreaNumber;
 		bool field_20;
 		int field_24;
 		int field_28;
