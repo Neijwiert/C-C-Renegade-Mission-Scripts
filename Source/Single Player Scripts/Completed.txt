@@ -27,3 +27,4 @@ MX0_Area4_Zone_DLS
 MX0_Nod_Bunker_DLS
 M01_Destroyed_SAMSITE_JDG
 M03_Destroyed_SAM_Site
+MX0_GDI_Killed_DLS

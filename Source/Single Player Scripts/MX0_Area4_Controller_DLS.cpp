@@ -183,6 +183,8 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 	{
 		Commands->Mission_Complete(true);
 	}
+
+	// Received from MX0_GDI_Killed_DLS when killed
 	else if (type == 445019)
 	{
 		if (++this->field_6C == 2)

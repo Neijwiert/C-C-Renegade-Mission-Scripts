@@ -207,6 +207,9 @@
     <ClCompile Include="MX0_Vehicle_DLS.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_GDI_Killed_DLS.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -354,6 +357,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="MX0_Vehicle_DLS.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_GDI_Killed_DLS.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
   </ItemGroup>
