@@ -188,6 +188,7 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 	// Received from MX0_A03_TANK when created
 	// Received from MX0_NOD_INFANTRY when created
 	// Received from MX0_A03_END_ZONE when entered
+	// Received from MX0_A03_FIRST_PLAYER_ZONE when entered
 	else if (type == 408 || type == 9035)
 	{
 		if (type == 408)

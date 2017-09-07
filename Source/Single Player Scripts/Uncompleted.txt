@@ -22,7 +22,7 @@ MX0_Gun_Emplacement_DLS
 MX0_Obelisk_Weapon_DLS
 MX0_A03_GDI_TROOPER_ONE
 
-MX0_A03_FIRST_PLAYER_ZONE
+
 MX0_A03_GDI_TROOP_DROP_ZONE_DAK
 
 // Below are scripts that are not used in the level, but present
