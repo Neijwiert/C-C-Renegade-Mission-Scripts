@@ -17,26 +17,12 @@
 */
 
 #include "General.h"
-#include "MX0_A03_HAVOC_TANK.h"
+#include "MX0_A03_TROOPER_ONE_TEST.h"
 
 // This script is never used
-void MX0_A03_HAVOC_TANK::Register_Auto_Save_Variables()
+void MX0_A03_TROOPER_ONE_TEST::Created(GameObject *obj)
 {
-	Auto_Save_Variable(&this->canDoEnteredEvents, sizeof(this->canDoEnteredEvents), 1);
+	Commands->Attach_Script(obj, "M00_Send_Object_ID", "1400041,11,0.0f");
 }
 
-void MX0_A03_HAVOC_TANK::Custom(GameObject *obj, int type, int param, GameObject *sender)
-{
-	if (type == CUSTOM_EVENT_VEHICLE_ENTERED && this->canDoEnteredEvents)
-	{
-		GameObject *MX0A03ControllerObj = Commands->Find_Object(1400041);
-		if (MX0A03ControllerObj)
-		{
-			Commands->Send_Custom_Event(obj, MX0A03ControllerObj, 401, 0, 0.0f);
-		}
-
-		this->canDoEnteredEvents = false;
-	}
-}
-
-ScriptRegistrant<MX0_A03_HAVOC_TANK> MX0_A03_HAVOC_TANKRegistrant("MX0_A03_HAVOC_TANK", "");
+ScriptRegistrant<MX0_A03_TROOPER_ONE_TEST> MX0_A03_TROOPER_ONE_TESTRegistrant("MX0_A03_TROOPER_ONE_TEST", "");

@@ -22,8 +22,6 @@ MX0_Obelisk_Weapon_DLS
 MX0_A03_GDI_TROOPER_ONE
 
 // Below are scripts that are not used in the level, but are present
-
-MX0_A03_TROOPER_ONE_TEST
 MX0_A03_GDI_TANK_DROP_ZONE_DAK
 DAK_MX0_Sec_3_Humvee
 MX0_AmbientBattle
