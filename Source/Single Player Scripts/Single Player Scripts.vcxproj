@@ -232,6 +232,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_A03_NOD_TURRET.cpp" />
     <ClCompile Include="MX0_A03_TANK.cpp" />
     <ClCompile Include="MX0_A03_TROOPER_ONE_TEST.cpp" />
+    <ClCompile Include="MX0_AmbientBattle.cpp" />
     <ClCompile Include="MX0_Area4_Controller_DLS.cpp" />
     <ClCompile Include="MX0_Area4_Zone_DLS.cpp" />
     <ClCompile Include="MX0_Engineer1.cpp" />
@@ -305,6 +306,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_A03_NOD_TURRET.h" />
     <ClInclude Include="MX0_A03_TANK.h" />
     <ClInclude Include="MX0_A03_TROOPER_ONE_TEST.h" />
+    <ClInclude Include="MX0_AmbientBattle.h" />
     <ClInclude Include="MX0_Area4_Controller_DLS.h" />
     <ClInclude Include="MX0_Area4_Zone_DLS.h" />
     <ClInclude Include="MX0_Engineer1.h" />
