@@ -7,7 +7,6 @@ MX0_A02_Controller
 MX0_A02_ACTOR
 M08_Petra_C_Helo
 M00_Damage_Modifier_DME
-MX0_A03_CONTROLLER_DAK
 MX0_A03_HUMVEE
 MX0_GDI_Soldier_DLS
 MX0_NOD_INFANTRY
@@ -22,11 +21,7 @@ MX0_Gun_Emplacement_DLS
 MX0_Obelisk_Weapon_DLS
 MX0_A03_GDI_TROOPER_ONE
 
-
-
-MX0_A03_GDI_INFANTRY
-
-// Below are scripts that are not used in the level, but present
+// Below are scripts that are not used in the level, but are present
 MX0_A03_HAVOC_TANK
 MX0_A03_TROOPER_ONE_TEST
 MX0_A03_GDI_TANK_DROP_ZONE_DAK

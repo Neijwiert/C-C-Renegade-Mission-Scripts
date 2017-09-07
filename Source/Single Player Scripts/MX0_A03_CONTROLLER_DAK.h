@@ -33,16 +33,16 @@ class MX0_A03_CONTROLLER_DAK : public ScriptImpClass
 		int MX0GDIMiniGunner0BObjId;
 		int reinforcementsEngineer1ObjId;
 		int MX0A03TankObjId;
-		int field_2C;
-		int field_30;
-		int field_34;
-		DWORD aliveTurretCount;
-		DWORD nodinfantryCount;
+		int gdiMiniGunner1OffObjId;
+		int gdiMiniGunner0ObjId;
+		int gdiRocketSoldier0ObjId;
+		int aliveTurretCount;
+		int nodinfantryCount;
 		int nodInfantryObj1Id;
 		int nodInfantryObj2Id;
 		DWORD field_48; // Not initialized and not used
 		bool isNodHarvesterKilled;
 		bool isNodBuggyDriverKilled;
 		bool isStarStillInA03;
-		DWORD nodLedgeDropCount;
+		int nodLedgeDropCount;
 };

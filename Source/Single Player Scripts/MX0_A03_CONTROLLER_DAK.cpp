@@ -22,9 +22,9 @@
 void MX0_A03_CONTROLLER_DAK::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->humveeObjId, sizeof(this->humveeObjId), 1);
-	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 2);
-	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 3);
-	Auto_Save_Variable(&this->field_34, sizeof(this->field_34), 4);
+	Auto_Save_Variable(&this->gdiMiniGunner1OffObjId, sizeof(this->gdiMiniGunner1OffObjId), 2);
+	Auto_Save_Variable(&this->gdiMiniGunner0ObjId, sizeof(this->gdiMiniGunner0ObjId), 3);
+	Auto_Save_Variable(&this->gdiRocketSoldier0ObjId, sizeof(this->gdiRocketSoldier0ObjId), 4);
 	Auto_Save_Variable(&this->MX0A03TankObjId, sizeof(this->MX0A03TankObjId), 5);
 	Auto_Save_Variable(&this->MX0GDIMiniGunner0BObjId, sizeof(this->MX0GDIMiniGunner0BObjId), 6);
 	Auto_Save_Variable(&this->reinforcementsEngineer1ObjId, sizeof(this->reinforcementsEngineer1ObjId), 7);
@@ -39,6 +39,7 @@ void MX0_A03_CONTROLLER_DAK::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->isStarStillInA03, sizeof(this->isStarStillInA03), 17);
 }
 
+// On level start
 void MX0_A03_CONTROLLER_DAK::Created(GameObject *obj)
 {
 	this->nodLedgeDropCount = 1;
@@ -219,23 +220,23 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 			case 2:
 				Commands->Send_Custom_Event(obj, sender, 9035, this->humveeObjId, 0.0f);
 				break;
-			case 3: // TODO (no custom)
-				this->field_2C = Commands->Get_ID(sender);
+			case 3: 
+				this->gdiMiniGunner1OffObjId = Commands->Get_ID(sender);
 				break;
 			case 4:
-				Commands->Send_Custom_Event(obj, sender, 9035, this->field_2C, 0.0f);
+				Commands->Send_Custom_Event(obj, sender, 9035, this->gdiMiniGunner1OffObjId, 0.0f);
 				break;
-			case 5: // TODO (no custom)
-				this->field_30 = Commands->Get_ID(sender);
+			case 5: 
+				this->gdiMiniGunner0ObjId = Commands->Get_ID(sender);
 				break;
 			case 6:
-				Commands->Send_Custom_Event(obj, sender, 9035, this->field_30, 0.0f);
+				Commands->Send_Custom_Event(obj, sender, 9035, this->gdiMiniGunner0ObjId, 0.0f);
 				break;
-			case 7: // TODO (no custom)
-				this->field_34 = Commands->Get_ID(sender);
+			case 7: 
+				this->gdiRocketSoldier0ObjId = Commands->Get_ID(sender);
 				break;
 			case 8:
-				Commands->Send_Custom_Event(obj, sender, 9035, this->field_34, 0.0f);
+				Commands->Send_Custom_Event(obj, sender, 9035, this->gdiRocketSoldier0ObjId, 0.0f);
 				break;
 			case 9:
 				this->MX0A03TankObjId = Commands->Get_ID(sender);
