@@ -252,6 +252,9 @@
     <ClCompile Include="MX0_A03_GDI_TANK_DROP_ZONE_DAK.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="DAK_MX0_Sec_3_Humvee.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -447,6 +450,9 @@
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
     <ClInclude Include="MX0_A03_GDI_TANK_DROP_ZONE_DAK.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="DAK_MX0_Sec_3_Humvee.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
   </ItemGroup>

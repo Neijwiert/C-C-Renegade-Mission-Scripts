@@ -190,6 +190,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DAK_MX0_Sec_3_Humvee.cpp" />
     <ClCompile Include="Havoc_Script.cpp" />
     <ClCompile Include="M00_BuildingStateSoundController.cpp" />
     <ClCompile Include="M00_BuildingStateSoundSpeaker.cpp" />
@@ -262,6 +263,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_MissionStart_DME.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DAK_MX0_Sec_3_Humvee.h" />
     <ClInclude Include="Havoc_Script.h" />
     <ClInclude Include="M00_BuildingStateSoundController.h" />
     <ClInclude Include="M00_BuildingStateSoundSpeaker.h" />

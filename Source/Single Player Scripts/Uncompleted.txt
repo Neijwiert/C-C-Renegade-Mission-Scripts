@@ -22,7 +22,6 @@ MX0_Obelisk_Weapon_DLS
 MX0_A03_GDI_TROOPER_ONE
 
 // Below are scripts that are not used in the level, but are present
-DAK_MX0_Sec_3_Humvee
 MX0_AmbientBattle
 MX0_Kill_Sniper
 MX0_Engineer_Return
