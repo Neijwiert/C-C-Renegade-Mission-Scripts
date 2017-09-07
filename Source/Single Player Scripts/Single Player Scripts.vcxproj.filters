@@ -237,6 +237,9 @@
     <ClCompile Include="MX0_A03_FIRST_PLAYER_ZONE.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_A03_GDI_TROOP_DROP_ZONE_DAK.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -419,6 +422,9 @@
     <ClInclude Include="MX0_A03_FIRST_PLAYER_ZONE.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
+    <ClInclude Include="MX0_A03_GDI_TROOP_DROP_ZONE_DAK.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -478,6 +484,9 @@
       <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="x0c_flyovers_02.txt">
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
+    </Text>
+    <Text Include="mx0_a03_gdi_troopdrop.txt">
       <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
   </ItemGroup>

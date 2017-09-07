@@ -219,6 +219,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_A03_END_ZONE.cpp" />
     <ClCompile Include="MX0_A03_FIRST_PLAYER_ZONE.cpp" />
     <ClCompile Include="MX0_A03_GDI_TROOPER_ONE.cpp" />
+    <ClCompile Include="MX0_A03_GDI_TROOP_DROP_ZONE_DAK.cpp" />
     <ClCompile Include="MX0_A03_HUMVEE.cpp" />
     <ClCompile Include="MX0_A03_NOD_BUGGIE.cpp" />
     <ClCompile Include="MX0_A03_NOD_HARVESTER.cpp" />
@@ -286,6 +287,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_A03_END_ZONE.h" />
     <ClInclude Include="MX0_A03_FIRST_PLAYER_ZONE.h" />
     <ClInclude Include="MX0_A03_GDI_TROOPER_ONE.h" />
+    <ClInclude Include="MX0_A03_GDI_TROOP_DROP_ZONE_DAK.h" />
     <ClInclude Include="MX0_A03_HUMVEE.h" />
     <ClInclude Include="MX0_A03_NOD_BUGGIE.h" />
     <ClInclude Include="MX0_A03_NOD_HARVESTER.h" />
@@ -341,6 +343,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   </ItemGroup>
   <ItemGroup>
     <Text Include="Completed.txt" />
+    <Text Include="mx0_a03_gdi_troopdrop.txt" />
     <Text Include="mx0_a03_nod_ledgedrop.txt" />
     <Text Include="mx0_gdi_reinforce_area4.txt" />
     <Text Include="mx0_gdi_troopdrop_area4.txt" />
