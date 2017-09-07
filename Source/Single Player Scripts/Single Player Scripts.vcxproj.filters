@@ -231,6 +231,9 @@
     <ClCompile Include="MX0_A02_DEFAULT_OFF.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_A02_ZONE_DEFAULT_ON.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -405,6 +408,9 @@
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
     <ClInclude Include="MX0_A02_DEFAULT_OFF.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_A02_ZONE_DEFAULT_ON.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
   </ItemGroup>

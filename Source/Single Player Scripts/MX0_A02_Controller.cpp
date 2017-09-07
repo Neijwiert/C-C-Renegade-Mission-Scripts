@@ -114,18 +114,21 @@ void MX0_A02_Controller::Custom(GameObject *obj, int type, int param, GameObject
 	}
 
 	// Received from MX0_MissionStart_DME when custom type 223 is received
+	// (Unused script) Received from MX0_A02_ZONE_DEFAULT_ON when entered
 	else if (type == 223)
 	{
 		this->sniper1ObjId = param;
 	}
 
 	// Received from MX0_MissionStart_DME when custom type 224 is received
+	// (Unused script) Received from MX0_A02_ZONE_DEFAULT_ON when entered
 	else if (type == 224)
 	{
 		this->sniper2ObjId = param;
 	}
 
 	// Received from MX0_MissionStart_DME when timer number 134 triggers
+	// (Unused script) Received from MX0_A02_ZONE_DEFAULT_ON when entered
 	else if (type == 202)
 	{
 		if (!this->spawnedA02Objects)

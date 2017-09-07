@@ -20,6 +20,7 @@
 
 #include <scripts.h>
 
+// This script is never used
 class MX0_A02_DEFAULT_OFF : public ScriptImpClass
 {
 	public:

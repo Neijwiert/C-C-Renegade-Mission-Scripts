@@ -19,12 +19,12 @@
 #include "General.h"
 #include "MX0_A02_DEFAULT_OFF.h"
 
+// This script is never used
 void MX0_A02_DEFAULT_OFF::Register_Auto_Save_Variables()
 {
 
 }
 
-// This script is never used
 void MX0_A02_DEFAULT_OFF::Created(GameObject *obj)
 {
 	Commands->Innate_Disable(obj);
