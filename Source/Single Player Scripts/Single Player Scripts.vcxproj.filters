@@ -279,6 +279,9 @@
     <ClCompile Include="M00_Disable_Physical_Collision_JDG.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Vehicle_Regen_DAK.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -501,6 +504,9 @@
       <Filter>Header Files\M00</Filter>
     </ClInclude>
     <ClInclude Include="M00_Disable_Physical_Collision_JDG.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Vehicle_Regen_DAK.h">
       <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
