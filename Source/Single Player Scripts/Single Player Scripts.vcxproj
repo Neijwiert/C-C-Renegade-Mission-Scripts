@@ -198,6 +198,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Cinematic_Kill_Object_DAY.cpp" />
     <ClCompile Include="M00_Damage_Modifier_DME.cpp" />
     <ClCompile Include="M00_Disable_Loiter_DAY.cpp" />
+    <ClCompile Include="M00_Disable_Transition.cpp" />
     <ClCompile Include="M00_Generic_Conv_DME.cpp" />
     <ClCompile Include="M00_Nod_Turret.cpp" />
     <ClCompile Include="M00_Play_Sound.cpp" />
@@ -276,6 +277,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Cinematic_Kill_Object_DAY.h" />
     <ClInclude Include="M00_Damage_Modifier_DME.h" />
     <ClInclude Include="M00_Disable_Loiter_DAY.h" />
+    <ClInclude Include="M00_Disable_Transition.h" />
     <ClInclude Include="M00_Generic_Conv_DME.h" />
     <ClInclude Include="M00_Nod_Turret.h" />
     <ClInclude Include="M00_Play_Sound.h" />

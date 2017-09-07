@@ -270,6 +270,9 @@
     <ClCompile Include="M00_Powerup_Destroy.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Disable_Transition.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -483,6 +486,9 @@
       <Filter>Header Files\M00</Filter>
     </ClInclude>
     <ClInclude Include="M00_Powerup_Destroy.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Disable_Transition.h">
       <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
