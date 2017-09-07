@@ -30,9 +30,9 @@ class M00_Damage_Modifier_DME : public ScriptImpClass
 		virtual void Damaged(GameObject *obj, GameObject *damager, float amount);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		float field_1C;
-		float field_20;
-		float field_24;
+		float modifiedCurrentHealth;
+		float unmodifiedCurrentHealth;
+		float calculatedDamage;
 		int killableByStar;
 		int killableByNotStar;
 		int starModifier;

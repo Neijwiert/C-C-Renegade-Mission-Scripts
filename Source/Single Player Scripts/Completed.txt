@@ -44,6 +44,10 @@ MX0_SAM_DLS
 MX0_Nod_RocketSoldier_DLS
 MX0_Gun_Emplacement_DLS
 MX0_A03_GDI_TROOPER_ONE
+M00_BuildingStateSoundController
+M00_BuildingStateSoundSpeaker
+M00_Soldier_Powerup_Grant
+M00_Damage_Modifier_DME
 
 // Below are scripts that I'm pretty sure of that they are not used, but they are present
 MX0_A02_DEFAULT_OFF

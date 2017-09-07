@@ -116,13 +116,13 @@ void M00_BuildingStateSoundSpeaker::Custom(GameObject *obj, int type, int param,
 		}
 	}
 
-	// TODO (No custom)
+	// Received from M00_BuildingStateSoundController when custom type 9028 is received
 	else if (type == 9028)
 	{
 		this->doExplosions = false;
 	}
 
-	// TODO (No custom)
+	// Received from M00_BuildingStateSoundController when custom type 9029 is received
 	else if (type == 9029)
 	{
 		this->doExplosions = true;

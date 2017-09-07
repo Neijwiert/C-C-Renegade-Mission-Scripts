@@ -203,6 +203,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Play_Sound.cpp" />
     <ClCompile Include="M00_Send_Object_ID.cpp" />
     <ClCompile Include="M00_Soldier_Powerup_Disable.cpp" />
+    <ClCompile Include="M00_Soldier_Powerup_Grant.cpp" />
     <ClCompile Include="M01_Destroyed_SAMSITE_JDG.cpp" />
     <ClCompile Include="M03_Destroyed_SAM_Site.cpp" />
     <ClCompile Include="M03_SAM_Site_Logic.cpp" />
@@ -279,6 +280,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Play_Sound.h" />
     <ClInclude Include="M00_Send_Object_ID.h" />
     <ClInclude Include="M00_Soldier_Powerup_Disable.h" />
+    <ClInclude Include="M00_Soldier_Powerup_Grant.h" />
     <ClInclude Include="M01_Destroyed_SAMSITE_JDG.h" />
     <ClInclude Include="M03_Destroyed_SAM_Site.h" />
     <ClInclude Include="M03_SAM_Site_Logic.h" />

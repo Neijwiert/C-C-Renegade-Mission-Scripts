@@ -1,7 +1,4 @@
-M00_BuildingStateSoundController
-M00_BuildingStateSoundSpeaker
 M08_Petra_C_Helo
-M00_Damage_Modifier_DME
 MX0_A03_HUMVEE
 MX0_NOD_INFANTRY
 MX0_A03_NOD_TROOPER_TIB_DEATH

@@ -264,6 +264,9 @@
     <ClCompile Include="MX0_Engineer_Return.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Soldier_Powerup_Grant.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -472,6 +475,9 @@
     </ClInclude>
     <ClInclude Include="MX0_Engineer_Return.h">
       <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Soldier_Powerup_Grant.h">
+      <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

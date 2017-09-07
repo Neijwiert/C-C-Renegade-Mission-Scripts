@@ -21,9 +21,9 @@
 
 void M00_Damage_Modifier_DME::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
+	Auto_Save_Variable(&this->modifiedCurrentHealth, sizeof(this->modifiedCurrentHealth), 1);
+	Auto_Save_Variable(&this->unmodifiedCurrentHealth, sizeof(this->unmodifiedCurrentHealth), 2);
+	Auto_Save_Variable(&this->calculatedDamage, sizeof(this->calculatedDamage), 3);
 	Auto_Save_Variable(&this->killableByStar, sizeof(this->killableByStar), 4);
 	Auto_Save_Variable(&this->killableByNotStar, sizeof(this->killableByNotStar), 5);
 	Auto_Save_Variable(&this->starModifier, sizeof(this->starModifier), 6);
@@ -34,8 +34,8 @@ void M00_Damage_Modifier_DME::Register_Auto_Save_Variables()
 void M00_Damage_Modifier_DME::Created(GameObject *obj)
 {
 	this->enabled = true;
-	this->field_20 = Commands->Get_Health(obj);
-	this->field_24 = 0.0f;
+	this->unmodifiedCurrentHealth = Commands->Get_Health(obj);
+	this->calculatedDamage = 0.0f;
 	this->killableByStar = Get_Int_Parameter("Killable_By_Star");
 	this->killableByNotStar = Get_Int_Parameter("Killable_ByNotStar"); // Yes, this is a typo on purpose
 	this->starModifier = Get_Int_Parameter("Star_Modifier");
@@ -44,11 +44,58 @@ void M00_Damage_Modifier_DME::Created(GameObject *obj)
 
 void M00_Damage_Modifier_DME::Damaged(GameObject *obj, GameObject *damager, float amount)
 {
-	// TODO
+	if (this->enabled)
+	{
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *star = Commands->Get_A_Star(pos);
+
+		if (!this->starModifier && damager == star && this->killableByStar || !this->notStarModifier && damager != star && this->killableByNotStar)
+		{
+			this->unmodifiedCurrentHealth = Commands->Get_Health(obj);
+		}
+
+		if (this->starModifier && damager == star && this->killableByStar || this->notStarModifier && damager != star && this->killableByNotStar)
+		{
+			this->modifiedCurrentHealth = Commands->Get_Health(obj);
+
+			float damage;
+			if (this->modifiedCurrentHealth == 0.0f)
+			{
+				damage = this->unmodifiedCurrentHealth - this->modifiedCurrentHealth + this->calculatedDamage;
+			}
+			else
+			{
+				damage = this->unmodifiedCurrentHealth - this->modifiedCurrentHealth;
+			}
+
+			float multipliedDamage = Get_Float_Parameter("Damage_multiplier") * damage;
+
+			this->calculatedDamage = multipliedDamage + this->calculatedDamage;
+
+			Commands->Set_Health(obj, this->unmodifiedCurrentHealth - multipliedDamage);
+
+			this->unmodifiedCurrentHealth = Commands->Get_Health(obj);
+			this->modifiedCurrentHealth = Commands->Get_Health(obj);
+		}
+			
+		if (this->starModifier && damager == star && !this->killableByStar || this->notStarModifier && damager != star && !this->killableByNotStar)
+		{
+			this->modifiedCurrentHealth = Commands->Get_Health(obj);
+
+			float damage = this->unmodifiedCurrentHealth - this->modifiedCurrentHealth;
+			float multipliedDamage = this->unmodifiedCurrentHealth - Get_Float_Parameter("Damage_multiplier") * damage;
+
+			Commands->Set_Health(obj, multipliedDamage);
+
+			this->unmodifiedCurrentHealth = Commands->Get_Health(obj);
+			this->modifiedCurrentHealth = Commands->Get_Health(obj);
+		}
+	}
 }
 
 void M00_Damage_Modifier_DME::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Used to enable/disable the damage modifier
 	if (type == 9037)
 	{
 		switch (param)
