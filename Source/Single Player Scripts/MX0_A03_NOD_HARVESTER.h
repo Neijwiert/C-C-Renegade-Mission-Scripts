@@ -34,5 +34,5 @@ class MX0_A03_NOD_HARVESTER : public ScriptImpClass
 		virtual void Animation_Complete(GameObject *obj, const char *animation_name);
 
 		bool atEndOfWaypath;
-		int field_20;
+		DWORD field_20; // Not used
 };
