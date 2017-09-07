@@ -208,6 +208,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M08_Petra_C_Helo.cpp" />
     <ClCompile Include="MX0_A02_ACTOR.cpp" />
     <ClCompile Include="MX0_A02_Controller.cpp" />
+    <ClCompile Include="MX0_A02_DEFAULT_OFF.cpp" />
     <ClCompile Include="MX0_A02_GDI_APC.cpp" />
     <ClCompile Include="MX0_A02_GDI_MEDTANK.cpp" />
     <ClCompile Include="MX0_A02_GDI_VEHICLE.cpp" />
@@ -272,6 +273,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M08_Petra_C_Helo.h" />
     <ClInclude Include="MX0_A02_ACTOR.h" />
     <ClInclude Include="MX0_A02_Controller.h" />
+    <ClInclude Include="MX0_A02_DEFAULT_OFF.h" />
     <ClInclude Include="MX0_A02_GDI_APC.h" />
     <ClInclude Include="MX0_A02_GDI_MEDTANK.h" />
     <ClInclude Include="MX0_A02_GDI_VEHICLE.h" />
