@@ -475,7 +475,7 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		}
 	}
 
-	// TODO (No custom)
+	// (Unused script) Received from MX0_Engineer_Return when entered
 	else if (type == 130)
 	{
 		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);

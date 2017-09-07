@@ -2,7 +2,6 @@ M00_BuildingStateSoundController
 M00_BuildingStateSoundSpeaker
 MX0_Engineer1
 MX0_Engineer2
-MX0_MissionStart_DME
 MX0_A02_Controller
 MX0_A02_ACTOR
 M08_Petra_C_Helo
@@ -21,5 +20,3 @@ MX0_Gun_Emplacement_DLS
 MX0_Obelisk_Weapon_DLS
 MX0_A03_GDI_TROOPER_ONE
 
-// Below are scripts that are not used in the level, but are present
-MX0_Engineer_Return

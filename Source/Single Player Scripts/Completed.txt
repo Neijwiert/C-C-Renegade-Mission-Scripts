@@ -34,6 +34,7 @@ MX0_A03_FIRST_PLAYER_ZONE
 MX0_A03_GDI_TROOP_DROP_ZONE_DAK
 MX0_A03_GDI_INFANTRY
 MX0_A03_CONTROLLER_DAK
+MX0_MissionStart_DME
 
 // Below are scripts that are not used in the level, but are present
 MX0_A02_DEFAULT_OFF
@@ -44,3 +45,4 @@ MX0_A03_GDI_TANK_DROP_ZONE_DAK
 DAK_MX0_Sec_3_Humvee
 MX0_AmbientBattle
 MX0_Kill_Sniper
+MX0_Engineer_Return
