@@ -33,7 +33,7 @@ class MX0_Obelisk_Weapon_DLS : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 
 		bool canDoWarmupAnimation;
-		DWORD currentTargetObjId;
+		int currentTargetObjId;
 		int obeliskEffectObjId;
 		int humveeObjId;
 		int gdiMinigunner10FFObjId;
