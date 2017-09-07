@@ -215,6 +215,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_A02_ZONE_STARTUP.cpp" />
     <ClCompile Include="MX0_A03_CONTROLLER_DAK.cpp" />
     <ClCompile Include="MX0_A03_END_ZONE.cpp" />
+    <ClCompile Include="MX0_A03_GDI_TROOPER_ONE.cpp" />
     <ClCompile Include="MX0_A03_HUMVEE.cpp" />
     <ClCompile Include="MX0_A03_NOD_BUGGIE.cpp" />
     <ClCompile Include="MX0_A03_NOD_HARVESTER.cpp" />
@@ -278,6 +279,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_A02_ZONE_STARTUP.h" />
     <ClInclude Include="MX0_A03_CONTROLLER_DAK.h" />
     <ClInclude Include="MX0_A03_END_ZONE.h" />
+    <ClInclude Include="MX0_A03_GDI_TROOPER_ONE.h" />
     <ClInclude Include="MX0_A03_HUMVEE.h" />
     <ClInclude Include="MX0_A03_NOD_BUGGIE.h" />
     <ClInclude Include="MX0_A03_NOD_HARVESTER.h" />

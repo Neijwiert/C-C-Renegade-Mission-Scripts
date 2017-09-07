@@ -33,7 +33,7 @@ class MX0_Area4_Controller_DLS : public ScriptImpClass
 		int starAtAreaNumber;
 		bool field_20;
 		int field_24;
-		int field_28;
+		int MX0GDIMiniGunner0BObjId;
 		int field_2C;
 		int nodLightTankObjId;
 		int nodBuggyObjId;

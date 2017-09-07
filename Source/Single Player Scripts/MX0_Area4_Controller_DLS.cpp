@@ -24,7 +24,7 @@ void MX0_Area4_Controller_DLS::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->starAtAreaNumber, sizeof(this->starAtAreaNumber), 1);
 	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
 	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
-	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 4);
+	Auto_Save_Variable(&this->MX0GDIMiniGunner0BObjId, sizeof(this->MX0GDIMiniGunner0BObjId), 4);
 	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 5);
 	Auto_Save_Variable(&this->nodLightTankObjId, sizeof(this->nodLightTankObjId), 6);
 	Auto_Save_Variable(&this->nodBuggyObjId, sizeof(this->nodBuggyObjId), 7);
@@ -86,10 +86,10 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 			Commands->Attach_Script(field24Obj, "MX0_Vehicle_DLS", "1500018, 1500019, 0, 0, 0.5f");
 			Commands->Attach_Script(field24Obj, "MX0_GDI_Killed_DLS", "1");
 
-			GameObject *field28Obj = Commands->Find_Object(this->field_28);
-			Commands->Attach_Script(field28Obj, "MX0_Vehicle_DLS", "1500022, 1500023, 0, 0, 1.0f");
-			Commands->Attach_Script(field28Obj, "MX0_GDI_Killed_DLS", "2");
-			Commands->Attach_Script(field28Obj, "M00_Damage_Modifier_DME", ".10f,1,1,1,1");
+			GameObject *MX0GDIMiniGunner0BObj = Commands->Find_Object(this->MX0GDIMiniGunner0BObjId);
+			Commands->Attach_Script(MX0GDIMiniGunner0BObj, "MX0_Vehicle_DLS", "1500022, 1500023, 0, 0, 1.0f");
+			Commands->Attach_Script(MX0GDIMiniGunner0BObj, "MX0_GDI_Killed_DLS", "2");
+			Commands->Attach_Script(MX0GDIMiniGunner0BObj, "M00_Damage_Modifier_DME", ".10f,1,1,1,1");
 
 			GameObject *field2CObj = Commands->Find_Object(this->field_2C);
 			Commands->Attach_Script(field2CObj, "MX0_Vehicle_DLS", "1500027, 1500028, 1500029, 0, 1.0f");
@@ -112,7 +112,7 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 				this->field_24 = Commands->Get_ID(sender);
 				break;
 			case 3:
-				this->field_28 = Commands->Get_ID(sender);
+				this->MX0GDIMiniGunner0BObjId = Commands->Get_ID(sender);
 				break;
 			case 4:
 				this->field_2C = Commands->Get_ID(sender);
@@ -235,8 +235,8 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 			GameObject *field24Obj = Commands->Find_Object(this->field_24);
 			Commands->Send_Custom_Event(obj, field24Obj, 445001, 1, 0.0f);
 			
-			GameObject *field28Obj = Commands->Find_Object(this->field_28);
-			Commands->Send_Custom_Event(obj, field28Obj, 445001, 1, 0.0f);
+			GameObject *MX0GDIMiniGunner0BObj = Commands->Find_Object(this->MX0GDIMiniGunner0BObjId);
+			Commands->Send_Custom_Event(obj, MX0GDIMiniGunner0BObj, 445001, 1, 0.0f);
 
 			GameObject *field2CObj = Commands->Find_Object(this->field_2C);
 			Commands->Send_Custom_Event(obj, field2CObj, 445001, 1, 0.0f);
