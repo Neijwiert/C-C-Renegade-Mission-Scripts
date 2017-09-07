@@ -221,6 +221,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_A03_GDI_INFANTRY.cpp" />
     <ClCompile Include="MX0_A03_GDI_TROOPER_ONE.cpp" />
     <ClCompile Include="MX0_A03_GDI_TROOP_DROP_ZONE_DAK.cpp" />
+    <ClCompile Include="MX0_A03_HAVOC_TANK.cpp" />
     <ClCompile Include="MX0_A03_HUMVEE.cpp" />
     <ClCompile Include="MX0_A03_NOD_BUGGIE.cpp" />
     <ClCompile Include="MX0_A03_NOD_HARVESTER.cpp" />
@@ -290,6 +291,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_A03_GDI_INFANTRY.h" />
     <ClInclude Include="MX0_A03_GDI_TROOPER_ONE.h" />
     <ClInclude Include="MX0_A03_GDI_TROOP_DROP_ZONE_DAK.h" />
+    <ClInclude Include="MX0_A03_HAVOC_TANK.h" />
     <ClInclude Include="MX0_A03_HUMVEE.h" />
     <ClInclude Include="MX0_A03_NOD_BUGGIE.h" />
     <ClInclude Include="MX0_A03_NOD_HARVESTER.h" />

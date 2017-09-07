@@ -136,6 +136,7 @@ void MX0_A03_CONTROLLER_DAK::Custom(GameObject *obj, int type, int param, GameOb
 	}
 
 	// Received from MX0_A02_Controller 2 seconds after custom type 262 is triggered
+	// (Unused script) Received from MX0_A03_HAVOC_TANK when entered 
 	else if (type == 401)
 	{
 		Commands->Scale_AI_Awareness(2.0f, 1.0f);

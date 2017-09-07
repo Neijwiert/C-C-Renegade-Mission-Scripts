@@ -240,6 +240,12 @@
     <ClCompile Include="MX0_A03_GDI_TROOP_DROP_ZONE_DAK.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
+    <ClCompile Include="MX0_A03_GDI_INFANTRY.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MX0_A03_HAVOC_TANK.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -423,6 +429,12 @@
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
     <ClInclude Include="MX0_A03_GDI_TROOP_DROP_ZONE_DAK.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_A03_GDI_INFANTRY.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_A03_HAVOC_TANK.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
   </ItemGroup>

@@ -38,3 +38,4 @@ MX0_A03_CONTROLLER_DAK
 // Below are scripts that are not used in the level, but are present
 MX0_A02_DEFAULT_OFF
 MX0_A02_ZONE_DEFAULT_ON
+MX0_A03_HAVOC_TANK
