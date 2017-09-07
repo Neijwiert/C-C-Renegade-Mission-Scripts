@@ -35,8 +35,17 @@ MX0_A03_GDI_TROOP_DROP_ZONE_DAK
 MX0_A03_GDI_INFANTRY
 MX0_A03_CONTROLLER_DAK
 MX0_MissionStart_DME
+MX0_Engineer1
+MX0_Engineer2
+MX0_GDI_Soldier_DLS
+MX0_A03_END_ZONE
+MX0_Vehicle_DLS
+MX0_SAM_DLS
+MX0_Nod_RocketSoldier_DLS
+MX0_Gun_Emplacement_DLS
+MX0_A03_GDI_TROOPER_ONE
 
-// Below are scripts that are not used in the level, but are present
+// Below are scripts that I'm pretty sure of that they are not used, but they are present
 MX0_A02_DEFAULT_OFF
 MX0_A02_ZONE_DEFAULT_ON
 MX0_A03_HAVOC_TANK

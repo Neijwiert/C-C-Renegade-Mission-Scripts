@@ -42,7 +42,7 @@ void MX0_GDI_Soldier_DLS::Created(GameObject *obj)
 
 void MX0_GDI_Soldier_DLS::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
-	// TODO (No custom)
+	// Received from MX0_Area4_Controller_DLS when timer number <= 0 or 1 or 2 or 3 or 5 or 6 is triggered
 	if (type == 445006)
 	{
 		this->attackLocationIndex = param;
@@ -65,7 +65,7 @@ void MX0_GDI_Soldier_DLS::Custom(GameObject *obj, int type, int param, GameObjec
 		Commands->Debug_Message("Attack_Loc [%d] = %d \n", this->attackLocationIndex, this->attackLocations[this->attackLocationIndex]);
 	}
 
-	// TODO (No custom)
+	// Received from MX0_Area5_Controller_DLS when timer number 1 or 10 or 4 is triggered
 	else if (type == 445002)
 	{
 		if (param == 445012)                      

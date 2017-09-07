@@ -231,7 +231,7 @@ void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sen
 		}
 	}
 
-	// TODO (No custom)
+	// Received from MX0_MissionStart_DME when custom type 130 has been received
 	else if (type == 131)
 	{
 		Commands->Action_Reset(obj, 100.0f);
@@ -261,7 +261,7 @@ void MX0_Engineer1::Custom(GameObject *obj, int type, int param, GameObject *sen
 		Commands->Action_Play_Animation(obj, actionParamsStruct);
 	}
 
-	// TODO (No custom)
+	// Received from MX0_MissionStart_DME when custom type 111 has been received
 	else if (type == 112)
 	{
 		ActionParamsStruct actionParamsStruct;

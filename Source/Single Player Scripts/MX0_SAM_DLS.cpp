@@ -32,6 +32,7 @@ void MX0_SAM_DLS::Created(GameObject *obj)
 
 void MX0_SAM_DLS::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_Area4_Controller_DLS when custom type 445007 is received
 	if (type == 445007)
 	{
 		ActionParamsStruct params;

@@ -26,6 +26,8 @@ void MX0_Vehicle_DLS::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->speed, sizeof(this->speed), 3);
 }
 
+// When MX0_Area4_Controller_DLS receives custom with type 445000 
+// When MX0_Area4_Controller_DLS has timer with number <= 0 triggered
 void MX0_Vehicle_DLS::Created(GameObject *obj)
 {
 	Commands->Enable_Enemy_Seen(obj, true);
@@ -55,6 +57,7 @@ void MX0_Vehicle_DLS::Created(GameObject *obj)
 
 void MX0_Vehicle_DLS::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_Area4_Controller_DLS when timer number <= 0 or 1 or 2 triggers
 	if (type == 445001)
 	{
 		this->attackLocationIndex = param;
@@ -75,6 +78,8 @@ void MX0_Vehicle_DLS::Custom(GameObject *obj, int type, int param, GameObject *s
 
 		Commands->Debug_Message("Attack_Loc [%d] = %d \n", this->attackLocationIndex, this->attackLocations[this->attackLocationIndex]);
 	}
+
+	// Received from MX0_Area4_Controller_DLS when timer number <= 0 or 1 or 2 or 4 triggers
 	else if (type == 445002)
 	{
 		if (param == 445010)

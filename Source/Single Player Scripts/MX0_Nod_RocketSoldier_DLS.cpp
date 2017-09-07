@@ -40,6 +40,7 @@ void MX0_Nod_RocketSoldier_DLS::Created(GameObject *obj)
 
 void MX0_Nod_RocketSoldier_DLS::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_Area4_Controller_DLS when timer number 4 triggers
 	if (type == 445002)
 	{
 		ActionParamsStruct params;

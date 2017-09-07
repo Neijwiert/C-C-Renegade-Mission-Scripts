@@ -21,7 +21,7 @@
 
 void MX0_A03_GDI_TROOPER_ONE::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->isHarvesterAliveAndStarInA03, sizeof(this->isHarvesterAliveAndStarInA03), 1);
 }
 
 // When MX0_A03_CONTROLLER_DAK receives custom type 401
@@ -30,11 +30,12 @@ void MX0_A03_GDI_TROOPER_ONE::Created(GameObject *obj)
 	Commands->Attach_Script(obj, "M00_Send_Object_ID", "1500017,3,1.0f");
 	Commands->Innate_Disable(obj);
 
-	this->field_1C = true;
+	this->isHarvesterAliveAndStarInA03 = true;
 }
 
 void MX0_A03_GDI_TROOPER_ONE::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_A03_FIRST_PLAYER_ZONE when entered
 	if (!type)
 	{
 		Commands->Action_Reset(obj, 100.0f);
@@ -46,6 +47,8 @@ void MX0_A03_GDI_TROOPER_ONE::Custom(GameObject *obj, int type, int param, GameO
 
 		Commands->Action_Goto(obj, params);
 	}
+
+	// Received from MX0_A03_CONTROLLER_DAK 2 seconds after custom type 401 has been received
 	else if (type == 1)
 	{
 		Commands->Action_Reset(obj, 100.0f);
@@ -57,6 +60,8 @@ void MX0_A03_GDI_TROOPER_ONE::Custom(GameObject *obj, int type, int param, GameO
 
 		Commands->Action_Goto(obj, params);
 	}
+
+	// Received from MX0_A03_CONTROLLER_DAK after custom type 405 has been received
 	else if (type == 2)
 	{
 		Commands->Action_Reset(obj, 100.0f);
@@ -68,9 +73,11 @@ void MX0_A03_GDI_TROOPER_ONE::Custom(GameObject *obj, int type, int param, GameO
 		
 		Commands->Action_Goto(obj, params);
 	}
+
+	// Received from MX0_GDI_ORCA after 10 seconds when custom type 2 has been received
 	else if (type == 3)
 	{
-		if (this->field_1C)
+		if (this->isHarvesterAliveAndStarInA03)
 		{
 			int conversationId = Commands->Create_Conversation("MX0_A03_05", 0, 0.0f, true); // Blast that Harvester for us, sir!
 			Commands->Join_Conversation(obj, conversationId, false, false, true);
@@ -79,10 +86,15 @@ void MX0_A03_GDI_TROOPER_ONE::Custom(GameObject *obj, int type, int param, GameO
 			Commands->Send_Custom_Event(obj, obj, 3, 0, 7.0f);
 		}
 	}
+
+	// Received from MX0_A03_CONTROLLER_DAK after custom type 408 has been received
+	// Received from MX0_A03_END_ZONE when entered
 	else if (type == 4)
 	{
-		this->field_1C = false;
+		this->isHarvesterAliveAndStarInA03 = false;
 	}
+
+	// Received from MX0_GDI_ORCA when custom type 2 has been received
 	else if (type == 5)
 	{
 		Commands->Action_Reset(obj, 100.0f);

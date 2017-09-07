@@ -30,6 +30,6 @@ class MX0_A03_END_ZONE : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
-		int field_1C;
+		int MX0GDIMiniGunner0BObjId;
 		bool canSendCustoms;
 };

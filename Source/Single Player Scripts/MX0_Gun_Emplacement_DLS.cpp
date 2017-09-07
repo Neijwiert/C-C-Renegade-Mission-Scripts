@@ -32,6 +32,7 @@ void MX0_Gun_Emplacement_DLS::Created(GameObject *obj)
 
 void MX0_Gun_Emplacement_DLS::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_Area4_Controller_DLS when timer number 2 triggers
 	if (type == 445002)
 	{
 		Timer_Expired(obj, 0);

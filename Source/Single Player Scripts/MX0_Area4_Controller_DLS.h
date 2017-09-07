@@ -31,28 +31,28 @@ class MX0_Area4_Controller_DLS : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 
 		int starAtAreaNumber;
-		bool field_20;
-		int field_24;
+		bool isA04Active;
+		int humveeObjId;
 		int MX0GDIMiniGunner0BObjId;
 		int field_2C;
 		int nodLightTankObjId;
 		int nodBuggyObjId;
-		int field_38;
-		int field_3C;
-		int field_40;
+		int rightWallRocketTrooperObjId;
+		int leftWallRocketTrooperObjId;
+		int reinforcementsEngineer1ObjId;
 		int field_44;
-		int field_48;
-		int field_4C;
+		int gdiRocketSoldier0ObjId;
+		int gdiMiniGunner0ObjId;
 		int MX0ObeliskObjId; // Structure
 		int MX0NodObeliskObjId; // Weapon
-		int field_58;
+		int gdiOrcaFLyoverObjId;
 		int nodMobileArtilleryObjId;
-		bool field_60;
+		bool canDoFlyoverCinematic;
 		int field_64;
-		bool field_68;
-		int field_6C;
+		bool isObeliskSighted;
+		int gdiReinforcementsDeathCount;
 		int field_70;
 		int field_74;
-		int field_78;
-		int field_7C;
+		int wrongWayConvTableIndex;
+		int calledForStar; // Integer on purpose
 };

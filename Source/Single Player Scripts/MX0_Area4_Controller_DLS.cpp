@@ -22,44 +22,44 @@
 void MX0_Area4_Controller_DLS::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->starAtAreaNumber, sizeof(this->starAtAreaNumber), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
+	Auto_Save_Variable(&this->isA04Active, sizeof(this->isA04Active), 2);
+	Auto_Save_Variable(&this->humveeObjId, sizeof(this->humveeObjId), 3);
 	Auto_Save_Variable(&this->MX0GDIMiniGunner0BObjId, sizeof(this->MX0GDIMiniGunner0BObjId), 4);
 	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 5);
 	Auto_Save_Variable(&this->nodLightTankObjId, sizeof(this->nodLightTankObjId), 6);
 	Auto_Save_Variable(&this->nodBuggyObjId, sizeof(this->nodBuggyObjId), 7);
-	Auto_Save_Variable(&this->field_38, sizeof(this->field_38), 8);
-	Auto_Save_Variable(&this->field_3C, sizeof(this->field_3C), 9);
-	Auto_Save_Variable(&this->field_40, sizeof(this->field_40), 10);
+	Auto_Save_Variable(&this->rightWallRocketTrooperObjId, sizeof(this->rightWallRocketTrooperObjId), 8);
+	Auto_Save_Variable(&this->leftWallRocketTrooperObjId, sizeof(this->leftWallRocketTrooperObjId), 9);
+	Auto_Save_Variable(&this->reinforcementsEngineer1ObjId, sizeof(this->reinforcementsEngineer1ObjId), 10);
 	Auto_Save_Variable(&this->field_44, sizeof(this->field_44), 11);
-	Auto_Save_Variable(&this->field_48, sizeof(this->field_48), 12);
-	Auto_Save_Variable(&this->field_4C, sizeof(this->field_4C), 13);
+	Auto_Save_Variable(&this->gdiRocketSoldier0ObjId, sizeof(this->gdiRocketSoldier0ObjId), 12);
+	Auto_Save_Variable(&this->gdiMiniGunner0ObjId, sizeof(this->gdiMiniGunner0ObjId), 13);
 	Auto_Save_Variable(&this->MX0ObeliskObjId, sizeof(this->MX0ObeliskObjId), 14);
 	Auto_Save_Variable(&this->MX0NodObeliskObjId, sizeof(this->MX0NodObeliskObjId), 15);
-	Auto_Save_Variable(&this->field_58, sizeof(this->field_58), 16);
+	Auto_Save_Variable(&this->gdiOrcaFLyoverObjId, sizeof(this->gdiOrcaFLyoverObjId), 16);
 	Auto_Save_Variable(&this->nodMobileArtilleryObjId, sizeof(this->nodMobileArtilleryObjId), 17);
-	Auto_Save_Variable(&this->field_60, sizeof(this->field_60), 18);
+	Auto_Save_Variable(&this->canDoFlyoverCinematic, sizeof(this->canDoFlyoverCinematic), 18);
 	Auto_Save_Variable(&this->field_64, sizeof(this->field_64), 19);
-	Auto_Save_Variable(&this->field_68, sizeof(this->field_68), 20);
-	Auto_Save_Variable(&this->field_6C, sizeof(this->field_6C), 21);
+	Auto_Save_Variable(&this->isObeliskSighted, sizeof(this->isObeliskSighted), 20);
+	Auto_Save_Variable(&this->gdiReinforcementsDeathCount, sizeof(this->gdiReinforcementsDeathCount), 21);
 	Auto_Save_Variable(&this->field_70, sizeof(this->field_70), 22);
 	Auto_Save_Variable(&this->field_74, sizeof(this->field_74), 23);
-	Auto_Save_Variable(&this->field_78, sizeof(this->field_78), 24);
-	Auto_Save_Variable(&this->field_7C, sizeof(this->field_7C), 25);
+	Auto_Save_Variable(&this->wrongWayConvTableIndex, sizeof(this->wrongWayConvTableIndex), 24);
+	Auto_Save_Variable(&this->calledForStar, sizeof(this->calledForStar), 25);
 }
 
 void MX0_Area4_Controller_DLS::Created(GameObject *obj)
 {
 	this->starAtAreaNumber = 0;
-	this->field_20 = false;
+	this->isA04Active = false;
 
 	Commands->Scale_AI_Awareness(3.0f, 1.0f);
 
-	this->field_68 = false;
-	this->field_60 = false;
-	this->field_6C = 0;
-	this->field_78 = 0;
-	this->field_7C = 0;
+	this->isObeliskSighted = false;
+	this->canDoFlyoverCinematic = false;
+	this->gdiReinforcementsDeathCount = 0;
+	this->wrongWayConvTableIndex = 0;
+	this->calledForStar = 0;
 }
 
 void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, GameObject *sender)
@@ -76,15 +76,15 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 	{
 		this->starAtAreaNumber = param;
 
-		if (param == 1 && !this->field_20)
+		if (param == 1 && !this->isA04Active)
 		{
-			this->field_20 = true;
+			this->isA04Active = true;
 
 			Commands->Start_Timer(obj, this, 3.0f, 0);
 
-			GameObject *field24Obj = Commands->Find_Object(this->field_24);
-			Commands->Attach_Script(field24Obj, "MX0_Vehicle_DLS", "1500018, 1500019, 0, 0, 0.5f");
-			Commands->Attach_Script(field24Obj, "MX0_GDI_Killed_DLS", "1");
+			GameObject *humveeObj = Commands->Find_Object(this->humveeObjId);
+			Commands->Attach_Script(humveeObj, "MX0_Vehicle_DLS", "1500018, 1500019, 0, 0, 0.5f");
+			Commands->Attach_Script(humveeObj, "MX0_GDI_Killed_DLS", "1");
 
 			GameObject *MX0GDIMiniGunner0BObj = Commands->Find_Object(this->MX0GDIMiniGunner0BObjId);
 			Commands->Attach_Script(MX0GDIMiniGunner0BObj, "MX0_Vehicle_DLS", "1500022, 1500023, 0, 0, 1.0f");
@@ -101,20 +101,22 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 			Commands->Attach_Script(gdiRocketSoldierObj, "M00_Send_Object_ID", "1500017, 12, 0.0f");
 			Commands->Attach_Script(gdiRocketSoldierObj, "MX0_GDI_Soldier_DLS", "1500053, 1500070, 0, 0, 0.8f");
 
-			Commands->Send_Custom_Event(obj, field24Obj, 445002, 445010, 0.0f);
+			Commands->Send_Custom_Event(obj, humveeObj, 445002, 445010, 0.0f);
 		}
 	}
+
+	// Received from various M00_Send_Object_ID
 	else if (type == 9035)
 	{
 		switch (param)
 		{
 			case 1:
-				this->field_24 = Commands->Get_ID(sender);
+				this->humveeObjId = Commands->Get_ID(sender);
 				break;
 			case 3:
 				this->MX0GDIMiniGunner0BObjId = Commands->Get_ID(sender);
 				break;
-			case 4:
+			case 4: // TODO (No custom)
 				this->field_2C = Commands->Get_ID(sender);
 				break;
 			case 5:
@@ -124,22 +126,22 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 				this->nodBuggyObjId = Commands->Get_ID(sender);
 				break;
 			case 8:
-				this->field_38 = Commands->Get_ID(sender);
+				this->rightWallRocketTrooperObjId = Commands->Get_ID(sender);
 				break;
 			case 9:
-				this->field_3C = Commands->Get_ID(sender);
+				this->leftWallRocketTrooperObjId = Commands->Get_ID(sender);
 				break;
 			case 10:
-				this->field_40 = Commands->Get_ID(sender);
+				this->reinforcementsEngineer1ObjId = Commands->Get_ID(sender);
 				break;
-			case 11:
+			case 11: // TODO (No custom)
 				this->field_44 = Commands->Get_ID(sender);
 				break;
 			case 12:
-				this->field_48 = Commands->Get_ID(sender);
+				this->gdiRocketSoldier0ObjId = Commands->Get_ID(sender);
 				break;
 			case 13:
-				this->field_4C = Commands->Get_ID(sender);
+				this->gdiMiniGunner0ObjId = Commands->Get_ID(sender);
 				break;
 			case 14:
 				this->MX0ObeliskObjId = Commands->Get_ID(sender);
@@ -148,29 +150,31 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 				this->MX0NodObeliskObjId = Commands->Get_ID(sender);
 				break;
 			case 16:
-				this->field_58 = Commands->Get_ID(sender);
+				this->gdiOrcaFLyoverObjId = Commands->Get_ID(sender);
 				break;
 			case 17:
 				this->nodMobileArtilleryObjId = Commands->Get_ID(sender);
 				break;
-			case 18:
+			case 18: // TODO (No custom)
 				this->field_64 = Commands->Get_ID(sender);
-				break;
-			case 19:
+				break; 
+			case 19: // TODO (No custom)
 				this->field_70 = Commands->Get_ID(sender);
 				break;
-			case 20:
+			case 20: // TODO (No custom)
 				this->field_74 = Commands->Get_ID(sender);
 				break;
 		}
 	}
+
+	// Received after 100 cinematic frames from x0e_obelisk
 	else if (type == 445007)
 	{
 		GameObject *rightSamSiteObj = Commands->Find_Object(1500015);
-		Commands->Send_Custom_Event(obj, rightSamSiteObj, 445007, this->field_58, 0.0f);
+		Commands->Send_Custom_Event(obj, rightSamSiteObj, 445007, this->gdiOrcaFLyoverObjId, 0.0f);
 
 		GameObject *leftSamSiteObj = Commands->Find_Object(1500016);
-		Commands->Send_Custom_Event(obj, leftSamSiteObj, 445007, this->field_58, 0.0f);
+		Commands->Send_Custom_Event(obj, leftSamSiteObj, 445007, this->gdiOrcaFLyoverObjId, 0.0f);
 	}
 
 	// Received after 90 cinematic frames from x0d_a10_crash
@@ -189,9 +193,9 @@ void MX0_Area4_Controller_DLS::Custom(GameObject *obj, int type, int param, Game
 	// Received from MX0_GDI_Killed_DLS when killed
 	else if (type == 445019)
 	{
-		if (++this->field_6C == 2)
+		if (++this->gdiReinforcementsDeathCount == 2)
 		{
-			this->field_6C = 0;
+			this->gdiReinforcementsDeathCount = 0;
 
 			GameObject *MX0GDIReinforceArea4Obj = Commands->Find_Object(1500102);
 			Vector3 MX0GDIReinforceArea4ObjPos = Commands->Get_Position(MX0GDIReinforceArea4Obj);
@@ -220,20 +224,20 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	{
 		if (this->starAtAreaNumber <= 0)
 		{
-			if (!this->field_7C)
+			if (!this->calledForStar)
 			{
-				this->field_7C = 1;
+				this->calledForStar = 1;
 
-				GameObject *field24Obj = Commands->Find_Object(this->field_24);
-				Commands->Send_Custom_Event(obj, field24Obj, 445002, 445020, 0.0f);
+				GameObject *humveeObj = Commands->Find_Object(this->humveeObjId);
+				Commands->Send_Custom_Event(obj, humveeObj, 445002, 445020, 0.0f);
 			}
 
 			Commands->Start_Timer(obj, this, 2.0f, 0);
 		}
 		else
 		{
-			GameObject *field24Obj = Commands->Find_Object(this->field_24);
-			Commands->Send_Custom_Event(obj, field24Obj, 445001, 1, 0.0f);
+			GameObject *humveeObj = Commands->Find_Object(this->humveeObjId);
+			Commands->Send_Custom_Event(obj, humveeObj, 445001, 1, 0.0f);
 			
 			GameObject *MX0GDIMiniGunner0BObj = Commands->Find_Object(this->MX0GDIMiniGunner0BObjId);
 			Commands->Send_Custom_Event(obj, MX0GDIMiniGunner0BObj, 445001, 1, 0.0f);
@@ -244,11 +248,11 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 			GameObject *field44Obj = Commands->Find_Object(this->field_44);
 			Commands->Send_Custom_Event(obj, field44Obj, 445006, 1, 0.0f);
 
-			GameObject *field48Obj = Commands->Find_Object(this->field_48);
-			Commands->Send_Custom_Event(obj, field48Obj, 445006, 1, 0.0f);
+			GameObject *gdiRocketSoldier0Obj = Commands->Find_Object(this->gdiRocketSoldier0ObjId);
+			Commands->Send_Custom_Event(obj, gdiRocketSoldier0Obj, 445006, 1, 0.0f);
 			
-			GameObject *field4CObj = Commands->Find_Object(this->field_4C);
-			Commands->Send_Custom_Event(obj, field4CObj, 445006, 1, 0.0f);
+			GameObject *gdiMiniGunner0Obj = Commands->Find_Object(this->gdiMiniGunner0ObjId);
+			Commands->Send_Custom_Event(obj, gdiMiniGunner0Obj, 445006, 1, 0.0f);
 			
 			GameObject *nodLightTankObj = Commands->Find_Object(this->nodLightTankObjId);
 			Commands->Attach_Script(nodLightTankObj, "MX0_Vehicle_DLS", "1500033, 1500034, 0, 0, 0.4f");
@@ -261,7 +265,7 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 
 			Commands->Start_Timer(obj, this, 2.0f, 1);
 
-			Commands->Send_Custom_Event(obj, field24Obj, 9037, 0, 0.0f);
+			Commands->Send_Custom_Event(obj, humveeObj, 9037, 0, 0.0f);
 			Commands->Send_Custom_Event(obj, field44Obj, 445002, 445012, 4.0f);
 		}
 	}
@@ -269,8 +273,8 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	{
 		if (this->starAtAreaNumber <= 1)
 		{
-			GameObject *field48Obj = Commands->Find_Object(this->field_48);
-			Commands->Send_Custom_Event(obj, field48Obj, 445002, 445021, 0.0f);
+			GameObject *gdiRocketSoldier0Obj = Commands->Find_Object(this->gdiRocketSoldier0ObjId);
+			Commands->Send_Custom_Event(obj, gdiRocketSoldier0Obj, 445002, 445021, 0.0f);
 
 			Commands->Start_Timer(obj, this, 6.0f, 1);
 		}
@@ -287,11 +291,11 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 			GameObject *field44Obj = Commands->Find_Object(this->field_44);
 			Commands->Send_Custom_Event(obj, field44Obj, 445002, 445013, 4.0f);
 
-			GameObject *field48Obj = Commands->Find_Object(this->field_48);
-			Commands->Send_Custom_Event(obj, field48Obj, 445006, 1, 0.0f);
+			GameObject *gdiRocketSoldier0Obj = Commands->Find_Object(this->gdiRocketSoldier0ObjId);
+			Commands->Send_Custom_Event(obj, gdiRocketSoldier0Obj, 445006, 1, 0.0f);
 
-			GameObject *field4CObj = Commands->Find_Object(this->field_4C);
-			Commands->Send_Custom_Event(obj, field4CObj, 445006, 1, 0.0f);
+			GameObject *gdiMiniGunner0Obj = Commands->Find_Object(this->gdiMiniGunner0ObjId);
+			Commands->Send_Custom_Event(obj, gdiMiniGunner0Obj, 445006, 1, 0.0f);
 
 			int randInt = Commands->Get_Random_Int(0, 3);
 
@@ -306,16 +310,16 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	{
 		if (this->starAtAreaNumber == 0 || this->starAtAreaNumber == 1)
 		{
-			if (this->field_78 == 4)
+			if (this->wrongWayConvTableIndex == 4)
 			{
-				this->field_78 = 0;
+				this->wrongWayConvTableIndex = 0;
 			}
 
-			int conversationId = Commands->Create_Conversation(wrongWayConvTable[this->field_78], 100, 200.0f, false);
+			int conversationId = Commands->Create_Conversation(wrongWayConvTable[this->wrongWayConvTableIndex], 100, 200.0f, false);
 			Commands->Join_Conversation(obj, conversationId, false, true, true);
 			Commands->Start_Conversation(conversationId, 10);
 
-			this->field_78++;
+			this->wrongWayConvTableIndex++;
 
 			Commands->Start_Timer(obj, this, 5.0f, 2);
 		}
@@ -349,11 +353,11 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 			Commands->Set_Facing(invisObj, MX0GDIReinforceArea4ObjFacing);
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "MX0_GDI_Reinforce_Area4.txt");
 
-			GameObject *field48Obj = Commands->Find_Object(this->field_48);
-			Commands->Send_Custom_Event(obj, field48Obj, 445006, 1, 0.0f);
+			GameObject *gdiRocketSoldier0Obj = Commands->Find_Object(this->gdiRocketSoldier0ObjId);
+			Commands->Send_Custom_Event(obj, gdiRocketSoldier0Obj, 445006, 1, 0.0f);
 
-			GameObject *field4CObj = Commands->Find_Object(this->field_4C);
-			Commands->Send_Custom_Event(obj, field4CObj, 445006, 1, 0.0f);
+			GameObject *gdiMiniGunner0Obj = Commands->Find_Object(this->gdiMiniGunner0ObjId);
+			Commands->Send_Custom_Event(obj, gdiMiniGunner0Obj, 445006, 1, 0.0f);
 
 			int randInt = Commands->Get_Random_Int(0, 3);
 			
@@ -368,16 +372,16 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	{
 		if (this->starAtAreaNumber == 0 || this->starAtAreaNumber == 1)
 		{
-			if (this->field_78 == 4)
+			if (this->wrongWayConvTableIndex == 4)
 			{
-				this->field_78 = 0;
+				this->wrongWayConvTableIndex = 0;
 			}
 
-			int conversationId = Commands->Create_Conversation(wrongWayConvTable[this->field_78], 100, 200.0f, false);
+			int conversationId = Commands->Create_Conversation(wrongWayConvTable[this->wrongWayConvTableIndex], 100, 200.0f, false);
 			Commands->Join_Conversation(obj, conversationId, false, true, true);
 			Commands->Start_Conversation(conversationId, 10);
 
-			this->field_78++;
+			this->wrongWayConvTableIndex++;
 
 			Commands->Start_Timer(obj, this, 5.0f, 3);
 		}
@@ -399,16 +403,16 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 			Commands->Start_Timer(obj, this, 5.0f, 7);
 			Commands->Start_Timer(obj, this, 10.0f, 8);
 
-			this->field_60 = true;
+			this->canDoFlyoverCinematic = true;
 
 			Commands->Start_Timer(obj, this, 8.0f, 10);
 			Commands->Start_Timer(obj, this, 2.0f, 4);
 			
-			GameObject *field48Obj = Commands->Find_Object(this->field_48);
-			Commands->Send_Custom_Event(obj, field48Obj, 445006, 1, 0.0f);
+			GameObject *gdiRocketSoldier0Obj = Commands->Find_Object(this->gdiRocketSoldier0ObjId);
+			Commands->Send_Custom_Event(obj, gdiRocketSoldier0Obj, 445006, 1, 0.0f);
 
-			GameObject *field4CObj = Commands->Find_Object(this->field_4C);
-			Commands->Send_Custom_Event(obj, field4CObj, 445006, 1, 0.0f);
+			GameObject *gdiMiniGunner0Obj = Commands->Find_Object(this->gdiMiniGunner0ObjId);
+			Commands->Send_Custom_Event(obj, gdiMiniGunner0Obj, 445006, 1, 0.0f);
 
 			int randInt = Commands->Get_Random_Int(0, 3);
 			
@@ -425,23 +429,23 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 		Commands->Join_Conversation(NULL, conversationId, false, true, true);
 		Commands->Start_Conversation(conversationId, 1);
 		
-		GameObject *field48Obj = Commands->Find_Object(this->field_48);
-		Commands->Send_Custom_Event(obj, field48Obj, 445002, 445014, 3.0f);
+		GameObject *gdiRocketSoldier0Obj = Commands->Find_Object(this->gdiRocketSoldier0ObjId);
+		Commands->Send_Custom_Event(obj, gdiRocketSoldier0Obj, 445002, 445014, 3.0f);
 	}
 	else if (number == 4)
 	{
 		if (this->starAtAreaNumber == 0 || this->starAtAreaNumber == 1)
 		{
-			if (this->field_78 == 4)
+			if (this->wrongWayConvTableIndex == 4)
 			{
-				this->field_78 = 0;
+				this->wrongWayConvTableIndex = 0;
 			}
 
-			int conversationId = Commands->Create_Conversation(wrongWayConvTable[this->field_78], 100, 200.0f, false);
+			int conversationId = Commands->Create_Conversation(wrongWayConvTable[this->wrongWayConvTableIndex], 100, 200.0f, false);
 			Commands->Join_Conversation(obj, conversationId, false, true, true);
 			Commands->Start_Conversation(conversationId, 10);
 
-			this->field_78++;
+			this->wrongWayConvTableIndex++;
 
 			Commands->Start_Timer(obj, this, 5.0f, 4);
 		}
@@ -453,17 +457,17 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 		{
 			if (!Commands->Find_Object(1500015) && !Commands->Find_Object(1500016))// Right and left samsite
 			{
-				GameObject *field48Obj = Commands->Find_Object(this->field_48);
-				Commands->Send_Custom_Event(obj, field48Obj, 445002, 445016, 0.0f);
+				GameObject *gdiRocketSoldier0Obj = Commands->Find_Object(this->gdiRocketSoldier0ObjId);
+				Commands->Send_Custom_Event(obj, gdiRocketSoldier0Obj, 445002, 445016, 0.0f);
 				
 				GameObject *field44Obj = Commands->Find_Object(this->field_44);
 				Commands->Send_Custom_Event(obj, field44Obj, 445002, 445017, 2.0f);
 
-				GameObject *field38Obj = Commands->Find_Object(this->field_38);
-				Commands->Send_Custom_Event(obj, field38Obj, 445002, this->field_40, 0.0f);
+				GameObject *rightWallRocketTrooperObj = Commands->Find_Object(this->rightWallRocketTrooperObjId);
+				Commands->Send_Custom_Event(obj, rightWallRocketTrooperObj, 445002, this->reinforcementsEngineer1ObjId, 0.0f);
 				
-				GameObject *field3CObj = Commands->Find_Object(this->field_3C);
-				Commands->Send_Custom_Event(obj, field3CObj, 445002, this->field_40, 0.0f);
+				GameObject *leftWallRocketTrooperObj = Commands->Find_Object(this->leftWallRocketTrooperObjId);
+				Commands->Send_Custom_Event(obj, leftWallRocketTrooperObj, 445002, this->reinforcementsEngineer1ObjId, 0.0f);
 
 				Commands->Start_Timer(obj, this, 5.0f, 5);
 			}
@@ -472,14 +476,14 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 				Commands->Start_Timer(obj, this, 5.0f, 7);
 				Commands->Start_Timer(obj, this, 10.0f, 8);
 
-				this->field_60 = false;
+				this->canDoFlyoverCinematic = false;
 
-				if (!this->field_68)
+				if (!this->isObeliskSighted)
 				{
-					this->field_68 = true;
+					this->isObeliskSighted = true;
 
-					GameObject *field48Obj = Commands->Find_Object(this->field_48);
-					Commands->Send_Custom_Event(obj, field48Obj, 445002, 445015, 9.0f);
+					GameObject *gdiRocketSoldier0Obj = Commands->Find_Object(this->gdiRocketSoldier0ObjId);
+					Commands->Send_Custom_Event(obj, gdiRocketSoldier0Obj, 445002, 445015, 9.0f);
 					
 					GameObject *rightSamSiteObj = Commands->Find_Object(1500015);
 					Commands->Send_Custom_Event(obj, rightSamSiteObj, 9037, 0, 0.0f);
@@ -509,16 +513,16 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	{
 		if (this->starAtAreaNumber == 0 || this->starAtAreaNumber == 1)
 		{
-			if (this->field_78 == 4)
+			if (this->wrongWayConvTableIndex == 4)
 			{
-				this->field_78 = 0;
+				this->wrongWayConvTableIndex = 0;
 			}
 
-			int conversationId = Commands->Create_Conversation(wrongWayConvTable[this->field_78], 100, 200.0f, false);
+			int conversationId = Commands->Create_Conversation(wrongWayConvTable[this->wrongWayConvTableIndex], 100, 200.0f, false);
 			Commands->Join_Conversation(obj, conversationId, false, true, true);
 			Commands->Start_Conversation(conversationId, 10);
 
-			this->field_78++;
+			this->wrongWayConvTableIndex++;
 
 			Commands->Start_Timer(obj, this, 5.0f, 5);
 		}
@@ -542,11 +546,11 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 
 			Commands->Start_Timer(obj, this, 6.0f, 6);
 
-			GameObject *field48Obj = Commands->Find_Object(this->field_48);
-			Commands->Send_Custom_Event(obj, field48Obj, 445006, 1, 0.0f);
+			GameObject *gdiRocketSoldier0Obj = Commands->Find_Object(this->gdiRocketSoldier0ObjId);
+			Commands->Send_Custom_Event(obj, gdiRocketSoldier0Obj, 445006, 1, 0.0f);
 
-			GameObject *field4CObj = Commands->Find_Object(this->field_4C);
-			Commands->Send_Custom_Event(obj, field4CObj, 445006, 1, 0.0f);
+			GameObject *gdiMiniGunner0Obj = Commands->Find_Object(this->gdiMiniGunner0ObjId);
+			Commands->Send_Custom_Event(obj, gdiMiniGunner0Obj, 445006, 1, 0.0f);
 
 			int randInt = Commands->Get_Random_Int(0, 3);
 			
@@ -580,11 +584,11 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 		Commands->Start_Timer(obj, this, 22.0f, 14);
 		Commands->Start_Timer(obj, this, 25.0f, 9);
 		
-		GameObject *field48Obj = Commands->Find_Object(this->field_48);
-		Commands->Send_Custom_Event(obj, field48Obj, 445006, 1, 0.0f);
+		GameObject *gdiRocketSoldier0Obj = Commands->Find_Object(this->gdiRocketSoldier0ObjId);
+		Commands->Send_Custom_Event(obj, gdiRocketSoldier0Obj, 445006, 1, 0.0f);
 		
-		GameObject *field4CObj = Commands->Find_Object(this->field_4C);
-		Commands->Send_Custom_Event(obj, field4CObj, 445006, 1, 0.0f);
+		GameObject *gdiMiniGunner0Obj = Commands->Find_Object(this->gdiMiniGunner0ObjId);
+		Commands->Send_Custom_Event(obj, gdiMiniGunner0Obj, 445006, 1, 0.0f);
 
 		int randInt = Commands->Get_Random_Int(0, 3);
 		
@@ -610,7 +614,7 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	}
 	else if (number == 7)
 	{
-		if (this->field_60)
+		if (this->canDoFlyoverCinematic)
 		{
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));
 			Commands->Set_Facing(invisObj, 0.0f);
@@ -619,7 +623,7 @@ void MX0_Area4_Controller_DLS::Timer_Expired(GameObject *obj, int number)
 	}
 	else if (number == 8)
 	{
-		if (this->field_60)
+		if (this->canDoFlyoverCinematic)
 		{
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));
 			Commands->Set_Facing(invisObj, 0.0f);

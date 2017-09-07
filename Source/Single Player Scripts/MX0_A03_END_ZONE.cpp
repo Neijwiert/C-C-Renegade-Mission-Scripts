@@ -38,10 +38,10 @@ void MX0_A03_END_ZONE::Custom(GameObject *obj, int type, int param, GameObject *
 		this->canSendCustoms = false;
 	}
 
-	// TODO (No custom)
+	// Received from MX0_A03_CONTROLLER_DAK after custom type 9035 with param 12 is received which is sent from this script at entered
 	else if (type == 9035)
 	{
-		this->field_1C = param;
+		this->MX0GDIMiniGunner0BObjId = param;
 	}
 }
 
@@ -55,10 +55,10 @@ void MX0_A03_END_ZONE::Entered(GameObject *obj, GameObject *enterer)
 			Commands->Send_Custom_Event(obj, MX0A03ControllerObj, 9035, 12, 0.0f);
 		}
 
-		GameObject *field1CObj = Commands->Find_Object(this->field_1C);
-		if (field1CObj)
+		GameObject *MX0GDIMiniGunner0BObj = Commands->Find_Object(this->MX0GDIMiniGunner0BObjId);
+		if (MX0GDIMiniGunner0BObj)
 		{
-			Commands->Send_Custom_Event(obj, field1CObj, 4, 0, 0.0f);
+			Commands->Send_Custom_Event(obj, MX0GDIMiniGunner0BObj, 4, 0, 0.0f);
 		}
 
 		if (MX0A03ControllerObj)
@@ -66,7 +66,7 @@ void MX0_A03_END_ZONE::Entered(GameObject *obj, GameObject *enterer)
 			Commands->Send_Custom_Event(obj, MX0A03ControllerObj, 405, 1, 0.0f);
 		}
 
-		this->canSendCustoms = 0;
+		this->canSendCustoms = false;
 	}
 }
 

@@ -22,18 +22,18 @@
 void MX0_Obelisk_Weapon_DLS::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->canDoWarmupAnimation, sizeof(this->canDoWarmupAnimation), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->currentTargetObjId, sizeof(this->currentTargetObjId), 2);
 	Auto_Save_Variable(&this->obeliskEffectObjId, sizeof(this->obeliskEffectObjId), 3);
-	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 4);
-	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 5);
-	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 6);
+	Auto_Save_Variable(&this->humveeObjId, sizeof(this->humveeObjId), 4);
+	Auto_Save_Variable(&this->gdiMinigunner10FFObjId, sizeof(this->gdiMinigunner10FFObjId), 5);
+	Auto_Save_Variable(&this->medTankObjId, sizeof(this->medTankObjId), 6);
 }
 
 // On level start
 void MX0_Obelisk_Weapon_DLS::Created(GameObject *obj)
 {
 	this->obeliskEffectObjId = 0;
-	this->field_20 = 0;
+	this->currentTargetObjId = 0;
 	this->canDoWarmupAnimation = true;
 
 	Commands->Set_Player_Type(obj, SCRIPT_PLAYERTYPE_NOD);
@@ -64,35 +64,44 @@ void MX0_Obelisk_Weapon_DLS::Destroyed(GameObject *obj)
 
 void MX0_Obelisk_Weapon_DLS::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from MX0_Area4_Controller_DLS when timer number 1 triggers
 	if (type == 445003)
 	{
-		Commands->Send_Custom_Event(obj, obj, 2, this->field_28, 0.0f);
+		Commands->Send_Custom_Event(obj, obj, 2, this->humveeObjId, 0.0f);
 	}
+
+	// Received from MX0_GDI_Killed_DLS when killed
 	if (type == 445004)
 	{
-		Commands->Send_Custom_Event(obj, obj, 2, this->field_2C, 1.0f);
+		Commands->Send_Custom_Event(obj, obj, 2, this->gdiMinigunner10FFObjId, 1.0f);
 	}
+
+	// TODO (No custom)
 	if (type == 445005)
 	{
-		Commands->Send_Custom_Event(obj, obj, 2, this->field_30, 0.0f);
+		Commands->Send_Custom_Event(obj, obj, 2, this->medTankObjId, 0.0f);
 	}
+
+	// Received from various M00_Send_Object_ID
 	else if (type == 9035)
 	{
 		switch (param)
 		{
 			case 1:
-				this->field_28 = Commands->Get_ID(sender);
+				this->humveeObjId = Commands->Get_ID(sender);
 				break;
 			case 2:
-				this->field_2C = Commands->Get_ID(sender);
+				this->gdiMinigunner10FFObjId = Commands->Get_ID(sender);
 				break;
 			case 3:
-				this->field_30 = Commands->Get_ID(sender);
+				this->medTankObjId = Commands->Get_ID(sender);
 				break;
 			default:
 				break;
 		}
 	}
+
+	// TODO (No custom)
 	else if (type == 1)
 	{
 		if (param)
@@ -124,6 +133,8 @@ void MX0_Obelisk_Weapon_DLS::Custom(GameObject *obj, int type, int param, GameOb
 			}
 		}
 	}
+
+	// Reveived from ourselves after custom type 445003/445004/445005
 	else if (type == 2)
 	{
 		if (this->canDoWarmupAnimation)
@@ -157,7 +168,7 @@ void MX0_Obelisk_Weapon_DLS::Custom(GameObject *obj, int type, int param, GameOb
 				}
 				else
 				{
-					this->field_20 = param;
+					this->currentTargetObjId = param;
 					this->canDoWarmupAnimation = false;
 
 					Commands->Start_Timer(obj, this, 2.5f, 1);
@@ -191,29 +202,29 @@ void MX0_Obelisk_Weapon_DLS::Timer_Expired(GameObject *obj, int number)
 	// Triggered 2.5 seconds after custom type 2 (preparing to attack something)
 	if (number == 1)
 	{
-		GameObject *field20Obj = Commands->Find_Object(this->field_20);
+		GameObject *currentTargetObj = Commands->Find_Object(this->currentTargetObjId);
 
 		Vector3 pos = Commands->Get_Position(obj);
-		Vector3 field20ObjPos = Commands->Get_Position(field20Obj);
+		Vector3 currentTargetObjPos = Commands->Get_Position(currentTargetObj);
 
-		float distance = Commands->Get_Distance(pos, field20ObjPos);
+		float distance = Commands->Get_Distance(pos, currentTargetObjPos);
 
 		pos.Z = 0.0f;
-		field20ObjPos.Z = 0.0f;
+		currentTargetObjPos.Z = 0.0f;
 
-		float distance2 = Commands->Get_Distance(pos, field20ObjPos);
+		float distance2 = Commands->Get_Distance(pos, currentTargetObjPos);
 		float maxRange = Get_Float_Parameter("Max_Range");
 
-		if (field20Obj && distance2 > 15.0f && distance < maxRange)
+		if (currentTargetObj && distance2 > 15.0f && distance < maxRange)
 		{
 			ActionParamsStruct params;
 			params.Set_Basic(this, 100.0f, 0);
-			params.Set_Attack(field20Obj, maxRange, 0.0f, true);
+			params.Set_Attack(currentTargetObj, maxRange, 0.0f, true);
 			params.AttackCheckBlocked = false;
 
 			Commands->Action_Attack(obj, params);
 
-			this->field_20 = 0;
+			this->currentTargetObjId = 0;
 
 			Commands->Start_Timer(obj, this, 2.0f, 2);
 		}

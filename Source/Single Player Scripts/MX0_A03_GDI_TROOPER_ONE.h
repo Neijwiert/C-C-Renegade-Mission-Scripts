@@ -30,5 +30,5 @@ class MX0_A03_GDI_TROOPER_ONE : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 
-		bool field_1C;
+		bool isHarvesterAliveAndStarInA03;
 };
