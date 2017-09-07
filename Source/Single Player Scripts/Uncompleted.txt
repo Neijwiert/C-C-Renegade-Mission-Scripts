@@ -22,7 +22,6 @@ MX0_Gun_Emplacement_DLS
 MX0_Obelisk_Weapon_DLS
 
 // Below are scripts that are in the level
-MX0_Plant_Ion_Beacon_DLS
 MX0_A03_GDI_TROOPER_ONE
 
 // Below are scripts that are not confirmed to be present in the level

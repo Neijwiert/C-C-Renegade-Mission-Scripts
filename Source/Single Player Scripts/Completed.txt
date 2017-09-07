@@ -29,3 +29,4 @@ M01_Destroyed_SAMSITE_JDG
 M03_Destroyed_SAM_Site
 MX0_GDI_Killed_DLS
 MX0_Explosive_Barrels_DLS
+MX0_Plant_Ion_Beacon_DLS

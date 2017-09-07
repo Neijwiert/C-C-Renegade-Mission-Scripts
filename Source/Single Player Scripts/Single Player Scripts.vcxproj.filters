@@ -19,12 +19,6 @@
     <Filter Include="Source Files\Misc">
       <UniqueIdentifier>{c84202e0-d717-4912-9deb-0435bcd0e2f4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\M13">
-      <UniqueIdentifier>{be5a3d16-0abf-4ebc-9006-2c74466d959e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\M13\Cinematic Files">
-      <UniqueIdentifier>{041b1359-5286-4089-92eb-436649e03d33}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\M00">
       <UniqueIdentifier>{a31b1a34-b9b1-40fd-a400-67efb48d031a}</UniqueIdentifier>
     </Filter>
@@ -49,14 +43,17 @@
     <Filter Include="Source Files\M03">
       <UniqueIdentifier>{9443995c-59bb-4b2e-b166-bdcd76800db5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\M13\Cinematic Files\M13">
-      <UniqueIdentifier>{a0f3b80a-d7ac-470f-9069-d26b76ff532d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\M01">
       <UniqueIdentifier>{b169dfe7-27db-4966-a4b2-abaf5a3ba25d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\M01">
       <UniqueIdentifier>{4a135601-cb9e-41c4-9e20-7d1c6f56c7a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Cinematic Files">
+      <UniqueIdentifier>{041b1359-5286-4089-92eb-436649e03d33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Cinematic Files\M13">
+      <UniqueIdentifier>{a0f3b80a-d7ac-470f-9069-d26b76ff532d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +220,9 @@
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
     <ClCompile Include="MX0_Obelisk_Weapon_DLS.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
+    <ClCompile Include="MX0_Plant_Ion_Beacon_DLS.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
   </ItemGroup>
@@ -392,16 +392,19 @@
     <ClInclude Include="MX0_Obelisk_Weapon_DLS.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
+    <ClInclude Include="MX0_Plant_Ion_Beacon_DLS.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </None>
     <None Include="mx0_c130troopdrop2.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </None>
     <None Include="x00_intro.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -412,46 +415,46 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="mx0_a03_nod_ledgedrop.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="mx0_gdi_reinforce_area4.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="mx0_gdi_troopdrop_area4.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="x0d_a10_crash.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="x0e_obelisk.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="x0f_harvester.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="x0i_drop02_a02_e01.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="x0i_drop02_a02_e02.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="x0i_gdi_drop02_engineer.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="xg_a03_humveedrop_b.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="xg_a03_tank_drop.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="x0z_finale.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="x0c_flyovers_01.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
     <Text Include="x0c_flyovers_02.txt">
-      <Filter>Resource Files\M13\Cinematic Files\M13</Filter>
+      <Filter>Resource Files\Cinematic Files\M13</Filter>
     </Text>
   </ItemGroup>
 </Project>
