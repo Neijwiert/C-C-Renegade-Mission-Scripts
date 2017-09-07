@@ -202,6 +202,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Generic_Conv_DME.cpp" />
     <ClCompile Include="M00_Nod_Turret.cpp" />
     <ClCompile Include="M00_Play_Sound.cpp" />
+    <ClCompile Include="M00_Play_Sound_Object_Bone_DAY.cpp" />
     <ClCompile Include="M00_Powerup_Destroy.cpp" />
     <ClCompile Include="M00_Send_Object_ID.cpp" />
     <ClCompile Include="M00_Soldier_Powerup_Disable.cpp" />
@@ -281,6 +282,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Generic_Conv_DME.h" />
     <ClInclude Include="M00_Nod_Turret.h" />
     <ClInclude Include="M00_Play_Sound.h" />
+    <ClInclude Include="M00_Play_Sound_Object_Bone_DAY.h" />
     <ClInclude Include="M00_Powerup_Destroy.h" />
     <ClInclude Include="M00_Send_Object_ID.h" />
     <ClInclude Include="M00_Soldier_Powerup_Disable.h" />

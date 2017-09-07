@@ -273,6 +273,9 @@
     <ClCompile Include="M00_Disable_Transition.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Play_Sound_Object_Bone_DAY.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -489,6 +492,9 @@
       <Filter>Header Files\M00</Filter>
     </ClInclude>
     <ClInclude Include="M00_Disable_Transition.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Play_Sound_Object_Bone_DAY.h">
       <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
