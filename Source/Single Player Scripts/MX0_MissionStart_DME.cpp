@@ -485,7 +485,7 @@ void MX0_MissionStart_DME::Custom(GameObject *obj, int type, int param, GameObje
 		Commands->Send_Custom_Event(obj, engineer2Obj, 131, 0, 0.0f);
 	}
 	
-	// TODO (No custom)
+	// (Unused script) Received from MX0_Kill_Sniper when entered
 	else if (type == 111)
 	{
 		GameObject *engineer1Obj = Commands->Find_Object(this->engineer1ObjId);

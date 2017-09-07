@@ -244,6 +244,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_GDI_Soldier_DLS.cpp" />
     <ClCompile Include="MX0_Gun_Emplacement_DLS.cpp" />
     <ClCompile Include="MX0_KillNotify.cpp" />
+    <ClCompile Include="MX0_Kill_Sniper.cpp" />
     <ClCompile Include="MX0_Nod_Bunker_DLS.cpp" />
     <ClCompile Include="MX0_NOD_INFANTRY.cpp" />
     <ClCompile Include="MX0_Nod_RocketSoldier_DLS.cpp" />
@@ -318,6 +319,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_GDI_Soldier_DLS.h" />
     <ClInclude Include="MX0_Gun_Emplacement_DLS.h" />
     <ClInclude Include="MX0_KillNotify.h" />
+    <ClInclude Include="MX0_Kill_Sniper.h" />
     <ClInclude Include="MX0_Nod_Bunker_DLS.h" />
     <ClInclude Include="MX0_NOD_INFANTRY.h" />
     <ClInclude Include="MX0_Nod_RocketSoldier_DLS.h" />
