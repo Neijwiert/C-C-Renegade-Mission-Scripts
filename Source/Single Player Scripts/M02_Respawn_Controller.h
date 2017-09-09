@@ -30,10 +30,22 @@ class M02_Respawn_Controller : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Timer_Expired(GameObject *obj, int number);
 
-		DWORD Check_Respawns(int a2);
-		bool Use_Spawners(int a2);
-		void Use_Heli_Drop_02(int a2);
-		GameObject *Use_Parachute_Drop(int a2);
+		void Check_Respawns(int a2);
+		void Replacement_Vehicle(GameObject *obj, int a3);
 		void Use_Heli_Drop_01(int a2);
-		GameObject *Replacement_Vehicle(GameObject *obj, int a3);
+		void Use_Heli_Drop_02(int a2);
+		void Use_Parachute_Drop(int a2);
+		bool Use_Spawners(int a2);
+
+		bool field_1C[26];
+		bool field_36[26];
+		bool field_50[26];
+		bool field_6A[26];
+		BYTE field_84[26];
+		BYTE field_9E[26];
+		int field_B8[26];
+		DWORD field_120;
+		int field_124;
+		DWORD field_128;
+		DWORD field_12C;
 };
