@@ -55,6 +55,12 @@
     <Filter Include="Resource Files\Cinematic Files\M13">
       <UniqueIdentifier>{a0f3b80a-d7ac-470f-9069-d26b76ff532d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\M02">
+      <UniqueIdentifier>{93b465a4-e41e-422a-aade-1bf698289502}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\M02">
+      <UniqueIdentifier>{35e81406-6a65-4488-badb-5ca2ace0303b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -285,6 +291,9 @@
     <ClCompile Include="M03_Goto_Star.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M02_Respawn_Controller.cpp">
+      <Filter>Source Files\M02</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -514,6 +523,9 @@
     </ClInclude>
     <ClInclude Include="M03_Goto_Star.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M02_Respawn_Controller.h">
+      <Filter>Header Files\M02</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
