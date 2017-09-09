@@ -282,6 +282,9 @@
     <ClCompile Include="M00_Vehicle_Regen_DAK.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Goto_Star.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -508,6 +511,9 @@
     </ClInclude>
     <ClInclude Include="M00_Vehicle_Regen_DAK.h">
       <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Goto_Star.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

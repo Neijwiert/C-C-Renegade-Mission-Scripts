@@ -211,6 +211,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Vehicle_Regen_DAK.cpp" />
     <ClCompile Include="M01_Destroyed_SAMSITE_JDG.cpp" />
     <ClCompile Include="M03_Destroyed_SAM_Site.cpp" />
+    <ClCompile Include="M03_Goto_Star.cpp" />
     <ClCompile Include="M03_SAM_Site_Logic.cpp" />
     <ClCompile Include="M08_Petra_C_Helo.cpp" />
     <ClCompile Include="MX0_A02_ACTOR.cpp" />
@@ -293,6 +294,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Vehicle_Regen_DAK.h" />
     <ClInclude Include="M01_Destroyed_SAMSITE_JDG.h" />
     <ClInclude Include="M03_Destroyed_SAM_Site.h" />
+    <ClInclude Include="M03_Goto_Star.h" />
     <ClInclude Include="M03_SAM_Site_Logic.h" />
     <ClInclude Include="M08_Petra_C_Helo.h" />
     <ClInclude Include="MX0_A02_ACTOR.h" />
