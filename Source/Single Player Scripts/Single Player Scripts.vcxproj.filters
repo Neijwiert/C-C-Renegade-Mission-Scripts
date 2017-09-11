@@ -294,6 +294,9 @@
     <ClCompile Include="M02_Respawn_Controller.cpp">
       <Filter>Source Files\M02</Filter>
     </ClCompile>
+    <ClCompile Include="M02_Objective_Controller.cpp">
+      <Filter>Source Files\M02</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -525,6 +528,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M02_Respawn_Controller.h">
+      <Filter>Header Files\M02</Filter>
+    </ClInclude>
+    <ClInclude Include="M02_Objective_Controller.h">
       <Filter>Header Files\M02</Filter>
     </ClInclude>
   </ItemGroup>

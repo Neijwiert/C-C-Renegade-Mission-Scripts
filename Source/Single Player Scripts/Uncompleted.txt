@@ -9,3 +9,4 @@ MX0_A02_ACTOR
 MX0_A02_Controller
 M03_Goto_Star
 M02_Respawn_Controller
+M02_Objective_Controller
