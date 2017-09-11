@@ -305,7 +305,7 @@ void M02_Objective_Controller::Timer_Expired(GameObject *obj, int number)
 	}
 }
 
-void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
+void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int objectiveId)
 {
 	static const Vector3 objectivePositions[20] =
 	{
@@ -331,16 +331,16 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 		Vector3(570.06f, 261.47f, -60.0f)
 	};
 
-	switch (a3)
+	switch (objectiveId)
 	{
 		case 202:
 			Commands->Set_HUD_Help_Text(7665, Vector3(0.196f, 0.882f, 0.196f)); // New Primary Objective\n
 
 			// Disable Obelisk
 			// The Obelisk is a deadly defense weapon, but it requires power to operate. If you cannot get inside to disable it, consider removing the power source.
-			Commands->Add_Objective(a3, 2, 0, 6223, 0, 6044);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[0]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 66.0f, "POG_M07_2_05.tga", 7377, objectivePositions[0]); // Disable
+			Commands->Add_Objective(objectiveId, 2, 0, 6223, 0, 6044);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[0]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 66.0f, "POG_M07_2_05.tga", 7377, objectivePositions[0]); // Disable
 
 			break;
 		case 203:
@@ -348,9 +348,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Disable Dam Master Control Terminal
 			// The Master Control Terminal inside the dam controls the large bay door on top. Disabling this terminal will not only open the door, it will prevent Nod from using this dam as a secondary power source.
-			Commands->Add_Objective(a3, 1, 0, 6224, 0, 6045);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[1]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 67.0f, "POG_M02_1_03.tga", 7376, objectivePositions[1]); // Destroy
+			Commands->Add_Objective(objectiveId, 1, 0, 6224, 0, 6045);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[1]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 67.0f, "POG_M02_1_03.tga", 7376, objectivePositions[1]); // Destroy
 
 			break;
 		case 204:
@@ -358,9 +358,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Disable Hand of Nod
 			// Disabling the Hand of Nod will dramatically hamper reinforcements for this area. Consider using an Ion Cannon Beacon if you have one.
-			Commands->Add_Objective(a3, 2, 0, 6275, 0, 6142);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[2]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 80.0f, "POG_M02_2_01.tga", 7376, objectivePositions[2]); // Destroy
+			Commands->Add_Objective(objectiveId, 2, 0, 6275, 0, 6142);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[2]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 80.0f, "POG_M02_2_01.tga", 7376, objectivePositions[2]); // Destroy
 
 			break;
 		case 205:
@@ -368,9 +368,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Infiltrate Cargo Plane
 			// Approach the Cargo Plane from the rear to pursue the scientists.
-			Commands->Add_Objective(a3, 1, 0, 6225, 0, 6046);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[3]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 80.0f, "POG_M02_1_04.tga", 7373, objectivePositions[3]); // Capture
+			Commands->Add_Objective(objectiveId, 1, 0, 6225, 0, 6046);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[3]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 80.0f, "POG_M02_1_04.tga", 7373, objectivePositions[3]); // Capture
 
 			break;
 		case 206:
@@ -378,9 +378,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Disable Helipad
 			// Disable the Nod Helipad to reduce Apache encounters throughout this area. This will force them to refuel at another location.
-			Commands->Add_Objective(a3, 2, 0, 6276, 0, 6143);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[4]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 53.0f, "POG_M02_2_02.tga", 7376, objectivePositions[4]); // Destroy
+			Commands->Add_Objective(objectiveId, 2, 0, 6276, 0, 6143);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[4]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 53.0f, "POG_M02_2_02.tga", 7376, objectivePositions[4]); // Destroy
 
 			break;
 		case 207:
@@ -388,9 +388,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Secure Guard Tower
 			// This checkpoint is held by the Nod Guard Tower on top of the hill. Eliminate all enemy resistance and then secure the tower to allow the GDI assault to progress.
-			Commands->Add_Objective(a3, 2, 0, 6277, 0, 6144);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[5]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 54.0f, "POG_M02_2_03.tga", 7378, objectivePositions[5]); // Eliminate
+			Commands->Add_Objective(objectiveId, 2, 0, 6277, 0, 6144);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[5]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 54.0f, "POG_M02_2_03.tga", 7378, objectivePositions[5]); // Eliminate
 
 			break;
 		case 208:
@@ -398,9 +398,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Secure Second House
 			// Another house occupied by Nod soldiers, potentially the location of the Nod Officer coordinating with Command for reinforcements. Eliminate all enemies in the surrounding area and then enter the house to secure this objective.
-			Commands->Add_Objective(a3, 2, 0, 6279, 0, 6146);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[6]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 56.0f, "POG_M02_2_06.tga", 7378, objectivePositions[6]); // Eliminate
+			Commands->Add_Objective(objectiveId, 2, 0, 6279, 0, 6146);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[6]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 56.0f, "POG_M02_2_06.tga", 7378, objectivePositions[6]); // Eliminate
 
 			break;
 		case 209:
@@ -408,9 +408,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Secure First House
 			// Nod occupies several of the houses in this area, and GDI needs to secure them all. Eliminate all enemies in the surrounding area and then enter the building to secure this objective.
-			Commands->Add_Objective(a3, 2, 0, 6278, 0, 6145);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[7]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 55.0f, "POG_M02_2_05.tga", 7378, objectivePositions[7]); // Eliminate
+			Commands->Add_Objective(objectiveId, 2, 0, 6278, 0, 6145);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[7]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 55.0f, "POG_M02_2_05.tga", 7378, objectivePositions[7]); // Eliminate
 
 			break;
 		case 210:
@@ -418,9 +418,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Secure Third House
 			// This house is being used by an officer who is coordinating with Command for reinforcements. Eliminate the Nod Officer and all nearby reinforcements, then enter the house to secure this objective.
-			Commands->Add_Objective(a3, 2, 0, 6280, 0, 6147);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[8]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 57.0f, "POG_M02_2_04.tga", 7378, objectivePositions[8]); // Eliminate
+			Commands->Add_Objective(objectiveId, 2, 0, 6280, 0, 6147);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[8]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 57.0f, "POG_M02_2_04.tga", 7378, objectivePositions[8]); // Eliminate
 
 			break;
 		case 211:
@@ -428,9 +428,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Secure Ski Resort
 			// Nod is using this checkpoint to refuel their defensive line. Eliminate all enemy resistance and then secure the building front.
-			Commands->Add_Objective(a3, 2, 0, 6281, 0, 6148);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[9]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 61.0f, "POG_M02_2_07.tga", 7378, objectivePositions[9]); // Eliminate
+			Commands->Add_Objective(objectiveId, 2, 0, 6281, 0, 6148);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[9]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 61.0f, "POG_M02_2_07.tga", 7378, objectivePositions[9]); // Eliminate
 
 			break;
 		case 212:
@@ -438,9 +438,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Disable First SAM Site
 			// Disabling this SAM Site will improve local air superiority for GDI. Consider using C4 to destroy this emplacement.
-			Commands->Add_Objective(a3, 2, 0, 6282, 0, 6149);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[10]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 59.0f, "POG_M02_2_08.tga", 7376, objectivePositions[10]); // Destroy
+			Commands->Add_Objective(objectiveId, 2, 0, 6282, 0, 6149);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[10]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 59.0f, "POG_M02_2_08.tga", 7376, objectivePositions[10]); // Destroy
 
 			break;
 		case 213:
@@ -448,9 +448,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Destroy Nod Convoy
 			// The convoy trucks in this area are transporting supplies toward the battle front. Eliminate all three supply trucks to complete this objective.
-			Commands->Add_Objective(a3, 2, 0, 6283, 0, 6150);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[11]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 60.0f, "POG_M02_2_09.tga", 7376, objectivePositions[11]); // Destroy
+			Commands->Add_Objective(objectiveId, 2, 0, 6283, 0, 6150);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[11]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 60.0f, "POG_M02_2_09.tga", 7376, objectivePositions[11]); // Destroy
 
 			break;
 		case 214:
@@ -458,9 +458,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Disable Second SAM Site
 			// Disabling this SAM Site will improve local air superiority for GDI. Consider using C4 to destroy this emplacement.
-			Commands->Add_Objective(a3, 2, 0, 6284, 0, 6151);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[12]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 62.0f, "POG_M02_2_10.tga", 7376, objectivePositions[12]); // Destroy
+			Commands->Add_Objective(objectiveId, 2, 0, 6284, 0, 6151);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[12]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 62.0f, "POG_M02_2_10.tga", 7376, objectivePositions[12]); // Destroy
 
 			break;
 		case 215:
@@ -468,9 +468,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Disable Third SAM Site
 			// Disabling this SAM Site will improve local air superiority for GDI. Consider using C4 to destroy this emplacement.
-			Commands->Add_Objective(a3, 2, 0, 6285, 0, 6152);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[13]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 63.0f, "POG_M02_2_11.tga", 7376, objectivePositions[13]); // Destroy
+			Commands->Add_Objective(objectiveId, 2, 0, 6285, 0, 6152);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[13]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 63.0f, "POG_M02_2_11.tga", 7376, objectivePositions[13]); // Destroy
 
 			break;
 		case 216:
@@ -478,9 +478,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Disable Fourth SAM Site
 			// Disabling this SAM Site will improve local air superiority for GDI. Consider using C4 to destroy this emplacement.
-			Commands->Add_Objective(a3, 2, 0, 6286, 0, 6153);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[14]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 64.0f, "POG_M02_2_12.tga", 7376, objectivePositions[14]); // Destroy
+			Commands->Add_Objective(objectiveId, 2, 0, 6286, 0, 6153);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[14]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 64.0f, "POG_M02_2_12.tga", 7376, objectivePositions[14]); // Destroy
 
 			break;
 		case 217:
@@ -488,9 +488,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Disable Power Plant
 			// Power Plants provide energy for other Nod structures. Disabling this Power Plant will shut down the Obelisk. Assault the building from the interior, as it is being repaired by a Nod Engineer.
-			Commands->Add_Objective(a3, 2, 0, 6287, 0, 6154);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[15]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 65.0f, "POG_M02_2_13.tga", 7376, objectivePositions[15]); // Destroy
+			Commands->Add_Objective(objectiveId, 2, 0, 6287, 0, 6154);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[15]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 65.0f, "POG_M02_2_13.tga", 7376, objectivePositions[15]); // Destroy
 
 			break;
 		case 218:
@@ -498,9 +498,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Destroy Tiberium Machine Alpha
 			// Nod has three Tiberium research machines located throughout this cavern area. Destroy this machine to hamper Nod Tiberium research.
-			Commands->Add_Objective(a3, 2, 0, 6288, 0, 6155);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[16]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 70.0f, "POG_M02_2_14.tga", 7376, objectivePositions[16]); // Destroy
+			Commands->Add_Objective(objectiveId, 2, 0, 6288, 0, 6155);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[16]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 70.0f, "POG_M02_2_14.tga", 7376, objectivePositions[16]); // Destroy
 
 			break;
 		case 219:
@@ -508,9 +508,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Destroy Tiberium Machine Beta
 			// Nod has three Tiberium research machines located throughout this cavern area. Destroy this machine to hamper Nod Tiberium research.
-			Commands->Add_Objective(a3, 2, 0, 6289, 0, 6156);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[17]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 71.0f, "POG_M02_2_14.tga", 7376, objectivePositions[17]); // Destroy
+			Commands->Add_Objective(objectiveId, 2, 0, 6289, 0, 6156);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[17]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 71.0f, "POG_M02_2_14.tga", 7376, objectivePositions[17]); // Destroy
 
 			break;
 		case 220:
@@ -518,9 +518,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Destroy Tiberium Machine Gamma
 			// Nod has three Tiberium research machines located throughout this cavern area. Destroy this machine to hamper Nod Tiberium research.
-			Commands->Add_Objective(a3, 2, 0, 6290, 0, 6157);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[18]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 72.0f, "POG_M02_2_14.tga", 7376, objectivePositions[18]); // Destroy
+			Commands->Add_Objective(objectiveId, 2, 0, 6290, 0, 6157);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[18]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 72.0f, "POG_M02_2_14.tga", 7376, objectivePositions[18]); // Destroy
 
 			break;
 		case 221:
@@ -528,9 +528,9 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int a3)
 
 			// Acquire Mammoth Tank
 			// GDI has airdropped a Mammoth Tank for your use. Acquire the Mammoth Tank and use it to your advantage.
-			Commands->Add_Objective(a3, 2, 0, 6291, 0, 6158);
-			Commands->Set_Objective_Radar_Blip(a3, objectivePositions[19]);
-			Commands->Set_Objective_HUD_Info_Position(a3, 58.0f, "POG_M02_2_15.tga", 7371, objectivePositions[19]); // Acquire
+			Commands->Add_Objective(objectiveId, 2, 0, 6291, 0, 6158);
+			Commands->Set_Objective_Radar_Blip(objectiveId, objectivePositions[19]);
+			Commands->Set_Objective_HUD_Info_Position(objectiveId, 58.0f, "POG_M02_2_15.tga", 7371, objectivePositions[19]); // Acquire
 
 			break;
 		default:
