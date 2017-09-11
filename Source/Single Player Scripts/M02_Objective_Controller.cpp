@@ -537,3 +537,5 @@ void M02_Objective_Controller::Add_An_Objective(GameObject *obj, int objectiveId
 			break;
 	}
 }
+
+ScriptRegistrant<M02_Objective_Controller> M02_Objective_ControllerRegistrant("M02_Objective_Controller", "");
