@@ -210,6 +210,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Soldier_Powerup_Grant.cpp" />
     <ClCompile Include="M00_Vehicle_Regen_DAK.cpp" />
     <ClCompile Include="M01_Destroyed_SAMSITE_JDG.cpp" />
+    <ClCompile Include="M02_Nod_Apache.cpp" />
     <ClCompile Include="M02_Objective_Controller.cpp" />
     <ClCompile Include="M02_Objective_Zone.cpp" />
     <ClCompile Include="M02_Respawn_Controller.cpp" />
@@ -296,6 +297,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Soldier_Powerup_Grant.h" />
     <ClInclude Include="M00_Vehicle_Regen_DAK.h" />
     <ClInclude Include="M01_Destroyed_SAMSITE_JDG.h" />
+    <ClInclude Include="M02_Nod_Apache.h" />
     <ClInclude Include="M02_Objective_Controller.h" />
     <ClInclude Include="M02_Objective_Zone.h" />
     <ClInclude Include="M02_Respawn_Controller.h" />
