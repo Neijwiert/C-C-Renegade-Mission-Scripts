@@ -1539,7 +1539,7 @@ void M02_Objective_Zone::Entered(GameObject *obj, GameObject *enterer)
 	{
 		Commands->Stop_All_Conversations();
 
-		int conversationId = Commands->Create_Conversation("M02_PRIMARY_03_GUIDE", 100, 300.0f, true);
+		int conversationId = Commands->Create_Conversation("M02_PRIMARY_03_GUIDE", 100, 300.0f, true); // Good, you made it inside. EVA indicates the dam's Master Control Terminal controls the large bay door on top. Find the Master Control Terminal and destroy it.
 		Commands->Join_Conversation(NULL, conversationId, true, true, true);
 
 		Vector3 pos = Commands->Get_Position(obj);
