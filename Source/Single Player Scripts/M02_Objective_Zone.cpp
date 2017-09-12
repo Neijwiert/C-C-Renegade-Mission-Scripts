@@ -21,19 +21,19 @@
 
 void M02_Objective_Zone::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->canSendCustomAndDestroy, sizeof(this->canSendCustomAndDestroy), 1);
 	Auto_Save_Variable(&this->mendozaObjId, sizeof(this->mendozaObjId), 2);
-	Auto_Save_Variable(&this->field_1D, sizeof(this->field_1D), 3);
-	Auto_Save_Variable(&this->field_1E, sizeof(this->field_1E), 4);
+	Auto_Save_Variable(&this->isZoneTriggered, sizeof(this->isZoneTriggered), 3);
+	Auto_Save_Variable(&this->starWarnedForLeavingPrematurely, sizeof(this->starWarnedForLeavingPrematurely), 4);
 }
 
 // On level start
 void M02_Objective_Zone::Created(GameObject *obj)
 {
-	this->field_1E = false;
+	this->starWarnedForLeavingPrematurely = false;
 	this->mendozaObjId = 0;
-	this->field_1D = false;
-	this->field_1C = false;
+	this->isZoneTriggered = false;
+	this->canSendCustomAndDestroy = false;
 }
 
 // TODO
@@ -43,7 +43,7 @@ void M02_Objective_Zone::Custom(GameObject *obj, int type, int param, GameObject
 	{
 		if (param == 1)
 		{
-			this->field_1C = false;
+			this->canSendCustomAndDestroy = false;
 		}
 	}
 
@@ -490,1242 +490,1339 @@ void M02_Objective_Zone::Entered(GameObject *obj, GameObject *enterer)
 
 		Commands->Destroy_Object(obj);
 	}
+	else if (objId == 401070)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 11, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 14, 0.0f);
+		
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1061, pos, 1000.0f);
 
-	/*
-	if (objId > 400551)
-	{
-		if (objId <= 401113)
+		GameObject *caveNodMinigunner1Obj = Commands->Find_Object(401071);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner2Obj = Commands->Find_Object(401072);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner3Obj = Commands->Find_Object(401073);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner4Obj = Commands->Find_Object(401074);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner4Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodOfficerObj = Commands->Find_Object(401075);
+		Commands->Send_Custom_Event(obj, caveNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *caveNodRocketTrooperObj = Commands->Find_Object(401076);
+		Commands->Send_Custom_Event(obj, caveNodRocketTrooperObj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner5Obj = Commands->Find_Object(401077);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner5Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner6Obj = Commands->Find_Object(401078);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner6Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner7Obj = Commands->Find_Object(401192);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner7Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodChemTrooperObj = Commands->Find_Object(401193);
+		Commands->Send_Custom_Event(obj, caveNodChemTrooperObj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner8Obj = Commands->Find_Object(401194);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner8Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner9Obj = Commands->Find_Object(401195);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner9Obj, 0, 0, 0.0f);
+		
+		GameObject *caveEntranceScriptZoneObj = Commands->Find_Object(401196);
+		if (caveEntranceScriptZoneObj)
 		{
-			if (objId > 401054)
-			{
-				if (objId != 401066)
-				{
-					if (objId != 401070)
-						goto LABEL_193;
-					Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 11, 0.0);
-					Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 14, 0.0);
-					Commands->Get_Position((Vector3 *)&v589, obj);
-					Commands->Create_Logical_Sound(obj, 1061, (const Vector3 *)&v589, 1000.0);
-					v301 = Commands;
-					v302 = Commands->Find_Object(401071);
-					v301->Send_Custom_Event(obj, v302, 0, 0, 0.0);
-					v303 = Commands;
-					v304 = Commands->Find_Object(401072);
-					v303->Send_Custom_Event(obj, v304, 0, 0, 0.0);
-					v305 = Commands;
-					v306 = Commands->Find_Object(401073);
-					v305->Send_Custom_Event(obj, v306, 0, 0, 0.0);
-					v307 = Commands;
-					v308 = Commands->Find_Object(401074);
-					v307->Send_Custom_Event(obj, v308, 0, 0, 0.0);
-					v309 = Commands;
-					v310 = Commands->Find_Object(401075);
-					v309->Send_Custom_Event(obj, v310, 0, 0, 0.0);
-					v311 = Commands;
-					v312 = Commands->Find_Object(401076);
-					v311->Send_Custom_Event(obj, v312, 0, 0, 0.0);
-					v313 = Commands;
-					v314 = Commands->Find_Object(401077);
-					v313->Send_Custom_Event(obj, v314, 0, 0, 0.0);
-					v315 = Commands;
-					v316 = Commands->Find_Object(401078);
-					v315->Send_Custom_Event(obj, v316, 0, 0, 0.0);
-					v317 = Commands;
-					v318 = Commands->Find_Object(401192);
-					v317->Send_Custom_Event(obj, v318, 0, 0, 0.0);
-					v319 = Commands;
-					v320 = Commands->Find_Object(401193);
-					v319->Send_Custom_Event(obj, v320, 0, 0, 0.0);
-					v321 = Commands;
-					v322 = Commands->Find_Object(401194);
-					v321->Send_Custom_Event(obj, v322, 0, 0, 0.0);
-					v323 = Commands;
-					v324 = Commands->Find_Object(401195);
-					v323->Send_Custom_Event(obj, v324, 0, 0, 0.0);
-					v587 = 401196;
-					goto LABEL_192;
-				}
-				v292 = Commands;
-				v293 = Commands->Find_Object(400200);
-				v292->Send_Custom_Event(obj, v293, 0, 0, 0.0);
-				v294 = Commands;
-				v295 = Commands->Find_Object(401067);
-				v294->Send_Custom_Event(obj, v295, 0, 0, 0.0);
-				v296 = Commands;
-				v297 = Commands->Find_Object(401068);
-				v296->Send_Custom_Event(obj, v297, 0, 0, 0.0);
-				v298 = Commands;
-				v299 = Commands->Find_Object(401069);
-				v298->Send_Custom_Event(obj, v299, 0, 0, 0.0);
-				v300 = Commands->Find_Object(1153845);
-				if (v300)
-					Commands->Send_Custom_Event(obj, v300, 1, 0, 0.0);
-				goto LABEL_190;
-			}
-			if (objId == 400991)
-			{
-				v589 = 0;
-				v590 = 0;
-				v591 = 0;
-				if (!(int)Commands->Create_Object("Invisible_Object", (const Vector3 *)&v589))
-					goto LABEL_190;
-				v582 = "X2F_OrcaSam.txt";
-			}
-			else if (objId > 400991)
-			{
-				if (objId == 401001)
-				{
-					v589 = 0;
-					v590 = 0;
-					v591 = 0;
-					if (!(int)Commands->Create_Object("Invisible_Object", (const Vector3 *)&v589))
-						goto LABEL_190;
-					v582 = "X2H_ApacheSpray.txt";
-				}
-				else if (objId > 401001)
-				{
-					if (objId != 401029)
-						goto LABEL_193;
-					v589 = 0;
-					v590 = 0;
-					v591 = 0;
-					if (!(int)Commands->Create_Object("Invisible_Object", (const Vector3 *)&v589))
-						goto LABEL_190;
-					v582 = "X2D_MTank_Slip.txt";
-				}
-				else
-				{
-					if (objId != 400992)
-						goto LABEL_193;
-					v589 = 0;
-					v590 = 0;
-					v591 = 0;
-					if (!(int)Commands->Create_Object("Invisible_Object", (const Vector3 *)&v589))
-						goto LABEL_190;
-					v582 = "X2G_AirCrash.txt";
-				}
-			}
-			else
-			{
-				if (objId == 400989)
-					goto LABEL_190;
-				if (objId != 400990)
-					goto LABEL_193;
-				v589 = 0;
-				v590 = 0;
-				v591 = 0;
-				if (!(int)Commands->Create_Object("Invisible_Object", (const Vector3 *)&v589))
-					goto LABEL_190;
-				v582 = "X2E_C130Drop.txt";
-			}
-			v581 = "Test_Cinematic";
-		LABEL_189:
-			Commands->Attach_Script(v579, v581, v582);
-			goto LABEL_190;
+			Commands->Destroy_Object(caveEntranceScriptZoneObj);
 		}
-		if (objId == 401196)
-		{
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 11, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 14, 0.0);
-			Commands->Get_Position((Vector3 *)&v589, obj);
-			Commands->Create_Logical_Sound(obj, 1061, (const Vector3 *)&v589, 1000.0);
-			v526 = Commands;
-			v527 = Commands->Find_Object(401071);
-			v526->Send_Custom_Event(obj, v527, 0, 0, 0.0);
-			v528 = Commands;
-			v529 = Commands->Find_Object(401072);
-			v528->Send_Custom_Event(obj, v529, 0, 0, 0.0);
-			v530 = Commands;
-			v531 = Commands->Find_Object(401073);
-			v530->Send_Custom_Event(obj, v531, 0, 0, 0.0);
-			v532 = Commands;
-			v533 = Commands->Find_Object(401074);
-			v532->Send_Custom_Event(obj, v533, 0, 0, 0.0);
-			v534 = Commands;
-			v535 = Commands->Find_Object(401075);
-			v534->Send_Custom_Event(obj, v535, 0, 0, 0.0);
-			v536 = Commands;
-			v537 = Commands->Find_Object(401076);
-			v536->Send_Custom_Event(obj, v537, 0, 0, 0.0);
-			v538 = Commands;
-			v539 = Commands->Find_Object(401077);
-			v538->Send_Custom_Event(obj, v539, 0, 0, 0.0);
-			v540 = Commands;
-			v541 = Commands->Find_Object(401078);
-			v540->Send_Custom_Event(obj, v541, 0, 0, 0.0);
-			v542 = Commands;
-			v543 = Commands->Find_Object(401192);
-			v542->Send_Custom_Event(obj, v543, 0, 0, 0.0);
-			v544 = Commands;
-			v545 = Commands->Find_Object(401193);
-			v544->Send_Custom_Event(obj, v545, 0, 0, 0.0);
-			v546 = Commands;
-			v547 = Commands->Find_Object(401194);
-			v546->Send_Custom_Event(obj, v547, 0, 0, 0.0);
-			v548 = Commands;
-			v549 = Commands->Find_Object(401195);
-			v548->Send_Custom_Event(obj, v549, 0, 0, 0.0);
-			v587 = 401070;
-			goto LABEL_192;
-		}
-		if (objId <= 401196)
-		{
-			if (objId == 401130)
-			{
-				v464 = Commands->Find_Object(1157690);
-				if (v464)
-				{
-					Commands->Get_Health(v464);
-					v466 = v3 < 0.0;
-					v467 = 0;
-					v468 = v3 == 0.0;
-					if ((HIBYTE(v465) & 0x45) != 64)
-					{
-						Commands->Stop_All_Conversations();
-						v469 = Commands->Create_Conversation("M02_SECONDARY_01_GUIDE", 100, 300.0, 1);
-						Commands->Join_Conversation(0, v469, 1, 1, 1);
-						v470 = Commands;
-						v471 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-						v470->Get_Position((Vector3 *)&v589, v471);
-						v472 = v470->Get_A_Star((Vector3 *)&v589);
-						v470->Join_Conversation(v472, v473, v469, 1, 0);
-						Commands->Start_Conversation(v469, 0);
-					}
-				}
-				v474 = Commands;
-				v475 = Commands->Find_Object(401132);
-				v474->Send_Custom_Event(obj, v475, 0, 0, 0.0);
-				v476 = Commands;
-				v477 = Commands->Find_Object(401133);
-				v476->Send_Custom_Event(obj, v477, 0, 0, 0.0);
-				v478 = Commands;
-				v479 = Commands->Find_Object(401134);
-				v478->Send_Custom_Event(obj, v479, 0, 0, 0.0);
-				v480 = Commands;
-				v481 = Commands->Find_Object(401135);
-				v480->Send_Custom_Event(obj, v481, 0, 0, 0.0);
-				v482 = Commands;
-				v483 = Commands->Find_Object(401136);
-				v482->Send_Custom_Event(obj, v483, 0, 0, 0.0);
-				v484 = Commands;
-				v485 = Commands->Find_Object(401137);
-				v484->Send_Custom_Event(obj, v485, 0, 0, 0.0);
-				v486 = Commands;
-				v487 = Commands->Find_Object(401138);
-				v486->Send_Custom_Event(obj, v487, 0, 0, 0.0);
-				v488 = Commands;
-				v489 = Commands->Find_Object(401139);
-				v488->Send_Custom_Event(obj, v489, 0, 0, 0.0);
-				v587 = 401131;
-				goto LABEL_192;
-			}
-			if (objId > 401130)
-			{
-				if (objId == 401186)
-				{
-					M02_Objective_Zone::Create_Apache(this, 15);
-					Commands->Stop_All_Conversations();
-					v516 = Commands->Create_Conversation("M02_SECONDARY_14_GUIDE", 100, 300.0, 1);
-					Commands->Join_Conversation(0, v516, 1, 1, 1);
-					v517 = Commands;
-					v518 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-					v517->Get_Position((Vector3 *)&v589, v518);
-					v519 = v517->Get_A_Star((Vector3 *)&v589);
-					v517->Join_Conversation(v519, v520, v516, 1, 0);
-					Commands->Start_Conversation(v516, 0);
-					v587 = 401187;
-					goto LABEL_185;
-				}
-				if (objId > 401186)
-				{
-					if (objId != 401187)
-						goto LABEL_193;
-					M02_Objective_Zone::Create_Apache(this, 15);
-					Commands->Stop_All_Conversations();
-					v521 = Commands->Create_Conversation("M02_SECONDARY_14_GUIDE", 100, 300.0, 1);
-					Commands->Join_Conversation(0, v521, 1, 1, 1);
-					v522 = Commands;
-					v523 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-					v522->Get_Position((Vector3 *)&v589, v523);
-					v524 = v522->Get_A_Star((Vector3 *)&v589);
-					v522->Join_Conversation(v524, v525, v521, 1, 0);
-					Commands->Start_Conversation(v521, 0);
-					v587 = 401186;
-					goto LABEL_185;
-				}
-				if (objId != 401131)
-					goto LABEL_193;
-				v490 = Commands->Find_Object(1157690);
-				if (v490)
-				{
-					Commands->Get_Health(v490);
-					v492 = v3 < 0.0;
-					v493 = 0;
-					v494 = v3 == 0.0;
-					if ((HIBYTE(v491) & 0x45) != 64)
-					{
-						Commands->Stop_All_Conversations();
-						v495 = Commands->Create_Conversation("M02_SECONDARY_01_GUIDE", 100, 300.0, 1);
-						Commands->Join_Conversation(0, v495, 1, 1, 1);
-						v496 = Commands;
-						v497 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-						v496->Get_Position((Vector3 *)&v589, v497);
-						v498 = v496->Get_A_Star((Vector3 *)&v589);
-						v496->Join_Conversation(v498, v499, v495, 1, 0);
-						Commands->Start_Conversation(v495, 0);
-					}
-				}
-				v500 = Commands;
-				v501 = Commands->Find_Object(401132);
-				v500->Send_Custom_Event(obj, v501, 0, 0, 0.0);
-				v502 = Commands;
-				v503 = Commands->Find_Object(401133);
-				v502->Send_Custom_Event(obj, v503, 0, 0, 0.0);
-				v504 = Commands;
-				v505 = Commands->Find_Object(401134);
-				v504->Send_Custom_Event(obj, v505, 0, 0, 0.0);
-				v506 = Commands;
-				v507 = Commands->Find_Object(401135);
-				v506->Send_Custom_Event(obj, v507, 0, 0, 0.0);
-				v508 = Commands;
-				v509 = Commands->Find_Object(401136);
-				v508->Send_Custom_Event(obj, v509, 0, 0, 0.0);
-				v510 = Commands;
-				v511 = Commands->Find_Object(401137);
-				v510->Send_Custom_Event(obj, v511, 0, 0, 0.0);
-				v512 = Commands;
-				v513 = Commands->Find_Object(401138);
-				v512->Send_Custom_Event(obj, v513, 0, 0, 0.0);
-				v514 = Commands;
-				v515 = Commands->Find_Object(401139);
-				v514->Send_Custom_Event(obj, v515, 0, 0, 0.0);
-				v587 = 401130;
-			}
-			else
-			{
-				if (objId != 401114)
-				{
-					if (objId != 401123)
-						goto LABEL_193;
-					v453 = Commands;
-					v454 = Commands->Find_Object(401124);
-					v453->Send_Custom_Event(obj, v454, 0, 0, 0.0);
-					v455 = Commands;
-					v456 = Commands->Find_Object(401125);
-					v455->Send_Custom_Event(obj, v456, 0, 0, 0.0);
-					v457 = Commands;
-					v458 = Commands->Find_Object(401126);
-					v457->Send_Custom_Event(obj, v458, 0, 0, 0.0);
-					v459 = Commands;
-					v460 = Commands->Find_Object(401127);
-					v459->Send_Custom_Event(obj, v460, 0, 0, 0.0);
-					v461 = Commands;
-					v462 = Commands->Find_Object(401128);
-					v461->Send_Custom_Event(obj, v462, 0, 0, 0.0);
-					v37 = Commands;
-					v576 = 0.0;
-					v566 = 401129;
-					goto LABEL_164;
-				}
-				v437 = Commands;
-				v438 = Commands->Find_Object(401115);
-				v437->Send_Custom_Event(obj, v438, 0, 0, 0.0);
-				v439 = Commands;
-				v440 = Commands->Find_Object(401116);
-				v439->Send_Custom_Event(obj, v440, 0, 0, 0.0);
-				v441 = Commands;
-				v442 = Commands->Find_Object(401117);
-				v441->Send_Custom_Event(obj, v442, 0, 0, 0.0);
-				v443 = Commands;
-				v444 = Commands->Find_Object(401118);
-				v443->Send_Custom_Event(obj, v444, 0, 0, 0.0);
-				v445 = Commands;
-				v446 = Commands->Find_Object(401119);
-				v445->Send_Custom_Event(obj, v446, 0, 0, 0.0);
-				v447 = Commands;
-				v448 = Commands->Find_Object(401120);
-				v447->Send_Custom_Event(obj, v448, 0, 0, 0.0);
-				v449 = Commands;
-				v450 = Commands->Find_Object(401121);
-				v449->Send_Custom_Event(obj, v450, 0, 0, 0.0);
-				v451 = Commands;
-				v452 = Commands->Find_Object(401122);
-				v451->Send_Custom_Event(obj, v452, 0, 0, 0.0);
-				v588 = 401113;
-			}
-			goto LABEL_192;
-		}
-		if (objId == 405118)
-			goto LABEL_190;
-		if (objId > 405118)
-		{
-			if (objId == 405120)
-			{
-				v589 = 0x440E83D7;
-				v590 = 0x4382BC29;
-				v591 = 0xC25C0000;
-				v558 = Commands->Create_Object("GDI_Mammoth_Tank_Player", (const Vector3 *)&v589);
-				v559 = v558;
-				if (!v558)
-					goto LABEL_190;
-				Commands->Set_Facing(v558, 45.0);
-				v582 = "2";
-				v581 = "M02_Player_Vehicle";
-				v579 = v559;
-				goto LABEL_189;
-			}
-			if (objId >= 405120)
-			{
-				if (objId != 405122)
-					goto LABEL_193;
-				Commands->Stop_All_Conversations();
-				v560 = Commands->Create_Conversation("M02_SECONDARY_11_START", 100, 300.0, 1);
-				Commands->Join_Conversation(0, v560, 1, 1, 1);
-				v561 = Commands;
-				v562 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-				v561->Get_Position((Vector3 *)&v589, v562);
-				v563 = v561->Get_A_Star((Vector3 *)&v589);
-				v561->Join_Conversation(v563, v564, v560, 1, 0);
-				Commands->Start_Conversation(v560, 0);
-				Commands->Start_Timer(obj, retaddr, 6.0, 12);
-				goto LABEL_192;
-			}
-			Commands->Stop_All_Conversations();
-			v583 = 1;
-			v575 = "M02_SECONDARY_03_START";
-		}
-		else if (objId == 405116)
-		{
-			Commands->Stop_All_Conversations();
-			v583 = 1;
-			v575 = "M02_OBELISK_APPROACH";
-		}
-		else
-		{
-			if (objId <= 405116)
-			{
-				if (objId != 401982)
-					goto LABEL_193;
-				Commands->Stop_All_Conversations();
-				v550 = Commands->Create_Conversation("M02_SECONDARY_13_START", 100, 300.0, 1);
-				Commands->Join_Conversation(0, v550, 1, 1, 1);
-				v551 = Commands;
-				v552 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-				v551->Get_Position((Vector3 *)&v589, v552);
-				v553 = v551->Get_A_Star((Vector3 *)&v589);
-				v551->Join_Conversation(v553, v554, v550, 1, 0);
-				Commands->Start_Conversation(v550, 0);
-				v588 = 0x44687A3D;
-				v589 = 0x448D8AE1;
-				v590 = 0x428D0000;
-				if (!(int)Commands->Create_Object("M02_Nod_Jet" + 4, (const Vector3 *)&v589))
-					goto LABEL_190;
-				v581 = &s1;
-				v579 = (ScriptableGameObj *)"M02_Nod_Jet";
-				goto LABEL_189;
-			}
-			Commands->Stop_All_Conversations();
-			v583 = 1;
-			v575 = "M02_PRIMARY_02_REMIND";
-		}
-	LABEL_183:
-		v187 = Commands->Create_Conversation(v575, 100, 300.0, v583);
-		Commands->Join_Conversation(0, v187, 1, 1, 1);
-		v188 = Commands;
-		v573 = 0;
-		v571 = 1;
-		v569 = v187;
-		v189 = &v589;
-	LABEL_184:
-		v555 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-		v188->Get_Position((Vector3 *)v189, v555);
-		v556 = v188->Get_A_Star((Vector3 *)v189);
-		v188->Join_Conversation(v556, v567, v569, v571, v573);
-		Commands->Start_Conversation(v187, 0);
-		goto LABEL_185;
-	}
-	if (objId == 400196)
-	{
-		this->field_1C = 1;
-		Commands->Get_Position((Vector3 *)&v589, obj);
-		Commands->Create_Logical_Sound(obj, 1000, (const Vector3 *)&v589, 70.0);
-		Commands->Start_Timer(obj, retaddr, 1.0, 4);
-		goto LABEL_193;
-	}
-	if (objId > 400196)
-	{
-		if (objId == 400270)
-		{
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 9, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 8, 0.0);
-			v190 = Commands;
-			v191 = Commands->Find_Object(400275);
-			v190->Send_Custom_Event(obj, v191, 0, 0, 0.0);
-			v192 = Commands;
-			v193 = Commands->Find_Object(401046);
-			v192->Send_Custom_Event(obj, v193, 0, 0, 0.0);
-			v194 = Commands;
-			v195 = Commands->Find_Object(401047);
-			v194->Send_Custom_Event(obj, v195, 0, 0, 0.0);
-			v196 = Commands;
-			v197 = Commands->Find_Object(401048);
-			v196->Send_Custom_Event(obj, v197, 0, 0, 0.0);
-			v198 = Commands;
-			v199 = Commands->Find_Object(401049);
-			v198->Send_Custom_Event(obj, v199, 0, 0, 0.0);
-			v200 = Commands;
-			v201 = Commands->Find_Object(401050);
-			v200->Send_Custom_Event(obj, v201, 0, 0, 0.0);
-			v202 = Commands;
-			v203 = Commands->Find_Object(401051);
-			v202->Send_Custom_Event(obj, v203, 0, 0, 0.0);
-			v204 = Commands;
-			v205 = Commands->Find_Object(401052);
-			v204->Send_Custom_Event(obj, v205, 0, 0, 0.0);
-			v206 = Commands;
-			v207 = Commands->Find_Object(401053);
-			v206->Send_Custom_Event(obj, v207, 0, 0, 0.0);
-			Commands->Get_Position((Vector3 *)&v589, obj);
-			Commands->Create_Logical_Sound(obj, 1059, (const Vector3 *)&v589, 1000.0);
-			v587 = 400271;
-			goto LABEL_185;
-		}
-		if (objId <= 400270)
-		{
-			if (objId == 400201)
-			{
-				this->field_1C = 1;
-				Commands->Get_Position((Vector3 *)&v589, obj);
-				Commands->Create_Logical_Sound(obj, 1000, (const Vector3 *)&v589, 70.0);
-				Commands->Start_Timer(obj, retaddr, 1.0, 7);
-				goto LABEL_193;
-			}
-			if (objId <= 400201)
-			{
-				if (objId == 400197)
-				{
-					this->field_1C = 1;
-					Commands->Get_Position((Vector3 *)&v589, obj);
-					Commands->Create_Logical_Sound(obj, 1000, (const Vector3 *)&v589, 70.0);
-					Commands->Start_Timer(obj, retaddr, 1.0, 5);
-				}
-				else if (objId == 400198)
-				{
-					this->field_1C = 1;
-					Commands->Get_Position((Vector3 *)&v589, obj);
-					Commands->Create_Logical_Sound(obj, 1000, (const Vector3 *)&v589, 70.0);
-					Commands->Start_Timer(obj, retaddr, 1.0, 6);
-				}
-				goto LABEL_193;
-			}
-			if (objId != 400268)
-			{
-				if (objId <= 400268)
-				{
-					if (objId == 400267)
-					{
-						Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 211, 0, 0.0);
-						Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 3, 0.0);
-						Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 4, 0.0);
-						Commands->Get_Position((Vector3 *)&v589, obj);
-						Commands->Create_Logical_Sound(obj, 1053, (const Vector3 *)&v589, 1000.0);
-						Commands->Create_Logical_Sound(obj, 1102, (const Vector3 *)&v589, 1000.0);
-						v139 = Commands;
-						v140 = Commands->Find_Object(400210);
-						v139->Send_Custom_Event(obj, v140, 0, 0, 0.0);
-						v141 = Commands;
-						v142 = Commands->Find_Object(400451);
-						v141->Send_Custom_Event(obj, v142, 0, 0, 0.0);
-						v143 = Commands;
-						v144 = Commands->Find_Object(400452);
-						v143->Send_Custom_Event(obj, v144, 0, 0, 0.0);
-						v145 = Commands;
-						v146 = Commands->Find_Object(400453);
-						v145->Send_Custom_Event(obj, v146, 0, 0, 0.0);
-						v147 = Commands;
-						v148 = Commands->Find_Object(400499);
-						v147->Send_Custom_Event(obj, v148, 0, 0, 0.0);
-						v149 = Commands;
-						v150 = Commands->Find_Object(400500);
-						v149->Send_Custom_Event(obj, v150, 0, 0, 0.0);
-						v151 = Commands;
-						v152 = Commands->Find_Object(401025);
-						v151->Send_Custom_Event(obj, v152, 0, 0, 0.0);
-						v153 = Commands;
-						v154 = Commands->Find_Object(401026);
-						v153->Send_Custom_Event(obj, v154, 0, 0, 0.0);
-						v155 = Commands;
-						v156 = Commands->Find_Object(401027);
-						v155->Send_Custom_Event(obj, v156, 0, 0, 0.0);
-						v157 = Commands;
-						v158 = Commands->Find_Object(401028);
-						v157->Send_Custom_Event(obj, v158, 0, 0, 0.0);
-						Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 112, 4, 0.0);
-						Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 111, 4, 0.0);
-						M02_Objective_Zone::Create_Buggy((M02_Objective_Zone *)retaddr, 4);
-						v159 = Commands;
-						v160 = Commands->Find_Object(401018);
-						v159->Send_Custom_Event(obj, v160, 0, 0, 0.0);
-						Commands->Start_Timer(obj, retaddr, 0.1, 10);
-						v5 = 1;
-						v587 = 400187;
-					}
-					goto LABEL_193;
-				}
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 202, 0, 0.0);
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 203, 0, 0.0);
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 217, 0, 0.0);
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 6, 0.0);
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 9, 0.0);
-				v179 = Commands;
-				v180 = Commands->Find_Object(400212);
-				v179->Send_Custom_Event(obj, v180, 0, 0, 0.0);
-				v181 = Commands;
-				v182 = Commands->Find_Object(400981);
-				v181->Send_Custom_Event(obj, v182, 0, 0, 0.0);
-				v183 = Commands;
-				v184 = Commands->Find_Object(400982);
-				v183->Send_Custom_Event(obj, v184, 0, 0, 0.0);
-				v185 = Commands;
-				v186 = Commands->Find_Object(400983);
-				v185->Send_Custom_Event(obj, v186, 0, 0, 0.0);
-				Commands->Get_Position((Vector3 *)&v589, obj);
-				Commands->Create_Logical_Sound(obj, 1056, (const Vector3 *)&v589, 1000.0);
-				M02_Objective_Zone::Call_GDI_Soldiers((M02_Objective_Zone *)retaddr, 9);
-				Commands->Stop_All_Conversations();
-				v187 = Commands->Create_Conversation("M02_PRIMARY_01_GUIDE", 100, 300.0, 1);
-				Commands->Join_Conversation(0, v187, 1, 1, 1);
-				v188 = Commands;
-				v573 = 0;
-				v571 = 0;
-				v569 = 1;
-				v567 = v187;
-				v189 = &v592;
-				goto LABEL_184;
-			}
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 4, 0.0);
-			Commands->Get_Position((Vector3 *)&v589, obj);
-			((void(__cdecl *)(ScriptableGameObj *))Commands->Create_Logical_Sound)(obj);
-			v161 = Commands;
-			v162 = Commands->Find_Object(400552);
-			v161->Send_Custom_Event(obj, v162, 0, 0, 0.0);
-			v163 = Commands;
-			v164 = Commands->Find_Object(400553);
-			v163->Send_Custom_Event(obj, v164, 0, 0, 0.0);
-			v165 = Commands;
-			v166 = Commands->Find_Object(400560);
-			v165->Send_Custom_Event(obj, v166, 0, 0, 0.0);
-			v167 = Commands;
-			v168 = Commands->Find_Object(400555);
-			v167->Send_Custom_Event(obj, v168, 0, 0, 0.0);
-			v169 = Commands;
-			v170 = Commands->Find_Object(400558);
-			v169->Send_Custom_Event(obj, v170, 0, 0, 0.0);
-			v171 = Commands;
-			v172 = Commands->Find_Object(400559);
-			v171->Send_Custom_Event(obj, v172, 0, 0, 0.0);
-			v173 = Commands;
-			v174 = Commands->Find_Object(400557);
-			v173->Send_Custom_Event(obj, v174, 0, 0, 0.0);
-			v175 = Commands;
-			v176 = Commands->Find_Object(400554);
-			v175->Send_Custom_Event(obj, v176, 0, 0, 0.0);
-			v177 = Commands;
-			v178 = Commands->Find_Object(400556);
-			v177->Send_Custom_Event(obj, v178, 0, 0, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 24, 0, COERCE_FLOAT(1054));
-		LABEL_192:
-			v5 = 1;
-			goto LABEL_193;
-		}
-		if (objId == 400274)
-		{
-			v255 = Commands->Find_Object(1153846);
-			v585 = v255;
-			if (!v255)
-				goto LABEL_193;
-			Commands->Get_Health(v255);
-			if (v3 <= 0.0)
-			{
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 11, 0.0);
-				Commands->Get_Position((Vector3 *)&v589, obj);
-				Commands->Create_Logical_Sound(obj, 1061, (const Vector3 *)&v589, 1000.0);
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 114, 10, 0.0);
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 102, 10, 0.0);
-				v5 = 1;
-			}
-			v572 = 0;
-			v570 = 1;
-			v568 = v585;
-			goto LABEL_136;
-		}
-		if (objId > 400274)
-		{
-			if (objId == 400501)
-			{
-				v260 = Commands;
-				v261 = Commands->Find_Object(400503);
-				v260->Send_Custom_Event(obj, v261, 0, 0, 0.0);
-				v262 = Commands;
-				v263 = Commands->Find_Object(400504);
-				v262->Send_Custom_Event(obj, v263, 0, 0, 0.0);
-				v264 = Commands;
-				v265 = Commands->Find_Object(400505);
-				v264->Send_Custom_Event(obj, v265, 0, 0, 0.0);
-				v266 = Commands;
-				v267 = Commands->Find_Object(400506);
-				v266->Send_Custom_Event(obj, v267, 0, 0, 0.0);
-				v268 = Commands;
-				v269 = Commands->Find_Object(400507);
-				v268->Send_Custom_Event(obj, v269, 0, 0, 0.0);
-				v270 = Commands;
-				v271 = Commands->Find_Object(400508);
-				v270->Send_Custom_Event(obj, v271, 0, 0, 0.0);
-				v272 = Commands;
-				v273 = Commands->Find_Object(400509);
-				v272->Send_Custom_Event(obj, v273, 0, 0, 0.0);
-				v274 = Commands;
-				v275 = Commands->Find_Object(400510);
-				v274->Send_Custom_Event(obj, v275, 0, 0, 0.0);
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 24, 0.0);
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 214, 0, 0.0);
-				v588 = 400502;
-			}
-			else
-			{
-				if (objId <= 400501)
-				{
-					if (objId != 400316)
-						goto LABEL_193;
-					Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 0, 0.0);
-					Commands->Get_Position((Vector3 *)&v589, obj);
-					Commands->Create_Logical_Sound(obj, 1050, (const Vector3 *)&v589, 1000.0);
-					v256 = Commands;
-					v257 = Commands->Find_Object(400317);
-					v256->Send_Custom_Event(obj, v257, 0, 0, 0.0);
-					v258 = Commands;
-					v259 = Commands->Find_Object(400318);
-					v258->Send_Custom_Event(obj, v259, 0, 0, 0.0);
-					v37 = Commands;
-					goto LABEL_164;
-				}
-				if (objId != 400502)
-					goto LABEL_193;
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 24, 0.0);
-				v276 = Commands;
-				v277 = Commands->Find_Object(400503);
-				v276->Send_Custom_Event(obj, v277, 0, 0, 0.0);
-				v278 = Commands;
-				v279 = Commands->Find_Object(400504);
-				v278->Send_Custom_Event(obj, v279, 0, 0, 0.0);
-				v280 = Commands;
-				v281 = Commands->Find_Object(400505);
-				v280->Send_Custom_Event(obj, v281, 0, 0, 0.0);
-				v282 = Commands;
-				v283 = Commands->Find_Object(400506);
-				v282->Send_Custom_Event(obj, v283, 0, 0, 0.0);
-				v284 = Commands;
-				v285 = Commands->Find_Object(400507);
-				v284->Send_Custom_Event(obj, v285, 0, 0, 0.0);
-				v286 = Commands;
-				v287 = Commands->Find_Object(400508);
-				v286->Send_Custom_Event(obj, v287, 0, 0, 0.0);
-				v288 = Commands;
-				v289 = Commands->Find_Object(400509);
-				v288->Send_Custom_Event(obj, v289, 0, 0, 0.0);
-				v290 = Commands;
-				v291 = Commands->Find_Object(400510);
-				v290->Send_Custom_Event(obj, v291, 0, 0, 0.0);
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 214, 0, 0.0);
-				v588 = 400501;
-			}
-			goto LABEL_192;
-		}
-		if (objId == 400272)
-		{
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 8, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 10, 0.0);
-			Commands->Get_Position((Vector3 *)&v589, obj);
-			Commands->Create_Logical_Sound(obj, 1058, (const Vector3 *)&v589, 1000.0);
-			v227 = Commands;
-			v228 = Commands->Find_Object(400213);
-			v227->Send_Custom_Event(obj, v228, 0, 0, 0.0);
-			v229 = Commands;
-			v230 = Commands->Find_Object(400984);
-			v229->Send_Custom_Event(obj, v230, 0, 0, 0.0);
-			v231 = Commands;
-			v232 = Commands->Find_Object(401054);
-			v231->Send_Custom_Event(obj, v232, 0, 0, 0.0);
-			v233 = Commands;
-			v234 = Commands->Find_Object(401055);
-			v233->Send_Custom_Event(obj, v234, 0, 0, 0.0);
-			v235 = Commands;
-			v236 = Commands->Find_Object(401056);
-			v235->Send_Custom_Event(obj, v236, 0, 0, 0.0);
-			v37 = Commands;
-			goto LABEL_164;
-		}
-		if (objId > 400272)
-		{
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 10, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 11, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 114, 11, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 102, 11, 0.0);
-			v237 = Commands;
-			v238 = Commands->Find_Object(400276);
-			v237->Send_Custom_Event(obj, v238, 0, 0, 0.0);
-			v239 = Commands;
-			v240 = Commands->Find_Object(400199);
-			v239->Send_Custom_Event(obj, v240, 0, 0, 0.0);
-			v241 = Commands;
-			v242 = Commands->Find_Object(401065);
-			v241->Send_Custom_Event(obj, v242, 0, 0, 0.0);
-			v243 = Commands;
-			v244 = Commands->Find_Object(401058);
-			v243->Send_Custom_Event(obj, v244, 0, 0, 0.0);
-			v245 = Commands;
-			v246 = Commands->Find_Object(401059);
-			v245->Send_Custom_Event(obj, v246, 0, 0, 0.0);
-			v247 = Commands;
-			v248 = Commands->Find_Object(401060);
-			v247->Send_Custom_Event(obj, v248, 0, 0, 0.0);
-			v249 = Commands;
-			v250 = Commands->Find_Object(401061);
-			v249->Send_Custom_Event(obj, v250, 0, 0, 0.0);
-			v251 = Commands;
-			v252 = Commands->Find_Object(401063);
-			v251->Send_Custom_Event(obj, v252, 0, 0, 0.0);
-			v253 = Commands;
-			v254 = Commands->Find_Object(401064);
-			v253->Send_Custom_Event(obj, v254, 0, 0, 0.0);
-			Commands->Get_Position((Vector3 *)&v589, obj);
-			v580 = (const Vector3 *)&v589;
-			v577 = 1060;
-			goto LABEL_131;
-		}
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 9, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 8, 0.0);
-		v208 = Commands;
-		v209 = Commands->Find_Object(400275);
-		v208->Send_Custom_Event(obj, v209, 0, 0, 0.0);
-		v210 = Commands;
-		v211 = Commands->Find_Object(401046);
-		v210->Send_Custom_Event(obj, v211, 0, 0, 0.0);
-		v212 = Commands;
-		v213 = Commands->Find_Object(401047);
-		v212->Send_Custom_Event(obj, v213, 0, 0, 0.0);
-		v214 = Commands;
-		v215 = Commands->Find_Object(401048);
-		v214->Send_Custom_Event(obj, v215, 0, 0, 0.0);
-		v216 = Commands;
-		v217 = Commands->Find_Object(401049);
-		v216->Send_Custom_Event(obj, v217, 0, 0, 0.0);
-		v218 = Commands;
-		v219 = Commands->Find_Object(401050);
-		v218->Send_Custom_Event(obj, v219, 0, 0, 0.0);
-		v220 = Commands;
-		v221 = Commands->Find_Object(401051);
-		v220->Send_Custom_Event(obj, v221, 0, 0, 0.0);
-		v222 = Commands;
-		v223 = Commands->Find_Object(401052);
-		v222->Send_Custom_Event(obj, v223, 0, 0, 0.0);
-		v224 = Commands;
-		v225 = Commands->Find_Object(401053);
-		v224->Send_Custom_Event(obj, v225, 0, 0, 0.0);
-		Commands->Get_Position((Vector3 *)&v589, obj);
-		Commands->Create_Logical_Sound(obj, 1059, (const Vector3 *)&v589, 1000.0);
-		v226 = Commands->Find_Object(303203);
-		if (v226)
-			Commands->Destroy_Object(v226);
-		v587 = 400270;
-	LABEL_190:
-		v5 = 1;
-		goto LABEL_193;
-	}
-	if (objId == 400187)
-	{
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 211, 0, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 3, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 4, 0.0);
-		Commands->Get_Position((Vector3 *)&v589, obj);
-		Commands->Create_Logical_Sound(obj, 1102, (const Vector3 *)&v589, 1000.0);
-		Commands->Create_Logical_Sound(obj, 1053, (const Vector3 *)&v589, 1000.0);
-		v78 = Commands;
-		v79 = Commands->Find_Object(400210);
-		v78->Send_Custom_Event(obj, v79, 0, 0, 0.0);
-		v80 = Commands;
-		v81 = Commands->Find_Object(400451);
-		v80->Send_Custom_Event(obj, v81, 0, 0, 0.0);
-		v82 = Commands;
-		v83 = Commands->Find_Object(400452);
-		v82->Send_Custom_Event(obj, v83, 0, 0, 0.0);
-		v84 = Commands;
-		v85 = Commands->Find_Object(400453);
-		v84->Send_Custom_Event(obj, v85, 0, 0, 0.0);
-		v86 = Commands;
-		v87 = Commands->Find_Object(400499);
-		v86->Send_Custom_Event(obj, v87, 0, 0, 0.0);
-		v88 = Commands;
-		v89 = Commands->Find_Object(400500);
-		v88->Send_Custom_Event(obj, v89, 0, 0, 0.0);
-		v90 = Commands;
-		v91 = Commands->Find_Object(401025);
-		v90->Send_Custom_Event(obj, v91, 0, 0, 0.0);
-		v92 = Commands;
-		v93 = Commands->Find_Object(401026);
-		v92->Send_Custom_Event(obj, v93, 0, 0, 0.0);
-		v94 = Commands;
-		v95 = Commands->Find_Object(401027);
-		v94->Send_Custom_Event(obj, v95, 0, 0, 0.0);
-		v96 = Commands;
-		v97 = Commands->Find_Object(401028);
-		v96->Send_Custom_Event(obj, v97, 0, 0, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 112, 4, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 111, 4, 0.0);
-		M02_Objective_Zone::Create_Buggy((M02_Objective_Zone *)retaddr, 4);
-		v98 = Commands;
-		v99 = Commands->Find_Object(401018);
-		v98->Send_Custom_Event(obj, v99, 0, 0, 0.0);
-		Commands->Start_Timer(obj, retaddr, 0.1, 10);
-		v5 = 1;
-		v587 = 400267;
-		goto LABEL_193;
-	}
-	if (objId <= 400187)
-	{
-		if (objId == 304006)
-		{
-			if (!this->field_1D)
-			{
-				this->field_1D = 1;
-				v587 = Commands->Create_Conversation("MX2DSGN_DSGN0001", 100, 300.0, 1);
-				Commands->Join_Conversation(0, v587, 1, 1, 1);
-				v15 = Commands;
-				v16 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-				v15->Get_Position((Vector3 *)&v589, v16);
-				v17 = v15->Get_A_Star((Vector3 *)&v589);
-				v15->Join_Conversation(v17, v18, v587, 1, 0);
-				Commands->Start_Conversation(v586, 0);
-				v588 = 0x3E48B439;
-				v589 = 0x3F61CAC1;
-				v590 = 0x3E48B439;
-				Commands->Set_HUD_Help_Text(8287, (Vector3 *)&v589);
-			}
-			goto LABEL_193;
-		}
-		if (objId <= 304006)
-		{
-			if (objId == 301601)
-			{
-				v7 = Commands;
-				v8 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-				v7->Get_Position((Vector3 *)&v593, v8);
-				v9 = v7->Get_A_Star((Vector3 *)&v593);
-				if (v7->Has_Key(v9, v574) == 1)
-					goto LABEL_193;
-				Commands->Stop_All_Conversations();
-				v10 = Commands->Create_Conversation("M02_BAY_DOOR_WARNING", 100, 300.0, 1);
-				Commands->Join_Conversation(0, v10, 1, 1, 1);
-				v11 = Commands;
-				v12 = (int)retaddr->base.vPtr->base.Owner(retaddr);
-				v11->Get_Position((Vector3 *)&v588, (ScriptableGameObj *)v12);
-				v13 = v11->Get_A_Star((Vector3 *)&v588);
-				v11->Join_Conversation(v13, v14, v10, 1, 0);
-				Commands->Start_Conversation(0, v557);
-				goto LABEL_185;
-			}
-			if (objId != 303203)
-				goto LABEL_193;
-			Commands->Stop_All_Conversations();
-			v583 = 1;
-			v575 = "M02_PRIMARY_03_GUIDE";
-			goto LABEL_183;
-		}
-		if (objId != 400185)
-		{
-			if (objId <= 400185)
-			{
-				if (objId != 400184)
-					goto LABEL_193;
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 206, 0, 0.0);
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 207, 0, 0.0);
-				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 0, 0.0);
-				M02_Objective_Zone::Call_GDI_Soldiers(this, 0);
-				M02_Objective_Zone::Create_Apache(this, 0);
-				v19 = Commands;
-				v20 = Commands->Find_Object(400286);
-				v19->Send_Custom_Event(obj, v20, 0, 0, 0.0);
-				v21 = Commands;
-				v22 = Commands->Find_Object(400287);
-				v21->Send_Custom_Event(obj, v22, 0, 0, 0.0);
-				v23 = Commands;
-				v24 = Commands->Find_Object(400288);
-				v23->Send_Custom_Event(obj, v24, 0, 0, 0.0);
-				v25 = Commands;
-				v26 = Commands->Find_Object(400292);
-				v25->Send_Custom_Event(obj, v26, 0, 0, 0.0);
-				v27 = Commands;
-				v28 = Commands->Find_Object(400293);
-				v27->Send_Custom_Event(obj, v28, 0, 0, 0.0);
-				v29 = Commands;
-				v30 = Commands->Find_Object(400285);
-				v29->Send_Custom_Event(obj, v30, 0, 0, 0.0);
-				v31 = Commands;
-				v32 = Commands->Find_Object(400206);
-				v31->Send_Custom_Event(obj, v32, 0, 0, 0.0);
-				v33 = Commands;
-				v34 = Commands->Find_Object(401004);
-				v33->Send_Custom_Event(obj, v34, 0, 0, 0.0);
-				v35 = Commands;
-				v36 = Commands->Find_Object(401005);
-				v35->Send_Custom_Event(obj, v36, 0, 0, 0.0);
-				v37 = Commands;
-				v576 = 0.0;
-				v463 = Commands->Find_Object(401006);
-				goto LABEL_165;
-			}
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 210, 0, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 221, 0, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 1, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 2, 0.0);
-			Commands->Get_Position((Vector3 *)&v589, obj);
-			Commands->Create_Logical_Sound(obj, 1051, (const Vector3 *)&v589, 1000.0);
-			v60 = Commands;
-			v61 = Commands->Find_Object(400372);
-			v60->Send_Custom_Event(obj, v61, 0, 0, 0.0);
-			v62 = Commands;
-			v63 = Commands->Find_Object(400373);
-			v62->Send_Custom_Event(obj, v63, 0, 0, 0.0);
-			v64 = Commands;
-			v65 = Commands->Find_Object(400374);
-			v64->Send_Custom_Event(obj, v65, 0, 0, 0.0);
-			v66 = Commands;
-			v67 = Commands->Find_Object(401167);
-			v66->Send_Custom_Event(obj, v67, 0, 0, 0.0);
-			v68 = Commands;
-			v69 = Commands->Find_Object(400208);
-			v68->Send_Custom_Event(obj, v69, 0, 0, 0.0);
-			v70 = Commands;
-			v71 = Commands->Find_Object(401014);
-			v70->Send_Custom_Event(obj, v71, 0, 0, 0.0);
-			v72 = Commands;
-			v73 = Commands->Find_Object(401015);
-			v72->Send_Custom_Event(obj, v73, 0, 0, 0.0);
-			v74 = Commands;
-			v75 = Commands->Find_Object(401016);
-			v74->Send_Custom_Event(obj, v75, 0, 0, 0.0);
-			v76 = Commands;
-			v77 = Commands->Find_Object(401017);
-			v76->Send_Custom_Event(obj, v77, 0, 0, 0.0);
-			M02_Objective_Zone::Create_Buggy((M02_Objective_Zone *)retaddr, 2);
-			M02_Objective_Zone::Create_Sakura((M02_Objective_Zone *)retaddr, 2);
-		LABEL_185:
-			v5 = 1;
-			goto LABEL_193;
-		}
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 208, 0, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 209, 0, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 1, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 112, 1, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 111, 1, 0.0);
-		Commands->Get_Position((Vector3 *)&v589, obj);
-		Commands->Create_Logical_Sound(obj, 1100, (const Vector3 *)&v589, 1000.0);
-		Commands->Create_Logical_Sound(obj, 1073, (const Vector3 *)&v589, 1000.0);
-		v38 = Commands;
-		v39 = Commands->Find_Object(400342);
-		v38->Send_Custom_Event(obj, v39, 0, 0, 0.0);
-		v40 = Commands;
-		v41 = Commands->Find_Object(400343);
-		v40->Send_Custom_Event(obj, v41, 0, 0, 0.0);
-		v42 = Commands;
-		v43 = Commands->Find_Object(400347);
-		v42->Send_Custom_Event(obj, v43, 0, 0, 0.0);
-		v44 = Commands;
-		v45 = Commands->Find_Object(400332);
-		v44->Send_Custom_Event(obj, v45, 0, 0, 0.0);
-		v46 = Commands;
-		v47 = Commands->Find_Object(400340);
-		v46->Send_Custom_Event(obj, v47, 0, 0, 0.0);
-		v48 = Commands;
-		v49 = Commands->Find_Object(400348);
-		v48->Send_Custom_Event(obj, v49, 0, 0, 0.0);
-		v50 = Commands;
-		v51 = Commands->Find_Object(400344);
-		v50->Send_Custom_Event(obj, v51, 0, 0, 0.0);
-		v52 = Commands;
-		v53 = Commands->Find_Object(400345);
-		v52->Send_Custom_Event(obj, v53, 0, 0, 0.0);
-		v54 = Commands;
-		v55 = Commands->Find_Object(400333);
-		v54->Send_Custom_Event(obj, v55, 0, 0, 0.0);
-		v56 = Commands;
-		v57 = Commands->Find_Object(400207);
-		v56->Send_Custom_Event(obj, v57, 0, 0, 0.0);
-		v58 = Commands;
-		v59 = Commands->Find_Object(400371);
-		v58->Send_Custom_Event(obj, v59, 0, 0, 0.0);
-		v37 = Commands;
-	LABEL_164:
-		v463 = v37->Find_Object(v566);
-	LABEL_165:
-		v37->Send_Custom_Event(obj, v463, 0, 0, v576);
-		goto LABEL_192;
-	}
-	if (objId == 400192)
-	{
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 11, 0.0);
-		Commands->Get_Position((Vector3 *)&v589, obj);
-		v580 = (const Vector3 *)&v589;
-		v577 = 1061;
-	LABEL_131:
-		Commands->Create_Logical_Sound(obj, v577, v580, 1000.0);
-		goto LABEL_185;
-	}
-	if (objId <= 400192)
-	{
-		if (objId != 400188)
-		{
-			if (objId != 400189)
-				goto LABEL_193;
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 215, 0, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 216, 0, 0.0);
-			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 6, 0.0);
-			v114 = Commands;
-			v115 = Commands->Find_Object(400211);
-			v114->Send_Custom_Event(obj, v115, 0, 0, 0.0);
-			v116 = Commands;
-			v117 = Commands->Find_Object(400976);
-			v116->Send_Custom_Event(obj, v117, 0, 0, 0.0);
-			v118 = Commands;
-			v119 = Commands->Find_Object(400975);
-			v118->Send_Custom_Event(obj, v119, 0, 0, 0.0);
-			v120 = Commands;
-			v121 = Commands->Find_Object(400977);
-			v120->Send_Custom_Event(obj, v121, 0, 0, 0.0);
-			v122 = Commands;
-			v123 = Commands->Find_Object(400978);
-			v122->Send_Custom_Event(obj, v123, 0, 0, 0.0);
-			v124 = Commands;
-			v125 = Commands->Find_Object(400979);
-			v124->Send_Custom_Event(obj, v125, 0, 0, 0.0);
-			v126 = Commands;
-			v127 = Commands->Find_Object(400980);
-			v126->Send_Custom_Event(obj, v127, 0, 0, 0.0);
-			v128 = Commands;
-			v129 = Commands->Find_Object(401036);
-			v128->Send_Custom_Event(obj, v129, 0, 0, 0.0);
-			v130 = Commands;
-			v131 = Commands->Find_Object(401037);
-			v130->Send_Custom_Event(obj, v131, 0, 0, 0.0);
-			v132 = Commands;
-			v133 = Commands->Find_Object(401038);
-			v132->Send_Custom_Event(obj, v133, 0, 0, 0.0);
-			v37 = Commands;
-			v576 = 0.0;
-			v463 = Commands->Find_Object(401045);
-			goto LABEL_165;
-		}
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 212, 0, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 213, 0, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 2, 0.0);
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 3, 0.0);
-		Commands->Get_Position((Vector3 *)&v589, obj);
-		Commands->Create_Logical_Sound(obj, 1052, (const Vector3 *)&v589, 1000.0);
-		v592 = 0x43E8D28F;
-		v593 = 0x4432F70A;
-		v594 = 0xC16EF5C3;
-		v100 = Commands->Create_Object("Nod_Light_Tank", (const Vector3 *)&v592);
-		v101 = v100;
-		if (v100)
-		{
-			Commands->Set_Facing(v100, -10.0);
-			Commands->Attach_Script(v101, "M02_Nod_Vehicle", "3");
-		}
-		v102 = Commands;
-		v103 = Commands->Find_Object(400410);
-		v102->Send_Custom_Event(obj, v103, 0, 0, 0.0);
-		v104 = Commands;
-		v105 = Commands->Find_Object(400209);
-		v104->Send_Custom_Event(obj, v105, 0, 0, 0.0);
-		v106 = Commands;
-		v107 = Commands->Find_Object(400411);
-		v106->Send_Custom_Event(obj, v107, 0, 0, 0.0);
-		v108 = Commands;
-		v109 = Commands->Find_Object(400412);
-		v108->Send_Custom_Event(obj, v109, 0, 0, 0.0);
-		v110 = Commands;
-		v111 = Commands->Find_Object(400413);
-		v110->Send_Custom_Event(obj, v111, 0, 0, 0.0);
-		v112 = Commands;
-		v113 = Commands->Find_Object(400414);
-		v112->Send_Custom_Event(obj, v113, 0, 0, 0.0);
-		v37 = Commands;
-		goto LABEL_164;
-	}
-	if (objId != 400194)
-	{
-		if (objId > 400194)
-		{
-			this->field_1C = 1;
-			Commands->Get_Position((Vector3 *)&v589, obj);
-			Commands->Create_Logical_Sound(obj, 1000, (const Vector3 *)&v589, 70.0);
-			Commands->Start_Timer(obj, retaddr, 1.0, 3);
-		}
-		else
-		{
-			v589 = 0;
-			v590 = 0;
-			v591 = 0;
-			v134 = Commands->Create_Object("Invisible_Object", (const Vector3 *)&v589);
-			if (v134)
-			{
-				v135 = Commands;
-				v136 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-				v135->Get_Position((Vector3 *)&v589, v136);
-				v137 = v135->Get_A_Star((Vector3 *)&v589);
-				v135->Control_Enable(v137, v578);
-				Commands->Start_Timer(obj, retaddr, 1.0, 9);
-				v138 = Commands->Find_Object(1111112);
-				if (v138)
-					Commands->Send_Custom_Event(obj, v138, 1000, 1002, 25.0);
-				Commands->Attach_Script(v584, "Test_Cinematic", "X2K_Midtro.txt");
-			}
-		}
-		goto LABEL_193;
-	}
-	if (!this->field_1D)
-	{
-		this->field_1D = 1;
-		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 205, 1, 0.0);
-		Commands->Mission_Complete(1);
-		v572 = 21;
-		v570 = 105;
-		v568 = M02ObjectiveControllerObj;
-	LABEL_136:
-		Commands->Send_Custom_Event(obj, v568, v570, v572, 0.0);
-	}
-LABEL_193:
-	if (v587)
-	{
-		v565 = Commands->Find_Object(v587);
-		if (v565)
-			Commands->Destroy_Object(v565);
-	}
-	if (v5)
+
 		Commands->Destroy_Object(obj);
-		*/
+	}
+	else if (objId == 401066)
+	{
+		GameObject *obbyMCTNodEngineerObj = Commands->Find_Object(400200);
+		Commands->Send_Custom_Event(obj, obbyMCTNodEngineerObj, 0, 0, 0.0f);
+
+		GameObject *obbyNodMinigunner1Obj = Commands->Find_Object(401067);
+		Commands->Send_Custom_Event(obj, obbyNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *obbyNodMinigunner2Obj = Commands->Find_Object(401068);
+		Commands->Send_Custom_Event(obj, obbyNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *obbyNodMinigunner3Obj = Commands->Find_Object(401069);
+		Commands->Send_Custom_Event(obj, obbyNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *nodObbyBuildingObj = Commands->Find_Object(1153845);
+		if (nodObbyBuildingObj)
+		{
+			Commands->Destroy_Object(nodObbyBuildingObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400991)
+	{
+		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));
+		if (invisObj)
+		{
+			Commands->Attach_Script(invisObj, "Test_Cinematic", "X2F_OrcaSam.txt");
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 401001)
+	{
+		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));
+		if (invisObj)
+		{
+			Commands->Attach_Script(invisObj, "Test_Cinematic", "X2H_ApacheSpray.txt");
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 401029)
+	{
+		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));
+		if (invisObj)
+		{
+			Commands->Attach_Script(invisObj, "Test_Cinematic", "X2D_MTank_Slip.txt");
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400992)
+	{
+		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));
+		if (invisObj)
+		{
+			Commands->Attach_Script(invisObj, "Test_Cinematic", "X2G_AirCrash.txt");
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400989)
+	{
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400990)
+	{
+		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));
+		if (invisObj)
+		{
+			Commands->Attach_Script(invisObj, "Test_Cinematic", "X2E_C130Drop.txt");
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 401196)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 11, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 14, 0.0f);
+		
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1061, pos, 1000.0f);
+
+		GameObject *caveNodMinigunner1Obj = Commands->Find_Object(401071);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner2Obj = Commands->Find_Object(401072);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner3Obj = Commands->Find_Object(401073);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner4Obj = Commands->Find_Object(401074);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner4Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodOfficerObj = Commands->Find_Object(401075);
+		Commands->Send_Custom_Event(obj, caveNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *caveNodRocketTrooperObj = Commands->Find_Object(401076);
+		Commands->Send_Custom_Event(obj, caveNodRocketTrooperObj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner5Obj = Commands->Find_Object(401077);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner5Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner6Obj = Commands->Find_Object(401078);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner6Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner7Obj = Commands->Find_Object(401192);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner7Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodChemTrooperObj = Commands->Find_Object(401193);
+		Commands->Send_Custom_Event(obj, caveNodChemTrooperObj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner8Obj = Commands->Find_Object(401194);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner8Obj, 0, 0, 0.0f);
+
+		GameObject *caveNodMinigunner9Obj = Commands->Find_Object(401195);
+		Commands->Send_Custom_Event(obj, caveNodMinigunner9Obj, 0, 0, 0.0f);
+
+		GameObject *caveEntranceScriptZoneObj = Commands->Find_Object(401070);
+		if (caveEntranceScriptZoneObj)
+		{
+			Commands->Destroy_Object(caveEntranceScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 401130)
+	{
+		GameObject *nodHONBuildingObj = Commands->Find_Object(1157690);
+		if (nodHONBuildingObj)
+		{
+			if (Commands->Get_Health(nodHONBuildingObj) != 0.0f)
+			{
+				Commands->Stop_All_Conversations();
+
+				int conversationId = Commands->Create_Conversation("M02_SECONDARY_01_GUIDE", 100, 300.0f, true); // The easiest way to destroy the Hand of Nod is to eliminate its Master Control Terminal.
+				Commands->Join_Conversation(NULL, conversationId, true, true, true);
+
+				Vector3 pos = Commands->Get_Position(obj);
+				GameObject *starObj = Commands->Get_A_Star(pos);
+
+				Commands->Join_Conversation(starObj, conversationId, true, false, false);
+				Commands->Start_Conversation(conversationId, 0);
+			}
+		}
+
+		GameObject *windowedHallNodTechnician1Obj = Commands->Find_Object(401132);
+		Commands->Send_Custom_Event(obj, windowedHallNodTechnician1Obj, 0, 0, 0.0f);
+
+		GameObject *windowedHallNodTechnician2Obj = Commands->Find_Object(401133);
+		Commands->Send_Custom_Event(obj, windowedHallNodTechnician2Obj, 0, 0, 0.0f);
+
+		GameObject *windowedHallNodMinigunner1Obj = Commands->Find_Object(401134);
+		Commands->Send_Custom_Event(obj, windowedHallNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *windowedHallNodMinigunner2Obj = Commands->Find_Object(401135);
+		Commands->Send_Custom_Event(obj, windowedHallNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *windowedHallNodMinigunner3Obj = Commands->Find_Object(401136);
+		Commands->Send_Custom_Event(obj, windowedHallNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *controlRoomNodMinigunner1Obj = Commands->Find_Object(401137);
+		Commands->Send_Custom_Event(obj, controlRoomNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *controlRoomNodMinigunner2Obj = Commands->Find_Object(401138);
+		Commands->Send_Custom_Event(obj, controlRoomNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *controlRoomNodOfficerObj = Commands->Find_Object(401139);
+		Commands->Send_Custom_Event(obj, controlRoomNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *honWindowedHallEntranceScriptZoneObj = Commands->Find_Object(401131);
+		if (honWindowedHallEntranceScriptZoneObj)
+		{
+			Commands->Destroy_Object(honWindowedHallEntranceScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 401186)
+	{
+		Create_Apache(15);
+
+		Commands->Stop_All_Conversations();
+
+		// Looks like some sort of meteor. Made one heck of a hole in the ceiling.
+		// EVA indicates it has been here for some time, and was only recently unearthed. Better stay back, it's loaded with Tiberium.
+		int conversationId = Commands->Create_Conversation("M02_SECONDARY_14_GUIDE", 100, 300.0f, true);
+		Commands->Join_Conversation(NULL, conversationId, true, true, true);
+		
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+
+		Commands->Join_Conversation(starObj, conversationId, true, false, false);
+		Commands->Start_Conversation(conversationId, 0);
+
+		GameObject *tibCaveEntranceScriptZoneObj = Commands->Find_Object(401187);
+		if (tibCaveEntranceScriptZoneObj)
+		{
+			Commands->Destroy_Object(tibCaveEntranceScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 401187)
+	{
+		Create_Apache(15);
+
+		Commands->Stop_All_Conversations();
+
+		// Looks like some sort of meteor. Made one heck of a hole in the ceiling.
+		// EVA indicates it has been here for some time, and was only recently unearthed. Better stay back, it's loaded with Tiberium.
+		int conversationId = Commands->Create_Conversation("M02_SECONDARY_14_GUIDE", 100, 300.0f, true);
+		Commands->Join_Conversation(NULL, conversationId, true, true, true);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+
+		Commands->Join_Conversation(starObj, conversationId, true, false, false);
+		Commands->Start_Conversation(conversationId, 0);
+
+		GameObject *tibCaveEntranceScriptZoneObj = Commands->Find_Object(401186);
+		if (tibCaveEntranceScriptZoneObj)
+		{
+			Commands->Destroy_Object(tibCaveEntranceScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 401131)
+	{
+		GameObject *nodHONBuildingObj = Commands->Find_Object(1157690);
+		if (nodHONBuildingObj)
+		{
+			if (Commands->Get_Health(nodHONBuildingObj) != 0.0f)
+			{
+				Commands->Stop_All_Conversations();
+
+				int conversationId = Commands->Create_Conversation("M02_SECONDARY_01_GUIDE", 100, 300.0f, true); // The easiest way to destroy the Hand of Nod is to eliminate its Master Control Terminal.
+				Commands->Join_Conversation(NULL, conversationId, true, true, true);
+
+				Vector3 pos = Commands->Get_Position(obj);
+				GameObject *starObj = Commands->Get_A_Star(pos);
+
+				Commands->Join_Conversation(starObj, conversationId, true, false, false);
+				Commands->Start_Conversation(conversationId, 0);
+			}
+		}
+
+		GameObject *windowedHallNodTechnician1Obj = Commands->Find_Object(401132);
+		Commands->Send_Custom_Event(obj, windowedHallNodTechnician1Obj, 0, 0, 0.0f);
+
+		GameObject *windowedHallNodTechnician2Obj = Commands->Find_Object(401133);
+		Commands->Send_Custom_Event(obj, windowedHallNodTechnician2Obj, 0, 0, 0.0f);
+
+		GameObject *windowedHallNodMinigunner1Obj = Commands->Find_Object(401134);
+		Commands->Send_Custom_Event(obj, windowedHallNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *windowedHallNodMinigunner2Obj = Commands->Find_Object(401135);
+		Commands->Send_Custom_Event(obj, windowedHallNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *windowedHallNodMinigunner3Obj = Commands->Find_Object(401136);
+		Commands->Send_Custom_Event(obj, windowedHallNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *controlRoomNodMinigunner1Obj = Commands->Find_Object(401137);
+		Commands->Send_Custom_Event(obj, controlRoomNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *controlRoomNodMinigunner2Obj = Commands->Find_Object(401138);
+		Commands->Send_Custom_Event(obj, controlRoomNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *controlRoomNodOfficerObj = Commands->Find_Object(401139);
+		Commands->Send_Custom_Event(obj, controlRoomNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *honWindowedHallEntranceScriptZoneObj = Commands->Find_Object(401130);
+		if (honWindowedHallEntranceScriptZoneObj)
+		{
+			Commands->Destroy_Object(honWindowedHallEntranceScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 401123)
+	{
+		GameObject *honOfficeNodMinigunner1Obj = Commands->Find_Object(401124);
+		Commands->Send_Custom_Event(obj, honOfficeNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *honOfficeNodMinigunner2Obj = Commands->Find_Object(401125);
+		Commands->Send_Custom_Event(obj, honOfficeNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *honOfficeNodMinigunner3Obj = Commands->Find_Object(401126);
+		Commands->Send_Custom_Event(obj, honOfficeNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *honOfficeNodMinigunner4Obj = Commands->Find_Object(401127);
+		Commands->Send_Custom_Event(obj, honOfficeNodMinigunner4Obj, 0, 0, 0.0f);
+
+		GameObject *nonExistingObj = Commands->Find_Object(401128); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExistingObj, 0, 0, 0.0f);
+
+		GameObject *honOfficeNodTechnicianObj = Commands->Find_Object(401129);
+		Commands->Send_Custom_Event(obj, honOfficeNodTechnicianObj, 0, 0, 0.0f);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 401114)
+	{
+		GameObject *gymNodMinigunner1Obj = Commands->Find_Object(401115);
+		Commands->Send_Custom_Event(obj, gymNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *gymNodMinigunner2Obj = Commands->Find_Object(401116);
+		Commands->Send_Custom_Event(obj, gymNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *gymNodMinigunner3Obj = Commands->Find_Object(401117);
+		Commands->Send_Custom_Event(obj, gymNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *forrestTowerMinigunner1Obj = Commands->Find_Object(401118);
+		Commands->Send_Custom_Event(obj, forrestTowerMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *forrestMinigunner1Obj = Commands->Find_Object(401119);
+		Commands->Send_Custom_Event(obj, forrestMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *forrestMinigunner2Obj = Commands->Find_Object(401120);
+		Commands->Send_Custom_Event(obj, forrestMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *forrestMinigunner3Obj = Commands->Find_Object(401121);
+		Commands->Send_Custom_Event(obj, forrestMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *forrestTowerMinigunner2Obj = Commands->Find_Object(401122);
+		Commands->Send_Custom_Event(obj, forrestTowerMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *stairsScriptZoneObj = Commands->Find_Object(401113);
+		if (stairsScriptZoneObj)
+		{
+			Commands->Destroy_Object(stairsScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 405118)
+	{
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 405120)
+	{
+		GameObject *mammothTankObj = Commands->Create_Object("GDI_Mammoth_Tank_Player", Vector3(570.06f, 261.47f, -55.0f));
+		if (mammothTankObj)
+		{
+			Commands->Set_Facing(mammothTankObj, 45.0);
+			Commands->Attach_Script(mammothTankObj, "M02_Player_Vehicle", "2");
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 405122)
+	{
+		Commands->Stop_All_Conversations();
+		
+		int conversationId = Commands->Create_Conversation("M02_SECONDARY_11_START", 100, 300.0f, true); // This bridge is flanked by SAM Sites. We're not getting anywhere near that area until they're gone.
+		Commands->Join_Conversation(NULL, conversationId, true, true, true);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+
+		Commands->Join_Conversation(starObj, conversationId, true, false, false);
+		Commands->Start_Conversation(conversationId, 0);
+
+		Commands->Start_Timer(obj, this, 6.0f, 12);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 405119)
+	{
+		Commands->Stop_All_Conversations();
+
+		int conversationId = Commands->Create_Conversation("M02_SECONDARY_03_START", 100, 300.0f, true); // Looks like Nod has an officer calling in reinforcements in that guard tower. Eliminate all resistance and occupy the tower.
+		Commands->Join_Conversation(NULL, conversationId, true, true, true);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+
+		Commands->Join_Conversation(starObj, conversationId, true, false, false);
+		Commands->Start_Conversation(conversationId, 0);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 405116)
+	{
+		Commands->Stop_All_Conversations();
+
+		// Warning, Approaching Nod Obelisk. Proceed with caution.
+		// You heard her right, Havoc, stay as far away from that tower as you can. It's called an Obelisk of Light, and it's deadly against ground units. If you can't destroy it from the outside, try shutting off its power supply.
+		int conversationId = Commands->Create_Conversation("M02_OBELISK_APPROACH", 100, 300.0f, true); 
+
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+
+		Commands->Join_Conversation(starObj, conversationId, true, false, false);
+		Commands->Start_Conversation(conversationId, 0);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 401982)
+	{
+		Commands->Stop_All_Conversations();
+
+		// That building across from the dam is a Nod Power Plant, which supplies power to the other buildings in the area. Your work will be a lot easier if you destroy it.
+		// How am I supposed to get over there?
+		// Havoc - EVA SATCOM indicates the Power Plant has elevator access from the base of the dam.
+		// That's the info I needed, Locke. Thanks.
+		int conversationId = Commands->Create_Conversation("M02_SECONDARY_13_START", 100, 300.0f, true);
+		Commands->Join_Conversation(NULL, conversationId, true, true, true);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+
+		Commands->Join_Conversation(starObj, conversationId, true, false, false);
+		Commands->Start_Conversation(conversationId, 0);
+
+		GameObject *nodJetObj = Commands->Create_Object("Nod_Jet", Vector3(929.91f, 1132.34f, 70.5f));
+		if (nodJetObj)
+		{
+			Commands->Attach_Script(nodJetObj, "M02_Nod_Jet", "");
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 405117)
+	{
+		Commands->Stop_All_Conversations();
+
+		// Don't forget about that Nod Helipad. If it's intact the helicopters can refuel there.
+		// You make a good back seat driver, Locke.
+		int conversationId = Commands->Create_Conversation("M02_PRIMARY_02_REMIND", 100, 300.0f, true);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+
+		Commands->Join_Conversation(starObj, conversationId, true, false, false);
+		Commands->Start_Conversation(conversationId, 0);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400196)
+	{
+		this->canSendCustomAndDestroy = true;
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1000, pos, 70.0f);
+
+		Commands->Start_Timer(obj, this, 1.0f, 4);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400270)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 9, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 8, 0.0f);
+
+		GameObject *damNodOfficerObj = Commands->Find_Object(400275);
+		Commands->Send_Custom_Event(obj, damNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner1Obj = Commands->Find_Object(401046);
+		Commands->Send_Custom_Event(obj, damNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner2Obj = Commands->Find_Object(401047);
+		Commands->Send_Custom_Event(obj, damNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *nonExistingObj = Commands->Find_Object(401048); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExistingObj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner3Obj = Commands->Find_Object(401049);
+		Commands->Send_Custom_Event(obj, damNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner4Obj = Commands->Find_Object(401050);
+		Commands->Send_Custom_Event(obj, damNodMinigunner4Obj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner5Obj = Commands->Find_Object(401051);
+		Commands->Send_Custom_Event(obj, damNodMinigunner5Obj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner6Obj = Commands->Find_Object(401052);
+		Commands->Send_Custom_Event(obj, damNodMinigunner6Obj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner7Obj = Commands->Find_Object(401053);
+		Commands->Send_Custom_Event(obj, damNodMinigunner7Obj, 0, 0, 0.0f);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1059, pos, 1000.0f);
+
+		GameObject *damElevatorScriptZoneObj = Commands->Find_Object(400271);
+		if (damElevatorScriptZoneObj)
+		{
+			Commands->Destroy_Object(damElevatorScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400201)
+	{
+		this->canSendCustomAndDestroy = true;
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1000, pos, 70.0f);
+
+		Commands->Start_Timer(obj, this, 1.0f, 7);
+		
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400197)
+	{
+		this->canSendCustomAndDestroy = true;
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1000, pos, 70.0f);
+
+		Commands->Start_Timer(obj, this, 1.0f, 5);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400198)
+	{
+		this->canSendCustomAndDestroy = true;
+		
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1000, pos, 70.0f);
+
+		Commands->Start_Timer(obj, this, 1.0f, 6);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400267)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 211, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 3, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 4, 0.0f);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1053, pos, 1000.0f);
+		Commands->Create_Logical_Sound(obj, 1102, pos, 1000.0f);
+
+		GameObject *skiResortNodOfficerObj = Commands->Find_Object(400210);
+		Commands->Send_Custom_Event(obj, skiResortNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *skiResortNodMinigunner1Obj = Commands->Find_Object(400451);
+		Commands->Send_Custom_Event(obj, skiResortNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *nonExisting1Obj = Commands->Find_Object(400452); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting1Obj, 0, 0, 0.0f);
+
+		GameObject *skiResortNodMinigunner2Obj = Commands->Find_Object(400453);
+		Commands->Send_Custom_Event(obj, skiResortNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *skiResortNodGunEmplacementObj = Commands->Find_Object(400499);
+		Commands->Send_Custom_Event(obj, skiResortNodGunEmplacementObj, 0, 0, 0.0f);
+
+		GameObject *nonExisting2Obj = Commands->Find_Object(400500); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting2Obj, 0, 0, 0.0f);
+
+		GameObject *nonExisting3Obj = Commands->Find_Object(401025); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting3Obj, 0, 0, 0.0f);
+
+		GameObject *skiResortNodLightTank1Obj = Commands->Find_Object(401026);
+		Commands->Send_Custom_Event(obj, skiResortNodLightTank1Obj, 0, 0, 0.0f);
+
+		GameObject *skiResortNodLightTank2Obj = Commands->Find_Object(401027);
+		Commands->Send_Custom_Event(obj, skiResortNodLightTank2Obj, 0, 0, 0.0f);
+
+		GameObject *skiResortGDIMammothTankObj = Commands->Find_Object(401028);
+		Commands->Send_Custom_Event(obj, skiResortGDIMammothTankObj, 0, 0, 0.0f);
+
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 112, 4, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 111, 4, 0.0f);
+
+		Create_Buggy(4);
+
+		GameObject *skiResortGDIMedTankObj = Commands->Find_Object(401018);
+		Commands->Send_Custom_Event(obj, skiResortGDIMedTankObj, 0, 0, 0.0f);
+
+		Commands->Start_Timer(obj, this, 0.1f, 10);
+
+		GameObject *skiResortEntranceScriptZoneObj = Commands->Find_Object(400187);
+		if (skiResortEntranceScriptZoneObj)
+		{
+			Commands->Destroy_Object(skiResortEntranceScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400269)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 202, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 203, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 217, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 6, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 9, 0.0f);
+
+		GameObject *outsideObbyNodOfficerObj = Commands->Find_Object(400212);
+		Commands->Send_Custom_Event(obj, outsideObbyNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *outsideObbyNodMinigunner1Obj = Commands->Find_Object(400981);
+		Commands->Send_Custom_Event(obj, outsideObbyNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *outsideObbyNodMinigunner2Obj = Commands->Find_Object(400982);
+		Commands->Send_Custom_Event(obj, outsideObbyNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *damElevatorNodMinigunnerObj = Commands->Find_Object(400983);
+		Commands->Send_Custom_Event(obj, damElevatorNodMinigunnerObj, 0, 0, 0.0f);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1056, pos, 1000.0f);
+
+		Call_GDI_Soldiers(9);
+
+		Commands->Stop_All_Conversations();
+
+		// SATCOM shows you are approaching the base facility. You'll need to find an alternate way inside, I don't see a main entrance.
+		// Goes against my instinct, Locke, but I'll try it your way.
+		int conversationId = Commands->Create_Conversation("M02_PRIMARY_01_GUIDE", 100, 300.0f, true);
+		Commands->Join_Conversation(NULL, conversationId, true, true, true);
+
+		GameObject *starObj = Commands->Get_A_Star(pos);
+
+		Commands->Join_Conversation(starObj, conversationId, true, false, false);
+		Commands->Start_Conversation(conversationId, 0);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400268)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 4, 0.0f);
+		
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1054, pos, 1000.0f);
+
+		GameObject *caveBridgeNodMinigunner1Obj = Commands->Find_Object(400552);
+		Commands->Send_Custom_Event(obj, caveBridgeNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *caveBridgeNodMinigunner2Obj = Commands->Find_Object(400553);
+		Commands->Send_Custom_Event(obj, caveBridgeNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *caveBridgeNodRocketTrooperObj = Commands->Find_Object(400560);
+		Commands->Send_Custom_Event(obj, caveBridgeNodRocketTrooperObj, 0, 0, 0.0f);
+
+		GameObject *caveBridgeNodMinigunner3Obj = Commands->Find_Object(400555);
+		Commands->Send_Custom_Event(obj, caveBridgeNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *caveBridgeNodMinigunner4Obj = Commands->Find_Object(400558);
+		Commands->Send_Custom_Event(obj, caveBridgeNodMinigunner4Obj, 0, 0, 0.0f);
+
+		GameObject *caveBridgeNodMinigunner5Obj = Commands->Find_Object(400559);
+		Commands->Send_Custom_Event(obj, caveBridgeNodMinigunner5Obj, 0, 0, 0.0f);
+
+		GameObject *caveBridgeNodMinigunner6Obj = Commands->Find_Object(400557);
+		Commands->Send_Custom_Event(obj, caveBridgeNodMinigunner6Obj, 0, 0, 0.0f);
+
+		GameObject *caveBridgeNodMinigunner7Obj = Commands->Find_Object(400554);
+		Commands->Send_Custom_Event(obj, caveBridgeNodMinigunner7Obj, 0, 0, 0.0f);
+
+		GameObject *caveBridgeNodMinigunner8Obj = Commands->Find_Object(400556);
+		Commands->Send_Custom_Event(obj, caveBridgeNodMinigunner8Obj, 0, 0, 0.0f);
+
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 24, 0.0f);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400274)
+	{
+		GameObject *nodPowerPlantBuildingObj = Commands->Find_Object(1153846);
+		if (nodPowerPlantBuildingObj)
+		{
+			if (Commands->Get_Health(nodPowerPlantBuildingObj) <= 0.0f)
+			{
+				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 11, 0.0f);
+
+				Vector3 pos = Commands->Get_Position(obj);
+				Commands->Create_Logical_Sound(obj, 1061, pos, 1000.0f);
+
+				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 114, 10, 0.0f);
+				Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 102, 10, 0.0f);
+			}
+
+			Commands->Send_Custom_Event(obj, nodPowerPlantBuildingObj, 1, 0, 0.0f);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400501)
+	{
+		GameObject *pathToSkiResortTowerNodOfficerObj = Commands->Find_Object(400503);
+		Commands->Send_Custom_Event(obj, pathToSkiResortTowerNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *nonExisting1Obj = Commands->Find_Object(400504); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting1Obj, 0, 0, 0.0f);
+
+		GameObject *pathToSkiResortNodRocketTrooperObj = Commands->Find_Object(400505);
+		Commands->Send_Custom_Event(obj, pathToSkiResortNodRocketTrooperObj, 0, 0, 0.0f);
+
+		GameObject *pathToSkiResortNodLightTankObj = Commands->Find_Object(400506);
+		Commands->Send_Custom_Event(obj, pathToSkiResortNodLightTankObj, 0, 0, 0.0f);
+
+		GameObject *nonExisting2Obj = Commands->Find_Object(400507);
+		Commands->Send_Custom_Event(obj, nonExisting2Obj, 0, 0, 0.0f); // Does not exist
+
+		GameObject *nonExisting3Obj = Commands->Find_Object(400508); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting3Obj, 0, 0, 0.0f);
+
+		GameObject *nonExisting4Obj = Commands->Find_Object(400509); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting4Obj, 0, 0, 0.0f);
+
+		GameObject *pathToSkiResortTowerNodEngineerObj = Commands->Find_Object(400510);
+		Commands->Send_Custom_Event(obj, pathToSkiResortTowerNodEngineerObj, 0, 0, 0.0f);
+
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 24, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 214, 0, 0.0f);
+
+		GameObject *aroundSkiResortPathScriptZoneObj = Commands->Find_Object(400502);
+		if (aroundSkiResortPathScriptZoneObj)
+		{
+			Commands->Destroy_Object(aroundSkiResortPathScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400316)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 0, 0.0f);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1050, pos, 1000.0f);
+
+		GameObject *firstTunnelNodMinigunner1Obj = Commands->Find_Object(400317);
+		Commands->Send_Custom_Event(obj, firstTunnelNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *firstTunnelNodMinigunner2Obj = Commands->Find_Object(400318);
+		Commands->Send_Custom_Event(obj, firstTunnelNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *firstTunnelNodMinigunner3Obj = Commands->Find_Object(400319);
+		Commands->Send_Custom_Event(obj, firstTunnelNodMinigunner3Obj, 0, 0, 0.0f);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400502)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 24, 0.0f);
+
+		GameObject *pathToSkiResortTowerNodOfficerObj = Commands->Find_Object(400503);
+		Commands->Send_Custom_Event(obj, pathToSkiResortTowerNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *nonExisting1Obj = Commands->Find_Object(400504); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting1Obj, 0, 0, 0.0f);
+
+		GameObject *pathToSkiResortNodRocketTrooperObj = Commands->Find_Object(400505);
+		Commands->Send_Custom_Event(obj, pathToSkiResortNodRocketTrooperObj, 0, 0, 0.0f);
+
+		GameObject *pathToSkiResortNodLightTankObj = Commands->Find_Object(400506);
+		Commands->Send_Custom_Event(obj, pathToSkiResortNodLightTankObj, 0, 0, 0.0f);
+
+		GameObject *nonExisting2Obj = Commands->Find_Object(400507);
+		Commands->Send_Custom_Event(obj, nonExisting2Obj, 0, 0, 0.0f); // Does not exist
+
+		GameObject *nonExisting3Obj = Commands->Find_Object(400508); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting3Obj, 0, 0, 0.0f);
+
+		GameObject *nonExisting4Obj = Commands->Find_Object(400509); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting4Obj, 0, 0, 0.0f);
+
+		GameObject *pathToSkiResortTowerNodEngineerObj = Commands->Find_Object(400510);
+		Commands->Send_Custom_Event(obj, pathToSkiResortTowerNodEngineerObj, 0, 0, 0.0f);
+
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 214, 0, 0.0f);
+
+		GameObject *exitSkiResortScriptZoneObj = Commands->Find_Object(400501);
+		if (exitSkiResortScriptZoneObj)
+		{
+			Commands->Destroy_Object(exitSkiResortScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400272)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 8, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 10, 0.0f);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1058, pos, 1000.0f);
+
+		GameObject *damLowerPathNodOfficerObj = Commands->Find_Object(400213);
+		Commands->Send_Custom_Event(obj, damLowerPathNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *damLowerPathNodRocketTrooperObj = Commands->Find_Object(400984);
+		Commands->Send_Custom_Event(obj, damLowerPathNodRocketTrooperObj, 0, 0, 0.0f);
+
+		GameObject *damMCTRoomScriptZoneObj = Commands->Find_Object(401054);
+		Commands->Send_Custom_Event(obj, damMCTRoomScriptZoneObj, 0, 0, 0.0f);
+
+		GameObject *nonExistingObj = Commands->Find_Object(401055); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExistingObj, 0, 0, 0.0f);
+
+		GameObject *powerPlantBasementNodMinigunner1Obj = Commands->Find_Object(401056);
+		Commands->Send_Custom_Event(obj, powerPlantBasementNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *powerPlantBasementNodMinigunner2Obj = Commands->Find_Object(401057);
+		Commands->Send_Custom_Event(obj, powerPlantBasementNodMinigunner2Obj, 0, 0, 0.0f);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400273)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 10, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 11, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 114, 11, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 102, 11, 0.0f);
+
+		GameObject *powerPlantMainRoomNodOfficerObj = Commands->Find_Object(400276);
+		Commands->Send_Custom_Event(obj, powerPlantMainRoomNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *powerPlantMCTNodEngineerObj = Commands->Find_Object(400199);
+		Commands->Send_Custom_Event(obj, powerPlantMCTNodEngineerObj, 0, 0, 0.0f);
+
+		GameObject *powerPlantMainRoomNodMinigunner1Obj = Commands->Find_Object(401065);
+		Commands->Send_Custom_Event(obj, powerPlantMainRoomNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *powerPlantCoreNodTechnicianObj = Commands->Find_Object(401058);
+		Commands->Send_Custom_Event(obj, powerPlantCoreNodTechnicianObj, 0, 0, 0.0f);
+
+		GameObject *nonExisting1Obj = Commands->Find_Object(401059); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting1Obj, 0, 0, 0.0f);
+
+		GameObject *powerPlantBasementNodMinigunnerObj = Commands->Find_Object(401060);
+		Commands->Send_Custom_Event(obj, powerPlantBasementNodMinigunnerObj, 0, 0, 0.0f);
+
+		GameObject *nonExisting2Obj = Commands->Find_Object(401061); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting2Obj, 0, 0, 0.0f);
+
+		GameObject *powerPlantMainRoomNodTechnicianObj = Commands->Find_Object(401063);
+		Commands->Send_Custom_Event(obj, powerPlantMainRoomNodTechnicianObj, 0, 0, 0.0f);
+
+		GameObject *powerPlantMainRoomNodMinigunner2Obj = Commands->Find_Object(401064);
+		Commands->Send_Custom_Event(obj, powerPlantMainRoomNodMinigunner2Obj, 0, 0, 0.0f);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1060, pos, 1000.0f);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400271)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 9, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 8, 0.0f);
+
+		GameObject *damNodOfficerObj = Commands->Find_Object(400275);
+		Commands->Send_Custom_Event(obj, damNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner1Obj = Commands->Find_Object(401046);
+		Commands->Send_Custom_Event(obj, damNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner2Obj = Commands->Find_Object(401047);
+		Commands->Send_Custom_Event(obj, damNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *nonExistingObj = Commands->Find_Object(401048); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExistingObj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner3Obj = Commands->Find_Object(401049);
+		Commands->Send_Custom_Event(obj, damNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner4Obj = Commands->Find_Object(401050);
+		Commands->Send_Custom_Event(obj, damNodMinigunner4Obj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner5Obj = Commands->Find_Object(401051);
+		Commands->Send_Custom_Event(obj, damNodMinigunner5Obj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner6Obj = Commands->Find_Object(401052);
+		Commands->Send_Custom_Event(obj, damNodMinigunner6Obj, 0, 0, 0.0f);
+
+		GameObject *damNodMinigunner7Obj = Commands->Find_Object(401053);
+		Commands->Send_Custom_Event(obj, damNodMinigunner7Obj, 0, 0, 0.0f);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1059, pos, 1000.0f);
+
+		GameObject *damWalkwayScriptZoneObj = Commands->Find_Object(303203);
+		if (damWalkwayScriptZoneObj)
+		{
+			Commands->Destroy_Object(damWalkwayScriptZoneObj);
+		}
+
+		GameObject *damElevatorScriptZoneObj = Commands->Find_Object(400270);
+		if (damElevatorScriptZoneObj)
+		{
+			Commands->Destroy_Object(damElevatorScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400187)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 211, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 3, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 4, 0.0f);
+		
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1102, pos, 1000.0f);
+		Commands->Create_Logical_Sound(obj, 1053, pos, 1000.0f);
+
+		GameObject *skiResortNodOfficerObj = Commands->Find_Object(400210);
+		Commands->Send_Custom_Event(obj, skiResortNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *skiResortNodMinigunner1Obj = Commands->Find_Object(400451);
+		Commands->Send_Custom_Event(obj, skiResortNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *nonExisting1Obj = Commands->Find_Object(400452); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting1Obj, 0, 0, 0.0f);
+
+		GameObject *skiResortNodMinigunner2Obj = Commands->Find_Object(400453);
+		Commands->Send_Custom_Event(obj, skiResortNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *skiResortNodGunEmplacementObj = Commands->Find_Object(400499);
+		Commands->Send_Custom_Event(obj, skiResortNodGunEmplacementObj, 0, 0, 0.0f);
+
+		GameObject *nonExisting2Obj = Commands->Find_Object(400500); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting2Obj, 0, 0, 0.0f);
+
+		GameObject *nonExisting3Obj = Commands->Find_Object(401025); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting3Obj, 0, 0, 0.0f);
+
+		GameObject *skiResortNodLightTank1Obj = Commands->Find_Object(401026);
+		Commands->Send_Custom_Event(obj, skiResortNodLightTank1Obj, 0, 0, 0.0f);
+
+		GameObject *skiResortNodLightTank2Obj = Commands->Find_Object(401027);
+		Commands->Send_Custom_Event(obj, skiResortNodLightTank2Obj, 0, 0, 0.0f);
+
+		GameObject *skiResortGDIMammothTankObj = Commands->Find_Object(401028);
+		Commands->Send_Custom_Event(obj, skiResortGDIMammothTankObj, 0, 0, 0.0f);
+
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 112, 4, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 111, 4, 0.0f);
+
+		Create_Buggy(4);
+
+		GameObject *skiResortMedTankObj = Commands->Find_Object(401018);
+		Commands->Send_Custom_Event(obj, skiResortMedTankObj, 0, 0, 0.0f);
+
+		Commands->Start_Timer(obj, this, 0.1f, 10);
+
+		GameObject *aroundSkiResortScriptZoneObj = Commands->Find_Object(400267);
+		if (aroundSkiResortScriptZoneObj)
+		{
+			Commands->Destroy_Object(aroundSkiResortScriptZoneObj);
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 304006)
+	{
+		if (!this->isZoneTriggered)
+		{
+			this->isZoneTriggered = true;
+
+			int conversationId = Commands->Create_Conversation("MX2DSGN_DSGN0001", 100, 300.0f, true); // Take the Hum-vee, Havoc, you have a lot of open road to cover
+			Commands->Join_Conversation(NULL, conversationId, true, true, true);
+
+			Vector3 pos = Commands->Get_Position(obj);
+			GameObject *starObj = Commands->Get_A_Star(pos);
+
+			Commands->Join_Conversation(starObj, conversationId, true, false, false);
+			Commands->Start_Conversation(conversationId, 0);
+
+			Commands->Set_HUD_Help_Text(8287, Vector3(0.196f, 0.882f, 0.196f)); // Press 'E' to enter the Humm-Vee\n
+		}
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 301601)
+	{
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+
+		if (!Commands->Has_Key(starObj, 6))
+		{
+			Commands->Stop_All_Conversations();
+
+			int conversationId = Commands->Create_Conversation("M02_BAY_DOOR_WARNING", 100, 300.0f, true); // I'm still showing the dam's Master Control Terminal as active. It should be somewhere inside, find it and destroy it.
+			Commands->Join_Conversation(NULL, conversationId, true, true, true);
+
+			Vector3 pos = Commands->Get_Position(obj);
+			GameObject *starObj = Commands->Get_A_Star(pos);
+
+			Commands->Join_Conversation(starObj, conversationId, true, false, false);
+			Commands->Start_Conversation(conversationId, 0);
+		}
+	
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 303203)
+	{
+		Commands->Stop_All_Conversations();
+
+		int conversationId = Commands->Create_Conversation("M02_PRIMARY_03_GUIDE", 100, 300.0f, true);
+		Commands->Join_Conversation(NULL, conversationId, true, true, true);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		GameObject *starObj = Commands->Get_A_Star(pos);
+
+		Commands->Join_Conversation(starObj, conversationId, true, false, false);
+		Commands->Start_Conversation(conversationId, 0);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400184)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 206, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 207, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 0, 0.0f);
+
+		Call_GDI_Soldiers(0);
+		Create_Apache(0);
+
+		GameObject *firstAreaNodMinigunner1Obj = Commands->Find_Object(400286);
+		Commands->Send_Custom_Event(obj, firstAreaNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *firstAreaNodMinigunner2Obj = Commands->Find_Object(400287);
+		Commands->Send_Custom_Event(obj, firstAreaNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *nonExistingObj = Commands->Find_Object(400288); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExistingObj, 0, 0, 0.0f);
+
+		GameObject *firstAreaNodMinigunner3Obj = Commands->Find_Object(400292);
+		Commands->Send_Custom_Event(obj, firstAreaNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *firstAreaNodMinigunner4Obj = Commands->Find_Object(400293);
+		Commands->Send_Custom_Event(obj, firstAreaNodMinigunner4Obj, 0, 0, 0.0f);
+
+		GameObject *firstAreaNodRocketTrooperObj = Commands->Find_Object(400285);
+		Commands->Send_Custom_Event(obj, firstAreaNodRocketTrooperObj, 0, 0, 0.0f);
+
+		GameObject *firstAreaNodOfficerObj = Commands->Find_Object(400206);
+		Commands->Send_Custom_Event(obj, firstAreaNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *firstAreaGDIMedTank1Obj = Commands->Find_Object(401004);
+		Commands->Send_Custom_Event(obj, firstAreaGDIMedTank1Obj, 0, 0, 0.0f);
+
+		GameObject *firstAreaNodLightTankObj = Commands->Find_Object(401005);
+		Commands->Send_Custom_Event(obj, firstAreaNodLightTankObj, 0, 0, 0.0f);
+
+		GameObject *firstAreaGDIMedTank2Obj = Commands->Find_Object(401006);
+		Commands->Send_Custom_Event(obj, firstAreaGDIMedTank2Obj, 0, 0, 0.0f);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400186)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 210, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 221, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 1, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 2, 0.0f);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1051, pos, 1000.0f);
+
+		GameObject *thirdAreaNodMinigunner1Obj = Commands->Find_Object(400372);
+		Commands->Send_Custom_Event(obj, thirdAreaNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *thirdAreaNodMinigunner2Obj = Commands->Find_Object(400373);
+		Commands->Send_Custom_Event(obj, thirdAreaNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *thirdAreaNodMinigunner3Obj = Commands->Find_Object(400374);
+		Commands->Send_Custom_Event(obj, thirdAreaNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *thirdAreaNodMobileArtilleryObj = Commands->Find_Object(401167);
+		Commands->Send_Custom_Event(obj, thirdAreaNodMobileArtilleryObj, 0, 0, 0.0f);
+
+		GameObject *thirdAreaNodOfficerObj = Commands->Find_Object(400208);
+		Commands->Send_Custom_Event(obj, thirdAreaNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *thirdAreaGDIMedTank1Obj = Commands->Find_Object(401014);
+		Commands->Send_Custom_Event(obj, thirdAreaGDIMedTank1Obj, 0, 0, 0.0f);
+
+		GameObject *thirdAreaNodLightTank1Obj = Commands->Find_Object(401015);
+		Commands->Send_Custom_Event(obj, thirdAreaNodLightTank1Obj, 0, 0, 0.0f);
+
+		GameObject *thirdAreaGDIMedTank2Obj = Commands->Find_Object(401016);
+		Commands->Send_Custom_Event(obj, thirdAreaGDIMedTank2Obj, 0, 0, 0.0f);
+
+		GameObject *thirdAreaNodLightTank2Obj = Commands->Find_Object(401017);
+		Commands->Send_Custom_Event(obj, thirdAreaNodLightTank2Obj, 0, 0, 0.0f);
+
+		Create_Buggy(2);
+		Create_Sakura(2);
+	
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400185)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 208, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 209, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 1, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 112, 1, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 111, 1, 0.0f);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1100, pos, 1000.0f);
+		Commands->Create_Logical_Sound(obj, 1073, pos, 1000.0f);
+
+		GameObject *secondAreaGDIMinigunner1Obj = Commands->Find_Object(400342);
+		Commands->Send_Custom_Event(obj, secondAreaGDIMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *secondAreaGDIMinigunner2Obj = Commands->Find_Object(400343);
+		Commands->Send_Custom_Event(obj, secondAreaGDIMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *secondAreaGDIMinigunner3Obj = Commands->Find_Object(400347);
+		Commands->Send_Custom_Event(obj, secondAreaGDIMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *secondAreaGDIOfficerObj = Commands->Find_Object(400332);
+		Commands->Send_Custom_Event(obj, secondAreaGDIOfficerObj, 0, 0, 0.0f);
+
+		GameObject *secondAreaGDIMammothTank = Commands->Find_Object(400340);
+		Commands->Send_Custom_Event(obj, secondAreaGDIMammothTank, 0, 0, 0.0f);
+
+		GameObject *nonExistingObj = Commands->Find_Object(400348); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExistingObj, 0, 0, 0.0f);
+
+		GameObject *secondAreaNodMinigunner1Obj = Commands->Find_Object(400344);
+		Commands->Send_Custom_Event(obj, secondAreaNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *secondAreaNodMinigunner2Obj = Commands->Find_Object(400345);
+		Commands->Send_Custom_Event(obj, secondAreaNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *secondAreaNodLightTank1Obj = Commands->Find_Object(400333);
+		Commands->Send_Custom_Event(obj, secondAreaNodLightTank1Obj, 0, 0, 0.0f);
+
+		GameObject *secondAreaNodOfficerObj = Commands->Find_Object(400207);
+		Commands->Send_Custom_Event(obj, secondAreaNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *secondAreaNodLightTank2Obj = Commands->Find_Object(400371);
+		Commands->Send_Custom_Event(obj, secondAreaNodLightTank2Obj, 0, 0, 0.0f);
+
+		GameObject *secondAreaGDIMedTankObj = Commands->Find_Object(401008);
+		Commands->Send_Custom_Event(obj, secondAreaGDIMedTankObj, 0, 0, 0.0f);
+		
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400192)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 11, 0.0f);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1061, pos, 1000.0f);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400189)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 215, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 216, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 6, 0.0f);
+
+		GameObject *bridgeNodOfficerObj = Commands->Find_Object(400211);
+		Commands->Send_Custom_Event(obj, bridgeNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *bridgeNodGunEmplacement1Obj = Commands->Find_Object(400976);
+		Commands->Send_Custom_Event(obj, bridgeNodGunEmplacement1Obj, 0, 0, 0.0f);
+
+		GameObject *bridgeNodGunEmplacement2Obj = Commands->Find_Object(400975);
+		Commands->Send_Custom_Event(obj, bridgeNodGunEmplacement2Obj, 0, 0, 0.0f);
+
+		GameObject *bridgeNodMinigunner1Obj = Commands->Find_Object(400977);
+		Commands->Send_Custom_Event(obj, bridgeNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *bridgeNodMinigunner2Obj = Commands->Find_Object(400978);
+		Commands->Send_Custom_Event(obj, bridgeNodMinigunner2Obj, 0, 0, 0.0f);
+
+		GameObject *bridgeNodMinigunner3Obj = Commands->Find_Object(400979);
+		Commands->Send_Custom_Event(obj, bridgeNodMinigunner3Obj, 0, 0, 0.0f);
+
+		GameObject *bridgeNodMinigunner4Obj = Commands->Find_Object(400980);
+		Commands->Send_Custom_Event(obj, bridgeNodMinigunner4Obj, 0, 0, 0.0f);
+
+		GameObject *bridgeGDIMedTank1Obj = Commands->Find_Object(401036);
+		Commands->Send_Custom_Event(obj, bridgeGDIMedTank1Obj, 0, 0, 0.0f);
+
+		GameObject *bridgeNodLightTankObj = Commands->Find_Object(401037);
+		Commands->Send_Custom_Event(obj, bridgeNodLightTankObj, 0, 0, 0.0f);
+
+		GameObject *bridgeGDIMedTank2Obj = Commands->Find_Object(401038);
+		Commands->Send_Custom_Event(obj, bridgeGDIMedTank2Obj, 0, 0, 0.0f);
+
+		GameObject *bridgeNodRocketTrooperObj = Commands->Find_Object(401045);
+		Commands->Send_Custom_Event(obj, bridgeNodRocketTrooperObj, 0, 0, 0.0f);
+
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400188)
+	{
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 212, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 213, 0, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 2, 0.0f);
+		Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 104, 3, 0.0f);
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1052, pos, 1000.0f);
+
+		GameObject *nodLightTank = Commands->Create_Object("Nod_Light_Tank", Vector3(465.645f, 715.86f, -14.935f));
+		if (nodLightTank)
+		{
+			Commands->Set_Facing(nodLightTank, -10.0f);
+			Commands->Attach_Script(nodLightTank, "M02_Nod_Vehicle", "3");
+		}
+
+		GameObject *pathToSkiResortNodRocketTrooper1Obj = Commands->Find_Object(400410);
+		Commands->Send_Custom_Event(obj, pathToSkiResortNodRocketTrooper1Obj, 0, 0, 0.0f);
+
+		GameObject *pathToSkiResortNodOfficerObj = Commands->Find_Object(400209);
+		Commands->Send_Custom_Event(obj, pathToSkiResortNodOfficerObj, 0, 0, 0.0f);
+
+		GameObject *pathToSkiResortNodRocketTrooper2Obj = Commands->Find_Object(400411);
+		Commands->Send_Custom_Event(obj, pathToSkiResortNodRocketTrooper2Obj, 0, 0, 0.0f);
+
+		GameObject *nonExisting1Obj = Commands->Find_Object(400412); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting1Obj, 0, 0, 0.0f);
+
+		GameObject *pathToSkiResortNodMinigunner1Obj = Commands->Find_Object(400413);
+		Commands->Send_Custom_Event(obj, pathToSkiResortNodMinigunner1Obj, 0, 0, 0.0f);
+
+		GameObject *nonExisting2Obj = Commands->Find_Object(400414); // Does not exist
+		Commands->Send_Custom_Event(obj, nonExisting2Obj, 0, 0, 0.0f);
+
+		GameObject *pathToSkiResortNodMinigunner2Obj = Commands->Find_Object(400415);
+		Commands->Send_Custom_Event(obj, pathToSkiResortNodMinigunner2Obj, 0, 0, 0.0f);
+		
+		Commands->Destroy_Object(obj);
+	}
+	else if (objId == 400195)
+	{
+		this->canSendCustomAndDestroy = true;
+
+		Vector3 pos = Commands->Get_Position(obj);
+		Commands->Create_Logical_Sound(obj, 1000, pos, 70.0f);
+
+		Commands->Start_Timer(obj, this, 1.0f, 3);
+	}
+	else if (objId == 400193)
+	{
+		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));
+		if (invisObj)
+		{
+			Vector3 pos = Commands->Get_Position(obj);
+			GameObject *starObj = Commands->Get_A_Star(pos);
+
+			Commands->Control_Enable(starObj, false);
+
+			Commands->Start_Timer(obj, this, 1.0f, 9);
+
+			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 1000, 1002, 25.0f);
+
+			Commands->Attach_Script(invisObj, "Test_Cinematic", "X2K_Midtro.txt");
+		}
+	}
+	else if (objId == 400194)
+	{
+		if (!this->isZoneTriggered)
+		{
+			this->isZoneTriggered = true;
+
+			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 205, 1, 0.0f);
+			Commands->Mission_Complete(true);
+
+			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 21, 0.0f);
+		}
+	}
 }
 
 void M02_Objective_Zone::Send_and_Destroy(GameObject *obj, int type)
 {
-	if (this->field_1C)
+	if (this->canSendCustomAndDestroy)
 	{
 		GameObject *M02ObjectiveControllerObj = Commands->Find_Object(1111112);
 		if (M02ObjectiveControllerObj)
 		{
 			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, type, 1, 0.0f);
 
-			this->field_1C = false;
+			this->canSendCustomAndDestroy = false;
 
 			Commands->Destroy_Object(obj);
 
@@ -1742,9 +1839,9 @@ void M02_Objective_Zone::Send_and_Destroy(GameObject *obj, int type)
 			}
 		}
 	}
-	else if (!this->field_1E)
+	else if (!this->starWarnedForLeavingPrematurely)
 	{
-		this->field_1E = true;
+		this->starWarnedForLeavingPrematurely = true;
 
 		Commands->Stop_All_Conversations();
 

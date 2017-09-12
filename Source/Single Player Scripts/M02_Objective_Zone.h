@@ -37,8 +37,8 @@ class M02_Objective_Zone : public ScriptImpClass
 		void Create_Sakura(int a2);
 		void Create_Buggy(int a2);
 
-		bool field_1C;
-		bool field_1D;
-		bool field_1E;
+		bool canSendCustomAndDestroy;
+		bool isZoneTriggered;
+		bool starWarnedForLeavingPrematurely;
 		int mendozaObjId;
 };
