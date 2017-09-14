@@ -53,6 +53,7 @@ M00_Disable_Transition
 M00_Play_Sound_Object_Bone_DAY
 M00_Disable_Physical_Collision_JDG
 M00_Vehicle_Regen_DAK
+M02_Nod_Jet_Waypath
 
 // Below are scripts that I'm pretty sure of that they are not used, but they are present
 MX0_A02_DEFAULT_OFF

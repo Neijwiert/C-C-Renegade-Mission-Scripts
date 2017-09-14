@@ -1,0 +1,55 @@
+;************************* Transport Helicopter Hummvee Drop  ************************
+
+; ****************************** Trajectory Transport
+
+-1	Create_Object,		1, "XG_TransprtBone",			0, 0, 0, 0
+-1	Play_Animation,		1, "XG_TransprtBone.XG_HD_TTraj", 1
+
+; ****************************** Transport
+
+-1	Create_Real_Object,	2, "GDI_Transport_Helicopter", 1, "BN_Trajectory"
+-1	Set_Primary,		2
+-1	Attach_to_Bone,		2, 1, "BN_Trajectory"
+-1	Play_Animation,		2, "v_GDI_trnspt.XG_HD_Transport",1
+-700	destroy_object,		2
+
+; ****************************** Trajectory Nod_Light_Tank
+
+-1	Create_Object,		3, "XG_HD_HTraj",			0, 0, 0, 0
+-1	Play_Animation,		3, "XG_HD_HTraj.XG_HD_HTraj", 1
+
+; ****************************** Nod_Light_Tank
+
+-1	Create_Real_Object,	4, "GDI_Humm-vee_Player", 3, "BN_Trajectory" 
+-1	Attach_Script,		4, "M02_Player_Vehicle", "0"
+-1	Attach_to_Bone,		4, 3, "BN_Trajectory"
+-437	Attach_to_Bone,		4, -1, "BN_Trajectory"
+-437	Move_Slot,		7, 4
+
+; ****************************** Harness
+
+-1	Create_Object,		6, "XG_HD_Harness",			0, 0, 0, 0
+-1	Play_Animation,		6, "XG_HD_Harness.XG_HD_Harness", 0
+
+; ****************************** Primary Destroyed
+
+1000000 Destroy_Object, 1
+1000000 Destroy_Object, 2
+1000000 Destroy_Object, 3
+1000000 Destroy_Object, 4
+1000000 Destroy_Object, 5
+1000000 Destroy_Object, 6
+
+
+
+
+
+
+
+
+
+
+
+
+
+

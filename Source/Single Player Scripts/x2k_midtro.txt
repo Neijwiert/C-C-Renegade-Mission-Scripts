@@ -1,0 +1,221 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+;Start_Frame	sniper_control 0=off, 1=on	0-1.0 for zoom amount
+
+*********************************  MIDTRO 2K  *********************************************************
+
+
+
+; ****************************** camera
+
+-1	Create_Object,		0, "X2K_CAMERA",		0, 0, 0, 0, 
+-1	Play_Animation,		0, "X2K_CAMERA.X2K_CAMERA", 0
+-1	Control_Camera,		0
+-131 	sniper_control,		1,	.75
+-200 	sniper_control,		1,	.9
+-280 	sniper_control,		1,	.9
+-330 	sniper_control,		1,	.8
+-350 	sniper_control,		1,	.85
+-370 	sniper_control,		1,	.8
+-420 	sniper_control,		1,	.8
+-440 	sniper_control,		1,	.6
+-480 	sniper_control,		1,	.9
+-550 	sniper_control,		1,	.9
+-620 	sniper_control,		1,	.3
+-700 	sniper_control,		1,	.3
+-740 	sniper_control,		1,	.8
+-770 	sniper_control,		1,	1
+-890 	sniper_control,		1,	1
+-900 	sniper_control,		1,	.6
+-915 	sniper_control,		1,	.9
+-946 	sniper_control,		1,	1
+-948 	sniper_control,		1,	.5
+-990 	sniper_control,		1,	.5
+-1050 	sniper_control,		1,	1
+-1170	sniper_control,		0,	0
+-1170	Control_Camera,		-1
+-1170	destroy_object,		0
+
+:******************************* Cinematic Screen Effects  *****************
+
+-1	Enable_Letterbox,	1, 1
+-1	Set_Screen_Fade_Color,		0,0,0,0
+-1	Set_Screen_Fade_Opacity,	1,0
+-1	Set_Screen_Fade_Opacity,	0,2
+-1140	Set_Screen_Fade_Color,		0,0,0,0
+-1140	Set_Screen_Fade_Opacity,	1,1
+-1170	Set_Screen_Fade_Opacity,	0,0
+-1140	Enable_Letterbox,	0, 1
+
+
+; ****************************** Test Bone
+
+-1	Create_Object,		17, "o_crate_sm"
+
+; ****************************** Trajectory
+
+-1	Create_Object,		13, "X2K_Trajectory",		0, 0, 0, 0
+-1170	destroy_object,		13
+
+; ****************************** havoc 
+
+
+-1	Create_Real_Object,	1, "GDI_MiniGunner_3Boss", 17, "ROOTTRANSFORM"
+-1 	Attach_Script,		1, "DLS_Where_Am_I"
+-1  	Attach_Script,          1, "M00_Disable_Loiter_DAY"
+-1	Attach_to_Bone,		1, 17, "ROOTTRANSFORM"
+-1	Play_Animation,		1, "s_a_human.H_A_X2k_HAVOC", 0
+-145	destroy_object,		1
+
+
+; ****************************** Minigunner Officer
+
+
+-129	Create_Real_Object,	2, "Nod_MiniGunner_0", 17, "ROOTTRANSFORM"
+-129	Attach_to_Bone,		2,17, "ROOTTRANSFORM"
+-129  	Attach_Script,          2, "M00_Disable_Loiter_DAY"
+-129	Play_Animation,		2, "s_A_human.H_A_X2k_men1", 0
+-585	destroy_object,		2
+
+
+; ****************************** Mendoza
+
+
+-645	Create_Real_Object,	3, "Nod_FlameThrower_3Boss", 17, "ROOTTRANSFORM"
+-645	Attach_to_Bone,		3,17, "ROOTTRANSFORM"
+-645  	Attach_Script,          3, "M00_Disable_Loiter_DAY"
+-645	Play_Animation,		3, "s_A_human.H_A_X2k_men2", 0
+-1170	destroy_object,		3
+
+
+; ****************************** Raveshaw
+
+
+-129	Create_Real_Object,	4, "Nod_RocketSoldier_3Boss", 17, "ROOTTRANSFORM"
+-129	Attach_Script,		4, "M07_Disable_Hibernation"
+-129	Attach_to_Bone,		4,17, "ROOTTRANSFORM"
+-129  	Attach_Script,          4, "M00_Disable_Loiter_DAY"
+-129	Play_Animation,		4, "s_A_human.H_A_X2k_RAV", 0
+-636	destroy_object,		4
+
+
+
+; ****************************** Dr. Mobius 
+
+
+-219	Create_Real_Object,	5, "GDI_Ignatio_Mobius", 17, "ROOTTRANSFORM"
+-219	Attach_to_Bone,		5,17, "ROOTTRANSFORM"
+-219  	Attach_Script,          5, "M00_Disable_Loiter_DAY"
+-219	Play_Animation,		5, "s_A_human.H_A_X2k_MOBius", 0
+-495	destroy_object,		5
+
+
+
+; ****************************** Petrova 
+
+
+-129	Create_Real_Object,	6, "Civilian_Petrova", 17, "ROOTTRANSFORM"
+-129	Attach_to_Bone,		6,17, "ROOTTRANSFORM"
+-129  	Attach_Script,          6, "M00_Disable_Loiter_DAY"
+-129	Play_Animation,		6, "s_b_human.H_B_X2k_PETRova", 0
+-435	destroy_object,		6
+
+
+
+; ****************************** Sydney 
+
+
+-129	Create_Real_Object,	8, "GDI_Sydney", 17, "ROOTTRANSFORM"
+-129	Attach_to_Bone,		8,17, "ROOTTRANSFORM"
+-129 	Attach_Script,          8, "M00_Disable_Loiter_DAY"
+-129	Play_Animation,		8, "s_b_human.H_B_X2k_SYDney", 0
+-357	destroy_object,		8
+
+
+
+; ****************************** Sakura 
+
+
+-645	Create_Real_Object,	9, "Nod_MiniGunner_3Boss", 17, "ROOTTRANSFORM"
+-645	Attach_to_Bone,		9,17, "ROOTTRANSFORM"
+-645  	Attach_Script,          9, "M00_Disable_Loiter_DAY"
+-1070	Play_Animation,		9, "s_b_head.x2k_sak_facial",0 		, "c_nod_saku_head"
+-645	Play_Animation,		9, "s_b_human.H_B_X2k_SAKURA", 0
+-1170	destroy_object,		9
+
+
+; ****************************** Nod Minigunner
+
+
+-645	Create_Real_Object,	10, "Nod_MiniGunner_0", 17, "ROOTTRANSFORM"
+-645	Attach_to_Bone,		10,17, "ROOTTRANSFORM"
+-645  	Attach_Script,          10, "M00_Disable_Loiter_DAY"
+-645	Play_Animation,		10, "s_A_human.H_A_X2k_nod", 0
+-1170	destroy_object,		10
+
+
+
+; ****************************** Nod Minigunner VICTIM
+
+
+-879	Create_Real_Object,	12, "Nod_MiniGunner_0", 17, "ROOTTRANSFORM"
+-879	Attach_to_Bone,		12,17, "ROOTTRANSFORM"
+-879  	Attach_Script,          12, "M00_Disable_Loiter_DAY"
+-879	Play_Animation,		12, "s_A_human.H_A_X2k_victim", 0
+-1170	destroy_object,		12
+
+; ****************************** Jet
+
+-1	Create_Object,		14, "v_jet",		0, 0, 0, 0
+-1	Play_Animation,		14, "v_jet.x2k_jet", 0
+-1	Attach_to_Bone,		14,13, "BN_Trajectory"
+-1170	destroy_object,		14
+
+; ****************************** C-130
+
+;-1	Create_Object,		15, "v_nod_cplane",		0, 0, 0, 0
+;-1	Play_Animation,		15, "v_nod_cplane.x2k_c130", 1
+;-1170	destroy_object,		15
+
+; ****************************** Boxes
+
+;-645	Create_Object,		16, "X2k_boxes",		0, 0, 0, 0
+;-645	Play_Animation,		16, "X2k_boxes.X2k_boxes", 0
+;-1170	destroy_object,		16
+
+: ******************************  Audio
+
+-760	Play_Audio,		"L02b_01_Hav01"
+-880	Play_Audio,		"L02b_02_Hav02"
+-900	Play_Audio,		"Sniper_Fire_01"
+-960	Play_Audio,		"L02b_03_Hav03"
+-1060	Play_Audio,		"L02b_04_Hav04"
+
+; ****************************** New MP3 Audio
+-0	Play_audio,		"02_A"

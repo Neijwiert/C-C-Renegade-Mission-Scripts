@@ -61,6 +61,9 @@
     <Filter Include="Source Files\M02">
       <UniqueIdentifier>{35e81406-6a65-4488-badb-5ca2ace0303b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Cinematic Files\M02">
+      <UniqueIdentifier>{75d023d0-9784-421d-b314-79a6506a44dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -301,6 +304,9 @@
       <Filter>Source Files\M02</Filter>
     </ClCompile>
     <ClCompile Include="M02_Nod_Apache.cpp">
+      <Filter>Source Files\M02</Filter>
+    </ClCompile>
+    <ClCompile Include="M02_Nod_Jet_Waypath.cpp">
       <Filter>Source Files\M02</Filter>
     </ClCompile>
   </ItemGroup>
@@ -545,6 +551,9 @@
     <ClInclude Include="M02_Nod_Apache.h">
       <Filter>Header Files\M02</Filter>
     </ClInclude>
+    <ClInclude Include="M02_Nod_Jet_Waypath.h">
+      <Filter>Header Files\M02</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -608,6 +617,129 @@
     </Text>
     <Text Include="mx0_a03_gdi_troopdrop.txt">
       <Filter>Resource Files\Cinematic Files\M13</Filter>
+    </Text>
+    <Text Include="x2a_orcastrike.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2d_mtank_slip.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2e_c130drop.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2f_orcasam.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2g_aircrash.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2h_apachespray.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop02_area00.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop02_area01.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop02_area02.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop02_area03.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop02_area04.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop02_area06.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop02_area09.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop02_area10.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop02_area11.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop02_area21.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop03_area00.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop03_area01.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop03_area02.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop03_area03.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop03_area04.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop03_area06.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop03_area09.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop03_area10.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop03_area11.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_drop03_area21.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_gdi_drop_hummvee.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_gdi_drop_mediumtank.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_gdi_drop_powerup.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_gdi_drop02_rocket.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_gdi_drop02_rocket_2.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_gdi_drop03_minigunner.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_para03_area00.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_para03_area01.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_para03_area02.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_para03_area03.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_para03_area04.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_para03_area06.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_para03_area09.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_para03_area21.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2k_midtro.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
     </Text>
   </ItemGroup>
 </Project>

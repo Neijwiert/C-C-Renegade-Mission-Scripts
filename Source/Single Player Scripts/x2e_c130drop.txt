@@ -1,0 +1,93 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 2: C130-Drop ************************
+
+
+
+
+; ****************************** Parachute_1
+
+-116	Create_Object,		1, "X2E_Parachute_1",			0, 0, 0, 0,
+-116	Play_Animation,		1, "X2E_Parachute_1.X2E_Parachute_1",0
+-162	destroy_object,		1
+
+
+; ****************************** Parachute_2
+
+-116	Create_Object,		2, "X2E_Parachute_2",			0, 0, 0, 0,
+-116	Play_Animation,		2, "X2E_Parachute_2.X2E_Parachute_2",0
+-162	destroy_object,	
+
+
+; ****************************** Apache
+
+
+-2	Create_Object,		2, "V_Nod_Apache",			0, 0, 0, 0
+-2	Play_Animation,		2, "V_Nod_Apache.X2D_Apache",1
+-1680	destroy_object,		2
+
+
+
+; ****************************** Buggy Trajectory
+
+-80	Create_Object,		4, "X2E_Trajectory",			0, 0, 0, 0,
+-80	Play_Animation,		4, "X2E_Trajectory.X2E_Trajectory",0
+-220	destroy_object,		4
+
+; ****************************** Nod Buggy
+
+
+-80	Create_Object,		5, "V_NOD_Buggy",			0, 0, 0, 0
+-80	Attach_to_bone,		5,4, "Bn_Trajectory"
+-220	destroy_object,		5
+
+
+
+; ****************************** Cargo plane
+
+
+-2	Create_Object,		6, "V_nod_Cplane",			0, 0, 0, 0
+-2	Play_Animation,		6, "V_nod_Cplane.X2E_Cplane",1
+-2	Play_Audio,		"SFX.X2E_C130Drop"
+-200	destroy_object,		6
+
+
+; ****************************** Explosions
+
+
+-170	Create_Object,		8, "X2E_AG_Xplosion",			0, 0, 0, 0
+-170	Play_Animation,		8, "X2E_Xplosions.X2E_Xplosions",1
+-230	destroy_object,		8
+
+
+
+
+
+

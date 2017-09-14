@@ -1,0 +1,99 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 2: Medium_Tank Slip ************************
+
+
+
+
+; ****************************** Harness 
+
+-2	Create_Object,		1, "X2D_Harness",			0, 0, 0, 0,
+-2	Play_Animation,		1, "X2D_Harness.X2D_Harness",0
+-1	Play_Audio,		"SFX.X2D_MTank_Slip"
+-410	destroy_object,		1
+
+
+
+; ****************************** Apache
+
+
+-2	Create_Object,		2, "V_Nod_Apache",			0, 0, 0, 0
+-2	Play_Animation,		2, "V_Nod_Apache.X2D_Apache",0
+-458	destroy_object,		2
+
+; ****************************** Missiles
+
+
+-330	Create_Object,		3, "X2D_AG_Missile",			0, 0, 0, 0
+-330	Play_Animation,		3, "X2D_Missiles.X2D_Missiles",0
+-408	destroy_object,		3
+
+
+
+; ****************************** Transport Trajectory
+
+-2	Create_Object,		4, "X2D_Trajectory",			0, 0, 0, 0,
+-2	Play_Animation,		4, "X2D_Trajectory.X2D_Trajectory",0
+-410	destroy_object,		4
+
+; ****************************** GDI Transport
+
+
+-2	Create_Object,		5, "V_GDI_Trnspt",			0, 0, 0, 0
+-2	Play_Animation,		5, "V_GDI_Trnspt.X2D_Transport",0
+-2	Attach_to_bone,		5,4, "Bn_Trajectory"
+-410	destroy_object,		5
+
+; ****************************** Medium Tank Trajectory
+
+-2	Create_Object,		6, "X2D_MTank_Traj",			0, 0, 0, 0,
+-2	Play_Animation,		6, "X2D_MTank_Traj.X2D_MTank_Traj",0
+-458	destroy_object,		6
+
+; ****************************** Medium Tank
+
+
+-2	Create_Object,		7, "V_GDI_medtnk",			0, 0, 0, 0
+-2	Attach_to_bone,		7,6, "Bn_Trajectory"
+-458	destroy_object,		7
+
+
+; ****************************** Explosions
+
+
+-400	Create_Object,		8, "X2D_AG_Xplosion",			0, 0, 0, 0
+-400	Play_Animation,		8, "X2D_Xplosions.X2D_Xplosions",1
+-470	destroy_object,		8
+
+
+
+
+
+

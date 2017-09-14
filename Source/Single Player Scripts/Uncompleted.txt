@@ -12,3 +12,17 @@ M02_Respawn_Controller
 M02_Objective_Controller
 M02_Objective_Zone
 M02_Nod_Apache
+
+// Below are found to be used but have not been included in this solution yet
+M02_Mendoza
+M02_Player_Vehicle
+M02_Nod_Jet
+M02_Nod_Vehicle
+M02_Nod_Sakura
+M02_GDI_Helicopter
+M02_Reset_Spawn
+M02_Nod_Soldier
+M02_GDI_Soldier
+M02_Destroy_Vehicle
+DLS_Where_Am_I
+M07_Disable_Hibernation

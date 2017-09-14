@@ -1,0 +1,90 @@
+;************************* LEVEL 2: HELICOPTER NOD TROOP DROP - 2 UNITS - AREA 03 ************************
+
+; ********************************** AUDIO
+
+-282	Create_Object,		8, "XG_RT_AudioA"
+-282	Play_Animation,		8, "XG_RT_AudioA.XG_RT_AudioA", 0
+-282	Play_Audio, 		"Door_Open", 8, "BN_CH_Dooropen"
+-283	Play_Audio,		"Rope_Out", 8, "BN_Rope"
+
+-401	Create_Object,		9, "XG_RT_AudioL"
+-401	Play_Animation,		9, "XG_RT_AudioL.XG_RT_AudioL", 0
+-402	Play_Audio,		"Rope_Zip", 9, "BN_Troops"
+
+-581	Create_Object,		9, "XG_RT_AudioL"
+-581	Play_Animation,		9, "XG_RT_AudioL.XG_RT_AudioL", 0
+-582	Play_Audio,		"Rope_Zip", 9, "BN_Troops"
+
+-761	Create_Object,		10, "XG_RT_AudioZ"
+-761	Play_Animation,		10, "XG_RT_AudioZ.XG_RT_AudioZ", 0
+-762	Play_Audio,		"Door_Close", 10, "BN_CH_Doorclose"
+-762	Play_Audio,		"Rope_Retract", 10, "BN_Rope"
+
+
+; ****************************** Trajectory
+
+-2	Create_Object,		1, "XG_TransprtBone",			0, 0, 0, 0
+-2	Play_Animation,		1, "XG_TransprtBone.XG_RT_TrajA", 1
+-401	Play_Animation,		1, "XG_TransprtBone.XG_RT_TrajL", 1
+-491	Play_Animation,		1, "XG_TransprtBone.XG_RT_TrajL", 1
+-581	Play_Animation,		1, "XG_TransprtBone.XG_RT_TrajL", 1
+-671	Play_Animation,		1, "XG_TransprtBone.XG_RT_TrajL", 1
+-761	Play_Animation,		1, "XG_TransprtBone.XG_RT_TrajZ", 0
+
+; ****************************** Transport
+
+-2	Create_Real_Object,	2, "Nod_Transport_Helicopter", 1, "BN_Trajectory"
+-2	Set_Primary,		2
+-2	Attach_to_Bone,		2, 1, "BN_Trajectory"
+-2	Play_Animation,		2, "v_Nod_trnspt.XG_RTN_TrnsptA", 1
+-401	Play_Animation,		2, "v_Nod_trnspt.XG_RTN_TrnsptL", 1
+-491	Play_Animation,		2, "v_Nod_trnspt.XG_RTN_TrnsptL", 1
+-581	Play_Animation,		2, "v_Nod_trnspt.XG_RTN_TrnsptL", 1
+-671	Play_Animation,		2, "v_Nod_trnspt.XG_RTN_TrnsptL", 1
+-761	Play_Animation,		2, "v_Nod_trnspt.XG_RTN_TrnsptZ", 0
+-2000	Destroy_Object,		2
+
+; ****************************** Rope
+
+-293	Create_Object,		3, "XG_RT_rope",			0, 0, 0, 0
+-293	Play_Animation,		3, "XG_RT_rope.XG_RT_ropeA", 1
+-401	Play_Animation,		3, "XG_RT_rope.XG_RT_ropeL", 1
+-491	Play_Animation,		3, "XG_RT_rope.XG_RT_ropeL", 1
+-581	Play_Animation,		3, "XG_RT_rope.XG_RT_ropeL", 1
+-671	Play_Animation,		3, "XG_RT_rope.XG_RT_ropeL", 1
+-761	Play_Animation,		3, "XG_RT_rope.XG_RT_ropeZ", 0
+
+; ****************************** Troop Bone
+
+-401	Create_Object,		4, "XG_RT_TroopBone",			0, 0, 0, 0
+-401	Play_Animation,		4, "XG_RT_TroopBone.XG_RT_TroopBone",1
+-581	Play_Animation,		4, "XG_RT_TroopBone.XG_RT_TroopBone",0
+
+; ****************************** Character
+
+-401	Create_Real_Object,	5, "Nod_MiniGunner_0", 2, "SPAWNER"
+-401    Attach_Script,		5, "M02_Nod_Soldier", "3,0,0"
+-401	Attach_To_Bone,		5, 4, "TROOP_L"
+-401	Play_Animation,		5, "h_a_troopdrop",0
+-487	Attach_To_Bone,		5, -1, "TROOP_L"
+-487	Move_Slot,		11, 5
+
+-581	Create_Real_Object,	6, "Nod_MiniGunner_0", 2, "SPAWNER"
+-581    Attach_Script,		6, "M02_Nod_Soldier", "3,0,0"
+-581	Attach_To_Bone,		6, 4, "TROOP_L"
+-581	Play_Animation,		6, "h_a_troopdrop",0
+-667	Attach_To_Bone,		6, -1, "TROOP_L"
+-667	Move_Slot,		12, 6
+
+; ****************************** Primary Destroyed
+
+1000000 Destroy_Object, 1
+1000000 Destroy_Object, 2
+1000000 Destroy_Object, 3
+1000000 Destroy_Object, 4
+1000000 Destroy_Object, 5
+1000000 Destroy_Object, 6
+1000000 Destroy_Object, 7
+1000000 Destroy_Object, 8
+1000000 Destroy_Object, 9
+1000000 Destroy_Object, 10

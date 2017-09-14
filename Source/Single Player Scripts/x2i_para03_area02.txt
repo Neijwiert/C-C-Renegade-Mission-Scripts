@@ -1,0 +1,95 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 5: Chinook Nod Troop Parachute drop  ************************
+
+
+
+; ****************************** Nod Chinook
+
+-1	Create_Object,		1, "va_nod c-130",			0, 0, 0, 0
+;-1	Play_Animation,		1, "v_Nod_Chinook.vf_Nod_Chinook", 1
+-280	Destroy_Object,		1
+
+; ****************************** Path
+
+-1	Create_Object,		2, "X5D_Chinookfly",			0, 0, 0, 0
+-1	Play_Animation,		2, "X5D_Chinookfly.X5D_Chinookfly", 1
+-280 	Destroy_Object,		2
+-1	Attach_To_Bone,		1, 2, "BN_chinook_1"
+
+; ****************************** Parachute_1
+
+-169	Create_Object,		3, "X5D_Parachute",			0, 0, 0, 0
+-169	Play_Animation,		3, "X5D_Parachute.X5D_ParaC_1", 1
+-260	Destroy_Object,		3
+
+; ****************************** Parachute_2
+
+-179	Create_Object,		4, "X5D_Parachute",			0, 0, 0, 0
+-179	Play_Animation,		4, "X5D_Parachute.X5D_ParaC_2", 1
+-270	Destroy_Object,		4
+
+; ****************************** Parachute_3
+
+-198	Create_Object,		5, "X5D_Parachute",			0, 0, 0, 0
+-198	Play_Animation,		5, "X5D_Parachute.X5D_ParaC_3", 1
+-280	Destroy_Object,		5
+
+; ****************************** Box 1
+-145	Create_Object,		6, "X5D_Box01",				0, 0, 0, 0
+-145	Play_Animation,		6, "X5D_Box01.X5D_Box01", 1
+
+; ****************************** Box 2
+-155	Create_Object,		7, "X5D_Box02",				0, 0, 0, 0
+-155	Play_Animation,		7, "X5D_Box02.X5D_Box02", 1
+
+; ****************************** Box 3
+-165	Create_Object,		8, "X5D_Box03",				0, 0, 0, 0
+-165	Play_Animation,		8, "X5D_Box03.X5D_Box03", 1
+
+;******************************* Soldiers
+-145	Create_Real_Object,	9, "Nod_MiniGunner_0", 6, "Box01"
+-145    Attach_Script,          9, "M02_Nod_Soldier", "2,0,0"
+-145	Attach_To_Bone,		9, 6, "Box01"
+-145	Play_Animation,		9, "H_A_X5D_ParaT_1", 0
+-255	Attach_To_Bone,		9, -1, "Box01"
+
+-155	Create_Real_Object,	10, "Nod_MiniGunner_0", 7, "Box02"
+-155    Attach_Script,          10, "M02_Nod_Soldier", "2,0,0"
+-155	Attach_To_Bone,		10, 7, "Box02"
+-155	Play_Animation,		10, "H_A_X5D_ParaT_2", 0
+-265	Attach_To_Bone,		10, -1, "Box02"
+
+-165	Create_Real_Object,	11, "Nod_MiniGunner_0", 8, "Box03"
+-165    Attach_Script,          11, "M02_Nod_Soldier", "2,0,0"
+-165	Attach_To_Bone,		11, 8, "Box03"
+-165	Play_Animation,		11, "H_A_X5D_ParaT_3", 0
+-275	Attach_To_Bone,		11, -1, "Box03"
+
