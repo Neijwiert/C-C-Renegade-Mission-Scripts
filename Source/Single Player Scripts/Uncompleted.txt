@@ -14,7 +14,6 @@ M02_Objective_Zone
 M02_Nod_Apache
 
 // Below are found to be used but have not been included in this solution yet
-M02_Mendoza
 M02_Player_Vehicle
 M02_Nod_Jet
 M02_Nod_Vehicle

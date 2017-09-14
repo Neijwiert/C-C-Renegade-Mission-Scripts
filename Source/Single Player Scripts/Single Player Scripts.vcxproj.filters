@@ -309,6 +309,9 @@
     <ClCompile Include="M02_Nod_Jet_Waypath.cpp">
       <Filter>Source Files\M02</Filter>
     </ClCompile>
+    <ClCompile Include="M02_Mendoza.cpp">
+      <Filter>Source Files\M02</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -554,6 +557,9 @@
     <ClInclude Include="M02_Nod_Jet_Waypath.h">
       <Filter>Header Files\M02</Filter>
     </ClInclude>
+    <ClInclude Include="M02_Mendoza.h">
+      <Filter>Header Files\M02</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -739,6 +745,9 @@
       <Filter>Resource Files\Cinematic Files\M02</Filter>
     </Text>
     <Text Include="x2k_midtro.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="xg_rope_evac_f.txt">
       <Filter>Resource Files\Cinematic Files\M02</Filter>
     </Text>
   </ItemGroup>
