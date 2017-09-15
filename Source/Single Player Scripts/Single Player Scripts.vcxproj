@@ -214,6 +214,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M02_Nod_Apache.cpp" />
     <ClCompile Include="M02_Nod_Jet.cpp" />
     <ClCompile Include="M02_Nod_Jet_Waypath.cpp" />
+    <ClCompile Include="M02_Nod_Vehicle.cpp" />
     <ClCompile Include="M02_Objective_Controller.cpp" />
     <ClCompile Include="M02_Objective_Zone.cpp" />
     <ClCompile Include="M02_Player_Vehicle.cpp" />
@@ -305,6 +306,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M02_Nod_Apache.h" />
     <ClInclude Include="M02_Nod_Jet.h" />
     <ClInclude Include="M02_Nod_Jet_Waypath.h" />
+    <ClInclude Include="M02_Nod_Vehicle.h" />
     <ClInclude Include="M02_Objective_Controller.h" />
     <ClInclude Include="M02_Objective_Zone.h" />
     <ClInclude Include="M02_Player_Vehicle.h" />
