@@ -324,6 +324,9 @@
     <ClCompile Include="M02_Nod_Sakura.cpp">
       <Filter>Source Files\M02</Filter>
     </ClCompile>
+    <ClCompile Include="M02_GDI_Helicopter.cpp">
+      <Filter>Source Files\M02</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -582,6 +585,9 @@
       <Filter>Header Files\M02</Filter>
     </ClInclude>
     <ClInclude Include="M02_Nod_Sakura.h">
+      <Filter>Header Files\M02</Filter>
+    </ClInclude>
+    <ClInclude Include="M02_GDI_Helicopter.h">
       <Filter>Header Files\M02</Filter>
     </ClInclude>
   </ItemGroup>
