@@ -327,6 +327,9 @@
     <ClCompile Include="M02_GDI_Helicopter.cpp">
       <Filter>Source Files\M02</Filter>
     </ClCompile>
+    <ClCompile Include="M02_Reset_Spawn.cpp">
+      <Filter>Source Files\M02</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -588,6 +591,9 @@
       <Filter>Header Files\M02</Filter>
     </ClInclude>
     <ClInclude Include="M02_GDI_Helicopter.h">
+      <Filter>Header Files\M02</Filter>
+    </ClInclude>
+    <ClInclude Include="M02_Reset_Spawn.h">
       <Filter>Header Files\M02</Filter>
     </ClInclude>
   </ItemGroup>
