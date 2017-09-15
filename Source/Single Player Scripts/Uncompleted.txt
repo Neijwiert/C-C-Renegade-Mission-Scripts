@@ -12,9 +12,9 @@ M02_Respawn_Controller
 M02_Objective_Controller
 M02_Objective_Zone
 M02_Nod_Apache
+M02_Player_Vehicle
 
 // Below are found to be used but have not been included in this solution yet
-M02_Player_Vehicle
 M02_Nod_Jet
 M02_Nod_Vehicle
 M02_Nod_Sakura
