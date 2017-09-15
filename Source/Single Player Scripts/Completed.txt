@@ -56,6 +56,7 @@ M00_Vehicle_Regen_DAK
 M02_Nod_Jet_Waypath
 M02_Mendoza
 M02_Nod_Jet
+M02_Nod_Sakura
 
 // Below are scripts that I'm pretty sure of that they are not used, but they are present
 MX0_A02_DEFAULT_OFF
