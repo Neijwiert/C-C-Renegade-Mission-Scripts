@@ -315,6 +315,9 @@
     <ClCompile Include="M02_Player_Vehicle.cpp">
       <Filter>Source Files\M02</Filter>
     </ClCompile>
+    <ClCompile Include="M02_Nod_Jet.cpp">
+      <Filter>Source Files\M02</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -564,6 +567,9 @@
       <Filter>Header Files\M02</Filter>
     </ClInclude>
     <ClInclude Include="M02_Player_Vehicle.h">
+      <Filter>Header Files\M02</Filter>
+    </ClInclude>
+    <ClInclude Include="M02_Nod_Jet.h">
       <Filter>Header Files\M02</Filter>
     </ClInclude>
   </ItemGroup>
