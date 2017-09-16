@@ -62,6 +62,7 @@ M02_Reset_Spawn
 M02_Destroy_Vehicle
 DLS_Where_Am_I
 M02_Helipad
+M01_Barn_Truck_JDG
 
 // Below are scripts that I'm pretty sure of that they are not used, but they are present
 MX0_A02_DEFAULT_OFF
