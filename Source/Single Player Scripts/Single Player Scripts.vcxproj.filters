@@ -64,6 +64,12 @@
     <Filter Include="Resource Files\Cinematic Files\M02">
       <UniqueIdentifier>{75d023d0-9784-421d-b314-79a6506a44dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\M07">
+      <UniqueIdentifier>{6503e63f-c567-47a0-a690-65e3b24eeda9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\M07">
+      <UniqueIdentifier>{208ef067-f719-47da-9670-5b52c118b582}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -342,6 +348,9 @@
     <ClCompile Include="DLS_Where_Am_I.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="M07_Disable_Hibernation.cpp">
+      <Filter>Source Files\M07</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -619,6 +628,9 @@
     </ClInclude>
     <ClInclude Include="DLS_Where_Am_I.h">
       <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="M07_Disable_Hibernation.h">
+      <Filter>Header Files\M07</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
