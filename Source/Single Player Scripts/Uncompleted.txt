@@ -14,9 +14,9 @@ M02_Objective_Zone
 M02_Nod_Apache
 M02_Player_Vehicle
 M02_Nod_Vehicle
+M02_Nod_Soldier
 
 // Below are found to be used but have not been included in this solution yet
-M02_Nod_Soldier
 M02_GDI_Soldier
 DLS_Where_Am_I
 M07_Disable_Hibernation
