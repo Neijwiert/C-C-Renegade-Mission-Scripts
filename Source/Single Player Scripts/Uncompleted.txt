@@ -18,5 +18,4 @@ M02_Nod_Soldier
 M02_GDI_Soldier
 
 // Below are found to be used but have not been included in this solution yet
-DLS_Where_Am_I
 M07_Disable_Hibernation

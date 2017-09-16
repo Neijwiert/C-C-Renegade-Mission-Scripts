@@ -339,6 +339,9 @@
     <ClCompile Include="M02_GDI_Soldier.cpp">
       <Filter>Source Files\M02</Filter>
     </ClCompile>
+    <ClCompile Include="DLS_Where_Am_I.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -613,6 +616,9 @@
     </ClInclude>
     <ClInclude Include="M02_GDI_Soldier.h">
       <Filter>Header Files\M02</Filter>
+    </ClInclude>
+    <ClInclude Include="DLS_Where_Am_I.h">
+      <Filter>Header Files\Misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
