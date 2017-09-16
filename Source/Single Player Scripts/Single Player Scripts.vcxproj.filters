@@ -369,6 +369,9 @@
     <ClCompile Include="M02_Nod_Convoy_Truck.cpp">
       <Filter>Source Files\M02</Filter>
     </ClCompile>
+    <ClCompile Include="M02_Dam_MCT.cpp">
+      <Filter>Source Files\M02</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -668,6 +671,9 @@
     <ClInclude Include="M02_Nod_Convoy_Truck.h">
       <Filter>Header Files\M02</Filter>
     </ClInclude>
+    <ClInclude Include="M02_Dam_MCT.h">
+      <Filter>Header Files\M02</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -856,6 +862,9 @@
       <Filter>Resource Files\Cinematic Files\M02</Filter>
     </Text>
     <Text Include="xg_rope_evac_f.txt">
+      <Filter>Resource Files\Cinematic Files\M02</Filter>
+    </Text>
+    <Text Include="x2i_gdi_drop02_rocket_24.txt">
       <Filter>Resource Files\Cinematic Files\M02</Filter>
     </Text>
   </ItemGroup>

@@ -213,6 +213,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Barn_Truck_JDG.cpp" />
     <ClCompile Include="M01_Destroyed_SAMSITE_JDG.cpp" />
     <ClCompile Include="M02_Approach_Vehicle.cpp" />
+    <ClCompile Include="M02_Dam_MCT.cpp" />
     <ClCompile Include="M02_Destroy_Objective.cpp" />
     <ClCompile Include="M02_Destroy_Vehicle.cpp" />
     <ClCompile Include="M02_GDI_Helicopter.cpp" />
@@ -319,6 +320,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Barn_Truck_JDG.h" />
     <ClInclude Include="M01_Destroyed_SAMSITE_JDG.h" />
     <ClInclude Include="M02_Approach_Vehicle.h" />
+    <ClInclude Include="M02_Dam_MCT.h" />
     <ClInclude Include="M02_Destroy_Objective.h" />
     <ClInclude Include="M02_Destroy_Vehicle.h" />
     <ClInclude Include="M02_GDI_Helicopter.h" />
@@ -461,6 +463,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x2i_drop03_area21.txt" />
     <Text Include="x2i_gdi_drop02_rocket.txt" />
     <Text Include="x2i_gdi_drop02_rocket_2.txt" />
+    <Text Include="x2i_gdi_drop02_rocket_24.txt" />
     <Text Include="x2i_gdi_drop03_minigunner.txt" />
     <Text Include="x2i_gdi_drop_hummvee.txt" />
     <Text Include="x2i_gdi_drop_mediumtank.txt" />
