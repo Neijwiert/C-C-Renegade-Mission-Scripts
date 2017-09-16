@@ -255,9 +255,6 @@
     <ClCompile Include="MX0_A03_GDI_TROOP_DROP_ZONE_DAK.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
-    <ClCompile Include="MX0_A03_GDI_INFANTRY.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MX0_A03_HAVOC_TANK.cpp">
       <Filter>Source Files\MX0</Filter>
     </ClCompile>
@@ -350,6 +347,12 @@
     </ClCompile>
     <ClCompile Include="M07_Disable_Hibernation.cpp">
       <Filter>Source Files\M07</Filter>
+    </ClCompile>
+    <ClCompile Include="MX0_A03_GDI_INFANTRY.cpp">
+      <Filter>Source Files\MX0</Filter>
+    </ClCompile>
+    <ClCompile Include="M02_Stationary_Vehicle.cpp">
+      <Filter>Source Files\M02</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -536,9 +539,6 @@
     <ClInclude Include="MX0_A03_GDI_TROOP_DROP_ZONE_DAK.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
-    <ClInclude Include="MX0_A03_GDI_INFANTRY.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MX0_A03_HAVOC_TANK.h">
       <Filter>Header Files\MX0</Filter>
     </ClInclude>
@@ -631,6 +631,12 @@
     </ClInclude>
     <ClInclude Include="M07_Disable_Hibernation.h">
       <Filter>Header Files\M07</Filter>
+    </ClInclude>
+    <ClInclude Include="MX0_A03_GDI_INFANTRY.h">
+      <Filter>Header Files\MX0</Filter>
+    </ClInclude>
+    <ClInclude Include="M02_Stationary_Vehicle.h">
+      <Filter>Header Files\M02</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
