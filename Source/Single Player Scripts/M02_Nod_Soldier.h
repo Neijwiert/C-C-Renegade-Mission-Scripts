@@ -36,7 +36,7 @@ class M02_Nod_Soldier : public ScriptImpClass
 
 		Vector3 gotoLocation; // Never assigned
 		bool delayedInitialized;
-		DWORD animationIndex;
+		int animationIndex;
 		bool damaged;
 		float health;
 		bool enemySeen;

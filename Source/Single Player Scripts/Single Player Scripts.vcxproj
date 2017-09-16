@@ -212,6 +212,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Destroyed_SAMSITE_JDG.cpp" />
     <ClCompile Include="M02_Destroy_Vehicle.cpp" />
     <ClCompile Include="M02_GDI_Helicopter.cpp" />
+    <ClCompile Include="M02_GDI_Soldier.cpp" />
     <ClCompile Include="M02_Mendoza.cpp" />
     <ClCompile Include="M02_Nod_Apache.cpp" />
     <ClCompile Include="M02_Nod_Jet.cpp" />
@@ -309,6 +310,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Destroyed_SAMSITE_JDG.h" />
     <ClInclude Include="M02_Destroy_Vehicle.h" />
     <ClInclude Include="M02_GDI_Helicopter.h" />
+    <ClInclude Include="M02_GDI_Soldier.h" />
     <ClInclude Include="M02_Mendoza.h" />
     <ClInclude Include="M02_Nod_Apache.h" />
     <ClInclude Include="M02_Nod_Jet.h" />
