@@ -220,6 +220,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M02_Helipad.cpp" />
     <ClCompile Include="M02_Mendoza.cpp" />
     <ClCompile Include="M02_Nod_Apache.cpp" />
+    <ClCompile Include="M02_Nod_Convoy_Truck.cpp" />
     <ClCompile Include="M02_Nod_Jet.cpp" />
     <ClCompile Include="M02_Nod_Jet_Waypath.cpp" />
     <ClCompile Include="M02_Nod_Sakura.cpp" />
@@ -325,6 +326,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M02_Helipad.h" />
     <ClInclude Include="M02_Mendoza.h" />
     <ClInclude Include="M02_Nod_Apache.h" />
+    <ClInclude Include="M02_Nod_Convoy_Truck.h" />
     <ClInclude Include="M02_Nod_Jet.h" />
     <ClInclude Include="M02_Nod_Jet_Waypath.h" />
     <ClInclude Include="M02_Nod_Sakura.h" />

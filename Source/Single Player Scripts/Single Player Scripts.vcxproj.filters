@@ -366,6 +366,9 @@
     <ClCompile Include="M02_Destroy_Objective.cpp">
       <Filter>Source Files\M02</Filter>
     </ClCompile>
+    <ClCompile Include="M02_Nod_Convoy_Truck.cpp">
+      <Filter>Source Files\M02</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -660,6 +663,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M02_Destroy_Objective.h">
+      <Filter>Header Files\M02</Filter>
+    </ClInclude>
+    <ClInclude Include="M02_Nod_Convoy_Truck.h">
       <Filter>Header Files\M02</Filter>
     </ClInclude>
   </ItemGroup>
