@@ -363,6 +363,9 @@
     <ClCompile Include="M01_Barn_Truck_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M02_Destroy_Objective.cpp">
+      <Filter>Source Files\M02</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -655,6 +658,9 @@
     </ClInclude>
     <ClInclude Include="M01_Barn_Truck_JDG.h">
       <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M02_Destroy_Objective.h">
+      <Filter>Header Files\M02</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
