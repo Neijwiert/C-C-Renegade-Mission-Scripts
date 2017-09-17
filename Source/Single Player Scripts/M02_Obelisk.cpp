@@ -58,8 +58,8 @@ void M02_Obelisk::Damaged(GameObject *obj, GameObject *damager, float amount)
 		{
 			Commands->Send_Custom_Event(obj, nodObeliskNodEngineerObj, 99, 202, 0.0f);
 
-			float health = Commands->Get_Max_Health(obj);
-			Commands->Set_Health(obj, health);
+			float maxHealth = Commands->Get_Max_Health(obj);
+			Commands->Set_Health(obj, maxHealth);
 
 			if (!this->notifiedForInternalRepairs)
 			{
