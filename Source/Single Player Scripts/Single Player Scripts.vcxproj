@@ -216,6 +216,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M02_Dam_MCT.cpp" />
     <ClCompile Include="M02_Destroy_Objective.cpp" />
     <ClCompile Include="M02_Destroy_Vehicle.cpp" />
+    <ClCompile Include="M02_Encyclopedia_Reveal.cpp" />
     <ClCompile Include="M02_GDI_Helicopter.cpp" />
     <ClCompile Include="M02_GDI_Soldier.cpp" />
     <ClCompile Include="M02_Helipad.cpp" />
@@ -325,6 +326,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M02_Dam_MCT.h" />
     <ClInclude Include="M02_Destroy_Objective.h" />
     <ClInclude Include="M02_Destroy_Vehicle.h" />
+    <ClInclude Include="M02_Encyclopedia_Reveal.h" />
     <ClInclude Include="M02_GDI_Helicopter.h" />
     <ClInclude Include="M02_GDI_Soldier.h" />
     <ClInclude Include="M02_Helipad.h" />
