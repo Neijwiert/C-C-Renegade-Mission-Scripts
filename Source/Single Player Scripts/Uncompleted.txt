@@ -19,3 +19,4 @@ M02_GDI_Soldier
 M07_Disable_Hibernation
 M02_Stationary_Vehicle
 M02_Approach_Vehicle
+M02_Obelisk
