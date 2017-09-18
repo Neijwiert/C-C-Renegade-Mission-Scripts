@@ -381,6 +381,9 @@
     <ClCompile Include="M02_Encyclopedia_Reveal.cpp">
       <Filter>Source Files\M02</Filter>
     </ClCompile>
+    <ClCompile Include="M02_Commando_Start.cpp">
+      <Filter>Source Files\M02</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -690,6 +693,9 @@
       <Filter>Header Files\M02</Filter>
     </ClInclude>
     <ClInclude Include="M02_Encyclopedia_Reveal.h">
+      <Filter>Header Files\M02</Filter>
+    </ClInclude>
+    <ClInclude Include="M02_Commando_Start.h">
       <Filter>Header Files\M02</Filter>
     </ClInclude>
   </ItemGroup>

@@ -21,3 +21,6 @@ M02_Stationary_Vehicle
 M02_Approach_Vehicle
 M02_Obelisk
 M02_Power_Plant
+
+//
+M02_Data_Disk

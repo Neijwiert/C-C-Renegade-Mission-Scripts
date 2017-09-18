@@ -67,6 +67,7 @@ M02_Destroy_Objective
 M02_Nod_Convoy_Truck
 M02_Dam_MCT
 M02_Encyclopedia_Reveal
+M02_Commando_Start
 
 // Below are scripts that I'm pretty sure of that they are not used, but they are present
 MX0_A02_DEFAULT_OFF
