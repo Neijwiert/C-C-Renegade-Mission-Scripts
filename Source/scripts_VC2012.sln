@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Single Player Scripts", "Si
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shared", "shared\shared.vcxproj", "{6636E311-E860-4F52-9D23-FE38E38D6020}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestPlugin", "test-plugin\TestPlugin.vcxproj", "{A9DC5B8D-1EAC-4594-B36A-7E2DEA898951}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug SSGM|Win32 = Debug SSGM|Win32
@@ -45,6 +47,14 @@ Global
 		{6636E311-E860-4F52-9D23-FE38E38D6020}.Release SSGM|Win32.Build.0 = Release|Win32
 		{6636E311-E860-4F52-9D23-FE38E38D6020}.Release|Win32.ActiveCfg = Release|Win32
 		{6636E311-E860-4F52-9D23-FE38E38D6020}.Release|Win32.Build.0 = Release|Win32
+		{A9DC5B8D-1EAC-4594-B36A-7E2DEA898951}.Debug SSGM|Win32.ActiveCfg = Debug SSGM|Win32
+		{A9DC5B8D-1EAC-4594-B36A-7E2DEA898951}.Debug SSGM|Win32.Build.0 = Debug SSGM|Win32
+		{A9DC5B8D-1EAC-4594-B36A-7E2DEA898951}.Debug|Win32.ActiveCfg = Debug SSGM|Win32
+		{A9DC5B8D-1EAC-4594-B36A-7E2DEA898951}.Debug|Win32.Build.0 = Debug SSGM|Win32
+		{A9DC5B8D-1EAC-4594-B36A-7E2DEA898951}.Release SSGM|Win32.ActiveCfg = Release SSGM|Win32
+		{A9DC5B8D-1EAC-4594-B36A-7E2DEA898951}.Release SSGM|Win32.Build.0 = Release SSGM|Win32
+		{A9DC5B8D-1EAC-4594-B36A-7E2DEA898951}.Release|Win32.ActiveCfg = Release SSGM|Win32
+		{A9DC5B8D-1EAC-4594-B36A-7E2DEA898951}.Release|Win32.Build.0 = Release SSGM|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
