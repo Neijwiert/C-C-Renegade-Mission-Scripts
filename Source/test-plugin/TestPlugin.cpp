@@ -145,6 +145,8 @@ void TestPlugin::OnLoadLevel()
 		}
 	}	
 
+	//Console_Output("%ls\n", Get_Wide_Translated_String(7587));
+
 	/*
 	int scriptCount = GetScriptCount();
 	for (int x = 0; x < scriptCount; x++)
