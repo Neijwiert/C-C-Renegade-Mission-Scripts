@@ -420,6 +420,9 @@
     <ClCompile Include="M01_FP_NodBase_SouthNorth_Contoller_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_FP_NodBase_EastWest_Contoller_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -765,6 +768,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_FP_NodBase_SouthNorth_Contoller_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_FP_NodBase_EastWest_Contoller_JDG.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1204,6 +1210,60 @@
       <Filter>Resource Files\Cinematic Files\M01</Filter>
     </Text>
     <Text Include="x1a_solo_orca_17.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_a10_09.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_a10_10.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_a10_11.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_apache_09.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_apache_10.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_apache_11.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_gdi_chinook_09.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_gdi_chinook_10.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_gdi_chinook_11.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nod_chinook_09.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nod_chinook_10.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nod_chinook_11.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nodcargo_09.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nodcargo_10.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nodcargo_11.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_orca_09.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_orca_10.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_orca_11.txt">
       <Filter>Resource Files\Cinematic Files\M01</Filter>
     </Text>
   </ItemGroup>
