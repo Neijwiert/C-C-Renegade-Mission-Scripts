@@ -10,13 +10,13 @@ M03_Goto_Star
 M01_Nod_Commander_Conversation_Controller_GDI
 M01_GDIBase_EvacMonitor_JDG
 M01_Objective_Pog_Controller_JDG
+M01_DataDisc_TextController_JDG
 
 // Below are not present in the solution yet
 M01_Base_GDI_Minigunner_JDG
 M01_BackPath_EntranceZone_JDG
 M01_Duncan_InHere_ConvController_JDG
 M01_Duncan_Assailer_JDG
-M01_DataDisc_TextController_JDG 
 M01_Medlab_Datadisc_JDG 
 M01_Priest_Datadisc_JDG 
 M01_TibCave02_Datadisc_JDG 

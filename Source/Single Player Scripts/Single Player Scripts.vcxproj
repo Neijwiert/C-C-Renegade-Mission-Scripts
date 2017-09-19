@@ -212,6 +212,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Vehicle_Regen_DAK.cpp" />
     <ClCompile Include="M01_Announce_First_ObjectiveZone_JDG.cpp" />
     <ClCompile Include="M01_Barn_Truck_JDG.cpp" />
+    <ClCompile Include="M01_DataDisc_TextController_JDG.cpp" />
     <ClCompile Include="M01_Destroyed_SAMSITE_JDG.cpp" />
     <ClCompile Include="M01_First_AutoRifle_JDG.cpp" />
     <ClCompile Include="M01_Flyover_Generic_Script_JDG.cpp" />
@@ -340,6 +341,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Vehicle_Regen_DAK.h" />
     <ClInclude Include="M01_Announce_First_ObjectiveZone_JDG.h" />
     <ClInclude Include="M01_Barn_Truck_JDG.h" />
+    <ClInclude Include="M01_DataDisc_TextController_JDG.h" />
     <ClInclude Include="M01_Destroyed_SAMSITE_JDG.h" />
     <ClInclude Include="M01_First_AutoRifle_JDG.h" />
     <ClInclude Include="M01_Flyover_Generic_Script_JDG.h" />
