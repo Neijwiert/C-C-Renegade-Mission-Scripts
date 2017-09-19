@@ -213,6 +213,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Barn_Truck_JDG.cpp" />
     <ClCompile Include="M01_Destroyed_SAMSITE_JDG.cpp" />
     <ClCompile Include="M01_First_AutoRifle_JDG.cpp" />
+    <ClCompile Include="M01_GDIBase_EvacMonitor_JDG.cpp" />
     <ClCompile Include="M01_Nod_Commander_Conversation_Controller_GDI.cpp" />
     <ClCompile Include="M02_Approach_Vehicle.cpp" />
     <ClCompile Include="M02_Commando_Start.cpp" />
@@ -327,6 +328,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Barn_Truck_JDG.h" />
     <ClInclude Include="M01_Destroyed_SAMSITE_JDG.h" />
     <ClInclude Include="M01_First_AutoRifle_JDG.h" />
+    <ClInclude Include="M01_GDIBase_EvacMonitor_JDG.h" />
     <ClInclude Include="M01_Nod_Commander_Conversation_Controller_GDI.h" />
     <ClInclude Include="M02_Approach_Vehicle.h" />
     <ClInclude Include="M02_Commando_Start.h" />
@@ -449,6 +451,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x0i_drop02_a02_e02.txt" />
     <Text Include="x0i_gdi_drop02_engineer.txt" />
     <Text Include="x0z_finale.txt" />
+    <Text Include="x1d_gdipowerupdrop.txt" />
     <Text Include="x2a_orcastrike.txt" />
     <Text Include="x2d_mtank_slip.txt" />
     <Text Include="x2e_c130drop.txt" />
