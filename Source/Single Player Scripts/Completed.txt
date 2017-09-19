@@ -98,6 +98,7 @@ M01_Announce_First_ObjectiveZone_JDG
 M01_GDI_BeachGuy01_JDG
 M01_Beach_Datadisc_JDG
 M01_ConDropZone_JDG
+M01_Use_Ladder_Zone_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
