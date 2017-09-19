@@ -86,6 +86,7 @@ M07_Disable_Hibernation
 M01_First_AutoRifle_JDG
 M01_Flyover_Generic_Script_JDG
 M01_FP_BaseToBase_NorthSouth_Contoller_JDG
+M01_FP_BaseToBase_SouthNorth_Contoller_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
