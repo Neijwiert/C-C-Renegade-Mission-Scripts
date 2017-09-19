@@ -933,5 +933,38 @@
     <Text Include="x1d_gdipowerupdrop.txt">
       <Filter>Resource Files\Cinematic Files\M01</Filter>
     </Text>
+    <Text Include="x1a_solo_a10_03.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_a10_04.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_apache_03.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_apache_04.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_gdi_chinook_04.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nod_chinook_03.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nod_chinook_04.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nodcargo_03.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nodcargo_04.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_orca_03.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_orca_04.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
   </ItemGroup>
 </Project>

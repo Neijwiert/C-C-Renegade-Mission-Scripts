@@ -455,6 +455,17 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x0i_drop02_a02_e02.txt" />
     <Text Include="x0i_gdi_drop02_engineer.txt" />
     <Text Include="x0z_finale.txt" />
+    <Text Include="x1a_solo_a10_03.txt" />
+    <Text Include="x1a_solo_a10_04.txt" />
+    <Text Include="x1a_solo_apache_03.txt" />
+    <Text Include="x1a_solo_apache_04.txt" />
+    <Text Include="x1a_solo_gdi_chinook_04.txt" />
+    <Text Include="x1a_solo_nodcargo_03.txt" />
+    <Text Include="x1a_solo_nodcargo_04.txt" />
+    <Text Include="x1a_solo_nod_chinook_03.txt" />
+    <Text Include="x1a_solo_nod_chinook_04.txt" />
+    <Text Include="x1a_solo_orca_03.txt" />
+    <Text Include="x1a_solo_orca_04.txt" />
     <Text Include="x1d_gdipowerupdrop.txt" />
     <Text Include="x2a_orcastrike.txt" />
     <Text Include="x2d_mtank_slip.txt" />
