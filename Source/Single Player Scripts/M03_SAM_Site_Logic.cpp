@@ -56,7 +56,7 @@ void M03_SAM_Site_Logic::Killed(GameObject *obj, GameObject *killer)
 
 void M03_SAM_Site_Logic::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
-	// TODO (No custom)
+	// Received from M02_Player_Vehicle when created with param being its object id
 	if (type == 100008 && this->currentIgnoredObjIndex < 10 && this->currentIgnoredObjIndex >= 0)
 	{
 		this->ignoredObjIds[this->currentIgnoredObjIndex++] = param;

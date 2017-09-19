@@ -24,7 +24,10 @@ void M02_Player_Vehicle::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->entered, sizeof(this->entered), 1);
 }
 
-// TODO
+// When M02_Objective_Zone is entered with id 405120
+// When M02_Respawn_Controller::Replacement_Vehicle is called with areaNumber = 1/4/5/14
+// After 1 cinematic frame in x2i_gdi_drop_hummvee.txt
+// After 1 cinematic frame in x2i_gdi_drop_mediumtank.txt
 void M02_Player_Vehicle::Created(GameObject *obj)
 {
 	this->entered = false;

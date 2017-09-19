@@ -26,7 +26,8 @@ void M02_GDI_Soldier::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->backupConversationIndex, sizeof(this->backupConversationIndex), 3);
 }
 
-// TODO
+// On level start
+// The following cineamtic files: x2i_gdi_drop02_rocket.txt, x2i_gdi_drop02_rocket_2.txt, x2i_gdi_drop02_rocket_24.txt and x2i_gdi_drop03_minigunner.txt
 void M02_GDI_Soldier::Created(GameObject *obj)
 {
 	Commands->Enable_Hibernation(obj, false);
@@ -71,9 +72,9 @@ void M02_GDI_Soldier::Killed(GameObject *obj, GameObject *killer)
 	}
 }
 
-// TODO
 void M02_GDI_Soldier::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M02_Objective_Zone with objId = 400185
 	if (!type && !param)
 	{
 		Commands->Innate_Enable(obj);
@@ -82,6 +83,7 @@ void M02_GDI_Soldier::Custom(GameObject *obj, int type, int param, GameObject *s
 
 void M02_GDI_Soldier::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
+	// Received from M02_Objective_Zone
 	if (sound.sound > 1099 && sound.sound < 1199)
 	{
 		int areaId = Get_Int_Parameter("Area_ID");

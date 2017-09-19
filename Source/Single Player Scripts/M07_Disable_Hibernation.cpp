@@ -24,7 +24,7 @@ void M07_Disable_Hibernation::Register_Auto_Save_Variables()
 
 }
 
-// TODO
+// After 129 cinematic frames in x2k_midtro.txt
 void M07_Disable_Hibernation::Created(GameObject *obj)
 {
 	Commands->Enable_Hibernation(obj, false);

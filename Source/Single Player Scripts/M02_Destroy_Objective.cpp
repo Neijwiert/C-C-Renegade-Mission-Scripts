@@ -31,10 +31,13 @@ void M02_Destroy_Objective::Killed(GameObject *obj, GameObject *killer)
 			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, objectiveId, 1, 0.0f);
 		} 
 
+		// SAM site
 		if (objectiveId == 212)
 		{
 			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 113, 3, 0.0f);
 		}
+
+		// SAM site
 		else if (objectiveId == 214)
 		{
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(580.37f, 889.69f, -0.57f));
@@ -44,14 +47,20 @@ void M02_Destroy_Objective::Killed(GameObject *obj, GameObject *killer)
 				Commands->Attach_Script(invisObj, "Test_Cinematic", "X2I_GDI_Drop02_Rocket_24.txt");
 			}
 		}
+
+		// SAM sites
 		else if (objectiveId == 215 || objectiveId == 216)
 		{
 			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 115, 0, 0.0f);
 		}
+
+		// HON
 		else if (objectiveId == 204)
 		{
 			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 105, 21, 0.0f);
 		}
+
+		// Tiberium silo
 		else if (objectiveId == 222)
 		{
 			Commands->Send_Custom_Event(obj, M02ObjectiveControllerObj, 116, 0, 0.0f);

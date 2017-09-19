@@ -12,10 +12,10 @@ class M02_Objective_Controller : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Timer_Expired(GameObject *obj, int number);
 
-		void Add_An_Objective(GameObject *obj, int a3);
+		void Add_An_Objective(GameObject *obj, int objectiveId);
 
-		DWORD field_1C;
-		DWORD field_20;
-		DWORD field_24;
-		bool field_28;
+		int nodConvoyTruckCount;
+		int area0GDIDeathsSinceLastDrop;
+		int area9GDIDeathsSinceLastDrop;
+		bool havocCalledForReinforcementsArea0;
 };

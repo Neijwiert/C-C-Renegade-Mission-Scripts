@@ -19,9 +19,9 @@
 #include "General.h"
 #include "M02_Approach_Vehicle.h"
 
-// TODO
 void M02_Approach_Vehicle::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M02_Objective_Zone with objId = (400267, 400187, 400185, 400189)
 	if (!type && !param)
 	{
 		Commands->Enable_Engine(obj, true);

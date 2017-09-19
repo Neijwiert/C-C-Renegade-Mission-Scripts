@@ -82,9 +82,9 @@ void M02_Obelisk::Damaged(GameObject *obj, GameObject *damager, float amount)
 	}
 }
 
-// TODO
 void M02_Obelisk::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M02_Objective_Zone when entered with objId = 401066
 	if (type == 1)
 	{
 		this->notifiedForInternalRepairs = true;

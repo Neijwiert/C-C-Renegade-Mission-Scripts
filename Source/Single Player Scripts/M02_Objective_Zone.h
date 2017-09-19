@@ -32,10 +32,10 @@ class M02_Objective_Zone : public ScriptImpClass
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
 		void Send_and_Destroy(GameObject *obj, int type);
-		void Call_GDI_Soldiers(int a2);
-		void Create_Apache(int a2);
-		void Create_Sakura(int a2);
-		void Create_Buggy(int a2);
+		void Call_GDI_Soldiers(int areaId);
+		void Create_Apache(int areaId);
+		void Create_Sakura(int areaId);
+		void Create_Buggy(int areaId);
 
 		bool canSendCustomAndDestroy;
 		bool isZoneTriggered;

@@ -19,7 +19,6 @@
 #include "General.h"
 #include "M02_Data_Disk.h"
 
-// This script is never used
 void M02_Data_Disk::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (type == CUSTOM_EVENT_POWERUP_GRANTED)

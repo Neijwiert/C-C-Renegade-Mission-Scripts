@@ -19,7 +19,7 @@
 #include "General.h"
 #include "M02_Stationary_Vehicle.h"
 
-// TODO
+// On level start
 void M02_Stationary_Vehicle::Created(GameObject *obj)
 {
 	int areaId = Get_Int_Parameter("Area_ID");
@@ -70,9 +70,10 @@ void M02_Stationary_Vehicle::Killed(GameObject *obj, GameObject *killer)
 	}
 }
 
-// TODO
 void M02_Stationary_Vehicle::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M02_Objective_Zone with objId = (400267, 400501, 400502, 400187, 400184, 400186, 400185, 400189, 401079, 401080)
+	// Received from M02_Respawn_Controller when created
 	if (!type && !param)
 	{
 		Commands->Enable_Enemy_Seen(obj, true);
@@ -81,6 +82,7 @@ void M02_Stationary_Vehicle::Custom(GameObject *obj, int type, int param, GameOb
 
 void M02_Stationary_Vehicle::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
+	// Received from M02_Objective_Zone
 	if (sound.sound == 1000 && sound.Creator && !Commands->Get_Player_Type(obj))
 	{
 		Commands->Send_Custom_Event(obj, sound.Creator, 100, 1, 0.0f);
@@ -102,13 +104,15 @@ void M02_Stationary_Vehicle::Enemy_Seen(GameObject *obj, GameObject *enemy)
 	}
 }
 
-// TODO
 void M02_Stationary_Vehicle::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered 5.3299999 seconds after creation
 	if (number == 1)
 	{
 		Commands->Apply_Damage(obj, 10000.0f, "Blamokiller", NULL);
 	}
+
+	// Trigered 5 seconds after enemy_seen
 	else if (number == 2)
 	{
 		Commands->Action_Reset(obj, 100.0f);

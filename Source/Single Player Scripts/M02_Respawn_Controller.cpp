@@ -21,63 +21,63 @@
 
 void M02_Respawn_Controller::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(this->field_36, sizeof(this->field_36), 2);
-	Auto_Save_Variable(this->field_50, sizeof(this->field_50), 3);
-	Auto_Save_Variable(this->field_6A, sizeof(this->field_6A), 4);
-	Auto_Save_Variable(this->field_84, sizeof(this->field_84), 5);
-	Auto_Save_Variable(this->field_9E, sizeof(this->field_9E), 6);
-	Auto_Save_Variable(this->field_B8, sizeof(this->field_B8), 7);
-	Auto_Save_Variable(&this->field_120, sizeof(this->field_120), 8);
+	Auto_Save_Variable(this->activeAreas, sizeof(this->activeAreas), 1);
+	Auto_Save_Variable(this->heliDrop01Active, sizeof(this->heliDrop01Active), 2);
+	Auto_Save_Variable(this->heliDrop02Active, sizeof(this->heliDrop02Active), 3);
+	Auto_Save_Variable(this->paraDropActive, sizeof(this->paraDropActive), 4);
+	Auto_Save_Variable(this->nodSoldierCount, sizeof(this->nodSoldierCount), 5);
+	Auto_Save_Variable(this->maxNodSoldierCount, sizeof(this->maxNodSoldierCount), 6);
+	Auto_Save_Variable(this->nodSoldierObjIds, sizeof(this->nodSoldierObjIds), 7);
+	Auto_Save_Variable(&this->spawnerTwiddler, sizeof(this->spawnerTwiddler), 8);
 	Auto_Save_Variable(&this->field_124, sizeof(this->field_124), 9);
-	Auto_Save_Variable(&this->field_128, sizeof(this->field_128), 10);
-	Auto_Save_Variable(&this->field_12C, sizeof(this->field_12C), 11);
+	Auto_Save_Variable(&this->convoyBridgeNodSAMSiteDestroyedCount, sizeof(this->convoyBridgeNodSAMSiteDestroyedCount), 10);
+	Auto_Save_Variable(&this->nodTiberiumSiloDestroyedCount, sizeof(this->nodTiberiumSiloDestroyedCount), 11);
 }
 
 // On level start
 void M02_Respawn_Controller::Created(GameObject *obj)
 {
-	this->field_120 = 0;
+	this->spawnerTwiddler = 0;
 	this->field_124 = -1;
-	this->field_128 = 0;
-	this->field_12C = 0;
+	this->convoyBridgeNodSAMSiteDestroyedCount = 0;
+	this->nodTiberiumSiloDestroyedCount = 0;
 
 	for (int x = 0; x < 26; x++)
 	{
-		this->field_1C[x] = false;
-		this->field_84[x] = 0;
-		this->field_B8[x] = 0;
-		this->field_9E[x] = 8;
-		this->field_36[x] = false;
-		this->field_50[x] = false;
-		this->field_6A[x] = false;
+		this->activeAreas[x] = false;
+		this->nodSoldierCount[x] = 0;
+		this->nodSoldierObjIds[x] = 0;
+		this->maxNodSoldierCount[x] = 8;
+		this->heliDrop01Active[x] = false;
+		this->heliDrop02Active[x] = false;
+		this->paraDropActive[x] = false;
 
 		switch (x)
 		{
 			case 6:
-				this->field_9E[x] = 6;
+				this->maxNodSoldierCount[x] = 6;
 				break;
 			case 1:
 			case 2:
 			case 9:
-				this->field_9E[x] = 7;
+				this->maxNodSoldierCount[x] = 7;
 				break;
 			case 10:
-				this->field_6A[x] = true;
+				this->paraDropActive[x] = true;
 				break;
 			case 3:
 			case 21:
-				this->field_9E[x] = 5;
+				this->maxNodSoldierCount[x] = 5;
 				break;
 			case 8:
 			case 11:
 			case 14:
 			case 15:
 			case 24:
-				this->field_36[x] = true;
-				this->field_50[x] = true;
-				this->field_6A[x] = true;
-				this->field_9E[x] = 3;
+				this->heliDrop01Active[x] = true;
+				this->heliDrop02Active[x] = true;
+				this->paraDropActive[x] = true;
+				this->maxNodSoldierCount[x] = 3;
 				break;
 			default:
 				break;
@@ -110,59 +110,132 @@ void M02_Respawn_Controller::Created(GameObject *obj)
 	Commands->Start_Timer(obj, this, 3.0f, 2);
 }
 
-// TODO
 void M02_Respawn_Controller::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M02_Nod_Soldier when killed with param = areaNumber
 	if (type == 101)
 	{
-		if (--this->field_84[param] < 0)
+		if (--this->nodSoldierCount[param] < 0)
 		{
-			this->field_84[param] = 0;
+			this->nodSoldierCount[param] = 0;
 		}
 	}
+
+	// Received from M02_Objective_Zone when entered with objId = 
+	// (401054 + param = 8,
+	//	400274 + param = 10,
+	//	400273 + param = 11)
 	else if (type == 102)
 	{
 		Check_Respawns(param);
 	}
+
+	// Received from M02_Nod_Soldier when timer number 1 triggered with param = areaNumber
 	else if (type == 103)
 	{
-		this->field_84[param]++;
+		this->nodSoldierCount[param]++;
 	}
+
+	// Received from M02_Objective_Zone when entered with objId = 
+	// (401079 + param = 15, 
+	//	401080 + param = 15, 
+	//	401070 + param = 14, 
+	//	401196 + param = 14, 
+	//	400270 + param = 8,
+	//	400267 + param = 4,
+	//	400269 + param = 9,
+	//	400501 + param = 24,
+	//	400502 + param = 24,
+	//	400272 + param = 10,
+	//	400273 + param = 11,
+	//	400271 + param = 8,
+	//	400187 + param = 4,
+	//	400184 + param = 0,
+	//	400186 + param = 2,
+	//	400185 + param = 1,
+	//	400189 + param = 6,
+	//	400188 + param = 3)
+	// Received from M02_Objective_Zone when timer number 9 triggered with param = 21
 	else if (type == 104)
 	{
-		this->field_1C[param] = true;
+		this->activeAreas[param] = true;
 	}
+
+	// Received from M02_Destroy_Objective when killed (HON) param = 21
+	// Received from M02_Objective_Zone when entered with objId = 
+	// (401079 + param = 14, 
+	//	401080 + param = 14, 
+	//	401070 + param = 11, 
+	//	401196 + param = 11, 
+	//	400270 + param = 9,
+	//	400267 + param = 3,
+	//	400269 + param = 6,
+	//	400268 + param = 4,
+	//	400268 + param = 24,
+	//	400274 + param = 11,
+	//	400316 + param = 0,
+	//	400272 + param = 8,
+	//	400273 + parma = 10,
+	//	400271 + param = 9,
+	//	400187 + param = 3,
+	//	400186 + param = 1,
+	//	400192 + param = 11,
+	//	400188 + param = 2,
+	//	400194 + param = 21)
 	else if (type == 105)
 	{
-		this->field_1C[param] = false;
+		this->activeAreas[param] = false;
 	}
+
+	// Received from M02_Nod_Soldier when timer number 1 triggered with param = areaNumber (Only when its an area officer)
 	else if (type == 106)
 	{
 		if (sender)
 		{
-			this->field_B8[param] = Commands->Get_ID(sender);
+			this->nodSoldierObjIds[param] = Commands->Get_ID(sender);
 		}
 	}
+
+	// Received from M02_Reset_Spawn when destroyed (Heli drop 01) with param being areaId
 	else if (type == 107)
 	{
-		this->field_36[param] = false;
+		this->heliDrop01Active[param] = false;
 	}
+
+	// Received from M02_Reset_Spawn when destroyed (Heli drop 02) with param being areaId
 	else if (type == 108)
 	{
-		this->field_50[param] = false;
+		this->heliDrop02Active[param] = false;
 	}
+
+	// Received from M02_Reset_Spawn when destroyed (Para drop) with param being areaId
 	else if (type == 109)
 	{
-		this->field_6A[param] = false;
+		this->paraDropActive[param] = false;
 	}
+
+	// Received from M02_Objective_Zone when entered with objId = 
+	// (400267 + param = 4,
+	//	400187 + param = 4,
+	//	400185 + param = 1)
+	// Received from M02_Objective_Zone when M02_Objective_Zone::Send_and_Destroy is called with type = 207
+	// Received from M02_Nod_Soldier when killed with param = 2
 	else if (type == 111)
 	{
 		Replacement_Vehicle(obj, param);
 	}
+
+	// Received from M02_Player_Vehicle  when killed param = areaId
+	// Received from M02_Objective_Zone when entered with objId = 
+	// (400267 + param = 4,
+	//	400187 + param = 4,
+	//	400185 + param = 1)
 	else if (type == 112)
 	{
 		this->field_124 = param;
 	}
+
+	// Received from M02_Destroy_Objective when killed
 	else if (type == 113)
 	{
 		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(511.3f, 680.3f, -21.2f));
@@ -172,22 +245,31 @@ void M02_Respawn_Controller::Custom(GameObject *obj, int type, int param, GameOb
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X2I_GDI_Drop_PowerUp.txt");
 		}
 	}
+
+	// Received from M02_Objective_Zone when entered with objId = 
+	// (401054 + param = 8,
+	//	400274 + param = 10,
+	//	400273 + param = 11)
 	else if (type == 114)
 	{
-		this->field_84[param] = 0;
+		this->nodSoldierCount[param] = 0;
 	}
+
+	// Received from M02_Destroy_Objective when killed (2 samsites at the bridge before the dam)
 	else if (type == 115)
 	{
-		if (++this->field_128 > 1)
+		if (++this->convoyBridgeNodSAMSiteDestroyedCount > 1)
 		{
 			this->field_124 = 6;
 
 			Replacement_Vehicle(obj, 6);
 		}
 	}
+
+	// Received from M02_Destroy_Objective when killed (tiberium silos at the end of the level)
 	else if (type == 116)
 	{
-		if (++this->field_12C > 1)
+		if (++this->nodTiberiumSiloDestroyedCount > 1)
 		{
 			Commands->Send_Custom_Event(obj, obj, 222, 1, 0.0f);
 			Commands->Stop_All_Conversations();
@@ -204,16 +286,16 @@ void M02_Respawn_Controller::Custom(GameObject *obj, int type, int param, GameOb
 	}
 }
 
-// TODO
 void M02_Respawn_Controller::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggerd 3 seconds after creation or after a calculated interval in this block
 	if (number == 2)
 	{
 		for (int x = 0; x < 26; x++)
 		{
-			if (this->field_1C[x] && this->field_B8[x])
+			if (this->activeAreas[x] && this->nodSoldierObjIds[x])
 			{
-				if (Commands->Find_Object(this->field_B8[x]))
+				if (Commands->Find_Object(this->nodSoldierObjIds[x]))
 				{
 					Check_Respawns(x);
 				}
@@ -226,7 +308,7 @@ void M02_Respawn_Controller::Timer_Expired(GameObject *obj, int number)
 	}
 }
 
-void M02_Respawn_Controller::Check_Respawns(int a2)
+void M02_Respawn_Controller::Check_Respawns(int areaId)
 {
 	int originalRand = static_cast<int>(Commands->Get_Random(0.0f, 2.9999001f));
 	if (originalRand > 2)
@@ -236,60 +318,60 @@ void M02_Respawn_Controller::Check_Respawns(int a2)
 
 	int rand = originalRand;
 
-	bool b1 = false;
-	int a1 = 0;
+	bool cycledThroughAllRands = false;
+	int extraSpawnerNodSoldierCount = 0;
 
-	int field_84Local = this->field_84[a2];
-	while (field_84Local < this->field_9E[a2])
+	int nodSoldierCountTmp = this->nodSoldierCount[areaId];
+	while (nodSoldierCountTmp < this->maxNodSoldierCount[areaId])
 	{
-		if (b1)
+		if (cycledThroughAllRands)
 		{
-			if (++a1 > 2)
+			if (++extraSpawnerNodSoldierCount > 2)
 			{
-				field_84Local = this->field_9E[a2];
+				nodSoldierCountTmp = this->maxNodSoldierCount[areaId];
 			}
 			else
 			{
-				field_84Local++;
+				nodSoldierCountTmp++;
 
-				Use_Spawners(a2);
+				Use_Spawners(areaId);
 			}
 		}
 		else if (rand == 1)
 		{
-			if (!this->field_50[a2] && this->field_9E[a2] - field_84Local > 1)
+			if (!this->heliDrop02Active[areaId] && this->maxNodSoldierCount[areaId] - nodSoldierCountTmp > 1)
 			{
-				this->field_50[a2] = true;
+				this->heliDrop02Active[areaId] = true;
 
-				field_84Local += 2;
+				nodSoldierCountTmp += 2;
 
-				Use_Heli_Drop_02(a2);
+				Use_Heli_Drop_02(areaId);
 			}
 		}
 		else if (rand == 2)
 		{
-			if (!this->field_6A[a2] && this->field_9E[a2] - field_84Local > 2)
+			if (!this->paraDropActive[areaId] && this->maxNodSoldierCount[areaId] - nodSoldierCountTmp > 2)
 			{
-				this->field_6A[a2] = true;
+				this->paraDropActive[areaId] = true;
 
-				Use_Parachute_Drop(a2);
+				Use_Parachute_Drop(areaId);
 
-				field_84Local += 3;
+				nodSoldierCountTmp += 3;
 			}
 		}
 		else if (rand == 0)
 		{
-			if (!this->field_36[a2] && this->field_9E[a2] - field_84Local > 2)
+			if (!this->heliDrop01Active[areaId] && this->maxNodSoldierCount[areaId] - nodSoldierCountTmp > 2)
 			{
-				this->field_36[a2] = true;
+				this->heliDrop01Active[areaId] = true;
 
-				field_84Local += 3;
+				nodSoldierCountTmp += 3;
 
-				Use_Heli_Drop_01(a2);
+				Use_Heli_Drop_01(areaId);
 			}
 		}
 
-		if (!b1)
+		if (!cycledThroughAllRands)
 		{
 			if (++rand > 2)
 			{
@@ -298,15 +380,15 @@ void M02_Respawn_Controller::Check_Respawns(int a2)
 			
 			if (rand == originalRand)
 			{
-				b1 = true;
+				cycledThroughAllRands = true;
 			}
 		}
 	}
 }
 
-void M02_Respawn_Controller::Replacement_Vehicle(GameObject *obj, int a3)
+void M02_Respawn_Controller::Replacement_Vehicle(GameObject *obj, int areaId)
 {
-	if (a3 == 0)
+	if (areaId == 0)
 	{
 		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(161.6f, 27.6f, -18.0f));
 		if (invisObj)
@@ -315,7 +397,7 @@ void M02_Respawn_Controller::Replacement_Vehicle(GameObject *obj, int a3)
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X2I_GDI_Drop_HummVee.txt");
 		}
 	}
-	else if (a3 == 1)
+	else if (areaId == 1)
 	{
 		GameObject *nodBuggyPlayerObj = Commands->Create_Object("Nod_Buggy_Player", Vector3(494.652f, 128.786f, -56.159f));
 		if (nodBuggyPlayerObj)
@@ -324,7 +406,7 @@ void M02_Respawn_Controller::Replacement_Vehicle(GameObject *obj, int a3)
 			Commands->Attach_Script(nodBuggyPlayerObj, "M02_Player_Vehicle", "3");
 		}
 	}
-	else if (a3 == 2)
+	else if (areaId == 2)
 	{
 		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(448.32f, 717.19f, -12.35f));
 		if (invisObj)
@@ -333,7 +415,7 @@ void M02_Respawn_Controller::Replacement_Vehicle(GameObject *obj, int a3)
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X2I_GDI_Drop_MediumTank.txt");
 		}
 	}
-	else if (a3 == 4)
+	else if (areaId == 4)
 	{
 		GameObject *nodLightTankPlayer = Commands->Create_Object("Nod_Light_Tank_Player", Vector3(429.672f, 894.045f, 4.354f));
 		if (nodLightTankPlayer)
@@ -342,7 +424,7 @@ void M02_Respawn_Controller::Replacement_Vehicle(GameObject *obj, int a3)
 			Commands->Attach_Script(nodLightTankPlayer, "M02_Player_Vehicle", "5");
 		}
 	}
-	else if (a3 == 5)
+	else if (areaId == 5)
 	{
 		GameObject *nodReconBikePlayerObj = Commands->Create_Object("Nod_Recon_Bike_Player", Vector3(611.1f, 1164.9f, 4.6f));
 		if (nodReconBikePlayerObj)
@@ -351,7 +433,7 @@ void M02_Respawn_Controller::Replacement_Vehicle(GameObject *obj, int a3)
 			Commands->Attach_Script(nodReconBikePlayerObj, "M02_Player_Vehicle", "6");
 		}
 	}
-	else if (a3 == 6)
+	else if (areaId == 6)
 	{
 		GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(785.3f, 893.9f, 21.8f));
 		if (invisObj)
@@ -360,7 +442,7 @@ void M02_Respawn_Controller::Replacement_Vehicle(GameObject *obj, int a3)
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X2I_GDI_Drop_MediumTank.txt");
 		}
 	}
-	else if (a3 == 14)
+	else if (areaId == 14)
 	{
 		GameObject *nodReconBikePlayer = Commands->Create_Object("Nod_Recon_Bike_Player", Vector3(1229.37f, 742.89f, 27.03f));
 		if (nodReconBikePlayer)
@@ -380,14 +462,14 @@ void M02_Respawn_Controller::Replacement_Vehicle(GameObject *obj, int a3)
 	}
 }
 
-void M02_Respawn_Controller::Use_Heli_Drop_01(int a2)
+void M02_Respawn_Controller::Use_Heli_Drop_01(int areaId)
 {
 	const char *cinematicFile;
 	const char *scriptParams;
 	Vector3 cinPos;
 	float facing;
 
-	switch (a2)
+	switch (areaId)
 	{
 		case 0:
 			scriptParams = "0,107";
@@ -477,14 +559,14 @@ void M02_Respawn_Controller::Use_Heli_Drop_01(int a2)
 	}
 }
 
-void M02_Respawn_Controller::Use_Heli_Drop_02(int a2)
+void M02_Respawn_Controller::Use_Heli_Drop_02(int areaId)
 {
 	const char *cinematicFile;
 	const char *scriptParams;
 	Vector3 cinPos;
 	float facing;
 
-	switch (a2)
+	switch (areaId)
 	{
 		case 0:
 			scriptParams = "0,108";
@@ -574,14 +656,14 @@ void M02_Respawn_Controller::Use_Heli_Drop_02(int a2)
 	}
 }
 
-void M02_Respawn_Controller::Use_Parachute_Drop(int a2)
+void M02_Respawn_Controller::Use_Parachute_Drop(int areaId)
 {
 	const char *cinematicFile;
 	const char *scriptParams;
 	Vector3 cinPos;
 	float facing;
 
-	switch (a2)
+	switch (areaId)
 	{
 		case 0:
 			cinematicFile = "X2I_Para03_Area00.txt";
@@ -657,25 +739,25 @@ void M02_Respawn_Controller::Use_Parachute_Drop(int a2)
 	}	
 }
 
-bool M02_Respawn_Controller::Use_Spawners(int a2)
+bool M02_Respawn_Controller::Use_Spawners(int areaId)
 {
 	int spawnerId;
 	const char *scriptParams;
 
-	if (++this->field_120 > 2)
+	if (++this->spawnerTwiddler > 2)
 	{
-		this->field_120 = 0;
+		this->spawnerTwiddler = 0;
 	}
 
-	switch (a2)
+	switch (areaId)
 	{
 		case 0:
 			spawnerId = 400233;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400236;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400237;
 				}
@@ -687,10 +769,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 1:
 			spawnerId = 400234;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400238;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400239;
 				}
@@ -702,10 +784,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 2:
 			spawnerId = 400235;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400240;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400241;
 				}
@@ -717,10 +799,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 3:
 			spawnerId = 400242;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400243;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400244;
 				}
@@ -732,10 +814,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 4:
 			spawnerId = 400245;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400246;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400247;
 				}
@@ -746,10 +828,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 			break;
 		case 6:
 			spawnerId = 400248;
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400249;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400250;
 				}
@@ -761,10 +843,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 8:
 			spawnerId = 400261;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400262;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400263;
 				}
@@ -776,10 +858,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 9:
 			spawnerId = 400251;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400252;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400253;
 				}
@@ -791,10 +873,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 10:
 			spawnerId = 400254;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400255;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400256;
 				}
@@ -806,10 +888,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 11:
 			spawnerId = 400257;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400258;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400259;
 				}
@@ -821,10 +903,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 14:
 			spawnerId = 401081;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 401082;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 401083;
 				}
@@ -836,10 +918,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 15:
 			spawnerId = 401098;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 401099;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 401100;
 				}
@@ -851,10 +933,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 21:
 			spawnerId = 400264;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400265;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400266;
 				}
@@ -866,10 +948,10 @@ bool M02_Respawn_Controller::Use_Spawners(int a2)
 		case 24:
 			spawnerId = 400540;
 
-			if (this->field_120)
+			if (this->spawnerTwiddler)
 			{
 				spawnerId = 400541;
-				if (this->field_120 != 1)
+				if (this->spawnerTwiddler != 1)
 				{
 					spawnerId = 400542;
 				}

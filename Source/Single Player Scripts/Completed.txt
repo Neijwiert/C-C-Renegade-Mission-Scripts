@@ -68,8 +68,23 @@ M02_Nod_Convoy_Truck
 M02_Dam_MCT
 M02_Encyclopedia_Reveal
 M02_Commando_Start
+M02_Data_Disk
+M02_Approach_Vehicle
+M02_GDI_Soldier
+M02_Nod_Apache
+M02_Nod_Soldier
+M02_Nod_Vehicle
+M02_Obelisk
+M02_Objective_Controller
+M02_Objective_Zone
+M02_Player_Vehicle
+M02_Power_Plant
+M02_Respawn_Controller
+M02_Stationary_Vehicle
+M03_SAM_Site_Logic
+M07_Disable_Hibernation
 
-// Below are scripts that I'm pretty sure of that they are not used, but they are present
+// Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
 MX0_A02_ZONE_DEFAULT_ON
 MX0_A03_HAVOC_TANK
@@ -79,4 +94,3 @@ DAK_MX0_Sec_3_Humvee
 MX0_AmbientBattle
 MX0_Kill_Sniper
 MX0_Engineer_Return
-M02_Data_Disk

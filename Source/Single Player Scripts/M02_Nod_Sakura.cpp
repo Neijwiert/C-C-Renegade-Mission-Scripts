@@ -51,6 +51,7 @@ void M02_Nod_Sakura::Created(GameObject *obj)
 
 void M02_Nod_Sakura::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
+	// Received from M02_Objective_Zone
 	if (sound.sound == 1000)
 	{
 		if (sound.Creator)

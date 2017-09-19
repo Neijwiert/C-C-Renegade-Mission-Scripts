@@ -19,7 +19,7 @@
 #include "General.h"
 #include "M02_Nod_Vehicle.h"
 
-// TODO
+// When M02_Objective_Zone::Create_Buggy is called and when M02_Objective_Zone is entered with id 400188
 void M02_Nod_Vehicle::Created(GameObject *obj)
 {
 	Commands->Enable_Enemy_Seen(obj, true);
@@ -69,6 +69,7 @@ void M02_Nod_Vehicle::Created(GameObject *obj)
 
 void M02_Nod_Vehicle::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
+	// Received from M02_Objective_Zone
 	if (sound.sound == 1000)
 	{
 		if (sound.Creator)

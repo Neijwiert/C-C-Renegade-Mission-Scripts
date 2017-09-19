@@ -89,9 +89,9 @@ void M02_Power_Plant::Damaged(GameObject *obj, GameObject *damager, float amount
 	}
 }
 
-// TODO
 void M02_Power_Plant::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M02_Objective_Zone with objId = 400274
 	if (type == 1)
 	{
 		this->notifiedForInternalRepairs = true;

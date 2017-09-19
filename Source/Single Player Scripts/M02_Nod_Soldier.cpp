@@ -29,7 +29,9 @@ void M02_Nod_Soldier::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->enemySeen, sizeof(this->enemySeen), 6);
 }
 
-// TODO
+// On level start
+// The following cineamtic files: x2i_para03_area00/01/02/03/04/06/09/21.txt, x2i_drop03_area00/01/02/03/04/06/09/10/11/21.txt, x2i_drop02_area00/01/02/03/04/06/09/10/11/21.txt
+// When M02_Respawn_Controller::Use_Spawners is called
 void M02_Nod_Soldier::Created(GameObject *obj)
 {
 	this->animationIndex = 0;
@@ -94,7 +96,6 @@ void M02_Nod_Soldier::Damaged(GameObject *obj, GameObject *damager, float amount
 	}
 }
 
-// TODO
 void M02_Nod_Soldier::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (Commands->Get_ID(obj) == 400276) // Power plant nod officer
@@ -109,10 +110,15 @@ void M02_Nod_Soldier::Custom(GameObject *obj, int type, int param, GameObject *s
 			this->health = Commands->Get_Max_Health(obj);
 		}
 	}
+
+	// Received from M02_Destroy_Objective when damaged (param = 214)
+	// Received from M02_Obelisk when damaged (param = 202)
+	// Received from M02_Power_Plant when damaged (param = 217)
 	else if (type == 99)
 	{
 		if (!Commands->Is_Performing_Pathfind_Action(obj))
 		{
+			// M02_Obelisk
 			if (param == 202)
 			{
 				ActionParamsStruct params;
@@ -122,6 +128,8 @@ void M02_Nod_Soldier::Custom(GameObject *obj, int type, int param, GameObject *s
 				
 				Commands->Action_Attack(obj, params);
 			}
+
+			// M02_Destroy_Objective
 			else if (param == 214)
 			{
 				ActionParamsStruct params;
@@ -135,6 +143,8 @@ void M02_Nod_Soldier::Custom(GameObject *obj, int type, int param, GameObject *s
 				
 				Commands->Action_Attack(obj, params);
 			}
+
+			// M02_Power_Plant
 			else if (param == 217)
 			{
 				ActionParamsStruct params;
@@ -146,6 +156,11 @@ void M02_Nod_Soldier::Custom(GameObject *obj, int type, int param, GameObject *s
 			}
 		}
 	}
+
+	// Received from M02_Objective_Zone with objId = 
+	// (401113, 401079, 401101, 401102, 401080, 401070, 401066, 401196, 401130, 401131, 401123, 401114, 400270, 
+	// 400267, 400269, 400268, 400501, 400316, 400502, 400272, 400273, 400271, 400187, 400184, 400186, 400185, 400189, 400188)
+	// Received from M02_Objective_Zone when timer number 9 triggered
 	else if (!type)
 	{
 		if (!param)
@@ -184,6 +199,7 @@ void M02_Nod_Soldier::Custom(GameObject *obj, int type, int param, GameObject *s
 
 void M02_Nod_Soldier::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
+	// Received from M02_Objective_Zone
 	if (sound.sound == 1000)
 	{
 		if (sound.Creator)
@@ -266,6 +282,8 @@ void M02_Nod_Soldier::Timer_Expired(GameObject *obj, int number)
 			}
 		}
 	}
+
+	// After 15 seconds after timer number 1 triggered or 5 seconds after this block
 	else if (number == 2)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
@@ -309,6 +327,8 @@ void M02_Nod_Soldier::Timer_Expired(GameObject *obj, int number)
 
 		Commands->Start_Timer(obj, this, 5.0f, 2);
 	}
+
+	// Triggerd 1 second after custom type 0 param 0 received or 15 seconds after this block
 	else if (number == 3)
 	{
 		if (!Commands->Is_Performing_Pathfind_Action(obj))
@@ -329,6 +349,8 @@ void M02_Nod_Soldier::Timer_Expired(GameObject *obj, int number)
 
 		Commands->Start_Timer(obj, this, 15.0, 3);
 	}
+
+	// Triggered 15 seconds after timer number 1 or 15 seconds after this block
 	else if (number == 4)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
@@ -349,6 +371,8 @@ void M02_Nod_Soldier::Timer_Expired(GameObject *obj, int number)
 
 		Commands->Start_Timer(obj, this, 15.0, 4);
 	}
+
+	// Triggered 10 seconds after custom type 0 param 0 or 10 seconds after this block
 	else if (number == 5)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
@@ -403,10 +427,14 @@ void M02_Nod_Soldier::Timer_Expired(GameObject *obj, int number)
 
 		Commands->Start_Timer(obj, this, 10.0f, 5);
 	}
+
+	// Triggerd 5 seconds after timer number 1 triggered
 	else if (number == 6)
 	{
 		Commands->Apply_Damage(obj, 10000.0f, "Blamokiller", NULL);
 	}
+
+	// Triggerd 1 second after custom type 0 param 0 or 30 seconds after this block
 	else if (number == 7)
 	{
 		if (this->enemySeen)
@@ -464,6 +492,8 @@ void M02_Nod_Soldier::Timer_Expired(GameObject *obj, int number)
 
 		Commands->Start_Timer(obj, this, 30.0f, 7);
 	}
+
+	// Triggerd 2 seconds after receiving any custom when we are the nod power plant officer or 2 seconds after this block
 	else if (number == 10)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
@@ -484,6 +514,8 @@ void M02_Nod_Soldier::Timer_Expired(GameObject *obj, int number)
 			Commands->Start_Timer(obj, this, 3.0f, 11);
 		}
 	}
+
+	// Triggered 3 seconds after timer number 10 triggered
 	else if (number == 11)
 	{
 		int conversationId = Commands->Create_Conversation("MX2DSGN_DSGN0015", 100, 300.0f, true); // This is Engineering - what's going on up there? <radioized>

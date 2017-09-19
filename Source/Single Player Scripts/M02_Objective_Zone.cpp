@@ -36,9 +36,9 @@ void M02_Objective_Zone::Created(GameObject *obj)
 	this->canSendCustomAndDestroy = false;
 }
 
-// TODO
 void M02_Objective_Zone::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M02_Nod_Apache, M02_Nod_Sakura, M02_Nod_Soldier, M02_Nod_Vehicle and M02_Stationary_Vehicle after sound heard
 	if (type == 100)
 	{
 		if (param == 1)
@@ -47,8 +47,7 @@ void M02_Objective_Zone::Custom(GameObject *obj, int type, int param, GameObject
 		}
 	}
 
-	// Received from ourselves when timer number 9 triggers
-	// TODO
+	// Received from ourselves when timer number 9 triggers param = mendozaObjId
 	else if (type == 999)
 	{
 		if (param == 999)
@@ -68,29 +67,39 @@ void M02_Objective_Zone::Custom(GameObject *obj, int type, int param, GameObject
 	}
 }
 
-// TODO
 void M02_Objective_Zone::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered 1 second after entered with objId = 400195
 	if (number == 3)
 	{
 		Send_and_Destroy(obj, 207);
 	}
+
+	// Triggered 1 second after entered with objId = 400196
 	else if (number == 4)
 	{
 		Send_and_Destroy(obj, 208);
 	}
+
+	// Triggered 1 second after entered with objId = 400197
 	else if (number == 5)
 	{
 		Send_and_Destroy(obj, 209);
 	}
+
+	// Triggered 1 second after entered with objId = 400198
 	else if (number == 6)
 	{
 		Send_and_Destroy(obj, 210);
 	}
+
+	// Triggered 1 second after entered with objId = 400201
 	else if (number == 7)
 	{
 		Send_and_Destroy(obj, 211);
 	}
+
+	// Triggered 1 second after entered with objId = 400193
 	else if (number == 9)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
@@ -156,6 +165,8 @@ void M02_Objective_Zone::Timer_Expired(GameObject *obj, int number)
 			Commands->Destroy_Object(obj);
 		}
 	}
+
+	// Triggerd 0.1 second after entered with objId = 400267 or 400187 or 2 seconds after this block
 	else if (number == 10)
 	{
 		GameObject *skiResortEntranceScriptZoneObj = Commands->Find_Object(401028);
@@ -182,6 +193,8 @@ void M02_Objective_Zone::Timer_Expired(GameObject *obj, int number)
 			Commands->Start_Conversation(conversationId, 0);
 		}
 	}
+
+	// Never triggered
 	else if (number == 11)
 	{
 		if (!Commands->Find_Object(401028))// Ski resort entrance script zone
@@ -198,6 +211,8 @@ void M02_Objective_Zone::Timer_Expired(GameObject *obj, int number)
 		Commands->Join_Conversation(starObj, conversationId, true, false, false);
 		Commands->Start_Conversation(conversationId, 0);
 	}
+
+	// Triggered 6 seconds after entered with objId = 405122
 	else if (number == 12)
 	{
 		if (!Commands->Find_Object(401036)) // GDI med tank at bridge
@@ -219,7 +234,6 @@ void M02_Objective_Zone::Timer_Expired(GameObject *obj, int number)
 	}
 }
 
-// TODO
 void M02_Objective_Zone::Entered(GameObject *obj, GameObject *enterer)
 {
 	GameObject *M02ObjectiveControllerObj = Commands->Find_Object(1111112);
@@ -559,7 +573,7 @@ void M02_Objective_Zone::Entered(GameObject *obj, GameObject *enterer)
 		GameObject *nodObbyBuildingObj = Commands->Find_Object(1153845);
 		if (nodObbyBuildingObj)
 		{
-			Commands->Destroy_Object(nodObbyBuildingObj);
+			Commands->Send_Custom_Event(obj, nodObbyBuildingObj, 1, 0, 0.0);
 		}
 
 		Commands->Destroy_Object(obj);
@@ -1856,25 +1870,25 @@ void M02_Objective_Zone::Send_and_Destroy(GameObject *obj, int type)
 	}
 }
 
-void M02_Objective_Zone::Call_GDI_Soldiers(int a2)
+void M02_Objective_Zone::Call_GDI_Soldiers(int areaId)
 {
 	Vector3 cinematicPos(0.0f, 0.0f, 0.0f);
 	float facing = 0.0f;
 	const char *cinematicFileName = "X2I_GDI_Drop02_Rocket.txt";
 
-	if (!a2)
+	if (!areaId)
 	{
 		cinematicPos = Vector3(-10.6f, -25.1f, -38.2f);
 		facing = 70.5f;
 		cinematicFileName = "X2I_GDI_Drop02_Rocket.txt";
 	}
-	else if (a2 == 2)
+	else if (areaId == 2)
 	{
 		cinematicPos = Vector3(664.7f, 312.57f, -59.65f);
 		facing = -150.0f;
 		cinematicFileName = "X2I_GDI_Drop02_Rocket_2.txt";
 	}
-	else if (a2 == 9)
+	else if (areaId == 9)
 	{
 		cinematicPos = Vector3(869.32f, 912.316f, 30.15f);
 		facing = 110.0f;
@@ -1889,31 +1903,31 @@ void M02_Objective_Zone::Call_GDI_Soldiers(int a2)
 	}
 }
 
-void M02_Objective_Zone::Create_Apache(int a2)
+void M02_Objective_Zone::Create_Apache(int areaId)
 {
 	GameObject *helipadBuildingObj = Commands->Find_Object(474463);
 	if (helipadBuildingObj)
 	{
 		float helipadHealth = Commands->Get_Health(helipadBuildingObj);
-		if (Commands->Get_Building_Power(helipadBuildingObj) && helipadHealth > 0.0f || a2 == 15)
+		if (Commands->Get_Building_Power(helipadBuildingObj) && helipadHealth > 0.0f || areaId == 15)
 		{
 			Vector3 apachePos(0.0f, 0.0f, 0.0f);
 			float facing = 0.0f;
 			const char *scriptParams = "0";
 
-			if (!a2)
+			if (!areaId)
 			{
 				apachePos = Vector3(138.36f, -5.61f, -12.2f);
 				facing = -80.0f;
 				scriptParams = "0";
 			}
-			else if (a2 == 15)
+			else if (areaId == 15)
 			{
 				apachePos = Vector3(1300.9f, 657.717f, 67.364f);
 				facing = 0.0f;
 				scriptParams = "15";
 			}
-			else if (a2 == 24)
+			else if (areaId == 24)
 			{
 				apachePos = Vector3(610.03f, 1036.35f, -15.676f);
 				facing = 0.0f;
@@ -1930,7 +1944,7 @@ void M02_Objective_Zone::Create_Apache(int a2)
 	}
 }
 
-void M02_Objective_Zone::Create_Sakura(int a2)
+void M02_Objective_Zone::Create_Sakura(int areaId)
 {
 	GameObject *helipadBuildingObj = Commands->Find_Object(474463);
 	if (helipadBuildingObj)
@@ -1948,19 +1962,19 @@ void M02_Objective_Zone::Create_Sakura(int a2)
 	}
 }
 
-void M02_Objective_Zone::Create_Buggy(int a2)
+void M02_Objective_Zone::Create_Buggy(int areaId)
 {
 	Vector3 buggyPos(0.0f, 0.0f, 0.0f);
 	float facing = 0.0f;
 	const char *scriptParams = "0";
 
-	if (a2 == 2)
+	if (areaId == 2)
 	{
 		buggyPos = Vector3(674.622f, 308.296f, -61.674f);
 		facing = -90.0f;
 		scriptParams = "2";
 	}
-	else if (a2 == 4)
+	else if (areaId == 4)
 	{
 		buggyPos = Vector3(366.209f, 861.401f, 6.488f);
 		facing = -110.0f;

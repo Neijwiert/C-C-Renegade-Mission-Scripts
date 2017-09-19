@@ -24,7 +24,7 @@ void M02_Nod_Apache::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->wayPathId, sizeof(this->wayPathId), 1);
 }
 
-// TODO
+// When M02_Objective_Zone::Create_Apache is called
 void M02_Nod_Apache::Created(GameObject *obj)
 {
 	int areaId = Get_Int_Parameter("Area_ID");
@@ -54,6 +54,7 @@ void M02_Nod_Apache::Created(GameObject *obj)
 
 void M02_Nod_Apache::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
+	// Received from M02_Objective_Zone
 	if (sound.sound == 1000)
 	{
 		if (sound.Creator)

@@ -20,7 +20,6 @@
 
 #include <scripts.h>
 
-// This script is never used
 class M02_Data_Disk : public ScriptImpClass
 {
 	private:

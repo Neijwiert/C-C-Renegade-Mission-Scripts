@@ -30,22 +30,22 @@ class M02_Respawn_Controller : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Timer_Expired(GameObject *obj, int number);
 
-		void Check_Respawns(int a2);
-		void Replacement_Vehicle(GameObject *obj, int a3);
-		void Use_Heli_Drop_01(int a2);
-		void Use_Heli_Drop_02(int a2);
-		void Use_Parachute_Drop(int a2);
-		bool Use_Spawners(int a2);
+		void Check_Respawns(int areaId);
+		void Replacement_Vehicle(GameObject *obj, int areaId);
+		void Use_Heli_Drop_01(int areaId);
+		void Use_Heli_Drop_02(int areaId);
+		void Use_Parachute_Drop(int areaId);
+		bool Use_Spawners(int areaId);
 
-		bool field_1C[26];
-		bool field_36[26];
-		bool field_50[26];
-		bool field_6A[26];
-		BYTE field_84[26];
-		BYTE field_9E[26];
-		int field_B8[26];
-		DWORD field_120;
-		int field_124;
-		DWORD field_128;
-		DWORD field_12C;
+		bool activeAreas[26];
+		bool heliDrop01Active[26];
+		bool heliDrop02Active[26];
+		bool paraDropActive[26];
+		BYTE nodSoldierCount[26];
+		BYTE maxNodSoldierCount[26];
+		int nodSoldierObjIds[26];
+		int spawnerTwiddler;
+		int field_124; // Assigned, but not used
+		int convoyBridgeNodSAMSiteDestroyedCount;
+		int nodTiberiumSiloDestroyedCount;
 };
