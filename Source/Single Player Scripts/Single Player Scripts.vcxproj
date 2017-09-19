@@ -218,6 +218,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_FP_BaseToBase_SouthNorth_Contoller_JDG.cpp" />
     <ClCompile Include="M01_FP_GDIOcean_NorthSouth_Contoller_JDG.cpp" />
     <ClCompile Include="M01_FP_GDIOcean_SouthNorth_Contoller_JDG.cpp" />
+    <ClCompile Include="M01_FP_NodBase_Dogfight_Contoller_JDG.cpp" />
     <ClCompile Include="M01_FP_NodBase_EastWest_Contoller_JDG.cpp" />
     <ClCompile Include="M01_FP_NodBase_NorthSouth_Contoller_JDG.cpp" />
     <ClCompile Include="M01_FP_NodBase_SouthNorth_Contoller_JDG.cpp" />
@@ -342,6 +343,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_FP_BaseToBase_SouthNorth_Contoller_JDG.h" />
     <ClInclude Include="M01_FP_GDIOcean_NorthSouth_Contoller_JDG.h" />
     <ClInclude Include="M01_FP_GDIOcean_SouthNorth_Contoller_JDG.h" />
+    <ClInclude Include="M01_FP_NodBase_Dogfight_Contoller_JDG.h" />
     <ClInclude Include="M01_FP_NodBase_EastWest_Contoller_JDG.h" />
     <ClInclude Include="M01_FP_NodBase_NorthSouth_Contoller_JDG.h" />
     <ClInclude Include="M01_FP_NodBase_SouthNorth_Contoller_JDG.h" />
@@ -469,6 +471,10 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x0i_drop02_a02_e02.txt" />
     <Text Include="x0i_gdi_drop02_engineer.txt" />
     <Text Include="x0z_finale.txt" />
+    <Text Include="x1a_apache_orca_chase_01.txt" />
+    <Text Include="x1a_apache_orca_chase_02.txt" />
+    <Text Include="x1a_apache_orca_chase_03.txt" />
+    <Text Include="x1a_apache_orca_chase_04.txt" />
     <Text Include="x1a_solo_a10_03.txt" />
     <Text Include="x1a_solo_a10_04.txt" />
     <Text Include="x1a_solo_a10_05.txt" />
@@ -488,6 +494,8 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x1a_solo_a10_19.txt" />
     <Text Include="x1a_solo_a10_20.txt" />
     <Text Include="x1a_solo_a10_21.txt" />
+    <Text Include="x1a_solo_apache_01.txt" />
+    <Text Include="x1a_solo_apache_02.txt" />
     <Text Include="x1a_solo_apache_03.txt" />
     <Text Include="x1a_solo_apache_04.txt" />
     <Text Include="x1a_solo_apache_05.txt" />
@@ -507,6 +515,9 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x1a_solo_apache_19.txt" />
     <Text Include="x1a_solo_apache_20.txt" />
     <Text Include="x1a_solo_apache_21.txt" />
+    <Text Include="x1a_solo_gdi_chinook_01.txt" />
+    <Text Include="x1a_solo_gdi_chinook_02.txt" />
+    <Text Include="x1a_solo_gdi_chinook_03.txt" />
     <Text Include="x1a_solo_gdi_chinook_04.txt" />
     <Text Include="x1a_solo_gdi_chinook_05.txt" />
     <Text Include="x1a_solo_gdi_chinook_06.txt" />
@@ -542,6 +553,8 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x1a_solo_nodcargo_17.txt" />
     <Text Include="x1a_solo_nodcargo_18.txt" />
     <Text Include="x1a_solo_nodcargo_19.txt" />
+    <Text Include="x1a_solo_nod_chinook_01.txt" />
+    <Text Include="x1a_solo_nod_chinook_02.txt" />
     <Text Include="x1a_solo_nod_chinook_03.txt" />
     <Text Include="x1a_solo_nod_chinook_04.txt" />
     <Text Include="x1a_solo_nod_chinook_05.txt" />
@@ -561,6 +574,8 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x1a_solo_nod_chinook_19.txt" />
     <Text Include="x1a_solo_nod_chinook_20.txt" />
     <Text Include="x1a_solo_nod_chinook_21.txt" />
+    <Text Include="x1a_solo_orca_01.txt" />
+    <Text Include="x1a_solo_orca_02.txt" />
     <Text Include="x1a_solo_orca_03.txt" />
     <Text Include="x1a_solo_orca_04.txt" />
     <Text Include="x1a_solo_orca_05.txt" />

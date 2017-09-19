@@ -426,6 +426,9 @@
     <ClCompile Include="M01_FP_NodBase_WestEast_Contoller_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_FP_NodBase_Dogfight_Contoller_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -777,6 +780,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_FP_NodBase_WestEast_Contoller_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_FP_NodBase_Dogfight_Contoller_JDG.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1306,6 +1312,45 @@
       <Filter>Resource Files\Cinematic Files\M01</Filter>
     </Text>
     <Text Include="x1a_solo_orca_13.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_apache_orca_chase_01.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_apache_orca_chase_02.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_apache_orca_chase_03.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_apache_orca_chase_04.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_apache_01.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_apache_02.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_gdi_chinook_01.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_gdi_chinook_02.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nod_chinook_01.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_nod_chinook_02.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_orca_01.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_orca_02.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1a_solo_gdi_chinook_03.txt">
       <Filter>Resource Files\Cinematic Files\M01</Filter>
     </Text>
   </ItemGroup>

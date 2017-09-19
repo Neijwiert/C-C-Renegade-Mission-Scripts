@@ -20,12 +20,13 @@
 #include "M01_Flyover_Generic_Script_JDG.h"
 
 // After 1 cinematic frame in x1d_gdipowerupdrop.txt
-// After 1 cinematic frame in x1a_solo_orca_03/04/05/06/07/08/09/10/11/12/13/14/15/16/17/18/19/20/21.txt
-// After 1 cinematic frame in x1a_solo_apache_03/04/05/06/07/08/09/10/11/12/13/14/15/16/17/18/19/20/21.txt
-// After 1 cinematic frame in x1a_solo_nod_chinook_03/05/06/07/08/09/10/11/12/13/14/15/16/17/18/19/20/21.txt
+// After 1 cinematic frame in x1a_solo_orca_01/02/03/04/05/06/07/08/09/10/11/12/13/14/15/16/17/18/19/20/21.txt
+// After 1 cinematic frame in x1a_solo_apache_01/02/03/04/05/06/07/08/09/10/11/12/13/14/15/16/17/18/19/20/21.txt
+// After 1 cinematic frame in x1a_solo_nod_chinook_01/02/03/05/06/07/08/09/10/11/12/13/14/15/16/17/18/19/20/21.txt
 // After 1 cinematic frame in x1a_solo_nodcargo_03/04/05/06/07/08/09/10/11/12/13/14/15/16/17/18/19.txt
 // After 1 cinematic frame in x1a_solo_a10_03/04/05/06/07/08/09/10/11/12/13/14/15/16/17/18/19/20/21.txt
-// After 1 cinematic frame in x1a_solo_gdi_chinook_04/05/06/07/08/09/10/11/12/13/14/15/16/17/18/19/20/21.txt
+// After 1 cinematic frame in x1a_solo_gdi_chinook_01/02/03/04/05/06/07/08/09/10/11/12/13/14/15/16/17/18/19/20/21.txt
+// After 1 cinematic frame in x1a_apache_orca_chase_01/02/03/04.txt
 void M01_Flyover_Generic_Script_JDG::Created(GameObject *obj)
 {
 	Commands->Disable_Physical_Collisions(obj);

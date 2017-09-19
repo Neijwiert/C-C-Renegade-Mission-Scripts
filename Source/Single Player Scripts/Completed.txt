@@ -93,6 +93,7 @@ M01_FP_NodBase_NorthSouth_Contoller_JDG
 M01_FP_NodBase_SouthNorth_Contoller_JDG
 M01_FP_NodBase_EastWest_Contoller_JDG
 M01_FP_NodBase_WestEast_Contoller_JDG
+M01_FP_NodBase_Dogfight_Contoller_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

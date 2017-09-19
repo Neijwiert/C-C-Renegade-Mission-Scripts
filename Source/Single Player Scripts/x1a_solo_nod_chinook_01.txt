@@ -1,0 +1,49 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 1: Solo Nod Chinook X1A_FP02_A0  ************************
+;  This is a solo Nod Chinook.  this is a low level flyover thru nod base
+; 
+;***************************************************************************************
+
+
+; ****************************** Vehicle
+
+-1	Create_Real_Object,	1, "Nod_Transport_Helicopter_Flyover"
+-1    	Attach_Script,          1, "M01_Flyover_Generic_Script_JDG", "FUSELAGE"
+-1	Play_Animation,		1, "v_Nod_trnspt.v_Nod_trnspt", 1
+-442	Destroy_Object,		1
+
+; ****************************** Path
+
+-1	Create_Object,		2, "X1A_FP02_A0"
+-1	Play_Animation,		2, "X1A_FP02_A0.X1A_FP02_A0", 1
+-442 	Destroy_Object,		2
+-1	Attach_To_Bone,		1, 2, "BN_FP02_A0"
+
