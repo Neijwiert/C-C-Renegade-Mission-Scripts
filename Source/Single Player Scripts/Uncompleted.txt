@@ -58,7 +58,6 @@ M01_GateSwitch_Tutorial_Zone_JDG
 M01_Mainframe_Tutorial_Zone_JDG 
 M01_C4_Tutorial_Zone_JDG 
 M01_Nod_Truck_JDG 
-M01_Base_StartZone_JDG 
 M01_Base_GDI_Fodder_JDG 
 M01_C130_Dropoff_Dude_JDG 
 M01_ConYard_Dropoff_Dude_JDG 
