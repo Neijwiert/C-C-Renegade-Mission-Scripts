@@ -147,7 +147,9 @@ void TestPlugin::OnLoadLevel()
 
 	//Console_Output("%ls\n", Get_Wide_Translated_String(7587));
 
-	/*
+	//RawFileClass newScriptsFile("C:\\Users\\guido\\Desktop\\newscripts.txt");
+	//newScriptsFile.Open(2);
+
 	int scriptCount = GetScriptCount();
 	for (int x = 0; x < scriptCount; x++)
 	{
@@ -167,42 +169,18 @@ void TestPlugin::OnLoadLevel()
 			}
 		}
 
-		if (!isAKnownScript && (strstr(scriptNameUpper.Peek_Buffer(), "M02")))
+		if (!isAKnownScript && (strstr(scriptNameUpper.Peek_Buffer(), "M01")))
 		{
 			Console_Output("%s\n", scriptName);
+
+			/*
+			static char NEW_LINE[] = { '\r', '\n' };
+
+			newScriptsFile.Write(scriptName.Peek_Buffer(), scriptName.Get_Length() * sizeof(char) + sizeof(char));
+			newScriptsFile.Write(NEW_LINE, sizeof(NEW_LINE));
+			*/
 		}
 	}
-	*/
-
-	/*
-	for (int x = 0; x < ScriptRegistrar::Count(); x++)
-	{
-		ScriptFactory *currentScriptFactory = ScriptRegistrar::GetScriptFactory(x);
-
-		const char *name = currentScriptFactory->GetName();
-		const char *matchStr = "JFW";
-		size_t matchIndex = 0;
-
-		for (size_t y = 0; y < strlen(name); y++)
-		{
-			if (toupper(name[y]) == toupper(matchStr[matchIndex]))
-			{
-				matchIndex++;
-
-				if (matchIndex == strlen(matchStr))
-				{
-					Console_Output("%s\n", name);
-
-					break;
-				}
-			}
-			else
-			{
-				matchIndex = 0;
-			}
-		}
-	}
-	*/
 
 	for (DefinitionClass *def = DefinitionMgrClass::Get_First(); def; def = DefinitionMgrClass::Get_Next(def))
 	{

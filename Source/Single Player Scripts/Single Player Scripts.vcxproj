@@ -212,6 +212,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Vehicle_Regen_DAK.cpp" />
     <ClCompile Include="M01_Barn_Truck_JDG.cpp" />
     <ClCompile Include="M01_Destroyed_SAMSITE_JDG.cpp" />
+    <ClCompile Include="M01_First_AutoRifle_JDG.cpp" />
     <ClCompile Include="M02_Approach_Vehicle.cpp" />
     <ClCompile Include="M02_Commando_Start.cpp" />
     <ClCompile Include="M02_Dam_MCT.cpp" />
@@ -324,6 +325,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Vehicle_Regen_DAK.h" />
     <ClInclude Include="M01_Barn_Truck_JDG.h" />
     <ClInclude Include="M01_Destroyed_SAMSITE_JDG.h" />
+    <ClInclude Include="M01_First_AutoRifle_JDG.h" />
     <ClInclude Include="M02_Approach_Vehicle.h" />
     <ClInclude Include="M02_Commando_Start.h" />
     <ClInclude Include="M02_Dam_MCT.h" />

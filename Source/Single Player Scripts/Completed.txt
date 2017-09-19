@@ -83,6 +83,7 @@ M02_Respawn_Controller
 M02_Stationary_Vehicle
 M03_SAM_Site_Logic
 M07_Disable_Hibernation
+M01_First_AutoRifle_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

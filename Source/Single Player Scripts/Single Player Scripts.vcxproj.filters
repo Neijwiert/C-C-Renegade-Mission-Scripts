@@ -387,6 +387,9 @@
     <ClCompile Include="M02_Data_Disk.cpp">
       <Filter>Source Files\M02</Filter>
     </ClCompile>
+    <ClCompile Include="M01_First_AutoRifle_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -703,6 +706,9 @@
     </ClInclude>
     <ClInclude Include="M02_Data_Disk.h">
       <Filter>Header Files\M02</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_First_AutoRifle_JDG.h">
+      <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
