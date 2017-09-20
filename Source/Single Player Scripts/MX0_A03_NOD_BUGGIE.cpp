@@ -19,7 +19,9 @@
 #include "General.h"
 #include "MX0_A03_NOD_BUGGIE.h"
 
-// On level start
+/*
+M13 -> 1400081
+*/
 void MX0_A03_NOD_BUGGIE::Created(GameObject *obj)
 {
 

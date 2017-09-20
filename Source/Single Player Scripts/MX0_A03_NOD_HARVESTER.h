@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1400001
+*/
 class MX0_A03_NOD_HARVESTER : public ScriptImpClass
 {
 	public:

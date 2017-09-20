@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M01_GDI_Base_Artillery_Controller_JDG.h"
 
+/*
+M01 -> 102294
+*/
 void M01_GDI_Base_Artillery_Controller_JDG::Register_Auto_Save_Variables()
 {
 	// Yes, explosionLocations is not saved. This means that when the map is save/loaded it will be broken?
@@ -30,7 +33,6 @@ void M01_GDI_Base_Artillery_Controller_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->maxExplosionInterval, sizeof(this->maxExplosionInterval), 6);
 }
 
-// On level start
 void M01_GDI_Base_Artillery_Controller_JDG::Created(GameObject *obj)
 {
 	this->explosionLocations[0] = Vector3(96.983f, -75.433f, -7.894f);

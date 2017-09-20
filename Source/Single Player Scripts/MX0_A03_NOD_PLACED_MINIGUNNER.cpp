@@ -19,7 +19,9 @@
 #include "General.h"
 #include "MX0_A03_NOD_PLACED_MINIGUNNER.h"
 
-// On level start
+/*
+M13 -> 1400150 1400149
+*/
 void MX0_A03_NOD_PLACED_MINIGUNNER::Created(GameObject *obj)
 {
 	Vector3 pos = Commands->Get_Position(obj);

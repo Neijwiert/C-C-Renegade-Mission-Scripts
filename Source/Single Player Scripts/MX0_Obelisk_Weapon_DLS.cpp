@@ -19,6 +19,9 @@
 #include "General.h"
 #include "MX0_Obelisk_Weapon_DLS.h"
 
+/*
+M13 -> 1500020
+*/
 void MX0_Obelisk_Weapon_DLS::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->canDoWarmupAnimation, sizeof(this->canDoWarmupAnimation), 1);
@@ -29,7 +32,6 @@ void MX0_Obelisk_Weapon_DLS::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->medTankObjId, sizeof(this->medTankObjId), 6);
 }
 
-// On level start
 void MX0_Obelisk_Weapon_DLS::Created(GameObject *obj)
 {
 	this->obeliskEffectObjId = 0;

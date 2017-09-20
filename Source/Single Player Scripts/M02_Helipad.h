@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 474463
+*/
 class M02_Helipad : public ScriptImpClass
 {
 	private:

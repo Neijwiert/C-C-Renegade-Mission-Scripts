@@ -19,13 +19,15 @@
 #include "General.h"
 #include "MX0_A03_FIRST_PLAYER_ZONE.h"
 
+/*
+M13 -> 1400143
+*/
 void MX0_A03_FIRST_PLAYER_ZONE::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->MX0GDIMiniGunner0BObjId, sizeof(this->MX0GDIMiniGunner0BObjId), 1);
 	Auto_Save_Variable(&this->canDoEnteredEvents, sizeof(this->canDoEnteredEvents), 1);
 }
 
-// On level start
 void MX0_A03_FIRST_PLAYER_ZONE::Created(GameObject *obj)
 {
 	this->canDoEnteredEvents = true;

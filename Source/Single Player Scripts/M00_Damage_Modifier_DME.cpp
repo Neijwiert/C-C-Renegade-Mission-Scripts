@@ -19,6 +19,10 @@
 #include "General.h"
 #include "M00_Damage_Modifier_DME.h"
 
+/*
+M03 -> 1100003
+M13 -> 1400001 1500016 1500015
+*/
 void M00_Damage_Modifier_DME::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->modifiedCurrentHealth, sizeof(this->modifiedCurrentHealth), 1);

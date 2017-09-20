@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1400069
+*/
 class MX0_A03_END_ZONE : public ScriptImpClass
 {
 	public:

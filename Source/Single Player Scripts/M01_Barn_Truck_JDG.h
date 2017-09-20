@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 400395
+*/
 class M01_Barn_Truck_JDG : public ScriptImpClass
 {
 	private:

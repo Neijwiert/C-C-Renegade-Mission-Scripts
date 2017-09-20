@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M00_Nod_Turret.h"
 
+/*
+M13 -> 1400146 1400144
+*/
 void M00_Nod_Turret::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->attackObjId1, sizeof(this->attackObjId1), 1);

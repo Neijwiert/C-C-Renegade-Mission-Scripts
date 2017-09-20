@@ -19,12 +19,14 @@
 #include "General.h"
 #include "M01_FP_BaseToBase_SouthNorth_Contoller_JDG.h"
 
+/*
+M01 -> 101790
+*/
 void M01_FP_BaseToBase_SouthNorth_Contoller_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->cinematicFileIndex, sizeof(this->cinematicFileIndex), 1);
 }
 
-// On level start
 void M01_FP_BaseToBase_SouthNorth_Contoller_JDG::Created(GameObject *obj)
 {
 	this->cinematicFileIndex = 21;

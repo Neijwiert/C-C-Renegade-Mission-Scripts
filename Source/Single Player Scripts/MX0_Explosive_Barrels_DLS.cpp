@@ -19,12 +19,14 @@
 #include "General.h"
 #include "MX0_Explosive_Barrels_DLS.h"
 
+/*
+M13 -> 1500099 1500098 1500096 1500095 1500094 1500016 1500015
+*/
 void MX0_Explosive_Barrels_DLS::Register_Auto_Save_Variables()
 {
 
 }
 
-// On level start
 void MX0_Explosive_Barrels_DLS::Created(GameObject *obj)
 {
 

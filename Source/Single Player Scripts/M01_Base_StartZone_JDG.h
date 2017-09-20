@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 119628
+*/
 class M01_Base_StartZone_JDG : public ScriptImpClass
 {
 	private:

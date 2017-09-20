@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1500099 1500098 1500096 1500095 1500094 1500016 1500015
+*/
 class MX0_Explosive_Barrels_DLS : public ScriptImpClass
 {
 	public:

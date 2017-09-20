@@ -19,12 +19,14 @@
 #include "General.h"
 #include "M01_FP_GDIOcean_NorthSouth_Contoller_JDG.h"
 
+/*
+M01 -> 101791
+*/
 void M01_FP_GDIOcean_NorthSouth_Contoller_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->cinematicFileIndex, sizeof(this->cinematicFileIndex), 1);
 }
 
-// On level start
 void M01_FP_GDIOcean_NorthSouth_Contoller_JDG::Created(GameObject *obj)
 {
 	Commands->Start_Timer(obj, this, 60.0f, 0);

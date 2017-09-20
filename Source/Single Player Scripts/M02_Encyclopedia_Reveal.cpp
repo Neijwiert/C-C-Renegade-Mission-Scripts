@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M02_Encyclopedia_Reveal.h"
 
+/*
+M02 -> 300799 300800
+*/
 void M02_Encyclopedia_Reveal::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (type == CUSTOM_EVENT_POWERUP_GRANTED)

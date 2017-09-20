@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 400202 400203 400204
+*/
 class M02_Nod_Convoy_Truck : public ScriptImpClass
 {
 	private:

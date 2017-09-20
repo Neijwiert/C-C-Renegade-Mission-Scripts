@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+ /*
+ M13 -> 1200001
+ */
 class MX0_MissionStart_DME : public ScriptImpClass
 {
 	public:

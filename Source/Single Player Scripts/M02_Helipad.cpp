@@ -19,7 +19,9 @@
 #include "General.h"
 #include "M02_Helipad.h"
 
-// Created on level start
+/*
+M02 -> 474463
+*/
 void M02_Helipad::Killed(GameObject *obj, GameObject *killer)
 {
 	GameObject *M02ObjectiveControllerObj = Commands->Find_Object(1111112);

@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+ /*
+ M13 -> 1200019
+ */
 class MX0_NOD_TroopDrop : public ScriptImpClass
 {
 	public:

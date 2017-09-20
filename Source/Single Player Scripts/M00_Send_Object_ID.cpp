@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M00_Send_Object_ID.h"
 
+/*
+M13 -> 1500020 1500014 1500071 1500083 1500012 1200050
+*/
 void M00_Send_Object_ID::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);

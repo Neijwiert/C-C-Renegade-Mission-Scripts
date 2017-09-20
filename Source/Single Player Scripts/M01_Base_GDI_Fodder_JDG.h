@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 119225
+*/
 class M01_Base_GDI_Fodder_JDG : public ScriptImpClass
 {
 	private:

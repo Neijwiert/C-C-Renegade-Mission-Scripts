@@ -19,12 +19,14 @@
 #include "General.h"
 #include "MX0_Area4_Zone_DLS.h"
 
+/*
+M13 -> 1500005 1500004 1500003 1500002 1500001 1500006
+*/
 void MX0_Area4_Zone_DLS::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->canSendCustom, sizeof(this->canSendCustom), 1);
 }
 
-// On level start
 void MX0_Area4_Zone_DLS::Created(GameObject *obj)
 {
 	this->canSendCustom = true;

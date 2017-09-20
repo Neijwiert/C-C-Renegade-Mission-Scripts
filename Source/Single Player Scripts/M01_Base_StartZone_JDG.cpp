@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M01_Base_StartZone_JDG.h"
 
+/*
+M01 -> 119628
+*/
 void M01_Base_StartZone_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
 	Vector3 pos = Commands->Get_Position(obj);

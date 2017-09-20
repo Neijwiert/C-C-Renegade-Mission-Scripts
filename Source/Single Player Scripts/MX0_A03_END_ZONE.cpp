@@ -19,12 +19,14 @@
 #include "General.h"
 #include "MX0_A03_END_ZONE.h"
 
+/*
+M13 -> 1400069
+*/
 void MX0_A03_END_ZONE::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->canSendCustoms, sizeof(this->canSendCustoms), 1);
 }
 
-// On level start
 void MX0_A03_END_ZONE::Created(GameObject *obj)
 {
 	this->canSendCustoms = true;

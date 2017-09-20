@@ -20,6 +20,10 @@
 
 #include <scripts.h>
 
+/*
+M03 -> 1100003
+M13 -> 1400001 1500016 1500015
+*/
 class M00_Damage_Modifier_DME : public ScriptImpClass
 {
 	public:

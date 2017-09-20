@@ -19,6 +19,7 @@
 #include "General.h"
 #include "M00_BuildingStateSoundController.h"
 
+// This script is created in M00_BuildingStateSoundSpeaker::Created
 void M00_BuildingStateSoundController::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->buildingSpeakerId, sizeof(this->buildingSpeakerId), 1);

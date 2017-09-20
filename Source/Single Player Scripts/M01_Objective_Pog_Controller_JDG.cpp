@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M01_Objective_Pog_Controller_JDG.h"
 
+/*
+M01 -> 105828
+*/
 void M01_Objective_Pog_Controller_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->objectiveConversationId, sizeof(this->objectiveConversationId), 1);

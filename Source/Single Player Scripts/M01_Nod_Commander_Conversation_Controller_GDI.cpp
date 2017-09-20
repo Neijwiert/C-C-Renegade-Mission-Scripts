@@ -19,13 +19,15 @@
 #include "General.h"
 #include "M01_Nod_Commander_Conversation_Controller_GDI.h"
 
+/*
+M01 -> 103398
+*/
 void M01_Nod_Commander_Conversation_Controller_GDI::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->canCallForBackup, sizeof(this->canCallForBackup), 1);
 	Auto_Save_Variable(&this->conversationId, sizeof(this->conversationId), 2);
 }
 
-// On level start
 void M01_Nod_Commander_Conversation_Controller_GDI::Created(GameObject *obj)
 {
 	this->canCallForBackup = true;

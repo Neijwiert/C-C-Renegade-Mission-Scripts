@@ -19,6 +19,9 @@
 #include "General.h"
 #include "MX0_A02_ZONE_STARTUP.h"
 
+/*
+M13 -> 1100022
+*/
 void MX0_A02_ZONE_STARTUP::Entered(GameObject *obj, GameObject *enterer)
 {
 	GameObject *MX0A02ControllerObj = Commands->Find_Object(1100000);

@@ -20,6 +20,13 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 400340 401028
+M03 -> 1144518
+M08 -> 100010
+M10 -> 2000787 2004537
+M13 -> 1400001
+*/
 class M00_Vehicle_Regen_DAK : public ScriptImpClass
 {
 	private:

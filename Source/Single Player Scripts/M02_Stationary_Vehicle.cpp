@@ -19,7 +19,9 @@
 #include "General.h"
 #include "M02_Stationary_Vehicle.h"
 
-// On level start
+/*
+M02 -> 401092 401091 401090 401017 401016 401015 401014 401006 401005 401004 400506 400371 400333 400499 400552 400975 400976 400985 400340 401026 401027 401028 401036 401037 401167
+*/
 void M02_Stationary_Vehicle::Created(GameObject *obj)
 {
 	int areaId = Get_Int_Parameter("Area_ID");

@@ -19,12 +19,14 @@
 #include "General.h"
 #include "MX0_Engineer_Goto.h"
 
+/*
+M13 -> 1200024 1200014 1200002 1100022
+*/
 void MX0_Engineer_Goto::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->isZoneTriggered, sizeof(this->isZoneTriggered), 1);
 }
 
-// On level start
 void MX0_Engineer_Goto::Created(GameObject *obj)
 {
 	// Initialize member variables

@@ -19,7 +19,9 @@
 #include "General.h"
 #include "M02_Obelisk.h"
 
-// On level start
+/*
+M02 -> 1153845
+*/
 void M02_Obelisk::Created(GameObject *obj)
 {
 	this->notifiedForInternalRepairs = false;

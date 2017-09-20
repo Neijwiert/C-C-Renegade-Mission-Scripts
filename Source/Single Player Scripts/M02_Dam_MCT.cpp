@@ -19,12 +19,14 @@
 #include "General.h"
 #include "M02_Dam_MCT.h"
 
+/*
+M02 -> 1111116
+*/
 void M02_Dam_MCT::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->destroyed, sizeof(this->destroyed), 1);
 }
 
-// On level start
 void M02_Dam_MCT::Created(GameObject *obj)
 {
 	this->destroyed = false;

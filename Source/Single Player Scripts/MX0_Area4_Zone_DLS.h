@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1500005 1500004 1500003 1500002 1500001 1500006
+*/
 class MX0_Area4_Zone_DLS : public ScriptImpClass
 {
 	public:

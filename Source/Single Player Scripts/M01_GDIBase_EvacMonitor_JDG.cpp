@@ -19,12 +19,14 @@
 #include "General.h"
 #include "M01_GDIBase_EvacMonitor_JDG.h"
 
+/*
+M01 -> 103419
+*/
 void M01_GDIBase_EvacMonitor_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
 }
 
-// On level start
 void M01_GDIBase_EvacMonitor_JDG::Created(GameObject *obj)
 {
 	this->field_1C = 0;

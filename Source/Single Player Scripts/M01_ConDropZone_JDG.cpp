@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M01_ConDropZone_JDG.h"
 
+/*
+M01 -> 119825
+*/
 void M01_ConDropZone_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
 	Vector3 pos = Commands->Get_Position(obj);

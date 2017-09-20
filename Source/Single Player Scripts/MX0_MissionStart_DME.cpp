@@ -19,6 +19,9 @@
 #include "General.h"
 #include "MX0_MissionStart_DME.h"
 
+/*
+M13 -> 1200001
+*/
 void MX0_MissionStart_DME::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->engineer1ObjId, sizeof(this->engineer1ObjId), 1);
@@ -31,7 +34,6 @@ void MX0_MissionStart_DME::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->starWarnedForSnipers, sizeof(this->starWarnedForSnipers), 8);
 }
 
-// On level start
 void MX0_MissionStart_DME::Created(GameObject *obj)
 {
 	// Deselect weapon of the star

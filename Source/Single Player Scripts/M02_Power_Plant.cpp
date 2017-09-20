@@ -19,7 +19,9 @@
 #include "General.h"
 #include "M02_Power_Plant.h"
 
-// On level start
+/*
+M02 -> 1153846
+*/
 void M02_Power_Plant::Created(GameObject *obj)
 {
 	this->notifiedForInternalRepairs = false;

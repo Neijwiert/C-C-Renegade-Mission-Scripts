@@ -19,12 +19,14 @@
 #include "General.h"
 #include "MX0_A03_GDI_TROOP_DROP_ZONE_DAK.h"
 
+/*
+M13 -> 1400143
+*/
 void MX0_A03_GDI_TROOP_DROP_ZONE_DAK::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->canDoEnteredEvents, sizeof(this->canDoEnteredEvents), 1);
 }
 
-// On level start
 void MX0_A03_GDI_TROOP_DROP_ZONE_DAK::Created(GameObject *obj)
 {
 	this->canDoEnteredEvents = true;

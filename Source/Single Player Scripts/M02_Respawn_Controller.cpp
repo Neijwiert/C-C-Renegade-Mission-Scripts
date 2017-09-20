@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M02_Respawn_Controller.h"
 
+/*
+M02 -> 1111112
+*/
 void M02_Respawn_Controller::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(this->activeAreas, sizeof(this->activeAreas), 1);
@@ -34,7 +37,6 @@ void M02_Respawn_Controller::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->nodTiberiumSiloDestroyedCount, sizeof(this->nodTiberiumSiloDestroyedCount), 11);
 }
 
-// On level start
 void M02_Respawn_Controller::Created(GameObject *obj)
 {
 	this->spawnerTwiddler = 0;

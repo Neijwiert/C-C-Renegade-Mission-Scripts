@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 401008 401018 401038
+*/
 class M02_Approach_Vehicle : public ScriptImpClass
 {
 	private:

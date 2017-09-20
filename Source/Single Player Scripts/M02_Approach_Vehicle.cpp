@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M02_Approach_Vehicle.h"
 
+/*
+M02 -> 401008 401018 401038
+*/
 void M02_Approach_Vehicle::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M02_Objective_Zone with objId = (400267, 400187, 400185, 400189)

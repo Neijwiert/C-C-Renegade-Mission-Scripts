@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 1153845
+*/
 class M02_Obelisk : public ScriptImpClass
 {
 	private:

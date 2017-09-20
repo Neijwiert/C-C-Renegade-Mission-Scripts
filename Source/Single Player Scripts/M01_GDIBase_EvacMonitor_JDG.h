@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 103419
+*/
 class M01_GDIBase_EvacMonitor_JDG : public ScriptImpClass
 {
 	public:

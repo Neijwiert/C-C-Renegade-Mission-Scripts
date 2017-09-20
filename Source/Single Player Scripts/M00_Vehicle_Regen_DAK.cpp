@@ -19,6 +19,13 @@
 #include "General.h"
 #include "M00_Vehicle_Regen_DAK.h"
 
+/*
+M02 -> 400340 401028
+M03 -> 1144518
+M08 -> 100010
+M10 -> 2000787 2004537
+M13 -> 1400001
+*/
 void M00_Vehicle_Regen_DAK::Created(GameObject *obj)
 {
 	Commands->Send_Custom_Event(obj, obj, 0, 0, 0.0f);

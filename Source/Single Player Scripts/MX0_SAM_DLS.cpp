@@ -19,12 +19,14 @@
 #include "General.h"
 #include "MX0_SAM_DLS.h"
 
+/*
+M13 -> 1500016 1500015
+*/
 void MX0_SAM_DLS::Register_Auto_Save_Variables()
 {
 
 }
 
-// On level start
 void MX0_SAM_DLS::Created(GameObject *obj)
 {
 	Commands->Set_Innate_Is_Stationary(obj, true);

@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 116380
+*/
 class M01_Announce_First_ObjectiveZone_JDG : public ScriptImpClass
 {
 	private:

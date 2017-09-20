@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 116382
+*/
 class M01_Base_GDI_Minigunner_JDG : public ScriptImpClass
 {
 	public:

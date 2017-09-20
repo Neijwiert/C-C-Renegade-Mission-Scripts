@@ -19,12 +19,14 @@
 #include "General.h"
 #include "M01_DataDisc_TextController_JDG.h"
 
+/*
+M01 -> 117188
+*/
 void M01_DataDisc_TextController_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->doingTutorialConversation, sizeof(this->doingTutorialConversation), 1);
 }
 
-// On level start
 void M01_DataDisc_TextController_JDG::Created(GameObject *obj)
 {
 	this->doingTutorialConversation = false;

@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 1111112
+*/
 class M02_Respawn_Controller : public ScriptImpClass
 {
 	public:

@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1500020 1500014 1500071 1500083 1500012 1200050
+*/
 class M00_Send_Object_ID : public ScriptImpClass
 {
 	public:

@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 102294
+*/
 class M01_GDI_Base_Artillery_Controller_JDG : public ScriptImpClass
 {
 	public:

@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M01_First_AutoRifle_JDG.h"
 
+/*
+M01 -> 117623 117619 116787
+*/
 void M01_First_AutoRifle_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (type == CUSTOM_EVENT_POWERUP_GRANTED)

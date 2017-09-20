@@ -1,6 +1,9 @@
 #include "General.h"
 #include "M02_Objective_Controller.h"
 
+/*
+M02 -> 1111112
+*/
 void M02_Objective_Controller::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->nodConvoyTruckCount, sizeof(this->nodConvoyTruckCount), 1);
@@ -8,7 +11,6 @@ void M02_Objective_Controller::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->area9GDIDeathsSinceLastDrop, sizeof(this->area9GDIDeathsSinceLastDrop), 3);
 }
 
-// On level start
 void M02_Objective_Controller::Created(GameObject *obj)
 {
 	Commands->Reveal_Encyclopedia_Character(37); // Nod_FlameThrower_3Boss

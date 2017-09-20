@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1100022
+*/
 class MX0_A02_ZONE_STARTUP : public ScriptImpClass
 {
 	private:

@@ -19,6 +19,10 @@
 #include "General.h"
 #include "M02_GDI_Soldier.h"
 
+/*
+M02 -> 400343 400342 400332 400347
+The following cineamtic files: x2i_gdi_drop02_rocket.txt, x2i_gdi_drop02_rocket_2.txt, x2i_gdi_drop02_rocket_24.txt and x2i_gdi_drop03_minigunner.txt
+*/
 void M02_GDI_Soldier::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->isMyAreaActivated, sizeof(this->isMyAreaActivated), 1);
@@ -26,8 +30,6 @@ void M02_GDI_Soldier::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->backupConversationIndex, sizeof(this->backupConversationIndex), 3);
 }
 
-// On level start
-// The following cineamtic files: x2i_gdi_drop02_rocket.txt, x2i_gdi_drop02_rocket_2.txt, x2i_gdi_drop02_rocket_24.txt and x2i_gdi_drop03_minigunner.txt
 void M02_GDI_Soldier::Created(GameObject *obj)
 {
 	Commands->Enable_Hibernation(obj, false);

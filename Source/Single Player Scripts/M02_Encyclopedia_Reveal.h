@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 300799 300800
+*/
 class M02_Encyclopedia_Reveal : public ScriptImpClass
 {
 	private:

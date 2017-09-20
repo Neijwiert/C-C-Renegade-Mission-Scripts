@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 1111116
+*/
 class M02_Dam_MCT : public ScriptImpClass
 {
 	public:

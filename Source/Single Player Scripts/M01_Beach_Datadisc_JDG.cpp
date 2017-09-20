@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M01_Beach_Datadisc_JDG.h"
 
+/*
+M01 -> 116992
+*/
 void M01_Beach_Datadisc_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (type == CUSTOM_EVENT_POWERUP_GRANTED)

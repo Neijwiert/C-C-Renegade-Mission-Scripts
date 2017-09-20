@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 1200204 1200203 1200202 1200201 1200200 1200199 1200198 1200197 117834 117637 116381
+*/
 class M01_Use_Ladder_Zone_JDG : public ScriptImpClass
 {
 	private:

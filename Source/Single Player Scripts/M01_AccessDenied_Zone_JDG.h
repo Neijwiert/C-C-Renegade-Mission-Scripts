@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 118232 118233 118234 118235 118236 118237
+*/
 class M01_AccessDenied_Zone_JDG : public ScriptImpClass
 {
 	private:

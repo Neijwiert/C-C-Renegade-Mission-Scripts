@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 119825
+*/
 class M01_ConDropZone_JDG : public ScriptImpClass
 {
 	private:

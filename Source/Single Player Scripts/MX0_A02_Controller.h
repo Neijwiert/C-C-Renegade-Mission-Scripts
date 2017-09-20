@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1100000
+*/
 class MX0_A02_Controller : public ScriptImpClass
 {
 	public:

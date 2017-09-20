@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M02_Nod_Convoy_Truck.h"
 
+/*
+M02 -> 400202 400203 400204
+*/
 void M02_Nod_Convoy_Truck::Killed(GameObject *obj, GameObject *killer)
 {
 	GameObject *M02ObjectiveControllerObj = Commands->Find_Object(1111112);

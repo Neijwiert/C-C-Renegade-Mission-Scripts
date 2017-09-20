@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 407528 407529 407530
+*/
 class M02_Data_Disk : public ScriptImpClass
 {
 	private:

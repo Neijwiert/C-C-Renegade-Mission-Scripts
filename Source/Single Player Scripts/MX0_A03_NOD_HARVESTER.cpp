@@ -19,13 +19,15 @@
 #include "General.h"
 #include "MX0_A03_NOD_HARVESTER.h"
 
+/*
+M13 -> 1400001
+*/
 void MX0_A03_NOD_HARVESTER::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->atEndOfWaypath, sizeof(this->atEndOfWaypath), 1);
 	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
 }
 
-// On level start
 void MX0_A03_NOD_HARVESTER::Created(GameObject *obj)
 {
 	Commands->Set_Health(obj, 1200.0f);

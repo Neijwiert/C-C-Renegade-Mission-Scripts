@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 101792
+*/
 class M01_FP_GDIOcean_SouthNorth_Contoller_JDG : public ScriptImpClass
 {
 	public:

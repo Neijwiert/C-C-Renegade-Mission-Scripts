@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 101793
+*/
 class M01_FP_NodBase_NorthSouth_Contoller_JDG : public ScriptImpClass
 {
 	public:

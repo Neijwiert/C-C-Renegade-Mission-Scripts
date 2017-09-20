@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1500046 1500047
+*/
 class MX0_Nod_Bunker_DLS : public ScriptImpClass
 {
 	public:

@@ -19,12 +19,14 @@
 #include "General.h"
 #include "MX0_GDI_ORCA.h"
 
+/*
+M13 -> 1400004
+*/
 void MX0_GDI_ORCA::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->canDropTank, sizeof(this->canDropTank), 1);
 }
 
-// On level start
 void MX0_GDI_ORCA::Created(GameObject *obj)
 {
 	this->canDropTank = true;

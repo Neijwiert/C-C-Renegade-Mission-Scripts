@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 1153846
+*/
 class M02_Power_Plant : public ScriptImpClass
 {
 	private:

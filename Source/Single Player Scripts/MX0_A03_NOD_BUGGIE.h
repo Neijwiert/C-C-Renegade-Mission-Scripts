@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1400081
+*/
 class MX0_A03_NOD_BUGGIE : public ScriptImpClass
 {
 	private:

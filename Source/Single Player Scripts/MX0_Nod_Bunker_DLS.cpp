@@ -19,12 +19,14 @@
 #include "General.h"
 #include "MX0_Nod_Bunker_DLS.h"
 
+/*
+M13 -> 1500046 1500047
+*/
 void MX0_Nod_Bunker_DLS::Register_Auto_Save_Variables()
 {
 
 }
 
-// On level start
 void MX0_Nod_Bunker_DLS::Created(GameObject *obj)
 {
 	Commands->Set_Innate_Is_Stationary(obj, true);

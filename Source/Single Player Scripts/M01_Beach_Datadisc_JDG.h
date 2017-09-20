@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 116992
+*/
 class M01_Beach_Datadisc_JDG : public ScriptImpClass
 {
 	private:

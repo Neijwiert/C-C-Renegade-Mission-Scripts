@@ -20,6 +20,10 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 400343 400342 400332 400347
+The following cineamtic files: x2i_gdi_drop02_rocket.txt, x2i_gdi_drop02_rocket_2.txt, x2i_gdi_drop02_rocket_24.txt and x2i_gdi_drop03_minigunner.txt
+*/
 class M02_GDI_Soldier : public ScriptImpClass
 {
 	public:

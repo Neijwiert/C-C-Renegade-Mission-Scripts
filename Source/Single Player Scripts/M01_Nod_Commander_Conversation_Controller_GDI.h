@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 103398
+*/
 class M01_Nod_Commander_Conversation_Controller_GDI : public ScriptImpClass
 {
 	public:

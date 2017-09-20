@@ -19,12 +19,14 @@
 #include "General.h"
 #include "MX0_Engineer_Goto2.h"
 
+/*
+M13 -> 1200016 1200015
+*/
 void MX0_Engineer_Goto2::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->isZoneTriggered, sizeof(this->isZoneTriggered), 1);
 }
 
-// On level start
 void MX0_Engineer_Goto2::Created(GameObject *obj)
 {
 	this->isZoneTriggered = false;

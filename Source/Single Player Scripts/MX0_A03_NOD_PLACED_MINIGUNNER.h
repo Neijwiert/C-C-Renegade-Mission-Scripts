@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1400150 1400149
+*/
 class MX0_A03_NOD_PLACED_MINIGUNNER : public ScriptImpClass
 {
 	private:

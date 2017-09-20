@@ -19,7 +19,9 @@
 #include "General.h"
 #include "M01_Base_GDI_Fodder_JDG.h"
 
-// On level start
+/*
+M01 -> 119225
+*/
 void M01_Base_GDI_Fodder_JDG::Created(GameObject *obj)
 {
 	Commands->Set_Innate_Is_Stationary(obj, true);

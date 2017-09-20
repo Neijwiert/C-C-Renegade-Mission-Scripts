@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1500020
+*/
 class MX0_Obelisk_Weapon_DLS : public ScriptImpClass
 {
 	public:

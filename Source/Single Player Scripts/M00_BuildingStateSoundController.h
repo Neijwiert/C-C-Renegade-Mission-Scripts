@@ -20,6 +20,7 @@
 
 #include <scripts.h>
 
+// This script is created in M00_BuildingStateSoundSpeaker::Created
 class M00_BuildingStateSoundController : public ScriptImpClass
 {
 	public:

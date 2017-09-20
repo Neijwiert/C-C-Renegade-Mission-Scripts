@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1400143
+*/
 class MX0_A03_FIRST_PLAYER_ZONE : public ScriptImpClass
 {
 	public:

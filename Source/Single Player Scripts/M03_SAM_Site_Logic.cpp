@@ -19,6 +19,13 @@
 #include "General.h"
 #include "M03_SAM_Site_Logic.h"
 
+/*
+M01 -> 100031 100034
+M02 -> 1100085 1100094 1100120 1100130
+M03 -> 300059 300058 300056 1100020
+M10 -> 1100007 1100008 1100009 1100010 1100011 1100012
+M13 -> 1500016 1500015
+*/
 void M03_SAM_Site_Logic::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->attackingEnemy, sizeof(this->attackingEnemy), 1);
@@ -26,7 +33,6 @@ void M03_SAM_Site_Logic::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->currentIgnoredObjIndex, sizeof(this->currentIgnoredObjIndex), 3);
 }
 
-// On level start
 void M03_SAM_Site_Logic::Created(GameObject *obj)
 {
 	Commands->Enable_Enemy_Seen(obj, true);

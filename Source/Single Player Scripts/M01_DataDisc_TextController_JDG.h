@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 117188
+*/
 class M01_DataDisc_TextController_JDG : public ScriptImpClass
 {
 	public:

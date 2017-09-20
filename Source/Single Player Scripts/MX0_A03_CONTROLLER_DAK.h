@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1400041
+*/
 class MX0_A03_CONTROLLER_DAK : public ScriptImpClass
 {
 	public:

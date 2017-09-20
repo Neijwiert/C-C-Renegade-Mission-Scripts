@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 117623 117619 116787
+*/
 class M01_First_AutoRifle_JDG : public ScriptImpClass
 {
 	private:

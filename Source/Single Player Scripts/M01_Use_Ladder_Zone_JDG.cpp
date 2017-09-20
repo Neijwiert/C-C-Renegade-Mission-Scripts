@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M01_Use_Ladder_Zone_JDG.h"
 
+/*
+M01 -> 1200204 1200203 1200202 1200201 1200200 1200199 1200198 1200197 117834 117637 116381
+*/
 void M01_Use_Ladder_Zone_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
 	Vector3 pos = Commands->Get_Position(obj);

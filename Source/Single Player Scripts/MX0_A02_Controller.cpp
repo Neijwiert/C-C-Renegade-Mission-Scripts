@@ -19,6 +19,9 @@
 #include "General.h"
 #include "MX0_A02_Controller.h"
 
+/*
+M13 -> 1100000
+*/
 void MX0_A02_Controller::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(this->soldierActorIds, sizeof(this->soldierActorIds), 1);
@@ -48,7 +51,6 @@ void MX0_A02_Controller::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->spawnedA02Objects, sizeof(this->spawnedA02Objects), 25);
 }
 
-// On level start
 void MX0_A02_Controller::Created(GameObject *obj)
 {
 	this->spawnedA02Objects = false;

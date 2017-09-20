@@ -19,12 +19,14 @@
 #include "General.h"
 #include "MX0_Gun_Emplacement_DLS.h"
 
+/*
+M13 -> 1500039
+*/
 void MX0_Gun_Emplacement_DLS::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->attackingRightPoint, sizeof(this->attackingRightPoint), 1);
 }
 
-// On level start
 void MX0_Gun_Emplacement_DLS::Created(GameObject *obj)
 {
 	this->attackingRightPoint = true;

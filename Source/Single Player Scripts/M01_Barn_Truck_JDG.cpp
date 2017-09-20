@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M01_Barn_Truck_JDG.h"
 
+/*
+M02 -> 400395
+*/
 void M01_Barn_Truck_JDG::Killed(GameObject *obj, GameObject *killer)
 {
 	Vector3 pos = Commands->Get_Position(obj);

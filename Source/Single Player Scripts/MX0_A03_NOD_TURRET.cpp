@@ -19,7 +19,9 @@
 #include "General.h"
 #include "MX0_A03_NOD_TURRET.h"
 
-// On level start
+/*
+M13 -> 1400146 1400144
+*/
 void MX0_A03_NOD_TURRET::Created(GameObject *obj)
 {
 	GameObject *MX0A03ControllerObj = Commands->Find_Object(1400041);

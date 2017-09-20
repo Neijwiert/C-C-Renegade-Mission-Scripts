@@ -19,6 +19,9 @@
 #include "General.h"
 #include "MX0_Area4_Controller_DLS.h"
 
+/*
+M13 -> 1500017
+*/
 void MX0_Area4_Controller_DLS::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->starAtAreaNumber, sizeof(this->starAtAreaNumber), 1);

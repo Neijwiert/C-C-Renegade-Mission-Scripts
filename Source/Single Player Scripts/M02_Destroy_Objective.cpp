@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M02_Destroy_Objective.h"
 
+/*
+M02 -> 403133 403132 403131 467781 1100085 1100094 1100120 1100130 1157687 1157688 1157690
+*/
 void M02_Destroy_Objective::Killed(GameObject *obj, GameObject *killer)
 {
 	int objectiveId = Get_Int_Parameter("Objective_ID");

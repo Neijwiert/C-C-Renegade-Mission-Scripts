@@ -2,6 +2,9 @@
 
 #include <scripts.h>
 
+/*
+M02 -> 1111112
+*/
 class M02_Objective_Controller : public ScriptImpClass
 {
 	public:

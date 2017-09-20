@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M02_Objective_Zone.h"
 
+/*
+M02 -> 304006 303203 301601 401982 401187 401186 401114 401113 401102 401101 401066 401001 400502 400501 400316 400274 400273 400272 400271 400270 400269 400268 400267 400198 400197 400196 400195 400194 400193 400189 400188 400187 400186 400185 400184 400192 400201 400551 400990 400991 400992 401029 401054 401070 401079 401080 401123 401130 401131 401196 405116 405117 405118 405119 405120 405121 405122
+*/
 void M02_Objective_Zone::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->canSendCustomAndDestroy, sizeof(this->canSendCustomAndDestroy), 1);
@@ -27,7 +30,6 @@ void M02_Objective_Zone::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->starWarnedForLeavingPrematurely, sizeof(this->starWarnedForLeavingPrematurely), 4);
 }
 
-// On level start
 void M02_Objective_Zone::Created(GameObject *obj)
 {
 	this->starWarnedForLeavingPrematurely = false;

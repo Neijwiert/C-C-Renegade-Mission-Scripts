@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M01_AccessDenied_Zone_JDG.h"
 
+/*
+M01 -> 118232 118233 118234 118235 118236 118237
+*/
 void M01_AccessDenied_Zone_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
 	Vector3 pos = Commands->Get_Position(obj);

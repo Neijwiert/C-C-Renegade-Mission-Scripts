@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M01 -> 105828
+*/
 class M01_Objective_Pog_Controller_JDG : public ScriptImpClass
 {
 	public:

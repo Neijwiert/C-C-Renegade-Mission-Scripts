@@ -20,6 +20,9 @@
 
 #include <scripts.h>
 
+/*
+M13 -> 1400146 1400144
+*/
 class MX0_A03_NOD_TURRET : public ScriptImpClass
 {
 	private:

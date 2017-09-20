@@ -19,7 +19,9 @@
 #include "General.h"
 #include "M01_Announce_First_ObjectiveZone_JDG.h"
 
-// On level start
+/*
+M01 -> 116380
+*/
 void M01_Announce_First_ObjectiveZone_JDG::Created(GameObject *obj)
 {
 	int conversationId = Commands->Create_Conversation("M01_Press_F1_Conversation", 100, 1000.0f, true); // Press F1 for the Help Screen

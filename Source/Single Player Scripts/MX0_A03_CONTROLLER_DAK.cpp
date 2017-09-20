@@ -19,6 +19,9 @@
 #include "General.h"
 #include "MX0_A03_CONTROLLER_DAK.h"
 
+/*
+M13 -> 1400041
+*/
 void MX0_A03_CONTROLLER_DAK::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->humveeObjId, sizeof(this->humveeObjId), 1);
@@ -39,7 +42,6 @@ void MX0_A03_CONTROLLER_DAK::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->isStarStillInA03, sizeof(this->isStarStillInA03), 17);
 }
 
-// On level start
 void MX0_A03_CONTROLLER_DAK::Created(GameObject *obj)
 {
 	this->nodLedgeDropCount = 1;

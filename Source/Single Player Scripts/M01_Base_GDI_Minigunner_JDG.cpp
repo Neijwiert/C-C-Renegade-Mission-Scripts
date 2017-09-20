@@ -19,6 +19,9 @@
 #include "General.h"
 #include "M01_Base_GDI_Minigunner_JDG.h"
 
+/*
+M01 -> 116382
+*/
 void M01_Base_GDI_Minigunner_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->itsHavocConversationId, sizeof(this->itsHavocConversationId), 1);
