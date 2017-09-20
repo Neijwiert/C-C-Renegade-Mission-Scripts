@@ -483,6 +483,9 @@
     <ClCompile Include="M00_Nod_Obelisk.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Obelisk_Weapon.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -891,6 +894,9 @@
       <Filter>Header Files\M00</Filter>
     </ClInclude>
     <ClInclude Include="M00_Nod_Obelisk.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Obelisk_Weapon.h">
       <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>

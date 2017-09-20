@@ -107,6 +107,7 @@ M00_HealthMedal_TextMessage
 M00_C130_Explosion
 M00_BUILDING_EXPLODE_NO_DAMAGE_DAK
 M00_ArmorMedal_TextMessage_JDG
+M00_Obelisk_Weapon
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

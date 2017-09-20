@@ -209,6 +209,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Nod_Obelisk.cpp" />
     <ClCompile Include="M00_Nod_Turret.cpp" />
     <ClCompile Include="M00_No_Falling_Damage_DME.cpp" />
+    <ClCompile Include="M00_Obelisk_Weapon.cpp" />
     <ClCompile Include="M00_Play_Sound.cpp" />
     <ClCompile Include="M00_Play_Sound_Object_Bone_DAY.cpp" />
     <ClCompile Include="M00_Powerup_Destroy.cpp" />
@@ -352,6 +353,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Nod_Obelisk.h" />
     <ClInclude Include="M00_Nod_Turret.h" />
     <ClInclude Include="M00_No_Falling_Damage_DME.h" />
+    <ClInclude Include="M00_Obelisk_Weapon.h" />
     <ClInclude Include="M00_Play_Sound.h" />
     <ClInclude Include="M00_Play_Sound_Object_Bone_DAY.h" />
     <ClInclude Include="M00_Powerup_Destroy.h" />
