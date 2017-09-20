@@ -65,7 +65,6 @@ M01_POW_Nod_Minigunner01_JDG
 M01_GDIBaseCommander_EvacController_JDG 
 M01_GDIBaseCommander_Air_Evac_Chopper_JDG 
 M01_QuickSave_Zone_JDG 
-M01_C4_TutorialScript_JDG 
 M01_SniperRifle_01_Target_JDG 
 M01_SniperRifle_01_JDG 
 M01_RealLightTank_TriggerZone_JDG 
