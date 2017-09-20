@@ -113,6 +113,7 @@ M01_SniperRifle_02_JDG
 M01_SniperRifle_02_AirdropZone_JDG
 M01_GDIBase_FirstChinookMinigunnerGuy_JDG
 M01_Nod_Truck_JDG
+M01_Base_Nod_Minigunner_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
