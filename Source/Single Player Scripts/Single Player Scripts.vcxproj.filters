@@ -468,6 +468,9 @@
     <ClCompile Include="M00_No_Falling_Damage_DME.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M00_HealthMedal_TextMessage.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -861,6 +864,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M00_No_Falling_Damage_DME.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_HealthMedal_TextMessage.h">
       <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
