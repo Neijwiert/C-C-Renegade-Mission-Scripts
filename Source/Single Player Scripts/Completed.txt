@@ -100,6 +100,7 @@ M01_Beach_Datadisc_JDG
 M01_ConDropZone_JDG
 M01_Use_Ladder_Zone_JDG
 M01_Base_StartZone_JDG
+M01_Base_GDI_Fodder_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
