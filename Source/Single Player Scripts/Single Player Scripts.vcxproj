@@ -210,6 +210,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Soldier_Powerup_Disable.cpp" />
     <ClCompile Include="M00_Soldier_Powerup_Grant.cpp" />
     <ClCompile Include="M00_Vehicle_Regen_DAK.cpp" />
+    <ClCompile Include="M01_AccessDenied_Zone_JDG.cpp" />
     <ClCompile Include="M01_Announce_First_ObjectiveZone_JDG.cpp" />
     <ClCompile Include="M01_Barn_Truck_JDG.cpp" />
     <ClCompile Include="M01_Base_GDI_Fodder_JDG.cpp" />
@@ -345,6 +346,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Soldier_Powerup_Disable.h" />
     <ClInclude Include="M00_Soldier_Powerup_Grant.h" />
     <ClInclude Include="M00_Vehicle_Regen_DAK.h" />
+    <ClInclude Include="M01_AccessDenied_Zone_JDG.h" />
     <ClInclude Include="M01_Announce_First_ObjectiveZone_JDG.h" />
     <ClInclude Include="M01_Barn_Truck_JDG.h" />
     <ClInclude Include="M01_Base_GDI_Fodder_JDG.h" />

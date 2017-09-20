@@ -68,7 +68,6 @@ M01_GDIBaseCommander_EvacController_JDG
 M01_GDIBaseCommander_Air_Evac_Chopper_JDG 
 M01_QuickSave_Zone_JDG 
 M01_GDIBase_FirstChinookMinigunnerGuy_JDG 
-M01_AccessDenied_Zone_JDG 
 M01_C4_TutorialScript_JDG 
 M01_SniperRifle_02_AirdropZone_JDG 
 M01_SniperRifle_02_JDG 

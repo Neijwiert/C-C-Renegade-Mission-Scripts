@@ -459,6 +459,9 @@
     <ClCompile Include="M01_Base_GDI_Fodder_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_AccessDenied_Zone_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -843,6 +846,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_Base_GDI_Fodder_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_AccessDenied_Zone_JDG.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
