@@ -102,6 +102,7 @@ M01_Use_Ladder_Zone_JDG
 M01_Base_StartZone_JDG
 M01_Base_GDI_Fodder_JDG
 M01_AccessDenied_Zone_JDG
+M00_No_Falling_Damage_DME
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
