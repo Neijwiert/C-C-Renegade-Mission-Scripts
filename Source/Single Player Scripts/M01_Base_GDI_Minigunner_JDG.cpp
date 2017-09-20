@@ -36,7 +36,6 @@ void M01_Base_GDI_Minigunner_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_31, sizeof(this->field_31), 10);
 }
 
-// On level start
 void M01_Base_GDI_Minigunner_JDG::Created(GameObject *obj)
 {
 	this->field_31 = false;
