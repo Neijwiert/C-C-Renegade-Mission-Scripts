@@ -106,6 +106,7 @@ M00_No_Falling_Damage_DME
 M00_HealthMedal_TextMessage
 M00_C130_Explosion
 M00_BUILDING_EXPLODE_NO_DAMAGE_DAK
+M00_ArmorMedal_TextMessage_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

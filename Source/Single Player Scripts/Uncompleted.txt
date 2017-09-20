@@ -280,4 +280,3 @@ M01_Mission_Controller_JDG
 M11_Temple_Hologram_01_JDG
 M00_VisceroidInnate_DAY
 M00_Nod_Obelisk
-M00_ArmorMedal_TextMessage_JDG
