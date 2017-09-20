@@ -244,6 +244,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_GDI_BeachGuy01_JDG.cpp" />
     <ClCompile Include="M01_Nod_Commander_Conversation_Controller_GDI.cpp" />
     <ClCompile Include="M01_Objective_Pog_Controller_JDG.cpp" />
+    <ClCompile Include="M01_SniperRifle_02_JDG.cpp" />
     <ClCompile Include="M01_Use_Ladder_Zone_JDG.cpp" />
     <ClCompile Include="M02_Approach_Vehicle.cpp" />
     <ClCompile Include="M02_Commando_Start.cpp" />
@@ -389,6 +390,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_GDI_BeachGuy01_JDG.h" />
     <ClInclude Include="M01_Nod_Commander_Conversation_Controller_GDI.h" />
     <ClInclude Include="M01_Objective_Pog_Controller_JDG.h" />
+    <ClInclude Include="M01_SniperRifle_02_JDG.h" />
     <ClInclude Include="M01_Use_Ladder_Zone_JDG.h" />
     <ClInclude Include="M02_Approach_Vehicle.h" />
     <ClInclude Include="M02_Commando_Start.h" />
