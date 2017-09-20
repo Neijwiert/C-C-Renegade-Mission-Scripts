@@ -116,6 +116,7 @@ M01_Nod_Truck_JDG
 M01_Base_Nod_Minigunner_JDG
 M01_C4_TutorialScript_JDG
 M01_SniperRifle_01_JDG
+M01_SniperRifle_01_Target_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
