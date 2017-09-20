@@ -1,0 +1,782 @@
+name Vehicle_Blocker.200205 id 200205 defintion id 81960024
+name Vehicle_Blocker.200204 id 200204 defintion id 81960024
+name Vehicle_Blocker.200203 id 200203 defintion id 81960024
+name Vehicle_Blocker.200202 id 200202 defintion id 81960024
+name Vehicle_Blocker.200201 id 200201 defintion id 81960024
+name Vehicle_Blocker.200200 id 200200 defintion id 81960024
+name Vehicle_Blocker.200199 id 200199 defintion id 81960024
+name Vehicle_Blocker.200198 id 200198 defintion id 81960024
+name Scamble the radar zone.101150 id 101150 defintion id 519
+	M01_Scramble_Radar_Zone 0,
+name Daves Arrow.125857 id 125857 defintion id 81960001
+	M01_Duncan_InHere_ConvController_JDG 0,
+name Script_Zone_Star.103343 id 103343 defintion id 519
+	M01_BarnArea_NOD_Commander_Trigger_Zone02_JDG 0,
+name Script_Zone_Star.124671 id 124671 defintion id 519
+	M01_TurnOff_TankReminder_Zone_JDG 0,
+name Script_Zone_Star.124670 id 124670 defintion id 519
+	M01_TurnOff_TankReminder_Zone_JDG 0,
+name Script_Zone_Star.124669 id 124669 defintion id 519
+	M01_TurnOff_TankReminder_Zone_JDG 0,
+name Script_Zone_Star.124260 id 124260 defintion id 519
+	M01_GiveMCTSpeech_Zone_JDG 0,
+name Script_Zone_Star.123847 id 123847 defintion id 519
+	M01_Havoc_Out_WarroomZone_JDG 0,
+name Script_Zone_Star.123846 id 123846 defintion id 519
+	M01_Havoc_In_WarroomZone_JDG 0,
+name Script_Zone_Star.122848 id 122848 defintion id 519
+	M01_MediumTank_ReminderZone_JDG 0,
+name POW_SniperRifle_Player.122042 id 122042 defintion id 81950013
+	M01_SniperRifle_02_JDG 0,
+name Nod_Minigunner_1Off.122041 id 122041 defintion id 81930142
+	M01_HON_Commander_Guy 0,
+name Nod_Light_Tank.120022 id 120022 defintion id 82080027
+	M01_GDIBase_RealLightTank_JDG 0,
+name Daves Arrow.121630 id 121630 defintion id 81960001
+	M01_TurretBeach_FodderHovercraft_Controller_JDG 0,
+name GDI Base POW Conv Controller.121237 id 121237 defintion id 81960001
+	M01_GDIBase_POW_Conversation_Controller_JDG 0,
+name Nod_Truck_Dec.117420 id 117420 defintion id 82080036
+	M01_Nod_Truck_JDG 0,
+name Nod_Truck_Dec.116391 id 116391 defintion id 82080036
+	M01_Nod_Truck_JDG 0,
+name Nod_Truck_Dec.116390 id 116390 defintion id 82080036
+	M01_Nod_Truck_JDG 0,
+name Nod_Truck_Dec.103013 id 103013 defintion id 82080036
+	M01_Nod_Truck_JDG 0,
+name Script_Zone_Star.1200204 id 1200204 defintion id 519
+	M01_Use_Ladder_Zone_JDG 0,
+name Script_Zone_Star.1200203 id 1200203 defintion id 519
+	M01_Use_Ladder_Zone_JDG 0,
+name Script_Zone_Star.1200202 id 1200202 defintion id 519
+	M01_Use_Ladder_Zone_JDG 0,
+name Script_Zone_Star.1200201 id 1200201 defintion id 519
+	M01_Use_Ladder_Zone_JDG 0,
+name Script_Zone_Star.1200200 id 1200200 defintion id 519
+	M01_Use_Ladder_Zone_JDG 0,
+name Script_Zone_Star.1200199 id 1200199 defintion id 519
+	M01_Use_Ladder_Zone_JDG 0,
+name Script_Zone_Star.1200198 id 1200198 defintion id 519
+	M01_Use_Ladder_Zone_JDG 0,
+name Script_Zone_Star.1200197 id 1200197 defintion id 519
+	M01_Use_Ladder_Zone_JDG 0,
+name POW_MineRemote_Player.1200196 id 1200196 defintion id 81950031
+	M01_C4_TutorialScript_JDG 0,
+name Script_Zone_Star.119825 id 119825 defintion id 519
+	M01_ConDropZone_JDG 0,
+name Script_Zone_Star.119028 id 119028 defintion id 519
+name Script_Zone_Star.117834 id 117834 defintion id 519
+	M01_Use_Ladder_Zone_JDG 0,
+name Script_Zone_Star.117637 id 117637 defintion id 519
+	M01_Use_Ladder_Zone_JDG 0,
+name POW_SniperRifle_Player.117636 id 117636 defintion id 81950013
+	M01_SniperRifle_01_JDG 0,
+name POW_AutoRifle_Player.117623 id 117623 defintion id 81950083
+	M01_First_AutoRifle_JDG 0,
+name POW_MineRemote_Player.117622 id 117622 defintion id 81950031
+name POW_MineRemote_Player.117621 id 117621 defintion id 81950031
+	M01_C4_TutorialScript_JDG 0,
+name POW_AutoRifle_Player.117619 id 117619 defintion id 81950083
+	M01_First_AutoRifle_JDG 0,
+name POW_MineRemote_Player.117618 id 117618 defintion id 81950031
+name POW_MineRemote_Player.117617 id 117617 defintion id 81950031
+	M01_C4_TutorialScript_JDG 0,
+name POW_MineRemote_Player.117203 id 117203 defintion id 81950031
+name DataDisc Text Controller.117188 id 117188 defintion id 81960001
+	M01_DataDisc_TextController_JDG 0,
+name Nod_Minigunner_0.116388 id 116388 defintion id 81930140
+	M01_POW_Nod_Minigunner01_JDG 0,
+name Nod_Minigunner_0.116387 id 116387 defintion id 81930140
+	M01_POW_Nod_Minigunner01_JDG 0,
+name GDI_Prisoner_v1a.116386 id 116386 defintion id 81930163
+	M01_Base_POW01_JDG 0,
+name GDI_Prisoner_v0a.116385 id 116385 defintion id 81930162
+	M01_Base_POW02_JDG 0,
+name Nod_Minigunner_0.116384 id 116384 defintion id 81930140
+	M01_Base_Nod_Minigunner_JDG 0,
+name GDI_Grenadier_0.116383 id 116383 defintion id 81930126
+	M01_Base_GDI_Grenadier_JDG 0,
+name GDI_MiniGunner_0.116382 id 116382 defintion id 81930128
+	M01_Base_GDI_Minigunner_JDG 0,
+name Script_Zone_Star.116381 id 116381 defintion id 519
+	M01_Use_Ladder_Zone_JDG 0,
+name Script_Zone_Star.116380 id 116380 defintion id 519
+	M01_Announce_First_ObjectiveZone_JDG 0,
+name Script_Zone_Star.115985 id 115985 defintion id 519
+	M01_Commander_Shack_Zone_JDG 0,
+name POW_Flamethrower_Player.114564 id 114564 defintion id 81950056
+name POW_Flamethrower_Player.114563 id 114563 defintion id 81950056
+name POW_Flamethrower_Player.114562 id 114562 defintion id 81950056
+name POW_MineRemote_Player.114555 id 114555 defintion id 81950031
+name POW_MineRemote_Player.114554 id 114554 defintion id 81950031
+name POW_MineRemote_Player.114553 id 114553 defintion id 81950031
+name POW_SniperRifle_Player.114552 id 114552 defintion id 81950013
+name POW_SniperRifle_Player.114551 id 114551 defintion id 81950013
+name POW_SniperRifle_Player.114550 id 114550 defintion id 81950013
+name Script_Zone_Star.113734 id 113734 defintion id 519
+	M01_Barn_EntryZone_JDG 0,
+name turret controller.113325 id 113325 defintion id 81960001
+	M01_GunboatAction_Controller_JDG 0,
+name Script_Zone_Star.113324 id 113324 defintion id 519
+	M01_PlayerEntering_BarnArea_Zone_JDG 0,
+name Script_Zone_Star.113323 id 113323 defintion id 519
+	M01_PlayerLeaving_BarnArea_Zone_JDG 0,
+name Script_Zone_Star.113322 id 113322 defintion id 519
+	M01_PlayerLeaving_BarnArea_Zone_JDG 0,
+name Script_Zone_Star.113321 id 113321 defintion id 519
+	M01_PlayerEntering_BarnArea_Zone_JDG 0,
+name Nod_Turret_Dec.101434 id 101434 defintion id 82080041
+	M01_TurretBeach_Turret_01_Script_JDG 0,
+name Nod_Turret_Dec.101435 id 101435 defintion id 82080041
+	M01_TurretBeach_Turret_01_Script_JDG 0,
+name POW_Flamethrower_Player.109862 id 109862 defintion id 81950056
+name POW_Flamethrower_Player.109861 id 109861 defintion id 81950056
+name POW_Flamethrower_Player.109860 id 109860 defintion id 81950056
+name POW_Flamethrower_Player.109859 id 109859 defintion id 81950056
+name POW_SniperRifle_Player.109858 id 109858 defintion id 81950013
+	M01_SniperRifle_02_JDG 0,
+name Script_Zone_Star.109140 id 109140 defintion id 519
+	M01_Comm_Center_Interior_Zone 0,
+name Script_Zone_Star.108922 id 108922 defintion id 519
+	M01_TibCave_StartZone_JDG 0,
+name M01_CommCenter_MainFrame_PokeObject.107809 id 107809 defintion id 81960152
+	M01_Comm_Center_Player_Terminal_Zone 0,
+name POW_MineRemote_Player.105177 id 105177 defintion id 81950031
+name POW_MineRemote_Player.105176 id 105176 defintion id 81950031
+name POW_SniperRifle_Player.105175 id 105175 defintion id 81950013
+name POW_AutoRifle_Player.105172 id 105172 defintion id 81950083
+name POW_AutoRifle_Player.105171 id 105171 defintion id 81950083
+name POW_AutoRifle_Player.105170 id 105170 defintion id 81950083
+name POW_AutoRifle_Player.105169 id 105169 defintion id 81950083
+name POW_AutoRifle_Player.105168 id 105168 defintion id 81950083
+name POW_MineRemote_Player.105167 id 105167 defintion id 81950031
+name POW_AutoRifle_Player.105166 id 105166 defintion id 81950083
+name POW_AutoRifle_Player.105165 id 105165 defintion id 81950083
+name POW_AutoRifle_Player.105164 id 105164 defintion id 81950083
+name POW_MineRemote_Player.105162 id 105162 defintion id 81950031
+name POW_MineRemote_Player.105155 id 105155 defintion id 81950031
+name POW_MineRemote_Player.105154 id 105154 defintion id 81950031
+name POW_MineRemote_Player.105153 id 105153 defintion id 81950031
+name POW_MineRemote_Player.105152 id 105152 defintion id 81950031
+name Nod_Minigunner_0.103272 id 103272 defintion id 81930140
+	M01_TibField_Guard03_New_JDG 0,
+name Nod_Minigunner_0.103270 id 103270 defintion id 81930140
+	M01_TibField_Guard01_New_JDG 0,
+name Nod_Minigunner_0.103271 id 103271 defintion id 81930140
+	M01_TibField_Guard02_New_JDG 0,
+name Simple_MovieProjector.103942 id 103942 defintion id 81960138
+	M01_MovieProjector_JDG 0,
+name Nod Commander Dialog Controller.103398 id 103398 defintion id 81960001
+	M01_Nod_Commander_Conversation_Controller_GDI 0,
+name Escort dialog controller.103396 id 103396 defintion id 81960001
+	M01_GDI_Escort_Conversation_Controller_GDI 0,
+name Script_Zone_Star.103395 id 103395 defintion id 519
+	M01_Priest_Conversation_Zone_JDG 0,
+name Church evac controller.103394 id 103394 defintion id 81960001
+	M01_Church_EvacController_JDG 0,
+name Generic_Switch.101117 id 101117 defintion id 81960072
+	M01_Comm_Center_Pen_Gate 0,
+name Script_Zone_All.103378 id 103378 defintion id 82060002
+	M01_HON_Escorts_Warroom_MCT_ZoneController_JDG 0,
+name Nod_MiniGunner_0.103375 id 103375 defintion id 81930140
+	M01_HON_Escorts_Warroom_MCT_Protector02_JDG 0,
+name Nod_MiniGunner_0.103374 id 103374 defintion id 81930140
+	M01_HON_Escorts_Warroom_MCT_Protector01_JDG 0,
+name Nod_MiniGunner_1Off.103373 id 103373 defintion id 81930142
+	M00_Soldier_Powerup_Disable 0,
+	M01_HON_Escorts_Warroom_MCT_Commander_JDG 0,
+name Buggy Controller.103367 id 103367 defintion id 81960001
+	M01_BuggyNew_Controller_JDG 0,
+name Nod_MiniGunner_0.103335 id 103335 defintion id 81930140
+	M01_BackPath_NodGuy_JDG 0,
+	M01_Duncan_Assailer_JDG 0,
+name GDI Base Pow Controller.103331 id 103331 defintion id 81960001
+	M01_GDIBase_POWEncounter02_Controller_JDG 0,
+name Nod_MiniGunner_0.103287 id 103287 defintion id 81930140
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_MiniGunner_0.103286 id 103286 defintion id 81930140
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_Technician_0.103279 id 103279 defintion id 81930169
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_Technician_0.103278 id 103278 defintion id 81930169
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_Technician_0.103277 id 103277 defintion id 81930169
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_MiniGunner_0.103276 id 103276 defintion id 81930140
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_MiniGunner_0.103274 id 103274 defintion id 81930140
+	M01_TiberiumCave_UpThere_NodGuy_JDG 0,
+name Nod_MiniGunner_0.103273 id 103273 defintion id 81930140
+name Waterfall Exterior Zone 02.100393 id 100393 defintion id 519
+	M01_Waterfall_Exterior_Zone 0,
+name GDI_HummVee_Destroyed_Simple.103235 id 103235 defintion id 81960107
+name Nod_FlameThrower_1Off.103101 id 103101 defintion id 81930136
+name Propaganda sound controller.103099 id 103099 defintion id 81960001
+	M01_Propaganda_Sounds_Controller_JDG 0,
+name Script_Zone_All.102500 id 102500 defintion id 82060002
+	M01_Gunboat_Spawn_Hovercraft_Zone_JDG 0,
+name Nod_Light_Tank.102435 id 102435 defintion id 82080027
+	M01_GDIBase_LightTank_JDG 0,
+name Health 100 PowerUp.102368 id 102368 defintion id 1663
+name Armor 100 PowerUp.102367 id 102367 defintion id 3669
+name Armor 100 PowerUp.102366 id 102366 defintion id 3669
+name Health 100 PowerUp.102365 id 102365 defintion id 1663
+name Cue HON escort Zone.102352 id 102352 defintion id 519
+	M01_Cue_HON_Escorts_Zone_JDG 0,
+name Turn on Hand of Nod zone.102351 id 102351 defintion id 519
+	M01_Turn_on_the_Hand_of_Nod_Zone_JDG 0,
+name GDI Base Artillery ControllerM01.102294 id 102294 defintion id 81960001
+	M01_GDI_Base_Artillery_Controller_JDG 0,
+name Nod_MiniGunner_0.102185 id 102185 defintion id 81930140
+	M01_Duncan_Assailer_JDG 0,
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Dojo sensei.102051 id 102051 defintion id 81930142
+	M00_Soldier_Powerup_Disable 0,
+	M01_HON_Commander_Guy 0,
+	M01_HON_Dojo_Trainer_JDG 0,
+name Dojo civ 03.102050 id 102050 defintion id 81930191
+	M01_HON_Dojo_Civ_01_JDG 0,
+name Dojo civ 02.102049 id 102049 defintion id 81930190
+	M01_HON_Dojo_Civ_01_JDG 0,
+name Dojo civ 01.102048 id 102048 defintion id 81930189
+	M01_HON_Dojo_Civ_01_JDG 0,
+name Hand of nod Repair engineer.101948 id 101948 defintion id 81930137
+	M01_HON_Engineer02_JDG 0,
+name Nod_MiniGunner_0.101939 id 101939 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name GDI_Prisoner_v2a.101928 id 101928 defintion id 81930164
+	M01_DetentionPen_GDIDeathMonitor 0,
+	M01_PrisonPen_POW_JDG 0,
+name GDI_Prisoner_v1a.101927 id 101927 defintion id 81930163
+	M01_DetentionPen_GDIDeathMonitor 0,
+	M01_PrisonPen_POW_JDG 0,
+name GDI_Prisoner_v0a.101926 id 101926 defintion id 81930162
+	M01_DetentionPen_GDIDeathMonitor 0,
+	M01_PrisonPen_POW_JDG 0,
+name Flyover NodBase WestEast Controller.101796 id 101796 defintion id 81960001
+	M01_FP_NodBase_WestEast_Contoller_JDG 0,
+name Flyover NodBase EastWest Controller.101795 id 101795 defintion id 81960001
+	M01_FP_NodBase_EastWest_Contoller_JDG 0,
+name Flyover NodBase SouthNorth Controller.101794 id 101794 defintion id 81960001
+	M01_FP_NodBase_SouthNorth_Contoller_JDG 0,
+name Flyover NodBase NorthSouth Controller.101793 id 101793 defintion id 81960001
+	M01_FP_NodBase_NorthSouth_Contoller_JDG 0,
+name Flyovers BaseToBase SouthNorth Controller.101790 id 101790 defintion id 81960001
+	M01_FP_BaseToBase_SouthNorth_Contoller_JDG 0,
+name Flyover BaseToBase NorthSouth Controller.101789 id 101789 defintion id 81960001
+	M01_FP_BaseToBase_NorthSouth_Contoller_JDG 0,
+name Flyover GDI Ocean NorthSouth Controller.101791 id 101791 defintion id 81960001
+	M01_FP_GDIOcean_NorthSouth_Contoller_JDG 0,
+name Flyover GDI Ocean SouthNorth Controller.101792 id 101792 defintion id 81960001
+	M01_FP_GDIOcean_SouthNorth_Contoller_JDG 0,
+name Flyover NodBase Dogfight Controller.101797 id 101797 defintion id 81960001
+	M01_FP_NodBase_Dogfight_Contoller_JDG 0,
+name SAM_Site_Quick_Turn.100031 id 100031 defintion id 82080057
+	M01_HandOfNod_SAMSite_Script 0,
+	M03_SAM_Site_Logic 0,
+name SAM_Site_Quick_Turn.100034 id 100034 defintion id 82080057
+	M01_CommCenter_SAMSite_Script 0,
+	M03_SAM_Site_Logic 0,
+name Player entering tailgun alley zone.101718 id 101718 defintion id 519
+	M01_Player_Is_Entering_Tailgun_Alley_Backway_JDG 0,
+name Nod_Minigunner_0_Def.101686 id 101686 defintion id 81930183
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_Minigunner_0_Def.101685 id 101685 defintion id 81930183
+	M01_MiniGunner_Point_Guard_JDG 0,
+name M01_GDI_Gunboat.101477 id 101477 defintion id 82080050
+	M01_Initial_Gunboat_Script_JDG 0,
+name Barn Point guard 01.101439 id 101439 defintion id 81930140
+	M01_Barn_Point_Guard_01_JDG 0,
+name Nod_MiniGunner_0.101399 id 101399 defintion id 81930140
+	M01_BackPath_NodGuy_JDG 0,
+	M01_Duncan_Assailer_JDG 0,
+name Interior Nun Conversation Zone.101370 id 101370 defintion id 519
+	M01_Interior_Nun_Conversation_Zone_JDG 0,
+name HON Interogation Surprise Guy.101357 id 101357 defintion id 81930142
+	M01_Interrogation_Room_Surprise_Guy_JDG 0,
+name Right interrogation room zone.101355 id 101355 defintion id 519
+	M01_Right_Interrogation_Room_Enter_Zone_JDG 0,
+name Left interrogation room zone.101354 id 101354 defintion id 519
+	M01_Left_Interrogation_Room_Enter_Zone_JDG 0,
+name Church Interior Priest.101315 id 101315 defintion id 81930175
+	M01_Church_Priest_JDG 0,
+name Church Interior Nun.101314 id 101314 defintion id 81930176
+	M01_Church_Interior_Nun_JDG 0,
+name Church Interior Guard.101313 id 101313 defintion id 81930140
+	M01_Church_Guard_MiniGunner_JDG 0,
+name Church Balcony MiniGunner.101312 id 101312 defintion id 81930140
+	M01_Church_Balcony_MiniGunner_JDG 0,
+name Church Exterior Guard.101311 id 101311 defintion id 81930140
+	M01_Church_Exterior_MiniGunner_JDG 0,
+name Loveshack Nun.101310 id 101310 defintion id 81930176
+	M01_Church_LoveShack_Nun_JDG 0,
+name Loveshack Minigunner.101305 id 101305 defintion id 81930142
+	M00_Soldier_Powerup_Disable 0,
+	M01_Church_LoveShack_MiniGunner_JDG 0,
+name HON Dormroom Crapper.101301 id 101301 defintion id 81930142
+	M01_HON_Dorm_Crapper_JDG 0,
+name HON Dormroom Flame Guy.101299 id 101299 defintion id 81930138
+	M01_HON_Dorm_FlameGuy_JDG 0,
+name HON Dormroom Rocket Guy.101297 id 101297 defintion id 81930140
+	M01_HON_Dorm_RocketGuy_JDG 0,
+name HON Dormroom Minigunner.101296 id 101296 defintion id 81930140
+	M01_HON_Dorm_MiniGunner_JDG 0,
+name HON Cafeteria Walking Guy.101294 id 101294 defintion id 81930140
+	M01_HON_Cafeteria_Walking_Guy_JDG 0,
+name HON Cafeteria Eating Dude.101293 id 101293 defintion id 81930140
+	M01_HON_Cafeteria_Eating_Guy_JDG 0,
+name HON Window Zone.101291 id 101291 defintion id 519
+	M01_Hand_Of_Nod_Exterior_Zone 0,
+name HON Window Zone.101290 id 101290 defintion id 519
+	M01_Hand_Of_Nod_Exterior_Zone 0,
+name HON Window Zone.101289 id 101289 defintion id 519
+	M01_Hand_Of_Nod_Exterior_Zone 0,
+name HON Window Zone.101288 id 101288 defintion id 519
+	M01_Hand_Of_Nod_Exterior_Zone 0,
+name HON Window Zone.101287 id 101287 defintion id 519
+	M01_Hand_Of_Nod_Exterior_Zone 0,
+name HON Window Zone.101286 id 101286 defintion id 519
+	M01_Hand_Of_Nod_Exterior_Zone 0,
+name HON Window Zone.101285 id 101285 defintion id 519
+	M01_Hand_Of_Nod_Exterior_Zone 0,
+name Comm Center Enter Zone Skylight.101284 id 101284 defintion id 519
+	M01_Comm_Center_Interior_Zone 0,
+name whack a mole enter zone.101209 id 101209 defintion id 519
+	M01_Whack_A_Mole_Enter_Zone_JDG 0,
+name Whack a mole exit zone.101207 id 101207 defintion id 519
+	M01_Whack_A_Mole_Exit_Zone_JDG 0,
+name Nod_MiniGunner_0.101175 id 101175 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.101173 id 101173 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Comm computerroom tech.101172 id 101172 defintion id 81930169
+	M01_Comm_ComputerRoom_Tech_JDG 0,
+name Comm warroom tech 02.101171 id 101171 defintion id 81930169
+	M01_Comm_Stationary_Tech_JDG 0,
+name Comm warroom tech 01.101170 id 101170 defintion id 81930169
+	M01_Comm_Stationary_Tech_JDG 0,
+name Comm upstairs stationary tech.101168 id 101168 defintion id 81930169
+	M01_Comm_Stationary_Tech_JDG 0,
+name Nod_FlameThrower_0.101167 id 101167 defintion id 81930138
+name Nod_FlameThrower_0.101166 id 101166 defintion id 81930138
+name Nod_MiniGunner_0.101165 id 101165 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.101164 id 101164 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.101163 id 101163 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.101162 id 101162 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Unscramble the radar zone.101151 id 101151 defintion id 519
+	M01_UnScramble_Radar_Zone 0,
+name Exititng the HON via Medlab.101032 id 101032 defintion id 519
+	M01_Hand_Of_Nod_Exterior_Zone 0,
+name Announce HON Objective Zone.100978 id 100978 defintion id 519
+	M01_Announce_Hand_of_Nod_Zone 0,
+name Spawn Helicopter Zone--Tib Cave.100955 id 100955 defintion id 519
+	M01_Tiberium_Cave_Spawn_Helicopter_Zone_JDG 0,
+name Tib Cave's Crossing Bridge Zone.100934 id 100934 defintion id 519
+	M01_Player_Is_Crossing_Bridge_Via_Cave_Zone 0,
+name Player is crossing the bridge zone.100922 id 100922 defintion id 519
+	M01_Player_Is_Crossing_Bridge_Zone 0,
+name Entering HON Workout Level Zone 01.100703 id 100703 defintion id 519
+	M01_Hand_Of_Nod_Dojo_Zone 0,
+name Entering HON Grunt Level Zone 02.100702 id 100702 defintion id 519
+	M01_Hand_Of_Nod_Grunt_Zone 0,
+name Ambient Sound Controller.100253 id 100253 defintion id 81960001
+	M01_Ambient_Sound_Controller_JDG 0,
+name M01 Mission Controller.100376 id 100376 defintion id 81960001
+	M01_Mission_Controller_JDG 0,
+name Comm Center Exterior Zone 03.100389 id 100389 defintion id 519
+	M01_Comm_Center_Exterior_Zone 0,
+name Comm Center Interior Zone 02.100388 id 100388 defintion id 519
+	M01_Comm_Center_Interior_Zone 0,
+name Comm Center Exterior Zone 02.100387 id 100387 defintion id 519
+	M01_Comm_Center_Exterior_Zone 0,
+name Comm Center Interior Zone 01.100386 id 100386 defintion id 519
+	M01_Comm_Center_Interior_Zone 0,
+name Comm Center Exterior Zone 01.100385 id 100385 defintion id 519
+	M01_Comm_Center_Exterior_Zone 0,
+name Inside Hand of Nod Zone 02.100380 id 100380 defintion id 519
+	M01_Hand_Of_Nod_Interior_Zone 0,
+name Outside Hand of Nod Zone 02.100379 id 100379 defintion id 519
+	M01_Hand_Of_Nod_Exterior_Zone 0,
+name Inside Hand of Nod Zone 01.100378 id 100378 defintion id 519
+	M01_Hand_Of_Nod_Interior_Zone 0,
+name Outside Hand Of Nod Zone 01.100377 id 100377 defintion id 519
+	M01_Hand_Of_Nod_Exterior_Zone 0,
+name Waterfall Exterior Zone 01.100391 id 100391 defintion id 519
+	M01_Waterfall_Exterior_Zone 0,
+name Waterfall Interior Zone 02.100394 id 100394 defintion id 519
+	M01_Waterfall_Interior_Zone 0,
+name Tunnel Interior Zone 01.100395 id 100395 defintion id 519
+	M01_Tunnel_Interior_Zone 0,
+name Tunnel Exterior Zone 01.100396 id 100396 defintion id 519
+	M01_Tunnel_Exterior_Zone 0,
+name Tunnel Exterior Zone 02.100397 id 100397 defintion id 519
+	M01_Tunnel_Exterior_Zone 0,
+name Tunnel Interior Zone 02.100398 id 100398 defintion id 519
+	M01_Tunnel_Interior_Zone 0,
+name Havoc is leaving Sniper Scenario Zone.100585 id 100585 defintion id 519
+	M01_Comm_Center_Exterior_Zone 0,
+name Hand of Nod--Entering Grunt Level Zone.100688 id 100688 defintion id 519
+	M01_Hand_Of_Nod_Grunt_Zone 0,
+name Entering Church Area Zone 01.100801 id 100801 defintion id 519
+	M01_Entering_Church_Area_Zone 0,
+name Entering Church Area Zone 02.100802 id 100802 defintion id 519
+	M01_Entering_Church_Area_Zone 0,
+name Entering Church Area Zone 03.100803 id 100803 defintion id 519
+	M01_Entering_Church_Area_Zone 0,
+name Lose Church Escorts Zone 01.100882 id 100882 defintion id 519
+	M01_Lose_Any_Church_Escorts_Zone 0,
+name Lose Church Escorts Zone 02.100883 id 100883 defintion id 519
+	M01_Lose_Any_Church_Escorts_Zone_02 0,
+name Lose HON Escorts Zone 01.100888 id 100888 defintion id 519
+	M01_Lose_Any_HON_Escorts_Zone 0,
+name Lose HON Escort Zone 02.100889 id 100889 defintion id 519
+	M01_Lose_Any_HON_Escorts_Zone_02 0,
+name Nod_MiniGunner_0.100893 id 100893 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.100894 id 100894 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.100896 id 100896 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.100898 id 100898 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.100899 id 100899 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name SP_Hand_Of_Nod_Nod.153909 id 153909 defintion id 491530002
+	M01_Hand_of_Nod_Building_Script_JDG 0,
+name SP_Comm_Center_Nod.153910 id 153910 defintion id 491530001
+	M01_Comm_Center_Building_Script_JDG 0,
+name Crossing bridge via church zone.100972 id 100972 defintion id 519
+	M01_Player_Is_Crossing_Bridge_Via_Church_Zone 0,
+name Entering HON via the Medlab.101068 id 101068 defintion id 519
+	M01_Hand_Of_Nod_Interior_Zone 0,
+name Entering HON SleepQuarters Zone 02.101069 id 101069 defintion id 519
+	M01_Hand_Of_Nod_Grunt_Zone 0,
+name Nod_MiniGunner_0.101121 id 101121 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.101122 id 101122 defintion id 81930140
+name Nod_MiniGunner_0.101123 id 101123 defintion id 81930140
+name Nod_MiniGunner_0.101125 id 101125 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.101126 id 101126 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Announce Prsioners Zone.101153 id 101153 defintion id 519
+	M01_Announce_Prisoner_Objective_Zone 0,
+name Nod_MiniGunner_0.101321 id 101321 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.101336 id 101336 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.101337 id 101337 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name SP_Con_Yard_GDI.157976 id 157976 defintion id 491530005
+	M01_GDI_ConYard_Building_Script_JDG 0,
+name SP_Power_Plant_GDI.157977 id 157977 defintion id 491530006
+	M01_GDI_PowerPlant_Building_Script_JDG 0,
+name Entering Barn Area Zone.101465 id 101465 defintion id 519
+	M01_Player_is_Leaving_GDI_Base_Zone 0,
+	M01_PlayerEntering_BarnArea_Zone_JDG 0,
+name Player is Heading Back to GDI Base Zone.101466 id 101466 defintion id 519
+	M01_Player_is_Entering_GDI_Base_Zone 0,
+	M01_PlayerLeaving_BarnArea_Zone_JDG 0,
+name Barn Door Guard.101512 id 101512 defintion id 81930140
+	M01_Barn_Door_Guard_JDG 0,
+name Turret Beach Engineer.101654 id 101654 defintion id 81930137
+	M01_TurretBeach_Engineer_JDG 0,
+name Babushka talk zone.101662 id 101662 defintion id 519
+	M01_Barn_Babushkas_Conversation_Zone_JDG 0,
+name tunnel tank zone.101679 id 101679 defintion id 82060002
+	M01_Tank_Entering_Tunnel_Zone_JDG 0,
+name Player is entering tailgun alley zone 01.101692 id 101692 defintion id 519
+	M01_Player_Is_Entering_Tailgun_Alley_JDG 0,
+name Civ_Female_v0a.101929 id 101929 defintion id 81930189
+	M01_DetentionPen_CivDeathMonitor 0,
+	M01_PrisonPen_Civilian_JDG 0,
+name Barn female prisoner.101442 id 101442 defintion id 81930189
+	M01_Barn_Prisoner_01_JDG 0,
+name Billy.101444 id 101444 defintion id 81930191
+	M01_Barn_Prisoner_02_JDG 0,
+name Barn Male prisoner--pierre.101443 id 101443 defintion id 81930190
+	M01_Barn_Prisoner_03_JDG 0,
+name Comm upstairs guard.101946 id 101946 defintion id 81930140
+	M01_Comm_Upstairs_Guard_JDG 0,
+name Start base commander conversation.101947 id 101947 defintion id 519
+	M01_Comm_Base_Commander_Conv_Start_Zone_JDG 0,
+name Comm repair engineer.101949 id 101949 defintion id 81930137
+	M01_Comm_Repair_Engineer_JDG 0,
+name Paintball team 01 minigunner.101999 id 101999 defintion id 81930140
+	M01_HON_Paintball_Team_01_JDG 0,
+name Paintball team 01 guy 02.102000 id 102000 defintion id 81930140
+	M01_HON_Paintball_Team_01_JDG 0,
+name Health 100 PowerUp.102273 id 102273 defintion id 1663
+name Health 100 PowerUp.102274 id 102274 defintion id 1663
+name Armor 100 PowerUp.102275 id 102275 defintion id 3669
+name Armor 050 PowerUp.102276 id 102276 defintion id 3666
+name Health 050 PowerUp.102277 id 102277 defintion id 1667
+name Armor 100 PowerUp.102278 id 102278 defintion id 3669
+name GDIBASE spawner controler.102335 id 102335 defintion id 81960001
+	M01_GDI_Base_Spawner_Controller_JDG 0,
+name TailgunRun Spawner Controller.102346 id 102346 defintion id 81960001
+	M01_Tailgun_Run_Spawner_Controller_JDG 0,
+name Church area spawner controller.102350 id 102350 defintion id 81960001
+	M01_ChurchArea_Spawner_Controller_JDG 0,
+name Nod_MiniGunner_1Off.102360 id 102360 defintion id 81930142
+	M00_Soldier_Powerup_Disable 0,
+	M01_GDI_GuardTower_NOD_Commander_JDG 0,
+name Nod_MiniGunner_1Off.102357 id 102357 defintion id 81930142
+	M00_Soldier_Powerup_Disable 0,
+	M01_ChurchArea_NOD_Commander_JDG 0,
+	M01_HON_Commander_Guy 0,
+name Nod_MiniGunner_1Off.102358 id 102358 defintion id 81930142
+	M00_Soldier_Powerup_Disable 0,
+	M01_HON_Commander_Guy 0,
+	M01_TailgunRun_NOD_Commander_JDG 0,
+name Billly talk zone.101661 id 101661 defintion id 519
+	M01_Billys_Conversation_Zone_JDG 0,
+name Script_Zone_Star.123645 id 123645 defintion id 519
+	M01_GuardTower02_Sniper_TowerZone_JDG 0,
+name Nod guard tower 01 enter zone.102998 id 102998 defintion id 519
+	M01_Nod_GuardTower_01_Enter_Zone_JDG 0,
+name Nod guard tower 3 enter zone.103006 id 103006 defintion id 519
+	M01_Nod_GuardTower_03_Enter_Zone_JDG 0,
+name Detention GuardTower Enter Zone.103009 id 103009 defintion id 519
+	M01_Detention_GuardTower_Enter_Zone_JDG 0,
+name Armor 100 PowerUp.103018 id 103018 defintion id 3669
+name Health 100 PowerUp.103019 id 103019 defintion id 1663
+name M01_Kane_Hologram_Projector.157978 id 157978 defintion id 81960071
+	M11_Temple_Hologram_01_JDG 0,
+name Waterfall Interior Zone 01.100392 id 100392 defintion id 519
+	M01_Waterfall_Interior_Zone 0,
+name Nod_MiniGunner_0.103318 id 103318 defintion id 81930140
+	M01_Barn_Talk_Guard_01_JDG 0,
+name Nod_MiniGunner_0.103340 id 103340 defintion id 81930140
+	M01_Duncan_Assailer_JDG 0,
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.103341 id 103341 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Nod_MiniGunner_0.103342 id 103342 defintion id 81930140
+	M01_MiniGunner_Point_Guard_JDG 0,
+name Loveshack Nun Conversation Zone.101368 id 101368 defintion id 519
+	M01_Loveshack_Nun_Conversation_Zone_JDG 0,
+name Script_Zone_Star.103392 id 103392 defintion id 519
+	M01_Church_Loveshack_InterrogationConv_Zone_JDG 0,
+name GDI Base evac controller.103419 id 103419 defintion id 81960001
+	M01_GDIBase_EvacMonitor_JDG 0,
+name Barn area evac controller.103420 id 103420 defintion id 81960001
+	M01_BarnArea_EvacMonitor_JDG 0,
+name Church area evac controller.103421 id 103421 defintion id 81960001
+	M01_ChurchArea_EvacMonitor_JDG 0,
+name POW_Armor_100.103424 id 103424 defintion id 3669
+name POW_Health_100.103425 id 103425 defintion id 1663
+name POW_SniperRifle_Player.103426 id 103426 defintion id 81950013
+name POW_Armor_100.103434 id 103434 defintion id 3669
+name POW_Health_100.103435 id 103435 defintion id 1663
+name POW_AutoRifle_Player.103436 id 103436 defintion id 81950083
+name POW_Flamethrower_Player.103438 id 103438 defintion id 81950056
+name POW_SniperRifle_Player.103439 id 103439 defintion id 81950013
+name Daves Arrow.300299 id 300299 defintion id 81960001
+	M00_Play_Sound SFX.Bird_Crow,1,,,1.00,10.00,
+name Daves Arrow.300298 id 300298 defintion id 81960001
+	M00_Play_Sound SFX.Bird_Crow,1,,,1.00,10.00,
+name Daves Arrow.300301 id 300301 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Goat_02,1,,,3.00,12.00,
+name Daves Arrow.300300 id 300300 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Goat_01,1,,,3.00,12.00,
+name Daves Arrow.300302 id 300302 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Rooster_01,1,,,3.00,7.00,
+name Daves Arrow.300296 id 300296 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Cow_01,1,,,3.00,12.00,
+name Daves Arrow.300295 id 300295 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Foghorn,1,,,-1,,
+name Daves Arrow.300305 id 300305 defintion id 81960001
+	M00_Play_Sound Seagull_03,1,,,3.00,9.00,
+name Daves Arrow.300304 id 300304 defintion id 81960001
+	M00_Play_Sound Seagull_02,1,,,3.00,6.00,
+name Daves Arrow.300303 id 300303 defintion id 81960001
+	M00_Play_Sound Seagull_01,1,,,4.00,7.00,
+name Daves Arrow.300306 id 300306 defintion id 81960001
+	M00_Play_Sound Seagull_03,1,,,3.00,7.00,
+name Daves Arrow.300297 id 300297 defintion id 81960001
+	M00_Play_Sound SFX.Church_Bell,1,,,1.00,10.00,
+name POW_Armor_100.103698 id 103698 defintion id 3669
+name POW_Health_100.103699 id 103699 defintion id 1663
+name POW_Health_100.103700 id 103700 defintion id 1663
+name POW_Armor_100.103701 id 103701 defintion id 3669
+name Nod_FlameThrower_0.101298 id 101298 defintion id 81930138
+	M01_HON_Dorm_ChemGuy_JDG 0,
+name Nod_Minigunner_1Off.102001 id 102001 defintion id 81930142
+	M00_Soldier_Powerup_Disable 0,
+	M01_HON_Commander_Guy 0,
+	M01_HON_Paintball_Team_02_JDG 0,
+name Nod_Minigunner_0.102002 id 102002 defintion id 81930140
+	M01_HON_Paintball_Team_02_JDG 0,
+name Nod_Minigunner_0.102003 id 102003 defintion id 81930140
+	M01_HON_Paintball_Team_02_JDG 0,
+name Nod_Minigunner_1Off.101998 id 101998 defintion id 81930142
+	M00_Soldier_Powerup_Disable 0,
+	M01_HON_Commander_Guy 0,
+	M01_HON_Paintball_Team_01_JDG 0,
+name Objective Pog Controller.105828 id 105828 defintion id 81960001
+	M01_Objective_Pog_Controller_JDG 0,
+name Nod_Minigunner_0.106266 id 106266 defintion id 81930140
+	M01_BasalBuilding_Population_JDG 0,
+name Script_Zone_Star.106267 id 106267 defintion id 519
+	M01_TriggerZone_GDIBase_BaseCommander_JDG 0,
+name Script_Zone_Star.106268 id 106268 defintion id 519
+	M01_TriggerZone_GDIBase_BaseCommander_JDG 0,
+name Nod_Minigunner_1Off.101936 id 101936 defintion id 81930142
+	M00_Soldier_Powerup_Disable 0,
+	M01_Comm_Base_Commander_JDG 0,
+name Script_Zone_Star.106481 id 106481 defintion id 519
+	M01_UnScramble_Radar_Zone 0,
+name Daves Arrow.106694 id 106694 defintion id 81960001
+	M01_GDIBaseCommander_EvacController_JDG 0,
+name Visceroid.106907 id 106907 defintion id 81930226
+	M01_Visceroid03_JDG 0,
+name Visceroid.106908 id 106908 defintion id 81930226
+	M01_Visceroid01_JDG 0,
+name Visceroid.106909 id 106909 defintion id 81930226
+	M01_Visceroid02_JDG 0,
+name Nod_Minigunner_0.106910 id 106910 defintion id 81930140
+	M01_Visceroid_NodGuy01_JDG 0,
+name Nod_Minigunner_0.106911 id 106911 defintion id 81930140
+	M01_Visceroid_NodGuy02_JDG 0,
+name Daves Arrow.107554 id 107554 defintion id 81960001
+	M01_PaintballRoom_ChatterController_JDG 0,
+name Script_Zone_Star.108024 id 108024 defintion id 519
+	M01_Comm_Mainframe_PogZone_01_JDG 0,
+name Script_Zone_Star.108026 id 108026 defintion id 519
+	M01_Comm_Mainframe_PogZone_02_JDG 0,
+name Script_Zone_Star.108028 id 108028 defintion id 519
+	M01_Comm_Mainframe_PogZone_03_JDG 0,
+name M01_Nod_Gun_Emplacement.108707 id 108707 defintion id 82080143
+	M00_Disable_Transition 0,
+	M01_TailGun_01_JDG 0,
+name M01_Nod_Gun_Emplacement.108708 id 108708 defintion id 82080143
+	M00_Disable_Transition 0,
+	M01_TailGun_02_JDG 0,
+name M01_Nod_Gun_Emplacement.108709 id 108709 defintion id 82080143
+	M00_Disable_Transition 0,
+	M01_TailGun_03_JDG 0,
+name POW_Data_Disc.109634 id 109634 defintion id 81950099
+	M01_TibCave01_Datadisc_JDG 0,
+name POW_SniperRifle_Player.111595 id 111595 defintion id 81950013
+	M01_SniperRifle_02_JDG 0,
+name GDI Hovercraft_Busted.111601 id 111601 defintion id 1897
+name POW_SniperRifle_Player.111602 id 111602 defintion id 81950013
+name POW_Armor_100.111603 id 111603 defintion id 3669
+name Script_Zone_Star.111809 id 111809 defintion id 519
+	M01_Comm_Base_Commander_Conv_Start_Zone_JDG 0,
+name Script_Zone_All.112014 id 112014 defintion id 82060002
+	M01_GDIBase_AI_ExitZone_JDG 0,
+name Script_Zone_All.112015 id 112015 defintion id 82060002
+	M01_BarnArea_AI_ExitZone_JDG 0,
+name Script_Zone_All.112016 id 112016 defintion id 82060002
+	M01_BarnArea_AI_ExitZone_JDG 0,
+name Nod_Minigunner_0.114146 id 114146 defintion id 81930140
+	M01_BasalBuilding_Population_JDG 0,
+name POW_Data_Disc.114764 id 114764 defintion id 81950099
+	M01_Obelisk_UpdateDisc_JDG 0,
+name Civ_Male_v1a.101930 id 101930 defintion id 81930190
+	M01_DetentionPen_CivDeathMonitor 0,
+	M01_PrisonPen_Civilian_JDG 0,
+name Civ_Male_v2a.101931 id 101931 defintion id 81930191
+	M01_DetentionPen_CivDeathMonitor 0,
+	M01_PrisonPen_Civilian_JDG 0,
+name Script_Zone_Star.115383 id 115383 defintion id 519
+	M01_HON_RedKey_Zone_JDG 0,
+name M01_Capt_Duncan.106050 id 106050 defintion id 81930304
+	M01_GDIBase_BaseCommander_JDG 0,
+name POW_AutoRifle_Player.116787 id 116787 defintion id 81950083
+	M01_First_AutoRifle_JDG 0,
+name POW_Data_Disc.116992 id 116992 defintion id 81950099
+	M01_Beach_Datadisc_JDG 0,
+name Nod_Minigunner_0.106265 id 106265 defintion id 81930140
+	M01_BasalBuilding_Population_JDG 0,
+name POW_MineRemote_Player.117421 id 117421 defintion id 81950031
+	M01_C4_TutorialScript_JDG 0,
+name Script_Zone_Star.118232 id 118232 defintion id 519
+	M01_AccessDenied_Zone_JDG 0,
+name Script_Zone_Star.118233 id 118233 defintion id 519
+	M01_AccessDenied_Zone_JDG 0,
+name Script_Zone_Star.118234 id 118234 defintion id 519
+	M01_AccessDenied_Zone_JDG 0,
+name Script_Zone_Star.118235 id 118235 defintion id 519
+	M01_AccessDenied_Zone_JDG 0,
+name Script_Zone_Star.118236 id 118236 defintion id 519
+	M01_AccessDenied_Zone_JDG 0,
+name Script_Zone_Star.118237 id 118237 defintion id 519
+	M01_AccessDenied_Zone_JDG 0,
+name Script_Zone_Star.118635 id 118635 defintion id 519
+	M01_QuickSave_Zone_JDG 0,
+name Script_Zone_Star.118636 id 118636 defintion id 519
+	M01_QuickSave_Zone_JDG 0,
+name Script_Zone_Star.118832 id 118832 defintion id 519
+	M01_SniperRifle_02_AirdropZone_JDG 0,
+name GDI_MiniGunner_0.119225 id 119225 defintion id 81930128
+	M01_Base_GDI_Fodder_JDG 0,
+name Script_Zone_Star.119628 id 119628 defintion id 519
+	M01_Base_StartZone_JDG 0,
+name POW_MineRemote_Player.119629 id 119629 defintion id 81950031
+name Script_Zone_Star.120628 id 120628 defintion id 519
+	M01_RealLightTank_TriggerZone_JDG 0,
+name Script_Zone_Star.1200400 id 1200400 defintion id 519
+	M01_C4_Tutorial_Zone_JDG 0,
+name Script_Zone_Star.1200401 id 1200401 defintion id 519
+	M01_C4_Tutorial_Zone_JDG 0,
+name Script_Zone_Star.1200402 id 1200402 defintion id 519
+	M01_C4_Tutorial_Zone_JDG 0,
+name Script_Zone_Star.1200403 id 1200403 defintion id 519
+	M01_C4_Tutorial_Zone_JDG 0,
+name Script_Zone_Star.1200404 id 1200404 defintion id 519
+	M01_C4_Tutorial_Zone_JDG 0,
+name Script_Zone_Star.1200405 id 1200405 defintion id 519
+	M01_C4_Tutorial_Zone_JDG 0,
+name Script_Zone_Star.1200406 id 1200406 defintion id 519
+	M01_C4_Tutorial_Zone_JDG 0,
+name Script_Zone_Star.1200407 id 1200407 defintion id 519
+	M01_C4_Tutorial_Zone_JDG 0,
+name Script_Zone_Star.1200408 id 1200408 defintion id 519
+	M01_C4_Tutorial_Zone_JDG 0,
+name Script_Zone_Star.120844 id 120844 defintion id 519
+	M01_GateSwitch_Tutorial_Zone_JDG 0,
+name Script_Zone_Star.120845 id 120845 defintion id 519
+	M01_Mainframe_Tutorial_Zone_JDG 0,
+name Airstrike Controller.121041 id 121041 defintion id 81960001
+	M01_Airstrike_Controller_JDG 0,
+name Script_Zone_Star.121433 id 121433 defintion id 519
+	M01_BackPath_EntranceZone_JDG 0,
+name Hovercraft Explosion Controller.121839 id 121839 defintion id 81960001
+	M01_Hovercraft_Explosion_Controller_JDG 0,
+name annoucne airstrike zone.122238 id 122238 defintion id 519
+	M01_Announce_TankAirstrikeZone_JDG 0,
+name Nod_Truck_Dec.122239 id 122239 defintion id 82080036
+	M01_Nod_Truck_JDG 0,
+name Nod_Truck_Dec.122240 id 122240 defintion id 82080036
+	M01_Nod_Truck_JDG 0,
+name POW_SniperRifle_Player.122241 id 122241 defintion id 81950013
+	M01_SniperRifle_02_JDG 0,
+name POW_SniperRifle_Player.122242 id 122242 defintion id 81950013
+	M01_SniperRifle_02_JDG 0,
+name SignalFlare_Gold.122650 id 122650 defintion id 81960010
+name SignalFlare_Gold.122651 id 122651 defintion id 81960010
+name POW_Armor_100.122652 id 122652 defintion id 3669
+name POW_SniperRifle_Player.123253 id 123253 defintion id 81950013
+	M01_GDI_GuardTower02_SniperRifle_JDG 0,
+name POW_Data_Disc.123646 id 123646 defintion id 81950099
+	M01_Shed_Datadisc_JDG 0,
+name POW_Data_Disc.123647 id 123647 defintion id 81950099
+	M01_TibCave02_Datadisc_JDG 0,
+name Script_Zone_All.124044 id 124044 defintion id 82060002
+	M01_HON_WarroomController_JDG 0,
+name POW_Data_Disc.125064 id 125064 defintion id 81950099
+	M01_Medlab_Datadisc_JDG 0,
+name POW_SniperRifle_Player.125065 id 125065 defintion id 81950013
+name POW_AutoRifle_Player.125066 id 125066 defintion id 81950083
+name POW_MineRemote_Player.125067 id 125067 defintion id 81950031
+name POW_Health_100.125068 id 125068 defintion id 1663
+name POW_Armor_100.125069 id 125069 defintion id 3669
+name Script_Zone_All.125661 id 125661 defintion id 82060002
+	M01_CantBring_MediumTank_ThroughHereZone_JDG 0,

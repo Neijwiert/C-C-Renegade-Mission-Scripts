@@ -1,0 +1,495 @@
+name M09_Window_Blocker.106569 id 106569 defintion id 81960248
+name Daves Arrow.106230 id 106230 defintion id 81960001
+	M11_Petrova_StealthSoldier_Controller_JDG 0,
+name Mutant_1Off_Acolyte.101964 id 101964 defintion id 81930120
+	M11_Cell_Mutant02_JDG 0,
+name Mutant_1Off_Acolyte.101997 id 101997 defintion id 81930120
+	M11_Cell_Mutant02_JDG 0,
+name SFX.Arrow_Rock_Slide_Rev_02.103137 id 103137 defintion id 81960180
+name SFX.Metal_Creak_03.102776 id 102776 defintion id 81960192
+name SFX.Metal_Creak_04.102777 id 102777 defintion id 81960193
+name SFX.Arrow_Troops_Metal.102778 id 102778 defintion id 81960182
+name SFX.Arrow_Troops_Metal.102796 id 102796 defintion id 81960182
+name SFX.Arrow_Rock_Slide_Rev_01.102797 id 102797 defintion id 81960179
+name SFX.Arrow_Rock_Slide_Rev_02.102798 id 102798 defintion id 81960180
+name SFX.Arrow_Water_Drip_01.103518 id 103518 defintion id 81960188
+name SFX.Arrow_Water_Drip_02.103519 id 103519 defintion id 81960189
+name SFX.Arrow_Reverb_Death_01.103520 id 103520 defintion id 81960228
+name SFX.Arrow_Reverb_Death_02.103521 id 103521 defintion id 81960229
+name SFX.Arrow_Reverb_Death_03.103522 id 103522 defintion id 81960230
+name SFX.Arrow_Reverb_Death_01.103523 id 103523 defintion id 81960228
+name Daves Arrow.102433 id 102433 defintion id 81960001
+	M11_PowerupDifficulty_Manager_JDG 0,
+name Visceroid.101996 id 101996 defintion id 81930226
+	M11_Cell_Visceroid_JDG 0,
+name Visceroid.101995 id 101995 defintion id 81930226
+	M11_Cell_Visceroid_JDG 0,
+name POW_ChemSprayer_Player.101859 id 101859 defintion id 81950054
+name POW_ChemSprayer_Player.101858 id 101858 defintion id 81950054
+name POW_Armor_100.101857 id 101857 defintion id 3669
+name POW_RocketLauncher_Player.101856 id 101856 defintion id 81950015
+name POW_RocketLauncher_Player.101855 id 101855 defintion id 81950015
+name POW_Health_100.101854 id 101854 defintion id 1663
+name GDI_Sydney.100644 id 100644 defintion id 81930170
+	M11_Sydney_Script_JDG 0,
+name M11_Sydney_Simple.100697 id 100697 defintion id 81960100
+	M11_SimpleSydney_Script_JDG 0,
+name Simple_MiniConsole.100106 id 100106 defintion id 81960008
+	M11_End_Mission_Switch_JDG 0,
+name Generic_Switch.101723 id 101723 defintion id 81960072
+	M11_FirstFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101722 id 101722 defintion id 81960072
+	M11_FirstFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101721 id 101721 defintion id 81960072
+	M11_FirstFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101720 id 101720 defintion id 81960072
+	M11_SecondFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101719 id 101719 defintion id 81960072
+	M11_SecondFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101718 id 101718 defintion id 81960072
+	M11_SecondFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101717 id 101717 defintion id 81960072
+	M11_SecondFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101651 id 101651 defintion id 81960072
+	M11_ForthFloor_Elevator_Switch_Script_JDG 0,
+name Simple_Sydney_SandM_Wall.101607 id 101607 defintion id 81960165
+	M11_Sydney_SandM_Wall_Script_JDG 0,
+name Simple_Sydney_SandM_Table.101606 id 101606 defintion id 81960164
+	M11_Sydney_SandM_Chair_Script_JDG 0,
+name Simple_Sydney_SandM_Machine.157366 id 157366 defintion id 81960162
+	M11_Sydney_SandM_Machine_Script_JDG 0,
+name Start first midtro zone.101449 id 101449 defintion id 519
+	M11_Start_FirstMidtro_Zone_JDG 0,
+name Nod_Ceiling_Camera.101351 id 101351 defintion id 82080039
+	M11_SecurityCamera_JDG 0,
+name Nod_Ceiling_Camera.101350 id 101350 defintion id 82080039
+	M11_SecurityCamera_JDG 0,
+name Script_Zone_Star.101328 id 101328 defintion id 519
+	M11_Theres_Sydney_Zone_JDG 0,
+name Script_Zone_Star.101327 id 101327 defintion id 519
+	M11_Theres_Sydney_Zone_JDG 0,
+name POW_TiberiumFlechetteGun_Player.101281 id 101281 defintion id 81950086
+name POW_PersonalIonCannon_Player.101280 id 101280 defintion id 81950084
+name Lab entry zone.100498 id 100498 defintion id 519
+	M11_Laboratory_EntryZone_JDG 0,
+name Mutant_2SF_Templar.101279 id 101279 defintion id 81930123
+	M11_Laboratory_Mutant_JDG 0,
+name Mutant_2SF_Templar.101278 id 101278 defintion id 81930123
+	M11_Laboratory_Mutant_JDG 0,
+name Mutant_2SF_Templar.101277 id 101277 defintion id 81930123
+	M11_Laboratory_Mutant_JDG 0,
+name Nod_RocketSoldier_2SF_AutoRifle.101276 id 101276 defintion id 81930208
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_RocketSoldier_2SF_Chaingun.101275 id 101275 defintion id 81930209
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_RocketSoldier_2SF_VoltAutoRifle.101274 id 101274 defintion id 81930210
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_RocketSoldier_2SF_AutoRifle.101273 id 101273 defintion id 81930208
+	M01_BasalBuilding_Population_JDG 0,
+name M01_Kane_Hologram_Projector.100252 id 100252 defintion id 81960071
+	M11_Temple_Hologram_01_JDG 0,
+name CABAL babble controller.101204 id 101204 defintion id 81960001
+	M11_CABAL_Babble_Contoller_JDG 0,
+name Mutant_0_Mutant.101159 id 101159 defintion id 81930119
+name Mutant_0_Mutant.101158 id 101158 defintion id 81930119
+name Mutant_0_Mutant.101157 id 101157 defintion id 81930119
+name Mutant_0_Mutant.101156 id 101156 defintion id 81930119
+name civ_lab_tech_03.100958 id 100958 defintion id 81930219
+	M11_Laboratory_Scientist_JDG 0,
+name civ_lab_tech_01.100449 id 100449 defintion id 81930216
+	M11_Laboratory_Scientist_JDG 0,
+name civ_lab_tech_03.100355 id 100355 defintion id 81930219
+	M11_WarRoom_StationaryTech_JDG 0,
+name civ_lab_tech_02.100356 id 100356 defintion id 81930218
+	M11_WarRoom_StationaryTech_JDG 0,
+name civ_lab_tech_01.100354 id 100354 defintion id 81930216
+	M11_WarRoom_StationaryTech_JDG 0,
+name Visceroid.100394 id 100394 defintion id 81930226
+	M00_Soldier_Powerup_Disable 0,
+	M11_Barracks_Visceroid_JDG 0,
+name civ_lab_tech_02.100402 id 100402 defintion id 81930218
+	M11_Barracks_TechnicianConversation_Tech_JDG 0,
+name civ_lab_tech_01.100405 id 100405 defintion id 81930216
+	M11_Barracks_Scientist_JDG 0,
+name Script_Zone_Star.101103 id 101103 defintion id 519
+	M11_Seths_Room_Conversation_Zone_JDG 0,
+name Nod_RocketSoldier_2SF_VoltAutoRifle.101102 id 101102 defintion id 81930210
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_RocketSoldier_2SF_Chaingun.101101 id 101101 defintion id 81930209
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_RocketSoldier_2SF.101100 id 101100 defintion id 81930147
+	M01_BasalBuilding_Population_JDG 0,
+name Mutant_3Boss_Petrova.300303 id 300303 defintion id 81930220
+	M11_Petrova_Script_JDG 0,
+name POW_Armor_025.101011 id 101011 defintion id 3663
+name POW_Armor_025.101010 id 101010 defintion id 3663
+name POW_Health_025.101009 id 101009 defintion id 1665
+name POW_Health_025.101008 id 101008 defintion id 1665
+name POW_Health_025.101007 id 101007 defintion id 1665
+name POW_Health_025.101006 id 101006 defintion id 1665
+name POW_Health_025.101005 id 101005 defintion id 1665
+name POW_Armor_025.101004 id 101004 defintion id 3663
+name POW_Armor_025.101003 id 101003 defintion id 3663
+name POW_Armor_025.101002 id 101002 defintion id 3663
+name Nod_RocketSoldier_2SF_VoltAutoRifle.100387 id 100387 defintion id 81930210
+	M11_Barracks_MutantUprising_BlackhandGuy_JDG 0,
+name Nod_RocketSoldier_2SF_VoltAutoRifle.100379 id 100379 defintion id 81930210
+	M11_Barracks_MutantConversationGuy_02_JDG 0,
+name Nod_RocketSoldier_2SF_AutoRifle.100378 id 100378 defintion id 81930208
+	M11_Barracks_MutantConversationGuy_01_JDG 0,
+name Nod_RocketSoldier_2SF_Chaingun.100260 id 100260 defintion id 81930209
+	M11_MuseumLevel_Defender_Defensive_JDG 0,
+name POW_RocketLauncher_Player.100865 id 100865 defintion id 81950015
+name POW_GrenadeLauncher_Player.100864 id 100864 defintion id 81950046
+name POW_LaserChaingun_Player.100861 id 100861 defintion id 81950069
+name Nod_RocketSoldier_2SF_Chaingun.100224 id 100224 defintion id 81930209
+	M11_Floor01_FireGuy_JDG 0,
+name Nod_RocketSoldier_2SF_Chaingun.100223 id 100223 defintion id 81930209
+	M11_Floor01_FireGuy_JDG 0,
+name Nod_RocketSoldier_2SF_Chaingun.100222 id 100222 defintion id 81930209
+	M11_Floor01_FireGuy_JDG 0,
+name Nod_RocketSoldier_2SF_Chaingun.100775 id 100775 defintion id 81930209
+	M11_Floor01_FireGuy_JDG 0,
+name POW_Health_025.100834 id 100834 defintion id 1665
+name POW_Armor_025.100833 id 100833 defintion id 3663
+name POW_RocketLauncher_Player.100832 id 100832 defintion id 81950015
+name POW_RocketLauncher_Player.100831 id 100831 defintion id 81950015
+name POW_Flamethrower_Player.100830 id 100830 defintion id 81950056
+name POW_Health_025.100828 id 100828 defintion id 1665
+name POW_Armor_025.100827 id 100827 defintion id 3663
+name POW_ChemSprayer_Player.100826 id 100826 defintion id 81950054
+name POW_LaserRifle_Player.100825 id 100825 defintion id 81950077
+name POW_GrenadeLauncher_Player.100823 id 100823 defintion id 81950046
+name POW_LaserChaingun_Player.100822 id 100822 defintion id 81950069
+name POW_PersonalIonCannon_Player.100821 id 100821 defintion id 81950084
+name POW_Health_100.100820 id 100820 defintion id 1663
+name POW_Armor_100.100819 id 100819 defintion id 3669
+name Script_Zone_All.100702 id 100702 defintion id 82060002
+	M11_Silo_ElevatorZone04_JDG 0,
+name Script_Zone_All.100710 id 100710 defintion id 82060002
+	M11_Silo_ElevatorZone03_Top_JDG 0,
+name Script_Zone_All.100701 id 100701 defintion id 82060002
+	M11_Silo_ElevatorZone03_JDG 0,
+name Script_Zone_All.100707 id 100707 defintion id 82060002
+	M11_Silo_ElevatorZone02_Top_JDG 0,
+name Script_Zone_All.100700 id 100700 defintion id 82060002
+	M11_Silo_ElevatorZone02_JDG 0,
+name Script_Zone_All.100705 id 100705 defintion id 82060002
+	M11_Silo_ElevatorZone01_Top_JDG 0,
+name Script_Zone_All.100712 id 100712 defintion id 82060002
+	M11_Silo_ElevatorZone04_Top_JDG 0,
+name Script_Zone_All.100699 id 100699 defintion id 82060002
+	M11_Silo_ElevatorZone01_JDG 0,
+name Silo Elevator Controller.100698 id 100698 defintion id 81960001
+	M11_Silo_ElevatorController_JDG 0,
+name Nod_FlameThrower_2SF.100667 id 100667 defintion id 81930148
+	M11_PowerCore_StealthSoldier_Group2_JDG 0,
+name Nod_FlameThrower_2SF.100666 id 100666 defintion id 81930148
+	M11_PowerCore_StealthSoldier_Group2_JDG 0,
+name Nod_FlameThrower_2SF.100665 id 100665 defintion id 81930148
+	M11_PowerCore_StealthSoldier_Group2_JDG 0,
+name Nod_FlameThrower_2SF.100664 id 100664 defintion id 81930148
+	M11_PowerCore_StealthSoldier_Group2_JDG 0,
+name warroom scanner target01.100632 id 100632 defintion id 81960001
+name Sydney's rally zone 01.100132 id 100132 defintion id 519
+	M11_Sydney_Rally_Zone_01_JDG 0,
+name ion cannon controller.100633 id 100633 defintion id 81960001
+	M11_ExternalIonCannon_Controller_JDG 0,
+name Script_Zone_Star.100629 id 100629 defintion id 519
+	M11_WarRoom_EntryZone_JDG 0,
+name Script_Zone_Star.100628 id 100628 defintion id 519
+	M11_WarRoom_EntryZone_JDG 0,
+name Script_Zone_Star.100592 id 100592 defintion id 519
+	M11_Turn_On_FirstFloor_Stuff_JDG 0,
+name Script_Zone_Star.100591 id 100591 defintion id 519
+	M11_Turn_Off_FirstFloor_Stuff_JDG 0,
+name Script_Zone_Star.100590 id 100590 defintion id 519
+	M11_Turn_Off_FirstFloor_Stuff_JDG 0,
+name turn on first floor sounds.100589 id 100589 defintion id 519
+	M11_Turn_On_FirstFloor_Stuff_JDG 0,
+name Fodder Controller.100588 id 100588 defintion id 81960001
+	M11_FodderGuy_Controller_JDG 0,
+name GDI Tank SoundController.100569 id 100569 defintion id 81960001
+	M11_ExternalSound_Controller_GDITanks_JDG 0,
+name Artillery Controller.100568 id 100568 defintion id 81960001
+	M11_ExternalArtillery_Controller_JDG 0,
+name Laboratory spawner controller.100483 id 100483 defintion id 81960001
+	M11_Laboratory_SpawnerController_JDG 0,
+name Barracks spawner controller.100430 id 100430 defintion id 81960001
+	M11_Barracks_SpawnerController_JDG 0,
+name Barracks T19 EntryZone.100404 id 100404 defintion id 519
+	M11_Barracks_LivingQuarters_T19_EntryZone_JDG 0,
+name Nod_MiniGunner_2SF.100403 id 100403 defintion id 81930143
+	M11_Barracks_TechnicianConversation_Blackhand_JDG 0,
+name M11_Nod_Ceiling_Gun.100167 id 100167 defintion id 82080078
+	M11_Floor01_SecurityTurret_JDG 0,
+name M11_Nod_Ceiling_Gun.100168 id 100168 defintion id 82080078
+	M11_Floor01_SecurityTurret_JDG 0,
+name M11_Nod_Ceiling_Gun.100170 id 100170 defintion id 82080078
+	M11_Floor01_SecurityTurret_JDG 0,
+name M11_Nod_Ceiling_Gun.100173 id 100173 defintion id 82080078
+	M11_Floor01_SecurityTurret_JDG 0,
+name M11_Nod_Ceiling_Gun.100175 id 100175 defintion id 82080078
+	M11_Floor01_SecurityTurret_JDG 0,
+name M11_Nod_Ceiling_Gun.100177 id 100177 defintion id 82080078
+	M11_Floor01_SecurityTurret_JDG 0,
+name WarRoom Battle Controller.100361 id 100361 defintion id 81960001
+	M11_WarRoom_BattleController_JDG 0,
+name Nod_Engineer_0.100353 id 100353 defintion id 81930137
+	M11_WarRoom_Engineer_JDG 0,
+name Mutant_3.100345 id 100345 defintion id 81930123
+	M00_Soldier_Powerup_Disable 0,
+	M11_WetBar_MutantGuard_JDG 0,
+name Mutant_3.100344 id 100344 defintion id 81930123
+	M00_Soldier_Powerup_Disable 0,
+	M11_WetBar_MutantGuard_JDG 0,
+name Mutant_3.100343 id 100343 defintion id 81930123
+	M00_Soldier_Powerup_Disable 0,
+	M11_WetBar_MutantGuard_JDG 0,
+name Mutant_3.100342 id 100342 defintion id 81930123
+	M00_Soldier_Powerup_Disable 0,
+	M11_WetBar_MutantGuard_JDG 0,
+name Script_Zone_Star.100333 id 100333 defintion id 519
+	M11_GreenRoom_EntryZone_JDG 0,
+name Seth's room entry zone.100329 id 100329 defintion id 519
+	M11_WetBar_NeighborRoom_EntryZone_JDG 0,
+name Green Room entry zone.100328 id 100328 defintion id 519
+	M11_WetBar_NeighborRoom_EntryZone_JDG 0,
+name Kanes quarter's entry zone.100327 id 100327 defintion id 519
+	M11_WetBar_NeighborRoom_EntryZone_JDG 0,
+name WetBar spawner controller.100326 id 100326 defintion id 81960001
+	M11_WetBar_NeighborRoom_SpawnerController_JDG 0,
+name Nod_FlameThrower_0.100258 id 100258 defintion id 81930138
+	M11_MuseumLevel_Defender_Aggressive_JDG 0,
+name Nod_FlameThrower_1Off.100257 id 100257 defintion id 81930136
+	M11_MuseumLevel_Defender_Aggressive_JDG 0,
+name Nod_FlameThrower_0.100256 id 100256 defintion id 81930138
+	M11_MuseumLevel_Defender_Aggressive_JDG 0,
+name Museum level entry zone 02.100255 id 100255 defintion id 519
+	M11_MuseumLevel_EntryZone_JDG 0,
+name Museum level entry zone 01.100254 id 100254 defintion id 519
+	M11_MuseumLevel_EntryZone_JDG 0,
+name 2nd holograph entry zone.100253 id 100253 defintion id 519
+	M11_SecondHolograph_EntryZone_JDG 0,
+name Nod_FlameThrower_2SF.100227 id 100227 defintion id 81930148
+	M11_Floor01_StealthSoldier02_JDG 0,
+name Nod_FlameThrower_2SF.100225 id 100225 defintion id 81930148
+	M11_Floor01_StealthSoldier01_JDG 0,
+name C130 Dropoff Controller.100221 id 100221 defintion id 81960001
+	M11_C130_Dropoff_Controller_JDG 0,
+name First Floor security turret controller.100179 id 100179 defintion id 81960001
+	M11_Floor01_SecurityTurrets_Controller_JDG 0,
+name Sydney's rally zone 03_b.100134 id 100134 defintion id 519
+	M11_Sydney_Rally_Zone_03b_JDG 0,
+name Sydney's Rally Zone 02.100109 id 100109 defintion id 519
+	M11_Sydney_Rally_Zone_02_JDG 0,
+name Start Objective 05 Zone 01.100105 id 100105 defintion id 519
+	M11_Start_Fifth_Objective_Zone_JDG 0,
+name Script_Zone_Star.100687 id 100687 defintion id 519
+	M11_Turn_On_Mutant_Crypt_Spawners_Zone_JDG 0,
+name Script_Zone_Star.100688 id 100688 defintion id 519
+	M11_End_Third_Objective_Zone_JDG 0,
+	M11_Turn_Off_Mutant_Crypt_Spawners_Zone_JDG 0,
+name Daves Arrow.100689 id 100689 defintion id 81960001
+	M11_Mutant_Crypt_Spawners_Controller_JDG 0,
+name Mission Controller.100101 id 100101 defintion id 81960001
+	M11_Mission_Controller_JDG 0,
+name End Objective 01 Zone.100102 id 100102 defintion id 519
+	M11_End_First_Objective_Zone_JDG 0,
+name Start Objective 3 Zone.100104 id 100104 defintion id 519
+	M11_Start_Third_Objective_Zone_JDG 0,
+name Start Objective 05 Zone 02.100107 id 100107 defintion id 519
+	M11_Start_Fifth_Objective_Zone_JDG 0,
+name NetRunnerRoom Exit Zone.100228 id 100228 defintion id 519
+	M11_NetRunnerRoom_ExitZone_JDG 0,
+name NetRunnerRoom Entry Zone.100229 id 100229 defintion id 519
+	M11_NetRunnerRoom_EntryZone_JDG 0,
+name Disable museum spawner zone 01.100324 id 100324 defintion id 519
+	M11_MuseumLevel_Disable_Spawners_Zone_JDG 0,
+name Disable museum spawner zone 02.100325 id 100325 defintion id 519
+	M11_MuseumLevel_Disable_Spawners_Zone_JDG 0,
+name Script_Zone_Star.100351 id 100351 defintion id 519
+	M11_KanesRoom_SecurityZone_JDG 0,
+name leaving war room zone 01.100363 id 100363 defintion id 519
+	M11_WarRoom_ExitZone_JDG 0,
+name leaving war room zone 02.100364 id 100364 defintion id 519
+	M11_WarRoom_ExitZone_JDG 0,
+name M11_Nod_Ceiling_Gun.100349 id 100349 defintion id 82080078
+	M11_KanesRoom_SecurityTurret_JDG 0,
+name M11_Nod_Ceiling_Gun.100346 id 100346 defintion id 82080078
+	M11_KanesRoom_SecurityTurret_JDG 0,
+name M11_Nod_Ceiling_Gun.100360 id 100360 defintion id 82080078
+	M11_WarRoom_SecurityTurret_JDG 0,
+name M11_Nod_Ceiling_Gun.100359 id 100359 defintion id 82080078
+	M11_WarRoom_SecurityTurret_JDG 0,
+name Mutant_1.100374 id 100374 defintion id 81930119
+	M11_Barracks_ToiletMutant01_JDG 0,
+name Mutant_1.100375 id 100375 defintion id 81930119
+	M11_Barracks_ToiletMutant02_JDG 0,
+name Barracks bathroom entry zone.100376 id 100376 defintion id 519
+	M11_Barracks_LivingQuarters_T13_EntryZone_JDG 0,
+name Barracks T15 entry zone.100377 id 100377 defintion id 519
+	M11_Barracks_LivingQuarters_T15_EntryZone_JDG 0,
+name Laser Chain Gun Powerup.100384 id 100384 defintion id 81950069
+name Barracks T16 entry zone.100385 id 100385 defintion id 519
+	M11_Barracks_LivingQuarters_T16_EntryZone_JDG 0,
+name Barracks mutant uprising mutant 01.100388 id 100388 defintion id 81930119
+	M11_Barracks_MutantUprising_Mutant01_JDG 0,
+name Barracks mutant uprising mutant 02.100389 id 100389 defintion id 81930119
+	M11_Barracks_MutantUprising_Mutant02_JDG 0,
+name Barracks T17 EntryZone.100393 id 100393 defintion id 519
+	M11_Barracks_LivingQuarters_T17_EntryZone_JDG 0,
+name Barracks T14 Entryzone (showers).100399 id 100399 defintion id 519
+	M11_Barracks_LivingQuarters_T14_EntryZone_JDG 0,
+name Barracks shower stealth guy.100400 id 100400 defintion id 81930148
+	M11_Barracks_ShowerStealthSoldier_JDG 0,
+name Barracks T18 EntryZone.100401 id 100401 defintion id 519
+	M11_Barracks_LivingQuarters_T18_EntryZone_JDG 0,
+name Laser Chain Gun Powerup.100411 id 100411 defintion id 81950069
+name Laser Chain Gun Powerup.100412 id 100412 defintion id 81950069
+name Laser Chain Gun Powerup.100413 id 100413 defintion id 81950069
+name Barracks T20 EntryZone.100414 id 100414 defintion id 519
+	M11_Barracks_LivingQuarters_T20_EntryZone_JDG 0,
+name Mutant_1.100415 id 100415 defintion id 81930119
+	M11_Barracks_MutantReject_JDG 0,
+name Armor 100 PowerUp.100425 id 100425 defintion id 3669
+name Health 100 PowerUp.100426 id 100426 defintion id 1663
+name Mutant_3.100432 id 100432 defintion id 81930123
+	M00_Soldier_Powerup_Disable 0,
+	M11_WetBar_MutantGuard_JDG 0,
+name Mutant_3.100433 id 100433 defintion id 81930123
+	M00_Soldier_Powerup_Disable 0,
+	M11_WetBar_MutantGuard_JDG 0,
+name Mutant_3.100434 id 100434 defintion id 81930123
+	M00_Soldier_Powerup_Disable 0,
+	M11_WetBar_MutantGuard_JDG 0,
+name Power Core entry zone.100533 id 100533 defintion id 519
+	M11_PowerCore_EntryZone_JDG 0,
+name Nod_FlameThrower_2SF.100536 id 100536 defintion id 81930148
+	M11_PowerCore_Initial_StealthSoldier_JDG 0,
+name Nod_FlameThrower_2SF.100537 id 100537 defintion id 81930148
+	M11_PowerCore_Initial_StealthSoldier_JDG 0,
+name Nod_FlameThrower_2SF.100538 id 100538 defintion id 81930148
+	M11_PowerCore_Initial_StealthSoldier_JDG 0,
+name Script_Zone_Star.100539 id 100539 defintion id 519
+	M11_PowerCore_Powerup_Zone_JDG 0,
+name Nod Tank SoundController.100570 id 100570 defintion id 81960001
+	M11_ExternalSound_Controller_NodTanks_JDG 0,
+name Nod Troops SoundController.100571 id 100571 defintion id 81960001
+	M11_ExternalSound_Controller_NodTroops_JDG 0,
+name GDI Troops SoundController.100572 id 100572 defintion id 81960001
+	M11_ExternalSound_Controller_GDITroops_JDG 0,
+name Nod Troops SoundController.100573 id 100573 defintion id 81960001
+	M11_ExternalSound_Controller_NodTroops_JDG 0,
+name Nod Tank SoundController.100574 id 100574 defintion id 81960001
+	M11_ExternalSound_Controller_NodTanks_JDG 0,
+name GDI Troop SoundController.100575 id 100575 defintion id 81960001
+	M11_ExternalSound_Controller_GDITroops_JDG 0,
+name GDI Tank SoundController.100576 id 100576 defintion id 81960001
+	M11_ExternalSound_Controller_GDITanks_JDG 0,
+name 1st floor ambient stuff controller.100593 id 100593 defintion id 81960001
+	M11_FirstFloor_Stuff_Controller_JDG 0,
+name warroom scanner target03.100630 id 100630 defintion id 81960001
+name warroom scanner target02.100631 id 100631 defintion id 81960001
+name Nod_FlameThrower_2SF.100662 id 100662 defintion id 81930148
+	M11_PowerCore_StealthSoldier_Group2_JDG 0,
+name Nod_FlameThrower_2SF.100663 id 100663 defintion id 81930148
+	M11_PowerCore_StealthSoldier_Group2_JDG 0,
+name Level_01_Keycard.100774 id 100774 defintion id 81950037
+name Nod_RocketSoldier_2SF_VoltAutoRifle.100100 id 100100 defintion id 81930210
+	M11_KeyCard_01_Carrier_JDG 0,
+name Lab cryo chamber controller.100910 id 100910 defintion id 81960001
+	M11_Lab_Cryochamber_Controller_JDG 0,
+name Generic_Switch.100933 id 100933 defintion id 81960072
+	M11_Lab_Cryochamber_Switch01_JDG 0,
+name Generic_Switch.100934 id 100934 defintion id 81960072
+	M11_Lab_Cryochamber_Switch02_JDG 0,
+name Mutant_2SF_Templar.100450 id 100450 defintion id 81930123
+	M11_Laboratory_Mutant_JDG 0,
+name Mutant_2SF_Templar.100451 id 100451 defintion id 81930123
+	M11_Laboratory_Mutant_JDG 0,
+name Ceiling repeller controller.101125 id 101125 defintion id 81960001
+	M11_CeilingRepellers_Controller_JDG 0,
+name M11 Flyover controller.101126 id 101126 defintion id 81960001
+	M11_Flyover_Contoller_JDG 0,
+name Able tomb talk zone.101182 id 101182 defintion id 519
+	M11_AblesTomb_TalkZone_JDG 0,
+name Script_Zone_Star.101227 id 101227 defintion id 519
+	M11_KaneRoom_KaneEncounter_Zone_JDG 0,
+name Nod_RocketSoldier_2SF.100186 id 100186 defintion id 81930147
+	M11_Floor01_InitialPatrol_Left01_JDG 0,
+name Nod_MiniGunner_2SF.100189 id 100189 defintion id 81930143
+	M11_Floor01_InitialPatrol_Right01_JDG 0,
+name Nod_RocketSoldier_2SF_Chaingun.101249 id 101249 defintion id 81930209
+	M11_Floor01_FireGuy_JDG 0,
+name Nod_RocketSoldier_2SF_Chaingun.101250 id 101250 defintion id 81930209
+	M11_Temple_Commander_JDG 0,
+name M11 hologram controller.101251 id 101251 defintion id 81960001
+	M11_Temple_Hologram_Controller_JDG 0,
+name POW_MineRemote_Player.100863 id 100863 defintion id 81950031
+name Nod_Ceiling_Camera.101374 id 101374 defintion id 82080039
+	M11_SecurityCamera_JDG 0,
+name Nod_Ceiling_Camera.101375 id 101375 defintion id 82080039
+	M11_SecurityCamera_JDG 0,
+name Nod_Ceiling_Camera.101376 id 101376 defintion id 82080039
+	M11_SecurityCamera_JDG 0,
+name Nod_Ceiling_Camera.101377 id 101377 defintion id 82080039
+	M11_SecurityCamera_JDG 0,
+name Nod_Ceiling_Camera.101378 id 101378 defintion id 82080039
+	M11_SecurityCamera_JDG 0,
+name Nod_Ceiling_Camera.101379 id 101379 defintion id 82080039
+	M11_SecurityCamera_JDG 0,
+name Nod_Ceiling_Camera.101380 id 101380 defintion id 82080039
+	M11_SecurityCamera_JDG 0,
+name Visceroid.101402 id 101402 defintion id 81930226
+	M00_Soldier_Powerup_Disable 0,
+	M11_Barracks_Visceroid_JDG 0,
+name Visceroid.101403 id 101403 defintion id 81930226
+	M11_Barracks_Visceroid_KeyCarrier_JDG 0,
+name civ_lab_tech_03.101404 id 101404 defintion id 81930219
+	M00_Soldier_Powerup_Disable 0,
+	M11_Barracks_Visceroid_Morpher_JDG 0,
+name POW_RocketLauncher_Player.101424 id 101424 defintion id 81950015
+name POW_RocketLauncher_Player.101425 id 101425 defintion id 81950015
+name POW_RocketLauncher_Player.101426 id 101426 defintion id 81950015
+name Daves Arrow.101673 id 101673 defintion id 81960001
+	M11_Elevator_Switch_MasterControllerScript_JDG 0,
+name Generic_Switch.101689 id 101689 defintion id 81960072
+	M11_ForthFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101690 id 101690 defintion id 81960072
+	M11_ForthFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101691 id 101691 defintion id 81960072
+	M11_ForthFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101692 id 101692 defintion id 81960072
+	M11_ThirdFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101693 id 101693 defintion id 81960072
+	M11_ThirdFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101694 id 101694 defintion id 81960072
+	M11_ThirdFloor_Elevator_Switch_Script_JDG 0,
+name Generic_Switch.101695 id 101695 defintion id 81960072
+	M11_ThirdFloor_Elevator_Switch_Script_JDG 0,
+name POW_SniperRifle_Player.101767 id 101767 defintion id 81950013
+name POW_RocketLauncher_Player.101768 id 101768 defintion id 81950015
+name POW_ChemSprayer_Player.101769 id 101769 defintion id 81950054
+name Nod_RocketSoldier_2SF_VoltAutoRifle.101770 id 101770 defintion id 81930210
+	M01_BasalBuilding_Population_JDG 0,
+name Nod_RocketSoldier_2SF_VoltAutoRifle.101771 id 101771 defintion id 81930210
+	M01_BasalBuilding_Population_JDG 0,
+name Obelisk Explosion Controller.101805 id 101805 defintion id 81960001
+	M11_ObeliskBattle_Contoller_JDG 0,
+name volt rifle monitor.101883 id 101883 defintion id 81960001
+	M11_VoltRifle_Monitor_Script_JDG 0,
+name Simple_Small_HologramProjector.101226 id 101226 defintion id 81960155
+	M11_KaneRoom_KaneEncounter_Hologram_JDG 0,
+name Mutant_0_Mutant.101963 id 101963 defintion id 81930119
+	M11_Cell_Mutant01_JDG 0,
+name Script_Zone_Star.103111 id 103111 defintion id 519
+	M11_Okay_ToPlay_MidtroZone_JDG 0,
+name Petrova taunt controller.103797 id 103797 defintion id 81960001
+	M11_Petrova_Taunt_Controller_JDG 0,
+name Daves Arrow.105192 id 105192 defintion id 81960001
+	M11_Silo_ElevatorDeactivator_JDG 0,
+name Daves Arrow.106908 id 106908 defintion id 81960001
+	M11_CeilingRepellers_Controller2_JDG 0,
+name Sydney's rally zone 03_a.100133 id 100133 defintion id 519
+	M11_Sydney_Rally_Zone_03_JDG 0,

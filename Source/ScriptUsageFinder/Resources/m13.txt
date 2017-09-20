@@ -1,0 +1,208 @@
+name Nod_Turret_Dec.1400146 id 1400146 defintion id 82080041
+	M00_Nod_Turret 0,
+	MX0_A03_NOD_TURRET 0,
+name Nod_Turret_Dec.1400144 id 1400144 defintion id 82080041
+	M00_Nod_Turret 0,
+	MX0_A03_NOD_TURRET 0,
+name Daves Arrow.1200044 id 1200044 defintion id 81960001
+name Daves Arrow.1200043 id 1200043 defintion id 81960001
+name MX0_EngineerGoto.1200026 id 1200026 defintion id 81960266
+name Script_Zone_Star.1200024 id 1200024 defintion id 519
+	MX0_Engineer_Goto 1200029,1200026,3,
+name MX0_EngineerGoto.1200022 id 1200022 defintion id 81960266
+name MX0_EngineerGoto.1200021 id 1200021 defintion id 81960266
+name Daves Arrow.1200020 id 1200020 defintion id 81960001
+name Script_Zone_Star.1200019 id 1200019 defintion id 519
+	MX0_NOD_TroopDrop 0,
+name Script_Zone_Star.1200016 id 1200016 defintion id 519
+	MX0_Engineer_Goto2 99,99,5,
+name Script_Zone_Star.1200015 id 1200015 defintion id 519
+	MX0_Engineer_Goto2 1200010,1200011,4,
+name Script_Zone_Star.1200014 id 1200014 defintion id 519
+	MX0_Engineer_Goto 1200029,1200026,2,
+name MX0_EngineerGoto.1200011 id 1200011 defintion id 81960266
+name MX0_EngineerGoto.1200010 id 1200010 defintion id 81960266
+name MX0_EngineerGoto.1200009 id 1200009 defintion id 81960266
+name MX0_EngineerGoto.1200008 id 1200008 defintion id 81960266
+name MX0_EngineerGoto.1200007 id 1200007 defintion id 81960266
+name MX0_EngineerGoto.1200006 id 1200006 defintion id 81960266
+name Script_Zone_Star.1200002 id 1200002 defintion id 519
+	MX0_Engineer_Goto 1200029,1200026,1,
+name Daves Arrow.1200001 id 1200001 defintion id 81960001
+	MX0_MissionStart_DME 0,
+name Daves Arrow.1200018 id 1200018 defintion id 81960001
+name MX0_EngineerGoto.1200029 id 1200029 defintion id 81960266
+name MX0_EngineerGoto.1200039 id 1200039 defintion id 81960266
+name MX0_EngineerGoto.1200040 id 1200040 defintion id 81960266
+name Daves Arrow.1200045 id 1200045 defintion id 81960001
+name SFX.ExploLeft.1700013 id 1700013 defintion id 81960202
+	M00_BuildingStateSoundSpeaker SFX.ExplosionLoopL,,1700006,1,,,0.00,,1,,,-1,,,
+name SFX.ExploRight.1700011 id 1700011 defintion id 81960202
+	M00_BuildingStateSoundSpeaker SFX.ExplosionLoopR,,1700006,1,,,0.00,,1,,,-1,,,
+name SFX.ExploLeft.1700009 id 1700009 defintion id 81960202
+	M00_BuildingStateSoundSpeaker SFX.ExplosionLoopL,,1700006,1,,,0.00,,1,,,-1,,,
+name SFX.ExploRight.1700007 id 1700007 defintion id 81960202
+	M00_BuildingStateSoundSpeaker SFX.ExplosionLoopR,,1700006,1,,,0.00,,1,,,-1,,,
+name SFX.Arrow_Building_Control.1700006 id 1700006 defintion id 81960202
+name SFX.Arrows.1700017 id 100017 defintion id 81960167
+	M00_Play_Sound SFX.Rock_SmallSlide3,1,,,6.00,20.00,
+name SFX.Arrows.1700016 id 100016 defintion id 81960167
+	M00_Play_Sound SFX.Rock_SmallSlide2,1,,,6.00,20.00,
+name SFX.Rockslide_01.1700050 id 100012 defintion id 81960167
+	M00_Play_Sound SFX.Rock_SmallSlide1,1,,,6.00,20.00,
+name SFX.Arrows.1700034 id 100034 defintion id 81960167
+	M00_Play_Sound SFX.Rock_SmallSlideRev1,1,,,4.00,15.00,
+name SFX.Arrows.1700037 id 100037 defintion id 81960167
+	M00_Play_Sound SFX.Rock_SmallSlideRev2,1,,,4.00,15.00,
+name SFX.Arrows.1700044 id 100044 defintion id 81960167
+	M00_Play_Sound SFX.Rock_SmallSlideRev1,1,,,4.00,15.00,
+name Daves Arrow.1100000 id 1100000 defintion id 81960001
+	MX0_A02_Controller 0,
+name Daves Arrow.1100006 id 1100006 defintion id 81960001
+name Daves Arrow.1100007 id 1100007 defintion id 81960001
+name Daves Arrow.1100008 id 1100008 defintion id 81960001
+name Daves Arrow.1100009 id 1100009 defintion id 81960001
+name Daves Arrow.1100010 id 1100010 defintion id 81960001
+name Daves Arrow.1100011 id 1100011 defintion id 81960001
+name Daves Arrow.1100012 id 1100012 defintion id 81960001
+name Daves Arrow.1100013 id 1100013 defintion id 81960001
+name Daves Arrow.1100014 id 1100014 defintion id 81960001
+name Daves Arrow.1100015 id 1100015 defintion id 81960001
+name Daves Arrow.1100016 id 1100016 defintion id 81960001
+name Daves Arrow.1100017 id 1100017 defintion id 81960001
+name Daves Arrow.1100018 id 1100018 defintion id 81960001
+name Daves Arrow.1100019 id 1100019 defintion id 81960001
+name Daves Arrow.1100020 id 1100020 defintion id 81960001
+name Daves Arrow.1100021 id 1100021 defintion id 81960001
+name Script_Zone_Star.1100022 id 1100022 defintion id 519
+	MX0_A02_ZONE_STARTUP 0,
+	MX0_Engineer_Goto 1200006,1200007,7,
+name Daves Arrow.1100023 id 1100023 defintion id 81960001
+name Daves Arrow.1100024 id 1100024 defintion id 81960001
+name Daves Arrow.1400155 id 1400155 defintion id 81960001
+name Daves Arrow.1400153 id 1400153 defintion id 81960001
+name Nod_Ledge_Drop_Loc.1400152 id 1400152 defintion id 81960001
+name Nod_Minigunner_0.1400150 id 1400150 defintion id 81930140
+	MX0_A03_NOD_PLACED_MINIGUNNER 0,
+name Nod_Minigunner_0.1400149 id 1400149 defintion id 81930140
+	MX0_A03_NOD_PLACED_MINIGUNNER 0,
+name Script_Zone_Star.1400143 id 1400143 defintion id 519
+	MX0_A03_FIRST_PLAYER_ZONE 0,
+	MX0_A03_GDI_TROOP_DROP_ZONE_DAK 0,
+name Drop_Troop_Three_Loc.1400140 id 1400140 defintion id 81960001
+name Drop_Troop_Two_Loc.1400139 id 1400139 defintion id 81960001
+name Drop_Troop_One_Loc.1400138 id 1400138 defintion id 81960001
+name Daves Arrow.1400131 id 1400131 defintion id 81960001
+name Nod_Buggy.1400081 id 1400081 defintion id 1315
+	MX0_A03_NOD_BUGGIE 0,
+name Daves Arrow.1400057 id 1400057 defintion id 81960001
+name Daves Arrow.1400053 id 1400053 defintion id 81960001
+name Daves Arrow.1400042 id 1400042 defintion id 81960001
+name Script_Zone_Star.1400004 id 1400004 defintion id 519
+	MX0_GDI_ORCA 0,
+name Daves Arrow.1400041 id 1400041 defintion id 81960001
+	MX0_A03_CONTROLLER_DAK 0,
+name Nod_Harvester.1400001 id 1400001 defintion id 82080028
+	M00_Damage_Modifier_DME 0.50,1,0,1,0,
+	M00_Damage_Modifier_DME 0.25,0,1,1,0,
+	MX0_A03_NOD_HARVESTER 0,
+name Script_Zone_Star.1400069 id 1400069 defintion id 519
+	MX0_A03_END_ZONE 0,
+name POW_RocketLauncher_Player.1500120 id 1500120 defintion id 81950015
+name POW_RocketLauncher_Player.1500119 id 1500119 defintion id 81950015
+name Reinforcement2_Loc3.1500110 id 1500110 defintion id 81960001
+name Reinforcement2_Loc2.1500109 id 1500109 defintion id 81960001
+name Reinforcement2_Loc1.1500108 id 1500108 defintion id 81960001
+name Reinforcement2_Loc0.1500107 id 1500107 defintion id 81960001
+name Reinforcement1_Loc3.1500106 id 1500106 defintion id 81960001
+name Reinforcement1_Loc2.1500105 id 1500105 defintion id 81960001
+name Reinforcement1_Loc1.1500104 id 1500104 defintion id 81960001
+name Reinforcement1_Loc0.1500103 id 1500103 defintion id 81960001
+name Simple_MetalDrum_04.1500099 id 1500099 defintion id 81960115
+	MX0_Explosive_Barrels_DLS 345000,50.00,
+name Simple_MetalDrum_05.1500098 id 1500098 defintion id 81960116
+	MX0_Explosive_Barrels_DLS 345001,50.00,
+name Simple_MetalDrum_07.1500096 id 1500096 defintion id 81960117
+	MX0_Explosive_Barrels_DLS 345001,50.00,
+name Simple_MetalDrum_08.1500095 id 1500095 defintion id 81960118
+	MX0_Explosive_Barrels_DLS 345000,50.00,
+name Simple_MetalDrum_08.1500094 id 1500094 defintion id 81960118
+	MX0_Explosive_Barrels_DLS 345000,50.00,
+name Ion_Cannon_Strike_Loc.1500087 id 1500087 defintion id 81960001
+name Orca_SAM_Strike_Loc.1500081 id 1500081 defintion id 81960001
+name GDI_Trooper2_Loc1.1500070 id 1500070 defintion id 81960001
+name GDI_Trooper3_Loc1.1500069 id 1500069 defintion id 81960001
+name GDI_Trooper3_Loc0.1500054 id 1500054 defintion id 81960001
+name GDI_Trooper2_Loc0.1500053 id 1500053 defintion id 81960001
+name GDI_Troop_Drop_Loc.1500051 id 1500051 defintion id 81960001
+name GDI_Trooper1_Loc1.1500050 id 1500050 defintion id 81960001
+name Base_RocketSoldier_Stationary_Pos.1500045 id 1500045 defintion id 81960001
+name Base_RocketSoldier_Stationary_Pos.1500043 id 1500043 defintion id 81960001
+name MX0_Nod_Gun_Emplacement.1500039 id 1500039 defintion id 82080175
+	MX0_Gun_Emplacement_DLS 1500036,1500037,
+name Gun_Emplacement_Right.1500037 id 1500037 defintion id 81960001
+name Gun_Emplacement_Left.1500036 id 1500036 defintion id 81960001
+name Light_Tank_A_Loc1.1500034 id 1500034 defintion id 81960001
+name Light_Tank_A_Loc0.1500033 id 1500033 defintion id 81960001
+name Medium_Tank_Escort_Loc3.1500029 id 1500029 defintion id 81960001
+name Medium_Tank_Escort_Loc1.1500028 id 1500028 defintion id 81960001
+name Medium_Tank_Escort_Loc0.1500027 id 1500027 defintion id 81960001
+name MX0_Nod_Obelisk.1500020 id 1500020 defintion id 82080169
+	M00_Send_Object_ID 1500017,15,1.0f,
+	MX0_Obelisk_Weapon_DLS 150.00,
+name Muzzle_Forward_Target.1500024 id 1500024 defintion id 81960001
+name Medium_Tank_Blasted_Loc1.1500023 id 1500023 defintion id 81960001
+name Medium_Tank_Blasted_Loc0.1500022 id 1500022 defintion id 81960001
+name Humvee_Move_Loc1.1500019 id 1500019 defintion id 81960001
+name Humvee_Move_Loc0.1500018 id 1500018 defintion id 81960001
+name MX0_Area4_Controller_DLS.1500017 id 1500017 defintion id 81960001
+	MX0_Area4_Controller_DLS 0,
+name Script_Zone_Star.1500005 id 1500005 defintion id 519
+	MX0_Area4_Zone_DLS 3,
+name Script_Zone_Star.1500004 id 1500004 defintion id 519
+	MX0_Area4_Zone_DLS 2,
+name Script_Zone_Star.1500003 id 1500003 defintion id 519
+	MX0_Area4_Zone_DLS 1,
+name Script_Zone_Star.1500002 id 1500002 defintion id 519
+	MX0_Area4_Zone_DLS 2,
+name Script_Zone_Star.1500001 id 1500001 defintion id 519
+	MX0_Area4_Zone_DLS 1,
+name Script_Zone_Star.1500006 id 1500006 defintion id 519
+	MX0_Area4_Zone_DLS 0,
+name Nod_Light_Tank_A.1500014 id 1500014 defintion id 82080027
+	M00_Send_Object_ID 1500017,5,1.0f,
+name Nod_Minigunner_0.1500046 id 1500046 defintion id 81930140
+	MX0_Nod_Bunker_DLS 0,
+name Nod_Minigunner_0.1500047 id 1500047 defintion id 81930140
+	MX0_Nod_Bunker_DLS 0,
+name GDI_Trooper1_Move_Loc0.1500049 id 1500049 defintion id 81960001
+name MX0_Obelisk.1500071 id 1500071 defintion id 81960270
+	M00_Send_Object_ID 1500017,14,1.0f,
+name Nod_Mobile_Artillery.1500083 id 1500083 defintion id 82080087
+	M00_Send_Object_ID 1500017,17,1.0f,
+name Mobile_Artillery_Loc0.1500084 id 1500084 defintion id 81960001
+name Mobile_Artillery_Loc1.1500085 id 1500085 defintion id 81960001
+name Nod_Buggy_Dec.1500012 id 1500012 defintion id 82080044
+	M00_Send_Object_ID 1500017,6,1.0f,
+name SAM_Site_Quick_Turn.1500016 id 1500016 defintion id 82080057
+	M00_Damage_Modifier_DME 0.10,1,1,1,0,
+	M03_SAM_Site_Logic 0,
+	MX0_Explosive_Barrels_DLS 345000,50.00,
+	MX0_SAM_DLS 0,
+name SAM_Site_Quick_Turn.1500015 id 1500015 defintion id 82080057
+	M00_Damage_Modifier_DME 0.10,0,1,1,0,
+	M03_SAM_Site_Logic 0,
+	MX0_Explosive_Barrels_DLS 345001,50.00,
+	MX0_SAM_DLS 0,
+name MX0_GDI_Reinforce_Area4.1500102 id 1500102 defintion id 81960001
+name MX0_BaseWall.1200050 id 1200050 defintion id 81960007
+name Vehicle_Blocker.100057 id 100057 defintion id 81960024
+name Vehicle_Blocker.100058 id 100058 defintion id 81960024
+name Vehicle_Blocker.100059 id 100059 defintion id 81960024
+name Vehicle_Blocker.100060 id 100060 defintion id 81960024
+name Vehicle_Blocker.100061 id 100061 defintion id 81960024
+name Vehicle_Blocker.100062 id 100062 defintion id 81960024
+name Vehicle_Blocker.100063 id 100063 defintion id 81960024
+name Vehicle_Blocker.100064 id 100064 defintion id 81960024
+name Vehicle_Blocker.100065 id 100065 defintion id 81960024
+name Vehicle_Blocker.100066 id 100066 defintion id 81960024

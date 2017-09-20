@@ -1,0 +1,525 @@
+name M06_MidtroB_Explosion_Controller.1500471 id 1500471 defintion id 81960001
+	M06_MidtroB_Explosion_Controller 1500466,1500467,1500468,1500469,1500470,
+name Explode_Loc4_ID.1500470 id 1500470 defintion id 81960001
+name Explode_Loc3_ID.1500469 id 1500469 defintion id 81960001
+name Explode_Loc2_ID.1500468 id 1500468 defintion id 81960001
+name Explode_Loc1_ID.1500467 id 1500467 defintion id 81960001
+name Explode_Loc0_ID.1500466 id 1500466 defintion id 81960001
+name POW_MineRemote_Player.114376 id 114376 defintion id 81950031
+name POW_MineRemote_Player.114375 id 114375 defintion id 81950031
+name SFX.Rat.500025 id 500025 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Rat,1,,,1.00,4.00,
+name SFX.Arrow_Troops_Snow.111528 id 111528 defintion id 81960181
+name SFX.Arrow_Troops_Wood.111529 id 111529 defintion id 81960185
+name SFX.Arrow_Troops_Stone.111530 id 111530 defintion id 81960184
+name SFX.Arrow_Troops_Stone.111531 id 111531 defintion id 81960184
+name SFX.Arrow_Troops_Stone.111533 id 111533 defintion id 81960184
+name SFX.Arrow_Troops_Metal.111534 id 111534 defintion id 81960182
+name SFX.Arrow_Wood_Creak_1.111535 id 111535 defintion id 81960169
+name SFX.Arrow_Troops_Metal.111536 id 111536 defintion id 81960182
+name SFX.Arrow_Troops_Concrete.111539 id 111539 defintion id 81960183
+name SFX.Arrow_Water_Drip_01.111540 id 111540 defintion id 81960188
+name SFX.Arrow_Water_Drip_02.111541 id 111541 defintion id 81960189
+name SFX.Arrow_Wood_Creak_1.111543 id 111543 defintion id 81960169
+name M08_Go_Point.111431 id 111431 defintion id 81960086
+name M08_Go_Point.111430 id 111430 defintion id 81960086
+name M08_Go_Point.111429 id 111429 defintion id 81960086
+name M08_Go_Point.111428 id 111428 defintion id 81960086
+name M08_Go_Point.111427 id 111427 defintion id 81960086
+name M08_Go_Point.111426 id 111426 defintion id 81960086
+name M08_Go_Point.111425 id 111425 defintion id 81960086
+name M08_Go_Point.111424 id 111424 defintion id 81960086
+name M08_Go_Point.111423 id 111423 defintion id 81960086
+name M08_Go_Point.111422 id 111422 defintion id 81960086
+name Civ_Resist_Female_v0a.101016 id 101016 defintion id 81930152
+	M06_Civ_Prisoner 0,
+name Nod_Servant_02_Male.104977 id 104977 defintion id 81930222
+	M06_Servant_Behavior 104974,104975,104976,S_A_HUMAN.H_A_A0F0,
+name Mutant_0_Mutant.110907 id 110907 defintion id 81930119
+	M06_Lab_Guard 0,
+name Havoc_Loc_Post_Midtro.107607 id 107607 defintion id 81960001
+name Sydney_Loc_Post_Midtro.107606 id 107606 defintion id 81960001
+name GDI_Sydney.101010 id 101010 defintion id 81930170
+	M06_Sydney_Mobius 0,
+name M06_Collapse_Zone.104312 id 104312 defintion id 519
+	M06_Collapse_Zone 1,
+name Nod_FlameThrower_0.101400 id 101400 defintion id 81930138
+	M06_Alarm_Behavior 0.10,0.10,
+	M06_Clear_For_Mendoza 0,
+	M06_South_Barracks_Unit 0,
+name Nod_FlameThrower_0.101399 id 101399 defintion id 81930138
+	M06_Alarm_Behavior 0.10,0.10,
+	M06_Clear_For_Mendoza 0,
+	M06_South_Barracks_Unit 0,
+name Nod_FlameThrower_0.101398 id 101398 defintion id 81930138
+	M06_Alarm_Behavior 0.10,0.10,
+	M06_Clear_For_Mendoza 0,
+	M06_North_Barracks_Unit 0,
+name Nod_FlameThrower_0.101397 id 101397 defintion id 81930138
+	M06_Alarm_Behavior 0.10,0.10,
+	M06_Clear_For_Mendoza 0,
+	M06_North_Barracks_Unit 0,
+name Nod_FlameThrower_0.101391 id 101391 defintion id 81930138
+	M06_Alarm_Behavior 0.10,0.0,
+	M06_Bathroom_Unit 0,
+	M06_Clear_For_Mendoza 0,
+name Nod_FlameThrower_0.101385 id 101385 defintion id 81930138
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Courtyard_Unit 0,
+name Nod_FlameThrower_0.101384 id 101384 defintion id 81930138
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Courtyard_Unit 0,
+name Nod_Minigunner_2SF_Chaingun.101358 id 101358 defintion id 81930207
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Floor1_Library_Unit 0,
+name Nod_Minigunner_2SF_Chaingun.101009 id 101009 defintion id 81930207
+	M06_WarRoom_Bodyguard_DLS 0,
+name Nod_RocketSoldier_2SF_Chaingun.101502 id 101502 defintion id 81930209
+	M06_Barracks_Mess_Unit 0,
+	M06_Clear_For_Mendoza 0,
+name Nod_RocketSoldier_2SF_Chaingun.101375 id 101375 defintion id 81930209
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Officers_Mess_Unit 0,
+name Nod_RocketSoldier_2SF_Chaingun.101374 id 101374 defintion id 81930209
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Officers_Mess_Unit 0,
+name Nod_RocketSoldier_2SF_Chaingun.101363 id 101363 defintion id 81930209
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Floor1_Bedroom_Unit 0,
+name Sydney_Move_Loc.101588 id 101588 defintion id 81960001
+name Daves Arrow.101587 id 101587 defintion id 81960001
+name Daves Arrow.101586 id 101586 defintion id 81960001
+name M06_Move_Sydney.101585 id 101585 defintion id 519
+	M06_Collapse_Zone 7,
+	M06_Move_Sydney 10,
+name Sydney_Move_Loc.101584 id 101584 defintion id 81960001
+name M06_Move_Sydney.101583 id 101583 defintion id 519
+	M06_Collapse_Zone 6,
+	M06_Move_Sydney 9,
+name Daves Arrow.101582 id 101582 defintion id 81960001
+name Daves Arrow.101581 id 101581 defintion id 81960001
+name M06_Move_Sydney.101580 id 101580 defintion id 519
+	M06_Move_Sydney 7,
+name Sydney_Move_Loc.101579 id 101579 defintion id 81960001
+name M06_Move_Sydney.101578 id 101578 defintion id 519
+	M06_Move_Sydney 6,
+name Sydney_Move_Loc.101577 id 101577 defintion id 81960001
+name M06_Move_Sydney.101576 id 101576 defintion id 519
+	M06_Move_Sydney 5,
+name Sydney_Move_Loc.101575 id 101575 defintion id 81960001
+name M06_Move_Sydney.101574 id 101574 defintion id 519
+	M06_Move_Sydney 4,
+name Daves Arrow.101573 id 101573 defintion id 81960001
+name Sydney_Move_Loc.101572 id 101572 defintion id 519
+	M06_Move_Sydney 3,
+name Sydney_Move_Loc.101571 id 101571 defintion id 81960001
+name Sydney_Move_Loc.101570 id 101570 defintion id 519
+	M06_Move_Sydney 2,
+name Sydney_Move_Loc.101569 id 101569 defintion id 81960001
+name M06_Move_Sydney.101568 id 101568 defintion id 519
+	M06_Move_Sydney 1,
+name Sydney_Move_Loc.101567 id 101567 defintion id 81960001
+name Daves Arrow.101527 id 101527 defintion id 81960001
+name M06_Enable_Warroom_DoorGuard.101517 id 101517 defintion id 519
+	M06_Enable_Warroom_DoorGuard 0,
+name Nod_Minigunner_2SF_Chaingun.101516 id 101516 defintion id 81930207
+	M06_WarRoom_DoorGuard 0,
+name Farmer.101509 id 101509 defintion id 81930173
+	M06_Assistance_Farmer_DLS 0,
+name M06_Enable_Floor1_Bedroom.101499 id 101499 defintion id 519
+	M06_Enable_Floor1_Bedroom 0,
+name Daves Arrow.2000215 id 2000215 defintion id 81960001
+name Daves Arrow.2000501 id 2000501 defintion id 81960001
+name Daves Arrow.2000503 id 2000503 defintion id 81960001
+name Daves Arrow.2000507 id 2000507 defintion id 81960001
+name Nod_MiniGunner_1Off.101396 id 101396 defintion id 81930142
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Clear_For_Mendoza 0,
+	M06_North_Barracks_Unit 0,
+name Nod_MiniGunner_1Off.101383 id 101383 defintion id 81930142
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Courtyard_Unit 0,
+name M06_Enable_Officers_Mess.101382 id 101382 defintion id 519
+	M06_Enable_Officers_Mess 0,
+name M06_Enable_Officers_Mess.101381 id 101381 defintion id 519
+	M06_Enable_Officers_Mess 0,
+name M06_Enable_Officers_Mess.101380 id 101380 defintion id 519
+	M06_Enable_Officers_Mess 0,
+name M06_Enable_Officers_Mess.101379 id 101379 defintion id 519
+	M06_Enable_Officers_Mess 0,
+name M06_Enable_Officers_Mess.101378 id 101378 defintion id 519
+	M06_Enable_Officers_Mess 0,
+name M06_Enable_Officers_Mess.101377 id 101377 defintion id 519
+	M06_Enable_Officers_Mess 0,
+name M06_Enable_Officers_Mess.101376 id 101376 defintion id 519
+	M06_Enable_Officers_Mess 0,
+name Nod_MiniGunner_1Off.101364 id 101364 defintion id 81930142
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Floor2_Bedroom_Unit 0,
+name M06_Enable_Floor1_Library.101362 id 101362 defintion id 519
+	M06_Enable_Floor1_Library 0,
+name M06_Enable_Floor1_Library.101361 id 101361 defintion id 519
+	M06_Enable_Floor1_Library 0,
+name Nod_MiniGunner_1Off.101360 id 101360 defintion id 81930142
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Floor1_Library_Unit 0,
+name Nod_Technician_0.101357 id 101357 defintion id 81930169
+	M06_Alarm_Behavior 0.50,0.50,
+	M06_Greenhouse_Shaft_Unit 1,
+name Nod_FlameThrower_1Off.101356 id 101356 defintion id 81930136
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Greenhouse_Shaft_Unit 2,
+name M06_Greenhouse_Controller.101355 id 101355 defintion id 81960001
+name M06_Resistance_Raider.101349 id 101349 defintion id 81930151
+	M06_Resistance_Raider_DLS 0,
+name M06_Enable_Lab.101324 id 101324 defintion id 519
+	M06_Collapse_Zone 5,
+	M06_Enable_Lab 0,
+	M06_Move_Sydney 8,
+name M06_Enable_Interior.101308 id 101308 defintion id 519
+	M06_Enable_Interior 0,
+name M06_Enable_Interior.101307 id 101307 defintion id 519
+	M06_Enable_Interior 0,
+name M06_Enable_Interior.101306 id 101306 defintion id 519
+	M06_Enable_Interior 0,
+name M06_Enable_Interior.101305 id 101305 defintion id 519
+	M06_Enable_Interior 0,
+name M06_Enable_Interior.101304 id 101304 defintion id 519
+	M06_Activate_Flyovers 0,
+	M06_Enable_Interior 0,
+name M06_Enable_Barracks.101212 id 101212 defintion id 519
+	M06_Enable_Barracks 0,
+name M06_Enable_Hedgemaze.101149 id 101149 defintion id 519
+	M06_Enable_Hedgemaze 0,
+name M06_Enable_Hedgemaze.101148 id 101148 defintion id 519
+	 ,
+	M06_Enable_Hedgemaze 0,
+name Nod_RocketSoldier_1Off.101105 id 101105 defintion id 81930146
+	M00_Soldier_Powerup_Disable 0,
+	M06_Hedgemaze_Eagle 0,
+name Nod_RocketSoldier_1Off.101097 id 101097 defintion id 81930146
+	M00_Soldier_Powerup_Disable 0,
+	M06_Courtyard_Eagle 0,
+name Nod_RocketSoldier_1Off.101098 id 101098 defintion id 81930146
+	M00_Soldier_Powerup_Disable 0,
+	M06_Courtyard_Eagle 0,
+name Nod_RocketSoldier_1Off.101099 id 101099 defintion id 81930146
+	M00_Soldier_Powerup_Disable 0,
+	M06_Courtyard_Eagle 0,
+	M06_Hedgemaze_Eagle 0,
+name Nod_Tower.101037 id 101037 defintion id 81930143
+	M05_Aggressiveness_Take_Cover 100.00,0.0,
+	M06_Nod_Tower 0,
+name M06_Activate_Midtro.101011 id 101011 defintion id 519
+	M06_Activate_Midtro 0,
+name M06_Objective_Controller.100018 id 100018 defintion id 81960001
+	M06_Alarm_Controller 0,
+	M06_Destruction_Stub 0,
+	M06_Flyover_Controller 0,
+	M06_Objective_Controller 0,
+name M06_WarRoom_Officer.101008 id 101008 defintion id 81930142
+	M06_WarRoom_Officer_DLS 0,
+name GDI_Prisoner_v0a.101014 id 101014 defintion id 81930162
+	M06_GDI_Prisoner 0,
+name M06_Enable_Guard_Tower.101020 id 101020 defintion id 519
+	M06_Enable_Guard_Tower 0,
+name M06_Enable_Exterior_Courtyard.101055 id 101055 defintion id 519
+	M06_Enable_Alarm_Objective 0,
+	M06_Enable_Exterior_Courtyard 0,
+name M06_Courtyard_Controller.101104 id 101104 defintion id 81960001
+	M06_Courtyard_Controller 0,
+name M06_Hedgemaze_Controller.101147 id 101147 defintion id 81960001
+	M06_Hedgemaze_Controller 0,
+name Nod_RocketSoldier_1Off.101153 id 101153 defintion id 81930146
+	M00_Soldier_Powerup_Disable 0,
+	M06_Barracks_Eagle 0,
+	M06_Clear_For_Mendoza 0,
+name Nod_RocketSoldier_1Off.101154 id 101154 defintion id 81930146
+	M00_Soldier_Powerup_Disable 0,
+	M06_Barracks_Eagle 0,
+	M06_Clear_For_Mendoza 0,
+name M06_Barracks_Controller.101204 id 101204 defintion id 81960001
+	M06_Barracks_Controller 0,
+name M06_Interior_Controller.101309 id 101309 defintion id 81960001
+	M06_Interior_Controller 0,
+name M06_Enable_Greenhouse.101350 id 101350 defintion id 519
+	M06_Enable_Greenhouse 0,
+name M06_Enable_Greenhouse.101351 id 101351 defintion id 519
+	M06_Enable_Greenhouse 0,
+name Nod_Technician_0.101365 id 101365 defintion id 81930169
+	M06_Alarm_Behavior 0.50,0.50,
+	M06_Floor2_Library_Unit 0,
+name Nod_Technician_0.101366 id 101366 defintion id 81930169
+	M06_Alarm_Behavior 0.50,0.50,
+	M06_Floor2_Library_Unit 0,
+name M06_Enable_Floor2_Library.101367 id 101367 defintion id 519
+	M06_Enable_Floor2_Library 0,
+name Nod_FlameThrower_1Off.101369 id 101369 defintion id 81930136
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Floor2_Conference_Unit 0,
+name Nod_MiniGunner_1Off.101370 id 101370 defintion id 81930142
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Floor2_Conference_Unit 0,
+name M06_Enable_Floor2_Conference.101372 id 101372 defintion id 519
+	M06_Enable_Floor2_Conference 0,
+name M06_Enable_WarRoom.101373 id 101373 defintion id 519
+	M06_Enable_WarRoom 0,
+name M06_Enable_Courtyard.101386 id 101386 defintion id 519
+	M06_Enable_Courtyard 0,
+name M06_Enable_Courtyard.101387 id 101387 defintion id 519
+	M06_Enable_Courtyard 0,
+name M06_Enable_Courtyard.101388 id 101388 defintion id 519
+	M06_Enable_Courtyard 0,
+name M06_Enable_Courtyard.101389 id 101389 defintion id 519
+	M06_Enable_Courtyard 0,
+	M06_Move_Sydney 12,
+name M06_Enable_Courtyard.101390 id 101390 defintion id 519
+	M06_Collapse_Zone 9,
+	M06_Enable_Courtyard 0,
+	M06_Move_Sydney 11,
+name Nod_FlameThrower_1Off.101393 id 101393 defintion id 81930136
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Bathroom_Unit 0,
+	M06_Clear_For_Mendoza 0,
+name M06_Enable_Bathroom.101394 id 101394 defintion id 519
+	M06_Enable_Bathroom 0,
+name M06_Enable_Bathroom.101395 id 101395 defintion id 519
+	M06_Enable_Bathroom 0,
+name M06_Enable_South_Barracks.101401 id 101401 defintion id 519
+	M06_Enable_South_Barracks 0,
+name M06_Enable_South_Barracks.101402 id 101402 defintion id 519
+	M06_Enable_South_Barracks 0,
+name Nod_MiniGunner_1Off.101403 id 101403 defintion id 81930142
+	M06_Alarm_Behavior 0.00,0.0,
+	M06_Clear_For_Mendoza 0,
+	M06_South_Barracks_Unit 0,
+name Nod_Ceiling_Camera.101430 id 101430 defintion id 82080039
+	RMV_Camera_Behavior 90.00,100018,0,0.0,
+name Nod_Ceiling_Camera.101431 id 101431 defintion id 82080039
+	RMV_Camera_Behavior 90.00,100018,0,0.0,
+name Nod_Ceiling_Camera.101432 id 101432 defintion id 82080039
+	RMV_Camera_Behavior 180.00,100018,0,0.0,
+name Nod_Ceiling_Camera.101433 id 101433 defintion id 82080039
+	RMV_Camera_Behavior 180.00,100018,0,0.0,
+name Nod_Ceiling_Gun.101434 id 101434 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Camera.101435 id 101435 defintion id 82080039
+	RMV_Camera_Behavior 90.00,100018,0,0.0,
+name Nod_Ceiling_Camera.101436 id 101436 defintion id 82080039
+	RMV_Camera_Behavior 90.00,100018,0,0.0,
+name Nod_Ceiling_Camera.101437 id 101437 defintion id 82080039
+	RMV_Camera_Behavior 180.00,100018,0,0.0,
+name Nod_Ceiling_Gun.101439 id 101439 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.101440 id 101440 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.101441 id 101441 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Camera.101442 id 101442 defintion id 82080039
+	RMV_Camera_Behavior 90.00,100018,0,0.0,
+name Nod_Ceiling_Camera.101443 id 101443 defintion id 82080039
+	RMV_Camera_Behavior 90.00,100018,0,0.0,
+name Nod_Ceiling_Gun.101444 id 101444 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.101445 id 101445 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.101446 id 101446 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name M06_Enable_Floor2_Bedroom.101498 id 101498 defintion id 519
+	M06_Enable_Floor2_Bedroom 0,
+name M06_Enable_North_Barracks.101500 id 101500 defintion id 519
+	M06_Enable_North_Barracks 0,
+name M06_Enable_North_Barracks.101501 id 101501 defintion id 519
+	M06_Enable_North_Barracks 0,
+name M06_Enable_Barracks_Mess.101504 id 101504 defintion id 519
+	M06_Enable_Barracks_Mess 0,
+name M06_Enable_Barracks_Mess.101505 id 101505 defintion id 519
+	M06_Enable_Barracks_Mess 0,
+name M06_Enable_Barracks_Mess.101506 id 101506 defintion id 519
+	M06_Enable_Barracks_Mess 0,
+name M06_Enable_Barracks_Mess.101507 id 101507 defintion id 519
+	M06_Enable_Barracks_Mess 0,
+name M06_Enable_Barracks_Mess.101508 id 101508 defintion id 519
+	M06_Enable_Barracks_Mess 0,
+name M06_Drop_Thunder_Sqaud.101518 id 101518 defintion id 519
+	M06_Drop_Thunder_Squad 0,
+name Drop_Thunder_Squad_Loc.101519 id 101519 defintion id 81960001
+name M06_Alarm_Switch.100157 id 100157 defintion id 81960109
+	M03_Engineer_Target 0,
+	M06_Alarm_Switch 0,
+	M06_Apply_Damage 0,
+name M06_Alarm_Switch.100330 id 100330 defintion id 81960109
+	M03_Engineer_Target 0,
+	M06_Alarm_Switch 0,
+name M06_Alarm_Switch.100423 id 100423 defintion id 81960109
+	M03_Engineer_Target 0,
+	M06_Alarm_Switch 0,
+name M06_Alarm_Switch.100445 id 100445 defintion id 81960109
+	M03_Engineer_Target 0,
+	M06_Alarm_Switch 0,
+name M06_Alarm_Switch.101003 id 101003 defintion id 81960109
+	M03_Engineer_Target 0,
+	M06_Alarm_Switch 0,
+name M06_Alarm_Switch.101004 id 101004 defintion id 81960109
+	M03_Engineer_Target 0,
+	M06_Alarm_Switch 0,
+name M06_Alarm_Switch.101005 id 101005 defintion id 81960109
+	M03_Engineer_Target 0,
+	M06_Alarm_Switch 0,
+name M06_Alarm_Switch.101006 id 101006 defintion id 81960109
+	M03_Engineer_Target 0,
+	M06_Alarm_Switch 0,
+name M06_Activate_Flyovers.101528 id 101528 defintion id 519
+	M06_Activate_Flyovers 0,
+name M06_Activate_Flyovers.101529 id 101529 defintion id 519
+	M06_Activate_Flyovers 1,
+name Barracks_Drop.101534 id 101534 defintion id 81960001
+name Barracks_Drop.101535 id 101535 defintion id 81960001
+name Barracks_Drop.101536 id 101536 defintion id 81960001
+name Barracks_Drop.101537 id 101537 defintion id 81960001
+name Barracks_Drop.101538 id 101538 defintion id 81960001
+name Barracks_Pickup.101539 id 101539 defintion id 81960001
+name Barracks_Pickup.101540 id 101540 defintion id 81960001
+name Barracks_Pickup.101541 id 101541 defintion id 81960001
+name Barracks_Pickup.101542 id 101542 defintion id 81960001
+name Barracks_Pickup.101543 id 101543 defintion id 81960001
+name Barracks_Pickup.101544 id 101544 defintion id 81960001
+name Daves Arrow.112955 id 112955 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Rat,1,,,1.00,4.00,
+name Nod_Servant_01_Male.101503 id 101503 defintion id 81930221
+	M06_Barracks_Mess_Unit 0,
+	M06_Clear_For_Mendoza 0,
+	M06_Servant_Behavior 102924,102925,102926,S_A_HUMAN.H_A_A0F0,
+name Daves Arrow.102924 id 102924 defintion id 81960001
+name Daves Arrow.102925 id 102925 defintion id 81960001
+name Daves Arrow.102926 id 102926 defintion id 81960001
+name POW_Armor_050.103597 id 103597 defintion id 3666
+name POW_Health_050.103599 id 103599 defintion id 1667
+name POW_SniperRifle_Player.103600 id 103600 defintion id 81950013
+name POW_Armor_025.103601 id 103601 defintion id 3663
+name POW_Health_025.103602 id 103602 defintion id 1665
+name POW_Health_025.103609 id 103609 defintion id 1665
+name POW_Health_025.103610 id 103610 defintion id 1665
+name POW_Armor_050.103612 id 103612 defintion id 3666
+name POW_Health_050.103613 id 103613 defintion id 1667
+name POW_ChemSprayer_Player.103614 id 103614 defintion id 81950054
+name POW_Armor_025.103615 id 103615 defintion id 3663
+name POW_Chaingun_Player.103616 id 103616 defintion id 81950051
+name POW_Health_025.103617 id 103617 defintion id 1665
+name POW_Health_050.103618 id 103618 defintion id 1667
+name POW_Health_050.103619 id 103619 defintion id 1667
+name POW_Armor_050.103620 id 103620 defintion id 3666
+name POW_Health_100.103621 id 103621 defintion id 1663
+name POW_Armor_100.103622 id 103622 defintion id 3669
+name POW_LaserRifle_Player.103623 id 103623 defintion id 81950077
+name POW_LaserRifle_Player.103624 id 103624 defintion id 81950077
+name POW_LaserRifle_Player.103625 id 103625 defintion id 81950077
+name POW_LaserRifle_Player.103626 id 103626 defintion id 81950077
+name POW_Armor_025.103627 id 103627 defintion id 3663
+name POW_Health_025.103628 id 103628 defintion id 1665
+name POW_GrenadeLauncher_Player.103629 id 103629 defintion id 81950046
+name POW_Armor_050.103630 id 103630 defintion id 3666
+name POW_Health_050.103631 id 103631 defintion id 1667
+name POW_PersonalIonCannon_Player.103632 id 103632 defintion id 81950084
+name POW_Health_025.103633 id 103633 defintion id 1665
+name POW_Health_025.103634 id 103634 defintion id 1665
+name POW_Health_025.103635 id 103635 defintion id 1665
+name POW_Armor_025.103636 id 103636 defintion id 3663
+name POW_Armor_025.103637 id 103637 defintion id 3663
+name POW_Armor_050.103638 id 103638 defintion id 3666
+name POW_Health_050.103639 id 103639 defintion id 1667
+name POW_Health_025.103641 id 103641 defintion id 1665
+name POW_Health_025.103642 id 103642 defintion id 1665
+name POW_Health_025.103643 id 103643 defintion id 1665
+name POW_Health_025.103644 id 103644 defintion id 1665
+name POW_Armor_025.103645 id 103645 defintion id 3663
+name POW_Armor_025.103646 id 103646 defintion id 3663
+name POW_Health_025.103647 id 103647 defintion id 1665
+name POW_Health_025.103648 id 103648 defintion id 1665
+name POW_Armor_050.103649 id 103649 defintion id 3666
+name POW_Health_025.103650 id 103650 defintion id 1665
+name POW_Chaingun_Player.103651 id 103651 defintion id 81950051
+name POW_Health_025.103652 id 103652 defintion id 1665
+name POW_Armor_025.103653 id 103653 defintion id 3663
+name POW_GrenadeLauncher_Player.103654 id 103654 defintion id 81950046
+name POW_Health_025.103655 id 103655 defintion id 1665
+name POW_Health_025.103656 id 103656 defintion id 1665
+name POW_Armor_050.103657 id 103657 defintion id 3666
+name POW_Health_050.103658 id 103658 defintion id 1667
+name M06_Servant_Loc.104966 id 104966 defintion id 81960145
+name M06_Servant_Loc.104967 id 104967 defintion id 81960145
+name M06_Servant_Loc.104968 id 104968 defintion id 81960145
+name Nod_Servant_01_Male.104969 id 104969 defintion id 81930221
+	M06_Servant_Behavior 104966,104967,104968,S_A_HUMAN.H_A_A0F0,
+name M06_Servant_Loc.104970 id 104970 defintion id 81960145
+name M06_Servant_Loc.104971 id 104971 defintion id 81960145
+name M06_Servant_Loc.104972 id 104972 defintion id 81960145
+name Nod_Servant_02_Male.104973 id 104973 defintion id 81930222
+	M06_Servant_Behavior 104970,104971,104972,S_A_HUMAN.H_A_A0F0,
+name M06_Servant_Loc.104974 id 104974 defintion id 81960145
+name M06_Servant_Loc.104975 id 104975 defintion id 81960145
+name M06_Servant_Loc.104976 id 104976 defintion id 81960145
+name M06_Servant_Loc.104978 id 104978 defintion id 81960145
+name M06_Servant_Loc.104979 id 104979 defintion id 81960145
+name M06_Servant_Loc.104980 id 104980 defintion id 81960145
+name Nod_Servant_02_Male.104981 id 104981 defintion id 81930222
+	M06_Servant_Behavior 104978,104979,104980,S_A_HUMAN.H_A_A0F0,
+name Nod_Light_Tank.101033 id 101033 defintion id 82080027
+	M06_Escort_Tank 0,
+name M06_Collapse_Zone.105635 id 105635 defintion id 519
+	M06_Collapse_Zone 2,
+name M06_Collapse_Zone.105639 id 105639 defintion id 519
+	M06_Collapse_Zone 3,
+name M06_Collapse_Zone.105640 id 105640 defintion id 519
+	M06_Collapse_Zone 4,
+name M06_Collapse_Zone.105641 id 105641 defintion id 519
+	M06_Collapse_Zone 8,
+name Warroom_Computer_POG.106952 id 106952 defintion id 81960001
+name M06_Invisible_Poke_Medium.101546 id 101546 defintion id 81960154
+	M06_WarRoom_Computer 0,
+name M06_Enable_Barracks.101012 id 101012 defintion id 519
+	M06_Activate_Flyovers 1,
+	M06_Enable_Barracks 0,
+name Mendoza_Midtro_Relocate.108276 id 108276 defintion id 81960001
+name Sydney_Midtro_Relocate.108277 id 108277 defintion id 81960001
+name Daves Arrow.108278 id 108278 defintion id 81960001
+name M06_Activate_MidtroC.108285 id 108285 defintion id 519
+	M06_Activate_MidtroC 0,
+name POW_MineRemote_Player.109619 id 109619 defintion id 81950031
+name POW_MineRemote_Player.109620 id 109620 defintion id 81950031
+name Daves Arrow.112464 id 112464 defintion id 81960001
+name SFX.Arrow_Wood_Creak_1.112959 id 112959 defintion id 81960169
+name SFX.Arrow_Water_Drip_02.112960 id 112960 defintion id 81960189
+name SFX.Arrow_Water_Drip_01.112961 id 112961 defintion id 81960188
+name SFX.Arrow_Troops_Concrete.112962 id 112962 defintion id 81960183
+name SFX.Arrow_Troops_Metal.112963 id 112963 defintion id 81960182
+name SFX.Arrow_Wood_Creak_1.112964 id 112964 defintion id 81960169
+name SFX.Arrow_Troops_Metal.112965 id 112965 defintion id 81960182
+name SFX.Arrow_Troops_Stone.112966 id 112966 defintion id 81960184
+name SFX.Arrow_Troops_Stone.112967 id 112967 defintion id 81960184
+name SFX.Arrow_Troops_Stone.112968 id 112968 defintion id 81960184
+name SFX.Arrow_Troops_Wood.112969 id 112969 defintion id 81960185
+name SFX.Arrow_Troops_Snow.112970 id 112970 defintion id 81960181
+name Daves Arrow.112971 id 112971 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Rat,1,,,1.00,4.00,
+name POW_Data_Disc.113439 id 113439 defintion id 81950099
+	M06_DataDisc_01_DLS 0,
+name SP_Helipad_Nod.163894 id 163894 defintion id 491530019
+name M06_Invisible_Poke_Small.113907 id 113907 defintion id 81960253
+	M06_Activate_Secret_Door 1553207,
+name Nod_MCT_Alarm.101548 id 101548 defintion id 81960256
+	M06_Alarm_Terminal_DLS 0,
+name Nod_MCT_Alarm.101549 id 101549 defintion id 81960256
+	M06_Alarm_Terminal_DLS 0,
+name M09_Window_Blocker.1200466 id 1200466 defintion id 81960248
+name M09_Window_Blocker.1200467 id 1200467 defintion id 81960248
+name M09_Window_Blocker.1200470 id 1200470 defintion id 81960248
+name M09_Window_Blocker.1200471 id 1200471 defintion id 81960248
+name M09_Window_Blocker.1400466 id 1400466 defintion id 81960248
+name M09_Window_Blocker.1400468 id 1400468 defintion id 81960248
+name M09_Window_Blocker.1400471 id 1400471 defintion id 81960248
+name M09_Window_Blocker.1400472 id 1400472 defintion id 81960248
+name M09_Window_Blocker.1400477 id 1400477 defintion id 81960248
+name M09_Window_Blocker.1400478 id 1400478 defintion id 81960248
+name M09_Window_Blocker.1400479 id 1400479 defintion id 81960248
+name M09_Window_Blocker.1400480 id 1400480 defintion id 81960248

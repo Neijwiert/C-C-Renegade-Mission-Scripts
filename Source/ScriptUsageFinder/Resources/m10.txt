@@ -1,0 +1,702 @@
+name POW_LaserChaingun_Player.1300708 id 1300708 defintion id 81950069
+name POW_LaserChaingun_Player.1300707 id 1300707 defintion id 81950069
+name M09_Window_Blocker.1212927 id 1212927 defintion id 81960248
+name M09_Window_Blocker.1212926 id 1212926 defintion id 81960248
+name M09_Window_Blocker.1211510 id 1211510 defintion id 81960248
+name M09_Window_Blocker.1211509 id 1211509 defintion id 81960248
+name M09_Window_Blocker.1211508 id 1211508 defintion id 81960248
+name M09_Window_Blocker.1211507 id 1211507 defintion id 81960248
+name POW_Medal_Health.2008198 id 2008198 defintion id 81950116
+name POW_Medal_Armor.1211505 id 1211505 defintion id 81950117
+name Daves Arrow.1209367 id 1209367 defintion id 81960001
+name M09_Window_Blocker.1209366 id 1209366 defintion id 81960248
+name M09_Window_Blocker.1209365 id 1209365 defintion id 81960248
+name M09_Window_Blocker.1209364 id 1209364 defintion id 81960248
+name M09_Window_Blocker.1209363 id 1209363 defintion id 81960248
+name M09_Window_Blocker.1209362 id 1209362 defintion id 81960248
+name M09_Window_Blocker.1209361 id 1209361 defintion id 81960248
+name M09_Window_Blocker.1209360 id 1209360 defintion id 81960248
+name M09_Window_Blocker.1209359 id 1209359 defintion id 81960248
+name M09_Window_Blocker.1209358 id 1209358 defintion id 81960248
+name M09_Window_Blocker.1209357 id 1209357 defintion id 81960248
+name M09_Window_Blocker.1209356 id 1209356 defintion id 81960248
+name M09_Window_Blocker.1209355 id 1209355 defintion id 81960248
+name M09_Window_Blocker.1209354 id 1209354 defintion id 81960248
+name M09_Window_Blocker.1209353 id 1209353 defintion id 81960248
+name M09_Window_Blocker.1209352 id 1209352 defintion id 81960248
+name M09_Window_Blocker.1209351 id 1209351 defintion id 81960248
+name M09_Window_Blocker.1209350 id 1209350 defintion id 81960248
+name M09_Window_Blocker.1209349 id 1209349 defintion id 81960248
+name M09_Window_Blocker.1209348 id 1209348 defintion id 81960248
+name M09_Window_Blocker.1209347 id 1209347 defintion id 81960248
+name M09_Window_Blocker.1209346 id 1209346 defintion id 81960248
+name M09_Window_Blocker.1209345 id 1209345 defintion id 81960248
+name M09_Window_Blocker.1209344 id 1209344 defintion id 81960248
+name M09_Window_Blocker.1209343 id 1209343 defintion id 81960248
+name M09_Window_Blocker.1209342 id 1209342 defintion id 81960248
+name M09_Window_Blocker.1209341 id 1209341 defintion id 81960248
+name M09_Window_Blocker.1209340 id 1209340 defintion id 81960248
+name M09_Window_Blocker.1209339 id 1209339 defintion id 81960248
+name M09_Window_Blocker.1209338 id 1209338 defintion id 81960248
+name M09_Window_Blocker.1209337 id 1209337 defintion id 81960248
+name M09_Window_Blocker.1209336 id 1209336 defintion id 81960248
+name M09_Window_Blocker.1209335 id 1209335 defintion id 81960248
+name M09_Window_Blocker.1209334 id 1209334 defintion id 81960248
+name M09_Window_Blocker.1209333 id 1209333 defintion id 81960248
+name M09_Window_Blocker.1209332 id 1209332 defintion id 81960248
+name M09_Window_Blocker.1209331 id 1209331 defintion id 81960248
+name M09_Window_Blocker.1209330 id 1209330 defintion id 81960248
+name M09_Window_Blocker.1209329 id 1209329 defintion id 81960248
+name M09_Window_Blocker.1209328 id 1209328 defintion id 81960248
+name M09_Window_Blocker.1209327 id 1209327 defintion id 81960248
+name M09_Window_Blocker.1209326 id 1209326 defintion id 81960248
+name M09_Window_Blocker.1209325 id 1209325 defintion id 81960248
+name M09_Window_Blocker.1209324 id 1209324 defintion id 81960248
+name M09_Window_Blocker.1209323 id 1209323 defintion id 81960248
+name M09_Window_Blocker.1209322 id 1209322 defintion id 81960248
+name M09_Window_Blocker.1209321 id 1209321 defintion id 81960248
+name M09_Window_Blocker.1209320 id 1209320 defintion id 81960248
+name M09_Window_Blocker.1209319 id 1209319 defintion id 81960248
+name M09_Window_Blocker.1209318 id 1209318 defintion id 81960248
+name M09_Window_Blocker.1209317 id 1209317 defintion id 81960248
+name M09_Window_Blocker.1209316 id 1209316 defintion id 81960248
+name M09_Window_Blocker.1209315 id 1209315 defintion id 81960248
+name M09_Window_Blocker.1209314 id 1209314 defintion id 81960248
+name M09_Window_Blocker.1209313 id 1209313 defintion id 81960248
+name M09_Window_Blocker.1209312 id 1209312 defintion id 81960248
+name M09_Window_Blocker.1209311 id 1209311 defintion id 81960248
+name M09_Window_Blocker.1209310 id 1209310 defintion id 81960248
+name M09_Window_Blocker.1209309 id 1209309 defintion id 81960248
+name Script_Zone_Star.1209308 id 1209308 defintion id 519
+	M10_Holograph_EntryZone_DME 0,
+name Nod_FlameThrower_1Off.2008186 id 2008186 defintion id 81930136
+name Nod_FlameThrower_1Off.2008185 id 2008185 defintion id 81930136
+name POW_LaserChaingun_Player.1205755 id 1205755 defintion id 81950069
+name POW_SniperRifle_Player.1205754 id 1205754 defintion id 81950013
+name Nod_Gun_Emplacement.1205751 id 1205751 defintion id 1321
+	M05_Nod_Gun_Emplacement 0,
+name Nod_Gun_Emplacement.1205750 id 1205750 defintion id 1321
+	M05_Nod_Gun_Emplacement 0,
+name Nod_Turret_Dec.1205749 id 1205749 defintion id 82080041
+	M10_Con_Yard_Repair 1.00,
+	M10_Turret 0,
+name Nod_Turret_Dec.1205748 id 1205748 defintion id 82080041
+	M10_Con_Yard_Repair 1.00,
+	M10_Turret 0,
+name M09_Window_Blocker.1205036 id 1205036 defintion id 81960248
+name M09_Window_Blocker.1205035 id 1205035 defintion id 81960248
+name M09_Window_Blocker.1205034 id 1205034 defintion id 81960248
+name M09_Window_Blocker.1205033 id 1205033 defintion id 81960248
+name M09_Window_Blocker.1205032 id 1205032 defintion id 81960248
+name M09_Window_Blocker.1205031 id 1205031 defintion id 81960248
+name M09_Window_Blocker.1205030 id 1205030 defintion id 81960248
+name M09_Window_Blocker.1205029 id 1205029 defintion id 81960248
+name M09_Window_Blocker.1205028 id 1205028 defintion id 81960248
+name M09_Window_Blocker.1205027 id 1205027 defintion id 81960248
+name M09_Window_Blocker.1205026 id 1205026 defintion id 81960248
+name M09_Window_Blocker.1205025 id 1205025 defintion id 81960248
+name M09_Window_Blocker.1205024 id 1205024 defintion id 81960248
+name POW_LaserChaingun_Player.1114253 id 1114253 defintion id 81950069
+name POW_LaserChaingun_Player.1114252 id 1114252 defintion id 81950069
+name POW_RocketLauncher_Player.1114251 id 1114251 defintion id 81950015
+name POW_MineRemote_Player.1114250 id 1114250 defintion id 81950031
+name Nod_RocketSoldier_1Off.1100134 id 1100134 defintion id 81930146
+	M00_InnateIsStationary 0,
+name POW_SniperRifle_Player.1114248 id 1114248 defintion id 81950013
+name POW_MineRemote_Player.1114247 id 1114247 defintion id 81950031
+name POW_Health_050.1114246 id 1114246 defintion id 1667
+name POW_Health_050.1114245 id 1114245 defintion id 1667
+name POW_Health_050.1114244 id 1114244 defintion id 1667
+name POW_MineRemote_Player.1114243 id 1114243 defintion id 81950031
+name POW_Health_100.1114242 id 1114242 defintion id 1663
+name POW_LaserRifle_Player.1114241 id 1114241 defintion id 81950077
+name POW_MineRemote_Player.1114240 id 1114240 defintion id 81950031
+name POW_SniperRifle_Player.2009691 id 2009691 defintion id 81950013
+name POW_SniperRifle_Player.2008199 id 2008199 defintion id 81950013
+name POW_SniperRifle_Player.2008194 id 2008194 defintion id 81950013
+name POW_SniperRifle_Player.2008188 id 2008188 defintion id 81950013
+name POW_LaserChaingun_Player.2009692 id 2009692 defintion id 81950069
+name POW_LaserChaingun_Player.2009693 id 2009693 defintion id 81950069
+name SP_Refinery_Nod.1153940 id 1153940 defintion id 491530003
+	M10_Con_Yard_Repair 1.00,
+	M10_Refinery 0,
+	RMV_Trigger_Killed 1110009,20000,0,
+name SP_Hand_Of_Nod_Nod.1153939 id 1153939 defintion id 491530002
+	M09_Damage_Modifier 0.10,
+	M10_Con_Yard_Repair 5.00,
+	M10_Hand_Of_Nod 0,
+	M10_Hon_Killed 0,
+	M10_HON_KillPrevention 0,
+	RMV_Trigger_Killed 1110009,20000,0,
+name SP_Obelisk_Nod.1153938 id 1153938 defintion id 491530007
+	M10_Con_Yard_Repair 1.00,
+	M10_Obelisk 0,
+name SP_Silo_Nod.1153935 id 1153935 defintion id 491530011
+	M10_Con_Yard_Repair 5.00,
+	M10_Silo 0,
+name SP_Con_Yard_Nod.1153933 id 1153933 defintion id 491530008
+	M10_Con_Yard 0,
+	RMV_Trigger_Killed 1110009,20000,1,
+name SP_Comm_Center_Nod.1153932 id 1153932 defintion id 491530001
+	M10_Comm_Center 0,
+	M10_Con_Yard_Repair 10.00,
+	M10_NBase_Damage_Modifier 0.25,
+	RMV_Trigger_Killed 1110009,20000,2,
+name SP_Power_Plant_Nod.1153931 id 1153931 defintion id 491530004
+	M10_Con_Yard_Repair 10.00,
+	M10_NBase_Damage_Modifier 0.25,
+	M10_Power_Plant 0,
+	RMV_Trigger_Killed 1100177,100,100,
+	RMV_Trigger_Killed 1110009,20000,2,
+name Script_Zone_Star.2017711 id 2017711 defintion id 519
+	M10_Conversation_Zone 54,
+name Script_Zone_Star.2017710 id 2017710 defintion id 519
+	M10_Conversation_Zone 7,
+name Script_Zone_Star.2017709 id 2017709 defintion id 519
+	M10_Conversation_Zone 49,
+name Script_Zone_Star.2017708 id 2017708 defintion id 519
+	M10_Conversation_Zone 47,
+name Script_Zone_Star.2017707 id 2017707 defintion id 519
+	M10_Conversation_Zone 51,
+name Generic_Switch.2017706 id 2017706 defintion id 81960072
+	M10_Gate_Check 1006,1286008,0,
+	M10_Pokeable_Item_OnePoke 0,
+name Script_Zone_Star.2017699 id 2017699 defintion id 519
+	M10_Conversation_Zone 44,
+name Script_Zone_Star.2017698 id 2017698 defintion id 519
+	M10_Conversation_Zone 44,
+name Script_Zone_Star.2016976 id 2016976 defintion id 519
+	M10_Conversation_Zone 42,
+name Script_Zone_Star.2016975 id 2016975 defintion id 519
+	M10_Conversation_Zone 39,
+	M10_Ssm_Trigger 0,
+name Script_Zone_Star.2015525 id 2015525 defintion id 519
+	M10_Conversation_Zone 30,
+name Script_Zone_Star.2015524 id 2015524 defintion id 519
+	M10_Conversation_Zone 30,
+name Script_Zone_Star.2014069 id 2014069 defintion id 519
+	M10_Conversation_Zone 1,
+name Nod_SSM_Launcher_Dec.2009688 id 2009688 defintion id 82080098
+	M00_SSM_DLS 0,
+name Nod_Light_Tank_Dec.2009687 id 2009687 defintion id 82080034
+	M10_Turret_Tank 0,
+name Nod_RocketSoldier_2SF.2009686 id 2009686 defintion id 81930147
+	RMV_Home_Point 4.00,
+name Nod_RocketSoldier_2SF.2009685 id 2009685 defintion id 81930147
+	RMV_Home_Point 4.00,
+name Nod_Stealth_Tank_NoTrans.2009666 id 2009666 defintion id 82080074
+	M10_Turret_Tank 0,
+name Nod_Stealth_Tank_NoTrans.2009665 id 2009665 defintion id 82080074
+	M10_Turret_Tank 0,
+name Nod_RocketSoldier_0_Stationary.2000800 id 2000800 defintion id 81930178
+	M00_Soldier_Powerup_Disable 0,
+	M10_Stationary 0,
+name POW_Armor_050.2008201 id 2008201 defintion id 3666
+name POW_Health_050.2008200 id 2008200 defintion id 1667
+name POW_PersonalIonCannon_Player.2008197 id 2008197 defintion id 81950084
+name POW_LaserChaingun_Player.2008196 id 2008196 defintion id 81950069
+name POW_Health_100.2008195 id 2008195 defintion id 1663
+name POW_LaserChaingun_Player.2008193 id 2008193 defintion id 81950069
+name POW_LaserChaingun_Player.2008192 id 2008192 defintion id 81950069
+name POW_Health_050.2008191 id 2008191 defintion id 1667
+name POW_Armor_050.2008190 id 2008190 defintion id 3666
+name POW_LaserChaingun_Player.2008189 id 2008189 defintion id 81950069
+name Script_Zone_Star.2008172 id 2008172 defintion id 519
+	M03_Zone_Enabled_Spawner 2008180,,
+	M03_Zone_Enabled_Spawner 2008179,,
+	M03_Zone_Enabled_Spawner 2008182,,
+	M03_Zone_Enabled_Spawner 2008181,,
+	M03_Zone_Enabled_Spawner 2008183,,
+name SP_Silo_Nod.1154051 id 1154051 defintion id 491530011
+	M10_Con_Yard_Repair 5.00,
+	M10_Silo 0,
+name Daves Arrow.2003092 id 2003092 defintion id 81960001
+name Daves Arrow.2003091 id 2003091 defintion id 81960001
+name Daves Arrow.2003090 id 2003090 defintion id 81960001
+name Daves Arrow.2003089 id 2003089 defintion id 81960001
+name Daves Arrow.2003088 id 2003088 defintion id 81960001
+name Daves Arrow.2003087 id 2003087 defintion id 81960001
+name Daves Arrow.2003086 id 2003086 defintion id 81960001
+name Daves Arrow.2003085 id 2003085 defintion id 81960001
+name Daves Arrow.2003084 id 2003084 defintion id 81960001
+name Daves Arrow.2003083 id 2003083 defintion id 81960001
+name Daves Arrow.2003082 id 2003082 defintion id 81960001
+name Daves Arrow.2003081 id 2003081 defintion id 81960001
+name Daves Arrow.2003080 id 2003080 defintion id 81960001
+name Script_Zone_Star.2000798 id 2000798 defintion id 519
+	M10_Conversation_Zone 27,
+	M10_Flyover_Controller 0,
+	M10_Mammoth_Activate_Zone 0,
+name Script_Zone_Star.2000739 id 2000739 defintion id 519
+	M10_HON_Spawn_Zones 1,
+name Nod_Ceiling_Gun.1111350 id 1111350 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1111349 id 1111349 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1111348 id 1111348 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1111347 id 1111347 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1111346 id 1111346 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1111345 id 1111345 defintion id 82080040
+	RMV_Camera_Behavior 135.00,0,1,0.0,
+name Nod_Ceiling_Gun.1111344 id 1111344 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1111307 id 1111307 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Script_Zone_Star.1110056 id 1110056 defintion id 519
+	DME_Cinematic_Zone 0,
+	M10_Conversation_Zone 20,
+name Script_Zone_Star.1110055 id 1110055 defintion id 519
+	RMV_Trigger_Zone_2 1110009,3000,-1,
+name Script_Zone_Star.1110054 id 1110054 defintion id 519
+	RMV_Trigger_Zone_2 1110009,3000,1,
+name Helipad_2.1110052 id 1110052 defintion id 81960001
+name Helipad_1.1110051 id 1110051 defintion id 81960001
+name Helipad_0.1110050 id 1110050 defintion id 81960001
+name Script_Zone_Star.1110022 id 1110022 defintion id 519
+	M10_Radar_Scramble 0,
+	RMV_Trigger_Zone_2 1110009,3000,2,
+name Script_Zone_Star.1110021 id 1110021 defintion id 519
+	M10_Radar_UnScramble 0,
+	RMV_Trigger_Zone_2 1110009,3000,-1,
+name Script_Zone_Star.1110019 id 1110019 defintion id 519
+	RMV_Trigger_Zone_2 1110009,3000,2,
+name Script_Zone_Star.1110018 id 1110018 defintion id 519
+	M10_Radar_UnScramble 0,
+	RMV_Trigger_Zone_2 1110009,3000,-1,
+name Script_Zone_Star.1110017 id 1110017 defintion id 519
+	RMV_Trigger_Zone_2 1110009,3000,-1,
+name Script_Zone_Star.1110016 id 1110016 defintion id 519
+	RMV_Trigger_Zone_2 1110009,3000,1,
+name Script_Zone_Star.1110014 id 1110014 defintion id 519
+	M10_Conversation_Zone 22,
+	RMV_Trigger_Zone_2 1110009,3000,0,
+name Script_Zone_Star.1110013 id 1110013 defintion id 519
+	RMV_Trigger_Zone_2 1110009,3000,0,
+name Script_Zone_Star.1110012 id 1110012 defintion id 519
+	RMV_Trigger_Zone_2 1110009,3000,-1,
+name Script_Zone_Star.1110011 id 1110011 defintion id 519
+	M10_Conversation_Zone 23,
+	RMV_Trigger_Zone_2 1110009,3000,-1,
+name Apache_and_Reinforcement_Controller.1110009 id 1110009 defintion id 81960001
+	M10_Apache_Controller 0,
+	M10_Reinforcement_Controller 0,
+name Nod_Ceiling_Gun.1100262 id 1100262 defintion id 82080040
+	RMV_Camera_Behavior 135.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100261 id 1100261 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100260 id 1100260 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_FlameThrower_0.1100257 id 1100257 defintion id 81930138
+name Nod_Ceiling_Gun.1100251 id 1100251 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100249 id 1100249 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100248 id 1100248 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100247 id 1100247 defintion id 82080040
+	RMV_Camera_Behavior 100.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100246 id 1100246 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100230 id 1100230 defintion id 82080040
+	RMV_Camera_Behavior 120.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100229 id 1100229 defintion id 82080040
+	RMV_Camera_Behavior 120.00,0,1,0.0,
+name Nod_FlameThrower_0.1100226 id 1100226 defintion id 81930138
+name Generic_Switch.1100170 id 1100170 defintion id 81960072
+	M10_Gate_Check 0,0,1286009,
+	M10_Pokeable_Item_OnePoke 0,
+name Script_Zone_Star.1100160 id 1100160 defintion id 519
+	M10_Radar_Scramble 0,
+name Generic_Switch.1100169 id 1100169 defintion id 81960072
+	M10_Gate_Check 1007,1286007,1286006,
+	M10_Pokeable_Item_OnePoke 0,
+name Generic_Switch.1100166 id 1100166 defintion id 81960072
+	M10_Gate_Check 1005,1286010,1286011,
+	M10_Mrls_Grant 0,
+	M10_Pokeable_Item_OnePoke 0,
+name Nod_Technician_0.1100136 id 1100136 defintion id 81930169
+name SAM_Site_Quick_Turn.1100007 id 1100007 defintion id 82080057
+	M03_SAM_Site_Logic 0,
+	M09_Damage_Modifier 0.01,
+	M10_Con_Yard_Repair 1.00,
+	M10_Mammoth_Target_Destruction 1,
+	M10_Sam_Killed 1,
+	M10_SAM_Reinforce 0,
+	RMV_Trigger_Killed 1110009,20000,0,
+name SAM_Site_Quick_Turn.1100008 id 1100008 defintion id 82080057
+	M03_SAM_Site_Logic 0,
+	M10_Con_Yard_Repair 1.00,
+	RMV_Trigger_Killed 1100154,1018,1,
+name SAM_Site_Quick_Turn.1100009 id 1100009 defintion id 82080057
+	M03_SAM_Site_Logic 0,
+	M10_Con_Yard_Repair 1.00,
+	RMV_Trigger_Killed 1100154,1018,1,
+name SAM_Site_Quick_Turn.1100010 id 1100010 defintion id 82080057
+	M03_SAM_Site_Logic 0,
+	M10_Con_Yard_Repair 10.00,
+	M10_NBase_Damage_Modifier 0.25,
+	RMV_Trigger_Killed 1110009,20000,2,
+	RMV_Trigger_Killed 1100154,1016,1,
+name SAM_Site_Quick_Turn.1100011 id 1100011 defintion id 82080057
+	M03_SAM_Site_Logic 0,
+	M10_Con_Yard_Repair 5.00,
+	RMV_Trigger_Killed 1100154,1017,1,
+name SAM_Site_Quick_Turn.1100012 id 1100012 defintion id 82080057
+	M03_SAM_Site_Logic 0,
+	M10_Con_Yard_Repair 5.00,
+	RMV_Trigger_Killed 1100154,1017,1,
+name Nod_Light_Tank_Dec.1110062 id 1110062 defintion id 82080034
+	M10_Mammoth_Target_Destruction 2,
+	M10_Turret_Tank 0,
+name Nod_Ceiling_Gun.1110061 id 1110061 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100031 id 1100031 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100033 id 1100033 defintion id 82080040
+	RMV_Camera_Behavior 360.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100034 id 1100034 defintion id 82080040
+	RMV_Camera_Behavior 360.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100035 id 1100035 defintion id 82080040
+	RMV_Camera_Behavior 135.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100036 id 1100036 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100037 id 1100037 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1100038 id 1100038 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1110060 id 1110060 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Objective_Controller.1100154 id 1100154 defintion id 81960001
+	M10_Objective_Controller 0,
+name Script_Zone_Star.1100155 id 1100155 defintion id 519
+	M03_Zone_Enabled_Spawner 1100115,,
+	M03_Zone_Enabled_Spawner 2008186,,
+	M03_Zone_Enabled_Spawner 1100116,,
+	M03_Zone_Enabled_Spawner 1100114,,
+	M03_Zone_Enabled_Spawner 2008185,,
+	RMV_Trigger_Zone 1100154,1021,1,
+name Script_Zone_Star.1100158 id 1100158 defintion id 519
+	RMV_Trigger_Zone_2 1153938,2000,2000,
+name Script_Zone_Star.1100159 id 1100159 defintion id 519
+	RMV_Trigger_Zone_2 1153938,2000,2001,
+name Script_Zone_Star.1100161 id 1100161 defintion id 519
+	M10_Cargo_Plane_Dropoff 0,
+	M10_Conversation_Zone 4,
+name Nod_Minigunner_2SF_Ramjet.1100135 id 1100135 defintion id 81930201
+	M00_InnateIsStationary 0,
+name Nod_Turret_Dec.1100013 id 1100013 defintion id 82080041
+	M10_Con_Yard_Repair 10.00,
+	M10_NBase_Damage_Modifier 0.25,
+	M10_Turret 0,
+	RMV_Trigger_Killed 1100154,1019,1,
+name Nod_Turret_Dec.1100014 id 1100014 defintion id 82080041
+	M10_Con_Yard_Repair 10.00,
+	M10_NBase_Damage_Modifier 0.25,
+	M10_Turret 0,
+	RMV_Trigger_Killed 1100154,1019,1,
+name Health 100 PowerUp.1111239 id 1111239 defintion id 1663
+name Armor 050 PowerUp.1111240 id 1111240 defintion id 3666
+name Health 050 PowerUp.1111242 id 1111242 defintion id 1667
+name Armor 050 PowerUp.1111243 id 1111243 defintion id 3666
+name Armor 050 PowerUp.1111246 id 1111246 defintion id 3666
+name Health 050 PowerUp.1111247 id 1111247 defintion id 1667
+name Armor 100 PowerUp.1111251 id 1111251 defintion id 3669
+name Armor 100 PowerUp.1111254 id 1111254 defintion id 3669
+name Health 100 PowerUp.1111255 id 1111255 defintion id 1663
+name Armor 025 PowerUp.1111259 id 1111259 defintion id 3663
+name Health 025 PowerUp.1111260 id 1111260 defintion id 1665
+name Volt_Rifle_Powerup.1111273 id 1111273 defintion id 81950071
+name Health 050 PowerUp.1111277 id 1111277 defintion id 1667
+name Armor 050 PowerUp.1111278 id 1111278 defintion id 3666
+name Armor 100 PowerUp.1111285 id 1111285 defintion id 3669
+name Health 100 PowerUp.1111286 id 1111286 defintion id 1663
+name Health 050 PowerUp.1111290 id 1111290 defintion id 1667
+name Armor 050 PowerUp.1111291 id 1111291 defintion id 3666
+name Health 100 PowerUp.1111297 id 1111297 defintion id 1663
+name SP_Nod_Air_Tower.1154061 id 1154061 defintion id 491530018
+	M10_Airstrip 0,
+	M10_Con_Yard_Repair 5.00,
+	RMV_Trigger_Killed 1110009,20000,1,
+name Nod_RocketSoldier_2SF.1111329 id 1111329 defintion id 81930147
+	RMV_Home_Point 4.00,
+name Nod_Turret_Dec.2000728 id 2000728 defintion id 82080041
+	M10_Con_Yard_Repair 1.00,
+	M10_Mammoth_Target_Destruction 0,
+	M10_Turret 0,
+name Nod_Turret_Dec.2000729 id 2000729 defintion id 82080041
+	M10_Con_Yard_Repair 1.00,
+	M10_Turret 0,
+name Script_Zone_Star.2000752 id 2000752 defintion id 519
+	M10_HON_Spawn_Zones 2,
+name Script_Zone_Star.2000753 id 2000753 defintion id 519
+	M10_HON_Spawn_Zones 3,
+name Script_Zone_Star.2000754 id 2000754 defintion id 519
+	M10_HON_Spawn_Zones 4,
+name Script_Zone_Star.2000755 id 2000755 defintion id 519
+	M10_HON_Spawn_Zones 4,
+name Script_Zone_Star.2000756 id 2000756 defintion id 519
+	M10_HON_Spawn_Zones 5,
+name Script_Zone_Star.2000757 id 2000757 defintion id 519
+	M10_HON_Spawn_Zones 1,
+name Script_Zone_Star.2000771 id 2000771 defintion id 519
+	M10_Refinery_Spawn_Zones 1,
+name Script_Zone_Star.2000772 id 2000772 defintion id 519
+	M10_Refinery_Spawn_Zones 2,
+name Script_Zone_Star.2000773 id 2000773 defintion id 519
+	M10_Refinery_Spawn_Zones 3,
+name Script_Zone_Star.2000774 id 2000774 defintion id 519
+	M10_Refinery_Spawn_Zones 1,
+	M10_Refinery_Spawn_Zones 3,
+name Script_Zone_Star.2000775 id 2000775 defintion id 519
+	M10_Refinery_Spawn_Zones 4,
+name Script_Zone_Star.2000776 id 2000776 defintion id 519
+	M10_Refinery_Spawn_Zones 6,
+name Script_Zone_Star.2000777 id 2000777 defintion id 519
+	M10_Refinery_Spawn_Zones 5,
+name Script_Zone_Star.2000778 id 2000778 defintion id 519
+	M10_Refinery_Spawn_Zones 4,
+name Script_Zone_Star.2000779 id 2000779 defintion id 519
+	M10_Refinery_Spawn_Zones 6,
+name Script_Zone_Star.2000780 id 2000780 defintion id 519
+	M10_Refinery_Spawn_Zones 5,
+name GDI_Mammoth_Tank_Dec.2000787 id 2000787 defintion id 82080073
+	M09_Damage_Modifier 0.01,
+	M10_Occupied 0,
+	M10_Turret_Tank 0,
+name Daves Arrow.2000788 id 2000788 defintion id 81960001
+name Daves Arrow.2000795 id 2000795 defintion id 81960001
+name Daves Arrow.2000796 id 2000796 defintion id 81960001
+name Daves Arrow.2000797 id 2000797 defintion id 81960001
+name Script_Zone_Star.2000821 id 2000821 defintion id 519
+	M10_PowerPlant_Spawn_Zones 1,
+name Script_Zone_Star.2000822 id 2000822 defintion id 519
+	M10_PowerPlant_Spawn_Zones 1,
+name Script_Zone_Star.2000823 id 2000823 defintion id 519
+	M10_PowerPlant_Spawn_Zones 2,
+name Script_Zone_Star.2000824 id 2000824 defintion id 519
+	M10_PowerPlant_Spawn_Zones 2,
+name Script_Zone_Star.2000825 id 2000825 defintion id 519
+	M10_PowerPlant_Spawn_Zones 3,
+name Script_Zone_Star.2000826 id 2000826 defintion id 519
+	M10_PowerPlant_Spawn_Zones 4,
+name Script_Zone_Star.2000827 id 2000827 defintion id 519
+	M10_ComCenter_Spawn_Zones 1,
+name Script_Zone_Star.2000828 id 2000828 defintion id 519
+	M10_ComCenter_Spawn_Zones 1,
+name Script_Zone_Star.2000829 id 2000829 defintion id 519
+	M10_ComCenter_Spawn_Zones 2,
+name Script_Zone_Star.2000830 id 2000830 defintion id 519
+	M10_ComCenter_Spawn_Zones 1,
+name Script_Zone_Star.2000831 id 2000831 defintion id 519
+	M10_ComCenter_Spawn_Zones 3,
+name Script_Zone_Star.2000832 id 2000832 defintion id 519
+	M10_ComCenter_Spawn_Zones 3,
+name Script_Zone_Star.2000833 id 2000833 defintion id 519
+	M10_ComCenter_Spawn_Zones 2,
+name Script_Zone_Star.2000834 id 2000834 defintion id 519
+	M10_ComCenter_Spawn_Zones 4,
+name Script_Zone_Star.2000835 id 2000835 defintion id 519
+	M10_ComCenter_Spawn_Zones 5,
+name Script_Zone_Star.2000836 id 2000836 defintion id 519
+	M10_ComCenter_Spawn_Zones 6,
+name Script_Zone_Star.2000837 id 2000837 defintion id 519
+	M10_ComCenter_Spawn_Zones 4,
+name Script_Zone_Star.2000838 id 2000838 defintion id 519
+	M10_ComCenter_Spawn_Zones 3,
+name Script_Zone_Star.2000839 id 2000839 defintion id 519
+	M10_ComCenter_Spawn_Zones 5,
+name Script_Zone_Star.2000840 id 2000840 defintion id 519
+	M10_ComCenter_Spawn_Zones 6,
+	M10_ComCenter_Spawn_Zones 2,
+name Reinforcement_Drop.2000861 id 2000861 defintion id 81960001
+	M10_GDI_Reinforcement 0,
+name Daves Arrow.2001634 id 2001634 defintion id 81960001
+	M10_Mammoth_Grant_Controller 0,
+name Daves Arrow.2002356 id 2002356 defintion id 81960001
+name Daves Arrow.2002357 id 2002357 defintion id 81960001
+name Daves Arrow.2003814 id 2003814 defintion id 81960001
+name Daves Arrow.2003815 id 2003815 defintion id 81960001
+name Nod_Harvester.2004537 id 2004537 defintion id 82080028
+	M03_Base_Harvester -30.99 -182.36 0.65,6.63 -67.24 19.60,8.68 -78.05 19.60,,
+name Daves Arrow.2005260 id 2005260 defintion id 81960001
+	M10_Silo_Controller 0,
+name Daves Arrow.2005985 id 2005985 defintion id 81960001
+name Daves Arrow.2005986 id 2005986 defintion id 81960001
+name Daves Arrow.2005987 id 2005987 defintion id 81960001
+name Daves Arrow.2005988 id 2005988 defintion id 81960001
+name Daves Arrow.2005989 id 2005989 defintion id 81960001
+name Daves Arrow.2005990 id 2005990 defintion id 81960001
+name Daves Arrow.2005991 id 2005991 defintion id 81960001
+name Daves Arrow.2005992 id 2005992 defintion id 81960001
+name Daves Arrow.2005993 id 2005993 defintion id 81960001
+name Daves Arrow.2005994 id 2005994 defintion id 81960001
+name Daves Arrow.2005995 id 2005995 defintion id 81960001
+name Daves Arrow.2005996 id 2005996 defintion id 81960001
+name Daves Arrow.2005997 id 2005997 defintion id 81960001
+name Daves Arrow.7000008 id 7000008 defintion id 81960001
+	M00_Play_Sound Computer_Radio_01,1,0.00 0.00 0.00,,1.00,6.00,
+name Daves Arrow.7000015 id 7000015 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_02,1,,,2.00,8.00,
+name Daves Arrow.7000014 id 7000014 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_02,1,,,2.00,8.00,
+name Daves Arrow.7000013 id 7000013 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_02,1,,,3.00,9.00,
+name Daves Arrow.7000012 id 7000012 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_02,1,,,2.00,8.00,
+name Daves Arrow.7000011 id 7000011 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_01,1,,,3.00,8.00,
+name Daves Arrow.7000010 id 7000010 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_01,1,,,2.00,8.00,
+name Daves Arrow.7000009 id 7000009 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_01,1,,,3.00,7.00,
+name Daves Arrow.7000005 id 7000005 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_02,1,,,4.00,12.00,
+name Daves Arrow.7000004 id 7000004 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_02,1,,,3.00,9.00,
+name Daves Arrow.7000003 id 7000003 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_01,1,,,3.00,9.00,
+name Daves Arrow.7000002 id 7000002 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_01,1,,,3.00,10.00,
+name Daves Arrow.7000001 id 7000001 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_02,1,,,3.00,9.00,
+name Daves Arrow.7000016 id 7000016 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_02,1,0.00 0.00 0.00,,3.00,8.00,
+name Daves Arrow.7000006 id 7000006 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_01,1,0.00 0.00 0.00,0.00 0.00 0.00,3.00,8.00,
+name Daves Arrow.7000007 id 7000007 defintion id 81960001
+	M00_Play_Sound Computer_RadioRing_01,1,,,2.00,5.00,
+name Daves Arrow.2007444 id 2007444 defintion id 81960001
+name Daves Arrow.2007445 id 2007445 defintion id 81960001
+name Daves Arrow.2007446 id 2007446 defintion id 81960001
+name Daves Arrow.2007447 id 2007447 defintion id 81960001
+name Daves Arrow.2007448 id 2007448 defintion id 81960001
+name Daves Arrow.2007449 id 2007449 defintion id 81960001
+name Daves Arrow.2007450 id 2007450 defintion id 81960001
+name Nod_RocketSoldier_0_Stationary.2011893 id 2011893 defintion id 81930178
+	M00_Soldier_Powerup_Disable 0,
+	M10_Stationary 0,
+name Script_Zone_Star.2014792 id 2014792 defintion id 519
+	M10_Conversation_Zone 6,
+name Script_Zone_Star.2014793 id 2014793 defintion id 519
+	M10_Conversation_Zone 6,
+name Script_Zone_Star.2014795 id 2014795 defintion id 519
+	M10_Conversation_Zone 54,
+name Script_Zone_Star.2014796 id 2014796 defintion id 519
+	M10_Conversation_Zone 7,
+name Script_Zone_Star.2014797 id 2014797 defintion id 519
+	M10_Conversation_Zone 18,
+name Script_Zone_Star.2014798 id 2014798 defintion id 519
+	M10_Conversation_Zone 15,
+name Script_Zone_Star.2014799 id 2014799 defintion id 519
+	M10_Conversation_Zone 15,
+name Script_Zone_Star.2014800 id 2014800 defintion id 519
+	M10_Conversation_Zone 15,
+name Script_Zone_Star.2014801 id 2014801 defintion id 519
+	M10_Conversation_Zone 16,
+name Script_Zone_Star.2014802 id 2014802 defintion id 519
+	M10_Conversation_Zone 10,
+name Script_Zone_Star.2016247 id 2016247 defintion id 519
+	M10_Conversation_Zone 29,
+name Script_Zone_Star.2016248 id 2016248 defintion id 519
+	M10_Conversation_Zone 32,
+name Script_Zone_Star.2016249 id 2016249 defintion id 519
+	M10_Conversation_Zone 32,
+name Script_Zone_Star.2016250 id 2016250 defintion id 519
+	M10_Conversation_Zone 33,
+name Script_Zone_Star.2016251 id 2016251 defintion id 519
+	M10_Conversation_Zone 42,
+name Script_Zone_Star.2016252 id 2016252 defintion id 519
+	M10_Conversation_Zone 38,
+name Script_Zone_Star.2016253 id 2016253 defintion id 519
+	M10_Conversation_Zone 36,
+name MRLS_Create_Loc.1112072 id 1112072 defintion id 81960001
+name MRLS_Create_Loc.1112073 id 1112073 defintion id 81960001
+name SP_Helipad_Nod.1154083 id 1154083 defintion id 491530019
+	M10_Con_Yard_Repair 10.00,
+	M10_Helipad_Destroyed 2,
+	M10_NBase_Damage_Modifier 0.25,
+	RMV_Trigger_Killed 1110009,1000,2,
+	RMV_Trigger_Killed 1110009,20000,2,
+name SP_Helipad_Nod.1154084 id 1154084 defintion id 491530019
+	M10_Con_Yard_Repair 5.00,
+	M10_Helipad_Destroyed 1,
+	RMV_Trigger_Killed 1110009,20000,1,
+	RMV_Trigger_Killed 1110009,1000,1,
+name POW_PersonalIonCannon_Player.1113519 id 1113519 defintion id 81950084
+name POW_Health_100.1113520 id 1113520 defintion id 1663
+name Nod_FlameThrower_2SF.2000890 id 2000890 defintion id 81930148
+	M10_Refinery_Key_Grant 0,
+name POW_LaserChaingun_Player.1202141 id 1202141 defintion id 81950069
+name POW_LaserChaingun_Player.1202142 id 1202142 defintion id 81950069
+name POW_LaserRifle_Player.1202143 id 1202143 defintion id 81950077
+name POW_LaserRifle_Player.1202144 id 1202144 defintion id 81950077
+name POW_MineRemote_Player.1202145 id 1202145 defintion id 81950031
+name POW_MineRemote_Player.1202146 id 1202146 defintion id 81950031
+name POW_SniperRifle_Player.1202147 id 1202147 defintion id 81950013
+name POW_TiberiumAutoRifle_Player.1202148 id 1202148 defintion id 81950085
+name POW_TiberiumAutoRifle_Player.1202149 id 1202149 defintion id 81950085
+name POW_GrenadeLauncher_Player.1202150 id 1202150 defintion id 81950046
+name POW_Flamethrower_Player.1202151 id 1202151 defintion id 81950056
+name POW_Flamethrower_Player.1202152 id 1202152 defintion id 81950056
+name POW_ChemSprayer_Player.1202153 id 1202153 defintion id 81950054
+name POW_ChemSprayer_Player.1202154 id 1202154 defintion id 81950054
+name POW_RocketLauncher_Player.1202155 id 1202155 defintion id 81950015
+name POW_RocketLauncher_Player.1202156 id 1202156 defintion id 81950015
+name POW_PersonalIonCannon_Player.1202157 id 1202157 defintion id 81950084
+name POW_LaserChaingun_Player.1202869 id 1202869 defintion id 81950069
+name POW_SniperRifle_Player.1202870 id 1202870 defintion id 81950013
+name Daves Arrow.1203588 id 1203588 defintion id 81960001
+name SFX.Arrow_Rock_Slide_03.5000001 id 5000001 defintion id 81960178
+name SFX.Arrow_Rock_Slide_Rev_02.5000004 id 5000004 defintion id 81960180
+name SFX.Arrow_Rock_Slide_Rev_01.5000002 id 5000002 defintion id 81960179
+name Daves Arrow.5000012 id 5000012 defintion id 81960001
+	M00_Play_Sound Computer_RadioRing_01,1,,,2.00,5.00,
+name Daves Arrow.5000011 id 5000011 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_01,1,0.00 0.00 0.00,0.00 0.00 0.00,3.00,8.00,
+name Daves Arrow.5000020 id 5000020 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_02,1,0.00 0.00 0.00,,3.00,8.00,
+name Daves Arrow.5000006 id 5000006 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_02,1,,,3.00,9.00,
+name Daves Arrow.5000007 id 5000007 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_01,1,,,3.00,10.00,
+name Daves Arrow.5000008 id 5000008 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_01,1,,,3.00,9.00,
+name Daves Arrow.5000009 id 5000009 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_02,1,,,3.00,9.00,
+name Daves Arrow.5000010 id 5000010 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_02,1,,,4.00,12.00,
+name Daves Arrow.5000013 id 5000013 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_01,1,,,3.00,7.00,
+name Daves Arrow.5000014 id 5000014 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_01,1,,,2.00,8.00,
+name Daves Arrow.5000015 id 5000015 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_01,1,,,3.00,8.00,
+name Daves Arrow.5000016 id 5000016 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_02,1,,,2.00,8.00,
+name Daves Arrow.5000017 id 5000017 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_02,1,,,3.00,9.00,
+name Daves Arrow.5000018 id 5000018 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_02,1,,,2.00,8.00,
+name Daves Arrow.5000019 id 5000019 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Snake_02,1,,,2.00,8.00,
+name SFX.Arrow_Rock_Slide_Rev_01.5000003 id 5000003 defintion id 81960179
+name SFX.Arrow_Rock_Slide_Rev_02.5000005 id 5000005 defintion id 81960180
+name Script_Zone_Star.1203589 id 1203589 defintion id 519
+	M10_Conversation_Zone 13,
+name civ_lab_tech_01.2008183 id 2008183 defintion id 81930216
+name civ_lab_tech_03.2008181 id 2008181 defintion id 81930219
+name civ_lab_tech_03.2008182 id 2008182 defintion id 81930219
+name Daves Arrow.1206469 id 1206469 defintion id 81960001
+name POW_MineRemote_Player.1207176 id 1207176 defintion id 81950031
+name POW_MineRemote_Player.1207177 id 1207177 defintion id 81950031
+name POW_LaserChaingun_Player.1207178 id 1207178 defintion id 81950069
+name Nod_Minigunner_1Off_LaserChaingun.1207892 id 1207892 defintion id 81930199
+	M10_Lv2_KeyCarrier 0,
+name Daves Arrow.1208599 id 1208599 defintion id 81960001
+name Nod_Minigunner_1Off_LaserChaingun.1208600 id 1208600 defintion id 81930199
+	M10_Stationary 0,
+name Script_Zone_Star.1208601 id 1208601 defintion id 519
+	M10_Holograph_EntryZone_DME 0,

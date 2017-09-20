@@ -1,0 +1,401 @@
+name M09_Window_Blocker.105825 id 105825 defintion id 81960248
+name POW_MineRemote_Player.105409 id 105409 defintion id 81950031
+name Daves Arrow.105760 id 105760 defintion id 81960001
+	M04_Objective_Reminder_Controller_JDG 0,
+name Script_Zone_Star.100572 id 100572 defintion id 519
+	M04_TiberiumHold_EntryZone_and_Controller_JDG 0,
+name POW_MineRemote_Player.105695 id 105695 defintion id 81950031
+name POW_SniperRifle_Player.105694 id 105694 defintion id 81950013
+name POW_Flamethrower_Player.105413 id 105413 defintion id 81950056
+name POW_AutoRifle_Player.105412 id 105412 defintion id 81950083
+name POW_MineRemote_Player.105411 id 105411 defintion id 81950031
+name POW_ChemSprayer_Player.105410 id 105410 defintion id 81950054
+name POW_MineRemote_Player.105407 id 105407 defintion id 81950031
+name POW_Flamethrower_Player.105406 id 105406 defintion id 81950056
+name POW_Flamethrower_Player.105405 id 105405 defintion id 81950056
+name POW_MineRemote_Player.105404 id 105404 defintion id 81950031
+name POW_MineRemote_Player.105403 id 105403 defintion id 81950031
+name POW_Health_050.105402 id 105402 defintion id 1667
+name POW_Health_050.105401 id 105401 defintion id 1667
+name POW_Health_050.105400 id 105400 defintion id 1667
+name POW_Armor_050.105399 id 105399 defintion id 3666
+name POW_Armor_050.105398 id 105398 defintion id 3666
+name POW_Armor_050.105397 id 105397 defintion id 3666
+name Script_Zone_Star.105326 id 105326 defintion id 519
+	M04_PlaySound_OnZoneEntry_OneTime_JDG M04DSGN_DSGN0086I1EVAN_SND,
+name Script_Zone_Star.105325 id 105325 defintion id 519
+	M04_PlaySound_OnZoneEntry_OneTime_JDG M04DSGN_DSGN0096I1EVAN_SND,
+name Script_Zone_Star.105324 id 105324 defintion id 519
+	M04_PlaySound_OnZoneEntry_OneTime_JDG M04DSGN_DSGN0092I1EVAN_SND,
+name Script_Zone_Star.105323 id 105323 defintion id 519
+	M04_PlaySound_OnZoneEntry_OneTime_JDG M04DSGN_DSGN0097I1EVAN_SND,
+name Script_Zone_Star.105322 id 105322 defintion id 519
+	M04_PlaySound_OnZoneEntry_OneTime_JDG M04DSGN_DSGN0098I1EVAN_SND,
+name Script_Zone_Star.105321 id 105321 defintion id 519
+	M04_PlaySound_OnZoneEntry_OneTime_JDG M04DSGN_DSGN0085I1EVAN_SND,
+name Script_Zone_Star.105320 id 105320 defintion id 519
+	M04_PlaySound_OnZoneEntry_OneTime_JDG M04DSGN_DSGN0086I1EVAN_SND,
+name Script_Zone_Star.105319 id 105319 defintion id 519
+	M04_PlaySound_OnZoneEntry_OneTime_JDG M04DSGN_DSGN0093I1EVAN_SND,
+name Script_Zone_Star.105305 id 105305 defintion id 519
+	M04_PlaySound_OnZoneEntry_OneTime_JDG M04DSGN_DSGN0100I1EVAN_SND,
+name Simple_M04_MissileRack.100420 id 100420 defintion id 81960252
+	M04_MissileRoom_Target01_JDG 0,
+name Simple_M04_MissileRack.100423 id 100423 defintion id 81960252
+	M04_MissileRoom_Target04_JDG 0,
+name Simple_M04_MissileRack.100422 id 100422 defintion id 81960252
+	M04_MissileRoom_Target03_JDG 0,
+name Simple_M04_MissileRack.100421 id 100421 defintion id 81960252
+	M04_MissileRoom_Target02_JDG 0,
+name Script_Zone_Star.105240 id 105240 defintion id 519
+	M04_TorpedoRoom_EnterZone_JDG 0,
+name Script_Zone_Star.105239 id 105239 defintion id 519
+	M04_Start_TorpedoObjective_Zone_JDG 0,
+name Script_Zone_Star.105238 id 105238 defintion id 519
+	M04_Start_TorpedoObjective_Zone_JDG 0,
+name Script_Zone_Star.105085 id 105085 defintion id 519
+	M04_Apache_GoBackToHangar_EntryZone_JDG 0,
+name Script_Zone_Star.105084 id 105084 defintion id 519
+	M04_ApacheRoom_Second_EntryZone_BottomFloor_JDG 0,
+name Script_Zone_Star.105083 id 105083 defintion id 519
+	M04_ApacheRoom_Second_EntryZone_BottomFloor_JDG 0,
+name Script_Zone_Star.105082 id 105082 defintion id 519
+	M04_ApacheRoom_Second_EntryZone_MiddleFloor_JDG 0,
+name Script_Zone_Star.105081 id 105081 defintion id 519
+	M04_ApacheRoom_Second_EntryZone_MiddleFloor_JDG 0,
+name M04_LargeSam_Site.104873 id 104873 defintion id 82080150
+	M04_BigSam_Script_JDG 0,
+name Daves Arrow.300504 id 300504 defintion id 81960001
+	M00_Play_Sound SFX.Ship_Catwalk_Footsteps,1,,,-1,10.00,
+name Daves Arrow.300503 id 300503 defintion id 81960001
+	M00_Play_Sound SFX.Ship_Catwalk_Footsteps,1,,,-1,10.00,
+name Daves Arrow.300506 id 300506 defintion id 81960001
+	M00_Play_Sound SFX.Ship_Ambient_Slam,1,,,-1,8.00,
+name Daves Arrow.300505 id 300505 defintion id 81960001
+	M00_Play_Sound SFX.Ship_Creak_01,1,,,-1,6.00,
+name Daves Arrow.300502 id 300502 defintion id 81960001
+	M00_Play_Sound SFX.Ship_Ambient_Slam,1,,,-1,8.00,
+name Daves Arrow.300507 id 300507 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Ship_Steam,1,,,1.00,10.00,
+name M04_Nod_Rocket_Emplacement.103462 id 103462 defintion id 82080165
+	M04_RocketEmplacement_02_JDG 0,
+name M04_Nod_Rocket_Emplacement.103461 id 103461 defintion id 82080165
+	M04_RocketEmplacement_01_JDG 0,
+name Script_Zone_Star.104762 id 104762 defintion id 519
+	M04_Announce_Keycard_02_Objective_Zone_JDG 0,
+name m04_pog controller.104693 id 104693 defintion id 81960001
+	M04_Pog_Controller_JDG 0,
+name POW_ChemSprayer_Player.104624 id 104624 defintion id 81950054
+name POW_ChemSprayer_Player.104623 id 104623 defintion id 81950054
+name POW_ChemSprayer_Player.104622 id 104622 defintion id 81950054
+name Nod_Minigunner_2SF_AutoRifle.102634 id 102634 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102550 id 102550 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102545 id 102545 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF.103320 id 103320 defintion id 81930143
+	M04_EngineRoom_SniperScript_JDG 0,
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF.103318 id 103318 defintion id 81930143
+	M04_EngineRoom_SniperScript_JDG 0,
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102546 id 102546 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102548 id 102548 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102551 id 102551 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102549 id 102549 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF.102638 id 102638 defintion id 81930143
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_Chaingun.102639 id 102639 defintion id 81930207
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102635 id 102635 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102633 id 102633 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102636 id 102636 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF.101277 id 101277 defintion id 81930143
+	M04_ForeDeck_RocketGuy_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102651 id 102651 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102650 id 102650 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102542 id 102542 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102541 id 102541 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102543 id 102543 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102544 id 102544 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102547 id 102547 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.100399 id 100399 defintion id 81930206
+	M04_Prison_Warden_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102540 id 102540 defintion id 81930206
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_2SF_AutoRifle.102539 id 102539 defintion id 81930206
+	M04_PointGuard_JDG 0,
+name GDI_Prisoner_v0a.100013 id 100013 defintion id 81930162
+	M04_EngineRoom_Prisoner_03_JDG 0,
+name GDI_Prisoner_v1a.100011 id 100011 defintion id 81930163
+	M04_EngineRoom_Prisoner_01_JDG 0,
+name GDI_Prisoner_v2a.101196 id 101196 defintion id 81930164
+	M04_EngineRoom_Prisoner_02_JDG 0,
+name TibHold to Aft Deck Enter Zone.100576 id 100576 defintion id 519
+	M04_AftDeck_02_Entry_Zone_JDG 0,
+name AftDeck InnerSanctum 02 Entry Zone.100674 id 100674 defintion id 519
+	M04_AftDeck_InnerSanctum_02_Entry_Zone_JDG 0,
+name Script_Zone_Star.103460 id 103460 defintion id 519
+	M04_Catwalk_Enter_Zone_02_JDG 0,
+name Script_Zone_Star.103459 id 103459 defintion id 519
+	M04_Catwalk_Enter_Zone_01_JDG 0,
+name Hunting Controller.103390 id 103390 defintion id 81960001
+	M04_Hunter_Controller_JDG 0,
+name Nod_Minigunner_1Off_Shotgun.103319 id 103319 defintion id 81930200
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_1Off_Shotgun.103321 id 103321 defintion id 81930200
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name POW_GrenadeLauncher_Player.103233 id 103233 defintion id 81950046
+name POW_RocketLauncher_Player.103224 id 103224 defintion id 81950015
+name POW_GrenadeLauncher_Player.103223 id 103223 defintion id 81950046
+name POW_ChemSprayer_Player.103222 id 103222 defintion id 81950054
+name POW_Chaingun_Player.103218 id 103218 defintion id 81950051
+name POW_GrenadeLauncher_Player.103217 id 103217 defintion id 81950046
+name POW_AutoRifle_Player.103215 id 103215 defintion id 81950083
+name Aftdeck controller 02.100624 id 100624 defintion id 81960001
+	M04_AftDeck_02_Controller_JDG 0,
+name Nod_Minigunner_0.102564 id 102564 defintion id 81930140
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_0.102563 id 102563 defintion id 81930140
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_0.102562 id 102562 defintion id 81930140
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Nod_Minigunner_0.102561 id 102561 defintion id 81930140
+	M04_Front_ofThe_Boat_Population_JDG 0,
+name Cook.102560 id 102560 defintion id 81930172
+	M04_Cooks_Script_JDG 0,
+name tib tech face object.102150 id 102150 defintion id 519
+name Nod_Technician_0.102148 id 102148 defintion id 81930169
+	M04_Visceroid_Dude_02_JDG 0,
+name Nod_Technician_0.102147 id 102147 defintion id 81930169
+	M04_Visceroid_Dude_01_JDG 0,
+name Nod_Technician_0.101693 id 101693 defintion id 81930169
+	M04_EngineRoom_Stationary_Tech_JDG 100416,
+name Nod_Technician_0.101692 id 101692 defintion id 81930169
+	M04_EngineRoom_Stationary_Tech_JDG 100418,
+name Nod_Technician_0.101691 id 101691 defintion id 81930169
+	M04_EngineRoom_Stationary_Tech_JDG 100417,
+name Nod_Technician_0.101690 id 101690 defintion id 81930169
+	M04_EngineRoom_Stationary_Tech_JDG 100419,
+name SP_M04_ShipEngine_Nod.150001 id 150001 defintion id 491530020
+	M04_EngineRoom_BuildingController_JDG 0,
+name Missile room controller.100558 id 100558 defintion id 81960001
+	M04_CargoMissileRooms_Dude_Controller_JDG 0,
+name Nod_Minigunner_1Off.101534 id 101534 defintion id 81930142
+	M04_CargoHold_Blackhand_01_JDG 0,
+name Nod_Minigunner_0.101465 id 101465 defintion id 81930140
+	M04_CargoHold_TalkGuy03_JDG 0,
+name Nod_Minigunner_0.101464 id 101464 defintion id 81930140
+	M04_CargoHold_TalkGuy02_JDG 0,
+name Nod_Minigunner_0.101463 id 101463 defintion id 81930140
+	M04_CargoHold_TalkGuy01_JDG 0,
+name Armor 025 PowerUp.101150 id 101150 defintion id 3663
+name Health 025 PowerUp.101149 id 101149 defintion id 1665
+name Prison Cell Door Zone.101146 id 101146 defintion id 519
+	M04_Prison_CellDoor_Zone_JDG 0,
+name Armor 100 PowerUp.101142 id 101142 defintion id 3669
+name Health 100 PowerUp.101141 id 101141 defintion id 1663
+name Health 100 PowerUp.101140 id 101140 defintion id 1663
+name Armor 100 PowerUp.101139 id 101139 defintion id 3669
+name EngineRoom Prison Lift Enter Zone 03.101123 id 101123 defintion id 519
+	M04_EngineRoom_PrisonLift_EnterZone_JDG 0,
+name EngineRoom Prison Lift Enter Zone 02.101122 id 101122 defintion id 519
+	M04_EngineRoom_PrisonLift_EnterZone_JDG 0,
+name EngineRoom Prison Lift Enter Zone 01.101121 id 101121 defintion id 519
+	M04_EngineRoom_PrisonLift_EnterZone_JDG 0,
+name Firefight Controller.100948 id 100948 defintion id 3130
+	M04_Firefight_Controller_JDG 0,
+name Player is leaving aft deck--Enter Zone 01.100726 id 100726 defintion id 519
+	M04_Player_Is_Leaving_Aft_Deck_JDG 0,
+name Player is leaving aft deck--Enter Zone 02.100727 id 100727 defintion id 519
+	M04_Player_Is_Leaving_Aft_Deck_JDG 0,
+name Aft Inner Sanctum Enter Zone 02.100648 id 100648 defintion id 519
+	M04_AftDeck_InnerSanctum_Entry_Zone_JDG 0,
+name Health 100 PowerUp.100642 id 100642 defintion id 1663
+name Armor 100 PowerUp.100641 id 100641 defintion id 3669
+name Grunt MessHall Entry Zone 02.100460 id 100460 defintion id 519
+	M04_GruntMessHall_Entry_Zone_JDG 0,
+name Grunt MessHall Enter Zone 01.100459 id 100459 defintion id 519
+	M04_GruntMessHall_Entry_Zone_JDG 0,
+name EngineRoom Enter Zone 03.100428 id 100428 defintion id 519
+	M04_EngineRoom_EnterZone_JDG 0,
+name EngineRoom Enter Zone 01.100425 id 100425 defintion id 519
+	M04_EngineRoom_EnterZone_JDG 0,
+name M04 EngineRoom Target 04.100419 id 100419 defintion id 81960008
+	M04_EngineRoom_Target04_JDG 0,
+name M04 EngineRoom Target 03.100418 id 100418 defintion id 81960008
+	M04_EngineRoom_Target03_JDG 0,
+name M04 EngineRoom Target 04.100417 id 100417 defintion id 81960008
+	M04_EngineRoom_Target02_JDG 0,
+name M04 EngineRoom Target 01.100416 id 100416 defintion id 81960008
+	M04_EngineRoom_Target01_JDG 0,
+name Apache Enter Zone 03.200006 id 200006 defintion id 519
+	M04_Apache_Enter_Zone_JDG 0,
+name Apache Enter Zone 02.200008 id 200008 defintion id 519
+	M04_Apache_Enter_Zone_JDG 0,
+name Health 100 PowerUp.100393 id 100393 defintion id 1663
+name Armor 100 PowerUp.100394 id 100394 defintion id 3669
+name M04 Ship First Mate.100400 id 100400 defintion id 81930054
+	M04_Ships_FirstMate_JDG 0,
+name M04 Ship Captain.100401 id 100401 defintion id 81930053
+name M04 Objective Controller.100424 id 100424 defintion id 3130
+	M04_Objective_Controller_JDG 0,
+name MissileRoom Objective Zone 01.100429 id 100429 defintion id 519
+	M04_MissileRoom_ObjectiveZone_JDG 0,
+name MissileRoom Objective Zone 03.100431 id 100431 defintion id 519
+	M04_MissileRoom_ObjectiveZone_JDG 0,
+name Moonpool Keycard 02 Zone 02.100438 id 100438 defintion id 519
+	M04_Announce_Keycard_02_Objective_Zone_JDG 0,
+name Moonpool Keycard 02 Zone 04.100440 id 100440 defintion id 519
+	M04_Announce_Keycard_02_Objective_Zone_JDG 0,
+name AirdefenseRoom Keycard 02 Zone 02.100442 id 100442 defintion id 519
+	M04_Announce_Keycard_02_Objective_Zone_JDG 0,
+name Cargo Enter Zone 01.100497 id 100497 defintion id 519
+	M04_EnterCargoBay_BottomRight_Zone_JDG 0,
+name Cargo Enter Zone 03.100499 id 100499 defintion id 519
+	M04_EnterCargoBay_TopLeft_Zone_JDG 0,
+name MissileRoom EnterZone 02.100583 id 100583 defintion id 519
+	M04_MissileRoom_EnterZone_Left_JDG 0,
+name MissileRoom EnterZone 04.100585 id 100585 defintion id 519
+	M04_MissileRoom_EnterZone_Right_JDG 0,
+name Start Prison Hazing Enter Zone.100774 id 100774 defintion id 519
+	M04_EngineRoom_Start_Guard_Conversation_Zone_JDG 0,
+name Health 050 PowerUp.100632 id 100632 defintion id 1667
+name Health 050 PowerUp.100633 id 100633 defintion id 1667
+name Health 100 PowerUp.100634 id 100634 defintion id 1663
+name Armor 100 PowerUp.100635 id 100635 defintion id 3669
+name Secondary Bridge LeftSide Enter Zone.100684 id 100684 defintion id 519
+	M04_SecondaryBridge_Enter_Zone_JDG 0,
+name Secondary Bridge RightSide Enter Zone.100686 id 100686 defintion id 519
+	M04_SecondaryBridge_Enter_Zone_JDG 0,
+name Armor 100 PowerUp.100782 id 100782 defintion id 3669
+name Health 100 PowerUp.100783 id 100783 defintion id 1663
+name Apache Room Controller.200586 id 200586 defintion id 3130
+	M04_ApacheRoom_Controller_JDG 0,
+name M04 ApacheRoom Trigger Zone.200610 id 200610 defintion id 519
+	M04_Apache_Trigger_Zone_JDG 0,
+name ForeDeck Initial Enter Zone 01.100784 id 100784 defintion id 519
+	M04_ForeDeck_Initial_Enter_Zone_JDG 0,
+name ForeDeck Initial Enter Zone 06.100789 id 100789 defintion id 519
+	M04_ForeDeck_Initial_Enter_Zone_JDG 0,
+name ForeDeck Controller.100790 id 100790 defintion id 3130
+	M04_ForeDeck_Controller_JDG 0,
+name M04 ForeDeck Leaving Grunt Messhall.100857 id 100857 defintion id 519
+	M04_GruntMessHall_Exit_Zone_JDG 0,
+name M04 ForeDeck BH Closet Surprise Enter Zone 01.100869 id 100869 defintion id 519
+	M04_ForeDeck_ClosetSurprise_Trigger_Zone_JDG 0,
+name M04 ForeDeck BH Closet Surprise Enter Zone 02.100870 id 100870 defintion id 519
+	M04_ForeDeck_ClosetSurprise_Trigger_Zone_JDG 0,
+name M04 BH MessHall Enter Zone.100873 id 100873 defintion id 519
+	M04_BH_MessHall_Trigger_Zone_JDG 0,
+name Captain's Bridge Spawn Zone.100876 id 100876 defintion id 519
+	M04_Captains_Bridge_Enter_Zone_JDG 0,
+name Armor 100 PowerUp.100905 id 100905 defintion id 3669
+name Health 100 PowerUp.100906 id 100906 defintion id 1663
+name EngineRoom TalktoPrisoners Enter Zone.101034 id 101034 defintion id 519
+	M04_EngineRoom_TalkToPrisoners_Zone_JDG 0,
+name Armor 100 PowerUp.101035 id 101035 defintion id 3669
+name Health 100 PowerUp.101036 id 101036 defintion id 1663
+name MedLab Enter Zone 01.101054 id 101054 defintion id 519
+	M04_MedLab_Enter_Zone_JDG 0,
+name MedLab Enter Zone 02.101055 id 101055 defintion id 519
+	M04_MedLab_Enter_Zone_JDG 0,
+name Armor 100 PowerUp.101118 id 101118 defintion id 3669
+name Health 100 PowerUp.101119 id 101119 defintion id 1663
+name Entering Subbay for Final Firefight Zone 01.101126 id 101126 defintion id 519
+	M04_Firefight_Start_Battle_Music_JDG 0,
+name Entering Subbay for Final Firefight Zone 04.101129 id 101129 defintion id 519
+	M04_Firefight_Start_Battle_Music_JDG 0,
+name Entering Subbay for Final Firefight Zone 06.101131 id 101131 defintion id 519
+	M04_Firefight_Start_Battle_Music_JDG 0,
+name Entering Subbay for Final Firefight Zone 10.101135 id 101135 defintion id 519
+	M04_Firefight_Start_Battle_Music_JDG 0,
+name Entering Subbay for Final Firefight Zone 12.101137 id 101137 defintion id 519
+	M04_Firefight_Start_Battle_Music_JDG 0,
+name Health 050 PowerUp.101164 id 101164 defintion id 1667
+name Health 050 PowerUp.101165 id 101165 defintion id 1667
+name Armor 050 PowerUp.101166 id 101166 defintion id 3666
+name Armor 050 PowerUp.101167 id 101167 defintion id 3666
+name Script_Zone_All.101194 id 101194 defintion id 82060002
+	M04_Firefight_RallyZone 0,
+name Nod_MiniGunner_0.101197 id 101197 defintion id 81930140
+	M04_A01_PatrolGuy_01_JDG 0,
+name Nod_MiniGunner_0.101198 id 101198 defintion id 81930140
+	M04_A01_PatrolGuy_01_JDG 0,
+name Nod_MiniGunner_0.101199 id 101199 defintion id 81930140
+	M04_A01_PatrolGuy_01_JDG 0,
+name Nod_MiniGunner_0.101200 id 101200 defintion id 81930140
+	M04_A01_PatrolGuy_01_JDG 0,
+name Nod_MiniGunner_2SF.101201 id 101201 defintion id 81930143
+	M04_A01_Sniper_JDG 0,
+name Armor 100 PowerUp.101294 id 101294 defintion id 3669
+name Health 100 PowerUp.101295 id 101295 defintion id 1663
+name Cargo Barrel Rxn Controller.101325 id 101325 defintion id 81960001
+	M00_5MetalBarrels_ChainRxn_Controller_JDG 8.77 -49.22 -15.00,4,10.00,7.42 -47.82 -15.00,6,90.00,6.81 -48.94 -15.00,3,0.00,5.64 -47.94 -15.00,5,30.00,4.80 -49.34 -15.00,3,0.00,
+name Nod_Engineer_0.101762 id 101762 defintion id 81930137
+	M04_EngineRoom_ChiefEngineer_JDG 0,
+name Nod_Minigunner_0.101988 id 101988 defintion id 81930140
+	M04_EngineRoom_Prison_Guard_01_JDG 0,
+name Nod_Minigunner_0.101989 id 101989 defintion id 81930140
+	M04_EngineRoom_Prison_Guard_02_JDG 0,
+name M11_Mutant_1_Simple.102240 id 102240 defintion id 81960127
+	M04_TibHold_SimpleMutant_JDG 0,
+name Simple_Large_CryoChamber.102243 id 102243 defintion id 81960128
+	M04_TibHold_MutantChamber_JDG 0,
+name Prison keycard check zone.102440 id 102440 defintion id 519
+	M04_Prison_Keycard_CheckZone_JDG 0,
+name POW_Armor_100.102463 id 102463 defintion id 3669
+name POW_AutoRifle_Player.102464 id 102464 defintion id 81950083
+name POW_Chaingun_Player.102465 id 102465 defintion id 81950051
+name POW_GrenadeLauncher_Player.102466 id 102466 defintion id 81950046
+name POW_Health_100.102467 id 102467 defintion id 1663
+name Cook.102637 id 102637 defintion id 81930172
+	M04_Cooks_Script_JDG 0,
+name POW_Armor_100.102640 id 102640 defintion id 3669
+name POW_AutoRifle_Player.102641 id 102641 defintion id 81950083
+name POW_Chaingun_Player.102642 id 102642 defintion id 81950051
+name POW_SniperRifle_Player.102644 id 102644 defintion id 81950013
+name POW_SniperRifle_Player.102645 id 102645 defintion id 81950013
+name POW_AutoRifle_Player.102646 id 102646 defintion id 81950083
+name POW_Chaingun_Player.102647 id 102647 defintion id 81950051
+name POW_Health_100.102649 id 102649 defintion id 1663
+name civ_lab_tech_01.101202 id 101202 defintion id 81930216
+	M04_MedLab_Tech_JDG 0,
+name Mutant Chamber controller.104113 id 104113 defintion id 81960001
+	M04_TibHold_MutantChambers_Controller_JDG 0,
+name Prisoners rescued controller.104514 id 104514 defintion id 81960001
+	M04_Prisoners_Rescued_Controller_JDG 0,
+name Script_Zone_Star.104942 id 104942 defintion id 519
+	M04_BigSam_EntryZone_JDG 0,
+name Script_Zone_Star.105011 id 105011 defintion id 519
+	M04_ApacheRoom_Second_EntryZone_TopFloor_JDG 0,
+name Script_Zone_Star.105012 id 105012 defintion id 519
+	M04_ApacheRoom_Second_EntryZone_TopFloor_JDG 0,
+name POW_AutoRifle_Player.105167 id 105167 defintion id 81950083
+name POW_AutoRifle_Player.105168 id 105168 defintion id 81950083
+name POW_MineRemote_Player.105169 id 105169 defintion id 81950031
+name POW_MineRemote_Player.105170 id 105170 defintion id 81950031
+name POW_Flamethrower_Player.105171 id 105171 defintion id 81950056
+name POW_Flamethrower_Player.105172 id 105172 defintion id 81950056
+name Nod_Minigunner_0.105173 id 105173 defintion id 81930140
+	M04_CargoHold_Stationary_Officer_JDG 0,
+name Simple_M04_TorpedoRack02.100410 id 100410 defintion id 81960262
+	M04_TorpedoRoom_Target02_JDG 0,
+name Simple_M04_TorpedoRack01.100409 id 100409 defintion id 81960261
+	M04_TorpedoRoom_Target01_JDG 0,
+name M09_Window_Blocker.105890 id 105890 defintion id 81960248

@@ -1,0 +1,938 @@
+name M09_Window_Blocker.1400500 id 1400500 defintion id 81960248
+name M09_Window_Blocker.1400499 id 1400499 defintion id 81960248
+name M09_Window_Blocker.1400498 id 1400498 defintion id 81960248
+name M09_Window_Blocker.1400497 id 1400497 defintion id 81960248
+name M09_Window_Blocker.1400496 id 1400496 defintion id 81960248
+name M09_Window_Blocker.1400495 id 1400495 defintion id 81960248
+name M09_Window_Blocker.1400494 id 1400494 defintion id 81960248
+name M09_Window_Blocker.1400493 id 1400493 defintion id 81960248
+name M09_Window_Blocker.1400492 id 1400492 defintion id 81960248
+name M09_Window_Blocker.1400491 id 1400491 defintion id 81960248
+name M09_Window_Blocker.1400490 id 1400490 defintion id 81960248
+name M09_Window_Blocker.1400489 id 1400489 defintion id 81960248
+name M09_Window_Blocker.1400488 id 1400488 defintion id 81960248
+name M09_Window_Blocker.1400487 id 1400487 defintion id 81960248
+name M09_Window_Blocker.1400486 id 1400486 defintion id 81960248
+name M09_Window_Blocker.1400485 id 1400485 defintion id 81960248
+name M09_Window_Blocker.1400484 id 1400484 defintion id 81960248
+name M09_Window_Blocker.1400483 id 1400483 defintion id 81960248
+name M09_Window_Blocker.1400482 id 1400482 defintion id 81960248
+name M09_Window_Blocker.1400481 id 1400481 defintion id 81960248
+name M09_Window_Blocker.1400480 id 1400480 defintion id 81960248
+name M09_Window_Blocker.1400479 id 1400479 defintion id 81960248
+name M09_Window_Blocker.1400478 id 1400478 defintion id 81960248
+name M09_Window_Blocker.1400477 id 1400477 defintion id 81960248
+name M09_Window_Blocker.1400476 id 1400476 defintion id 81960248
+name M09_Window_Blocker.1400475 id 1400475 defintion id 81960248
+name M09_Window_Blocker.1400474 id 1400474 defintion id 81960248
+name M09_Window_Blocker.1400473 id 1400473 defintion id 81960248
+name M09_Window_Blocker.1400472 id 1400472 defintion id 81960248
+name M09_Window_Blocker.1400471 id 1400471 defintion id 81960248
+name M09_Window_Blocker.1400470 id 1400470 defintion id 81960248
+name M09_Window_Blocker.1400469 id 1400469 defintion id 81960248
+name M09_Window_Blocker.1400468 id 1400468 defintion id 81960248
+name M09_Window_Blocker.1400467 id 1400467 defintion id 81960248
+name M09_Window_Blocker.1400466 id 1400466 defintion id 81960248
+name M09_Window_Blocker.1400465 id 1400465 defintion id 81960248
+name M09_Window_Blocker.1400464 id 1400464 defintion id 81960248
+name M09_Window_Blocker.1400463 id 1400463 defintion id 81960248
+name M09_Window_Blocker.1400462 id 1400462 defintion id 81960248
+name Vehicle_Blocker.1200456 id 1200456 defintion id 81960024
+name Vehicle_Blocker.1200455 id 1200455 defintion id 81960024
+name Vehicle_Blocker.1200454 id 1200454 defintion id 81960024
+name Vehicle_Blocker.1200453 id 1200453 defintion id 81960024
+name Vehicle_Blocker.1200452 id 1200452 defintion id 81960024
+name Vehicle_Blocker.1200451 id 1200451 defintion id 81960024
+name Vehicle_Blocker.1200450 id 1200450 defintion id 81960024
+name M09_Window_Blocker.1200225 id 1200225 defintion id 81960248
+name M08_Activate_Midtro.1500225 id 1500225 defintion id 519
+	M08_Activate_Midtro 0,
+name A3_Drop_Loc.111527 id 111527 defintion id 81960001
+name A3_Drop_Loc.111526 id 111526 defintion id 81960001
+name A2_Drop_Loc.111525 id 111525 defintion id 81960001
+name A2_Drop_Loc.111524 id 111524 defintion id 81960001
+name A1_Drop_Loc.111523 id 111523 defintion id 81960001
+name A1_Drop_Loc.111522 id 111522 defintion id 81960001
+name POW_Armor_025.111296 id 111296 defintion id 3663
+name POW_Armor_025.111295 id 111295 defintion id 3663
+name POW_Armor_025.111294 id 111294 defintion id 3663
+name POW_Armor_025.111293 id 111293 defintion id 3663
+name POW_Armor_025.111292 id 111292 defintion id 3663
+name POW_Armor_025.111291 id 111291 defintion id 3663
+name POW_Health_025.111290 id 111290 defintion id 1665
+name POW_Health_025.111289 id 111289 defintion id 1665
+name POW_Health_025.111288 id 111288 defintion id 1665
+name POW_Health_025.111287 id 111287 defintion id 1665
+name POW_Health_025.111286 id 111286 defintion id 1665
+name POW_Health_025.111285 id 111285 defintion id 1665
+name POW_Health_050.110821 id 110821 defintion id 1667
+name POW_Health_025.110820 id 110820 defintion id 1665
+name POW_Armor_050.110819 id 110819 defintion id 3666
+name POW_Armor_050.110818 id 110818 defintion id 3666
+name POW_RocketLauncher_Player.110817 id 110817 defintion id 81950015
+name POW_Chaingun_Player.110816 id 110816 defintion id 81950051
+name POW_Flamethrower_Player.110815 id 110815 defintion id 81950056
+name POW_Flamethrower_Player.110814 id 110814 defintion id 81950056
+name POW_Health_025.110813 id 110813 defintion id 1665
+name POW_Health_025.110811 id 110811 defintion id 1665
+name Nod_FlameThrower_0.100649 id 100649 defintion id 81930138
+	M00_PowerUp_Create_When_Killed_JDG POW_Flamethrower_Player,100,1,,0.75,0,
+	M00_Soldier_Powerup_Disable 0,
+	M08_Innate_Control 0,
+name Nod_FlameThrower_0.100648 id 100648 defintion id 81930138
+	M00_PowerUp_Create_When_Killed_JDG POW_Flamethrower_Player,100,1,,0.75,0,
+	M08_Innate_Control 0,
+name POW_GrenadeLauncher_Player.110808 id 110808 defintion id 81950046
+name POW_Chaingun_Player.110807 id 110807 defintion id 81950051
+name POW_Chaingun_Player.110806 id 110806 defintion id 81950051
+name POW_RocketLauncher_Player.110805 id 110805 defintion id 81950015
+name POW_Armor_050.110804 id 110804 defintion id 3666
+name POW_RocketLauncher_Player.110803 id 110803 defintion id 81950015
+name POW_Chaingun_Player.110802 id 110802 defintion id 81950051
+name POW_Health_025.110801 id 110801 defintion id 1665
+name POW_Chaingun_Player.110800 id 110800 defintion id 81950051
+name POW_Armor_025.110799 id 110799 defintion id 3663
+name POW_RocketLauncher_Player.110798 id 110798 defintion id 81950015
+name POW_LaserRifle_Player.110797 id 110797 defintion id 81950077
+name POW_LaserRifle_Player.110796 id 110796 defintion id 81950077
+name POW_LaserRifle_Player.110795 id 110795 defintion id 81950077
+name POW_LaserRifle_Player.110794 id 110794 defintion id 81950077
+name POW_Health_025.110793 id 110793 defintion id 1665
+name POW_Armor_025.110792 id 110792 defintion id 3663
+name Daves Arrow.110337 id 110337 defintion id 81960001
+name POW_Data_Disc.110111 id 110111 defintion id 81950099
+	M08_DataDisc_02_DLS 0,
+name POW_Data_Disc.110110 id 110110 defintion id 81950099
+	M08_DataDisc_01_DLS 0,
+name Nod_Harvester_Dec.100010 id 100010 defintion id 82080077
+	M08_Excavation_Mechanism 0,
+name M08_Prisoner_Conversation.109283 id 109283 defintion id 519
+	M08_Prisoner_Conversation 100710,0,
+name M08_Prisoner_Conversation.109282 id 109282 defintion id 519
+	M08_Prisoner_Conversation 100714,1,
+name M08_Prisoner_Conversation.109273 id 109273 defintion id 519
+	M08_Prisoner_Conversation 100713,1,
+name Nod_Light_Tank_Player.109047 id 109047 defintion id 82080112
+name POW_Health_025.109046 id 109046 defintion id 1665
+name POW_Armor_025.109045 id 109045 defintion id 3663
+name Havocs_Cinematic_Relocate.108819 id 108819 defintion id 81960001
+name Raveshaws_Cinematic_Relocate.108818 id 108818 defintion id 81960001
+name M08_Activate_Midtro.108588 id 108588 defintion id 519
+	M08_Elevator_Movement_Zone 1,0,1450630,
+name Infiltrate Research Facility.108361 id 108361 defintion id 81960001
+name Escape_from_Prison_Radar_Object.108360 id 108360 defintion id 81960001
+name Nod_Light_Tank_Player.100582 id 100582 defintion id 82080112
+name POW_Health_025.108130 id 108130 defintion id 1665
+name POW_GrenadeLauncher_Player.108129 id 108129 defintion id 81950046
+name POW_PersonalIonCannon_Player.108128 id 108128 defintion id 81950084
+name POW_Armor_050.108127 id 108127 defintion id 3666
+name POW_TiberiumAutoRifle_Player.108126 id 108126 defintion id 81950085
+name POW_LaserRifle_Player.108125 id 108125 defintion id 81950077
+name POW_LaserRifle_Player.108124 id 108124 defintion id 81950077
+name POW_Health_025.108123 id 108123 defintion id 1665
+name POW_Health_050.108122 id 108122 defintion id 1667
+name POW_Health_025.108121 id 108121 defintion id 1665
+name POW_Health_025.108120 id 108120 defintion id 1665
+name POW_Health_025.108119 id 108119 defintion id 1665
+name POW_Health_025.108118 id 108118 defintion id 1665
+name POW_Health_025.108116 id 108116 defintion id 1665
+name POW_Armor_025.108114 id 108114 defintion id 3663
+name POW_Health_025.108113 id 108113 defintion id 1665
+name POW_LaserRifle_Player.108112 id 108112 defintion id 81950077
+name POW_Health_050.108111 id 108111 defintion id 1667
+name POW_Armor_050.108110 id 108110 defintion id 3666
+name POW_TiberiumAutoRifle_Player.108108 id 108108 defintion id 81950085
+name POW_TiberiumAutoRifle_Player.108107 id 108107 defintion id 81950085
+name POW_Armor_025.108106 id 108106 defintion id 3663
+name POW_Health_025.108105 id 108105 defintion id 1665
+name POW_Armor_025.108104 id 108104 defintion id 3663
+name POW_Armor_050.108103 id 108103 defintion id 3666
+name POW_GrenadeLauncher_Player.108102 id 108102 defintion id 81950046
+name POW_Health_025.108101 id 108101 defintion id 1665
+name POW_Health_025.108100 id 108100 defintion id 1665
+name POW_MineRemote_Player.108099 id 108099 defintion id 81950031
+name POW_RocketLauncher_Player.108098 id 108098 defintion id 81950015
+name POW_LaserRifle_Player.108097 id 108097 defintion id 81950077
+name POW_Armor_050.108096 id 108096 defintion id 3666
+name POW_Health_050.108095 id 108095 defintion id 1667
+name POW_Health_050.108094 id 108094 defintion id 1667
+name POW_Health_050.108093 id 108093 defintion id 1667
+name POW_ChemSprayer_Player.108092 id 108092 defintion id 81950054
+name POW_Health_025.108091 id 108091 defintion id 1665
+name POW_ChemSprayer_Player.108090 id 108090 defintion id 81950054
+name POW_Health_050.108089 id 108089 defintion id 1667
+name POW_Armor_050.108088 id 108088 defintion id 3666
+name POW_LaserRifle_Player.108087 id 108087 defintion id 81950077
+name POW_Health_100.108086 id 108086 defintion id 1663
+name POW_MineRemote_Player.108084 id 108084 defintion id 81950031
+name POW_LaserRifle_Player.108083 id 108083 defintion id 81950077
+name POW_Health_025.108082 id 108082 defintion id 1665
+name POW_Armor_050.108081 id 108081 defintion id 3666
+name POW_LaserRifle_Player.108080 id 108080 defintion id 81950077
+name POW_Health_050.108079 id 108079 defintion id 1667
+name POW_RocketLauncher_Player.108078 id 108078 defintion id 81950015
+name M08_Go_Point.108077 id 108077 defintion id 81960086
+name M08_Go_Point.108076 id 108076 defintion id 81960086
+name M08_Go_Point.108075 id 108075 defintion id 81960086
+name M08_Go_Point.108074 id 108074 defintion id 81960086
+name M08_Go_Point.108073 id 108073 defintion id 81960086
+name M08_Go_Point.108072 id 108072 defintion id 81960086
+name M08_Go_Point.108071 id 108071 defintion id 81960086
+name M08_Go_Point.108070 id 108070 defintion id 81960086
+name M08_Go_Point.108069 id 108069 defintion id 81960086
+name M08_Go_Point.108068 id 108068 defintion id 81960086
+name Nod_Stealth_Tank.108067 id 108067 defintion id 82080061
+	M08_Mobile_Vehicle 108068,108069,108070,108071,108072,108073,108074,108075,108076,108077,0,0,
+name M08_Activate_Innate.106822 id 106822 defintion id 519
+	M08_Activate_Innate 106816,0,0,0,0,,
+name M08_Activate_Innate.106821 id 106821 defintion id 519
+	M08_Activate_Innate 106818,0,0,0,0,,
+name M08_Activate_Innate.106820 id 106820 defintion id 519
+	M08_Activate_Innate 106819,0,0,0,0,,
+name Mutant_0_Mutant.106819 id 106819 defintion id 81930119
+	M08_Mutant_Behavior 0,
+name Mutant_0_Mutant.106818 id 106818 defintion id 81930119
+	M08_Mutant_Behavior 0,
+name Mutant_0_Mutant.106816 id 106816 defintion id 81930119
+	M08_Mutant_Behavior 0,
+name POW_MineRemote_Player.106814 id 106814 defintion id 81950031
+name POW_MineRemote_Player.106813 id 106813 defintion id 81950031
+name POW_PersonalIonCannon_Player.106812 id 106812 defintion id 81950084
+name POW_Health_025.106811 id 106811 defintion id 1665
+name POW_Health_025.106810 id 106810 defintion id 1665
+name POW_Armor_025.106809 id 106809 defintion id 3663
+name POW_LaserRifle_Player.106808 id 106808 defintion id 81950077
+name POW_SniperRifle_Player.106807 id 106807 defintion id 81950013
+name POW_Health_100.106806 id 106806 defintion id 1663
+name POW_Armor_100.106805 id 106805 defintion id 3669
+name POW_Armor_050.106804 id 106804 defintion id 3666
+name POW_Health_050.106803 id 106803 defintion id 1667
+name POW_Health_050.106802 id 106802 defintion id 1667
+name POW_Armor_050.106801 id 106801 defintion id 3666
+name POW_Health_025.106800 id 106800 defintion id 1665
+name POW_Armor_025.106799 id 106799 defintion id 3663
+name Prison_Helipad.106339 id 106339 defintion id 81960001
+name Nod_RocketSoldier_2SF_Chaingun.100676 id 100676 defintion id 81930209
+	M08_Innate_Control 0,
+name Nod_RocketSoldier_2SF_Chaingun.100664 id 100664 defintion id 81930209
+	M08_Innate_Control 0,
+name Nod_RocketSoldier_2SF_Chaingun.100662 id 100662 defintion id 81930209
+	M08_Innate_Control 0,
+name Nod_RocketSoldier_2SF_Chaingun.100651 id 100651 defintion id 81930209
+	M08_Innate_Control 0,
+name Nod_RocketSoldier_2SF_Chaingun.100340 id 100340 defintion id 81930209
+	M08_Innate_Control 0,
+name Nod_RocketSoldier_2SF_Chaingun.100259 id 100259 defintion id 81930209
+	M08_Innate_Control 0,
+name Nod_RocketSoldier_2SF_Chaingun.100249 id 100249 defintion id 81930209
+	M08_Innate_Control 0,
+name Nod_RocketSoldier_2SF_Chaingun.100246 id 100246 defintion id 81930209
+	M08_Innate_Control 0,
+name Nod_Minigunner_2SF_Chaingun.100254 id 100254 defintion id 81930207
+	M08_Prison_Patrol 0,,
+name Nod_Minigunner_2SF_Chaingun.100253 id 100253 defintion id 81930207
+	M08_Prison_Patrol 0,,
+name civ_lab_tech_03.105368 id 105368 defintion id 81930219
+	M08_Facility_Scientist 105365,105366,105367,S_A_HUMAN.H_A_A0F0,0,
+name civ_lab_tech_02.105364 id 105364 defintion id 81930218
+	M08_Facility_Scientist 105354,105362,105363,S_A_HUMAN.H_A_A0F0,105837,
+name civ_lab_tech_01.105358 id 105358 defintion id 81930216
+	M08_Facility_Scientist 105355,105356,105357,S_A_HUMAN.H_A_A0F0,105832,
+name civ_lab_tech_01.105128 id 105128 defintion id 81930216
+	M08_Facility_Scientist 105125,105126,105127,S_A_HUMAN.H_A_A0F0,105831,
+name civ_lab_tech_03.105124 id 105124 defintion id 81930219
+	M08_Facility_Scientist 100544,100545,100546,S_A_HUMAN.H_A_A0F0,105836,
+name civ_lab_tech_02.105123 id 105123 defintion id 81930218
+	M08_Facility_Scientist 100540,100541,100542,S_A_HUMAN.H_A_A0F0,105835,
+name civ_lab_tech_01.105122 id 105122 defintion id 81930216
+	M08_Facility_Scientist 105119,105120,105121,S_A_HUMAN.H_A_A0F0,0,
+name civ_lab_tech_01.105118 id 105118 defintion id 81930216
+	M08_Facility_Scientist 105115,105116,105117,S_A_HUMAN.H_A_A0F0,105830,
+name civ_lab_tech_03.105114 id 105114 defintion id 81930219
+	M08_Facility_Scientist 105111,105112,105113,S_A_HUMAN.H_A_A0F0,105838,
+name civ_lab_tech_02.105106 id 105106 defintion id 81930218
+	M08_Facility_Scientist 105103,105104,105105,S_A_HUMAN.H_A_A0F0,105833,
+name civ_lab_tech_03.105102 id 105102 defintion id 81930219
+	M08_Facility_Scientist 105099,105100,105101,S_A_HUMAN.H_A_A0F0,105834,
+name civ_lab_tech_02.105098 id 105098 defintion id 81930218
+	M08_Facility_Scientist 105095,105096,105097,S_A_HUMAN.H_A_A0F0,105829,
+name civ_lab_tech_01.104865 id 104865 defintion id 81930216
+	M08_Facility_Scientist 104862,104863,104864,S_A_HUMAN.H_A_A0F0,105828,
+name M08_Scientist_Loc.105367 id 105367 defintion id 81960085
+name M08_Scientist_Loc.105366 id 105366 defintion id 81960085
+name M08_Scientist_Loc.105365 id 105365 defintion id 81960085
+name M08_Scientist_Loc.105363 id 105363 defintion id 81960085
+name M08_Scientist_Loc.105362 id 105362 defintion id 81960085
+name M08_Scientist_Loc.105357 id 105357 defintion id 81960085
+name M08_Scientist_Loc.105356 id 105356 defintion id 81960085
+name M08_Scientist_Loc.105355 id 105355 defintion id 81960085
+name M08_Scientist_Loc.105354 id 105354 defintion id 81960085
+name M08_Scientist_Loc.104864 id 104864 defintion id 81960085
+name M08_Scientist_Loc.104863 id 104863 defintion id 81960085
+name M08_Scientist_Loc.104862 id 104862 defintion id 81960085
+name Nod_Buggy_Player.104158 id 104158 defintion id 82080110
+name Nod_Light_Tank.103652 id 103652 defintion id 82080027
+	M08_Mobile_Vehicle 101816,101817,101818,101819,101820,101821,101822,101823,101824,101825,101826,0,
+name Daves Arrow.102958 id 102958 defintion id 81960001
+name Daves Arrow.102957 id 102957 defintion id 81960001
+name Daves Arrow.102956 id 102956 defintion id 81960001
+name Nod_APC.101590 id 101590 defintion id 82080033
+	M05_APC_Deploy Nod_FlameThrower_0,2,1,
+	M08_Mobile_Vehicle 101579,101580,101581,101582,101583,101584,101585,101586,101587,101588,101589,0,
+name M08_Go_Point.101589 id 101589 defintion id 81960086
+name M08_Go_Point.101588 id 101588 defintion id 81960086
+name M08_Go_Point.101587 id 101587 defintion id 81960086
+name M08_Go_Point.101586 id 101586 defintion id 81960086
+name M08_Go_Point.101585 id 101585 defintion id 81960086
+name M08_Go_Point.101584 id 101584 defintion id 81960086
+name M08_Go_Point.101583 id 101583 defintion id 81960086
+name M08_Go_Point.101582 id 101582 defintion id 81960086
+name M08_Go_Point.101581 id 101581 defintion id 81960086
+name M08_Go_Point.101580 id 101580 defintion id 81960086
+name M08_Go_Point.101579 id 101579 defintion id 81960086
+name M08_Activate_Innate.100701 id 100701 defintion id 519
+	M08_Activate_Innate 100698,100699,100700,0,0,,
+name M08_Activate_Innate.100706 id 100706 defintion id 519
+	M08_Activate_Innate 100702,100703,100704,100705,0,,
+	M08_Deactivate_Encounter 100707,
+name M08_Activate_Innate.100511 id 100511 defintion id 519
+	M08_Activate_Encounter 100513,100514,100515,0,0,0,
+	M08_Activate_Innate 100510,0,0,0,0,,
+name M08_Deactivate_Encounter.100508 id 100508 defintion id 519
+	M08_Deactivate_Encounter 100504,
+name M08_Activate_Objective_806.100018 id 100018 defintion id 519
+	M08_Activate_Objective_806 0,
+name M08_Activate_Objective_803.100008 id 100008 defintion id 519
+	M08_Activate_Objective_803 0,
+name M08_Activate_Innate.100252 id 100252 defintion id 519
+	M08_Activate_Innate 100245,100246,100247,100248,100249,,
+name M08_Activate_Innate.100244 id 100244 defintion id 519
+	M08_Activate_Innate 100239,100240,100242,0,0,,
+	M08_Free_Prisoners_Zone 100239,100240,0,0,
+	M08_Prisoner_Conversation 100240,0,
+name M08_Activate_Innate.100260 id 100260 defintion id 519
+	M08_Activate_Innate 100258,100259,100255,0,0,,
+name Nod_MiniGunner_2SF_Stationary.100772 id 100772 defintion id 81930177
+	M00_Soldier_Powerup_Disable 0,
+name Nod_MiniGunner_2SF_Stationary.100771 id 100771 defintion id 81930177
+	M00_Soldier_Powerup_Disable 0,
+name Nod_MiniGunner_2SF_Stationary.100770 id 100770 defintion id 81930177
+	M00_Soldier_Powerup_Disable 0,
+name GDI_Prisoner_v2a.100714 id 100714 defintion id 81930164
+	M08_Prisoner_Poke_Conversation 0,
+	M08_Unarmed_Prisoner 102730,102956,
+name GDI_Prisoner_v1a.100713 id 100713 defintion id 81930163
+	M08_Prisoner_Poke_Conversation 0,
+	M08_Unarmed_Prisoner 102958,102956,
+name GDI_Prisoner_v0a.100710 id 100710 defintion id 81930162
+	M08_Prisoner_Poke_Conversation 0,
+	M08_Unarmed_Prisoner 102957,102956,
+name Nod_Gun_Emplacement_Dec.100619 id 100619 defintion id 82080035
+	M08_Cavern_Gun_Emplacement 0,
+name Nod_APC_Dec.100607 id 100607 defintion id 82080067
+	M05_APC_Deploy M08_Nod_APC_Twiddler,0,1,
+name M08_Activate_Cavern.100574 id 100574 defintion id 519
+	M08_Custom_Activate 100565,
+name M08_Deactivate_Cavern.100573 id 100573 defintion id 519
+	M08_Deactivate_Encounter 100565,
+name M08_Deactivate_Cavern.100572 id 100572 defintion id 519
+	M08_Deactivate_Encounter 100565,
+name M08_Deactivate_Cavern.100571 id 100571 defintion id 519
+	M08_Deactivate_Encounter 100565,
+name M08_Activate_Innate.100564 id 100564 defintion id 519
+	M08_Activate_Innate 100532,100533,100534,100535,100537,,
+	M08_Activate_Innate 100536,0,0,0,0,,
+	M08_Deactivate_Encounter 100565,
+name Daves Arrow.100546 id 100546 defintion id 81960001
+name Daves Arrow.100545 id 100545 defintion id 81960001
+name Daves Arrow.100544 id 100544 defintion id 81960001
+name Daves Arrow.100543 id 100543 defintion id 81960001
+name Daves Arrow.100542 id 100542 defintion id 81960001
+name Daves Arrow.100541 id 100541 defintion id 81960001
+name Daves Arrow.100540 id 100540 defintion id 81960001
+name Daves Arrow.100539 id 100539 defintion id 81960001
+name Daves Arrow.100538 id 100538 defintion id 81960001
+name Nod_MiniGunner_2SF.100537 id 100537 defintion id 81930143
+	M08_Innate_Control 0,
+	M08_Patrol_Inactive 100547,-21.88 516.00 -87.84,100565,
+name Nod_RocketSoldier_1Off.100536 id 100536 defintion id 81930146
+	M08_Innate_Control 0,
+	M08_Patrol_Inactive 100547,-21.08 516.00 -87.84,100565,
+name Nod_MiniGunner_2SF.100534 id 100534 defintion id 81930143
+	M08_Innate_Control 0,
+	M08_Patrol_Inactive 0,,100565,
+name Script_Zone_Star.109636 id 109636 defintion id 519
+	M08_Reinforcements_Active 100467,
+name Script_Zone_Star.109635 id 109635 defintion id 519
+	M08_Reinforcements_Inactive 100467,
+name M08_Activate_Obeservatory.100468 id 100468 defintion id 519
+	M08_Activate_Innate 100469,100470,0,0,0,,
+name Daves Arrow.109634 id 109634 defintion id 81960001
+	M08_Observatory_Dome_Controller 0,
+name M08_Mutant_Dome_Controller.100466 id 100466 defintion id 81960001
+name Daves Arrow.109633 id 109633 defintion id 81960001
+name Nod_APC_Dec.100463 id 100463 defintion id 82080067
+	M05_APC_Deploy M08_Nod_APC_Twiddler,2,1,
+name Nod_Turret_Dec.109628 id 109628 defintion id 82080041
+	M00_Destroyed_Turret 0,
+	M08_Nod_Turret 0,
+name Nod_Turret_Dec.109627 id 109627 defintion id 82080041
+	M00_Destroyed_Turret 0,
+	M08_Nod_Turret 0,
+name Daves Arrow.109626 id 109626 defintion id 81960001
+	M08_Petra_C_Controller 0,
+name Daves Arrow.109625 id 109625 defintion id 81960001
+name Daves Arrow.109624 id 109624 defintion id 81960001
+name Daves Arrow.109623 id 109623 defintion id 81960001
+name Daves Arrow.109622 id 109622 defintion id 81960001
+name Daves Arrow.109621 id 109621 defintion id 81960001
+name Daves Arrow.109620 id 109620 defintion id 81960001
+name Script_Zone_Star.109619 id 109619 defintion id 519
+	M08_Activate_Petra_C 0,
+name Script_Zone_Star.109618 id 109618 defintion id 519
+	M08_Deactivate_Petra_C 0,
+name Script_Zone_Star.109617 id 109617 defintion id 519
+	M08_Deactivate_Petra_C 0,
+name Script_Zone_Star.109616 id 109616 defintion id 519
+	M08_Activate_Petra_C 0,
+name Script_Zone_Star.109615 id 109615 defintion id 519
+	M08_Activate_Petra_C 0,
+name Script_Zone_Star.109614 id 109614 defintion id 519
+	M08_Deactivate_Petra_C 0,
+name Script_Zone_Star.109613 id 109613 defintion id 519
+	M08_Activate_Petra_C 0,
+name M08_Deactivate_Petra_C.100375 id 100375 defintion id 519
+	M08_Deactivate_Petra_C 0,
+name M08_Activate_Petra_C.100374 id 100374 defintion id 519
+	M08_Activate_Petra_C 0,
+name M08_Deactivate_Petra_C.100373 id 100373 defintion id 519
+	M08_Deactivate_Petra_C 0,
+name M08_Deactivate_Petra_B.100372 id 100372 defintion id 519
+	M08_Deactivate_Petra_B 0,
+name M08_Activate_Petra_B.100371 id 100371 defintion id 519
+	M08_Activate_Petra_B 0,
+name M08_Petra_B_Controller.100370 id 100370 defintion id 81960001
+	M08_Petra_B_Controller 0,
+name Daves Arrow.109612 id 109612 defintion id 81960001
+name M08_Activate_Petra_B.100363 id 100363 defintion id 519
+	M08_Activate_Petra_B 0,
+name Script_Zone_Star.109611 id 109611 defintion id 519
+	M08_Deactivate_Petra_B 0,
+name M08_Deactivate_Petra_B.100361 id 100361 defintion id 519
+	M08_Deactivate_Petra_B 0,
+name M08_Activate_Petra_B.100360 id 100360 defintion id 519
+	M08_Activate_Petra_B 0,
+name Script_Zone_Star.109610 id 109610 defintion id 519
+	M08_Activate_Petra_B 0,
+name Script_Zone_Star.109609 id 109609 defintion id 519
+	M08_Deactivate_Petra_B 0,
+name M08_Activate_Innate.100345 id 100345 defintion id 519
+	M08_Activate_Innate 100339,100340,0,0,0,,
+name M08_Deactivate_Encounter.100186 id 100186 defintion id 519
+	M08_Deactivate_Encounter 100185,
+name M08_Activate_Encounter.100185 id 100185 defintion id 519
+	M08_Activate_Encounter 100187,100188,100189,100190,0,0,
+name Nod_MiniGunner_1Off.100171 id 100171 defintion id 81930142
+	M00_PowerUp_Create_When_Killed_JDG POW_Armor_100,1.00,1,0.00 0.00 0.00,0.75,0,
+	M00_Soldier_Powerup_Disable 0,
+	M08_Prison_Patrol 100172,-75.49 92.18 -4.20,
+name Nod_MiniGunner_1Off.100163 id 100163 defintion id 81930142
+	M00_PowerUp_Create_When_Killed_JDG POW_Chaingun_Player,1.00,1,0.00 0.00 0.00,0.75,0,
+	M00_Soldier_Powerup_Disable 0,
+	M08_Prison_Patrol 100164,-86.46 90.60 -4.20,
+name Nod_MiniGunner_1Off.100162 id 100162 defintion id 81930142
+	M00_PowerUp_Create_When_Killed_JDG POW_Chaingun_Player,100,1,,0.75,0,
+	M00_Soldier_Powerup_Disable 0,
+	M08_Prison_Patrol 100164,-86.46 90.60 -4.20,
+name Nod_Gun_Emplacement_Dec.100069 id 100069 defintion id 82080035
+	M08_Nod_Gun_Emplacement 0,
+name Nod_Gun_Emplacement_Dec.100068 id 100068 defintion id 82080035
+	M08_Nod_Gun_Emplacement 0,
+name Nod_Gun_Emplacement_Dec.100067 id 100067 defintion id 82080035
+	M08_Nod_Gun_Emplacement 0,
+name Nod_Gun_Emplacement_Dec.100060 id 100060 defintion id 82080035
+	M08_Basketball_Gun_Emp 0,
+	M08_Nod_Gun_Emplacement 0,
+name Nod_Gun_Emplacement_Dec.100059 id 100059 defintion id 82080035
+	M08_Basketball_Gun_Emp 0,
+	M08_Nod_Gun_Emplacement 0,
+name M08_Warden_Announcement2.100050 id 100050 defintion id 519
+	M08_Warden_Announcement2 0,
+name M08_Warden_Announcement1.100049 id 100049 defintion id 519
+	M08_Warden_Announcement1 0,
+name M08_Tiberium_Cultivation_MCT.100015 id 100015 defintion id 2153
+	M08_Tiberium_Cultivation_MCT 0,
+name M08_Activate_Objective_803.100009 id 100009 defintion id 519
+	M08_Activate_Objective_803 0,
+name M08_Activate_Objective_802.100007 id 100007 defintion id 519
+	M08_Activate_Objective_802 0,
+name M08_Activate_Objective_804.100004 id 100004 defintion id 519
+	M08_Activate_Innate 100191,100192,100193,100194,100195,,
+	M08_Activate_Objective_804 0,
+	M08_Free_Prisoners_Zone 100193,100194,0,0,
+name M08_Objective_Controller.100002 id 100002 defintion id 81960001
+	M08_Flyover_Controller 0,
+	M08_Objective_Controller 0,
+name M08_Research_Station_A.100016 id 100016 defintion id 2153
+	M08_Research_Station_A 0,
+name M08_Research_Station_B.100017 id 100017 defintion id 2153
+	M08_Research_Station_B 0,
+name Nod_FlameThrower_1Off.100191 id 100191 defintion id 81930136
+	M08_Innate_Control 0,
+name Nod_FlameThrower_1Off.100192 id 100192 defintion id 81930136
+	M08_Innate_Control 0,
+name GDI_Prisoner_v0a.100193 id 100193 defintion id 81930162
+	M08_Innate_Control 0,
+	M08_Prisoner_Poke_Conversation 0,
+	M08_Unarmed_Prisoner 100750,0,
+name GDI_Prisoner_v1a.100194 id 100194 defintion id 81930163
+	M08_Innate_Control 0,
+	M08_Prisoner_Poke_Conversation 0,
+	M08_Unarmed_Prisoner 100750,0,
+name Nod_MiniGunner_1Off.100195 id 100195 defintion id 81930142
+	M08_Innate_Control 0,
+name M08_Activate_Innate.100196 id 100196 defintion id 519
+	M08_Activate_Innate 100191,100192,100193,100194,100195,,
+	M08_Free_Prisoners_Zone 100193,100194,0,0,
+	M08_Prisoner_Conversation 100193,1,
+name M08_Basketball_Court_Controller.100197 id 100197 defintion id 81960001
+	M08_Basketball_Court_Controller 0,
+name Nod_MiniGunner_1Off.100224 id 100224 defintion id 81930142
+	M08_Innate_Control 0,
+name Nod_MiniGunner_1Off.100225 id 100225 defintion id 81930142
+	M08_Innate_Control 0,
+name Nod_FlameThrower_1Off.100226 id 100226 defintion id 81930136
+	M08_Innate_Control 0,
+name Nod_MiniGunner_1Off.100227 id 100227 defintion id 81930142
+	M08_Innate_Control 0,
+name M08_Activate_Innate.100228 id 100228 defintion id 519
+	M08_Activate_Innate 100224,100225,100226,100227,0,,
+name Nod_MiniGunner_1Off.100229 id 100229 defintion id 81930142
+	M08_Innate_Control 0,
+name Nod_MiniGunner_1Off.100230 id 100230 defintion id 81930142
+	M08_Innate_Control 0,
+name Nod_FlameThrower_1Off.100231 id 100231 defintion id 81930136
+	M08_Innate_Control 0,
+name Nod_MiniGunner_2SF.100233 id 100233 defintion id 81930143
+	M08_Innate_Control 0,
+name M08_Activate_Innate.100235 id 100235 defintion id 519
+	M08_Activate_Innate 100233,0,0,0,0,,
+name Nod_FlameThrower_1Off.100236 id 100236 defintion id 81930136
+	M08_Innate_Control 0,
+name Nod_FlameThrower_1Off.100237 id 100237 defintion id 81930136
+	M08_Innate_Control 0,
+name M08_Activate_Innate.100238 id 100238 defintion id 519
+	M08_Activate_Innate 100236,100237,0,0,0,,
+name GDI_Prisoner_v1a.100239 id 100239 defintion id 81930163
+	M08_Innate_Control 0,
+	M08_Prisoner_Poke_Conversation 0,
+	M08_Unarmed_Prisoner 100759,0,
+name GDI_Prisoner_v2a.100240 id 100240 defintion id 81930164
+	M08_Innate_Control 0,
+	M08_Prisoner_Poke_Conversation 0,
+	M08_Unarmed_Prisoner 100759,0,
+name Nod_MiniGunner_1Off.100242 id 100242 defintion id 81930142
+	M08_Innate_Control 0,
+name M08_Activate_Innate.100243 id 100243 defintion id 519
+	M08_Activate_Innate 100239,100240,100242,0,0,,
+	M08_Free_Prisoners_Zone 100239,100240,0,0,
+	M08_Prisoner_Conversation 100239,1,
+name Nod_FlameThrower_1Off.100245 id 100245 defintion id 81930136
+	M08_Innate_Control 0,
+name Nod_FlameThrower_1Off.100247 id 100247 defintion id 81930136
+	M08_Innate_Control 0,
+name Nod_MiniGunner_1Off.100248 id 100248 defintion id 81930142
+	M08_Innate_Control 0,
+name M08_Activate_Innate.100251 id 100251 defintion id 519
+	M08_Activate_Innate 100245,100246,100247,100248,100249,,
+name Nod_FlameThrower_1Off.100255 id 100255 defintion id 81930136
+	M08_Innate_Control 0,
+name Nod_MiniGunner_1Off.100258 id 100258 defintion id 81930142
+	M08_Innate_Control 0,
+name M08_Activate_Encounter.100261 id 100261 defintion id 519
+	M08_Activate_Encounter 100263,100264,0,0,0,0,
+name Daves Arrow.100270 id 100270 defintion id 81960001
+name Nod_Light_Tank_Dec.100271 id 100271 defintion id 82080034
+	M08_Nod_Light_Tank 0,
+name M08_Activate_Encounter.100272 id 100272 defintion id 519
+	M08_Activate_Encounter 100265,100267,100268,100269,100311,0,
+name Nod_Gun_Emplacement_Dec.100338 id 100338 defintion id 82080035
+	M08_Nod_Gun_Emplacement 0,
+name Nod_MiniGunner_1Off.100339 id 100339 defintion id 81930142
+	M08_Innate_Control 0,
+name M08_Petra_A_Controller.100346 id 100346 defintion id 81960001
+	M08_Petra_A_Controller 0,
+name M08_Activate_Petra_A.100349 id 100349 defintion id 519
+	M08_Activate_Petra_A 0,
+	M08_Activate_Sakura 0,
+name Daves Arrow.109608 id 109608 defintion id 81960001
+name Daves Arrow.109607 id 109607 defintion id 81960001
+name Daves Arrow.100352 id 100352 defintion id 81960001
+name Daves Arrow.109606 id 109606 defintion id 81960001
+name Script_Zone_Star.109605 id 109605 defintion id 519
+	M08_Deactivate_Petra_A 0,
+name Script_Zone_Star.109604 id 109604 defintion id 519
+	M08_Activate_Petra_A 0,
+	M08_Move_Sakura 2,
+name Script_Zone_Star.109603 id 109603 defintion id 519
+	M08_Deactivate_Petra_A 0,
+name M08_Activate_Encounter.100477 id 100477 defintion id 519
+	M08_Activate_Encounter 100479,100480,100481,100482,0,0,
+name Script_Zone_Star.109602 id 109602 defintion id 519
+	M08_Deactivate_Encounter 100477,
+name Nod_RocketSoldier_1Off.109597 id 109597 defintion id 81930146
+	M08_Encounter_Unit 0,0,0,0,
+name Script_Zone_Star.109596 id 109596 defintion id 519
+	M08_Activate_Encounter 100486,100487,100488,100489,0,0,
+name Script_Zone_Star.109592 id 109592 defintion id 519
+	M08_Deactivate_Encounter 100485,
+name Nod_APC_Dec.109591 id 109591 defintion id 82080067
+	M05_APC_Deploy M08_Nod_APC_Twiddler,2,1,
+name Nod_Buggy_Dec.109590 id 109590 defintion id 82080044
+	M08_Nod_Buggy_Dec 0,
+name Script_Zone_Star.109589 id 109589 defintion id 519
+	M08_Activate_Encounter 100498,100499,100500,100501,0,0,
+name Script_Zone_Star.109584 id 109584 defintion id 519
+	M08_Deactivate_Encounter 100497,
+name Script_Zone_Star.109583 id 109583 defintion id 519
+	M08_Deactivate_Encounter 100497,
+name Script_Zone_Star.109582 id 109582 defintion id 519
+	M08_Activate_Encounter 100505,100506,100507,0,0,0,
+name M08_Deactivate_Encounter.100512 id 100512 defintion id 519
+	M08_Deactivate_Encounter 100511,
+name Nod_Truck.100516 id 100516 defintion id 1853
+	M08_Cavern_Entrance_Truck 0,
+name M08_Activate_Cavern_Entrance_Truck.100524 id 100524 defintion id 519
+	M08_Activate_Cavern_Entrance_Truck 0,
+name M08_Activate_Encounter.100525 id 100525 defintion id 519
+	M08_Activate_Encounter 100526,100527,100528,100529,0,0,
+name M08_Deactivate_Encounter.100530 id 100530 defintion id 519
+	M08_Deactivate_Encounter 100525,
+name M08_Cavern_Controller.100565 id 100565 defintion id 81960001
+	M08_Cavern_Controller 0,
+name Nod_FlameThrower_1Off.100612 id 100612 defintion id 81930136
+	M08_Innate_Control 0,
+name Nod_FlameThrower_1Off.100613 id 100613 defintion id 81930136
+	M08_Innate_Control 0,
+name M08_Activate_Innate.100614 id 100614 defintion id 519
+	M08_Activate_Innate 100611,100612,100613,0,0,,
+name Nod_Light_Tank_Dec.100616 id 100616 defintion id 82080034
+	M08_Nod_Light_Tank 0,
+name Nod_APC_Dec.100617 id 100617 defintion id 82080067
+	M05_APC_Deploy M08_Nod_APC_Twiddler,2,1,
+name M08_Activate_Innate.100653 id 100653 defintion id 519
+	M08_Activate_Innate 100648,100649,100650,100651,100652,,
+name M08_Activate_Encounter.100654 id 100654 defintion id 519
+	M08_Activate_Encounter 100657,100658,100659,0,0,0,
+name M08_Deactivate_Encounter.100660 id 100660 defintion id 519
+	M08_Deactivate_Encounter 100654,
+name M08_Activate_Innate.100661 id 100661 defintion id 519
+	M08_Activate_Innate 100662,100663,100664,0,0,,
+name M08_Activate_Encounter.100669 id 100669 defintion id 519
+	M08_Activate_Encounter 100665,100666,100667,100668,0,0,
+name M08_Activate_Encounter.100670 id 100670 defintion id 519
+	M08_Activate_Encounter 100665,100666,100667,100668,0,0,
+name M08_Deactivate_Encounter.100671 id 100671 defintion id 519
+	M08_Deactivate_Encounter 100670,
+	M08_Deactivate_Encounter 100669,
+name Nod_FlameThrower_1Off.100672 id 100672 defintion id 81930136
+	M08_Innate_Control 0,
+name Nod_FlameThrower_1Off.100673 id 100673 defintion id 81930136
+	M08_Innate_Control 0,
+name Nod_FlameThrower_1Off.100674 id 100674 defintion id 81930136
+	M08_Innate_Control 0,
+name M08_Activate_Innate.100677 id 100677 defintion id 519
+	M08_Activate_Innate 100672,100673,100674,100675,100676,,
+name M08_Activate_Innate.100678 id 100678 defintion id 519
+	M08_Activate_Innate 100672,100673,100674,100675,100676,,
+name M08_Activate_Encounter.100679 id 100679 defintion id 519
+	M08_Activate_Encounter 100687,100688,100689,100690,0,0,
+name M08_Deactivate_Encounter.100680 id 100680 defintion id 519
+	M08_Deactivate_Encounter 100681,
+	M08_Deactivate_Encounter 100679,
+name M08_Activate_Encounter.100681 id 100681 defintion id 519
+	M08_Activate_Encounter 100687,100688,100689,100690,0,0,
+name M08_Deactivate_Encounter.100682 id 100682 defintion id 519
+	M08_Deactivate_Encounter 100681,
+	M08_Deactivate_Encounter 100679,
+name M08_Deactivate_Encounter.100697 id 100697 defintion id 519
+	M08_Enable_KaneConversation 0,
+name Nod_Engineer_0.100703 id 100703 defintion id 81930137
+	M08_Innate_Control 0,
+name M08_Activate_Encounter.100707 id 100707 defintion id 519
+	M08_Activate_Encounter 100708,100709,0,0,0,0,
+name M08_Activate_Objective_804.100003 id 100003 defintion id 519
+	M08_Activate_Objective_804 0,
+name M08_Activate_Innate.100232 id 100232 defintion id 519
+	M08_Activate_Innate 100229,100230,100231,0,0,,
+name M08_Go_Point.101816 id 101816 defintion id 81960086
+name M08_Go_Point.101817 id 101817 defintion id 81960086
+name M08_Go_Point.101818 id 101818 defintion id 81960086
+name M08_Go_Point.101819 id 101819 defintion id 81960086
+name M08_Go_Point.101820 id 101820 defintion id 81960086
+name M08_Go_Point.101821 id 101821 defintion id 81960086
+name M08_Go_Point.101822 id 101822 defintion id 81960086
+name M08_Go_Point.101823 id 101823 defintion id 81960086
+name M08_Go_Point.101824 id 101824 defintion id 81960086
+name M08_Go_Point.101825 id 101825 defintion id 81960086
+name M08_Go_Point.101826 id 101826 defintion id 81960086
+name M08_Go_Point.101864 id 101864 defintion id 81960086
+name M08_Go_Point.101865 id 101865 defintion id 81960086
+name M08_Go_Point.101866 id 101866 defintion id 81960086
+name M08_Go_Point.101867 id 101867 defintion id 81960086
+name M08_Go_Point.101868 id 101868 defintion id 81960086
+name M08_Go_Point.101869 id 101869 defintion id 81960086
+name M08_Go_Point.101870 id 101870 defintion id 81960086
+name M08_Go_Point.101871 id 101871 defintion id 81960086
+name M08_Go_Point.101872 id 101872 defintion id 81960086
+name M08_Go_Point.101873 id 101873 defintion id 81960086
+name M08_Go_Point.101874 id 101874 defintion id 81960086
+name Nod_Stealth_Tank.101875 id 101875 defintion id 82080061
+	M08_Mobile_Vehicle 101864,101865,101866,101867,101868,101869,101870,101871,101872,101873,101874,0,
+name M08_Go_Point.101878 id 101878 defintion id 81960086
+name M08_Go_Point.101879 id 101879 defintion id 81960086
+name M08_Go_Point.101880 id 101880 defintion id 81960086
+name M08_Go_Point.101881 id 101881 defintion id 81960086
+name M08_Go_Point.101882 id 101882 defintion id 81960086
+name M08_Go_Point.101883 id 101883 defintion id 81960086
+name M08_Go_Point.101884 id 101884 defintion id 81960086
+name M08_Go_Point.101885 id 101885 defintion id 81960086
+name M08_Go_Point.101886 id 101886 defintion id 81960086
+name M08_Go_Point.101887 id 101887 defintion id 81960086
+name M08_Go_Point.101888 id 101888 defintion id 81960086
+name Nod_Stealth_Tank.101889 id 101889 defintion id 82080061
+	M08_Mobile_Vehicle 101878,101879,101880,101881,101882,101883,101884,101885,101886,101887,101888,0,
+name M08_Go_Point.101926 id 101926 defintion id 81960086
+name M08_Go_Point.101927 id 101927 defintion id 81960086
+name M08_Go_Point.101928 id 101928 defintion id 81960086
+name M08_Go_Point.101929 id 101929 defintion id 81960086
+name M08_Go_Point.101930 id 101930 defintion id 81960086
+name M08_Go_Point.101931 id 101931 defintion id 81960086
+name M08_Go_Point.101932 id 101932 defintion id 81960086
+name M08_Go_Point.101933 id 101933 defintion id 81960086
+name M08_Go_Point.101934 id 101934 defintion id 81960086
+name M08_Go_Point.101935 id 101935 defintion id 81960086
+name M08_Go_Point.101936 id 101936 defintion id 81960086
+name Nod_Flame_Tank.101937 id 101937 defintion id 1319
+	M08_Mobile_Vehicle 101926,101927,101928,101929,101930,101931,101932,101933,101934,101935,101936,0,
+name Daves Arrow.102730 id 102730 defintion id 81960001
+name M08_Nod_Warden.103184 id 103184 defintion id 81930228
+	M08_Innate_Control 0,
+	M08_Nod_Warden 0,
+name M08_Activate_Innate.103185 id 103185 defintion id 519
+	M08_Activate_Innate 103184,0,0,0,0,,
+name Nod_Minigunner_2SF_Chaingun.100178 id 100178 defintion id 81930207
+	M08_Prison_Patrol 100179,-76.61 57.23 0.23,
+name M08_Activate_Encounter.103187 id 103187 defintion id 519
+	M08_Activate_Encounter 103188,103189,0,0,0,0,
+name Daves Arrow.103884 id 103884 defintion id 81960001
+name Daves Arrow.103885 id 103885 defintion id 81960001
+name M08_Activate_Excavation.103886 id 103886 defintion id 519
+	M08_Activate_Encounter 103887,103888,103889,103890,103891,0,
+	M08_Activate_Excavation 0,
+name M08_Deactivate_Encounter.103892 id 103892 defintion id 519
+	M08_Deactivate_Encounter 103886,
+name Nod_Buggy_Dec.104635 id 104635 defintion id 82080044
+	M08_Nod_Buggy_Dec 0,
+name Nod_Mobile_Artillery_Dec.104636 id 104636 defintion id 82080094
+	M08_Nod_Light_Tank 0,
+name M08_Scientist_Loc.105095 id 105095 defintion id 81960085
+name M08_Scientist_Loc.105096 id 105096 defintion id 81960085
+name M08_Scientist_Loc.105097 id 105097 defintion id 81960085
+name M08_Scientist_Loc.105099 id 105099 defintion id 81960085
+name M08_Scientist_Loc.105100 id 105100 defintion id 81960085
+name M08_Scientist_Loc.105101 id 105101 defintion id 81960085
+name M08_Scientist_Loc.105103 id 105103 defintion id 81960085
+name M08_Scientist_Loc.105104 id 105104 defintion id 81960085
+name M08_Scientist_Loc.105105 id 105105 defintion id 81960085
+name M08_Scientist_Loc.105111 id 105111 defintion id 81960085
+name M08_Scientist_Loc.105112 id 105112 defintion id 81960085
+name M08_Scientist_Loc.105113 id 105113 defintion id 81960085
+name M08_Scientist_Loc.105115 id 105115 defintion id 81960085
+name M08_Scientist_Loc.105116 id 105116 defintion id 81960085
+name M08_Scientist_Loc.105117 id 105117 defintion id 81960085
+name M08_Scientist_Loc.105119 id 105119 defintion id 81960085
+name M08_Scientist_Loc.105120 id 105120 defintion id 81960085
+name M08_Scientist_Loc.105121 id 105121 defintion id 81960085
+name M08_Scientist_Loc.105125 id 105125 defintion id 81960085
+name M08_Scientist_Loc.105126 id 105126 defintion id 81960085
+name M08_Scientist_Loc.105127 id 105127 defintion id 81960085
+name POW_Chaingun_Player.106064 id 106064 defintion id 81950051
+name POW_LaserRifle_Player.106065 id 106065 defintion id 81950077
+name POW_Armor_100.106066 id 106066 defintion id 3669
+name POW_Health_100.106067 id 106067 defintion id 1663
+name POW_PersonalIonCannon_Player.106068 id 106068 defintion id 81950084
+name POW_SniperRifle_Player.106069 id 106069 defintion id 81950013
+name POW_Health_025.106070 id 106070 defintion id 1665
+name POW_Health_025.106071 id 106071 defintion id 1665
+name POW_Health_025.106072 id 106072 defintion id 1665
+name POW_Armor_050.106073 id 106073 defintion id 3666
+name POW_RocketLauncher_Player.106074 id 106074 defintion id 81950015
+name POW_Health_050.106075 id 106075 defintion id 1667
+name POW_GrenadeLauncher_Player.106076 id 106076 defintion id 81950046
+name POW_LaserRifle_Player.106077 id 106077 defintion id 81950077
+name POW_Health_025.106078 id 106078 defintion id 1665
+name POW_Health_050.106079 id 106079 defintion id 1667
+name POW_Armor_050.106080 id 106080 defintion id 3666
+name POW_Health_025.106082 id 106082 defintion id 1665
+name POW_LaserRifle_Player.106084 id 106084 defintion id 81950077
+name POW_Armor_050.106085 id 106085 defintion id 3666
+name POW_Health_025.106087 id 106087 defintion id 1665
+name POW_Health_025.106088 id 106088 defintion id 1665
+name POW_Armor_025.106089 id 106089 defintion id 3663
+name POW_MineRemote_Player.106091 id 106091 defintion id 81950031
+name POW_LaserRifle_Player.106092 id 106092 defintion id 81950077
+name POW_SniperRifle_Player.106093 id 106093 defintion id 81950013
+name POW_RocketLauncher_Player.106094 id 106094 defintion id 81950015
+name POW_Armor_050.106095 id 106095 defintion id 3666
+name POW_Health_025.106096 id 106096 defintion id 1665
+name POW_Armor_025.106097 id 106097 defintion id 3663
+name POW_Health_050.106098 id 106098 defintion id 1667
+name POW_MineRemote_Player.106099 id 106099 defintion id 81950031
+name POW_Flamethrower_Player.106100 id 106100 defintion id 81950056
+name POW_Flamethrower_Player.106101 id 106101 defintion id 81950056
+name POW_Flamethrower_Player.106102 id 106102 defintion id 81950056
+name POW_Health_025.106103 id 106103 defintion id 1665
+name POW_Armor_025.106104 id 106104 defintion id 3663
+name POW_Armor_100.106105 id 106105 defintion id 3669
+name POW_Health_100.106106 id 106106 defintion id 1663
+name POW_Health_050.106107 id 106107 defintion id 1667
+name POW_Armor_050.106108 id 106108 defintion id 3666
+name POW_RocketLauncher_Player.106109 id 106109 defintion id 81950015
+name POW_SniperRifle_Player.106110 id 106110 defintion id 81950013
+name POW_Health_025.106572 id 106572 defintion id 1665
+name POW_TiberiumAutoRifle_Player.107291 id 107291 defintion id 81950085
+name POW_TiberiumAutoRifle_Player.107292 id 107292 defintion id 81950085
+name M08_Go_Point.107799 id 107799 defintion id 81960086
+name M08_Go_Point.107800 id 107800 defintion id 81960086
+name M08_Go_Point.107801 id 107801 defintion id 81960086
+name M08_Go_Point.107802 id 107802 defintion id 81960086
+name M08_Go_Point.107803 id 107803 defintion id 81960086
+name M08_Go_Point.107804 id 107804 defintion id 81960086
+name M08_Go_Point.107805 id 107805 defintion id 81960086
+name M08_Go_Point.107806 id 107806 defintion id 81960086
+name M08_Go_Point.107807 id 107807 defintion id 81960086
+name M08_Go_Point.107808 id 107808 defintion id 81960086
+name M08_Go_Point.107809 id 107809 defintion id 81960086
+name Nod_Flame_Tank.107810 id 107810 defintion id 1319
+	M08_Mobile_Vehicle 107799,107800,107801,107802,107803,107804,107805,107806,107807,107808,107809,0,
+name POW_Armor_050.107827 id 107827 defintion id 3666
+name POW_Health_050.107828 id 107828 defintion id 1667
+name POW_Armor_050.107829 id 107829 defintion id 3666
+name POW_Health_050.107830 id 107830 defintion id 1667
+name POW_Armor_050.107831 id 107831 defintion id 3666
+name POW_Health_050.107832 id 107832 defintion id 1667
+name POW_LaserRifle_Player.107833 id 107833 defintion id 81950077
+name POW_GrenadeLauncher_Player.107834 id 107834 defintion id 81950046
+name POW_Health_050.107835 id 107835 defintion id 1667
+name POW_Armor_050.107836 id 107836 defintion id 3666
+name POW_Chaingun_Player.107837 id 107837 defintion id 81950051
+name POW_Health_025.107838 id 107838 defintion id 1665
+name POW_Armor_025.107839 id 107839 defintion id 3663
+name POW_Armor_025.107840 id 107840 defintion id 3663
+name POW_Health_025.107841 id 107841 defintion id 1665
+name SFX.Arrow_Rock_Slide_Rev_01.109579 id 109579 defintion id 81960179
+name SFX.Arrow_Rock_Slide_02.109577 id 109577 defintion id 81960177
+name SFX.Arrow_Rock_Slide_01.109576 id 109576 defintion id 81960176
+name SFX.Arrow_Rock_Slide_03.109575 id 109575 defintion id 81960178
+name SFX.Arrow_Rock_Slide_02.109574 id 109574 defintion id 81960177
+name SFX.Arrow_Rock_Slide_01.109573 id 109573 defintion id 81960176
+name SFX_Rocksld.100495 id 100495 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlide3,1,,,2.00,6.00,
+name SFX_Rocksld.100492 id 100492 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlideRev1,1,,,2.00,6.00,
+name SFX_Rocksld.100489 id 100489 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlide1,1,,,2.00,6.00,
+name SFX_Rocksld.100488 id 100488 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlideRev2,1,,,2.00,6.00,
+name SFX_Rocksld.100486 id 100486 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlideRev2,1,,,2.00,6.00,
+name SFX_Rocksld.100485 id 100485 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlide2,1,,,2.00,6.00,
+name SFX_Rocksld.100484 id 100484 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlide3,1,,,2.00,6.00,
+name SFX_Rocksld.100482 id 100482 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlideRev1,1,,,2.00,6.00,
+name SFX_RockSld.100481 id 100481 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlideRev2,1,,,2.00,6.00,
+name SFX_Rocksld.100480 id 100480 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlideRev1,1,,,2.00,6.00,
+name SFX_Rocksld.100479 id 100479 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlideRev2,1,,,2.00,6.00,
+name SFX_RockSld.100478 id 100478 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlide1,1,,,2.00,6.00,
+name SFX_RockSLideRev2.100475 id 100475 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlideRev2,1,,,2.00,6.00,
+name SFX_RockSlideRev.100474 id 100474 defintion id 81960001
+	M00_Play_Sound SFX.Rock_SmallSlideRev1,1,,,2.00,6.00,
+name SFX_Hawk.100470 id 100470 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_01,1,,,1.00,9.00,
+name SFX_Hawk.100467 id 100467 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_01,1,,,1.00,6.00,
+name SFX_Drip.100465 id 100465 defintion id 81960001
+	M00_Play_Sound SFX.Water_Drip_01,1,,,1.00,6.00,
+name SFX_Drip.100464 id 100464 defintion id 81960001
+	M00_Play_Sound SFX.Water_Drip_01,1,,,1.00,6.00,
+name SFX_Drip.100458 id 100458 defintion id 81960001
+	M00_Play_Sound SFX.Water_Drip_01,1,,,1.00,6.00,
+name SFX_Jail2.100456 id 100456 defintion id 81960001
+	M00_Play_Sound SFX.Ambeint_Jail_02,1,,,1.00,6.00,
+name SFX_Drip.100455 id 100455 defintion id 81960001
+	M00_Play_Sound SFX.Water_Drip_01,1,,,1.00,6.00,
+name SFX_Drip.100454 id 100454 defintion id 81960001
+	M00_Play_Sound SFX.Water_Drip_01,1,,,1.00,6.00,
+name SFX_Drip.100453 id 100453 defintion id 81960001
+	M00_Play_Sound SFX.Water_Drip_01,1,,,1.00,6.00,
+name SFX_Rat.100449 id 100449 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Rat02,1,,,1.00,4.00,
+name SFX_Rat.100448 id 100448 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Rat02,1,,,1.00,4.00,
+name SFX_Rat.100447 id 100447 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Rat02,1,,,1.00,4.00,
+name SFX_Hawk.100382 id 100382 defintion id 81960001
+	M00_Play_Sound SFX.Desert_Hawk_01,1,,,1.00,6.00,
+name SFX_Jail1.100357 id 100357 defintion id 81960001
+	M00_Play_Sound SFX.Ambeint_Jail_01,1,,,0.70,4.00,
+name SFX_Water_Drip.100355 id 100355 defintion id 81960001
+	M00_Play_Sound SFX.Water_Drip_01,1,,,1.00,6.00,
+name SFX_Rat.100354 id 100354 defintion id 81960001
+	M00_Play_Sound SFX.Ambient_Rat02,1,,,1.00,4.00,
+name SFX_Water_Drip.100398 id 100398 defintion id 81960001
+	M00_Play_Sound SFX.Water_Drip_01,1,,,1.00,5.00,
+name Daves Arrow.109884 id 109884 defintion id 81960001
+name Mutant_1Off_Acolyte.100650 id 100650 defintion id 81930120
+	M08_Innate_Control 0,
+name Mutant_1Off_Acolyte.100652 id 100652 defintion id 81930120
+	M08_Innate_Control 0,
+name Mutant_1Off_Acolyte.100663 id 100663 defintion id 81930120
+	M08_Innate_Control 0,
+name Mutant_1Off_Acolyte.100675 id 100675 defintion id 81930120
+	M08_Innate_Control 0,
+name Mutant_1Off_Acolyte.100687 id 100687 defintion id 81930120
+name Mutant_1Off_Acolyte.100688 id 100688 defintion id 81930120
+name Mutant_1Off_Acolyte.100689 id 100689 defintion id 81930120
+name Mutant_1Off_Acolyte.100690 id 100690 defintion id 81930120
+name Mutant_1Off_Acolyte.100696 id 100696 defintion id 81930120
+name SP_Helipad_Nod.162588 id 162588 defintion id 491530019
+	M08_Helipad 0,
+name POW_Armor_050.111050 id 111050 defintion id 3666
+name POW_Health_050.111051 id 111051 defintion id 1667
+name B1_Drop_Loc.111753 id 111753 defintion id 81960001
+name B1_Drop_Loc.111754 id 111754 defintion id 81960001
+name B2_Drop_Loc.111755 id 111755 defintion id 81960001
+name B2_Drop_Loc.111756 id 111756 defintion id 81960001
+name B3_Drop_Loc.111757 id 111757 defintion id 81960001
+name B3_Drop_Loc.111758 id 111758 defintion id 81960001
+name C1_Drop_Loc.111759 id 111759 defintion id 81960001
+name C1_Drop_Loc.111760 id 111760 defintion id 81960001
+name C2_Drop_Loc.111761 id 111761 defintion id 81960001
+name C2_Drop_Loc.111762 id 111762 defintion id 81960001
+name C3_Drop_Loc.111763 id 111763 defintion id 81960001
+name C3_Drop_Loc.111764 id 111764 defintion id 81960001
+name POW_Medal_Armor.1600226 id 1600226 defintion id 81950117
+name POW_PersonalIonCannon_Player.111990 id 111990 defintion id 81950084
+name POW_PersonalIonCannon_Player.111991 id 111991 defintion id 81950084
+name M08_Prison_Terminal_Poke.111992 id 111992 defintion id 81960264
+	M08_Cell_Controller 0,
+name POW_Health_025.111993 id 111993 defintion id 1665
+name M08_Havoc_PreMidtro_Relocate.111994 id 111994 defintion id 81960001

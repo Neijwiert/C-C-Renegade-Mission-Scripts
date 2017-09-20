@@ -1,0 +1,100 @@
+name Script_Zone_Star.300001 id 300001 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400031 id 400031 defintion id 519
+	MTU_Trigger_Zone 0,
+name GDI_RocketSoldier_2SF_Tutorial.400008 id 400008 defintion id 81930284
+	MTU_Tutorial_Instructor 0,
+name GDI_Engineer_2SF_Tutorial.400009 id 400009 defintion id 81930283
+	MTU_Tutorial_Instructor 0,
+name POW_SniperRifle_Player.400156 id 400156 defintion id 81950013
+name POW_SniperRifle_Player.400155 id 400155 defintion id 81950013
+name POW_MineRemote_Player.400154 id 400154 defintion id 81950031
+name POW_Chaingun_Player.400153 id 400153 defintion id 81950051
+name POW_AutoRifle_Player.400152 id 400152 defintion id 81950083
+name POW_AutoRifle_Player.400151 id 400151 defintion id 81950083
+name M00_Gate.400146 id 400146 defintion id 81960101
+name GDI_Logan_Sheppard_Tutorial.400005 id 400005 defintion id 81930280
+	MTU_Tutorial_Instructor 0,
+name M00_Gate.400144 id 400144 defintion id 81960101
+name M00_Gate.400143 id 400143 defintion id 81960101
+name M00_Gate.400142 id 400142 defintion id 81960101
+name Tut_Infantry_Barracks_GDI.450938 id 450938 defintion id 491530024
+	MTU_Building_Controller 1,
+name Tut_Power_Plant_GDI.450937 id 450937 defintion id 491530023
+	MTU_Building_Controller 0,
+name Tut_Weapons_Factory_GDI.450936 id 450936 defintion id 491530022
+	MTU_Building_Controller 0,
+name Tut_Tiberium_Refinery_GDI.450935 id 450935 defintion id 491530025
+	MTU_Building_Controller 0,
+name GDI_Sydney_0Tutorial.400007 id 400007 defintion id 81930231
+	MTU_Tutorial_Instructor 0,
+name Script_Zone_Star.400044 id 400044 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400043 id 400043 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400042 id 400042 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400041 id 400041 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400040 id 400040 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400039 id 400039 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400038 id 400038 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400037 id 400037 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400036 id 400036 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400035 id 400035 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400034 id 400034 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400033 id 400033 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400032 id 400032 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400030 id 400030 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400029 id 400029 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400028 id 400028 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400026 id 400026 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400025 id 400025 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400024 id 400024 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400023 id 400023 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400022 id 400022 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400021 id 400021 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400020 id 400020 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400019 id 400019 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400018 id 400018 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400017 id 400017 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400016 id 400016 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400015 id 400015 defintion id 519
+	MTU_Trigger_Zone 0,
+name Script_Zone_Star.400014 id 400014 defintion id 519
+	MTU_Trigger_Zone 0,
+name GDI_MiniGunner_0.400013 id 400013 defintion id 81930128
+	MTU_GDI_Soldier 0,
+name GDI_MiniGunner_0.400012 id 400012 defintion id 81930128
+	MTU_GDI_Soldier 0,
+name GDI_MiniGunner_0.400006 id 400006 defintion id 81930128
+	MTU_GDI_Soldier 0,
+name Daves Arrow.400099 id 400099 defintion id 81960001
+	MTU_Tutorial_Controller 0,
+name Civilian_Petrova_Tutorial.400011 id 400011 defintion id 81930285
+	MTU_Tutorial_Instructor 0,
+name GDI_Ignatio_Mobius_Tutorial.400010 id 400010 defintion id 81930286
+	MTU_Tutorial_Instructor 0,

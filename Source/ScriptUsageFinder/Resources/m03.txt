@@ -1,0 +1,531 @@
+name Daves Arrow.1215546 id 1215546 defintion id 81960001
+name Daves Arrow.1212284 id 1212284 defintion id 81960001
+	M03_Cine_Explosion 0,
+name Daves Arrow.1212283 id 1212283 defintion id 81960001
+	M03_Cine_Explosion 0,
+name Script_Zone_Star.1208220 id 1208220 defintion id 519
+	M03_PowerPlant_Warning 0,
+name Script_Zone_Star.1208219 id 1208219 defintion id 519
+	M03_PowerPlant_Warning 0,
+name Script_Zone_Star.1208218 id 1208218 defintion id 519
+	M03_PowerPlant_Warning 0,
+name Script_Zone_Star.1208217 id 1208217 defintion id 519
+	M03_CommCenter_Warning 0,
+name Script_Zone_Star.1208216 id 1208216 defintion id 519
+	M03_CommCenter_Warning 0,
+name Script_Zone_Star.1208215 id 1208215 defintion id 519
+	M03_CommCenter_Warning 0,
+name Nod_Minigunner_2SF.300052 id 300052 defintion id 81930143
+	DLS_Volcano_Stumble 0,
+	M00_InnateIsStationary 0,
+	M09_Attack_Blocked_False 0,
+name POW_Data_Disc.1206590 id 1206590 defintion id 81950099
+	M00_Reveal_Enc_Character_DAY 41,
+	M03_DataDiscMessage 0,
+name POW_Data_Disc.1206589 id 1206589 defintion id 81950099
+	M00_Reveal_Enc_Character_DAY 32,
+	M03_DataDiscMessage 0,
+name Nod_Truck_Dec.1150839 id 1150839 defintion id 82080036
+name Nod_Truck_Dec.1150795 id 1150795 defintion id 82080036
+name Visceroid.1204952 id 1204952 defintion id 81930226
+name Visceroid.1204951 id 1204951 defintion id 81930226
+name Nod_Technician_0.1201633 id 1201633 defintion id 81930169
+	M03_Technician_Work 0,
+name Nod_Technician_0.1201632 id 1201632 defintion id 81930169
+	M03_Technician_Work 0,
+name Nod_Minigunner_0_Def.1147534 id 1147534 defintion id 81930183
+	DLS_Volcano_Stumble 0,
+	M03_Killed_Sound 0,0,
+name Nod_Minigunner_0_Def.1147533 id 1147533 defintion id 81930183
+	DLS_Volcano_Stumble 0,
+	M03_Killed_Sound 0,0,
+name Nod_FlameThrower_0.1147532 id 1147532 defintion id 81930138
+	M03_Killed_Sound 0,0,
+	M10_Stationary 0,
+name Nod_Minigunner_0_Def.1147531 id 1147531 defintion id 81930183
+	DLS_Volcano_Stumble 0,
+	M03_Killed_Sound 0,0,
+name Nod_Minigunner_0_Def.1147530 id 1147530 defintion id 81930183
+	DLS_Volcano_Stumble 0,
+	M03_Killed_Sound 0,0,
+name Nod_Minigunner_0_Def.1147529 id 1147529 defintion id 81930183
+	DLS_Volcano_Stumble 0,
+	M03_Killed_Sound 0,0,
+name Nod_FlameThrower_0.1147527 id 1147527 defintion id 81930138
+	M03_Killed_Sound 0,0,
+name Script_Zone_Star.1147513 id 1147513 defintion id 519
+	M03_Radar_Scramble 0,
+name Script_Zone_Star.1147512 id 1147512 defintion id 519
+	M03_Radar_UnScramble 0,
+name Nod_Minigunner_1Off.1146701 id 1146701 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	M03_Killed_Sound 1,2,
+	RMV_Home_Point 10.00,
+	RMV_Trigger_Killed 1144444,1000,1000,
+name Nod_Minigunner_1Off.1146700 id 1146700 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	M03_Killed_Disabled_Spawner 2001122,
+	M03_Killed_Disabled_Spawner 2001117,
+	M03_Killed_Disabled_Spawner 2001121,
+	M03_Killed_Sound 1,1,
+	RMV_Home_Point 4.00,
+	RMV_Trigger_Killed 1144444,1000,1000,
+name Nod_Minigunner_0.2021360 id 2021360 defintion id 81930140
+name Nod_Minigunner_0.2021359 id 2021359 defintion id 81930140
+name Nod_Minigunner_1Off.300009 id 300009 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	M03_Killed_Disabled_Spawner 2001121,
+	M03_Killed_Disabled_Spawner 2001117,
+	M03_Killed_Disabled_Spawner 2001122,
+	M03_Killed_Sound 1,1,
+	RMV_Home_Point 4.00,
+	RMV_Trigger_Killed 1144444,1000,1000,
+name Nod_Minigunner_1Off.300028 id 300028 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	M03_Killed_Sound 1,2,
+	RMV_Home_Point 10.00,
+	RMV_Trigger_Killed 1144444,1000,1000,
+name Script_Zone_Star.2018898 id 2018898 defintion id 519
+	M03_Past_Pillbox 0,
+name Kane_Loc.2017192 id 2017192 defintion id 81960001
+name Script_Zone_Star.2014713 id 2014713 defintion id 519
+	M03_Conversation_Zone 9,
+name Script_Zone_Star.2013087 id 2013087 defintion id 519
+	M03_Conversation_Zone 4,
+name Script_Zone_Star.2013086 id 2013086 defintion id 519
+	M03_Conversation_Zone 4,
+	M06_Activate_Secret_Door 0,
+name Nod_Minigunner_1Off.2013085 id 2013085 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	M03_Officer_With_Key_Card2 0,
+name Script_Zone_Star.2001125 id 2001125 defintion id 519
+	M03_Zone_Enabled_Spawner 2001123,300010,
+	M03_Zone_Enabled_Spawner 2001124,300010,
+name M03_Sub_Stub.2001106 id 2001106 defintion id 81960106
+name Stub_Radio.1145036 id 1145036 defintion id 81960052
+	M03_Beach_Radio 0,
+	M10_Pokeable_Item_OnePoke 0,
+name Dock_Evacuation_Controller.1144978 id 1144978 defintion id 81960001
+	M03_Dock_Evacuation_Controller 0,
+name Script_Zone_Star.1144728 id 1144728 defintion id 519
+	RMV_Trigger_Zone_2 1141168,5000,1,
+name Script_Zone_Star.1144727 id 1144727 defintion id 519
+	RMV_Trigger_Zone_2 1141168,5000,2,
+name Nod_MiniGunner_0.1144724 id 1144724 defintion id 81930140
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 4.00,
+name Nod_MiniGunner_1Off.1144723 id 1144723 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 10.00,
+name Nod_MiniGunner_1Off.1144722 id 1144722 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 7.00,
+name Nod_MiniGunner_0.1144721 id 1144721 defintion id 81930140
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 10.00,
+name Nod_MiniGunner_0.1144720 id 1144720 defintion id 81930140
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 5.00,
+name Nod_MiniGunner_0.1144719 id 1144719 defintion id 81930140
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 5.00,
+name Nod_MiniGunner_1Off.1144718 id 1144718 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 8.00,
+name Nod_MiniGunner_1Off.1144717 id 1144717 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 10.00,
+name Nod_MiniGunner_0.1144716 id 1144716 defintion id 81930140
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 6.00,
+name Nod_FlameThrower_1Off.1144715 id 1144715 defintion id 81930136
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 8.00,
+name Nod_MiniGunner_0.1144714 id 1144714 defintion id 81930140
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 5.00,
+name Nod_MiniGunner_0.1144713 id 1144713 defintion id 81930140
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 8.00,
+name Nod_MiniGunner_1Off.1144712 id 1144712 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 5.00,
+name Nod_MiniGunner_0.1144711 id 1144711 defintion id 81930140
+	DLS_Volcano_Stumble 0,
+	RMV_Home_Point 5.00,
+name Big_Gun_Phat.1100002 id 1100002 defintion id 82080066
+	RMV_Test_Big_Gun_Turning 0,
+name Nod_Harvester.1144518 id 1144518 defintion id 82080028
+	M03_Base_Harvester -91.06 -12.80 9.38,-141.20 -1.14 9.38,-128.30 -0.93 9.38,0.00 0.00 0.00,
+name SAM_Site_Quick_Turn.300059 id 300059 defintion id 82080057
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1141141,4000,4000,10.00,10.00,0,
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1100004,304,1,0.0,0.0,0,
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1100002,2000,2000,0.0,0.0,0,
+	M03_SAM_Site_Logic 0,
+	M03_Structure_Powerup_Drop Armor 100 Powerup,
+name SAM_Site_Quick_Turn.300058 id 300058 defintion id 82080057
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1141141,4000,4000,0.00,0.00,0,
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1100004,304,1,0.0,0.0,0,
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1100002,2000,2000,0.0,0.0,0,
+	M03_SAM_Site_Logic 0,
+	M03_Structure_Powerup_Drop Armor 100 Powerup,
+name SAM_Site_Quick_Turn.300056 id 300056 defintion id 82080057
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1141141,2000,1,0.00,0.00,0,
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1100004,302,1,0.0,0.0,0,
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1141141,2000,1,0.00,0.00,0,
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1141180,300,300,0.00,0.00,0,
+	M03_SAM_Site_Logic 0,
+	M03_Structure_Powerup_Drop Armor 100 Powerup,
+	RMV_Trigger_Killed 1100003,7000,7000,
+	RMV_Trigger_Killed 1144444,8000,1,
+name Script_Zone_All.1144671 id 1144671 defintion id 82060002
+	RMV_Hostage_Rescue_Point 0,
+name Script_Zone_All.1144670 id 1144670 defintion id 82060002
+	RMV_Hostage_Rescue_Point 0,
+name Script_Zone_All.1144669 id 1144669 defintion id 82060002
+	RMV_Hostage_Rescue_Point 0,
+name Nod_FlameThrower_1Off.1144653 id 1144653 defintion id 81930136
+	DLS_Volcano_Stumble 0,
+name Nod_FlameThrower_0.300032 id 300032 defintion id 81930138
+	DLS_Volcano_Stumble 0,
+	M03_Killed_Sound 0,0,
+	RMV_Trigger_Killed 1144444,1000,1000,
+name Nod_RocketSoldier_0.1141162 id 1141162 defintion id 81930144
+	DLS_Volcano_Stumble 0,
+	M03_Base_Patrol 1144457,
+	M03_Killed_Sound 0,0,
+	RMV_Trigger_Killed 1144444,1000,1000,
+name Script_Zone_Star.1144638 id 1144638 defintion id 519
+	M03_Wheres_The_Star 1144444,2,2,
+name Script_Zone_Star.1144636 id 1144636 defintion id 519
+	M03_ConYardSeen 0,
+	M03_Wheres_The_Star 1144444,2,1,
+	RMV_Trigger_Zone 1100004,308,3,
+name Script_Zone_Star.1144634 id 1144634 defintion id 519
+	M03_Wheres_The_Star 1144444,1,2,
+name Script_Zone_Star.1144632 id 1144632 defintion id 519
+	M03_Wheres_The_Star 1144444,1,1,
+	M03_Zone_Enabled_Spawner 2001112,,
+	M03_Zone_Enabled_Spawner 2001111,,
+name Script_Zone_Star.1144631 id 1144631 defintion id 519
+	M03_Wheres_The_Star 1144444,1,2,
+name Nod_Chinook_Reinforcements.1144444 id 1144444 defintion id 81960001
+	M03_Area_Troop_Counter 0,
+	M03_Reinforce_Area 0,
+name Script_Zone_Star.1144628 id 1144628 defintion id 519
+	M03_Radar_Scramble 0,
+	M03_Wheres_The_Star 1144444,2,1,
+name Refinery.1150001 id 1150001 defintion id 491530003
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1144518,722,722,0.00,0.00,0,
+	M03_Refinery 0,
+	RMV_Trigger_Killed 1144444,8000,2,
+	RMV_Trigger_Killed 1144444,8000,2,
+name Communications Center.1150002 id 1150002 defintion id 491530001
+	M03_Comm_Killed 0,
+	RMV_Trigger_Killed 1144444,8000,2,
+	RMV_Trigger_Killed 1144444,8000,2,
+name Power Plant.1150003 id 1150003 defintion id 491530004
+	M03_Announce_PowerPlant_Controller_JDG 0,
+	M03_Power_Plant 0,
+	RMV_Trigger_Killed 1144444,8000,2,
+	RMV_Trigger_Killed 1144444,8000,2,
+name Nod_Technician_0.300043 id 300043 defintion id 81930169
+	DLS_Volcano_Stumble 0,
+	M03_Technician_Work 0,
+name Nod_Technician_0.300034 id 300034 defintion id 81930169
+	DLS_Volcano_Stumble 0,
+	RMV_Engineer_Wander 100,1,2,0,None,
+name Nod_Technician_0.300033 id 300033 defintion id 81930169
+	DLS_Volcano_Stumble 0,
+	RMV_Engineer_Wander 100,1,2,0,None,
+name Nod_MiniGunner_1Off.1144452 id 1144452 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+name Nod_MiniGunner_1Off.1144451 id 1144451 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	M03_Base_Patrol 1144489,
+	M03_Killed_Sound 1,2,
+	RMV_Trigger_Killed 1144444,1000,1000,
+name Nod_MiniGunner_1Off.1144450 id 1144450 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+name Inlet_Reinforcer.1141180 id 1141180 defintion id 81960001
+	M03_Inlet_Nod_Reinforcements 0,
+name Chinook_Fodder.1122334 id 1122334 defintion id 81960001
+	M03_Chinook_Fodder_Creator 0,
+name Volcano_Controller.1001001 id 1001001 defintion id 81960001
+	RMV_Volcano_And_Lava_Ball_Creator 0,
+name Engineer_Terminal.400030 id 400030 defintion id 81960001
+	RMV_Engineer_Wander_Terminal s_a_human.h_a_con2,
+name Engineer_Terminal.400031 id 400031 defintion id 81960001
+	RMV_Engineer_Wander_Terminal s_a_human.h_a_con2,
+name Engineer_Terminal.400032 id 400032 defintion id 81960001
+	RMV_Engineer_Wander_Terminal s_a_human.h_a_con2,
+name Engineer_Terminal.400033 id 400033 defintion id 81960001
+	RMV_Engineer_Wander_Terminal s_a_human.h_a_con2,
+name Engineer_Terminal.400034 id 400034 defintion id 81960001
+	RMV_Engineer_Wander_Terminal s_a_human.h_a_con2,
+name Engineer_Terminal.400035 id 400035 defintion id 81960001
+	RMV_Engineer_Wander_Terminal s_a_human.h_a_con2,
+name Engineer_Terminal.400036 id 400036 defintion id 81960001
+	RMV_Engineer_Wander_Terminal s_a_human.h_a_con2,
+name Engineer_Terminal.400037 id 400037 defintion id 81960001
+	RMV_Engineer_Wander_Terminal s_a_human.h_a_con2,
+name Crusher_Controller.600102 id 600102 defintion id 81960001
+	M03_Refinery_Crusher_Controller_JDG 0,
+name Health 050 PowerUp.500081 id 500081 defintion id 1667
+name Health 025 PowerUp.500079 id 500079 defintion id 1665
+name Health 025 PowerUp.500078 id 500078 defintion id 1665
+name Health 050 PowerUp.500073 id 500073 defintion id 1667
+name Armor 050 PowerUp.500072 id 500072 defintion id 3666
+name Armor 025 PowerUp.500071 id 500071 defintion id 3663
+name Health 025 PowerUp.500069 id 500069 defintion id 1665
+name Health 025 PowerUp.500068 id 500068 defintion id 1665
+name Health 025 PowerUp.500066 id 500066 defintion id 1665
+name Armor 025 PowerUp.500065 id 500065 defintion id 3663
+name Armor 100 PowerUp.500064 id 500064 defintion id 3669
+name Health 025 PowerUp.500063 id 500063 defintion id 1665
+name Armor 050 PowerUp.500062 id 500062 defintion id 3666
+name Health 025 PowerUp.500061 id 500061 defintion id 1665
+name Health 025 PowerUp.500060 id 500060 defintion id 1665
+name Health 025 PowerUp.500058 id 500058 defintion id 1665
+name Health 050 PowerUp.500056 id 500056 defintion id 1667
+name Armor 025 PowerUp.500054 id 500054 defintion id 3663
+name Health 050 PowerUp.500052 id 500052 defintion id 1667
+name Health 050 PowerUp.500051 id 500051 defintion id 1667
+name Health 050 PowerUp.500050 id 500050 defintion id 1667
+name Armor 050 PowerUp.500049 id 500049 defintion id 3666
+name Armor 050 PowerUp.500048 id 500048 defintion id 3666
+name Health 100 PowerUp.500046 id 500046 defintion id 1663
+name Armor 050 PowerUp.500043 id 500043 defintion id 3666
+name Health 025 PowerUp.500042 id 500042 defintion id 1665
+name Health 025 PowerUp.500041 id 500041 defintion id 1665
+name Health 050 PowerUp.500032 id 500032 defintion id 1667
+name Armor 025 PowerUp.500028 id 500028 defintion id 3663
+name Health 100 PowerUp.500025 id 500025 defintion id 1663
+name Armor 100 PowerUp.500020 id 500020 defintion id 3669
+name Health 050 PowerUp.500019 id 500019 defintion id 1667
+name Health 050 PowerUp.500018 id 500018 defintion id 1667
+name Armor 025 PowerUp.500014 id 500014 defintion id 3663
+name Health 025 PowerUp.500013 id 500013 defintion id 1665
+name Armor 050 PowerUp.500011 id 500011 defintion id 3666
+name Health 050 PowerUp.500010 id 500010 defintion id 1667
+name Health 050 PowerUp.500006 id 500006 defintion id 1667
+name Armor 050 PowerUp.500005 id 500005 defintion id 3666
+name Armor 050 PowerUp.500002 id 500002 defintion id 3666
+name Flyover_Controller.1141163 id 1141163 defintion id 81960001
+	M03_Flyover_Controller 0,
+name Health 025 PowerUp.1144508 id 1144508 defintion id 1665
+name Health 025 PowerUp.1144512 id 1144512 defintion id 1665
+name Armor 025 PowerUp.1144514 id 1144514 defintion id 3663
+name Objective_Controller.1100004 id 1100004 defintion id 81960001
+	M00_Put_Script_On_Commando 0,
+	M03_Initial_Powerups 0,
+	M03_Objective_Controller 0,
+	M03_Objective_Tracker 0,
+	RMV_Temp_EVA_Dialogue 0,
+name Chinook_Reinforcer.1141141 id 1141141 defintion id 81960001
+	M03_Chinook_Reinforcements Chinook Troop Drop - Beach,Chinook Troop Drop - Inlet,Chinook Troop Drop - Base,3,
+name Intro_Substitute.1100012 id 1100012 defintion id 81960001
+	M03_Intro_Substitute 0,
+name Intro_Cinematics.1111000 id 1111000 defintion id 81960001
+	M00_Object_Create_RMV 0,100,100,Hovercraft Controller,0.00 0.00 0.00,0.00,0,
+	M00_Object_Create_RMV 0,200,200,Chinook Troop Drop - Beach,-84.60 -91.18 1.00,190.00,0,
+name Script_Zone_Star.400350 id 400350 defintion id 519
+	M03_Ambient_Birdcall_Controller_JDG 0,
+name Script_Zone_Star.1100000 id 1100000 defintion id 519
+	RMV_Trigger_Zone 1100004,5000,5000,
+	RMV_Trigger_Zone 1100003,2000,1,
+name Script_Zone_Star.1100001 id 1100001 defintion id 519
+	M00_Object_Destroy_Self_RMV 1,3,1,0,3,0,
+	M03_Conversation_Zone 22,
+	RMV_Trigger_Zone 1100014,3,3,
+	RMV_Trigger_Zone 1100003,2000,2,
+name Script_Zone_Star.1100005 id 1100005 defintion id 519
+	M03_Conversation_Zone 2,
+	M10_Elevator_All_Zone 1148345,
+	RMV_Trigger_Zone 1144636,900,0,
+	RMV_Trigger_Zone 1141141,4000,4000,
+	RMV_Trigger_Zone 1144502,3,3,
+name Script_Zone_Star.1100006 id 1100006 defintion id 519
+	RMV_Trigger_Zone 1122334,3000,3000,
+name Script_Zone_Star.1100007 id 1100007 defintion id 519
+	M00_Object_Destroy_Self_RMV 1,200,1,0,200,0,
+	RMV_Trigger_Zone 1141141,3000,1,
+	RMV_Trigger_Zone 1100002,1000,1000,
+	RMV_Trigger_Zone 1100004,304,3,
+	RMV_Trigger_Zone 1100015,200,200,
+name Script_Zone_Star.1100013 id 1100013 defintion id 519
+	M03_Conversation_Zone 16,
+	M03_Wheres_The_Star 1144444,0,2,
+	RMV_Trigger_Zone 1141141,3000,0,
+name Script_Zone_Star.1100014 id 1100014 defintion id 519
+	M00_Object_Destroy_Self_RMV 1,3,1,0,3,0,
+	RMV_Trigger_Zone 1100001,3,3,
+	RMV_Trigger_Zone 1100003,2000,2,
+name Script_Zone_Star.1100015 id 1100015 defintion id 519
+	M00_Object_Destroy_Self_RMV 1,200,1,0,200,0,
+	RMV_Trigger_Zone 1100004,304,3,
+	RMV_Trigger_Zone 1100002,1000,1000,
+	RMV_Trigger_Zone 1100007,200,200,
+name Script_Zone_Star.1141149 id 1141149 defintion id 519
+	RMV_Trigger_Zone 1141141,3000,2,
+	RMV_Trigger_Zone 1144977,200,200,
+	RMV_Trigger_Zone 1144978,100,100,
+name Script_Zone_Star.1144502 id 1144502 defintion id 519
+	M03_Conversation_Zone 3,
+	RMV_Trigger_Zone 1100005,3,3,
+	RMV_Trigger_Zone 1141141,4000,4000,
+name Refinery_Announcements.1144606 id 1144606 defintion id 81960001
+	M03_Announce_Refinery_Controller_JDG 0,
+name Script_Zone_Star.1144622 id 1144622 defintion id 519
+	M03_Wheres_The_Star 1144444,1,1,
+	M03_Zone_Enabled_Spawner 2001122,300009,
+	M03_Zone_Enabled_Spawner 2001117,300009,
+	M03_Zone_Enabled_Spawner 2001121,300009,
+name Script_Zone_Star.1144624 id 1144624 defintion id 519
+	M03_Wheres_The_Star 1144444,1,1,
+name Script_Zone_Star.1144625 id 1144625 defintion id 519
+	M03_Wheres_The_Star 1144444,1,2,
+name Script_Zone_Star.1144626 id 1144626 defintion id 519
+	M03_Radar_UnScramble 0,
+	M03_Wheres_The_Star 1144444,2,2,
+name Nod_MiniGunner_0.1144672 id 1144672 defintion id 81930140
+	DLS_Volcano_Stumble 0,
+	M09_Innate_Disable 0,
+name Nod_MiniGunner_0.1144673 id 1144673 defintion id 81930140
+	DLS_Volcano_Stumble 0,
+	M09_Innate_Disable 0,
+name Staged_Conversation.1144674 id 1144674 defintion id 81960001
+	M03_Staged_Conversation_1 1144672,1144673,
+name Script_Zone_Star.1144675 id 1144675 defintion id 519
+	M09_Innate_Activate 1144673,1144672,0,0,0,0,0,0,0,0,
+	RMV_Trigger_Zone 1144674,1000,1000,
+name SAM Site Temp.1100020 id 1100020 defintion id 82080010
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1100004,302,1,0.00,0.00,0,
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1141141,2000,1,0.00,0.00,0,
+	M00_Trigger_When_Killed_RMV 1,1,1,0,1141180,300,300,0.00,0.00,0,
+	M03_Alternate_Sam_Site 1122334,
+	M03_SAM_Site_Logic 0,
+	M03_Structure_Powerup_Drop Armor 100 Powerup,
+	RMV_Trigger_Killed 1144444,8000,1,
+	RMV_Trigger_Killed 1100003,7000,7000,
+name Nod_MiniGunner_1Off.1144682 id 1144682 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	M03_Officer_With_Key_Card 0,
+name Nod_Turret_Dec.1144677 id 1144677 defintion id 82080041
+	M03_Beach_Turret 0,
+	RMV_Trigger_Killed 1144729,1000,1000,
+name Nod_Turret_Dec.1144678 id 1144678 defintion id 82080041
+	M03_Beach_Turret 0,
+	RMV_Trigger_Killed 1144444,8000,1,
+	RMV_Trigger_Killed 1100003,7000,7000,
+name Nod_Turret_Dec.1144679 id 1144679 defintion id 82080041
+	M03_Beach_Turret 0,
+	RMV_Trigger_Killed 1144444,8000,1,
+	RMV_Trigger_Killed 1100003,7000,7000,
+name Beach_Objective_Controller.1144729 id 1144729 defintion id 81960001
+	M03_Beach_Scenario_Controller 0,
+name Nod_MiniGunner_1Off.1144448 id 1144448 defintion id 81930142
+	M03_AggAndCover 0,
+	M03_Killed_Sound 1,0,
+	RMV_Home_Point 1.00,
+	RMV_Trigger_Killed 1144729,1000,1000,
+	RMV_Trigger_Killed 1144444,8000,0,
+name Nod_MiniGunner_1Off.1144731 id 1144731 defintion id 81930142
+	M03_AggAndCover 0,
+	M03_Killed_Sound 1,0,
+	RMV_Home_Point 1.00,
+	RMV_Trigger_Killed 1144444,8000,0,
+	RMV_Trigger_Killed 1144729,1000,1000,
+name Nod_MiniGunner_1Off.1144732 id 1144732 defintion id 81930142
+	M03_AggAndCover 0,
+	M03_Killed_Sound 1,0,
+	RMV_Home_Point 1.00,
+	RMV_Trigger_Killed 1144729,1000,1000,
+	RMV_Trigger_Killed 1144444,8000,0,
+name Evacuation_Controller.1144977 id 1144977 defintion id 81960001
+	M03_Evacuation_Controller M03_Evacuator,
+name Script_Zone_Star.1300001 id 1300001 defintion id 519
+	DLS_Volcano_Active 6000,6600,0,0.0,1.00,5.00,11.00,18.00,0,
+name Script_Zone_Star.2000817 id 2000817 defintion id 519
+	M03_Mission_Complete_Zone 0,
+name Script_Zone_Star.2001113 id 2001113 defintion id 519
+	M03_Zone_Enabled_Spawner 2001111,,
+	M03_Zone_Enabled_Spawner 2001112,,
+name Remote Mine 1 Clip PU.1144505 id 1144505 defintion id 81950031
+name Remote Mine 1 Clip PU.1144504 id 1144504 defintion id 81950031
+name Remote Mine 1 Clip PU.500080 id 500080 defintion id 81950031
+name MiniGun 1 Clip PU.500075 id 500075 defintion id 81950051
+name MiniGun 1 Clip PU.500070 id 500070 defintion id 81950051
+name Sniper 1 Clip PU.500053 id 500053 defintion id 81950013
+name MiniGun 1 Clip PU.500047 id 500047 defintion id 81950051
+name Sniper 1 Clip PU.500040 id 500040 defintion id 81950013
+name Sniper 1 Clip PU.500036 id 500036 defintion id 81950013
+name Remote Mine 1 Clip PU.500023 id 500023 defintion id 81950031
+name Remote Mine 1 Clip PU.500022 id 500022 defintion id 81950031
+name MiniGun 1 Clip PU.1144511 id 1144511 defintion id 81950051
+name MiniGun 1 Clip PU.1144513 id 1144513 defintion id 81950051
+name Sniper 1 Clip PU.1144515 id 1144515 defintion id 81950013
+name POW_MineRemote_Player.2009004 id 2009004 defintion id 81950031
+name POW_MineRemote_Player.2009005 id 2009005 defintion id 81950031
+name POW_Sniper_Player.2009006 id 2009006 defintion id 81950013
+name Daves Arrow.2009818 id 2009818 defintion id 81960001
+	M03_CommCenter_Arrow 0,
+name Script_Zone_Star.2013899 id 2013899 defintion id 519
+	M03_Conversation_Zone 7,
+	M03_Destroy_Zone 2013900,
+name Script_Zone_Star.2013900 id 2013900 defintion id 519
+	M03_Conversation_Zone 7,
+	M03_Destroy_Zone 2013899,
+name Script_Zone_Star.2013901 id 2013901 defintion id 519
+	M03_Conversation_Zone 7,
+	M03_Destroy_Zone 2013899,
+name Script_Zone_Star.2016366 id 2016366 defintion id 519
+	M03_Holograph_EntryZone_JDG 0,
+name Beach_Reinforce.2018061 id 2018061 defintion id 81960001
+	M03_Beach_Reinforce 0,
+name Nod_FlameThrower_0.1144500 id 1144500 defintion id 81930138
+	DLS_Volcano_Stumble 0,
+name Nod_Minigunner_1Off.300010 id 300010 defintion id 81930142
+	DLS_Volcano_Stumble 0,
+	M03_Killed_Disabled_Spawner 2001123,
+	M03_Killed_Disabled_Spawner 2001124,
+	M03_Killed_Sound 1,1,
+	RMV_Home_Point 1.00,
+	RMV_Trigger_Killed 1144444,1000,1000,
+name POW_RocketLauncher_Player.2009003 id 2009003 defintion id 81950015
+name POW_Armor_025.2020546 id 2020546 defintion id 3663
+name Nod_Cannon_Emplacement.1145881 id 1145881 defintion id 82080049
+	M03_Engineer_Target 0,
+	M08_Nod_Turret 0,
+name Nod_Engineer_0.1145889 id 1145889 defintion id 81930137
+	M03_Engineer_Repair 0,
+	M10_Stationary 0,
+name Elevator_Controller.1148345 id 1148345 defintion id 81960001
+	M10_Elevator_All_Controller 0,
+name Script_Zone_Star.1148346 id 1148346 defintion id 519
+	M10_Elevator_All_Zone 1148345,
+name Daves Arrow.1149970 id 1149970 defintion id 81960001
+name GDI_Gunboat .1100003 id 1100003 defintion id 3079
+	M00_Damage_Modifier_DME 0.30,1,0,0,1,
+	M03_Gunboat_Controller_RMV 2000,1,2,-81.55 -267.27 0.00,90.23 -281.24 0.00,212.88 -182.87 0.00,296.09 37.22 0.00,289.90 85.70 0.00,3,
+name POW_ChemSprayer_Player.1150798 id 1150798 defintion id 81950054
+name POW_ChemSprayer_Player.1150801 id 1150801 defintion id 81950054
+name POW_MineRemote_Player.1200817 id 1200817 defintion id 81950031
+name Nod_Ceiling_Gun.1202444 id 1202444 defintion id 82080040
+	RMV_Camera_Behavior 180.00,0,1,0.0,
+name Nod_Ceiling_Gun.1202445 id 1202445 defintion id 82080040
+	RMV_Camera_Behavior 180.00,0,1,0.0,
+name POW_Chaingun_Player.1202446 id 1202446 defintion id 81950051
+name POW_Chaingun_Player.1202447 id 1202447 defintion id 81950051
+name M03_Mainframe.1100009 id 1100009 defintion id 81960246
+	M03_Announce_CommCenter_Controller_JDG 0,
+	M03_Mct_Poke 0,
+	M10_Pokeable_Item_OnePoke 0,
+	RMV_M03_Comm_Center_Terminal 0,
+	RMV_Trigger_Poked 1141163,511,511,
+	RMV_Trigger_Poked 1141141,3000,2,
+name Daves Arrow.1205777 id 1205777 defintion id 81960001
+name SFX.Arrow_Rat_Squeak.5000004 id 5000004 defintion id 81960168
+name SFX.Arrow_Rat_Squeak.5000005 id 5000005 defintion id 81960168
+name SFX.Arrow_Rat_Squeak.5000006 id 5000006 defintion id 81960168
+name SUB_OBJ.1213908 id 1213908 defintion id 81960001

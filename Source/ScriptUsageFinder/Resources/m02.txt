@@ -1,0 +1,817 @@
+name Script_Zone_Star.304006 id 304006 defintion id 519
+	M02_Objective_Zone 0,
+name SFX.Arrows_Hand_Of_NOD.102416 id 102416 defintion id 81960226
+	M00_BuildingStateSoundSpeaker Computer_Loop_01,,1157690,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_Hand_Of_NOD.102415 id 102415 defintion id 81960226
+	M00_BuildingStateSoundSpeaker m01eval_dsgn0254r1ncxk_snd,,1157690,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrow_Rock_Slide_01.101560 id 101560 defintion id 81960176
+name SFX.Metal_Creak_02.101558 id 101558 defintion id 81960191
+name SFX.Metal_Creak_01.101557 id 101557 defintion id 81960190
+name SFX.Arrow_Rock_Slide_Rev_02.101554 id 101554 defintion id 81960180
+name SFX.Arrow_Rock_Slide_Rev_01.101553 id 101553 defintion id 81960179
+name SFX.Arrow_Rock_Slide_Rev_02.101552 id 101552 defintion id 81960180
+name SFX.Arrow_Rock_Slide_Rev_01.101550 id 101550 defintion id 81960179
+name SFX.Arrow_Wood_Creak_2.101549 id 101549 defintion id 81960170
+name SFX.Arrow_Wood_Creak_1.101548 id 101548 defintion id 81960169
+name SFX.Arrow_Wood_Creak_3.101547 id 101547 defintion id 81960171
+name SFX.Arrow_Wood_Creak_2.101543 id 101543 defintion id 81960170
+name SFX.Arrow_Wood_Creak_1.101542 id 101542 defintion id 81960169
+name SFX.Arrows_Nod_Repair_Bay.101535 id 101535 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Computer_RadioRing_01,Explosion_Large_01,467781,1,,,0.00,0.00,1,,,-1.00,-1.00,,
+name SFX.Arrows_Nod_Repair_Bay.101534 id 101534 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Computer_Radio_01,,467781,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_Repair_Bay.101533 id 101533 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_04_verb,SFX.Klaxon_Alert_06,467781,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_Aircontrol id 101532 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Computer_Loop_04,,467781,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_Repair_Bay.101531 id 101531 defintion id 81960237
+	M00_BuildingStateSoundSpeaker NOD_Air_Control_Announcments_Twiddler,,467781,1,,,20.00,30.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_Repair_Bay.101529 id 101529 defintion id 81960237
+	M00_BuildingStateSoundSpeaker SFX.Ambient_Helipad,,1157690,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_Repair_Bay.101528 id 101528 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_04_quiet,,1157690,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_Repair_Bay.101526 id 101526 defintion id 81960237
+	M00_BuildingStateSoundSpeaker M00_Hand_of_Nod_Brainwash_Announcement_Twiddler,SFX.Klaxon_Alert_06,1157690,1,,,20.00,30.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_HON_Announcements id 101522 defintion id 81960237
+	M00_BuildingStateSoundSpeaker M00_Hand_of_Nod_Announcement_Twiddler,SFX.Klaxon_Alert_05,1157690,1,,,30.00,60.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_Repair_Bay.101521 id 101521 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Computer_Loop_04_hipitch,,1157690,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_Repair_Bay.101520 id 101520 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Computer_Loop_04,,1157690,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_Repair_Bay.101519 id 101519 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Computer_Operate_01,SFX.Powerplant_Powerdown,1157690,1,,,0.00,0.00,1,,,-1.00,-1.00,,
+name Script_Zone_Star.303203 id 303203 defintion id 519
+	M02_Objective_Zone 0,
+name POW_Medal_Health.302804 id 302804 defintion id 81950116
+name Script_Zone_Star.301601 id 301601 defintion id 519
+	M02_Objective_Zone 0,
+name POW_RocketLauncher_Player.301202 id 301202 defintion id 81950015
+name POW_RocketLauncher_Player.301201 id 301201 defintion id 81950015
+name POW_RocketLauncher_Player.301200 id 301200 defintion id 81950015
+name Level_01_Keycard.300400 id 300400 defintion id 81950037
+name Level_01_Keycard.300399 id 300399 defintion id 81950037
+name Nod_Cargo_Plane.408737 id 408737 defintion id 1891
+name POW_SniperRifle_Player.406323 id 406323 defintion id 81950013
+name POW_MineRemote_Player.406322 id 406322 defintion id 81950031
+name POW_AutoRifle_Player.405522 id 405522 defintion id 81950083
+name POW_AutoRifle_Player.405521 id 405521 defintion id 81950083
+name POW_AutoRifle_Player.403680 id 403680 defintion id 81950083
+name POW_AutoRifle_Player.403679 id 403679 defintion id 81950083
+name POW_AutoRifle_Player.403678 id 403678 defintion id 81950083
+name POW_AutoRifle_Player.403677 id 403677 defintion id 81950083
+name POW_AutoRifle_Player.403676 id 403676 defintion id 81950083
+name POW_AutoRifle_Player.403675 id 403675 defintion id 81950083
+name POW_AutoRifle_Player.403674 id 403674 defintion id 81950083
+name POW_AutoRifle_Player.403673 id 403673 defintion id 81950083
+name POW_AutoRifle_Player.403672 id 403672 defintion id 81950083
+name POW_RocketLauncher_Player.403671 id 403671 defintion id 81950015
+name POW_RocketLauncher_Player.403670 id 403670 defintion id 81950015
+name POW_RocketLauncher_Player.403669 id 403669 defintion id 81950015
+name POW_RocketLauncher_Player.403668 id 403668 defintion id 81950015
+name POW_RocketLauncher_Player.403667 id 403667 defintion id 81950015
+name POW_RocketLauncher_Player.403666 id 403666 defintion id 81950015
+name POW_RocketLauncher_Player.403665 id 403665 defintion id 81950015
+name POW_RocketLauncher_Player.403664 id 403664 defintion id 81950015
+name POW_Flamethrower_Player.403663 id 403663 defintion id 81950056
+name POW_Flamethrower_Player.403662 id 403662 defintion id 81950056
+name POW_Flamethrower_Player.403661 id 403661 defintion id 81950056
+name POW_Flamethrower_Player.403660 id 403660 defintion id 81950056
+name POW_Flamethrower_Player.403659 id 403659 defintion id 81950056
+name POW_AutoRifle_Player.403658 id 403658 defintion id 81950083
+name POW_AutoRifle_Player.403657 id 403657 defintion id 81950083
+name POW_AutoRifle_Player.403656 id 403656 defintion id 81950083
+name POW_AutoRifle_Player.403655 id 403655 defintion id 81950083
+name POW_AutoRifle_Player.403654 id 403654 defintion id 81950083
+name POW_AutoRifle_Player.403653 id 403653 defintion id 81950083
+name POW_AutoRifle_Player.403652 id 403652 defintion id 81950083
+name POW_AutoRifle_Player.403651 id 403651 defintion id 81950083
+name Tiberium Machine.403133 id 403133 defintion id 81960141
+	M02_Destroy_Objective 218,
+name Tiberium Machine.403132 id 403132 defintion id 81960141
+	M02_Destroy_Objective 220,
+name Tiberium Machine.403131 id 403131 defintion id 81960141
+	M02_Destroy_Objective 219,
+name POW_AutoRifle_Player.402875 id 402875 defintion id 81950083
+name POW_Health_050.402874 id 402874 defintion id 1667
+name POW_Armor_050.402873 id 402873 defintion id 3666
+name POW_AutoRifle_Player.402871 id 402871 defintion id 81950083
+name POW_Armor_100.402870 id 402870 defintion id 3669
+name POW_Health_100.402869 id 402869 defintion id 1663
+name POW_IonCannonBeacon_Player.402868 id 402868 defintion id 81950063
+name POW_AutoRifle_Player.402867 id 402867 defintion id 81950083
+name POW_SniperRifle_Player.402866 id 402866 defintion id 81950013
+name POW_Health_050.402865 id 402865 defintion id 1667
+name POW_RocketLauncher_Player.402863 id 402863 defintion id 81950015
+name POW_MineRemote_Player.402862 id 402862 defintion id 81950031
+name POW_Health_050.402858 id 402858 defintion id 1667
+name POW_Health_050.402857 id 402857 defintion id 1667
+name POW_Armor_100.402855 id 402855 defintion id 3669
+name POW_Health_050.402854 id 402854 defintion id 1667
+name POW_AutoRifle_Player.402852 id 402852 defintion id 81950083
+name POW_RocketLauncher_Player.402851 id 402851 defintion id 81950015
+name POW_Health_050.402850 id 402850 defintion id 1667
+name POW_AutoRifle_Player.402848 id 402848 defintion id 81950083
+name POW_Armor_100.402847 id 402847 defintion id 3669
+name POW_SniperRifle_Player.402846 id 402846 defintion id 81950013
+name POW_IonCannonBeacon_Player.402844 id 402844 defintion id 81950063
+name POW_Health_050.402843 id 402843 defintion id 1667
+name POW_MineRemote_Player.402842 id 402842 defintion id 81950031
+name POW_Health_050.402841 id 402841 defintion id 1667
+name POW_Armor_050.402840 id 402840 defintion id 3666
+name POW_AutoRifle_Player.402838 id 402838 defintion id 81950083
+name POW_Health_050.402836 id 402836 defintion id 1667
+name POW_SniperRifle_Player.402835 id 402835 defintion id 81950013
+name POW_AutoRifle_Player.402832 id 402832 defintion id 81950083
+name POW_Armor_050.402831 id 402831 defintion id 3666
+name POW_Health_050.402830 id 402830 defintion id 1667
+name POW_SniperRifle_Player.402829 id 402829 defintion id 81950013
+name POW_Armor_100.402827 id 402827 defintion id 3669
+name POW_Health_100.402826 id 402826 defintion id 1663
+name POW_AutoRifle_Player.402824 id 402824 defintion id 81950083
+name POW_SniperRifle_Player.402820 id 402820 defintion id 81950013
+name POW_RocketLauncher_Player.402819 id 402819 defintion id 81950015
+name POW_Health_050.402818 id 402818 defintion id 1667
+name POW_Armor_050.402817 id 402817 defintion id 3666
+name POW_AutoRifle_Player.402815 id 402815 defintion id 81950083
+name POW_Health_050.402814 id 402814 defintion id 1667
+name POW_Armor_050.402813 id 402813 defintion id 3666
+name POW_Health_100.402811 id 402811 defintion id 1663
+name POW_Armor_100.402810 id 402810 defintion id 3669
+name POW_Armor_100.402809 id 402809 defintion id 3669
+name POW_Health_100.402808 id 402808 defintion id 1663
+name POW_SniperRifle_Player.402806 id 402806 defintion id 81950013
+name POW_MineRemote_Player.402805 id 402805 defintion id 81950031
+name POW_Health_050.402804 id 402804 defintion id 1667
+name POW_Armor_050.402803 id 402803 defintion id 3666
+name POW_AutoRifle_Player.402801 id 402801 defintion id 81950083
+name POW_Health_050.402800 id 402800 defintion id 1667
+name POW_Armor_050.402799 id 402799 defintion id 3666
+name POW_Armor_100.402798 id 402798 defintion id 3669
+name POW_Health_100.402797 id 402797 defintion id 1663
+name POW_AutoRifle_Player.402795 id 402795 defintion id 81950083
+name POW_SniperRifle_Player.402794 id 402794 defintion id 81950013
+name POW_Armor_050.402791 id 402791 defintion id 3666
+name POW_Health_050.402790 id 402790 defintion id 1667
+name POW_Health_100.402789 id 402789 defintion id 1663
+name POW_AutoRifle_Player.402787 id 402787 defintion id 81950083
+name POW_Armor_100.402786 id 402786 defintion id 3669
+name POW_Health_100.402785 id 402785 defintion id 1663
+name POW_MineRemote_Player.402783 id 402783 defintion id 81950031
+name POW_Health_050.402780 id 402780 defintion id 1667
+name POW_Armor_050.402779 id 402779 defintion id 3666
+name POW_MineRemote_Player.402778 id 402778 defintion id 81950031
+name POW_RocketLauncher_Player.402776 id 402776 defintion id 81950015
+name POW_AutoRifle_Player.402775 id 402775 defintion id 81950083
+name POW_Health_050.402774 id 402774 defintion id 1667
+name POW_Armor_050.402773 id 402773 defintion id 3666
+name POW_SniperRifle_Player.402772 id 402772 defintion id 81950013
+name POW_AutoRifle_Player.402770 id 402770 defintion id 81950083
+name POW_Health_100.402769 id 402769 defintion id 1663
+name POW_Armor_100.402768 id 402768 defintion id 3669
+name POW_Armor_100.402767 id 402767 defintion id 3669
+name POW_Health_100.402766 id 402766 defintion id 1663
+name Script_Zone_Star.401982 id 401982 defintion id 519
+	M02_Objective_Zone 0,
+name SFX_Drip.100555 id 100555 defintion id 81960001
+	M00_Play_Sound SFX.Water_Drip_01,1,,,2.00,4.00,
+name SP_Helipad_Nod.474463 id 474463 defintion id 491530019
+	M02_Helipad 0,
+name Nod_MiniGunner_0.401195 id 401195 defintion id 81930140
+	M02_Nod_Soldier 14,0,2,
+name Nod_MiniGunner_0.401194 id 401194 defintion id 81930140
+	M02_Nod_Soldier 14,0,2,
+name Nod_FlameThrower_1Off.401193 id 401193 defintion id 81930136
+	M02_Nod_Soldier 14,0,2,
+name Nod_MiniGunner_0.401192 id 401192 defintion id 81930140
+	M02_Nod_Soldier 14,0,2,
+name Nod_FlameThrower_1Off.401191 id 401191 defintion id 81930136
+	M02_Nod_Soldier 15,0,6,
+name Nod_FlameThrower_1Off.401190 id 401190 defintion id 81930136
+	M02_Nod_Soldier 15,0,6,
+name Nod_RocketSoldier_0.401189 id 401189 defintion id 81930144
+	M02_Nod_Soldier 15,0,4,
+name Script_Zone_Star.401187 id 401187 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.401186 id 401186 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_MiniGunner_0.401122 id 401122 defintion id 81930140
+	M02_Nod_Soldier 17,0,2,
+name Nod_MiniGunner_0.401121 id 401121 defintion id 81930140
+	M02_Nod_Soldier 17,0,2,
+name Nod_MiniGunner_0.401120 id 401120 defintion id 81930140
+	M02_Nod_Soldier 17,0,2,
+name Nod_MiniGunner_0.401119 id 401119 defintion id 81930140
+	M02_Nod_Soldier 17,0,2,
+name Nod_MiniGunner_0.401118 id 401118 defintion id 81930140
+	M02_Nod_Soldier 17,0,2,
+name Nod_MiniGunner_0.401117 id 401117 defintion id 81930140
+	M02_Nod_Soldier 17,0,2,
+name Nod_MiniGunner_0.401116 id 401116 defintion id 81930140
+	M02_Nod_Soldier 17,0,2,
+name Nod_MiniGunner_0.401115 id 401115 defintion id 81930140
+	M02_Nod_Soldier 17,0,2,
+name Script_Zone_Star.401114 id 401114 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.401113 id 401113 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.401102 id 401102 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.401101 id 401101 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_RocketSoldier_0.401097 id 401097 defintion id 81930144
+	M02_Nod_Soldier 15,0,4,
+name Nod_MiniGunner_0.401096 id 401096 defintion id 81930140
+	M02_Nod_Soldier 15,0,2,
+name Nod_MiniGunner_0.401095 id 401095 defintion id 81930140
+	M02_Nod_Soldier 15,0,2,
+name Nod_MiniGunner_0.401094 id 401094 defintion id 81930140
+	M02_Nod_Soldier 15,0,2,
+name Nod_Gun_Emplacement_Dec.401092 id 401092 defintion id 82080035
+	M02_Stationary_Vehicle 15,
+name Nod_Gun_Emplacement_Dec.401091 id 401091 defintion id 82080035
+	M02_Stationary_Vehicle 15,
+name Nod_Gun_Emplacement_Dec.401090 id 401090 defintion id 82080035
+	M02_Stationary_Vehicle 15,
+name Nod_MiniGunner_1Off.401089 id 401089 defintion id 81930142
+	M02_Nod_Soldier 15,1,1,
+name Nod_FlameThrower_1Off.401088 id 401088 defintion id 81930136
+	M02_Nod_Soldier 15,0,6,
+name Nod_FlameThrower_1Off.401087 id 401087 defintion id 81930136
+	M02_Nod_Soldier 15,0,6,
+name Nod_FlameThrower_1Off.401086 id 401086 defintion id 81930136
+	M02_Nod_Soldier 15,0,6,
+name Nod_FlameThrower_1Off.401085 id 401085 defintion id 81930136
+	M02_Nod_Soldier 15,0,6,
+name Nod_MiniGunner_0.401069 id 401069 defintion id 81930140
+	M02_Nod_Soldier 13,0,2,
+name Nod_MiniGunner_0.401068 id 401068 defintion id 81930140
+	M02_Nod_Soldier 13,0,2,
+name Nod_MiniGunner_0.401067 id 401067 defintion id 81930140
+	M02_Nod_Soldier 13,0,2,
+name Script_Zone_Star.401066 id 401066 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_MiniGunner_0.401053 id 401053 defintion id 81930140
+	M02_Nod_Soldier 8,0,2,
+name Nod_MiniGunner_0.401052 id 401052 defintion id 81930140
+	M02_Nod_Soldier 8,0,2,
+name Nod_MiniGunner_0.401051 id 401051 defintion id 81930140
+	M02_Nod_Soldier 8,0,2,
+name Nod_MiniGunner_0.401050 id 401050 defintion id 81930140
+	M02_Nod_Soldier 8,0,2,
+name Nod_MiniGunner_0.401049 id 401049 defintion id 81930140
+	M02_Nod_Soldier 8,0,2,
+name Nod_MiniGunner_0.401047 id 401047 defintion id 81930140
+	M02_Nod_Soldier 8,0,2,
+name Nod_MiniGunner_0.401046 id 401046 defintion id 81930140
+	M02_Nod_Soldier 8,0,2,
+name Nod_Light_Tank_Dec.401017 id 401017 defintion id 82080034
+	M02_Stationary_Vehicle 2,
+name GDI_Medium_Tank_Dec.401016 id 401016 defintion id 82080081
+	M02_Stationary_Vehicle 2,
+name Nod_Light_Tank_Dec.401015 id 401015 defintion id 82080034
+	M02_Stationary_Vehicle 2,
+name GDI_Medium_Tank_Dec.401014 id 401014 defintion id 82080081
+	M02_Stationary_Vehicle 2,
+name GDI_Medium_Tank_Dec.401006 id 401006 defintion id 82080081
+	M02_Stationary_Vehicle 0,
+name Nod_Light_Tank_Dec.401005 id 401005 defintion id 82080034
+	M02_Stationary_Vehicle 0,
+name GDI_Medium_Tank_Dec.401004 id 401004 defintion id 82080081
+	M02_Stationary_Vehicle 0,
+name Script_Zone_Star.401001 id 401001 defintion id 519
+	M02_Objective_Zone 0,
+name SP_Nod_Air_Tower.467781 id 467781 defintion id 491530018
+	M02_Destroy_Objective 223,
+name Nod_Engineer_0.400510 id 400510 defintion id 81930137
+	M02_Nod_Soldier 24,0,3,
+name Nod_Light_Tank_Dec.400506 id 400506 defintion id 82080034
+	M02_Stationary_Vehicle 24,
+name Nod_RocketSoldier_0.400505 id 400505 defintion id 81930144
+	M02_Nod_Soldier 24,0,4,
+name Nod_MiniGunner_1Off.400503 id 400503 defintion id 81930142
+	M02_Nod_Soldier 24,1,1,
+name Script_Zone_Star.400502 id 400502 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400501 id 400501 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_MiniGunner_0.400453 id 400453 defintion id 81930140
+	M02_Nod_Soldier 4,0,2,
+name Nod_MiniGunner_0.400451 id 400451 defintion id 81930140
+	M02_Nod_Soldier 4,0,2,
+name Nod_MiniGunner_0.400415 id 400415 defintion id 81930140
+	M02_Nod_Soldier 3,0,2,
+name Nod_MiniGunner_0.400413 id 400413 defintion id 81930140
+	M02_Nod_Soldier 3,0,2,
+name Nod_RocketSoldier_0_Stationary.400411 id 400411 defintion id 81930178
+	M02_Nod_Soldier 3,0,4,
+name Nod_RocketSoldier_0_Stationary.400410 id 400410 defintion id 81930178
+	M02_Nod_Soldier 3,0,4,
+name Nod_Light_Tank_Dec.400371 id 400371 defintion id 82080034
+	M02_Stationary_Vehicle 1,
+name Nod_MiniGunner_0.400345 id 400345 defintion id 81930140
+	M02_Nod_Soldier 1,0,2,
+name Nod_MiniGunner_0.400344 id 400344 defintion id 81930140
+	M02_Nod_Soldier 1,0,2,
+name GDI_MiniGunner_0.400343 id 400343 defintion id 81930128
+	M02_GDI_Soldier 1,3,
+name GDI_MiniGunner_0.400342 id 400342 defintion id 81930128
+	M02_GDI_Soldier 1,3,
+name Nod_Light_Tank_Dec.400333 id 400333 defintion id 82080034
+	M02_Stationary_Vehicle 1,
+name GDI_MiniGunner_1Off.400332 id 400332 defintion id 81930130
+	M02_GDI_Soldier 1,2,
+name Nod_MiniGunner_0.400319 id 400319 defintion id 81930140
+	M02_Nod_Soldier 23,0,2,
+name Nod_MiniGunner_0.400318 id 400318 defintion id 81930140
+	M02_Nod_Soldier 23,0,2,
+name Nod_MiniGunner_0.400317 id 400317 defintion id 81930140
+	M02_Nod_Soldier 23,0,2,
+name Script_Zone_Star.400316 id 400316 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_MiniGunner_0.400293 id 400293 defintion id 81930140
+	M02_Nod_Soldier 0,0,2,
+name Nod_MiniGunner_0.400292 id 400292 defintion id 81930140
+	M02_Nod_Soldier 0,0,2,
+name Nod_MiniGunner_0.400287 id 400287 defintion id 81930140
+	M02_Nod_Soldier 0,0,2,
+name Nod_MiniGunner_0.400286 id 400286 defintion id 81930140
+	M02_Nod_Soldier 0,0,2,
+name Nod_RocketSoldier_0_Stationary.400285 id 400285 defintion id 81930178
+	M02_Nod_Soldier 0,0,4,
+name Script_Zone_Star.400274 id 400274 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400273 id 400273 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400272 id 400272 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400271 id 400271 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400270 id 400270 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400269 id 400269 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400268 id 400268 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400267 id 400267 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_MiniGunner_1Off.400213 id 400213 defintion id 81930142
+	M02_Nod_Soldier 10,1,1,
+name Nod_MiniGunner_1Off.400212 id 400212 defintion id 81930142
+	M02_Nod_Soldier 9,1,1,
+name Nod_MiniGunner_1Off.400211 id 400211 defintion id 81930142
+	M02_Nod_Soldier 6,1,1,
+name Nod_MiniGunner_1Off.400210 id 400210 defintion id 81930142
+	M02_Nod_Soldier 4,1,1,
+name Nod_MiniGunner_1Off.400209 id 400209 defintion id 81930142
+	M02_Nod_Soldier 3,1,1,
+name Nod_MiniGunner_1Off.400208 id 400208 defintion id 81930142
+	M02_Nod_Soldier 2,1,1,
+name Nod_MiniGunner_1Off.400207 id 400207 defintion id 81930142
+	M02_Nod_Soldier 1,1,1,
+name Script_Zone_Star.400198 id 400198 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400197 id 400197 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400196 id 400196 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400195 id 400195 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400194 id 400194 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400193 id 400193 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400189 id 400189 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400188 id 400188 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400187 id 400187 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400186 id 400186 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400185 id 400185 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400184 id 400184 defintion id 519
+	M02_Objective_Zone 0,
+name Dam_Control_Panel.1111116 id 1111116 defintion id 2153
+	M02_Dam_MCT 0,
+name Objective_Controller.1111112 id 1111112 defintion id 81960001
+	M02_Objective_Controller 0,
+	M02_Respawn_Controller 0,
+name SAM_Site_Quick_Turn.1100085 id 1100085 defintion id 82080057
+	M02_Destroy_Objective 212,
+	M03_SAM_Site_Logic 0,
+name SAM_Site_Quick_Turn.1100094 id 1100094 defintion id 82080057
+	M02_Destroy_Objective 214,
+	M03_SAM_Site_Logic 0,
+name SAM_Site_Quick_Turn.1100120 id 1100120 defintion id 82080057
+	M02_Destroy_Objective 215,
+	M03_SAM_Site_Logic 0,
+name SAM_Site_Quick_Turn.1100130 id 1100130 defintion id 82080057
+	M02_Destroy_Objective 216,
+	M03_SAM_Site_Logic 0,
+name SP_Obelisk_Nod.1153845 id 1153845 defintion id 491530007
+	M02_Obelisk 0,
+name SP_Power_Plant_Nod.1153846 id 1153846 defintion id 491530004
+	M02_Power_Plant 0,
+name SP_Silo_Nod.1157687 id 1157687 defintion id 491530011
+	M02_Destroy_Objective 222,
+name SP_Silo_Nod.1157688 id 1157688 defintion id 491530011
+	M02_Destroy_Objective 222,
+name SP_Hand_Of_Nod_Nod.1157690 id 1157690 defintion id 491530002
+	M02_Destroy_Objective 204,
+name Script_Zone_Star.400192 id 400192 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_Engineer_0.400199 id 400199 defintion id 81930137
+	M02_Nod_Soldier 11,0,3,
+name Nod_Engineer_0.400200 id 400200 defintion id 81930137
+	M02_Nod_Soldier 13,0,3,
+name Script_Zone_Star.400201 id 400201 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_MiniGunner_1Off.400206 id 400206 defintion id 81930142
+	M02_Nod_Soldier 0,1,1,
+name Nod_MiniGunner_1Off.400275 id 400275 defintion id 81930142
+	M02_Nod_Soldier 8,1,1,
+name Nod_MiniGunner_1Off.400276 id 400276 defintion id 81930142
+	M02_Nod_Soldier 11,1,1,
+name Nod_MiniGunner_1Off.400277 id 400277 defintion id 81930142
+	M02_Nod_Soldier 21,1,1,
+name GDI_MiniGunner_0.400347 id 400347 defintion id 81930128
+	M02_GDI_Soldier 1,3,
+name Nod_MiniGunner_0.400372 id 400372 defintion id 81930140
+	M02_Nod_Soldier 2,0,2,
+name Nod_MiniGunner_0.400373 id 400373 defintion id 81930140
+	M02_Nod_Soldier 2,0,2,
+name Nod_MiniGunner_0.400374 id 400374 defintion id 81930140
+	M02_Nod_Soldier 2,0,2,
+name Nod_APC.400395 id 400395 defintion id 81960028
+	M01_Barn_Truck_JDG 0,
+name Nod_Gun_Emplacement_Dec.400499 id 400499 defintion id 82080035
+	M02_Stationary_Vehicle 4,
+name Script_Zone_Star.400551 id 400551 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_Gun_Emplacement_Dec.400552 id 400552 defintion id 82080035
+	M02_Stationary_Vehicle 5,
+name Nod_MiniGunner_0.400553 id 400553 defintion id 81930140
+	M02_Nod_Soldier 5,0,2,
+name Nod_MiniGunner_0.400554 id 400554 defintion id 81930140
+	M02_Nod_Soldier 5,0,2,
+name Nod_MiniGunner_0.400555 id 400555 defintion id 81930140
+	M02_Nod_Soldier 5,0,2,
+name Nod_MiniGunner_0.400556 id 400556 defintion id 81930140
+	M02_Nod_Soldier 5,0,2,
+name Nod_MiniGunner_0.400557 id 400557 defintion id 81930140
+	M02_Nod_Soldier 5,0,2,
+name Nod_MiniGunner_0.400558 id 400558 defintion id 81930140
+	M02_Nod_Soldier 5,0,2,
+name Nod_MiniGunner_0.400559 id 400559 defintion id 81930140
+	M02_Nod_Soldier 5,0,2,
+name Nod_RocketSoldier_0.400560 id 400560 defintion id 81930144
+	M02_Nod_Soldier 5,0,4,
+name Nod_Truck_Dec.400972 id 400972 defintion id 82080036
+name Nod_Truck_Dec.400973 id 400973 defintion id 82080036
+name Nod_Truck_Dec.400974 id 400974 defintion id 82080036
+name Nod_Gun_Emplacement_Dec.400975 id 400975 defintion id 82080035
+	M02_Stationary_Vehicle 6,
+name Nod_Gun_Emplacement_Dec.400976 id 400976 defintion id 82080035
+	M02_Stationary_Vehicle 6,
+name Nod_MiniGunner_0.400977 id 400977 defintion id 81930140
+	M02_Nod_Soldier 6,0,2,
+name Nod_MiniGunner_0.400978 id 400978 defintion id 81930140
+	M02_Nod_Soldier 6,0,2,
+name Nod_MiniGunner_0.400979 id 400979 defintion id 81930140
+	M02_Nod_Soldier 6,0,2,
+name Nod_MiniGunner_0.400980 id 400980 defintion id 81930140
+	M02_Nod_Soldier 6,0,2,
+name Nod_MiniGunner_0.400981 id 400981 defintion id 81930140
+	M02_Nod_Soldier 9,0,2,
+name Nod_MiniGunner_0.400982 id 400982 defintion id 81930140
+	M02_Nod_Soldier 9,0,2,
+name Nod_MiniGunner_0.400983 id 400983 defintion id 81930140
+	M02_Nod_Soldier 9,0,2,
+name Nod_RocketSoldier_0.400984 id 400984 defintion id 81930144
+	M02_Nod_Soldier 10,0,4,
+name Nod_Buggy_Dec.400985 id 400985 defintion id 82080044
+	M02_Stationary_Vehicle 99,
+name Script_Zone_Star.400990 id 400990 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400991 id 400991 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.400992 id 400992 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_MiniGunner_0.401002 id 401002 defintion id 81930140
+	M02_Nod_Soldier 99,0,2,
+name Nod_MiniGunner_0.401003 id 401003 defintion id 81930140
+	M02_Nod_Soldier 99,0,2,
+name GDI_Mammoth_Tank_Dec.400340 id 400340 defintion id 82080073
+	M02_Stationary_Vehicle 1,
+name GDI_Medium_Tank.401008 id 401008 defintion id 1845
+	M02_Approach_Vehicle 1,
+name GDI_Medium_Tank.401018 id 401018 defintion id 1845
+	M02_Approach_Vehicle 4,
+name Nod_Light_Tank_Dec.401026 id 401026 defintion id 82080034
+	M02_Stationary_Vehicle 4,
+name Nod_Light_Tank_Dec.401027 id 401027 defintion id 82080034
+	M02_Stationary_Vehicle 4,
+name GDI_Mammoth_Tank_Dec.401028 id 401028 defintion id 82080073
+	M02_Stationary_Vehicle 4,
+name Script_Zone_Star.401029 id 401029 defintion id 519
+	M02_Objective_Zone 0,
+name GDI_Medium_Tank_Dec.401036 id 401036 defintion id 82080081
+	M02_Stationary_Vehicle 6,
+name Nod_Light_Tank_Dec.401037 id 401037 defintion id 82080034
+	M02_Stationary_Vehicle 6,
+name GDI_Medium_Tank.401038 id 401038 defintion id 1845
+	M02_Approach_Vehicle 6,
+name Nod_RocketSoldier_0_Stationary.401045 id 401045 defintion id 81930178
+	M02_Nod_Soldier 6,0,4,
+name Script_Zone_Star.401054 id 401054 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_MiniGunner_0.401056 id 401056 defintion id 81930140
+	M02_Nod_Soldier 10,0,2,
+name Nod_MiniGunner_0.401057 id 401057 defintion id 81930140
+	M02_Nod_Soldier 10,0,2,
+name Nod_Technician_0.401058 id 401058 defintion id 81930169
+	M02_Nod_Soldier 11,0,5,
+name Nod_MiniGunner_0.401060 id 401060 defintion id 81930140
+	M02_Nod_Soldier 11,0,2,
+name Nod_Technician_0.401063 id 401063 defintion id 81930169
+	M02_Nod_Soldier 11,0,5,
+name Nod_MiniGunner_0.401064 id 401064 defintion id 81930140
+	M02_Nod_Soldier 11,0,2,
+name Nod_MiniGunner_0.401065 id 401065 defintion id 81930140
+	M02_Nod_Soldier 11,0,2,
+name Script_Zone_Star.401070 id 401070 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_MiniGunner_0.401071 id 401071 defintion id 81930140
+	M02_Nod_Soldier 14,0,2,
+name Nod_MiniGunner_0.401072 id 401072 defintion id 81930140
+	M02_Nod_Soldier 14,0,2,
+name Nod_MiniGunner_0.401073 id 401073 defintion id 81930140
+	M02_Nod_Soldier 14,0,2,
+name Nod_MiniGunner_0.401074 id 401074 defintion id 81930140
+	M02_Nod_Soldier 14,0,2,
+name Nod_MiniGunner_1Off.401075 id 401075 defintion id 81930142
+	M02_Nod_Soldier 14,1,1,
+name Nod_RocketSoldier_0.401076 id 401076 defintion id 81930144
+	M02_Nod_Soldier 14,0,4,
+name Nod_MiniGunner_0.401077 id 401077 defintion id 81930140
+	M02_Nod_Soldier 14,0,2,
+name Nod_MiniGunner_0.401078 id 401078 defintion id 81930140
+	M02_Nod_Soldier 14,0,2,
+name Script_Zone_Star.401079 id 401079 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.401080 id 401080 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_MiniGunner_0.401103 id 401103 defintion id 81930140
+	M02_Nod_Soldier 16,0,2,
+name Nod_MiniGunner_0.401104 id 401104 defintion id 81930140
+	M02_Nod_Soldier 16,0,2,
+name Nod_MiniGunner_0.401105 id 401105 defintion id 81930140
+	M02_Nod_Soldier 16,0,2,
+name Nod_MiniGunner_0.401106 id 401106 defintion id 81930140
+	M02_Nod_Soldier 16,0,2,
+name Nod_MiniGunner_0.401107 id 401107 defintion id 81930140
+	M02_Nod_Soldier 16,0,2,
+name Nod_MiniGunner_0.401108 id 401108 defintion id 81930140
+	M02_Nod_Soldier 16,0,2,
+name Nod_MiniGunner_0.401109 id 401109 defintion id 81930140
+	M02_Nod_Soldier 16,0,2,
+name Cook.401110 id 401110 defintion id 81930172
+	M02_Nod_Soldier 16,0,2,
+name Nod_RocketSoldier_0_Stationary.401112 id 401112 defintion id 81930178
+	M02_Nod_Soldier 16,0,4,
+name Script_Zone_Star.401123 id 401123 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_MiniGunner_0.401124 id 401124 defintion id 81930140
+	M02_Nod_Soldier 18,0,2,
+name Nod_MiniGunner_0.401125 id 401125 defintion id 81930140
+	M02_Nod_Soldier 18,0,2,
+name Nod_MiniGunner_0.401126 id 401126 defintion id 81930140
+	M02_Nod_Soldier 18,0,2,
+name Nod_MiniGunner_0.401127 id 401127 defintion id 81930140
+	M02_Nod_Soldier 18,0,2,
+name Nod_Technician_0.401129 id 401129 defintion id 81930169
+	M02_Nod_Soldier 18,0,5,
+name Script_Zone_Star.401130 id 401130 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.401131 id 401131 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_Technician_0.401132 id 401132 defintion id 81930169
+	M02_Nod_Soldier 19,0,5,
+name Nod_Technician_0.401133 id 401133 defintion id 81930169
+	M02_Nod_Soldier 19,0,5,
+name Nod_MiniGunner_0.401134 id 401134 defintion id 81930140
+	M02_Nod_Soldier 19,0,2,
+name Nod_MiniGunner_0.401135 id 401135 defintion id 81930140
+	M02_Nod_Soldier 19,0,2,
+name Nod_MiniGunner_0.401136 id 401136 defintion id 81930140
+	M02_Nod_Soldier 19,0,2,
+name Nod_MiniGunner_0.401137 id 401137 defintion id 81930140
+	M02_Nod_Soldier 19,0,2,
+name Nod_MiniGunner_0.401138 id 401138 defintion id 81930140
+	M02_Nod_Soldier 19,0,2,
+name Nod_MiniGunner_1Off.401139 id 401139 defintion id 81930142
+	M02_Nod_Soldier 19,0,2,
+name Nod_RocketSoldier_0_Stationary.401141 id 401141 defintion id 81930178
+	M02_Nod_Soldier 21,0,4,
+name Nod_MiniGunner_0.401142 id 401142 defintion id 81930140
+	M02_Nod_Soldier 21,0,2,
+name Nod_MiniGunner_0.401143 id 401143 defintion id 81930140
+	M02_Nod_Soldier 21,0,2,
+name Nod_MiniGunner_0.401144 id 401144 defintion id 81930140
+	M02_Nod_Soldier 21,0,2,
+name Nod_MiniGunner_0.401145 id 401145 defintion id 81930140
+	M02_Nod_Soldier 21,0,2,
+name Nod_Mobile_Artillery_Dec.401167 id 401167 defintion id 82080094
+	M02_Stationary_Vehicle 2,
+name Script_Zone_Star.401196 id 401196 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.405116 id 405116 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.405117 id 405117 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.405118 id 405118 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.405119 id 405119 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.405120 id 405120 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.405121 id 405121 defintion id 519
+	M02_Objective_Zone 0,
+name Script_Zone_Star.405122 id 405122 defintion id 519
+	M02_Objective_Zone 0,
+name Nod_Rocket_Emplacement_Player.405922 id 405922 defintion id 82080147
+name Nod_Rocket_Emplacement_Player.405923 id 405923 defintion id 82080147
+name POW_Medal_Armor.406723 id 406723 defintion id 81950117
+name Nod_FlameThrower_0.406724 id 406724 defintion id 81930138
+name Nod_FlameThrower_0.406725 id 406725 defintion id 81930138
+name POW_Data_Disc.407528 id 407528 defintion id 81950099
+	M02_Data_Disk 0,
+name POW_Data_Disc.407529 id 407529 defintion id 81950099
+	M02_Data_Disk 1,
+name POW_Data_Disc.407530 id 407530 defintion id 81950099
+	M02_Data_Disk 2,
+name POW_Data_Disc.300799 id 300799 defintion id 81950099
+	M02_Encyclopedia_Reveal 1,
+name POW_Data_Disc.300800 id 300800 defintion id 81950099
+	M02_Encyclopedia_Reveal 2,
+name POW_MineRemote_Player.302000 id 302000 defintion id 81950031
+name POW_MineRemote_Player.302001 id 302001 defintion id 81950031
+name SFX.Arrows_Roomtone_Industrial_11_Loud_offset1 id 101010 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud_offset1,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101012 id 101012 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101013 id 101013 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101016 id 101016 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud_offset1,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101018 id 101018 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101020 id 101020 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud_offset1,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101022 id 101022 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101024 id 101024 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Pipe_1_Loud,SFX.Klaxon_Alert_04,1153846,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrows_GDI_PowerPlant.101026 id 101026 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Pipe_1_Loud_offset1,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101027 id 101027 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Pipe_1_Loud,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101029 id 101029 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Pipe_1_Loud_offset1,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101030 id 101030 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Pipe_1_Loud_offset1,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101031 id 101031 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Pipe_1_Loud,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101033 id 101033 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Pipe_1_Loud_offset1,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101036 id 101036 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Pipe_1_Loud,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101039 id 101039 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud_offset1,,1153846,1,,,0.00,,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101041 id 101041 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Pipe_1_Loud,,1153846,1,,,0.00,,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101043 id 101043 defintion id 81960240
+	M00_BuildingStateSoundSpeaker SFX.PowerPlant_Machine,SFX.Klaxon_Alert_06,1153846,1,,,0.00,,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101045 id 101045 defintion id 81960240
+	M00_BuildingStateSoundSpeaker HighVoltage_03,SFX.Electric_Fire_04,1153846,1,,,0.00,,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101047 id 101047 defintion id 81960240
+	M00_BuildingStateSoundSpeaker SFX.Machine_Turbine_02,,1153846,1,,,0.00,,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101049 id 101049 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud,,1153846,1,,,0.00,,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101051 id 101051 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud_offset1,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101054 id 101054 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud_offset1,,1153846,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101058 id 101058 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_11_Loud,,1153846,1,,,-1,,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101060 id 101060 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Roomtone_Pipe_1_Loud,,1153846,1,,,-1,,1,,,-1,,,
+name SFX.Arrows_GDI_PowerPlant.101062 id 101062 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Computer_Loop_11,SFX.Klaxon_Alert_06,1153846,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101063 id 101063 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Computer_Loop_11,SFX.PowerPlant_Powerdown,1153846,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101064 id 101064 defintion id 81960240
+	M00_BuildingStateSoundSpeaker ,SFX.Electric_Fire_03,1153846,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101065 id 101065 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Computer_Loop_01,SFX.Fire_Metal_01,1153846,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101066 id 101066 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Computer_Loop_04,SFX.Computer_Monitor_damaged_02,1153846,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101067 id 101067 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Computer_Loop_01,SFX.Fire_Metal_01,1153846,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101068 id 101068 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Computer_Loop_01,SFX.Electric_Fire_02,1153846,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101069 id 101069 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Computer_Loop_11,SFX.Klaxon_Alert_06,1153846,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101070 id 101070 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Computer_Loop_11,,1153846,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101071 id 101071 defintion id 81960240
+	M00_BuildingStateSoundSpeaker SFX.Computer_Loop_04_hipitch,SFX.Computer_Monitor_damaged_03,1153846,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101072 id 101072 defintion id 81960240
+	M00_BuildingStateSoundSpeaker ,SFX.Electric_Fire_02,1153846,1,,,0.00,,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101073 id 101073 defintion id 81960240
+	M00_BuildingStateSoundSpeaker SFX.Computer_Loop_04_hipitch,SFX.Powerplant_Powerdown,1153846,1,,,0.00,,1,,,-1.00,-1.00,,
+name SFX.Arrows_GDI_PowerPlant.101074 id 101074 defintion id 81960240
+	M00_BuildingStateSoundSpeaker ,SFX.Fire_Metal_01,1153846,1,,,0.00,,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101075 id 101075 defintion id 81960240
+	M00_BuildingStateSoundSpeaker Computer_Loop_04,SFX.Electric_Fire_05,1153846,1,,,0.00,,1,,,0.00,,,
+name SFX.Arrows_GDI_PowerPlant.101082 id 101082 defintion id 81960240
+	M00_BuildingStateSoundSpeaker M03 PowerPlant Announce Twiddler,,1153846,1,,20.00 20.00 20.00,40.00,80.00,1,,,0.00,,,
+name SFX.Arrows_Obelisk.101083 id 101083 defintion id 81960233
+	M00_BuildingStateSoundSpeaker SFX.Obeslisk_Ambient_02,,1153845,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_Obelisk.101084 id 101084 defintion id 81960233
+	M00_BuildingStateSoundSpeaker SFX.Obeslisk_Ambient_02,,1153845,1,,,0.00,0.00,1,,,-1,,,
+name SFX.Arrows_Obelisk.101085 id 101085 defintion id 81960233
+	M00_BuildingStateSoundSpeaker SFX.Obeslisk_Ambient_01,SFX.Klaxon_Alert_06,1153845,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_Obelisk.101086 id 101086 defintion id 81960233
+	M00_BuildingStateSoundSpeaker Computer_Loop_11,SFX.Klaxon_Alert_05,1153845,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_Obelisk.101089 id 101089 defintion id 81960233
+	M00_BuildingStateSoundSpeaker SFX.Obeslisk_Ambient_02,,1153845,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_Obelisk.101090 id 101090 defintion id 81960233
+	M00_BuildingStateSoundSpeaker SFX.Obeslisk_Ambient_04,,1153845,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_Obelisk.101091 id 101091 defintion id 81960233
+	M00_BuildingStateSoundSpeaker SFX.Obeslisk_Ambient_03,,1153845,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_Obelisk.101092 id 101092 defintion id 81960233
+	M00_BuildingStateSoundSpeaker SFX.Obeslisk_Ambient_04,,1153845,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_Obelisk.101093 id 101093 defintion id 81960233
+	M00_BuildingStateSoundSpeaker Computer_Loop_11,SFX.Powerplant_Powerdown,1153845,1,,,0.00,0.00,1,,,-1.00,-1.00,,
+name SFX.Arrows_Nod_Helipad id 101094 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_04_quiet,,,1,,,0.00,,1,,,-1,,,
+name SFX.Arrows_Nod_Tiberium_Silo id 101095 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Ambient_Tiberium_01,SFX.TibAutoRifle_Explo_01,1157687,1,,,0.00,,1,,,-1.00,-1.00,,
+name SFX.Arrows_Nod_Silo id 101096 defintion id 81960237
+	M00_BuildingStateSoundSpeaker SFX.Roomtone_Pipe_2,,1157687,1,,,0.00,,1,,,-1,,,
+name SFX.Arrows_Nod_Repair_Bay.101097 id 101097 defintion id 81960237
+	M00_BuildingStateSoundSpeaker SFX.Ambient_Tiberium_Liquid_cave,,1157687,1,,,0.00,,1,,,-1,,,
+name SFX.Arrows_Nod_Repair_Bay.101098 id 101098 defintion id 81960237
+	M00_BuildingStateSoundSpeaker SFX.Roomtone_Pipe_2,,1157688,1,,,0.00,,1,,,-1,,,
+name SFX.Arrows_Nod_Repair_Bay.101099 id 101099 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Ambient_Tiberium_01,SFX.TibAutoRifle_Explo_01,1157688,1,,,0.00,,1,,,-1.00,-1.00,,
+name SFX.Arrows_Nod_Repair_Bay.101100 id 101100 defintion id 81960237
+	M00_BuildingStateSoundSpeaker SFX.Ambient_Tiberium_Liquid_cave,,1157688,1,,,0.00,,1,,,-1,,,
+name SFX.Arrows_Hand_Of_NOD.101101 id 101101 defintion id 81960226
+	M00_BuildingStateSoundSpeaker SFX.Ambeint_HON_Power,,1157690,1,,,0.00,,1,,,-1,,,
+name SFX.Arrows_Hand_Of_NOD.101105 id 101105 defintion id 81960226
+	M00_BuildingStateSoundSpeaker Roomtone_Industrial_04_verb,,1157690,1,,,0.00,,1,,,-1,,,
+name SFX.Arrows_Hand_Of_NOD.101107 id 101107 defintion id 81960226
+	M00_BuildingStateSoundSpeaker M00_Nod_Guidance_Measures_Twiddler,SFX.Klaxon_Alert_05,1157690,1,,,30.00,80.00,1,,,0.00,,,
+name SFX.Arrows_Hand_Of_NOD.101109 id 101109 defintion id 81960226
+	M00_BuildingStateSoundSpeaker M00_Nod_Guidance_Measures_Twiddler,SFX.Klaxon_Alert_06,1157690,1,,,30.00,80.00,1,,,0.00,,,
+name SFX.Arrows_Hand_Of_NOD.101110 id 101110 defintion id 81960226
+	M00_BuildingStateSoundSpeaker M00_Nod_Guidance_Measures_Twiddler,,1157690,1,,,30.00,80.00,1,,,0.00,,,
+name SFX.Arrows_Hand_Of_NOD.101111 id 101111 defintion id 81960226
+	M00_BuildingStateSoundSpeaker SFX.Ambient_HON_Power,SFX.Klaxon_Alert_06,1157690,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_Hand_Of_NOD.101112 id 101112 defintion id 81960226
+	M00_BuildingStateSoundSpeaker M00_Nod_Guidance_Measures_Twiddler,SFX.Klaxon_Alert_05,1157690,1,,,30.00,80.00,1,,,0.00,,,
+name SFX.Arrows_Hand_Of_NOD.101113 id 101113 defintion id 81960226
+	M00_BuildingStateSoundSpeaker SFX.Ambient_HON_Power,SFX.Klaxon_Alert_05,1157690,1,,,0.00,0.00,1,,,0.00,,,
+name SFX.Arrows_HON id 101115 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Computer_Loop_06,SFX.Electric_Fire_03,1157690,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrows_HON id 101116 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Computer_Loop_04,SFX.Electric_Fire_02,1157690,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_Repair_Bay.101118 id 101118 defintion id 81960237
+	M00_BuildingStateSoundSpeaker Computer_Loop_01,SFX.Electric_Fire_03,1157690,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrows_Nod_Repair_Bay.101119 id 101119 defintion id 81960237
+	M00_BuildingStateSoundSpeaker SFX.Radio_Room_01,SFX.Radio_Room_Broken_01,1157690,1,,,0.00,0.00,1,,,0.00,0.00,,
+name SFX.Arrow_Rock_Slide_Rev_01.102005 id 102005 defintion id 81960179
+name SFX.Arrow_Rock_Slide_Rev_02.102006 id 102006 defintion id 81960180
+name SFX.Arrow_Rock_Slide_Rev_01.102007 id 102007 defintion id 81960179
+name SFX.Arrow_Rock_Slide_Rev_02.102008 id 102008 defintion id 81960180
+name SFX.Arrow_Rock_Slide_Rev_01.102009 id 102009 defintion id 81960179
+name SFX.Arrow_Rock_Slide_Rev_02.102010 id 102010 defintion id 81960180
+name SFX.Arrow_Rock_Slide_Rev_01.102011 id 102011 defintion id 81960179
+name SFX.Arrow_Rock_Slide_Rev_02.102012 id 102012 defintion id 81960180
+name Nod_Truck_Dec.400202 id 400202 defintion id 82080036
+	M02_Nod_Convoy_Truck 0,
+name Nod_Truck_Dec.400203 id 400203 defintion id 82080036
+	M02_Nod_Convoy_Truck 0,
+name Nod_Truck_Dec.400204 id 400204 defintion id 82080036
+	M02_Nod_Convoy_Truck 0,
+name Nod_Truck_Dec.400283 id 400283 defintion id 82080036
+name Nod_Truck_Dec.400284 id 400284 defintion id 82080036
+name Nod_Truck_Dec.400295 id 400295 defintion id 82080036
+name Nod_Truck_Dec.400394 id 400394 defintion id 82080036
+name Nod_Truck_Dec.400431 id 400431 defintion id 82080036
+name Nod_Truck_Dec.400432 id 400432 defintion id 82080036
+name Nod_Truck_Dec.400433 id 400433 defintion id 82080036
+name Nod_Truck_Dec.400434 id 400434 defintion id 82080036

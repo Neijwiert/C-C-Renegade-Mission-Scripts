@@ -1,0 +1,770 @@
+name POW_Chaingun_Player.1203128 id 1203128 defintion id 81950051
+name POW_Chaingun_Player.1203127 id 1203127 defintion id 81950051
+name M09_Window_Blocker.1202861 id 1202861 defintion id 81960248
+name M09_Window_Blocker.1202860 id 1202860 defintion id 81960248
+name M09_Window_Blocker.1202859 id 1202859 defintion id 81960248
+name M09_Window_Blocker.1202858 id 1202858 defintion id 81960248
+name M09_Window_Blocker.1202857 id 1202857 defintion id 81960248
+name M09_Window_Blocker.1202856 id 1202856 defintion id 81960248
+name Level_02_Keycard.1202456 id 1202456 defintion id 81950038
+	M09_Containment_Key_2 0,
+name M09_MobileSuit.1202323 id 1202323 defintion id 81960259
+name Script_Zone_All.1202054 id 1202054 defintion id 82060002
+	M09_Evac_Point_Objective 0,
+name POW_MineRemote_Player.1201786 id 1201786 defintion id 81950031
+name POW_MineRemote_Player.1201785 id 1201785 defintion id 81950031
+name POW_MineRemote_Player.1201784 id 1201784 defintion id 81950031
+name POW_MineRemote_Player.1201783 id 1201783 defintion id 81950031
+name Nod_Minigunner_1Off.1201321 id 1201321 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+	M09_Innate_Disable 0,
+name Nod_Minigunner_2SF.2005480 id 2005480 defintion id 81930143
+	M00_InnateIsStationary 0,
+	M09_Attack_Blocked_False 0,
+	M09_Innate_Disable 0,
+name M09_Window_Blocker.1200954 id 1200954 defintion id 81960248
+name M09_Window_Blocker.1200953 id 1200953 defintion id 81960248
+name SFX.Arrow_Rock_Slide_Rev_02.5000026 id 5000026 defintion id 81960180
+name SFX.Arrow_Rock_Slide_Rev_01.5000022 id 5000022 defintion id 81960179
+name SFX.Arrow_Rock_Slide_03.5000016 id 5000016 defintion id 81960178
+name SFX.Arrow_Hawk_01.5000002 id 5000002 defintion id 81960195
+name SFX.Arrow_Rock_Slide_Rev_02.5000025 id 5000025 defintion id 81960180
+name SFX.Arrow_Rock_Slide_Rev_01.5000021 id 5000021 defintion id 81960179
+name SFX.Arrow_Rock_Slide_02.5000013 id 5000013 defintion id 81960177
+name SFX.Arrow_Rock_Slide_01.5000009 id 5000009 defintion id 81960176
+name SFX.Arrow_Hawk_02.5000003 id 5000003 defintion id 81960196
+name SFX.Arrow_Snake_02.5000028 id 5000028 defintion id 81960198
+name SFX.Arrow_Rock_Slide_Rev_01.5000020 id 5000020 defintion id 81960179
+name SFX.Arrow_Snake_01.5000027 id 5000027 defintion id 81960197
+name SFX.Arrow_Hawk_01.5000001 id 5000001 defintion id 81960195
+name SFX.Metal_Creak_02.5000040 id 5000040 defintion id 81960191
+name SFX.Metal_Creak_01.5000039 id 5000039 defintion id 81960190
+name SFX.Arrow_Troops_Metal.5000031 id 5000031 defintion id 81960182
+name SFX.Arrow_Troops_Metal.5000030 id 5000030 defintion id 81960182
+name SFX.Arrow_Troops_Metal.5000029 id 5000029 defintion id 81960182
+name SFX.Arrow_Rock_Slide_Rev_01.5000019 id 5000019 defintion id 81960179
+name SFX.Arrow_Rock_Slide_Rev_02.5000024 id 5000024 defintion id 81960180
+name SFX.Arrow_Rock_Slide_Rev_01.5000018 id 5000018 defintion id 81960179
+name SFX.Arrow_Water_Drip_01.5000035 id 5000035 defintion id 81960188
+name SFX.Arrow_Water_Drip_02.5000038 id 5000038 defintion id 81960189
+name SFX.Arrow_Water_Drip_01.5000034 id 5000034 defintion id 81960188
+name SFX.Arrow_Rock_Slide_01.5000004 id 5000004 defintion id 81960176
+name SFX.Arrow_Rock_Slide_02.5000010 id 5000010 defintion id 81960177
+name SFX.Arrow_Rock_Slide_03.5000014 id 5000014 defintion id 81960178
+name SFX.Arrow_Rock_Slide_01.5000005 id 5000005 defintion id 81960176
+name SFX.Arrow_Rock_Slide_Rev_01.5000017 id 5000017 defintion id 81960179
+name SFX.Arrow_Rock_Slide_Rev_02.5000023 id 5000023 defintion id 81960180
+name SFX.Arrow_Rock_Slide_01.5000006 id 5000006 defintion id 81960176
+name SFX.Arrow_Rock_Slide_01.5000007 id 5000007 defintion id 81960176
+name SFX.Arrow_Rock_Slide_02.5000011 id 5000011 defintion id 81960177
+name SFX.Arrow_Rock_Slide_01.5000008 id 5000008 defintion id 81960176
+name SFX.Arrow_Rock_Slide_02.5000012 id 5000012 defintion id 81960177
+name SFX.Arrow_Rock_Slide_03.5000015 id 5000015 defintion id 81960178
+name SFX.Arrow_Water_Drip_01.5000032 id 5000032 defintion id 81960188
+name SFX.Arrow_Water_Drip_02.5000036 id 5000036 defintion id 81960189
+name SFX.Arrow_Water_Drip_02.5000037 id 5000037 defintion id 81960189
+name SFX.Arrow_Water_Drip_01.5000033 id 5000033 defintion id 81960188
+name Script_Zone_Star.1200719 id 1200719 defintion id 519
+	M09_Elevator_Exit 2000995,
+name Script_Zone_Star.1200718 id 1200718 defintion id 519
+	M09_Block_Off 0,
+	M09_Elevator_Exit 2002237,
+name Script_Zone_Star.1200717 id 1200717 defintion id 519
+	M09_Block_Off 0,
+	M09_Elevator_Exit 2002512,
+name M09_Spawning_Mutant.2000147 id 2000147 defintion id 81930202
+	M09_Home_Location_10 0,
+name M09_Spawning_Mutant.2000146 id 2000146 defintion id 81930202
+	M09_Home_Location_10 0,
+name M09_Spawning_Mutant.2000145 id 2000145 defintion id 81930202
+	M09_Home_Location_10 0,
+name M09_Spawning_Mutant.2000143 id 2000143 defintion id 81930202
+	M09_Home_Location_10 0,
+name M09_Spawning_Mutant.2001274 id 2001274 defintion id 81930202
+	M09_Animating_Mutant 0,
+name M09_Spawning_Mutant.2001273 id 2001273 defintion id 81930202
+	M09_Animating_Mutant 0,
+name M09_Spawning_Mutant.2001272 id 2001272 defintion id 81930202
+	M09_Animating_Mutant 1,
+name M09_Spawning_Mutant.2001271 id 2001271 defintion id 81930202
+	M09_Animating_Mutant 0,
+name M09_Spawning_Mutant.2001270 id 2001270 defintion id 81930202
+	M09_Animating_Mutant 1,
+name M09_Spawning_Mutant.2001269 id 2001269 defintion id 81930202
+	M09_Animating_Mutant 0,
+name M09_Spawning_Mutant.2001043 id 2001043 defintion id 81930202
+	M09_Animating_Mutant 1,
+name M09_Spawning_Mutant.2000893 id 2000893 defintion id 81930202
+	M09_Innate_Disable 0,
+	M09_Mutant_Attack 2000628,
+name M09_Spawning_Mutant.2000892 id 2000892 defintion id 81930202
+	M09_Innate_Disable 0,
+	M09_Mutant_Attack 2000627,
+name M09_Spawning_Mutant.2000891 id 2000891 defintion id 81930202
+	M09_Innate_Disable 0,
+	M09_Mutant_Attack 2000629,
+name POW_RocketLauncher_Player.1101319 id 1101319 defintion id 81950015
+name Script_Zone_Star.1102317 id 1102317 defintion id 519
+	M09_Level10Key 0,
+name Script_Zone_Star.1102316 id 1102316 defintion id 519
+	M09_Level10Key 0,
+name Script_Zone_Star.1102315 id 1102315 defintion id 519
+	M09_Level10Key 0,
+name Script_Zone_Star.1102314 id 1102314 defintion id 519
+	M09_Level10Key 0,
+name Script_Zone_Star.1102313 id 1102313 defintion id 519
+	M09_Level10Key 0,
+name Script_Zone_Star.1102312 id 1102312 defintion id 519
+	M09_Level10Key 0,
+name Nod_Ceiling_Gun.1101566 id 1101566 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1101565 id 1101565 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1101564 id 1101564 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.1101563 id 1101563 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Mutant_1Off_Acolyte.2000631 id 2000631 defintion id 81930120
+name Mutant_1Off_Acolyte.2000630 id 2000630 defintion id 81930120
+name Nod_RocketSoldier_1Off.2000632 id 2000632 defintion id 81930146
+name POW_PersonalIonCannon_Player.2000321 id 2000321 defintion id 81950084
+name POW_LaserRifle_Player.1101057 id 1101057 defintion id 81950077
+name Nod_Ceiling_Gun.1101055 id 1101055 defintion id 82080040
+name Nod_Ceiling_Gun.1101054 id 1101054 defintion id 82080040
+name M09_Mobius_Goto.1100497 id 1100497 defintion id 81960134
+name M09_Mobius_Goto.1100481 id 1100481 defintion id 81960134
+name Script_Zone_Star.1100480 id 1100480 defintion id 519
+	M09_Mobius_Goto 1100480,
+name Script_Zone_Star.1100479 id 1100479 defintion id 519
+	M09_Mobius_Goto 2000988,
+name M09_Mobius_Goto.1100478 id 1100478 defintion id 81960134
+name M09_Mobius_Goto.1100477 id 1100477 defintion id 81960134
+name Script_Zone_Star.1100476 id 1100476 defintion id 519
+	M09_Destroy_Zone 0,
+	M09_Mobius_Goto 1100477,
+name Script_Zone_Star.1100475 id 1100475 defintion id 519
+	M09_Destroy_Zone 0,
+	M09_Mobius_Goto 1100478,
+name M09_Mobius_Goto.1100474 id 1100474 defintion id 81960134
+name M09_Mobius_Goto.1100473 id 1100473 defintion id 81960134
+name Script_Zone_Star.1100472 id 1100472 defintion id 519
+	M09_Innate_Enable_Zone 2006395,10.00,,
+	M09_Innate_Enable_Zone 2006396,7.00,,
+name M09_Shuman.2000456 id 2000456 defintion id 81930282
+	M09_Stationary 1,
+name M09_SoundProjector.2006878 id 2006878 defintion id 81960142
+name Nod_FlameThrower_0.2006877 id 2006877 defintion id 81930138
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2006876 id 2006876 defintion id 81930138
+	M09_Innate_Disable 0,
+name Explosion_Point.2006124 id 2006124 defintion id 81960001
+name Explosion_Point.2006123 id 2006123 defintion id 81960001
+name Explosion_Point.2006122 id 2006122 defintion id 81960001
+name Explosion_Point.2006121 id 2006121 defintion id 81960001
+name Explosion_Point.2006120 id 2006120 defintion id 81960001
+name Script_Zone_Star.2005749 id 2005749 defintion id 519
+	M09_Block_Off 0,
+	M09_Camera_Activate 1101809,0,0,0,0,
+	M09_Mobius_Goto 2002510,
+name Nod_FlameThrower_0.2000662 id 2000662 defintion id 81930138
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2000660 id 2000660 defintion id 81930138
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000659 id 2000659 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000663 id 2000663 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000661 id 2000661 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_SoundProjector.2005743 id 2005743 defintion id 81960142
+name M09_Spawning_Mutant.2005742 id 2005742 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2005741 id 2005741 defintion id 81930202
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2005740 id 2005740 defintion id 81930138
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2005739 id 2005739 defintion id 81930138
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2005738 id 2005738 defintion id 81930138
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2005737 id 2005737 defintion id 81930202
+	M09_Innate_Disable 0,
+name Script_Zone_Star.2005736 id 2005736 defintion id 519
+	M09_Mobius_Goto 2002274,
+name Level_01_Keycard.2005241 id 2005241 defintion id 81950037
+	M09_Containment_Key_1 0,
+name M09_SoundProjector.2005011 id 2005011 defintion id 81960142
+name Nod_Technician_0.2000561 id 2000561 defintion id 81930169
+	M09_Innate_Disable 0,
+name Nod_Technician_0.2000562 id 2000562 defintion id 81930169
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2000557 id 2000557 defintion id 81930138
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2000558 id 2000558 defintion id 81930138
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2000559 id 2000559 defintion id 81930138
+	M09_Innate_Disable 0,
+name M09_SoundProjector.2005002 id 2005002 defintion id 81960142
+name Nod_Minigunner_0_Agg.2000564 id 2000564 defintion id 81930182
+	M09_Innate_Disable 0,
+name Nod_Minigunner_0_Agg.2000565 id 2000565 defintion id 81930182
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000140 id 2000140 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000142 id 2000142 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000139 id 2000139 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000141 id 2000141 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_SoundProjector.2004995 id 2004995 defintion id 81960142
+name M09_Spawning_Mutant.2000136 id 2000136 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000137 id 2000137 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000135 id 2000135 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Mobius_Goto.2002760 id 2002760 defintion id 81960134
+name M09_Mobius_Goto.2002752 id 2002752 defintion id 81960134
+name Script_Zone_Star.2002751 id 2002751 defintion id 519
+	M09_Mobius_Goto 2002752,
+name Script_Zone_Star.2002750 id 2002750 defintion id 519
+	M09_Mobius_Goto 2002748,
+name Script_Zone_Star.2002749 id 2002749 defintion id 519
+	M09_Mobius_Goto 2002747,
+name M09_Mobius_Goto.2002748 id 2002748 defintion id 81960134
+name M09_Mobius_Goto.2002747 id 2002747 defintion id 81960134
+name M09_Mobius_Goto.2002746 id 2002746 defintion id 81960134
+name Script_Zone_Star.2002745 id 2002745 defintion id 519
+	M09_Mobius_Goto 2002743,
+name M09_Mobius_Goto.2002744 id 2002744 defintion id 81960134
+name M09_Mobius_Goto.2002743 id 2002743 defintion id 81960134
+name Script_Zone_Star.2002742 id 2002742 defintion id 519
+	M09_Mobius_Goto 2002744,
+name M09_Mobius_Goto.2002279 id 2002279 defintion id 81960134
+name Script_Zone_Star.2002278 id 2002278 defintion id 519
+	M09_Mobius_Goto 2002279,
+name M09_Mobius_Goto.2002277 id 2002277 defintion id 81960134
+name Script_Zone_Star.2002276 id 2002276 defintion id 519
+	M09_Camera_Activate 1101804,1101805,1101806,0,0,
+	M09_Innate_Activate 2005506,2000640,2000637,2005505,2000638,0,0,0,0,0,
+	M09_Mobius_Goto 2002277,
+name M09_Mobius_Goto.2002275 id 2002275 defintion id 81960134
+name M09_Mobius_Goto.2002274 id 2002274 defintion id 81960134
+name M09_Mobius_Goto.2002273 id 2002273 defintion id 81960134
+name Script_Zone_Star.2002272 id 2002272 defintion id 519
+	M09_Mobius_Goto 2002271,
+name M09_Mobius_Goto.2002271 id 2002271 defintion id 81960134
+name Script_Zone_Star.2002270 id 2002270 defintion id 519
+	M09_Camera_Activate 1101803,0,0,0,0,
+	M09_Innate_Activate 2005739,2005737,2005742,2005741,2005740,2005738,0,0,0,0,
+name M09_Mobius_Goto.2002269 id 2002269 defintion id 81960134
+name M09_Mobius_Goto.2002268 id 2002268 defintion id 81960134
+name M09_Mobius_Goto.2002262 id 2002262 defintion id 81960134
+name M09_Mobius_Goto.2002239 id 2002239 defintion id 81960134
+name Script_Zone_Star.2002238 id 2002238 defintion id 519
+	M09_Innate_Enable_Zone 2005501,7.0,,
+	M09_Mobius_Goto 2002268,
+name M09_Mobius_Goto.2002237 id 2002237 defintion id 81960134
+	M09_Elevator_All_Controller 2002268,1265125,6,1,1100731,
+name M09_Mobius_Goto.2002236 id 2002236 defintion id 81960134
+name M09_Mobius_Goto.2002235 id 2002235 defintion id 81960134
+name M09_Mobius_Goto.2002234 id 2002234 defintion id 81960134
+name M09_Mobius_Goto.2002233 id 2002233 defintion id 81960134
+name Script_Zone_Star.2002232 id 2002232 defintion id 519
+	M09_Mobius_Goto 2002230,
+name Script_Zone_Star.2002231 id 2002231 defintion id 519
+	M09_Mobius_Goto 2002228,
+name M09_Mobius_Goto.2002230 id 2002230 defintion id 81960134
+name Script_Zone_Star.2002229 id 2002229 defintion id 519
+	M09_Mobius_Goto 2002225,
+name M09_Mobius_Goto.2002228 id 2002228 defintion id 81960134
+name M09_Mobius_Goto.2002227 id 2002227 defintion id 81960134
+name Script_Zone_Star.2002226 id 2002226 defintion id 519
+	M09_Mobius_Goto 2002233,
+name M09_Mobius_Goto.2002225 id 2002225 defintion id 81960134
+name Script_Zone_Star.2002224 id 2002224 defintion id 519
+	M09_Mobius_Goto 2002223,
+name M09_Mobius_Goto.2002223 id 2002223 defintion id 81960134
+name Script_Zone_Star.2002222 id 2002222 defintion id 519
+	M09_Mobius_Goto 2002227,
+name M09_Mobius_Goto.2002221 id 2002221 defintion id 81960134
+name Script_Zone_Star.2002220 id 2002220 defintion id 519
+	M09_Mobius_Goto 2002221,
+name M09_Mobius_Goto.2002219 id 2002219 defintion id 81960134
+name M09_Placeholders.2002218 id 2002218 defintion id 81960090
+name M09_Mobius_Goto.2001753 id 2001753 defintion id 81960134
+name M09_Placeholders.2001747 id 2001747 defintion id 81960090
+name Script_Zone_Star.2001746 id 2001746 defintion id 519
+	M09_Mobius_Goto 2001747,
+name M09_Mobius_Goto.2001012 id 2001012 defintion id 81960134
+name M09_Mobius_Goto.2000996 id 2000996 defintion id 81960134
+name M09_Mobius_Goto.2000995 id 2000995 defintion id 81960134
+name M09_Mobius_Goto.2000994 id 2000994 defintion id 81960134
+name M09_Mobius_Goto.2000993 id 2000993 defintion id 81960134
+name M09_Mobius_Goto.2000992 id 2000992 defintion id 81960134
+name Script_Zone_Star.2000991 id 2000991 defintion id 519
+	M09_Camera_Activate 1101293,1101326,1101327,0,0,
+	M09_Mobius_Goto 2000990,
+	M09_Mobius_OnFollow 0,
+name M09_Mobius_Goto.2000990 id 2000990 defintion id 81960134
+name M09_Mobius_Goto.2000988 id 2000988 defintion id 81960134
+name M09_Mobius_Goto.2000987 id 2000987 defintion id 81960134
+name Evac_Controller.2000969 id 2000969 defintion id 81960001
+	M09_CheckpointA_Controller 0,
+name Script_Zone_Star.2000959 id 2000959 defintion id 519
+	M09_Mobius_Goto 2000955,
+	M09_Weather_On 0,
+name Script_Zone_Star.2000958 id 2000958 defintion id 519
+	M09_Mobius_Goto 2003029,
+	M09_Weather_Off 0,
+name Script_Zone_Star.2000957 id 2000957 defintion id 519
+	M09_Mobius_Goto 2003032,
+	M09_Weather_On 0,
+name Script_Zone_Star.2000956 id 2000956 defintion id 519
+	M09_Mobius_Goto 2003031,
+	M09_Weather_Off 0,
+name Flyover_Controller.2000955 id 2000955 defintion id 81960001
+	M09_Flyover_Controller 0,
+name Script_Zone_Star.2000954 id 2000954 defintion id 519
+	M09_Surface_Objective 0,
+name Daves Arrow.2000924 id 2000924 defintion id 81960001
+	M09_Elevator_All_Controller 2002262,1265140,8,1,2000865,
+name Script_Zone_Star.2000903 id 2000903 defintion id 519
+	M09_Mobius_Goto 2002746,
+name Script_Zone_Star.2000901 id 2000901 defintion id 519
+	M09_Innate_Enable_Zone 2002510,21.00,,
+name Script_Zone_Star.2000900 id 2000900 defintion id 519
+	M09_Mobius_Goto 2002509,
+name Script_Zone_Star.2000899 id 2000899 defintion id 519
+	M09_Mobius_Goto 2002275,
+name Script_Zone_Star.2000898 id 2000898 defintion id 519
+	M09_Mobius_Goto 2002273,
+name Script_Zone_Star.2000897 id 2000897 defintion id 519
+	M09_Mobius_Goto 2002269,
+name Script_Zone_Star.2000896 id 2000896 defintion id 519
+	M09_Elevator_All_Zone 2002237,
+	M09_Innate_Activate 2000569,2005475,2000568,2000570,0,2005486,0,0,0,0,
+name Script_Zone_Star.2000894 id 2000894 defintion id 519
+	M09_Block_Off 0,
+	M09_Mobius_Goto 2002235,
+name Script_Zone_Star.2000870 id 2000870 defintion id 519
+	M09_Mobius_Goto 2000992,
+name Script_Zone_Star.2000858 id 2000858 defintion id 519
+	M09_Camera_Activate 1101298,0,0,0,0,
+	M09_Mobius_Goto 2001516,
+name Script_Zone_Star.2000709 id 2000709 defintion id 519
+	M09_Innate_Activate 2006397,2006398,1101310,2006399,2004515,2006401,0,0,0,0,
+	M09_Zone_Enabled_Mobius 2000988,1,
+name Script_Zone_Star.2000708 id 2000708 defintion id 519
+	M09_Mobius_Goto 2000996,
+name Daves Arrow.2000658 id 2000658 defintion id 81960001
+	M09_Mutant_Encounter_Controller 0,
+name Daves Arrow.2000657 id 2000657 defintion id 81960001
+	M09_Mutant_Encounter_Controller 0,
+name POW_LaserChaingun_Player.2000636 id 2000636 defintion id 81950069
+name POW_LaserChaingun_Player.2000635 id 2000635 defintion id 81950069
+name Script_Zone_Star.2000614 id 2000614 defintion id 519
+	M09_Surface_Objective 0,
+name Script_Zone_Star.2000612 id 2000612 defintion id 519
+	M09_Mobius_Suit_Objective 0,
+name Sniper 1 Clip PU.2000320 id 2000320 defintion id 81950013
+name MiniGun 2 Clips PU.2000322 id 2000322 defintion id 81950051
+name Rocket 1 Clip PU.2000323 id 2000323 defintion id 81950015
+name MG Weapon 1 Clip PowerUp.2000502 id 2000502 defintion id 81950051
+	M09_Lab_Powerup 2001274,
+name Sniper Weapon 1 Clip PU.2000503 id 2000503 defintion id 81950013
+	M09_Lab_Powerup 2001272,
+name Script_Zone_Star.2000581 id 2000581 defintion id 519
+	M09_Elevator_All_Zone 2000580,
+name Daves Arrow.2000580 id 2000580 defintion id 81960001
+	M09_Elevator_All_Controller 2001516,1265149,3, 0,2002219,
+name Script_Zone_Star.2000571 id 2000571 defintion id 519
+	M09_Block_Off 0,
+	M09_Elevator_Exit 2002219,
+	M09_Innate_Enable_Zone 2005011,7.0,,
+	M09_Innate_Enable_Zone 2006878,20.00,,
+name Script_Zone_Star.2000566 id 2000566 defintion id 519
+	M09_Mobius_Goto 2001511,
+name Script_Zone_Star.2000563 id 2000563 defintion id 519
+	M09_Innate_Enable_Zone 2004995,7.0,,
+	M09_Mobius_Goto 2001510,
+name Script_Zone_Star.2000560 id 2000560 defintion id 519
+	M09_Camera_Activate 1101294,0,0,0,0,
+	M09_Mobius_Goto 2000993,
+name Script_Zone_Star.2000551 id 2000551 defintion id 519
+	M09_Camera_Activate 1101295,1101296,0,0,0,
+	M09_Innate_Enable_Zone 2004760,15.00,,
+name Daves Arrow.2000491 id 2000491 defintion id 81960001
+	M09_Elevator_All_Controller 2001753,1265150,0,0,2000995,
+name Daves Arrow.2000452 id 2000452 defintion id 81960001
+	M09_Lab_Key_Controller 0,
+name Script_Zone_Star.2000274 id 2000274 defintion id 519
+	M09_LabRoom_Zones 2001269,2003767,
+name Script_Zone_Star.2000273 id 2000273 defintion id 519
+	M09_LabRoom_Zones 2001273,2003770,
+name Script_Zone_Star.2000271 id 2000271 defintion id 519
+	M09_LabRoom_Zones 2001270,2003747,
+name Script_Zone_Star.2000270 id 2000270 defintion id 519
+	M09_LabRoom_Zones 2001274,2003753,
+name Script_Zone_Star.2000269 id 2000269 defintion id 519
+	M09_Level10Key 0,
+name Script_Zone_Star.2000268 id 2000268 defintion id 519
+	M09_LabRoom_Zones 2001271,2003761,
+name Script_Zone_Star.2000267 id 2000267 defintion id 519
+	M09_LabRoom_Zones 2001272,2003764,
+name Mutant_2.2000150 id 2000150 defintion id 81930120
+	M09_Stationary 0,
+name Objective Controller.2000071 id 2000071 defintion id 81960001
+	M09_Ambient_Clutter 0,
+	M09_Objective_Controller 0,
+name Script_Zone_Star.2000037 id 2000037 defintion id 519
+	M09_Elevator_All_Zone 2000924,
+	M09_Innate_Enable_Zone 2000992,20.00,,
+name Daves Arrow.2000279 id 2000279 defintion id 81960001
+	M09_LabRoom_Controller 0,
+name Script_Zone_Star.2000319 id 2000319 defintion id 519
+	M09_Mobius_Goto 2000994,
+name GDI_Ignatio_Mobius.2000010 id 2000010 defintion id 81930198
+	M09_Mobius_Initial_Conversation 0,
+name Daves Arrow.2000409 id 2000409 defintion id 81960001
+name Script_Zone_Star.2000423 id 2000423 defintion id 519
+	M09_Camera_Activate 1101292,0,0,0,0,
+	M09_Destroy_Zone 0,
+	M09_Innate_Enable_Zone 2004512,20.00,,
+	M09_Mobius_Goto 1100474,
+name M09_Key_Switch.2000453 id 2000453 defintion id 81960093
+	M09_Key_Box 0,
+name M09_Key_Switch.2000454 id 2000454 defintion id 81960093
+name Script_Zone_Star.2000457 id 2000457 defintion id 519
+	M09_MrShuman_Zone 0,
+name Script_Zone_Star.2000458 id 2000458 defintion id 519
+	M09_KeyCard_Zone 0,
+name Daves Arrow.2000462 id 2000462 defintion id 81960001
+name Laser Rifle Weapon Powerup.2000507 id 2000507 defintion id 81950077
+	M09_Lab_Powerup 2001269,
+name Grenade Launcher Weapon PowerUps.2000508 id 2000508 defintion id 81950046
+	M09_Lab_Powerup 2001270,
+name Flamethrower_Weapon_PowerUp.2000510 id 2000510 defintion id 81950056
+	M09_Lab_Powerup 2001273,
+name ChemSprayer_Weapon_PowerUp.2000513 id 2000513 defintion id 81950054
+	M09_Lab_Powerup 2001043,
+name Script_Zone_Star.2000543 id 2000543 defintion id 519
+	M09_Camera_Activate 1101056,1101290,0,0,0,
+	M09_Destroy_Zone 0,
+	M09_Innate_Enable_Zone 2004499,15.00,,
+	M09_Mobius_Goto 1100473,
+name Script_Zone_Star.2000489 id 2000489 defintion id 519
+	M09_Elevator_All_Zone 2000491,
+name Daves Arrow.2000582 id 2000582 defintion id 81960001
+	M09_Elevator_All_Controller 2002236,1265125,6, 0,2002268,
+name Script_Zone_Star.2000586 id 2000586 defintion id 519
+	M09_Elevator_All_Zone 2000582,
+name Daves Arrow.2000587 id 2000587 defintion id 81960001
+	M09_Elevator_All_Controller 2002511,1265126,5, 0,2002512,
+name Script_Zone_Star.2000591 id 2000591 defintion id 519
+	M09_Elevator_All_Zone 2000587,
+name Daves Arrow.2000592 id 2000592 defintion id 81960001
+	M09_Elevator_All_Controller 2000593,2051108,1, 0,,
+name Script_Zone_Star.2000621 id 2000621 defintion id 519
+	M09_Camera_Activate 1101297,0,0,0,0,
+	M09_Innate_Enable_Zone 2005002,15.00,,
+name Daves Arrow.2000627 id 2000627 defintion id 81960001
+	M09_Mutant_Encounter_Controller 0,
+name Daves Arrow.2000628 id 2000628 defintion id 81960001
+	M09_Mutant_Encounter_Controller 0,
+name Daves Arrow.2000629 id 2000629 defintion id 81960001
+	M09_Mutant_Encounter_Controller 0,
+name Script_Zone_Star.2000634 id 2000634 defintion id 519
+	M09_Mobius_Goto 2002234,
+name Script_Zone_Star.2000699 id 2000699 defintion id 519
+	M09_Camera_Activate 1101054,1101055,0,0,0,
+	M09_Mobius_Goto 2000987,
+name Mobile_Vehicle_Goto.2000970 id 2000970 defintion id 81960001
+name Script_Zone_Star.2000971 id 2000971 defintion id 519
+	M09_Evac_Transport 0,
+	M09_Mobius_Goto 2003040,
+name M09_Mobius_Goto.2001500 id 2001500 defintion id 81960134
+name Script_Zone_Star.2001501 id 2001501 defintion id 519
+	M09_Mobius_Goto 2001500,
+name Script_Zone_Star.2001502 id 2001502 defintion id 519
+	M09_Mobius_Goto 2001503,
+name M09_Mobius_Goto.2001503 id 2001503 defintion id 81960134
+name M09_Mobius_Goto.2001510 id 2001510 defintion id 81960134
+name M09_Mobius_Goto.2001511 id 2001511 defintion id 81960134
+name Script_Zone_Star.2001514 id 2001514 defintion id 519
+	M09_Mobius_Goto 2001515,
+name M09_Placeholders.2001515 id 2001515 defintion id 81960090
+name M09_Placeholders.2001516 id 2001516 defintion id 81960090
+name Script_Zone_Star.2001988 id 2001988 defintion id 519
+	M09_Innate_Enable_Zone 2006400,12.00,,
+	M09_Mobius_Goto 2000988,
+name M09_Mobius_Goto.2002509 id 2002509 defintion id 81960134
+name M09_Mobius_Goto.2002510 id 2002510 defintion id 81960134
+name M09_Mobius_Goto.2002511 id 2002511 defintion id 81960134
+name M09_Mobius_Goto.2002512 id 2002512 defintion id 81960134
+name M09_Mobius_Goto.2003029 id 2003029 defintion id 81960134
+name M09_Mobius_Goto.2003030 id 2003030 defintion id 81960134
+name M09_Mobius_Goto.2003031 id 2003031 defintion id 81960134
+name M09_Mobius_Goto.2003032 id 2003032 defintion id 81960134
+name Script_Zone_Star.2003033 id 2003033 defintion id 519
+	M09_Mobius_Goto 2003031,
+name Script_Zone_Star.2003034 id 2003034 defintion id 519
+	M09_Mobius_Goto 2003030,
+name Script_Zone_Star.2003035 id 2003035 defintion id 519
+	M09_Mobius_Goto 2003029,
+name Script_Zone_Star.2003036 id 2003036 defintion id 519
+	M09_Mobius_Goto 2003037,
+name M09_Mobius_Goto.2003037 id 2003037 defintion id 81960134
+name Script_Zone_Star.2003038 id 2003038 defintion id 519
+	M09_Mobius_Goto 2003039,
+name M09_Mobius_Goto.2003039 id 2003039 defintion id 81960134
+name M09_Mobius_Goto.2003040 id 2003040 defintion id 81960134
+name Nod_FlameThrower_0.2004492 id 2004492 defintion id 81930138
+	M09_Innate_Disable 0,
+name Nod_Minigunner_1Off.2004493 id 2004493 defintion id 81930142
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2004494 id 2004494 defintion id 81930138
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2004497 id 2004497 defintion id 81930138
+	M09_Innate_Disable 0,
+name M09_SoundProjector.2004499 id 2004499 defintion id 81960142
+name M09_Spawning_Mutant.2000534 id 2000534 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2004262 id 2004262 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2004495 id 2004495 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000538 id 2000538 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2004496 id 2004496 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_SoundProjector.2004512 id 2004512 defintion id 81960142
+name civ_lab_tech_03.2004515 id 2004515 defintion id 81930219
+	M09_Scientist_Cower 0,
+name civ_lab_tech_01.2004517 id 2004517 defintion id 81930216
+	M09_Scientist_Cower 0,
+name M09_SoundProjector.2004518 id 2004518 defintion id 81960142
+name M09_Spawning_Mutant.2004519 id 2004519 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2004520 id 2004520 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000124 id 2000124 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000125 id 2000125 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000123 id 2000123 defintion id 81930202
+	M09_Innate_Disable 0,
+name Nod_Minigunner_1Off.2000128 id 2000128 defintion id 81930142
+	M09_Innate_Disable 0,
+name Nod_Minigunner_1Off.2000129 id 2000129 defintion id 81930142
+	M09_Innate_Disable 0,
+name Nod_Minigunner_1Off.2000127 id 2000127 defintion id 81930142
+	M09_Innate_Disable 0,
+name M09_SoundProjector.2004760 id 2004760 defintion id 81960142
+name M09_Spawning_Mutant.2000130 id 2000130 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000133 id 2000133 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000132 id 2000132 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000131 id 2000131 defintion id 81930202
+	M09_Innate_Disable 0,
+name Nod_RocketSoldier_1Off.2000570 id 2000570 defintion id 81930146
+	M09_Innate_Disable 0,
+name Nod_RocketSoldier_1Off.2000568 id 2000568 defintion id 81930146
+	M09_Innate_Disable 0,
+name Nod_RocketSoldier_1Off.2000569 id 2000569 defintion id 81930146
+	M09_Innate_Disable 0,
+name Nod_RocketSoldier_1Off.2005475 id 2005475 defintion id 81930146
+	M09_Innate_Disable 0,
+name M09_SoundProjector.2005481 id 2005481 defintion id 81960142
+name M09_SoundProjector.2005482 id 2005482 defintion id 81960142
+name M09_SoundProjector.2005483 id 2005483 defintion id 81960142
+name M09_SoundProjector.2005484 id 2005484 defintion id 81960142
+name M09_SoundProjector.2005485 id 2005485 defintion id 81960142
+name Nod_RocketSoldier_1Off.2005486 id 2005486 defintion id 81930146
+	M09_Innate_Disable 0,
+name M09_SoundProjector.2005487 id 2005487 defintion id 81960142
+name Nod_Stealth_Tank.2005488 id 2005488 defintion id 82080061
+	M08_Mobile_Vehicle 2005489,2005490,2005491,2005492,2005493,2005494,2005495,2005496,2005497,2005498,0,0,
+name M08_Go_Point.2005489 id 2005489 defintion id 81960086
+name M08_Go_Point.2005490 id 2005490 defintion id 81960086
+name M08_Go_Point.2005491 id 2005491 defintion id 81960086
+name M08_Go_Point.2005492 id 2005492 defintion id 81960086
+name M08_Go_Point.2005493 id 2005493 defintion id 81960086
+name M08_Go_Point.2005494 id 2005494 defintion id 81960086
+name M08_Go_Point.2005495 id 2005495 defintion id 81960086
+name M08_Go_Point.2005496 id 2005496 defintion id 81960086
+name M08_Go_Point.2005497 id 2005497 defintion id 81960086
+name M08_Go_Point.2005498 id 2005498 defintion id 81960086
+name Nod_FlameThrower_2SF.2005499 id 2005499 defintion id 81930148
+name Nod_FlameThrower_2SF.2005500 id 2005500 defintion id 81930148
+	M09_Innate_Disable 0,
+name M09_SoundProjector.2005501 id 2005501 defintion id 81960142
+name Nod_Ceiling_Gun.2005502 id 2005502 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Nod_Ceiling_Gun.2005503 id 2005503 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name M09_Spawning_Mutant.2005506 id 2005506 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000637 id 2000637 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2005505 id 2005505 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2000640 id 2000640 defintion id 81930202
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2006392 id 2006392 defintion id 81930138
+	M09_Innate_Disable 0,
+name Nod_FlameThrower_0.2006393 id 2006393 defintion id 81930138
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2006394 id 2006394 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_SoundProjector.2006395 id 2006395 defintion id 81960142
+name M09_SoundProjector.2006396 id 2006396 defintion id 81960142
+name M09_Spawning_Mutant.2006397 id 2006397 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2006398 id 2006398 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.2006399 id 2006399 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_SoundProjector.2006400 id 2006400 defintion id 81960142
+name civ_lab_tech_01.2006401 id 2006401 defintion id 81930216
+	M09_Scientist_Cower 0,
+name civ_lab_tech_01.2006402 id 2006402 defintion id 81930216
+	M09_Scientist_Cower 0,
+name Script_Zone_Star.1100238 id 1100238 defintion id 519
+	M09_Block_Off 0,
+	M09_Camera_Activate 1101300,1101301,0,0,0,
+	M09_Destroy_Self_Zone 0,
+name M09_Mobius_Goto.1100731 id 1100731 defintion id 81960134
+name civ_lab_tech_01.2000638 id 2000638 defintion id 81930216
+	M09_Innate_Disable 0,
+name Nod_Ceiling_Gun.1101290 id 1101290 defintion id 82080040
+name Nod_Ceiling_Gun.1101291 id 1101291 defintion id 82080040
+name Nod_Ceiling_Gun.1101292 id 1101292 defintion id 82080040
+name Nod_Ceiling_Gun.1101293 id 1101293 defintion id 82080040
+name Nod_Ceiling_Gun.1101294 id 1101294 defintion id 82080040
+name Nod_Ceiling_Gun.1101295 id 1101295 defintion id 82080040
+name Nod_Ceiling_Gun.1101296 id 1101296 defintion id 82080040
+name Nod_Ceiling_Gun.1101297 id 1101297 defintion id 82080040
+name Nod_Ceiling_Gun.1101298 id 1101298 defintion id 82080040
+name Nod_Ceiling_Gun.1101299 id 1101299 defintion id 82080040
+	RMV_Camera_Behavior 90.00,0,1,0.0,
+name Script_Zone_Star.1101302 id 1101302 defintion id 519
+	M09_Camera_Activate 1101291,0,0,0,0,
+name Script_Zone_Star.1101303 id 1101303 defintion id 519
+	M09_Camera_Activate 1101299,0,0,0,0,
+name M09_Spawning_Mutant.1101310 id 1101310 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.1101311 id 1101311 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.1101312 id 1101312 defintion id 81930202
+	M09_Innate_Disable 0,
+name POW_LaserRifle_Player.1101314 id 1101314 defintion id 81950077
+name POW_RocketLauncher_Player.1101315 id 1101315 defintion id 81950015
+name POW_SniperRifle_Player.1101316 id 1101316 defintion id 81950013
+name POW_Health_050.1101317 id 1101317 defintion id 1667
+name POW_Health_050.1101318 id 1101318 defintion id 1667
+name POW_Health_025.1101320 id 1101320 defintion id 1665
+name POW_Health_025.1101321 id 1101321 defintion id 1665
+name POW_Chaingun_Player.1101322 id 1101322 defintion id 81950051
+name POW_Chaingun_Player.1101323 id 1101323 defintion id 81950051
+name POW_Armor_050.1101324 id 1101324 defintion id 3666
+name POW_Armor_050.1101325 id 1101325 defintion id 3666
+name Nod_Ceiling_Gun.1101326 id 1101326 defintion id 82080040
+name Nod_Ceiling_Gun.1101327 id 1101327 defintion id 82080040
+name Nod_Ceiling_Gun.1101803 id 1101803 defintion id 82080040
+name Nod_Ceiling_Gun.1101804 id 1101804 defintion id 82080040
+name Nod_Ceiling_Gun.1101805 id 1101805 defintion id 82080040
+name Nod_Ceiling_Gun.1101806 id 1101806 defintion id 82080040
+name M09_Spawning_Mutant.1101807 id 1101807 defintion id 81930202
+	M09_Innate_Disable 0,
+name M09_Spawning_Mutant.1101808 id 1101808 defintion id 81930202
+	M09_Innate_Disable 0,
+name Nod_Ceiling_Gun.1101809 id 1101809 defintion id 82080040
+name Nod_Ceiling_Gun.1101810 id 1101810 defintion id 82080040
+name Nod_Ceiling_Gun.1101811 id 1101811 defintion id 82080040
+name Nod_Ceiling_Gun.1101812 id 1101812 defintion id 82080040
+name Nod_Ceiling_Gun.1101813 id 1101813 defintion id 82080040
+name Script_Zone_Star.1101814 id 1101814 defintion id 519
+	M09_Camera_Activate 1101810,1101811,1101812,1101813,0,
+name Mutant_1Off_Acolyte.1101815 id 1101815 defintion id 81930120
+name Mutant_2SF_Templar.1101816 id 1101816 defintion id 81930123
+name Nod_FlameThrower_2SF.1101818 id 1101818 defintion id 81930148
+name Nod_FlameThrower_2SF.1101819 id 1101819 defintion id 81930148
+name Mutant_1Off_Acolyte.1101820 id 1101820 defintion id 81930120
+name Mutant_2SF_Templar.1101821 id 1101821 defintion id 81930123
+name Nod_FlameThrower_2SF.1101822 id 1101822 defintion id 81930148
+name Nod_FlameThrower_2SF.1101823 id 1101823 defintion id 81930148
+name POW_Health_050.1101824 id 1101824 defintion id 1667
+name POW_Health_050.1101825 id 1101825 defintion id 1667
+name Nod_FlameThrower_0.1100730 id 1100730 defintion id 81930138
+	M09_Mobius_Goto 2005495,
+name GDI_MiniGunner_0.1101834 id 1101834 defintion id 81930128
+	M09_Innate_Disable 0,
+name GDI_MiniGunner_0.1101838 id 1101838 defintion id 81930128
+	M09_Innate_Disable 0,
+name Nod_Minigunner_1Off.1101839 id 1101839 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+	M09_Innate_Disable 0,
+name Nod_Minigunner_1Off.1101840 id 1101840 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+	M09_Innate_Disable 0,
+name Nod_Minigunner_1Off.1101841 id 1101841 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+	M09_Innate_Disable 0,
+name Nod_Minigunner_1Off.1101842 id 1101842 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+	M09_Innate_Disable 0,
+name Nod_Minigunner_1Off.1101843 id 1101843 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+	M09_Innate_Disable 0,
+name Script_Zone_Star.1101845 id 1101845 defintion id 519
+	M09_Innate_Activate 1101841,1101840,1101839,1101842,1101843,1101836,1101834,1101835,1101838,1101837,
+name Script_Zone_Star.1101846 id 1101846 defintion id 519
+	M09_Innate_Activate 1101841,1101840,1101839,1101842,1101843,1101836,1101834,1101835,1101838,1101837,
+name Script_Zone_Star.1102079 id 1102079 defintion id 519
+	M09_LabRoom_Zones 2001043,2003757,
+name Script_Zone_Star.1200233 id 1200233 defintion id 519
+	M09_Innate_Activate 2005480,0,0,0,0,0,0,0,0,0,
+name POW_Data_Disc.1201187 id 1201187 defintion id 81950099
+	M00_Reveal_Enc_Weapon_DAY 23,
+	M03_DataDiscMessage 0,
+name Nod_Minigunner_1Off.1201634 id 1201634 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+name Nod_Minigunner_1Off.1201635 id 1201635 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+name Nod_Minigunner_1Off.1201636 id 1201636 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+name Nod_Minigunner_1Off.1201637 id 1201637 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+name Nod_Minigunner_1Off.1201638 id 1201638 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+name Nod_Minigunner_1Off.1201639 id 1201639 defintion id 81930142
+	M09_CheckpointA_Counter 0,
+name Nod_Stealth_Tank.1201640 id 1201640 defintion id 82080061
+	M08_Mobile_Vehicle 0,1201641,1201642,1201643,1201644,1201645,1201646,1201647,1201648,1201649,1201650,0,
+	M09_CheckpointA_Counter 0,
+name Mobile_Vehicle_Goto.1201641 id 1201641 defintion id 81960001
+name Mobile_Vehicle_Goto.1201642 id 1201642 defintion id 81960001
+name Mobile_Vehicle_Goto.1201643 id 1201643 defintion id 81960001
+name Mobile_Vehicle_Goto.1201644 id 1201644 defintion id 81960001
+name Mobile_Vehicle_Goto.1201645 id 1201645 defintion id 81960001
+name Mobile_Vehicle_Goto.1201646 id 1201646 defintion id 81960001
+name Mobile_Vehicle_Goto.1201647 id 1201647 defintion id 81960001
+name Mobile_Vehicle_Goto.1201648 id 1201648 defintion id 81960001
+name Mobile_Vehicle_Goto.1201649 id 1201649 defintion id 81960001
+name Mobile_Vehicle_Goto.1201650 id 1201650 defintion id 81960001
+name POW_Medal_Armor.1202190 id 1202190 defintion id 81950117
+name Nod_Ceiling_Gun_Las.1101827 id 1101827 defintion id 82080080
+	RMV_Camera_Behavior 360.00,0,1,0.00,
+name Nod_Ceiling_Gun_Las.1202590 id 1202590 defintion id 82080080
+	RMV_Camera_Behavior 360.00,0,1,0.00,
+name Nod_Ceiling_Gun_Las.1202723 id 1202723 defintion id 82080080
+	RMV_Camera_Behavior 360.00,0,1,0.00,
+name Script_Zone_Star.1202994 id 1202994 defintion id 519
+	M09_Innate_Activate 1201321,0,0,0,0,0,0,0,0,0,
+name Large_Blocker.1300133 id 1300133 defintion id 81960023
+name Large_Blocker.1300134 id 1300134 defintion id 81960023
+name Large_Blocker.1300135 id 1300135 defintion id 81960023
