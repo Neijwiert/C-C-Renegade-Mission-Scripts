@@ -474,6 +474,9 @@
     <ClCompile Include="M00_C130_Explosion.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M00_BUILDING_EXPLODE_NO_DAMAGE_DAK.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -873,6 +876,9 @@
       <Filter>Header Files\M00</Filter>
     </ClInclude>
     <ClInclude Include="M00_C130_Explosion.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_BUILDING_EXPLODE_NO_DAMAGE_DAK.h">
       <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>

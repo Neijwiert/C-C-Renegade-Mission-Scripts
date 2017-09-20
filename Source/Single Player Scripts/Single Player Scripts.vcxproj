@@ -195,6 +195,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="Havoc_Script.cpp" />
     <ClCompile Include="M00_BuildingStateSoundController.cpp" />
     <ClCompile Include="M00_BuildingStateSoundSpeaker.cpp" />
+    <ClCompile Include="M00_BUILDING_EXPLODE_NO_DAMAGE_DAK.cpp" />
     <ClCompile Include="M00_C130_Explosion.cpp" />
     <ClCompile Include="M00_Cinematic_Attack_Command_DLS.cpp" />
     <ClCompile Include="M00_Cinematic_Kill_Object_DAY.cpp" />
@@ -335,6 +336,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="Havoc_Script.h" />
     <ClInclude Include="M00_BuildingStateSoundController.h" />
     <ClInclude Include="M00_BuildingStateSoundSpeaker.h" />
+    <ClInclude Include="M00_BUILDING_EXPLODE_NO_DAMAGE_DAK.h" />
     <ClInclude Include="M00_C130_Explosion.h" />
     <ClInclude Include="M00_Cinematic_Attack_Command_DLS.h" />
     <ClInclude Include="M00_Cinematic_Kill_Object_DAY.h" />
