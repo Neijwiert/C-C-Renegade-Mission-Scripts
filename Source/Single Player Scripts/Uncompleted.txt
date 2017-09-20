@@ -279,7 +279,6 @@ M01_HON_Medlab_DropOff_Guy_JDG
 M01_Mission_Controller_JDG 
 M11_Temple_Hologram_01_JDG
 M00_VisceroidInnate_DAY
-M00_C130_Explosion
 M00_BUILDING_EXPLODE_NO_DAMAGE_DAK
 M00_Nod_Obelisk
 M00_ArmorMedal_TextMessage_JDG
