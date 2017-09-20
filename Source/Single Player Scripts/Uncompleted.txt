@@ -13,6 +13,7 @@ M01_Objective_Pog_Controller_JDG
 M01_DataDisc_TextController_JDG
 M01_GDI_Base_Artillery_Controller_JDG
 M01_Base_GDI_Minigunner_JDG
+M00_Nod_Obelisk
 
 // Below are not present in the solution yet
 M01_BackPath_EntranceZone_JDG
@@ -279,4 +280,3 @@ M01_HON_Medlab_DropOff_Guy_JDG
 M01_Mission_Controller_JDG 
 M11_Temple_Hologram_01_JDG
 M00_VisceroidInnate_DAY
-M00_Nod_Obelisk
