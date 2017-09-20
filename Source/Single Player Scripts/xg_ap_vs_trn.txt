@@ -1,0 +1,87 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* Apache vs Transport  ************************
+
+
+
+; ****************************** Trajectory Transport
+
+-0	Create_Object,		1, "XG_At_TrnTraj",			0, 0, 0, 0
+-0	Play_Animation,		1, "XG_At_TrnTraj.XG_At_TrnTraj", 0
+-361	destroy_object,		1
+
+; ****************************** Transport
+
+-0	Create_Object,		2, "v_GDI_trnspt",			0, 0, 0, 0, 
+-0	Attach_to_Bone,		2,1,"BN_Trajectory"
+-0	Play_Animation,		2, "v_GDI_trnspt.v_GDI_trnspt",1
+-361	destroy_object,		2
+
+; ****************************** Trajectory Apache
+
+-75	Create_Object,		3, "XG_At_ApTraj",			0, 0, 0, 0
+-75	Play_Animation,		3, "XG_At_ApTraj.XG_At_ApTraj",0
+-610	destroy_object,		3
+
+; ****************************** Apache
+
+-75	Create_Object,		4, "v_nod_Apache",			0, 0, 0, 0, 
+-75	Attach_to_Bone,		4,3,"BN_Apache_00"
+-75	Play_Animation,		4, "v_nod_Apache.v_nod_Apache",1
+-610	destroy_object,		4
+
+
+
+; ****************************** Missiles
+
+-307	Create_Object,		5, "XG_AG_AT_Misl",			0, 0, 0, 0
+-307	Play_Animation,		5, "XG_AT_Missiles.XG_AT_Missiles", 1
+-361	destroy_object,		5
+
+
+; ****************************** Explosions
+
+-350	Create_Object,		6, "XG_AG_AT_Xplsn",			0, 0, 0, 0
+-350	Play_Animation,		6, "XG_AT_Xplosions.XG_AT_Xplosions", 1
+-365	destroy_object,		6
+
+
+
+
+
+
+
+
+
+
+
+
+
+

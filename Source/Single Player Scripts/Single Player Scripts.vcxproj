@@ -214,6 +214,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Announce_First_ObjectiveZone_JDG.cpp" />
     <ClCompile Include="M01_Barn_Truck_JDG.cpp" />
     <ClCompile Include="M01_Base_GDI_Fodder_JDG.cpp" />
+    <ClCompile Include="M01_Base_GDI_Minigunner_JDG.cpp" />
     <ClCompile Include="M01_Base_StartZone_JDG.cpp" />
     <ClCompile Include="M01_Beach_Datadisc_JDG.cpp" />
     <ClCompile Include="M01_ConDropZone_JDG.cpp" />
@@ -350,6 +351,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Announce_First_ObjectiveZone_JDG.h" />
     <ClInclude Include="M01_Barn_Truck_JDG.h" />
     <ClInclude Include="M01_Base_GDI_Fodder_JDG.h" />
+    <ClInclude Include="M01_Base_GDI_Minigunner_JDG.h" />
     <ClInclude Include="M01_Base_StartZone_JDG.h" />
     <ClInclude Include="M01_Beach_Datadisc_JDG.h" />
     <ClInclude Include="M01_ConDropZone_JDG.h" />
@@ -484,6 +486,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="mx0_gdi_reinforce_area4.txt" />
     <Text Include="mx0_gdi_troopdrop_area4.txt" />
     <Text Include="Uncompleted.txt" />
+    <Text Include="x01d_c130troopdrop.txt" />
     <Text Include="x0c_flyovers_01.txt" />
     <Text Include="x0c_flyovers_02.txt" />
     <Text Include="x0d_a10_crash.txt" />
@@ -617,6 +620,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x1a_solo_orca_19.txt" />
     <Text Include="x1a_solo_orca_20.txt" />
     <Text Include="x1a_solo_orca_21.txt" />
+    <Text Include="x1c_intro.txt" />
     <Text Include="x1d_gdipowerupdrop.txt" />
     <Text Include="x1h_hover_troop.txt" />
     <Text Include="x2a_orcastrike.txt" />
@@ -663,6 +667,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x2k_midtro.txt" />
     <Text Include="xg_a03_humveedrop_b.txt" />
     <Text Include="xg_a03_tank_drop.txt" />
+    <Text Include="xg_ap_vs_trn.txt" />
     <Text Include="xg_rope_evac_f.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

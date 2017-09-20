@@ -1,0 +1,86 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 3: HOVERCRAFT EXPLODE AT BEACH  ************************
+
+
+
+; ****************************** Sakura Helicopter
+
+;-10	Create_Object,		1, "v_ag_nod_heli",			0, 0, 0, 0, 
+-10	Create_Object,		1, "vxag_nod_heli",			0, 0, 0, 0, 
+-10	Play_Animation,		1, "v_nod_heli.X1C_SakuraHeli",0
+-395
+
+
+
+; ****************************** Explosions
+
+-10	Create_Object,		2, "X1c_AG_xplosion",			0, 0, 0, 0,
+-10	Play_Animation,		2, "X1c_explosions.X1c_explosions",1
+-140	destroy_object,		2
+
+
+; ****************************** Orca_01
+
+
+;-10	Create_Object,		3, "V_AG_X1Borca",			0, 0, 0, 0
+-10	Create_Object,		3, "VxAG_X1Borca",			0, 0, 0, 0
+-10	Play_Animation,		3, "V_GDI_orca.X1c_orca_01",1
+-129	destroy_object,		3
+
+; ****************************** Orca_02
+
+
+;-80	Create_Object,		4, "V_AG_X1Borca",			0, 0, 0, 0
+-80	Create_Object,		4, "VxAG_X1Borca",			0, 0, 0, 0
+-80	Play_Animation,		4, "V_GDI_orca.X1c_orca_02",1
+-360	destroy_object,		4
+
+
+; ****************************** Missiles
+
+-32	Create_Object,		5, "X1C_AG_Missile",			0, 0, 0, 0,
+-32	Play_Animation,		5, "X1C_missile.X1C_missile",1
+-85	destroy_object,		5
+
+
+
+
+;  ****************************** Audio
+-84	Play_Audio,		"SFX.Explosion_Orca_Air_01",2,"BN_Orca1_Xplod1"
+-120	Play_Audio,		"SFX.Explosion_Orca_Air_01",2,"BN_Orca1_Xplod2"
+-120	Play_Audio,		"Explosion_Large_01",2,"BN_Orca1_Xplod2"
+
+-32	Play_Audio,		"SFX.Missile_Launch_2second",5,"XO_missile11"
+
+
+
+
+
