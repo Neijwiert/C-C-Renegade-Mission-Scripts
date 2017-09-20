@@ -244,6 +244,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_GDI_BeachGuy01_JDG.cpp" />
     <ClCompile Include="M01_Nod_Commander_Conversation_Controller_GDI.cpp" />
     <ClCompile Include="M01_Objective_Pog_Controller_JDG.cpp" />
+    <ClCompile Include="M01_SniperRifle_02_AirdropZone_JDG.cpp" />
     <ClCompile Include="M01_SniperRifle_02_JDG.cpp" />
     <ClCompile Include="M01_Use_Ladder_Zone_JDG.cpp" />
     <ClCompile Include="M02_Approach_Vehicle.cpp" />
@@ -390,6 +391,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_GDI_BeachGuy01_JDG.h" />
     <ClInclude Include="M01_Nod_Commander_Conversation_Controller_GDI.h" />
     <ClInclude Include="M01_Objective_Pog_Controller_JDG.h" />
+    <ClInclude Include="M01_SniperRifle_02_AirdropZone_JDG.h" />
     <ClInclude Include="M01_SniperRifle_02_JDG.h" />
     <ClInclude Include="M01_Use_Ladder_Zone_JDG.h" />
     <ClInclude Include="M02_Approach_Vehicle.h" />
@@ -641,6 +643,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x1c_intro.txt" />
     <Text Include="x1d_gdipowerupdrop.txt" />
     <Text Include="x1h_hover_troop.txt" />
+    <Text Include="x1i_gdibaseprimarynodchinook.txt" />
     <Text Include="x2a_orcastrike.txt" />
     <Text Include="x2d_mtank_slip.txt" />
     <Text Include="x2e_c130drop.txt" />

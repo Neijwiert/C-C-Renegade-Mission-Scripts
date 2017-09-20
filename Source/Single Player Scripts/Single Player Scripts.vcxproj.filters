@@ -492,6 +492,9 @@
     <ClCompile Include="M01_SniperRifle_02_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_SniperRifle_02_AirdropZone_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -909,6 +912,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_SniperRifle_02_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_SniperRifle_02_AirdropZone_JDG.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1489,6 +1495,9 @@
       <Filter>Resource Files\Cinematic Files\M01</Filter>
     </Text>
     <Text Include="xg_ap_vs_trn.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1i_gdibaseprimarynodchinook.txt">
       <Filter>Resource Files\Cinematic Files\M01</Filter>
     </Text>
   </ItemGroup>
