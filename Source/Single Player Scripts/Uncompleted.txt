@@ -16,6 +16,7 @@ M01_Base_GDI_Minigunner_JDG
 M00_Nod_Obelisk
 M01_Base_GDI_Grenadier_JDG
 M01_Ambient_Sound_Controller_JDG
+M01_Mission_Controller_JDG
 
 // Below are not present in the solution yet
 M01_BackPath_EntranceZone_JDG
@@ -268,6 +269,5 @@ M01_Hand_Of_Nod_Interior_Zone
 M01_Entering_Church_Area_Zone 
 M01_Hand_of_Nod_Building_Script_JDG 
 M01_HON_Medlab_DropOff_Guy_JDG 
-M01_Mission_Controller_JDG 
 M11_Temple_Hologram_01_JDG
 M00_VisceroidInnate_DAY

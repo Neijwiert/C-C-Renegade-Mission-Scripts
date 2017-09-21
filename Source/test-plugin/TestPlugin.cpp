@@ -171,7 +171,7 @@ void TestPlugin::OnLoadLevel()
 
 		if (!isAKnownScript && (strstr(scriptNameUpper.Peek_Buffer(), "M01")))
 		{
-			Console_Output("%s\n", scriptName);
+			//Console_Output("%s\n", scriptName);
 
 			/*
 			static char NEW_LINE[] = { '\r', '\n' };
@@ -194,7 +194,7 @@ void TestPlugin::OnLoadLevel()
 		// 45059 - explosions
 		// 53249 - buildings
 
-		//uint classId = def->Get_Class_ID();
+		uint classId = def->Get_Class_ID();
 
 		/*
 		switch (classId)
@@ -216,18 +216,16 @@ void TestPlugin::OnLoadLevel()
 		}
 		*/
 
-		/*
 		if (classId == 53249)
 		{
 			DamageableGameObjDef *damageableDef = static_cast<DamageableGameObjDef *>(def);
 			int encyId = damageableDef->Get_Encyclopedia_ID();
 
-			if (encyId == 15)
+			if (encyId == 4 || encyId == 2  )
 			{
 				Console_Output("%s: %d\n", def->Get_Name(), damageableDef->Get_Encyclopedia_ID());
 			}
 		}
-		*/
 	}
 
 	FreeLibrary(wwscripts);
