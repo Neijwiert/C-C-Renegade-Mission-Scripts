@@ -1501,10 +1501,10 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Set_Obj_Radar_Blip_Shape(entranceBarnAreaTowerNodOfficerObj, RADAR_BLIP_SHAPE_OBJECTIVE);
 				Commands->Set_Obj_Radar_Blip_Color(entranceBarnAreaTowerNodOfficerObj, RADAR_BLIP_COLOR_SECONDARY_OBJECTIVE);
 
-				GameObject *M01ObjectivePogControllerJDG = Commands->Find_Object(105828);
-				if (M01ObjectivePogControllerJDG)
+				GameObject *M01ObjectivePogControllerJDGObj = Commands->Find_Object(105828);
+				if (M01ObjectivePogControllerJDGObj)
 				{
-					Commands->Send_Custom_Event(obj, M01ObjectivePogControllerJDG, 6, 104, 0.0f);
+					Commands->Send_Custom_Event(obj, M01ObjectivePogControllerJDGObj, 6, 104, 0.0f);
 				}
 
 				if (this->field_D8)
@@ -1575,7 +1575,141 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, openAreaNodLightTankObj, 0, 16, 0.0f);
 			}
 		}
+		else if (param == 129)
+		{
+			GameObject *M01GDIBaseArtilleryControllerJDGObj = Commands->Find_Object(102294);
+			if (M01GDIBaseArtilleryControllerJDGObj)
+			{
+				Commands->Send_Custom_Event(obj, M01GDIBaseArtilleryControllerJDGObj, 0, 16, 0.0f);
+			}
+		}
+		else if (param == 110)
+		{
+			// This is Gunboat Tango!  We're taking Nod Turret fire!  All available units please respond!
+			// Take out the turrets to protect the gunboat and we'll land some firepower.
+			this->field_C0 = Commands->Create_Conversation("M01_Add_Turrets_Objective", 100, 1000.0f, false);
+			Commands->Join_Conversation(NULL, this->field_C0, false, false, true);
+			Commands->Join_Conversation(NULL, this->field_C0, false, false, true);
+			Commands->Start_Conversation(this->field_C0, this->field_C0);
+			Commands->Monitor_Conversation(obj, this->field_C0);
+		}
+		else if (param == 92)
+		{
+			// Destroy Nod Turrets
+			// Destroying the turrets on the beach will help protect the GDI Gunboat, which coordinates with Command for additional support. Find these turrets and eliminate them.
+			Commands->Add_Objective(109, OBJECTIVE_TYPE_SECONDARY, OBJECTIVE_STATUS_PENDING, 6269, NULL, 6136);
+			
+			GameObject *M01ObjectivePogControllerJDGObj = Commands->Find_Object(105828);
+			if (M01ObjectivePogControllerJDGObj)
+			{
+				Commands->Send_Custom_Event(obj, M01ObjectivePogControllerJDGObj, 6, 109, 0.0f);
+			}
+
+			GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
+			if (beachNodTurret1Obj)
+			{
+				Commands->Set_Obj_Radar_Blip_Shape(beachNodTurret1Obj, RADAR_BLIP_SHAPE_OBJECTIVE);
+				Commands->Set_Obj_Radar_Blip_Color(beachNodTurret1Obj, RADAR_BLIP_COLOR_SECONDARY_OBJECTIVE);
+			}
+			
+			GameObject *beachNodTurret2Obj = Commands->Find_Object(101435);
+			if (beachNodTurret2Obj)
+			{
+				Commands->Set_Obj_Radar_Blip_Shape(beachNodTurret2Obj, RADAR_BLIP_SHAPE_OBJECTIVE);
+				Commands->Set_Obj_Radar_Blip_Color(beachNodTurret2Obj, RADAR_BLIP_COLOR_SECONDARY_OBJECTIVE);
+			}
+
+			int conversationId = Commands->Create_Conversation("M01_Locke_Sending_C4_Conversation", 100, 1000.0f, false); // Havoc, C4 is inbound - use it.
+			Commands->Join_Conversation(NULL, conversationId, false, false, true);
+			Commands->Start_Conversation(conversationId, conversationId);
+
+			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-82.786f, 113.665f, 2.221f));
+			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1D_GTower_FlareDrop.txt");
+		}
+		else if (param == 113)
+		{
+			if (!this->field_41)
+			{
+				this->field_41 = true;
+
+				Commands->Set_Objective_Status(109, OBJECTIVE_STATUS_FAILED);
+			}
+		}
+		else if (param == 112)
+		{
+			if (!this->field_41)
+			{
+				this->field_41 = true;
+
+				GameObject *gdiGunBoatObj = Commands->Find_Object(101477);
+				if (gdiGunBoatObj)
+				{
+					Commands->Send_Custom_Event(obj, gdiGunBoatObj, 0, 112, 0.0f);
+
+					int conversationId = Commands->Create_Conversation("M01_Remove_Turrets_Objective", 100, 1000.0f, false); // I'm sending you a Medium Tank.
+					Commands->Join_Conversation(NULL, conversationId, false, false, true);
+					Commands->Start_Conversation(conversationId, 0);
+				}
+				else
+				{
+					Commands->Send_Custom_Event(obj, obj, 0, 117, 5.0f);
+				}
+			}
+		}
+		else if (param == 117)
+		{
+			Commands->Set_Objective_Status(109, OBJECTIVE_STATUS_ACCOMPLISHED);
+
+			GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
+			Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 219, 0.0f);
+		}
+		else if (param == 114)
+		{
+			if (!this->field_3E && !this->field_F2)
+			{
+				this->field_F2 = true;
+
+				GameObject *barnFemalePrisonerObj = Commands->Find_Object(101442);
+				if (barnFemalePrisonerObj)
+				{
+					Commands->Send_Custom_Event(obj, barnFemalePrisonerObj, 0, 27, 0.0f);
+				}
+
+				GameObject *billyObj = Commands->Find_Object(101444);
+				if (billyObj)
+				{
+					Commands->Send_Custom_Event(obj, billyObj, 0, 27, 0.0f);
+				}
+
+				GameObject *barnMalePrisonerPierre = Commands->Find_Object(101443);
+				if (barnMalePrisonerPierre)
+				{
+					Commands->Send_Custom_Event(obj, barnMalePrisonerPierre, 0, 27, 0.0f);
+				}
+			}
+		}
+		else if (param == 115)
+		{
+			if (!this->field_40)
+			{
+				this->field_40 = true;
+			}
+		}
+		else if (param == 222)
+		{
+			GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
+			GameObject *beachNodTurret2Obj = Commands->Find_Object(101435);
+			if (beachNodTurret1Obj && beachNodTurret2Obj)
+			{
+				Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", Vector3(0.0f, 0.0f, 0.0f), obj);
+
+				GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-93.689f, 52.85f, -1.95f));
+				Commands->Set_Facing(invisObj, 60.0f);
+				Commands->Attach_Script(invisObj, "Test_Cinematic", "X1I_Nod_TurretBeach_TroopDrop.txt");
+			}
+		}
 	}
+	
 	/*
 	if (type != 1000000001)
 	{
@@ -1583,116 +1717,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			return;
 		switch (param)
 		{	
-		case 129:
-			commUpstairsGuardObj = Commands->Find_Object(102294);
-		LABEL_351:
-			if (!commUpstairsGuardObj)
-				return;
-			customDelaya = 0.0;
-		LABEL_353:
-			v193 = 16;
-			goto LABEL_427;
-		case 110:
-			conversationId_7 = Commands->Create_Conversation("M01_Add_Turrets_Objective", 100, 1000.0, 0);
-			this->field_C0 = conversationId_7;
-			Commands->Join_Conversation(0, conversationId_7, 0, 0, 1);
-			Commands->Join_Conversation(0, this->field_C0, 0, 0, 1);
-			Commands->Start_Conversation(this->field_C0, this->field_C0);
-			Commands->Monitor_Conversation(obj, this->field_C0);
-			return;
-		case 92:
-			Commands->Add_Objective(109, 2, 0, 6269, 0, 6136);
-			M01ObjectivePogControllerJDG_1 = Commands->Find_Object(105828);
-			if (M01ObjectivePogControllerJDG_1)
-				Commands->Send_Custom_Event(obj, M01ObjectivePogControllerJDG_1, 6, 109, 0.0);
-			beachNodTurret1Obj_1 = Commands->Find_Object(101434);
-			beachNodTurret1Obj_2 = beachNodTurret1Obj_1;
-			if (beachNodTurret1Obj_1)
-			{
-				Commands->Set_Obj_Radar_Blip_Shape(beachNodTurret1Obj_1, 4);
-				Commands->Set_Obj_Radar_Blip_Color(beachNodTurret1Obj_2, 6);
-			}
-			beachNodTurret2Obj_1 = Commands->Find_Object(101435);
-			beachNodTurret2Obj_2 = beachNodTurret2Obj_1;
-			if (beachNodTurret2Obj_1)
-			{
-				Commands->Set_Obj_Radar_Blip_Shape(beachNodTurret2Obj_1, 4);
-				Commands->Set_Obj_Radar_Blip_Color(beachNodTurret2Obj_2, 6);
-			}
-			conversationId_8 = Commands->Create_Conversation("M01_Locke_Sending_C4_Conversation", 100, 1000.0, 0);
-			Commands->Join_Conversation(0, conversationId_8, 0, 0, 1);
-			Commands->Start_Conversation(conversationId_8, conversationId_8);
-			v215 = 0xC2A5926F;
-			v216 = 0x42E3547B;
-			v217 = 2.221;
-			M01DestroyedBuilding2Soldier3Obj = Commands->Create_Object("Invisible_Object", (const Vector3 *)&v215);
-			scriptParams = "X1D_GTower_FlareDrop.txt";
-			scriptName = "Test_Cinematic";
-			goto LABEL_362;
-		case 113:
-			if (!this->field_41)
-			{
-				this->field_41 = 1;
-				Commands->Set_Objective_Status(109, 2);
-			}
-			return;
-		case 112:
-			if (this->field_41)
-				return;
-			this->field_41 = 1;
-			gdiGunBoatObj_1 = Commands->Find_Object(101477);
-			if (gdiGunBoatObj_1)
-			{
-				Commands->Send_Custom_Event(obj, gdiGunBoatObj_1, 0, 112, 0.0);
-				conversationId_9 = Commands->Create_Conversation("M01_Remove_Turrets_Objective", 100, 1000.0, 0);
-				Commands->Join_Conversation(0, conversationId_9, 0, 0, 1);
-				Commands->Start_Conversation(conversationId_9, 0);
-			}
-			customDelay = 5.0;
-			customParam = 117;
-			goto LABEL_399;
-		case 117:
-			Commands->Set_Objective_Status(109, 1);
-			Commands2_2 = Commands;
-			customDelayb = 0.0;
-			customParam_1 = 219;
-			goto LABEL_371;
-		case 114:
-			if (this->field_3E == 1 || this->field_F2)
-				return;
-			this->field_F2 = 1;
-			barnFemalePrisonerObj = Commands->Find_Object(101442);
-			if (barnFemalePrisonerObj)
-				Commands->Send_Custom_Event(obj, barnFemalePrisonerObj, 0, 27, 0.0);
-			billyObj = Commands->Find_Object(101444);
-			if (billyObj)
-				Commands->Send_Custom_Event(obj, billyObj, 0, 27, 0.0);
-			commUpstairsGuardObj = Commands->Find_Object(101443);
-			if (!commUpstairsGuardObj)            // barnMalePrisonerPierre
-				return;
-			customDelaya = 0.0;
-			v193 = 27;
-			goto LABEL_427;
-		case 115:
-			if (!this->field_40)
-				this->field_40 = 1;
-			return;
-		case 222:
-			beachNodTurret1Obj_3 = Commands->Find_Object(101434);
-			beachNodTurret2Obj_3 = Commands->Find_Object(101435);
-			if (!beachNodTurret1Obj_3 && !beachNodTurret2Obj_3)
-				return;
-			v215 = 0;
-			v216 = 0;
-			v217 = 0.0;
-			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", (const Vector3 *)&v215, obj);
-			v215 = 0xC2BB60C5;
-			v216 = 0x42536666;
-			v217 = -1.95;
-			invisObj = Commands->Create_Object("Invisible_Object", (const Vector3 *)&v215);
-			Commands->Set_Facing(invisObj, 60.0);
-			scriptParams_1 = "X1I_Nod_TurretBeach_TroopDrop.txt";
-			goto LABEL_418;
+
 		case 225:
 			billyObj_1 = Commands->Find_Object(101444);
 			if (billyObj_1 && this->field_35 != 1)

@@ -103,7 +103,7 @@ class M01_Mission_Controller_JDG : public ScriptImpClass
 		DWORD field_B4;
 		DWORD field_B8;
 		int field_BC;
-		DWORD field_C0;
+		int field_C0;
 		int field_C4;
 		int field_C8;
 		DWORD field_CC;
