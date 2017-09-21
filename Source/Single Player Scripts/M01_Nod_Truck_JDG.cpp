@@ -25,7 +25,7 @@ M01 -> 117420 116391 116390 103013 122239 122240
 void M01_Nod_Truck_JDG::Created(GameObject *obj)
 {
 	Commands->Set_Player_Type(obj, SCRIPT_PLAYERTYPE_NEUTRAL);
-	Commands->Set_Obj_Radar_Blip_Color(obj, SCRIPT_PLAYERTYPE_NOD);
+	Commands->Set_Obj_Radar_Blip_Color(obj, RADAR_BLIP_COLOR_NOD);
 }
 
 ScriptRegistrant<M01_Nod_Truck_JDG> M01_Nod_Truck_JDGRegistrant("M01_Nod_Truck_JDG", "");

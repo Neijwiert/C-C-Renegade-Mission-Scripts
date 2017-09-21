@@ -1708,217 +1708,274 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Attach_Script(invisObj, "Test_Cinematic", "X1I_Nod_TurretBeach_TroopDrop.txt");
 			}
 		}
-	}
-	
-	/*
-	if (type != 1000000001)
-	{
-		if (type)
-			return;
-		switch (param)
-		{	
-
-		case 225:
-			billyObj_1 = Commands->Find_Object(101444);
-			if (billyObj_1 && this->field_35 != 1)
+		else if (param == 225)
+		{
+			GameObject *billyObj = Commands->Find_Object(101444);
+			if (billyObj && !this->field_35)
 			{
-				conversationId_10 = Commands->Create_Conversation("M01_Billys_Conversation", 100, 1000.0, 1);
-				this->field_84 = conversationId_10;
-				Commands->Join_Conversation(billyObj_1, conversationId_10, 1, 1, 1);
-				Commands2_11 = Commands;
-				field84 = this->field_84;
-				obj2_7 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-				Commands2_11->Get_Position((Vector3 *)&v215, obj2_7);
-				starObj_7 = Commands2_11->Get_A_Star((Vector3 *)&v215);
-				Commands2_11->Join_Conversation(starObj_7, field84, 0, 1, 1);
-				Commands->Join_Conversation(0, this->field_84, 0, 0, 1);
+				// Watch for machine gun and tanks over the hill. Use the small pass behind the house.
+				// My friends need a ride, AT-7. Pick 'em up.
+				// This is Air Transport Seven, we're evacuating your area. Stand by.
+				this->field_84 = Commands->Create_Conversation("M01_Billys_Conversation", 100, 1000.0f, true);;
+				Commands->Join_Conversation(billyObj, this->field_84, true, true, true);
+
+				Vector3 pos = Commands->Get_Position(obj);
+				GameObject *starObj = Commands->Get_A_Star(pos);
+
+				Commands->Join_Conversation(starObj, this->field_84, false, true, true);
+				Commands->Join_Conversation(NULL, this->field_84, false, false, true);
 				Commands->Start_Conversation(this->field_84, this->field_84);
 				Commands->Monitor_Conversation(obj, this->field_84);
 			}
-			return;
-		case 226:
-			barnFemalePrisonerObj_1 = Commands->Find_Object(101442);
-			barnMalePrisonerPierreObj = Commands->Find_Object(101443);
-			if (barnFemalePrisonerObj_1 && this->field_34 != 1)
+		}
+		else if (param == 226)
+		{
+			GameObject *barnFemalePrisonerObj = Commands->Find_Object(101442);
+			GameObject *barnMalePrisonerPierreObj = Commands->Find_Object(101443);
+			if (barnFemalePrisonerObj && !this->field_34)
 			{
-				conversationId_11 = Commands->Create_Conversation("M01_Barn_Babushka_Conversation", 100, 1000.0, 1);
-				this->field_88 = conversationId_11;
-				Commands->Join_Conversation(barnFemalePrisonerObj_1, conversationId_11, 1, 1, 1);
-				Commands2_12 = Commands;
-				field88 = this->field_88;
-				obj2_8 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-				Commands2_12->Get_Position((Vector3 *)&v215, obj2_8);
-				starObj_8 = Commands2_12->Get_A_Star((Vector3 *)&v212);
-				Commands2_12->Join_Conversation(starObj_8, field88, 0, 0, 0);
-				Commands->Join_Conversation(0, this->field_88, 0, 0, 0);
+				// They took my family. They said they were here to help. What will I do?
+				// I hope my family is okay...
+				// My friends need a ride, AT-7. Pick 'em up.
+				// This is Air Transport Seven, we're evacuating your area. Stand by.
+				this->field_88 = Commands->Create_Conversation("M01_Barn_Babushka_Conversation", 100, 1000.0f, true);
+				Commands->Join_Conversation(barnFemalePrisonerObj, this->field_88, true, true, true);
+
+				Vector3 pos = Commands->Get_Position(obj);
+				GameObject *starObj = Commands->Get_A_Star(pos);
+
+				Commands->Join_Conversation(starObj, this->field_88, false, false, false);
+				Commands->Join_Conversation(NULL, this->field_88, false, false, false);
 				Commands->Start_Conversation(this->field_88, this->field_88);
 				Commands->Monitor_Conversation(obj, this->field_88);
-				Commands->Send_Custom_Event(obj, barnFemalePrisonerObj_1, 0, 30, 0.0);
-				if (barnMalePrisonerPierreObj && this->field_36 != 1)
-					Commands->Send_Custom_Event(obj, barnMalePrisonerPierreObj, 0, 37, 0.0);
+
+				Commands->Send_Custom_Event(obj, barnFemalePrisonerObj, 0, 30, 0.0f);
+
+				if (barnMalePrisonerPierreObj && !this->field_36)
+				{
+					Commands->Send_Custom_Event(obj, barnMalePrisonerPierreObj, 0, 37, 0.0f);
+				}
 			}
-			else if (barnMalePrisonerPierreObj && this->field_36 != 1)
+			else if (barnMalePrisonerPierreObj && !this->field_36)
 			{
-				conversationId_12 = Commands->Create_Conversation("M01_Civ03_Conversation", 100, 1000.0, 1);
-				this->field_B0 = conversationId_12;
-				Commands->Join_Conversation(barnMalePrisonerPierreObj, conversationId_12, 1, 1, 1);
-				Commands2_13 = Commands;
-				fieldB0 = this->field_B0;
-				obj2_9 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-				Commands2_13->Get_Position((Vector3 *)&v215, obj2_9);
-				starObj_9 = Commands2_13->Get_A_Star((Vector3 *)&v215);
-				Commands2_13->Join_Conversation(starObj_9, fieldB0, 0, 0, 0);
-				Commands->Join_Conversation(0, this->field_B0, 0, 1, 1);
+				// You're not going to hurt me?
+				// Nope, but Nod will if you don't get on the chopper.
+				// My friends need a ride, AT-7. Pick 'em up.
+				// This is Air Transport Seven, we're evacuating your area. Stand by.
+				this->field_B0 = Commands->Create_Conversation("M01_Civ03_Conversation", 100, 1000.0f, true);
+				Commands->Join_Conversation(barnMalePrisonerPierreObj, this->field_B0, true, true, true);
+
+				Vector3 pos = Commands->Get_Position(obj);
+				GameObject *starObj = Commands->Get_A_Star(pos);
+
+				Commands->Join_Conversation(starObj, this->field_B0, false, false, false);
+				Commands->Join_Conversation(NULL, this->field_B0, false, true, true);
 				Commands->Start_Conversation(this->field_B0, this->field_B0);
 				Commands->Monitor_Conversation(obj, this->field_B0);
 			}
-			return;
-		case 227:
-			if (++this->field_D0 <= 3)
-				return;
-			customDelay = 0.0;
-			customParam = 114;
-			goto LABEL_399;
-		case 198:
+		}
+		else if (param == 227)
+		{
+			if (++this->field_D0 > 3)
+			{
+				Commands->Send_Custom_Event(obj, obj, 0, 114, 0.0f);
+			}
+		}
+		else if (param == 198)
+		{
 			Commands->Debug_Message("***************************Starting the GDI base encounter\n");
-			if (this->field_3D == 1)
-				this->field_3D = 0;
-			return;
-		case 26:
-			if (sender == Commands->Find_Object(153909))// nodHonBuildingObj
+			if (this->field_3D)
 			{
-				commUpstairsGuardObj = Commands->Find_Object(101948);// honRepairEngineerObj
+				this->field_3D = false;
 			}
-			else
+		}
+		else if (param == 26)
+		{
+			if (sender == Commands->Find_Object(153909)) // nodHonBuildingObj
 			{
-				if (sender != Commands->Find_Object(153910))// nonCommCenterBuildingObj
-					return;                             // commRepairEngineerObj
-				commUpstairsGuardObj = Commands->Find_Object(101949);
+				GameObject *honRepairEngineerObj = Commands->Find_Object(101948);
+				Commands->Send_Custom_Event(obj, honRepairEngineerObj, 0, 189, 0.0f);
 			}
-			if (commUpstairsGuardObj)
+			else if (sender == Commands->Find_Object(153910)) // nonCommCenterBuildingObj
 			{
-				customDelaya = 0.0;
-				v193 = 189;
-			LABEL_427:
-				v191 = 0;
-			LABEL_428:
-				Commands->Send_Custom_Event(obj, commUpstairsGuardObj, v191, v193, customDelaya);
+				GameObject *commRepairEngineerObj = Commands->Find_Object(101949);
+				Commands->Send_Custom_Event(obj, commRepairEngineerObj, 0, 189, 0.0f);
 			}
-			return;
-		case 214:
-			hologramProjectorObj = Commands->Find_Object(157978);
-			hologramProjectorObj_1 = hologramProjectorObj;
+		}
+		else if (param == 214)
+		{
+			GameObject *hologramProjectorObj = Commands->Find_Object(157978);
 			if (hologramProjectorObj)
 			{
-				kaneHologramObj = Commands->Create_Object_At_Bone(hologramProjectorObj, "Nod_Kane_HologramHead", "KANEBONE");
-				Commands->Attach_To_Object_Bone(kaneHologramObj, hologramProjectorObj_1, "KANEBONE");
-				Commands->Set_Loiters_Allowed(kaneHologramObj, 0);
+				GameObject *kaneHologramObj = Commands->Create_Object_At_Bone(hologramProjectorObj, "Nod_Kane_HologramHead", "KANEBONE");
+				Commands->Attach_To_Object_Bone(kaneHologramObj, hologramProjectorObj, "KANEBONE");
+				Commands->Set_Loiters_Allowed(kaneHologramObj, false);
+
 				this->field_6C = Commands->Get_ID(kaneHologramObj);
-				honHologramNodOfficerObj_1 = Commands->Find_Object(101936);
-				if (honHologramNodOfficerObj_1)
+
+				GameObject *honHologramNodOfficerObj = Commands->Find_Object(101936);
+				if (honHologramNodOfficerObj)
 				{
-					this->field_38 = 1;
-					conversationId_13 = Commands->Create_Conversation("M01_Kane_and_Number02_Conversation_01", 100, 1000.0, 1);
-					this->field_94 = conversationId_13;
-					Commands->Join_Conversation(kaneHologramObj, conversationId_13, 0, 1, 1);
-					Commands->Join_Conversation(honHologramNodOfficerObj_1, this->field_94, 0, 1, 1);
+					this->field_38 = true;
+
+					// Am I to understand GDI has all our test subjects?
+					// Kane, my lord, forgive me.
+					// I will find someone with more faith to handle the situation.
+					// But sir, we-
+					// Then report to interrogation for faith restructuring.
+					// Yes my lord. 
+					this->field_94 = Commands->Create_Conversation("M01_Kane_and_Number02_Conversation_01", 100, 1000.0f, true);
+					Commands->Join_Conversation(kaneHologramObj, this->field_94, false, true, true);
+					Commands->Join_Conversation(honHologramNodOfficerObj, this->field_94, false, true, true);
 					Commands->Start_Conversation(this->field_94, this->field_94);
 				}
 			}
-			return;
-		case 216:
+		}
+		else if (param == 216)
+		{
 			if (!this->field_3A)
 			{
-				field6CObj = Commands->Find_Object(this->field_6C);
+				GameObject *field6CObj = Commands->Find_Object(this->field_6C);
 				if (field6CObj)
 				{
-					this->field_3A = 1;
-					conversationId_14 = Commands->Create_Conversation("M01_Kane_and_Havoc_Conversation", 100, 1000.0, 0);
-					this->field_9C = conversationId_14;
-					Commands->Join_Conversation(field6CObj, conversationId_14, 0, 1, 1);
-					Commands2_14 = Commands;
-					field9C = this->field_9C;
-					obj2_10 = this->base.base.base.vPtr->base.Owner((ScriptClass *)this);
-					Commands2_14->Get_Position((Vector3 *)&v215, obj2_10);
-					starObj_10 = Commands2_14->Get_A_Star((Vector3 *)&v215);
-					Commands2_14->Join_Conversation(starObj_10, field9C, 0, 0, 1);
+					this->field_3A = true;
+
+					// Why do you interrupt me, GDI?  Hmm?
+					// I got a present for ya!
+					this->field_9C = Commands->Create_Conversation("M01_Kane_and_Havoc_Conversation", 100, 1000.0f, false);
+					Commands->Join_Conversation(field6CObj, this->field_9C, false, true, true);
+
+					Vector3 pos = Commands->Get_Position(obj);
+					GameObject *starObj = Commands->Get_A_Star(pos);
+
+					Commands->Join_Conversation(starObj, this->field_9C, false, false, true);
 					Commands->Start_Conversation(this->field_9C, this->field_9C);
 					Commands->Monitor_Conversation(obj, this->field_9C);
 				}
 			}
-			return;
-		case 72:
-			v187 = (const Vector3 *)&v215;
-			v215 = 0;
-			v216 = 0;
-			v217 = 0.0;
-			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", (const Vector3 *)&v215, obj);
-			v215 = 0xC2AF1F3B;
-			v216 = 0x42E47333;
-			v188 = 1.874;
-			goto LABEL_421;
-		case 71:
-			v215 = 0;
-			v216 = 0;
-			v217 = 0.0;
-			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", (const Vector3 *)&v215, obj);
-			v215 = 0x414B3F7D;
-			v216 = 0x42A85375;
-			v217 = 1.898;
-			invisObj = Commands->Create_Object("Invisible_Object", (const Vector3 *)&v215);
-			Commands->Set_Facing(invisObj, -130.0);
-			scriptParams_1 = "X1I_EasyNodChinook01.txt";
-		LABEL_418:
-			scriptName_1 = "Test_Cinematic";
-		LABEL_419:
-			Commands->Attach_Script(invisObj, scriptName_1, scriptParams_1);
-			return;
-		case 73:
-			v187 = (const Vector3 *)&v215;
-			v215 = 0;
-			v216 = 0;
-			v217 = 0.0;
-			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", (const Vector3 *)&v215, obj);
-			v215 = 0xC0FA978D;
-			v216 = 0x4392045A;
-			v188 = 2.665;
-		LABEL_421:
-			v217 = v188;
-			invisObj_1 = Commands->Create_Object("Invisible_Object", v187);
-			Commands->Set_Facing(invisObj_1, 0.0);
-			v205 = "X1I_EasyNodChinook01.txt";
-			goto LABEL_423;
-		case 74:
-			v215 = 0;
-			v216 = 0;
-			v217 = 0.0;
-			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", (const Vector3 *)&v215, obj);
-			v215 = 0xC2B7CBC7;
-			v216 = 0x43D416C9;
-			v217 = 20.761;
-			invisObj_1 = Commands->Create_Object("Invisible_Object", (const Vector3 *)&v215);
-			Commands->Set_Facing(invisObj_1, 0.0);
-			v205 = "X1I_EasyNodChinook.txt";
-		LABEL_423:
-			Commands->Attach_Script(invisObj_1, "Test_Cinematic", v205);
-			return;
-		case 75:
-			commUpstairsGuardObj = Commands->Find_Object(103420);// M01BarnAreaEvacMonitorJDGObj
-			if (!commUpstairsGuardObj)
-				return;
-			customDelaya = 0.0;
-			v193 = 75;
-			goto LABEL_427;
-		default:
-			return;
+		}
+		else if (param == 72)
+		{
+			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", Vector3(0.0f, 0.0f, 0.0f), obj);
+
+			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-87.561f, 114.225f, 1.874f));
+			Commands->Set_Facing(invisObj, 0.0f);
+			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1I_EasyNodChinook01.txt");
+		}
+		else if (param == 71)
+		{
+			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", Vector3(0.0f, 0.0f, 0.0f), obj);
+
+			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(12.703f, 84.163f, 1.898f));
+			Commands->Set_Facing(invisObj, -130.0f);
+			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1I_EasyNodChinook01.txt");
+		}
+		else if (param == 73)
+		{
+			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", Vector3(0.0f, 0.0f, 0.0f), obj);
+
+			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-7.831f, 292.034f, 2.665f));
+			Commands->Set_Facing(invisObj, 0.0f);
+			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1I_EasyNodChinook01.txt");
+		}
+		else if (param == 74)
+		{
+			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", Vector3(0.0f, 0.0f, 0.0f), obj);
+
+			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-91.898f, 424.178f, 20.761f));
+			Commands->Set_Facing(invisObj, 0.0f);
+			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1I_EasyNodChinook.txt");
+		}
+		else if (param == 75)
+		{
+			GameObject *M01BarnAreaEvacMonitorJDGObj = Commands->Find_Object(103420); 
+			if (M01BarnAreaEvacMonitorJDGObj)
+			{
+				Commands->Send_Custom_Event(obj, M01BarnAreaEvacMonitorJDGObj, 0, 75, 0.0f);
+			}
 		}
 	}
-	*/
 }
 
 void M01_Mission_Controller_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED)
+	{
+		if (action_id == this->field_84)
+		{
+			Commands->Send_Custom_Event(obj, obj, 0, 75, 0.0f);
+		}
+		else if (action_id == this->field_88)
+		{
+			Commands->Send_Custom_Event(obj, obj, 0, 75, 0.0f);
 
+			GameObject *barnFemalePrisonerObj = Commands->Find_Object(101442);
+			if (barnFemalePrisonerObj)
+			{
+				if (!this->field_34)
+				{
+					Commands->Send_Custom_Event(obj, barnFemalePrisonerObj, 0, 31, 0.0f);
+				}
+			}
+		}
+		else if (action_id == this->field_B0)
+		{
+			Commands->Send_Custom_Event(obj, obj, 0, 75, 0.0f);
+		}
+		else if (action_id == this->field_C0)
+		{
+			Commands->Send_Custom_Event(obj, obj, 0, 92, 0.0f);
+		}
+		else if (action_id == this->field_94)
+		{
+			this->field_38 = false;
+
+			GameObject *nonExistingObj = Commands->Find_Object(101937);
+			if (nonExistingObj)
+			{
+				Commands->Send_Custom_Event(obj, nonExistingObj, 0, 17, 0.0f);
+			}
+		}
+		else if (action_id == this->field_98)
+		{
+			this->field_39 = false;
+		}
+		else if (action_id == this->field_9C)
+		{
+			GameObject *field6CObj = Commands->Find_Object(this->field_6C);
+			if (field6CObj)
+			{
+				Commands->Destroy_Object(field6CObj);
+			}
+		}
+		else if (action_id == this->field_BC)
+		{
+			// Open Detention Center
+			// Access the Detention Center gate by accessing the nearby control panel.
+			Commands->Add_Objective(113, OBJECTIVE_TYPE_PRIMARY, OBJECTIVE_STATUS_PENDING, 6219, NULL, 6042);
+			Commands->Set_Objective_Radar_Blip(113, Vector3(-310.727f, 571.824f, 28.484f));
+			Commands->Set_Objective_HUD_Info_Position(113, 95.0f, "POG_M01_1_03.tga", 7598, Vector3(-310.727f, 571.824f, 28.484f)); // Open
+			Commands->Set_HUD_Help_Text(6219, Vector3(0.196f, 0.882f, 0.196f)); // Open Detention Center
+		}
+		else if (action_id == this->field_B8)
+		{
+			Commands->Create_2D_Sound("00-N048E");
+
+			Commands->Send_Custom_Event(obj, obj, 0, 5, 3.0f);
+		}
+		else if (action_id == this->field_DC)
+		{
+			this->field_E0 = false;
+		}
+		else if (action_id == this->field_E4)
+		{
+			this->field_E8 = false;
+		}
+		else if (action_id == this->field_EC)
+		{
+			this->field_F0 = false;
+		}
+	}
 }
 
 ScriptRegistrant<M01_Mission_Controller_JDG> M01_Mission_Controller_JDGRegistrant("M01_Mission_Controller_JDG", "");
