@@ -226,7 +226,6 @@ M01_Flamethrower_Point_Guard_JDG
 M01_Player_Is_Crossing_Bridge_Via_Church_Zone 
 M01_Player_Is_Crossing_Bridge_Via_Cave_Zone 
 M01_Player_Is_Crossing_Bridge_Zone 
-M01_Tiberium_Cave_Helicopter_JDG 
 M01_Announce_Barn_Objective_Zone 
 M01_Announce_Hand_of_Nod_Zone 
 M01_Church_Balcony_MiniGunner_JDG 

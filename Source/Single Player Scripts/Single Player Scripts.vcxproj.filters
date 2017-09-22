@@ -534,6 +534,9 @@
     <ClCompile Include="M01_KeyCard01_Script_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_Tiberium_Cave_Helicopter_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -993,6 +996,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_KeyCard01_Script_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_Tiberium_Cave_Helicopter_JDG.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
