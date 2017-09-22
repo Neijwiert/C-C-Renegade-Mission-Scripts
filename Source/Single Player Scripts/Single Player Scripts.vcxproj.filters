@@ -564,6 +564,9 @@
     <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -1053,6 +1056,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
