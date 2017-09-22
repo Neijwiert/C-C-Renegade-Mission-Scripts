@@ -57,7 +57,7 @@ void M01_HON_Easy_Spawned_Guy_01_JDG::Damaged(GameObject *obj, GameObject *damag
 	Vector3 pos = Commands->Get_Position(obj);
 	GameObject *starObj = Commands->Get_A_Star(pos);
 
-	if (damager == starObj)
+	if (damager && damager == starObj)
 	{
 		GameObject *M01MissionControllerObj = Commands->Find_Object(100376);
 		Commands->Send_Custom_Event(obj, M01MissionControllerObj, 0, 189, 0.0f);
@@ -73,9 +73,9 @@ void M01_HON_Easy_Spawned_Guy_01_JDG::Damaged(GameObject *obj, GameObject *damag
 	}
 }
 
+// TODO
 void M01_HON_Easy_Spawned_Guy_01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
-	// Received by ourselves when damaged by the star or 30 seconds after this block
 	if (param == 65)
 	{
 		if (obj)
