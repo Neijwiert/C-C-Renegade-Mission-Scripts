@@ -20,6 +20,7 @@
 #include "M01_Evac_TroopBone_JDG.h"
 
 // When M01_GDIBaseCommander_EvacController_JDG receives custom type 0 with param 27
+// When M01_GDIBase_POWEncounter02_Controller_JDG receives custom type any with param 10
 void M01_Evac_TroopBone_JDG::Animation_Complete(GameObject *obj, const char *animation_name)
 {
 	if (!_stricmp(animation_name, "XG_EV5_troopBN.XG_EV5_troopBN"))

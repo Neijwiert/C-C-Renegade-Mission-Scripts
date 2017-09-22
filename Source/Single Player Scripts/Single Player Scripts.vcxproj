@@ -252,6 +252,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_GDIBaseCommander_EvacController_JDG.cpp" />
     <ClCompile Include="M01_GDIBase_EvacMonitor_JDG.cpp" />
     <ClCompile Include="M01_GDIBase_FirstChinookMinigunnerGuy_JDG.cpp" />
+    <ClCompile Include="M01_GDIBase_POWEncounter02_Controller_JDG.cpp" />
     <ClCompile Include="M01_GDIBase_POW_Conversation_Controller_JDG.cpp" />
     <ClCompile Include="M01_GDI_Base_Artillery_Controller_JDG.cpp" />
     <ClCompile Include="M01_GDI_BeachGuy01_JDG.cpp" />
@@ -431,6 +432,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_GDIBaseCommander_EvacController_JDG.h" />
     <ClInclude Include="M01_GDIBase_EvacMonitor_JDG.h" />
     <ClInclude Include="M01_GDIBase_FirstChinookMinigunnerGuy_JDG.h" />
+    <ClInclude Include="M01_GDIBase_POWEncounter02_Controller_JDG.h" />
     <ClInclude Include="M01_GDIBase_POW_Conversation_Controller_JDG.h" />
     <ClInclude Include="M01_GDI_Base_Artillery_Controller_JDG.h" />
     <ClInclude Include="M01_GDI_BeachGuy01_JDG.h" />
@@ -762,6 +764,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="xg_a03_tank_drop.txt" />
     <Text Include="xg_ap_vs_trn.txt" />
     <Text Include="xg_m01_gdibasecommander_evacanim.txt" />
+    <Text Include="xg_m01_gdibasepow_evacanim.txt" />
     <Text Include="xg_rope_evac_f.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
