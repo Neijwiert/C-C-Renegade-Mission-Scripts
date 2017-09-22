@@ -118,6 +118,7 @@ M01_C4_TutorialScript_JDG
 M01_SniperRifle_01_JDG
 M01_SniperRifle_01_Target_JDG
 M01_HON_FrontDoor_Evacuator_JDG
+M01_CommCenter_Evacuator_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
