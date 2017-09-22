@@ -20,6 +20,7 @@ M01_Mission_Controller_JDG
 M01_Whack_A_Mole_Minigunner_JDG
 M01_HON_Easy_Spawned_Guy_01_JDG
 M01_HON_Easy_Spawned_Guy_02_JDG
+M01_HON_Easy_Spawned_Guy_03_JDG
 
 // Below are not present in the solution yet
 M01_BackPath_EntranceZone_JDG
@@ -220,7 +221,6 @@ M01_Right_Interrogation_Room_Enter_Zone_JDG
 M01_Left_Interrogation_Room_Enter_Zone_JDG 
 M01_Whack_A_Mole_Exit_Zone_JDG 
 M01_Whack_A_Mole_Enter_Zone_JDG 
-M01_HON_Easy_Spawned_Guy_03_JDG 
 M01_MiniGunner_Point_Guard_JDG 
 M01_Flamethrower_Point_Guard_JDG 
 M01_Player_Is_Crossing_Bridge_Via_Church_Zone 

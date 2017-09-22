@@ -251,6 +251,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_HarvesterScript_New_JDG.cpp" />
     <ClCompile Include="M01_HON_Easy_Spawned_Guy_01_JDG.cpp" />
     <ClCompile Include="M01_HON_Easy_Spawned_Guy_02_JDG.cpp" />
+    <ClCompile Include="M01_HON_Easy_Spawned_Guy_03_JDG.cpp" />
     <ClCompile Include="M01_HON_FrontDoor_Evacuator_JDG.cpp" />
     <ClCompile Include="M01_KeyCard01_Script_JDG.cpp" />
     <ClCompile Include="M01_Mission_Controller_JDG.cpp" />
@@ -415,6 +416,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_HarvesterScript_New_JDG.h" />
     <ClInclude Include="M01_HON_Easy_Spawned_Guy_01_JDG.h" />
     <ClInclude Include="M01_HON_Easy_Spawned_Guy_02_JDG.h" />
+    <ClInclude Include="M01_HON_Easy_Spawned_Guy_03_JDG.h" />
     <ClInclude Include="M01_HON_FrontDoor_Evacuator_JDG.h" />
     <ClInclude Include="M01_KeyCard01_Script_JDG.h" />
     <ClInclude Include="M01_Mission_Controller_JDG.h" />
