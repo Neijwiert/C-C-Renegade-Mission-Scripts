@@ -1,0 +1,260 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+
+****************************  Finale  LV01  *****************************************
+; ****************************** Roottransform Bone
+
+-0	Create_Object,		20, "o_crate_sm"
+
+
+
+; ****************************** camera
+
+-0	Create_Object,		0, "X1Z_CAMERA",		0, 0, 0, 0, 
+-0	Play_Animation,		0, "X1Z_CAMERA.X1Z_CAMERA", 0
+-0	Control_Camera,		0
+-618	Control_Camera,		-1
+-618	destroy_object,		0
+
+:******************************* Cinematic Screen Effects  *****************
+
+-0	Enable_Letterbox,	1, 1
+-0	Set_Screen_Fade_Color,		0,0,0,0
+-0	Set_Screen_Fade_Opacity,	1,0
+-0	Set_Screen_Fade_Opacity,	0,2
+-588	Set_Screen_Fade_Color,		0,0,0,0
+-588	Set_Screen_Fade_Opacity,	1,1
+-618	Set_Screen_Fade_Opacity,	0,0
+-588	Enable_Letterbox,	0, 1
+
+
+; ****************************** Trajectory_01
+
+-0	Create_Object,		2, "X1Z_Traject_01",		0, 0, 0, 0
+-0	Play_Animation,		2, "X1Z_Traject_01.X1Z_Traject_01", 1
+-170	destroy_object,		2
+
+; ****************************** Trans_Heli_01
+
+
+-0	Create_Real_Object,	1, "GDI_Transport_Helicopter_Flyover", 20, "ROOTTRANSFORM"
+-0	Play_Animation,		1, "V_GDI_Trnspt.V_GDI_Trnspt", 1
+-0	Attach_to_Bone,		1,2, "BN_Trnspt"
+-170	destroy_object,		1
+
+
+
+
+
+; ****************************** Trajectory_02
+
+-0	Create_Object,		4, "X1Z_Traject_02",		0, 0, 0, 0
+-0	Play_Animation,		4, "X1Z_Traject_02.X1Z_Traject_02", 1
+-170	destroy_object,		4
+
+; ****************************** Trans_Heli_02
+
+
+-0	Create_Real_Object,	3, "GDI_Transport_Helicopter_Flyover", 20, "ROOTTRANSFORM"
+-0	Play_Animation,		3, "V_GDI_Trnspt.V_GDI_Trnspt", 1
+-0	Attach_to_Bone,		3,4, "BN_Trnspt"
+-170	destroy_object,		3
+
+
+
+
+
+
+; ****************************** Trajectory_03
+
+-0	Create_Object,		6, "X1Z_Traject_03",		0, 0, 0, 0
+-0	Play_Animation,		6, "X1Z_Traject_03.X1Z_Traject_03", 1
+-170	destroy_object,		6
+
+; ****************************** Trans_Heli_03
+
+
+-0	Create_Real_Object,	5, "GDI_Transport_Helicopter_Flyover", 20, "ROOTTRANSFORM"
+-0	Play_Animation,		5, "V_GDI_Trnspt.V_GDI_Trnspt", 1
+-0	Attach_to_Bone,		5,6, "BN_Trnspt"
+-170	destroy_object,		5
+
+
+
+
+
+; ****************************** Civilian_Female_01
+
+
+-0	Create_Real_Object,	7, "Civ_Female_v0a", 20, "ROOTTRANSFORM"
+-0  	Attach_Script,          7, "M00_Disable_Loiter_DAY"
+-0	Play_Animation,		7, "s_B_human.H_B_X1Z_CivF01", 0
+-174	destroy_object,		7
+
+
+
+
+
+
+; ****************************** Civilian_Male1_00
+
+
+-0	Create_Real_Object,	19, "Civ_Male_v2a", 20, "ROOTTRANSFORM"
+-0  	Attach_Script,          19, "M00_Disable_Loiter_DAY"
+-0	Play_Animation,		19, "s_A_human.H_A_X1Z_Civ100", 0
+-174	destroy_object,		19
+
+
+; ****************************** Civilian_Male1_01
+
+
+-159	Create_Real_Object,	8, "Civ_Male_v2a", 20, "ROOTTRANSFORM"
+-0  	Attach_Script,          8, "M00_Disable_Loiter_DAY"
+-159	Play_Animation,		8, "s_A_human.H_A_X1Z_Civ101", 0
+-255	destroy_object,		8
+
+
+
+
+
+
+
+
+
+; ****************************** Civilian_Male2_01
+
+
+-0	Create_Real_Object,	9, "Civ_Male_v1a", 20, "ROOTTRANSFORM"
+-0  	Attach_Script,          9, "M00_Disable_Loiter_DAY"
+-0	Play_Animation,		9, "s_A_human.H_A_X1Z_Civ201", 0
+-174	destroy_object,		9
+
+; ****************************** Civilian_Male2_02
+
+
+-165	Create_Real_Object,	16, "Civ_Male_v1a", 20, "ROOTTRANSFORM"
+-165  	Attach_Script,          16, "M00_Disable_Loiter_DAY"
+-165	Play_Animation,		16, "s_A_human.H_A_X1Z_Civ202", 0
+-315	destroy_object,		16
+
+
+
+
+
+
+; ****************************** gdi Prisoner1_01
+
+
+-165	Create_Real_Object,	10, "GDI_Prisoner_v1a", 20, "ROOTTRANSFORM"
+-165  	Attach_Script,          10, "M00_Disable_Loiter_DAY"
+-165	Play_Animation,		10, "s_A_human.H_A_X1Z_GDI101", 0
+-315	destroy_object,		10
+
+
+
+
+
+
+; ****************************** gdi Prisoner2_01
+
+
+-0	Create_Real_Object,	11, "GDI_Prisoner_v0a", 20, "ROOTTRANSFORM"
+-0  	Attach_Script,          11, "M00_Disable_Loiter_DAY"
+-0	Play_Animation,		11, "s_A_human.H_A_X1Z_GDI201", 0
+-174	destroy_object,		11
+
+
+
+
+
+
+
+
+
+; ****************************** gdi Prisoner3_01
+
+
+-0	Create_Real_Object,	12, "GDI_Prisoner_v2a", 20, "ROOTTRANSFORM"
+-0  	Attach_Script,          12, "M00_Disable_Loiter_DAY"
+-0	Play_Animation,		12, "s_A_human.H_A_X1Z_GDI301", 0
+-180	destroy_object,		12
+
+
+; ****************************** gdi Prisoner3_02
+
+
+-246	Create_Real_Object,	12, "GDI_Prisoner_v2a", 20, "ROOTTRANSFORM"
+-246  	Attach_Script,          12, "M00_Disable_Loiter_DAY"
+-246	Play_Animation,		12, "s_A_human.H_A_X1Z_GDI302", 0
+-315	destroy_object,		12
+
+
+
+
+
+
+
+; ****************************** havoc_00
+
+
+-0	Create_Real_Object,	13, "GDI_MiniGunner_3Boss", 20, "ROOTTRANSFORM"
+-0  	Attach_Script,          13, "M00_Disable_Loiter_DAY"
+-0	Play_Animation,		13, "s_A_human.H_A_X1Z_Havc00", 0
+-180	destroy_object,		13
+
+
+
+; ****************************** havoc_01
+
+
+-159	Create_Real_Object,	14, "GDI_MiniGunner_3Boss", 20, "ROOTTRANSFORM"
+-195	Play_audio,		14,"M00NSMG_KILL0053I1GBMG_SND",0			, "c head"
+-475	Play_audio,		14,"M03DSGN_DSGN0039RIGBMG_SND",0			, "c head"
+-159  	Attach_Script,          14, "M00_Disable_Loiter_DAY"
+-159	Play_Animation,		14, "s_A_human.H_A_X1Z_Havc01", 0
+-618	destroy_object,		14
+-618	Send_Custom,		100376, 0, 0, 0
+
+; ****************************** Trajectory_04
+
+-165	Create_Object,		15, "X1Z_Traject_04",		0, 0, 0, 0
+-165	Play_Animation,		15, "X1Z_Traject_04.X1Z_Traject_04", 0
+-618	destroy_object,		15
+
+; ****************************** Trans_Heli_04
+
+-165	Create_Real_Object,	17, "GDI_Transport_Helicopter_Flyover", 20, "ROOTTRANSFORM"
+-165	Play_Animation,		17, "V_GDI_Trnspt.X1Z_Trnspt", 0
+-165	Attach_to_Bone,		17,15, "BN_Trnspt"
+-618	destroy_object,		17
+
+; ****************************** New MP3 Audio
+
+-0 	Play_audio,		"01_A"

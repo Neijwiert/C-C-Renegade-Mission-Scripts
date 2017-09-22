@@ -1302,6 +1302,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 
 			Commands->Mission_Complete(true);
 		}
+
+		// Received after 618 cinematic frames in x1z_finale.txt
 		else if (param == 0)
 		{
 			Commands->Mission_Complete(true);
