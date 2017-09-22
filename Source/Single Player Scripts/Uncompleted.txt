@@ -22,6 +22,7 @@ M01_HON_Easy_Spawned_Guy_01_JDG
 M01_HON_Easy_Spawned_Guy_02_JDG
 M01_HON_Easy_Spawned_Guy_03_JDG
 M01_COMM_Chinook_Spawned_Soldier_GDI
+M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG
 
 // Below are not present in the solution yet
 M01_BackPath_EntranceZone_JDG
@@ -43,7 +44,6 @@ M01_Havoc_Out_WarroomZone_JDG
 M01_Havoc_In_WarroomZone_JDG 
 M01_GiveMCTSpeech_Zone_JDG 
 M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG 
-M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG 
 M01_HON_Escorts_Warroom_MCT_ZoneController_JDG 
 M01_TurnOff_TankReminder_Zone_JDG 
 M01_GuardTower02_Sniper_Target02_JDG 
