@@ -25,6 +25,7 @@ M01_COMM_Chinook_Spawned_Soldier_GDI
 M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG
 M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG
 M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG
+M01_HON_Chinook_Spawned_Soldier_04_GDI_JDG
 
 // Below are not present in the solution yet
 M01_BackPath_EntranceZone_JDG
@@ -154,7 +155,6 @@ M01_Loveshack_Nun_Conversation_Zone_JDG
 M01_Priest_Conversation_Zone_JDG 
 M01_BuggyScript_New_JDG 
 M01_BuggyNew_Controller_JDG 
-M01_HON_Chinook_Spawned_Soldier_04_GDI_JDG 
 M01_HON_Engineer02_JDG 
 M01_HON_Escorts_Warroom_MCT_Protector02_JDG 
 M01_HON_Escorts_Warroom_MCT_Protector01_JDG 
