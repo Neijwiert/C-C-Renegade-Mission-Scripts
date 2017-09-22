@@ -81,7 +81,7 @@ void M01_Base_GDI_Minigunner_JDG::Damaged(GameObject *obj, GameObject *damager, 
 			Commands->Set_Health(obj, 10.0);
 		}
 	}
-	else
+	else if(damager)
 	{
 		if (damager == gdiGrenadierObj)
 		{

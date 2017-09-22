@@ -63,7 +63,7 @@ void M01_Base_GDI_Grenadier_JDG::Damaged(GameObject *obj, GameObject *damager, f
 			Commands->Set_Health(obj, 10.0f);
 		}
 	}
-	else if (obj)
+	else if (damager)
 	{
 		if (damager == obj)
 		{
