@@ -21,6 +21,7 @@ M01_Whack_A_Mole_Minigunner_JDG
 M01_HON_Easy_Spawned_Guy_01_JDG
 M01_HON_Easy_Spawned_Guy_02_JDG
 M01_HON_Easy_Spawned_Guy_03_JDG
+M01_COMM_Chinook_Spawned_Soldier_GDI
 
 // Below are not present in the solution yet
 M01_BackPath_EntranceZone_JDG
@@ -142,7 +143,6 @@ M01_BackPath_NodGuy_JDG
 M01_Propaganda_Sounds_Controller_JDG 
 M01_MovieProjector_JDG 
 M01_ChurchArea_EvacMonitor_JDG 
-M01_COMM_Chinook_Spawned_Soldier_GDI 
 M01_CHURCH_Chinook_Spawned_Soldier02_GDI 
 M01_CHURCH_Chinook_Spawned_Soldier01_GDI 
 M01_GDI_Escort_Conversation_Controller_GDI 
