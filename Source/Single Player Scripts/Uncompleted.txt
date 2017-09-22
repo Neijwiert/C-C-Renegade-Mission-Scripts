@@ -244,7 +244,6 @@ M01_HON_Dorm_ChemGuy_JDG
 M01_HON_Dorm_FlameGuy_JDG 
 M01_HON_Dorm_Crapper_JDG 
 M01_HON_BackDoor_Evacuator_JDG 
-M01_HON_FrontDoor_Evacuator_JDG 
 M01_CommCenter_Evacuator_JDG 
 M01_HandOfNod_SAMSite_Script 
 M01_COMM_Commander_Guy 

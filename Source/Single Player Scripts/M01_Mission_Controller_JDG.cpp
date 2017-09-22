@@ -1329,35 +1329,32 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 
 				if (this->field_60 <= 6)
 				{
-					if (this->field_2E || this->field_FC == 5)
+					if (field_FC != 5)
 					{
-						if (this->field_2F || this->field_FC == 5)
+						if (!this->field_2E)
 						{
-							if (!this->field_30 && this->field_FC != 5)
-							{
-								GameObject *nodHonFlamethrowerObj = Commands->Create_Object("Nod_FlameThrower_0", Vector3(-217.6f, 533.6f, 4.0f));
-								Commands->Attach_Script(nodHonFlamethrowerObj, "M01_HON_Easy_Spawned_Guy_03_JDG", "");
+							GameObject *nodHonSpawnedSoldier1Obj = Commands->Create_Object("Nod_MiniGunner_0", Vector3(-212.6f, 541.1f, 4.0f));
+							Commands->Attach_Script(nodHonSpawnedSoldier1Obj, "M01_HON_Easy_Spawned_Guy_01_JDG", "");
 
-								this->field_54 = Commands->Get_ID(nodHonFlamethrowerObj);
-								this->field_30 = true;
-							}
+							this->field_4C = Commands->Get_ID(nodHonSpawnedSoldier1Obj);
+							this->field_2E = true;
 						}
-						else
+						else if (!this->field_2F)
 						{
-							GameObject *nodHonMinigunner1Obj = Commands->Create_Object("Nod_MiniGunner_0", Vector3(-217.2f, 540.2f, 4.0f));
-							Commands->Attach_Script(nodHonMinigunner1Obj, "M01_HON_Easy_Spawned_Guy_02_JDG", "");
+							GameObject *nodHonSpawnedSoldier2Obj = Commands->Create_Object("Nod_MiniGunner_0", Vector3(-217.2f, 540.2f, 4.0f));
+							Commands->Attach_Script(nodHonSpawnedSoldier2Obj, "M01_HON_Easy_Spawned_Guy_02_JDG", "");
 
-							this->field_50 = Commands->Get_ID(nodHonMinigunner1Obj);
+							this->field_50 = Commands->Get_ID(nodHonSpawnedSoldier2Obj);
 							this->field_2F = true;
 						}
-					}
-					else
-					{
-						GameObject *nodHonMinigunner2Obj = Commands->Create_Object("Nod_MiniGunner_0", Vector3(-212.6f, 541.1f, 4.0f));
-						Commands->Attach_Script(nodHonMinigunner2Obj, "M01_HON_Easy_Spawned_Guy_01_JDG", "");
+						else if (!this->field_30)
+						{
+							GameObject *nodHonSpawnedSoldier3Obj = Commands->Create_Object("Nod_FlameThrower_0", Vector3(-217.6f, 533.6f, 4.0f));
+							Commands->Attach_Script(nodHonSpawnedSoldier3Obj, "M01_HON_Easy_Spawned_Guy_03_JDG", "");
 
-						this->field_4C = Commands->Get_ID(nodHonMinigunner2Obj);
-						this->field_2E = true;
+							this->field_54 = Commands->Get_ID(nodHonSpawnedSoldier3Obj);
+							this->field_30 = true;
+						}
 					}
 
 					this->field_5C++;
