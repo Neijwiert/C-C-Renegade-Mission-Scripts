@@ -28,6 +28,7 @@
 // After 1 cinematic frame in x1a_solo_gdi_chinook_01/02/03/04/05/06/07/08/09/10/11/12/13/14/15/16/17/18/19/20/21.txt
 // After 1 cinematic frame in x1a_apache_orca_chase_01/02/03/04.txt
 // After 1 cinematic frame in x1d_gtower_flaredrop.txt
+// After 1 cinematic frame in X1D_GDIPOW_FlareDrop.txt
 void M01_Flyover_Generic_Script_JDG::Created(GameObject *obj)
 {
 	Commands->Disable_Physical_Collisions(obj);

@@ -225,6 +225,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Base_GDI_Grenadier_JDG.cpp" />
     <ClCompile Include="M01_Base_GDI_Minigunner_JDG.cpp" />
     <ClCompile Include="M01_Base_Nod_Minigunner_JDG.cpp" />
+    <ClCompile Include="M01_Base_POW01_JDG.cpp" />
     <ClCompile Include="M01_Base_StartZone_JDG.cpp" />
     <ClCompile Include="M01_Beach_Datadisc_JDG.cpp" />
     <ClCompile Include="M01_C130_Dropoff_Dude_JDG.cpp" />
@@ -409,6 +410,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Base_GDI_Grenadier_JDG.h" />
     <ClInclude Include="M01_Base_GDI_Minigunner_JDG.h" />
     <ClInclude Include="M01_Base_Nod_Minigunner_JDG.h" />
+    <ClInclude Include="M01_Base_POW01_JDG.h" />
     <ClInclude Include="M01_Base_StartZone_JDG.h" />
     <ClInclude Include="M01_Beach_Datadisc_JDG.h" />
     <ClInclude Include="M01_C130_Dropoff_Dude_JDG.h" />
@@ -716,6 +718,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x1a_solo_orca_21.txt" />
     <Text Include="x1c_intro.txt" />
     <Text Include="x1d_gdipowerupdrop.txt" />
+    <Text Include="x1d_gdipow_flaredrop.txt" />
     <Text Include="x1d_gtower_flaredrop.txt" />
     <Text Include="x1h_hover_troop.txt" />
     <Text Include="x1i_easynodchinook.txt" />
