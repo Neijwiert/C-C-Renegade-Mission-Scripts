@@ -223,6 +223,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Announce_First_ObjectiveZone_JDG.cpp" />
     <ClCompile Include="M01_BackPath_EntranceZone_JDG.cpp" />
     <ClCompile Include="M01_BackPath_NodGuy_JDG.cpp" />
+    <ClCompile Include="M01_BarnArea_NOD_Commander_Trigger_Zone02_JDG.cpp" />
     <ClCompile Include="M01_Barn_Truck_JDG.cpp" />
     <ClCompile Include="M01_BasalBuilding_Population_JDG.cpp" />
     <ClCompile Include="M01_Base_GDI_Fodder_JDG.cpp" />
@@ -422,6 +423,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Announce_First_ObjectiveZone_JDG.h" />
     <ClInclude Include="M01_BackPath_EntranceZone_JDG.h" />
     <ClInclude Include="M01_BackPath_NodGuy_JDG.h" />
+    <ClInclude Include="M01_BarnArea_NOD_Commander_Trigger_Zone02_JDG.h" />
     <ClInclude Include="M01_Barn_Truck_JDG.h" />
     <ClInclude Include="M01_BasalBuilding_Population_JDG.h" />
     <ClInclude Include="M01_Base_GDI_Fodder_JDG.h" />
