@@ -47,7 +47,6 @@ M01_Medlab_Datadisc_JDG
 M01_Priest_Datadisc_JDG 
 M01_TibCave02_Datadisc_JDG 
 M01_Shed_Datadisc_JDG 
-M01_TibCave01_Datadisc_JDG 
 M01_FodderHovercraft_Script_JDG 
 M01_Hovercraft_Explosion_Controller_JDG 
 M01_TurretBeach_FodderHovercraft_Controller_JDG 

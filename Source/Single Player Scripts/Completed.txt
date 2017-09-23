@@ -133,6 +133,7 @@ M01_TriggerZone_GDIBase_BaseCommander_JDG
 M01_Duncan_Assailer_JDG
 M01_MiniGunner_Point_Guard_JDG
 M01_BackPath_NodGuy_JDG
+M01_TibCave01_Datadisc_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
