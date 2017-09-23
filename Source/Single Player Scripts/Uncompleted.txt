@@ -40,7 +40,6 @@ M01_Base_POW01_JDG
 M01_Base_POW02_JDG
 
 // Below are not present in the solution yet
-M01_BackPath_EntranceZone_JDG
 M01_Duncan_InHere_ConvController_JDG
 M01_Duncan_Assailer_JDG
 M01_Medlab_Datadisc_JDG 
