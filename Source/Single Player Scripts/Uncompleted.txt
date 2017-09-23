@@ -45,6 +45,7 @@ M01_Airstrike_Controller_JDG
 M01_Deco_LightTanks_JDG
 M01_GuardTower02_Sniper_TowerZone_JDG
 M01_GuardTower02_Sniper_Target01_JDG
+M01_GuardTower02_Sniper_Target02_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -63,7 +64,6 @@ M01_Havoc_In_WarroomZone_JDG
 M01_GiveMCTSpeech_Zone_JDG 
 M01_HON_Escorts_Warroom_MCT_ZoneController_JDG 
 M01_TurnOff_TankReminder_Zone_JDG 
-M01_GuardTower02_Sniper_Target02_JDG 
 M01_GDI_GuardTower_02_Enter_Zone_JDG 
 M01_MediumTank_ReminderZone_JDG 
 M01_Initial_Gunboat_Script_JDG 
