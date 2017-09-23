@@ -19,6 +19,7 @@
 #include "General.h"
 #include "M01_GuardTower02_NewSniperTarget_JDG.h"
 
+// When M01_GuardTower02_Sniper_TowerZone_JDG receives custom type 0 with param 22
 void M01_GuardTower02_NewSniperTarget_JDG::Created(GameObject *obj)
 {
 	Commands->Enable_Hibernation(obj, false);

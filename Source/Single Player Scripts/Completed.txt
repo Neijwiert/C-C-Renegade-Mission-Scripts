@@ -138,6 +138,7 @@ M01_BarnArea_NOD_Commander_Trigger_Zone02_JDG
 M01_RealLightTank_TriggerZone_JDG
 M01_Announce_TankAirstrikeZone_JDG
 M01_GuardTower02_NewSniperTarget_JDG
+M01_GDI_GuardTower02_SniperRifle_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
