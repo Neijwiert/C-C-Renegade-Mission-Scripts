@@ -63,7 +63,6 @@ M01_GiveMCTSpeech_Zone_JDG
 M01_HON_Escorts_Warroom_MCT_ZoneController_JDG 
 M01_TurnOff_TankReminder_Zone_JDG 
 M01_GuardTower02_Sniper_Target02_JDG 
-M01_GuardTower02_NewSniperTarget_JDG 
 M01_GuardTower02_Sniper_Target01_JDG 
 M01_GDI_GuardTower02_SniperRifle_JDG 
 M01_GDI_GuardTower_02_Enter_Zone_JDG 
