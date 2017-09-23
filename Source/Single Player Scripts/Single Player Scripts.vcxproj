@@ -251,6 +251,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_GDIBaseCommander_Air_Evac_Waypath_JDG.cpp" />
     <ClCompile Include="M01_GDIBaseCommander_EvacController_JDG.cpp" />
     <ClCompile Include="M01_GDIBasePOW_Air_Evac_Chopper_JDG.cpp" />
+    <ClCompile Include="M01_GDIBasePOW_Air_Evac_Rope_JDG.cpp" />
     <ClCompile Include="M01_GDIBasePOW_Air_Evac_Waypath_JDG.cpp" />
     <ClCompile Include="M01_GDIBase_EvacMonitor_JDG.cpp" />
     <ClCompile Include="M01_GDIBase_FirstChinookMinigunnerGuy_JDG.cpp" />
@@ -433,6 +434,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_GDIBaseCommander_Air_Evac_Waypath_JDG.h" />
     <ClInclude Include="M01_GDIBaseCommander_EvacController_JDG.h" />
     <ClInclude Include="M01_GDIBasePOW_Air_Evac_Chopper_JDG.h" />
+    <ClInclude Include="M01_GDIBasePOW_Air_Evac_Rope_JDG.h" />
     <ClInclude Include="M01_GDIBasePOW_Air_Evac_Waypath_JDG.h" />
     <ClInclude Include="M01_GDIBase_EvacMonitor_JDG.h" />
     <ClInclude Include="M01_GDIBase_FirstChinookMinigunnerGuy_JDG.h" />
