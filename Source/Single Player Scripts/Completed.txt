@@ -125,6 +125,7 @@ M01_Tiberium_Cave_Helicopter_JDG
 M01_Nod_Chinook_Reinforcement_Guy_JDG
 M01_Hunt_The_Player_JDG
 M01_Evac_TroopBone_JDG
+M01_POW_Nod_Minigunner01_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
