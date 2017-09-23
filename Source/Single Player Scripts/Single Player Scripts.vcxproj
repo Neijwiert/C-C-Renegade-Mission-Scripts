@@ -274,6 +274,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_GDI_BeachGuy01_JDG.cpp" />
     <ClCompile Include="M01_GDI_GuardTower02_SniperRifle_JDG.cpp" />
     <ClCompile Include="M01_GuardTower02_NewSniperTarget_JDG.cpp" />
+    <ClCompile Include="M01_GuardTower02_Sniper_Target01_JDG.cpp" />
     <ClCompile Include="M01_GuardTower02_Sniper_TowerZone_JDG.cpp" />
     <ClCompile Include="M01_HarvesterScript_New_JDG.cpp" />
     <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG.cpp" />
@@ -479,6 +480,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_GDI_BeachGuy01_JDG.h" />
     <ClInclude Include="M01_GDI_GuardTower02_SniperRifle_JDG.h" />
     <ClInclude Include="M01_GuardTower02_NewSniperTarget_JDG.h" />
+    <ClInclude Include="M01_GuardTower02_Sniper_Target01_JDG.h" />
     <ClInclude Include="M01_GuardTower02_Sniper_TowerZone_JDG.h" />
     <ClInclude Include="M01_HarvesterScript_New_JDG.h" />
     <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG.h" />
