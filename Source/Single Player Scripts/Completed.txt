@@ -135,6 +135,7 @@ M01_MiniGunner_Point_Guard_JDG
 M01_BackPath_NodGuy_JDG
 M01_TibCave01_Datadisc_JDG
 M01_BarnArea_NOD_Commander_Trigger_Zone02_JDG
+M01_RealLightTank_TriggerZone_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
