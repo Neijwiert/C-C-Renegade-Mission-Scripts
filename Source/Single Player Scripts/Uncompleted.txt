@@ -75,8 +75,7 @@ M01_BarnArea_NOD_Commander_Trigger_Zone02_JDG
 M01_GateSwitch_Tutorial_Zone_JDG 
 M01_Mainframe_Tutorial_Zone_JDG 
 M01_C4_Tutorial_Zone_JDG 
-M01_ConYard_Dropoff_Dude_JDG 
-M01_QuickSave_Zone_JDG 
+M01_ConYard_Dropoff_Dude_JDG  
 M01_RealLightTank_TriggerZone_JDG 
 M01_GDIBase_RealLightTank_JDG 
 M01_Airstrike_Controller_JDG 
