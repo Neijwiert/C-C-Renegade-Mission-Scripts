@@ -38,9 +38,9 @@ M01_GDIBasePOW_Air_Evac_Chopper_JDG
 M01_GDIBasePOW_Air_Evac_Rope_JDG
 M01_Base_POW01_JDG
 M01_Base_POW02_JDG
+M01_Duncan_InHere_ConvController_JDG
 
 // Below are not present in the solution yet
-M01_Duncan_InHere_ConvController_JDG
 M01_Medlab_Datadisc_JDG 
 M01_Priest_Datadisc_JDG 
 M01_TibCave02_Datadisc_JDG 
