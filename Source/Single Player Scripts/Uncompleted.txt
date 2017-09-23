@@ -42,6 +42,7 @@ M01_Duncan_InHere_ConvController_JDG
 M01_Commander_Shack_Zone_JDG
 M01_GDIBase_BaseCommander_JDG
 M01_Airstrike_Controller_JDG
+M01_Deco_LightTanks_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -78,7 +79,6 @@ M01_C4_Tutorial_Zone_JDG
 M01_ConYard_Dropoff_Dude_JDG  
 M01_RealLightTank_TriggerZone_JDG 
 M01_GDIBase_RealLightTank_JDG 
-M01_Deco_LightTanks_JDG 
 M01_TurretBeach_Engineer_JDG 
 M01_CommCenter_SAMSite_Script 
 M01_Comm_Center_Pen_Gate 
