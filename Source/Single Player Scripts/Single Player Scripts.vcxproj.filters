@@ -627,6 +627,9 @@
     <ClCompile Include="M01_Duncan_Assailer_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_MiniGunner_Point_Guard_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -1179,6 +1182,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_Duncan_Assailer_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_MiniGunner_Point_Guard_JDG.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
