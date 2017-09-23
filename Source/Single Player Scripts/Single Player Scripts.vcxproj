@@ -273,6 +273,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_GDI_Base_Artillery_Controller_JDG.cpp" />
     <ClCompile Include="M01_GDI_BeachGuy01_JDG.cpp" />
     <ClCompile Include="M01_GDI_GuardTower02_SniperRifle_JDG.cpp" />
+    <ClCompile Include="M01_GDI_GuardTower_NOD_Commander_JDG.cpp" />
     <ClCompile Include="M01_GuardTower02_NewSniperTarget_JDG.cpp" />
     <ClCompile Include="M01_GuardTower02_Sniper_Target01_JDG.cpp" />
     <ClCompile Include="M01_GuardTower02_Sniper_Target02_JDG.cpp" />
@@ -480,6 +481,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_GDI_Base_Artillery_Controller_JDG.h" />
     <ClInclude Include="M01_GDI_BeachGuy01_JDG.h" />
     <ClInclude Include="M01_GDI_GuardTower02_SniperRifle_JDG.h" />
+    <ClInclude Include="M01_GDI_GuardTower_NOD_Commander_JDG.h" />
     <ClInclude Include="M01_GuardTower02_NewSniperTarget_JDG.h" />
     <ClInclude Include="M01_GuardTower02_Sniper_Target01_JDG.h" />
     <ClInclude Include="M01_GuardTower02_Sniper_Target02_JDG.h" />
