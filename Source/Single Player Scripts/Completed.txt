@@ -129,6 +129,7 @@ M01_POW_Nod_Minigunner01_JDG
 M01_BackPath_EntranceZone_JDG
 M01_BasalBuilding_Population_JDG
 M01_QuickSave_Zone_JDG
+M01_TriggerZone_GDIBase_BaseCommander_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
