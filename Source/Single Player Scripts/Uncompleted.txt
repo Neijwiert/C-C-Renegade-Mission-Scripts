@@ -48,6 +48,7 @@ M01_GuardTower02_Sniper_Target01_JDG
 M01_GuardTower02_Sniper_Target02_JDG
 M01_GDI_GuardTower_NOD_Commander_JDG
 M01_GDIBase_RealLightTank_JDG
+M01_Billys_Conversation_Zone_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -193,7 +194,6 @@ M01_TailGunner_01_JDG
 M01_Player_Is_Entering_Tailgun_Alley_Backway_JDG 
 M01_Player_Is_Entering_Tailgun_Alley_JDG 
 M01_Tank_Entering_Tunnel_Zone_JDG 
-M01_Billys_Conversation_Zone_JDG 
 M01_Medium_Tank_Tunnel_Squish_Guy_JDG 
 M01_Interrogation_Room_Surprise_Guy_JDG 
 M01_Interrogation_Room_L03_Keycard_JDG 
