@@ -1,0 +1,64 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 1: A10 - Strike  ************************
+
+
+
+; ****************************** Tajectory
+
+-0	Create_Object,		1, "X1G_A-10_Traj",			0, 0, 0, 0, 
+-0	Play_Animation,		1, "X1G_A-10_Traj.X1G_A-10_Traj",0
+-170	destroy_object,		1
+
+
+; ****************************** A10
+
+-0	Create_real_Object,	2, "GDI_A10_FLyover",1		,"BN_trajectory"			
+-0	Play_Animation,		2, "V_GDI_a10.V_GDI_a10",0
+-0	Attach_to_Bone,		2,1,"BN_trajectory"
+-170	destroy_object,		2
+
+; ****************************** Effects
+
+-0	Create_Object,		3, "X1G_AG_Effects",			0, 0, 0, 0, 
+;-0	Create_Object,		3, "X1G_Effects",			0, 0, 0, 0, 
+;Bones ( BN_Xplode000 - 009 ) No 007 )
+-0	Play_Animation,		3, "X1G_Effects.X1G_Effects",0
+-95	destroy_object,		3
+
+-95	Send_Custom,		121041, 0, 0, 0  ;sending custom to controller to kill the tanks
+
+-170	Send_Custom,		103343, 0, 0, 2  ;sending custom to controller to announce guard tower commander
+
+
+
+
+
+

@@ -218,6 +218,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Soldier_Powerup_Grant.cpp" />
     <ClCompile Include="M00_Vehicle_Regen_DAK.cpp" />
     <ClCompile Include="M01_AccessDenied_Zone_JDG.cpp" />
+    <ClCompile Include="M01_Airstrike_Controller_JDG.cpp" />
     <ClCompile Include="M01_Ambient_Sound_Controller_JDG.cpp" />
     <ClCompile Include="M01_Announce_First_ObjectiveZone_JDG.cpp" />
     <ClCompile Include="M01_BackPath_EntranceZone_JDG.cpp" />
@@ -415,6 +416,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Soldier_Powerup_Grant.h" />
     <ClInclude Include="M00_Vehicle_Regen_DAK.h" />
     <ClInclude Include="M01_AccessDenied_Zone_JDG.h" />
+    <ClInclude Include="M01_Airstrike_Controller_JDG.h" />
     <ClInclude Include="M01_Ambient_Sound_Controller_JDG.h" />
     <ClInclude Include="M01_Announce_First_ObjectiveZone_JDG.h" />
     <ClInclude Include="M01_BackPath_EntranceZone_JDG.h" />
@@ -744,6 +746,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x1d_gdipowerupdrop.txt" />
     <Text Include="x1d_gdipow_flaredrop.txt" />
     <Text Include="x1d_gtower_flaredrop.txt" />
+    <Text Include="x1g_a-10_strike.txt" />
     <Text Include="x1h_hover_troop.txt" />
     <Text Include="x1i_easynodchinook.txt" />
     <Text Include="x1i_easynodchinook01.txt" />

@@ -645,6 +645,9 @@
     <ClCompile Include="M01_TibCave01_Datadisc_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_Airstrike_Controller_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -1215,6 +1218,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_TibCave01_Datadisc_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_Airstrike_Controller_JDG.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1831,6 +1837,9 @@
       <Filter>Resource Files\Cinematic Files\M01</Filter>
     </Text>
     <Text Include="x1d_gdipow_flaredrop.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1g_a-10_strike.txt">
       <Filter>Resource Files\Cinematic Files\M01</Filter>
     </Text>
   </ItemGroup>
