@@ -684,6 +684,9 @@
     <ClCompile Include="M01_GDIBase_RealLightTank_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_Player_is_Entering_GDI_Base_Zone.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -1293,6 +1296,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_GDIBase_RealLightTank_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_Player_is_Entering_GDI_Base_Zone.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>

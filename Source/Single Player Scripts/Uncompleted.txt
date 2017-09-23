@@ -233,7 +233,6 @@ M01_Lose_Any_HON_Escorts_Zone_02
 M01_Lose_Any_HON_Escorts_Zone 
 M01_Lose_Any_Church_Escorts_Zone_02 
 M01_Lose_Any_Church_Escorts_Zone 
-M01_Player_is_Entering_GDI_Base_Zone 
 M01_Player_is_Leaving_GDI_Base_Zone 
 M01_Waterfall_Exterior_Zone 
 M01_Waterfall_Interior_Zone 
