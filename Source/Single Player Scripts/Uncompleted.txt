@@ -151,7 +151,6 @@ M01_TurretBeach_GDI_Guy_02_JDG
 M01_TurretBeach_GDI_Guy_01_JDG 
 M01_BarnArea_AI_ExitZone_JDG 
 M01_Barn_Talk_Guard_01_JDG 
-M01_Barn_Door_Guard_JDG 
 M01_Barn_Point_Guard_02_JDG 
 M01_Barn_Babushkas_Conversation_Zone_JDG 
 M01_TibField_Guard01_New_JDG 

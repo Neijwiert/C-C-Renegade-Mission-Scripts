@@ -152,6 +152,7 @@ M01_Medium_Tank_JDG
 M01_Sinking_Gunboat_JDG
 M01_Gunboat_Spawn_Hovercraft_Zone_JDG
 M01_Barn_EntryZone_JDG
+M01_Barn_Door_Guard_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
