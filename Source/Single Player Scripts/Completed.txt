@@ -149,6 +149,7 @@ M01_C4_Tutorial_Zone_JDG
 M01_FodderHovercraft_Script_JDG
 M01_Medium_Tank01_JDG
 M01_Medium_Tank_JDG
+M01_Sinking_Gunboat_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

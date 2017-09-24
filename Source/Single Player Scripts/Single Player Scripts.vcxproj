@@ -314,6 +314,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_POW_Nod_Minigunner01_JDG.cpp" />
     <ClCompile Include="M01_QuickSave_Zone_JDG.cpp" />
     <ClCompile Include="M01_RealLightTank_TriggerZone_JDG.cpp" />
+    <ClCompile Include="M01_Sinking_Gunboat_JDG.cpp" />
     <ClCompile Include="M01_SniperRifle_01_JDG.cpp" />
     <ClCompile Include="M01_SniperRifle_01_Target_JDG.cpp" />
     <ClCompile Include="M01_SniperRifle_02_AirdropZone_JDG.cpp" />
@@ -541,6 +542,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_POW_Nod_Minigunner01_JDG.h" />
     <ClInclude Include="M01_QuickSave_Zone_JDG.h" />
     <ClInclude Include="M01_RealLightTank_TriggerZone_JDG.h" />
+    <ClInclude Include="M01_Sinking_Gunboat_JDG.h" />
     <ClInclude Include="M01_SniperRifle_01_JDG.h" />
     <ClInclude Include="M01_SniperRifle_01_Target_JDG.h" />
     <ClInclude Include="M01_SniperRifle_02_AirdropZone_JDG.h" />
