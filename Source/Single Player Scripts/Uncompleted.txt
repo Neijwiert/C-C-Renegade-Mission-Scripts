@@ -53,6 +53,7 @@ M01_Hovercraft_Explosion_Controller_JDG
 M01_TurretBeach_Turret_01_Script_JDG
 M01_TurretBeach_FodderHovercraft_Controller_JDG
 M01_Medium_Tank_Tunnel_Squish_Guy_JDG
+M01_TurretBeach_Engineer_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -73,7 +74,6 @@ M01_GunboatAction_Controller_JDG
 M01_GateSwitch_Tutorial_Zone_JDG 
 M01_Mainframe_Tutorial_Zone_JDG 
 M01_ConYard_Dropoff_Dude_JDG  
-M01_TurretBeach_Engineer_JDG 
 M01_CommCenter_SAMSite_Script 
 M01_Comm_Center_Pen_Gate 
 M01_HON_RedKey_Zone_JDG 

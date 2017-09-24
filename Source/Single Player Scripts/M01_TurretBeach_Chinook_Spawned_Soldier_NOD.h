@@ -34,5 +34,5 @@ class M01_TurretBeach_Chinook_Spawned_Soldier_NOD : public ScriptImpClass
 		virtual void Animation_Complete(GameObject *obj, const char *animation_name);
 
 		bool killed;
-		bool field_1D;
+		bool movedOffTheBeach;
 };

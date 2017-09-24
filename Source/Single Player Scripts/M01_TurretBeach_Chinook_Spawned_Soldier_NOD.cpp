@@ -22,14 +22,14 @@
 void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->killed, sizeof(this->killed), 1);
-	Auto_Save_Variable(&this->field_1D, sizeof(this->field_1D), 2);
+	Auto_Save_Variable(&this->movedOffTheBeach, sizeof(this->movedOffTheBeach), 2);
 }
 
 // After 401 cinematic frames in X1I_Nod_TurretBeach_TroopDrop.txt
 void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Created(GameObject *obj)
 {
 	this->killed = false;
-	this->field_1D = false;
+	this->movedOffTheBeach = false;
 
 	GameObject *M01GunboatActionControllerJDGObj = Commands->Find_Object(113325);
 	if (M01GunboatActionControllerJDGObj)
@@ -72,7 +72,7 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Custom(GameObject *obj, int ty
 {
 	if (param == 40)
 	{
-		if (!this->field_1D)
+		if (!this->movedOffTheBeach)
 		{
 			GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
 			GameObject *beachNodTurret2Obj = Commands->Find_Object(101435);
@@ -118,17 +118,7 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Custom(GameObject *obj, int ty
 			turret2Health = Commands->Get_Health(beachNodTurret2Obj);
 		}
 
-		if (turret1Health < turret2Health)
-		{
-			Commands->Action_Reset(obj, 100.0f);
-
-			ActionParamsStruct params;
-			params.Set_Basic(this, 100.0f, 38);
-			params.Set_Movement(Vector3(-86.5f, 95.5f, 2.3f), 1.0f, 0.5f);
-
-			Commands->Action_Goto(obj, params);
-		}
-		else if (turret2Health < turret1Health)
+		if (turret1Health > turret2Health)
 		{
 			Commands->Action_Reset(obj, 100.0f);
 
@@ -138,8 +128,18 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Custom(GameObject *obj, int ty
 
 			Commands->Action_Goto(obj, params);
 		}
+		else if (turret2Health > turret1Health)
+		{
+			Commands->Action_Reset(obj, 100.0f);
 
-		if (turret2Health >= turret1Health)
+			ActionParamsStruct params;
+			params.Set_Basic(this, 100.0f, 38);
+			params.Set_Movement(Vector3(-86.5f, 95.5f, 2.3f), 1.0f, 0.5f);
+
+			Commands->Action_Goto(obj, params);
+		}
+
+		if (turret1Health <= turret2Health)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 224, 1.0f);
 		}
@@ -238,7 +238,7 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Action_Complete(GameObject *ob
 		}
 		else if(action_id == 40)
 		{
-			this->field_1D = true;
+			this->movedOffTheBeach = true;
 
 			Commands->Send_Custom_Event(obj, obj, 0, 224, 1.0f);
 		}
