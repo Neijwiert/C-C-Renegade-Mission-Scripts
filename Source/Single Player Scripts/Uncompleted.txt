@@ -60,7 +60,6 @@ M01_TibCave02_Datadisc_JDG
 M01_Shed_Datadisc_JDG 
 M01_Medium_Tank_JDG 
 M01_CantBring_MediumTank_ThroughHereZone_JDG 
-M01_Medium_Tank01_JDG 
 M01_HON_WarroomController_JDG 
 M01_Havoc_Out_WarroomZone_JDG 
 M01_Havoc_In_WarroomZone_JDG 
