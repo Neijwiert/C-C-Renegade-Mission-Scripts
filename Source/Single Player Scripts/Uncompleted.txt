@@ -55,6 +55,7 @@ M01_TurretBeach_FodderHovercraft_Controller_JDG
 M01_Medium_Tank_Tunnel_Squish_Guy_JDG
 M01_TurretBeach_Engineer_JDG
 M01_GunboatAction_Controller_JDG
+M01_Initial_Gunboat_Script_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -70,7 +71,6 @@ M01_HON_Escorts_Warroom_MCT_ZoneController_JDG
 M01_TurnOff_TankReminder_Zone_JDG 
 M01_GDI_GuardTower_02_Enter_Zone_JDG 
 M01_MediumTank_ReminderZone_JDG 
-M01_Initial_Gunboat_Script_JDG 
 M01_GateSwitch_Tutorial_Zone_JDG 
 M01_Mainframe_Tutorial_Zone_JDG 
 M01_ConYard_Dropoff_Dude_JDG  
