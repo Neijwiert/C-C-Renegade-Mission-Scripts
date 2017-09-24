@@ -49,6 +49,7 @@ M01_GuardTower02_Sniper_Target02_JDG
 M01_GDI_GuardTower_NOD_Commander_JDG
 M01_GDIBase_RealLightTank_JDG
 M01_Billys_Conversation_Zone_JDG
+M01_Hovercraft_Explosion_Controller_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -56,7 +57,6 @@ M01_Priest_Datadisc_JDG
 M01_TibCave02_Datadisc_JDG 
 M01_Shed_Datadisc_JDG 
 M01_FodderHovercraft_Script_JDG 
-M01_Hovercraft_Explosion_Controller_JDG 
 M01_TurretBeach_FodderHovercraft_Controller_JDG 
 M01_Medium_Tank_JDG 
 M01_CantBring_MediumTank_ThroughHereZone_JDG 
