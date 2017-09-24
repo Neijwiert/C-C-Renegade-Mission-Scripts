@@ -19,6 +19,7 @@
 #include "General.h"
 #include "M01_BarnArea_Air_Evac_Waypath_JDG.h"
 
+// After 0 cinematic frames in XG_M01_BarnArea_EvacAnim.txt
 void M01_BarnArea_Air_Evac_Waypath_JDG::Created(GameObject *obj)
 {
 	Commands->Enable_Hibernation(obj, false);
