@@ -226,6 +226,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_BackPath_NodGuy_JDG.cpp" />
     <ClCompile Include="M01_BarnArea_EvacMonitor_JDG.cpp" />
     <ClCompile Include="M01_BarnArea_NOD_Commander_Trigger_Zone02_JDG.cpp" />
+    <ClCompile Include="M01_Barn_EntryZone_JDG.cpp" />
     <ClCompile Include="M01_Barn_Point_Guard_01_JDG.cpp" />
     <ClCompile Include="M01_Barn_Truck_JDG.cpp" />
     <ClCompile Include="M01_BasalBuilding_Population_JDG.cpp" />
@@ -456,6 +457,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_BackPath_NodGuy_JDG.h" />
     <ClInclude Include="M01_BarnArea_EvacMonitor_JDG.h" />
     <ClInclude Include="M01_BarnArea_NOD_Commander_Trigger_Zone02_JDG.h" />
+    <ClInclude Include="M01_Barn_EntryZone_JDG.h" />
     <ClInclude Include="M01_Barn_Point_Guard_01_JDG.h" />
     <ClInclude Include="M01_Barn_Truck_JDG.h" />
     <ClInclude Include="M01_BasalBuilding_Population_JDG.h" />
@@ -866,6 +868,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="xg_a03_humveedrop_b.txt" />
     <Text Include="xg_a03_tank_drop.txt" />
     <Text Include="xg_ap_vs_trn.txt" />
+    <Text Include="xg_m01_barnarea_evacanim.txt" />
     <Text Include="xg_m01_gdibasecommander_evacanim.txt" />
     <Text Include="xg_m01_gdibasepow_evacanim.txt" />
     <Text Include="xg_rope_evac_f.txt" />
