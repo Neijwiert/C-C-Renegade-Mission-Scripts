@@ -239,6 +239,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Billys_Conversation_Zone_JDG.cpp" />
     <ClCompile Include="M01_C130_Dropoff_Dude_JDG.cpp" />
     <ClCompile Include="M01_C4_TutorialScript_JDG.cpp" />
+    <ClCompile Include="M01_C4_Tutorial_Zone_JDG.cpp" />
     <ClCompile Include="M01_Commander_Shack_Zone_JDG.cpp" />
     <ClCompile Include="M01_CommCenter_Evacuator_JDG.cpp" />
     <ClCompile Include="M01_COMM_Chinook_Spawned_Soldier_GDI.cpp" />
@@ -456,6 +457,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Billys_Conversation_Zone_JDG.h" />
     <ClInclude Include="M01_C130_Dropoff_Dude_JDG.h" />
     <ClInclude Include="M01_C4_TutorialScript_JDG.h" />
+    <ClInclude Include="M01_C4_Tutorial_Zone_JDG.h" />
     <ClInclude Include="M01_Commander_Shack_Zone_JDG.h" />
     <ClInclude Include="M01_CommCenter_Evacuator_JDG.h" />
     <ClInclude Include="M01_COMM_Chinook_Spawned_Soldier_GDI.h" />

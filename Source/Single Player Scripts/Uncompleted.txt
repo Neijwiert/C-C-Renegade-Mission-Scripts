@@ -74,7 +74,6 @@ M01_GunboatAction_Controller_JDG
 M01_TurretBeach_Turret_01_Script_JDG 
 M01_GateSwitch_Tutorial_Zone_JDG 
 M01_Mainframe_Tutorial_Zone_JDG 
-M01_C4_Tutorial_Zone_JDG 
 M01_ConYard_Dropoff_Dude_JDG  
 M01_TurretBeach_Engineer_JDG 
 M01_CommCenter_SAMSite_Script 
