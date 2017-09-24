@@ -252,6 +252,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Evac_TroopBone_JDG.cpp" />
     <ClCompile Include="M01_First_AutoRifle_JDG.cpp" />
     <ClCompile Include="M01_Flyover_Generic_Script_JDG.cpp" />
+    <ClCompile Include="M01_FodderHovercraft_Script_JDG.cpp" />
     <ClCompile Include="M01_FP_BaseToBase_NorthSouth_Contoller_JDG.cpp" />
     <ClCompile Include="M01_FP_BaseToBase_SouthNorth_Contoller_JDG.cpp" />
     <ClCompile Include="M01_FP_GDIOcean_NorthSouth_Contoller_JDG.cpp" />
@@ -472,6 +473,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Evac_TroopBone_JDG.h" />
     <ClInclude Include="M01_First_AutoRifle_JDG.h" />
     <ClInclude Include="M01_Flyover_Generic_Script_JDG.h" />
+    <ClInclude Include="M01_FodderHovercraft_Script_JDG.h" />
     <ClInclude Include="M01_FP_BaseToBase_NorthSouth_Contoller_JDG.h" />
     <ClInclude Include="M01_FP_BaseToBase_SouthNorth_Contoller_JDG.h" />
     <ClInclude Include="M01_FP_GDIOcean_NorthSouth_Contoller_JDG.h" />
@@ -787,6 +789,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x1a_solo_orca_20.txt" />
     <Text Include="x1a_solo_orca_21.txt" />
     <Text Include="x1c_intro.txt" />
+    <Text Include="x1d_fodderhover_mtank.txt" />
     <Text Include="x1d_gdipowerupdrop.txt" />
     <Text Include="x1d_gdipow_flaredrop.txt" />
     <Text Include="x1d_gtower_flaredrop.txt" />

@@ -1,0 +1,80 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 1: HOVERCRAFT DESTROYED BY TURRETS  ************************
+
+
+
+; ****************************** Hovercraft Tajectory
+
+-1	Create_Object,		1, "X1d_Trajectory",			0, 0, 0, 0, 
+-1	Play_Animation,		1, "X1d_Trajectory.X1d_Trajectory",0
+-747	destroy_object,		1
+
+
+; ****************************** Hovercraft
+
+
+-1	Create_Real_Object,	2, "GDI_Vehicle_Hovercraft", 1, "BN_VCraft_Traj"
+-1	Attach_Script,		2, "M01_FodderHovercraft_Script_JDG", ""
+-1	Set_Primary,		2
+-1	Play_Animation,		2, "v_GDI_Vcraft.X1D_VHcraft",0
+-1	Attach_to_Bone,		2,1,"BN_VCraft_Traj"
+-1	Play_Audio,		"gdi_hovercraft_idle_large", 2, "Fan_bone1"
+-747	destroy_object,		2
+
+; ****************************** Tank Trajectory
+
+-1	Create_Object,		3, "X1D_MTank",			0, 0, 0, 0, 
+-1	Play_Animation,		3, "X1D_MTank.X1D_MTank",0
+;-380	destroy_object,		3
+
+
+; ****************************** Tank
+
+-1	Create_Real_Object,	4, "GDI_Medium_Tank_Player", 3, "BN_MTank" 
+-1    Attach_Script,          4, "M01_Medium_Tank01_JDG", ""
+-419    Attach_Script,          4, "M01_Medium_Tank_JDG", ""
+-1	Attach_to_Bone,		4,3,"BN_MTank"
+-380	Attach_to_Bone,		-4,3,"BN_MTank"
+
+
+; ****************************** Primary Destroyed
+
+1000000	Destroy_Object, 1
+;1000000	Destroy_Object, 2
+1000000	Destroy_Object, 3
+;1000000	Destroy_Object, 4
+
+
+
+
+
+
+
