@@ -63,6 +63,7 @@ M01_BarnArea_Air_Evac_Rope_JDG
 M01_Barn_Prisoner_01_JDG
 M01_Barn_Prisoner_02_JDG
 M01_Barn_Prisoner_03_JDG
+M01_Barn_Babushkas_Conversation_Zone_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -151,7 +152,6 @@ M01_TurretBeach_GDI_Guy_02_JDG
 M01_TurretBeach_GDI_Guy_01_JDG 
 M01_BarnArea_AI_ExitZone_JDG 
 M01_Barn_Point_Guard_02_JDG 
-M01_Barn_Babushkas_Conversation_Zone_JDG 
 M01_TibField_Guard01_New_JDG 
 M01_GuardTower_Sniper_Target_JDG 
 M01_Nod_GuardTower_03_Enter_Zone_JDG 
