@@ -52,6 +52,7 @@ M01_Billys_Conversation_Zone_JDG
 M01_Hovercraft_Explosion_Controller_JDG
 M01_TurretBeach_Turret_01_Script_JDG
 M01_TurretBeach_FodderHovercraft_Controller_JDG
+M01_Medium_Tank_Tunnel_Squish_Guy_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -190,7 +191,6 @@ M01_TailGunner_01_JDG
 M01_Player_Is_Entering_Tailgun_Alley_Backway_JDG 
 M01_Player_Is_Entering_Tailgun_Alley_JDG 
 M01_Tank_Entering_Tunnel_Zone_JDG 
-M01_Medium_Tank_Tunnel_Squish_Guy_JDG 
 M01_Interrogation_Room_Surprise_Guy_JDG 
 M01_Interrogation_Room_L03_Keycard_JDG 
 M01_Right_Interrogation_Room_Enter_Zone_JDG 
