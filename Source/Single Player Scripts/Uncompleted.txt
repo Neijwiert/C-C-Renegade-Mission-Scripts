@@ -50,6 +50,7 @@ M01_GDI_GuardTower_NOD_Commander_JDG
 M01_GDIBase_RealLightTank_JDG
 M01_Billys_Conversation_Zone_JDG
 M01_Hovercraft_Explosion_Controller_JDG
+M01_TurretBeach_Turret_01_Script_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -71,7 +72,6 @@ M01_GDI_GuardTower_02_Enter_Zone_JDG
 M01_MediumTank_ReminderZone_JDG 
 M01_Initial_Gunboat_Script_JDG 
 M01_GunboatAction_Controller_JDG 
-M01_TurretBeach_Turret_01_Script_JDG 
 M01_GateSwitch_Tutorial_Zone_JDG 
 M01_Mainframe_Tutorial_Zone_JDG 
 M01_ConYard_Dropoff_Dude_JDG  
