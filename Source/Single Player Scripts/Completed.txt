@@ -162,6 +162,7 @@ M01_Player_Is_Entering_Tailgun_Alley_JDG
 M01_TurnOff_TankReminder_Zone_JDG
 M01_HON_Commander_Guy
 M01_Lose_Any_Church_Escorts_Zone_02
+M01_Player_Is_Crossing_Bridge_Zone
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
