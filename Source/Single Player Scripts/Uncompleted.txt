@@ -71,6 +71,7 @@ M01_TailGun_01_JDG
 M01_TailGun_02_JDG
 M01_TailGun_03_JDG
 M01_GDIBase_LightTank_JDG
+M01_GDI_Base_Spawner_Controller_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -168,7 +169,6 @@ M01_ChurchArea_Spawner_Controller_JDG
 M01_TailgunRun_Spawner_Guy_JDG 
 M01_Tailgun_Run_Spawner_Controller_JDG 
 M01_GDI_Base_Spawner_Guy_JDG 
-M01_GDI_Base_Spawner_Controller_JDG 
 M01_GDI_Toolshed_PatrolGuy_JDG 
 M01_Comm_MCT_Placeholder_JDG 
 M01_HON_MCT_Placeholder_JDG 

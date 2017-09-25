@@ -290,6 +290,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_GDIBase_POW_Conversation_Controller_JDG.cpp" />
     <ClCompile Include="M01_GDIBase_RealLightTank_JDG.cpp" />
     <ClCompile Include="M01_GDI_Base_Artillery_Controller_JDG.cpp" />
+    <ClCompile Include="M01_GDI_Base_Spawner_Controller_JDG.cpp" />
     <ClCompile Include="M01_GDI_BeachGuy01_JDG.cpp" />
     <ClCompile Include="M01_GDI_GuardTower02_SniperRifle_JDG.cpp" />
     <ClCompile Include="M01_GDI_GuardTower_NOD_Commander_JDG.cpp" />
@@ -542,6 +543,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_GDIBase_POW_Conversation_Controller_JDG.h" />
     <ClInclude Include="M01_GDIBase_RealLightTank_JDG.h" />
     <ClInclude Include="M01_GDI_Base_Artillery_Controller_JDG.h" />
+    <ClInclude Include="M01_GDI_Base_Spawner_Controller_JDG.h" />
     <ClInclude Include="M01_GDI_BeachGuy01_JDG.h" />
     <ClInclude Include="M01_GDI_GuardTower02_SniperRifle_JDG.h" />
     <ClInclude Include="M01_GDI_GuardTower_NOD_Commander_JDG.h" />
