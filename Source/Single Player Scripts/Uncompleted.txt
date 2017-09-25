@@ -72,12 +72,12 @@ M01_TailGun_02_JDG
 M01_TailGun_03_JDG
 M01_GDIBase_LightTank_JDG
 M01_GDI_Base_Spawner_Controller_JDG
+M01_CantBring_MediumTank_ThroughHereZone_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
 M01_Priest_Datadisc_JDG 
 M01_TibCave02_Datadisc_JDG 
-M01_CantBring_MediumTank_ThroughHereZone_JDG 
 M01_HON_WarroomController_JDG 
 M01_Havoc_Out_WarroomZone_JDG 
 M01_Havoc_In_WarroomZone_JDG 
