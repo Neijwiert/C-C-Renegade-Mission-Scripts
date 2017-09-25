@@ -155,6 +155,7 @@ M01_Barn_EntryZone_JDG
 M01_Barn_Door_Guard_JDG
 M01_Barn_Talk_Guard_01_JDG
 M01_Shed_Datadisc_JDG
+M01_Player_Is_Entering_Tailgun_Alley_Backway_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

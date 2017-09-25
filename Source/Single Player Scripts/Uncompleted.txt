@@ -182,7 +182,6 @@ M01_TailGun_01_JDG
 M01_TailGunner_03_JDG 
 M01_TailGunner_02_JDG 
 M01_TailGunner_01_JDG 
-M01_Player_Is_Entering_Tailgun_Alley_Backway_JDG 
 M01_Player_Is_Entering_Tailgun_Alley_JDG 
 M01_Tank_Entering_Tunnel_Zone_JDG 
 M01_Interrogation_Room_Surprise_Guy_JDG 
