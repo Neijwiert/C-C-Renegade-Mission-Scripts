@@ -315,6 +315,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Hunt_The_Player_JDG.cpp" />
     <ClCompile Include="M01_Initial_Gunboat_Script_JDG.cpp" />
     <ClCompile Include="M01_KeyCard01_Script_JDG.cpp" />
+    <ClCompile Include="M01_Lose_Any_Church_Escorts_Zone_02.cpp" />
     <ClCompile Include="M01_MediumTank_ReminderZone_JDG.cpp" />
     <ClCompile Include="M01_Medium_Tank01_JDG.cpp" />
     <ClCompile Include="M01_Medium_Tank_JDG.cpp" />
@@ -572,6 +573,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Hunt_The_Player_JDG.h" />
     <ClInclude Include="M01_Initial_Gunboat_Script_JDG.h" />
     <ClInclude Include="M01_KeyCard01_Script_JDG.h" />
+    <ClInclude Include="M01_Lose_Any_Church_Escorts_Zone_02.h" />
     <ClInclude Include="M01_MediumTank_ReminderZone_JDG.h" />
     <ClInclude Include="M01_Medium_Tank01_JDG.h" />
     <ClInclude Include="M01_Medium_Tank_JDG.h" />
