@@ -359,6 +359,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_TurretBeach_Turret_01_Script_JDG.cpp" />
     <ClCompile Include="M01_Use_Ladder_Zone_JDG.cpp" />
     <ClCompile Include="M01_Waterfall_Exterior_Zone.cpp" />
+    <ClCompile Include="M01_Waterfall_Interior_Zone.cpp" />
     <ClCompile Include="M01_Whack_A_Mole_Minigunner_JDG.cpp" />
     <ClCompile Include="M02_Approach_Vehicle.cpp" />
     <ClCompile Include="M02_Commando_Start.cpp" />
@@ -619,6 +620,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_TurretBeach_Turret_01_Script_JDG.h" />
     <ClInclude Include="M01_Use_Ladder_Zone_JDG.h" />
     <ClInclude Include="M01_Waterfall_Exterior_Zone.h" />
+    <ClInclude Include="M01_Waterfall_Interior_Zone.h" />
     <ClInclude Include="M01_Whack_A_Mole_Minigunner_JDG.h" />
     <ClInclude Include="M02_Approach_Vehicle.h" />
     <ClInclude Include="M02_Commando_Start.h" />
