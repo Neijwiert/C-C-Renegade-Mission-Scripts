@@ -73,6 +73,7 @@ M01_TailGun_03_JDG
 M01_GDIBase_LightTank_JDG
 M01_GDI_Base_Spawner_Controller_JDG
 M01_CantBring_MediumTank_ThroughHereZone_JDG
+M01_TailgunRun_NOD_Commander_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -161,7 +162,6 @@ M01_Nod_GuardTower_03_Enter_Zone_JDG
 M01_Nod_GuardTower_02_Enter_Zone_JDG 
 M01_Nod_GuardTower_01_Enter_Zone_JDG 
 M01_ChurchArea_NOD_Commander_JDG 
-M01_TailgunRun_NOD_Commander_JDG 
 M01_Turn_on_the_Hand_of_Nod_Zone_JDG 
 M01_ChurchArea_Spawner_Guy_JDG 
 M01_ChurchArea_Spawner_Controller_JDG 
