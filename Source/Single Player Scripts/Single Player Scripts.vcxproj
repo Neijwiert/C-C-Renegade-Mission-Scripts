@@ -306,6 +306,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG.cpp" />
     <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG.cpp" />
     <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_04_GDI_JDG.cpp" />
+    <ClCompile Include="M01_HON_Commander_Guy.cpp" />
     <ClCompile Include="M01_HON_Easy_Spawned_Guy_01_JDG.cpp" />
     <ClCompile Include="M01_HON_Easy_Spawned_Guy_02_JDG.cpp" />
     <ClCompile Include="M01_HON_Easy_Spawned_Guy_03_JDG.cpp" />
@@ -561,6 +562,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG.h" />
     <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG.h" />
     <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_04_GDI_JDG.h" />
+    <ClInclude Include="M01_HON_Commander_Guy.h" />
     <ClInclude Include="M01_HON_Easy_Spawned_Guy_01_JDG.h" />
     <ClInclude Include="M01_HON_Easy_Spawned_Guy_02_JDG.h" />
     <ClInclude Include="M01_HON_Easy_Spawned_Guy_03_JDG.h" />
