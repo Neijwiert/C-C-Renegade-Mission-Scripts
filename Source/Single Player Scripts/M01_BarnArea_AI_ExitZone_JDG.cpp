@@ -26,7 +26,7 @@ void M01_BarnArea_AI_ExitZone_JDG::Register_Auto_Save_Variables()
 
 void M01_BarnArea_AI_ExitZone_JDG::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->field_1C = 0;
 }
 
 // TODO
