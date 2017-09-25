@@ -158,6 +158,7 @@ M01_Shed_Datadisc_JDG
 M01_Player_Is_Entering_Tailgun_Alley_Backway_JDG
 M01_Tunnel_Exterior_Zone
 M01_Tunnel_Interior_Zone
+M01_Player_Is_Entering_Tailgun_Alley_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
