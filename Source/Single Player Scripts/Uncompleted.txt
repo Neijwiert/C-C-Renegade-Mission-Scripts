@@ -69,6 +69,7 @@ M01_Tank_Entering_Tunnel_Zone_JDG
 M01_MediumTank_ReminderZone_JDG
 M01_TailGun_01_JDG
 M01_TailGun_02_JDG
+M01_TailGun_03_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -179,7 +180,6 @@ M01_Comm_Stationary_Tech_JDG
 M01_Comm_Base_Commander_JDG 
 M01_Civ_To_Minigunner_Guy_JDG 
 M01_Tailgun_02_SpawnApache_Zone_JDG 
-M01_TailGun_03_JDG 
 M01_TailGunner_03_JDG 
 M01_TailGunner_02_JDG 
 M01_TailGunner_01_JDG 
