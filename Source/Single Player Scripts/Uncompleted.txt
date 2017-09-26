@@ -214,7 +214,6 @@ M01_Comm_Center_Exterior_Zone
 M01_Comm_Center_Interior_Zone 
 M01_Hand_Of_Nod_Exterior_Zone 
 M01_Hand_Of_Nod_Interior_Zone 
-M01_Entering_Church_Area_Zone 
 M01_Hand_of_Nod_Building_Script_JDG 
 M01_HON_Medlab_DropOff_Guy_JDG 
 M11_Temple_Hologram_01_JDG
