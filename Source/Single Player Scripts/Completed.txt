@@ -168,6 +168,7 @@ M01_Waterfall_Interior_Zone
 M01_TibCave_StartZone_JDG
 M00_VisceroidInnate_DAY
 M01_TibCave02_Datadisc_JDG
+M01_Player_Is_Crossing_Bridge_Via_Cave_Zone
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
