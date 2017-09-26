@@ -104,8 +104,7 @@ M01_TiberiumCave_UpThere_NodGuy_JDG
 M01_Tiberium_Cave_Spawn_Helicopter_Zone_JDG 
 M01_Visceroid_NodGuy02_JDG 
 M01_Visceroid_NodGuy01_JDG 
-M01_Visceroid03_JDG 
-M01_Visceroid02_JDG 
+M01_Visceroid03_JDG  
 M01_GDIBase_FirstChinookFlamethrowerGuy_JDG 
 M01_Church_LoveShack_Nun_JDG 
 M01_Church_Interior_Nun_JDG 
