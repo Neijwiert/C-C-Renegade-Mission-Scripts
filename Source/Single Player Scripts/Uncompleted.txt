@@ -79,6 +79,7 @@ M01_Visceroid02_JDG
 M01_Visceroid03_JDG
 M01_Visceroid_NodGuy01_JDG
 M01_Visceroid_NodGuy02_JDG
+M01_Tailgun_Run_Spawner_Controller_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -163,7 +164,6 @@ M01_Turn_on_the_Hand_of_Nod_Zone_JDG
 M01_ChurchArea_Spawner_Guy_JDG 
 M01_ChurchArea_Spawner_Controller_JDG 
 M01_TailgunRun_Spawner_Guy_JDG 
-M01_Tailgun_Run_Spawner_Controller_JDG 
 M01_GDI_Base_Spawner_Guy_JDG 
 M01_GDI_Toolshed_PatrolGuy_JDG 
 M01_Comm_MCT_Placeholder_JDG 
