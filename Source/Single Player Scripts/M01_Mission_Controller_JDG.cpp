@@ -678,10 +678,10 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				GameObject *nodHarvesterObj = Commands->Create_Object("Nod_Harvester", Vector3(-98.937f, 380.721f, 20.021999f));
 				Commands->Attach_Script(nodHarvesterObj, "M01_HarvesterScript_New_JDG", "");
 
-				GameObject *tiberiumFieldNodMinigunnerObj = Commands->Find_Object(103270);
-				if (tiberiumFieldNodMinigunnerObj)
+				GameObject *tibFieldGuard1Obj = Commands->Find_Object(103270);
+				if (tibFieldGuard1Obj)
 				{
-					Commands->Send_Custom_Event(obj, tiberiumFieldNodMinigunnerObj, 0, 16, 5.0f);
+					Commands->Send_Custom_Event(obj, tibFieldGuard1Obj, 0, 16, 5.0f);
 				}
 			}
 
@@ -963,10 +963,10 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				GameObject *nodHarvesterObj = Commands->Create_Object("Nod_Harvester", Vector3(-98.937f, 380.721f, 20.021999f));
 				Commands->Attach_Script(nodHarvesterObj, "M01_HarvesterScript_New_JDG", "");
 
-				GameObject *tiberiumFieldNodMinigunnerObj = Commands->Find_Object(103270);
-				if (tiberiumFieldNodMinigunnerObj)
+				GameObject *tibFieldGuard1Obj = Commands->Find_Object(103270);
+				if (tibFieldGuard1Obj)
 				{
-					Commands->Send_Custom_Event(obj, tiberiumFieldNodMinigunnerObj, 0, 16, 5.0f);
+					Commands->Send_Custom_Event(obj, tibFieldGuard1Obj, 0, 16, 5.0f);
 				}
 			}
 
