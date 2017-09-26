@@ -82,6 +82,7 @@ M01_Visceroid_NodGuy02_JDG
 M01_Tailgun_Run_Spawner_Controller_JDG
 M01_TiberiumCave_UpThere_NodGuy_JDG
 M01_TibField_Guard01_New_JDG
+M01_Interior_Nun_Conversation_Zone_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -135,7 +136,6 @@ M01_CHURCH_Chinook_Spawned_Soldier01_GDI
 M01_GDI_Escort_Conversation_Controller_GDI 
 M01_Church_Loveshack_InterrogationConv_Zone_JDG 
 M01_Church_Guard_MiniGunner_JDG 
-M01_Interior_Nun_Conversation_Zone_JDG 
 M01_Loveshack_Nun_Conversation_Zone_JDG 
 M01_Priest_Conversation_Zone_JDG 
 M01_BuggyScript_New_JDG 
