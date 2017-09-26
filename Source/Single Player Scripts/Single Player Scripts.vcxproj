@@ -363,6 +363,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Visceroid01_JDG.cpp" />
     <ClCompile Include="M01_Visceroid02_JDG.cpp" />
     <ClCompile Include="M01_Visceroid03_JDG.cpp" />
+    <ClCompile Include="M01_Visceroid_NodGuy01_JDG.cpp" />
     <ClCompile Include="M01_Waterfall_Exterior_Zone.cpp" />
     <ClCompile Include="M01_Waterfall_Interior_Zone.cpp" />
     <ClCompile Include="M01_Whack_A_Mole_Minigunner_JDG.cpp" />
@@ -629,6 +630,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Visceroid01_JDG.h" />
     <ClInclude Include="M01_Visceroid02_JDG.h" />
     <ClInclude Include="M01_Visceroid03_JDG.h" />
+    <ClInclude Include="M01_Visceroid_NodGuy01_JDG.h" />
     <ClInclude Include="M01_Waterfall_Exterior_Zone.h" />
     <ClInclude Include="M01_Waterfall_Interior_Zone.h" />
     <ClInclude Include="M01_Whack_A_Mole_Minigunner_JDG.h" />
