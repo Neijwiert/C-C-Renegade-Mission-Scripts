@@ -353,6 +353,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_TibCave02_Datadisc_JDG.cpp" />
     <ClCompile Include="M01_TibCave_StartZone_JDG.cpp" />
     <ClCompile Include="M01_Tiberium_Cave_Helicopter_JDG.cpp" />
+    <ClCompile Include="M01_Tiberium_Cave_Spawn_Helicopter_Zone_JDG.cpp" />
     <ClCompile Include="M01_TriggerZone_GDIBase_BaseCommander_JDG.cpp" />
     <ClCompile Include="M01_Tunnel_Exterior_Zone.cpp" />
     <ClCompile Include="M01_Tunnel_Interior_Zone.cpp" />
@@ -623,6 +624,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_TibCave02_Datadisc_JDG.h" />
     <ClInclude Include="M01_TibCave_StartZone_JDG.h" />
     <ClInclude Include="M01_Tiberium_Cave_Helicopter_JDG.h" />
+    <ClInclude Include="M01_Tiberium_Cave_Spawn_Helicopter_Zone_JDG.h" />
     <ClInclude Include="M01_TriggerZone_GDIBase_BaseCommander_JDG.h" />
     <ClInclude Include="M01_Tunnel_Exterior_Zone.h" />
     <ClInclude Include="M01_Tunnel_Interior_Zone.h" />
