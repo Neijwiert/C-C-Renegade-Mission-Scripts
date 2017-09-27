@@ -95,6 +95,7 @@ M01_Church_Exterior_MiniGunner_JDG
 M01_Church_LoveShack_MiniGunner_JDG
 M01_Church_LoveShack_Nun_JDG
 M01_Priest_Conversation_Zone_JDG
+M01_Loveshack_Nun_Conversation_Zone_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -139,7 +140,6 @@ M01_Propaganda_Sounds_Controller_JDG
 M01_MovieProjector_JDG 
 M01_Church_Loveshack_InterrogationConv_Zone_JDG 
 M01_Church_Guard_MiniGunner_JDG 
-M01_Loveshack_Nun_Conversation_Zone_JDG 
 M01_BuggyScript_New_JDG 
 M01_BuggyNew_Controller_JDG 
 M01_HON_Engineer02_JDG 
