@@ -88,6 +88,7 @@ M01_ChurchArea_EvacMonitor_JDG
 M01_Church_EvacController_JDG
 M01_ChurchArea_Air_Evac_Waypath_JDG
 M01_ChurchArea_Air_Evac_Chopper_JDG
+M01_ChurchArea_Air_Evac_Rope_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -116,7 +117,6 @@ M01_GDIBase_FirstChinookFlamethrowerGuy_JDG
 M01_Church_LoveShack_Nun_JDG 
 M01_Church_Interior_Nun_JDG 
 M01_Church_Priest_JDG 
-M01_ChurchArea_Air_Evac_Rope_JDG 
 M01_GDIBase_FirstChinook_Script_JDG 
 M01_Comm_Center_Player_Terminal_Zone 
 M01_Comm_Mainframe_PogZone_03_JDG 

@@ -255,6 +255,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_C4_Tutorial_Zone_JDG.cpp" />
     <ClCompile Include="M01_CantBring_MediumTank_ThroughHereZone_JDG.cpp" />
     <ClCompile Include="M01_ChurchArea_Air_Evac_Chopper_JDG.cpp" />
+    <ClCompile Include="M01_ChurchArea_Air_Evac_Rope_JDG.cpp" />
     <ClCompile Include="M01_ChurchArea_Air_Evac_Waypath_JDG.cpp" />
     <ClCompile Include="M01_ChurchArea_EvacMonitor_JDG.cpp" />
     <ClCompile Include="M01_Church_EvacController_JDG.cpp" />
@@ -537,6 +538,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_C4_Tutorial_Zone_JDG.h" />
     <ClInclude Include="M01_CantBring_MediumTank_ThroughHereZone_JDG.h" />
     <ClInclude Include="M01_ChurchArea_Air_Evac_Chopper_JDG.h" />
+    <ClInclude Include="M01_ChurchArea_Air_Evac_Rope_JDG.h" />
     <ClInclude Include="M01_ChurchArea_Air_Evac_Waypath_JDG.h" />
     <ClInclude Include="M01_ChurchArea_EvacMonitor_JDG.h" />
     <ClInclude Include="M01_Church_EvacController_JDG.h" />
