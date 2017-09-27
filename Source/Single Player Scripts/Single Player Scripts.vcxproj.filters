@@ -891,6 +891,9 @@
     <ClCompile Include="M01_ChurchArea_EvacMonitor_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_Church_EvacController_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -1709,6 +1712,9 @@
     <ClInclude Include="M01_ChurchArea_EvacMonitor_JDG.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
+    <ClInclude Include="M01_Church_EvacController_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -2332,6 +2338,12 @@
       <Filter>Resource Files\Cinematic Files\M01</Filter>
     </Text>
     <Text Include="xg_m01_barnarea_evacanim.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="xg_m01_churcharea_evacanim.txt">
+      <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x1i_gdi_church_troopdrop.txt">
       <Filter>Resource Files\Cinematic Files\M01</Filter>
     </Text>
   </ItemGroup>
