@@ -92,6 +92,7 @@ M01_ChurchArea_Air_Evac_Rope_JDG
 M01_CHURCH_Chinook_Spawned_Soldier01_GDI
 M01_CHURCH_Chinook_Spawned_Soldier02_GDI
 M01_Church_Exterior_MiniGunner_JDG
+M01_Church_LoveShack_MiniGunner_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -190,7 +191,6 @@ M01_Flamethrower_Point_Guard_JDG
 M01_Announce_Barn_Objective_Zone 
 M01_Announce_Hand_of_Nod_Zone 
 M01_Church_Balcony_MiniGunner_JDG 
-M01_Church_LoveShack_MiniGunner_JDG 
 M01_Hand_Of_Nod_Dojo_Zone 
 M01_Hand_Of_Nod_Grunt_Zone 
 M01_HON_Cafeteria_Walking_Guy_JDG 
