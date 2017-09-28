@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestPlugin", "test-plugin\T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptUsageFinder", "ScriptUsageFinder\ScriptUsageFinder.csproj", "{CF980658-88A1-4997-A8FF-FC6E9688C7DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexToFloat", "HexToFloat\HexToFloat.csproj", "{B59E43CB-51F1-4809-B8BF-B4B216B005E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug SSGM|Any CPU = Debug SSGM|Any CPU
@@ -109,6 +111,21 @@ Global
 		{CF980658-88A1-4997-A8FF-FC6E9688C7DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF980658-88A1-4997-A8FF-FC6E9688C7DE}.Release|Win32.ActiveCfg = Release|Any CPU
 		{CF980658-88A1-4997-A8FF-FC6E9688C7DE}.Release|Win32.Build.0 = Release|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Debug SSGM|Any CPU.ActiveCfg = Debug|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Debug SSGM|Any CPU.Build.0 = Debug|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Debug SSGM|Win32.ActiveCfg = Debug|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Debug|Win32.Build.0 = Debug|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Release SSGM|Any CPU.ActiveCfg = Release|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Release SSGM|Any CPU.Build.0 = Release|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Release SSGM|Win32.ActiveCfg = Release|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Release SSGM|Win32.Build.0 = Release|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Release|Win32.ActiveCfg = Release|Any CPU
+		{B59E43CB-51F1-4809-B8BF-B4B216B005E0}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
