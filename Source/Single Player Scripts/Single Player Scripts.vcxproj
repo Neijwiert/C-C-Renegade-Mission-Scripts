@@ -356,6 +356,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Player_is_Leaving_GDI_Base_Zone.cpp" />
     <ClCompile Include="M01_POW_Nod_Minigunner01_JDG.cpp" />
     <ClCompile Include="M01_Priest_Conversation_Zone_JDG.cpp" />
+    <ClCompile Include="M01_Priest_Datadisc_JDG.cpp" />
     <ClCompile Include="M01_QuickSave_Zone_JDG.cpp" />
     <ClCompile Include="M01_RealLightTank_TriggerZone_JDG.cpp" />
     <ClCompile Include="M01_Shed_Datadisc_JDG.cpp" />
@@ -650,6 +651,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Player_is_Leaving_GDI_Base_Zone.h" />
     <ClInclude Include="M01_POW_Nod_Minigunner01_JDG.h" />
     <ClInclude Include="M01_Priest_Conversation_Zone_JDG.h" />
+    <ClInclude Include="M01_Priest_Datadisc_JDG.h" />
     <ClInclude Include="M01_QuickSave_Zone_JDG.h" />
     <ClInclude Include="M01_RealLightTank_TriggerZone_JDG.h" />
     <ClInclude Include="M01_Shed_Datadisc_JDG.h" />
