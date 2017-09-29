@@ -264,6 +264,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Church_EvacController_JDG.cpp" />
     <ClCompile Include="M01_Church_Exterior_MiniGunner_JDG.cpp" />
     <ClCompile Include="M01_Church_Guard_MiniGunner_JDG.cpp" />
+    <ClCompile Include="M01_Church_Interior_Nun_JDG.cpp" />
     <ClCompile Include="M01_Church_Loveshack_InterrogationConv_Zone_JDG.cpp" />
     <ClCompile Include="M01_Church_LoveShack_MiniGunner_JDG.cpp" />
     <ClCompile Include="M01_Church_LoveShack_Nun_JDG.cpp" />
@@ -559,6 +560,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Church_EvacController_JDG.h" />
     <ClInclude Include="M01_Church_Exterior_MiniGunner_JDG.h" />
     <ClInclude Include="M01_Church_Guard_MiniGunner_JDG.h" />
+    <ClInclude Include="M01_Church_Interior_Nun_JDG.h" />
     <ClInclude Include="M01_Church_Loveshack_InterrogationConv_Zone_JDG.h" />
     <ClInclude Include="M01_Church_LoveShack_MiniGunner_JDG.h" />
     <ClInclude Include="M01_Church_LoveShack_Nun_JDG.h" />

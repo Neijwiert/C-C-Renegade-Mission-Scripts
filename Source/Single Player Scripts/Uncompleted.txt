@@ -98,6 +98,7 @@ M01_Priest_Conversation_Zone_JDG
 M01_Loveshack_Nun_Conversation_Zone_JDG
 M01_Church_Balcony_MiniGunner_JDG
 M01_Church_Priest_JDG
+M01_Church_Interior_Nun_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -122,7 +123,6 @@ M01_PrisonPen_Civilian_JDG
 M01_PrisonPen_POW_JDG 
 M01_Detention_GuardTower_Enter_Zone_JDG 
 M01_GDIBase_FirstChinookFlamethrowerGuy_JDG 
-M01_Church_Interior_Nun_JDG 
 M01_GDIBase_FirstChinook_Script_JDG 
 M01_Comm_Center_Player_Terminal_Zone 
 M01_Comm_Mainframe_PogZone_03_JDG 
