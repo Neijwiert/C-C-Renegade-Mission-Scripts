@@ -260,6 +260,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_ChurchArea_Air_Evac_Waypath_JDG.cpp" />
     <ClCompile Include="M01_ChurchArea_EvacMonitor_JDG.cpp" />
     <ClCompile Include="M01_ChurchArea_NOD_Commander_JDG.cpp" />
+    <ClCompile Include="M01_ChurchArea_Spawner_Guy_JDG.cpp" />
     <ClCompile Include="M01_Church_Balcony_MiniGunner_JDG.cpp" />
     <ClCompile Include="M01_CHURCH_Chinook_Spawned_Soldier01_GDI.cpp" />
     <ClCompile Include="M01_CHURCH_Chinook_Spawned_Soldier02_GDI.cpp" />
@@ -562,6 +563,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_ChurchArea_Air_Evac_Waypath_JDG.h" />
     <ClInclude Include="M01_ChurchArea_EvacMonitor_JDG.h" />
     <ClInclude Include="M01_ChurchArea_NOD_Commander_JDG.h" />
+    <ClInclude Include="M01_ChurchArea_Spawner_Guy_JDG.h" />
     <ClInclude Include="M01_Church_Balcony_MiniGunner_JDG.h" />
     <ClInclude Include="M01_CHURCH_Chinook_Spawned_Soldier01_GDI.h" />
     <ClInclude Include="M01_CHURCH_Chinook_Spawned_Soldier02_GDI.h" />
