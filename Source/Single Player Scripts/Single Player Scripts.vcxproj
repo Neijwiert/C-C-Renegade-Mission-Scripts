@@ -351,6 +351,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Nod_Chinook_Reinforcement_Guy_JDG.cpp" />
     <ClCompile Include="M01_Nod_Commander_Conversation_Controller_GDI.cpp" />
     <ClCompile Include="M01_Nod_GuardTower_01_Enter_Zone_JDG.cpp" />
+    <ClCompile Include="M01_Nod_GuardTower_03_Enter_Zone_JDG.cpp" />
     <ClCompile Include="M01_Nod_Truck_JDG.cpp" />
     <ClCompile Include="M01_Objective_Pog_Controller_JDG.cpp" />
     <ClCompile Include="M01_PlayerEntering_BarnArea_Zone_JDG.cpp" />
@@ -657,6 +658,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Nod_Chinook_Reinforcement_Guy_JDG.h" />
     <ClInclude Include="M01_Nod_Commander_Conversation_Controller_GDI.h" />
     <ClInclude Include="M01_Nod_GuardTower_01_Enter_Zone_JDG.h" />
+    <ClInclude Include="M01_Nod_GuardTower_03_Enter_Zone_JDG.h" />
     <ClInclude Include="M01_Nod_Truck_JDG.h" />
     <ClInclude Include="M01_Objective_Pog_Controller_JDG.h" />
     <ClInclude Include="M01_PlayerEntering_BarnArea_Zone_JDG.h" />
@@ -972,6 +974,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x1i_gdi_commcenter_troopdrop.txt" />
     <Text Include="x1i_gdi_hon_troopdrop01a.txt" />
     <Text Include="x1i_gdi_hon_troopdrop01b.txt" />
+    <Text Include="x1i_hon_medlab_chinook.txt" />
     <Text Include="x1i_nod_turretbeach_troopdrop.txt" />
     <Text Include="x1z_finale.txt" />
     <Text Include="x2a_orcastrike.txt" />

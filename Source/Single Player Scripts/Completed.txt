@@ -182,6 +182,7 @@ M01_Lose_Any_Church_Escorts_Zone
 M01_Announce_Hand_of_Nod_Zone
 M01_ChurchArea_Spawner_Guy_JDG
 M01_Whack_A_Mole_Enter_Zone_JDG
+M01_Nod_GuardTower_03_Enter_Zone_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

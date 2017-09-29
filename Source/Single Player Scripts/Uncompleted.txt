@@ -158,7 +158,6 @@ M01_DetentionPen_CivDeathMonitor
 M01_TurretBeach_GDI_Guy_02_JDG 
 M01_TurretBeach_GDI_Guy_01_JDG 
 M01_Barn_Point_Guard_02_JDG 
-M01_Nod_GuardTower_03_Enter_Zone_JDG 
 M01_Nod_GuardTower_02_Enter_Zone_JDG 
 M01_TailgunRun_Spawner_Guy_JDG 
 M01_GDI_Base_Spawner_Guy_JDG 
