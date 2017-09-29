@@ -158,7 +158,6 @@ M01_Barn_Point_Guard_02_JDG
 M01_GuardTower_Sniper_Target_JDG 
 M01_Nod_GuardTower_03_Enter_Zone_JDG 
 M01_Nod_GuardTower_02_Enter_Zone_JDG 
-M01_Nod_GuardTower_01_Enter_Zone_JDG 
 M01_ChurchArea_NOD_Commander_JDG 
 M01_Turn_on_the_Hand_of_Nod_Zone_JDG 
 M01_ChurchArea_Spawner_Guy_JDG 
