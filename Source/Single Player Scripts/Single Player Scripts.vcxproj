@@ -386,6 +386,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Tunnel_Exterior_Zone.cpp" />
     <ClCompile Include="M01_Tunnel_Interior_Zone.cpp" />
     <ClCompile Include="M01_TurnOff_TankReminder_Zone_JDG.cpp" />
+    <ClCompile Include="M01_Turn_on_the_Hand_of_Nod_Zone_JDG.cpp" />
     <ClCompile Include="M01_TurretBeach_Chinook_Spawned_Soldier_NOD.cpp" />
     <ClCompile Include="M01_TurretBeach_Engineer_JDG.cpp" />
     <ClCompile Include="M01_TurretBeach_FodderHovercraft_Controller_JDG.cpp" />
@@ -685,6 +686,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Tunnel_Exterior_Zone.h" />
     <ClInclude Include="M01_Tunnel_Interior_Zone.h" />
     <ClInclude Include="M01_TurnOff_TankReminder_Zone_JDG.h" />
+    <ClInclude Include="M01_Turn_on_the_Hand_of_Nod_Zone_JDG.h" />
     <ClInclude Include="M01_TurretBeach_Chinook_Spawned_Soldier_NOD.h" />
     <ClInclude Include="M01_TurretBeach_Engineer_JDG.h" />
     <ClInclude Include="M01_TurretBeach_FodderHovercraft_Controller_JDG.h" />
