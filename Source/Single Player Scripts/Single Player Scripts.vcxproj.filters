@@ -978,6 +978,9 @@
     <ClCompile Include="M01_HON_Medlab_DropOff_Guy_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_Lose_Any_HON_Escorts_Zone.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -1881,6 +1884,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_HON_Medlab_DropOff_Guy_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_Lose_Any_HON_Escorts_Zone.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
