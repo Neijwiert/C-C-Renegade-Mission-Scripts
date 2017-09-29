@@ -20,7 +20,7 @@
 #include "M01_ChurchArea_Spawner_Guy_JDG.h"
 
 /*
-102347
+M01 -> 102347, 102349, 102348
 */
 void M01_ChurchArea_Spawner_Guy_JDG::Killed(GameObject *obj, GameObject *killer)
 {

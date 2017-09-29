@@ -100,6 +100,7 @@ M01_Church_Balcony_MiniGunner_JDG
 M01_Church_Priest_JDG
 M01_Church_Interior_Nun_JDG
 M01_ChurchArea_NOD_Commander_JDG
+M01_ChurchArea_Spawner_Controller_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -158,7 +159,6 @@ M01_TurretBeach_GDI_Guy_01_JDG
 M01_Barn_Point_Guard_02_JDG 
 M01_Nod_GuardTower_03_Enter_Zone_JDG 
 M01_Nod_GuardTower_02_Enter_Zone_JDG 
-M01_ChurchArea_Spawner_Controller_JDG 
 M01_TailgunRun_Spawner_Guy_JDG 
 M01_GDI_Base_Spawner_Guy_JDG 
 M01_GDI_Toolshed_PatrolGuy_JDG 
