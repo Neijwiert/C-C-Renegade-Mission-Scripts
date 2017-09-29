@@ -954,6 +954,9 @@
     <ClCompile Include="M01_Turn_on_the_Hand_of_Nod_Zone_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_Lose_Any_Church_Escorts_Zone.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -1833,6 +1836,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_Turn_on_the_Hand_of_Nod_Zone_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_Lose_Any_Church_Escorts_Zone.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>

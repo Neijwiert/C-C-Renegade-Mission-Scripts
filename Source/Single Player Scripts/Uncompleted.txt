@@ -202,7 +202,6 @@ M01_Scramble_Radar_Zone
 M01_Announce_Prisoner_Objective_Zone 
 M01_Lose_Any_HON_Escorts_Zone_02 
 M01_Lose_Any_HON_Escorts_Zone 
-M01_Lose_Any_Church_Escorts_Zone 
 M01_Comm_Center_Exterior_Zone 
 M01_Comm_Center_Interior_Zone 
 M01_Hand_Of_Nod_Exterior_Zone 

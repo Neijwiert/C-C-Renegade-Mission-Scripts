@@ -336,6 +336,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Initial_Gunboat_Script_JDG.cpp" />
     <ClCompile Include="M01_Interior_Nun_Conversation_Zone_JDG.cpp" />
     <ClCompile Include="M01_KeyCard01_Script_JDG.cpp" />
+    <ClCompile Include="M01_Lose_Any_Church_Escorts_Zone.cpp" />
     <ClCompile Include="M01_Lose_Any_Church_Escorts_Zone_02.cpp" />
     <ClCompile Include="M01_Loveshack_Nun_Conversation_Zone_JDG.cpp" />
     <ClCompile Include="M01_MediumTank_ReminderZone_JDG.cpp" />
@@ -636,6 +637,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Initial_Gunboat_Script_JDG.h" />
     <ClInclude Include="M01_Interior_Nun_Conversation_Zone_JDG.h" />
     <ClInclude Include="M01_KeyCard01_Script_JDG.h" />
+    <ClInclude Include="M01_Lose_Any_Church_Escorts_Zone.h" />
     <ClInclude Include="M01_Lose_Any_Church_Escorts_Zone_02.h" />
     <ClInclude Include="M01_Loveshack_Nun_Conversation_Zone_JDG.h" />
     <ClInclude Include="M01_MediumTank_ReminderZone_JDG.h" />
