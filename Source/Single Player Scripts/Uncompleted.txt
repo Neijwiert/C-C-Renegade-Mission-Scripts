@@ -177,7 +177,6 @@ M01_Left_Interrogation_Room_Enter_Zone_JDG
 M01_Flamethrower_Point_Guard_JDG 
 M01_Announce_Barn_Objective_Zone 
 M01_Hand_Of_Nod_Dojo_Zone 
-M01_Hand_Of_Nod_Grunt_Zone 
 M01_HON_Cafeteria_Walking_Guy_JDG 
 M01_HON_Cafeteria_Eating_Guy_JDG 
 M01_HON_Dorm_MiniGunner_JDG 
