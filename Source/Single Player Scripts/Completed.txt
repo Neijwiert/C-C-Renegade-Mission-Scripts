@@ -199,6 +199,7 @@ M01_Hand_Of_Nod_Dojo_Zone
 M01_Civ_To_Minigunner_Guy_JDG
 M01_HON_Paintball_Team_02_JDG
 M01_HON_Paintball_Team_01_JDG
+M01_Right_Interrogation_Room_Enter_Zone_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
