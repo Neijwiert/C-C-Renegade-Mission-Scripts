@@ -115,6 +115,7 @@ M01_HON_Dorm_FlameGuy_JDG
 M01_HON_Dorm_Crapper_JDG
 M01_HON_Dojo_Trainer_JDG
 M01_HON_Dojo_Civ_01_JDG
+M01_PaintballRoom_ChatterController_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
@@ -141,7 +142,6 @@ M01_Comm_Mainframe_PogZone_02_JDG
 M01_Comm_Mainframe_PogZone_01_JDG 
 M01_Nod_GuardTower_Tailgun_JDG 
 M01_HON_Paintball_Team_01_JDG 
-M01_PaintballRoom_ChatterController_JDG 
 M01_Comm_Center_Building_Script_JDG 
 M01_Comm_Repair_Engineer_JDG 
 M01_Propaganda_Sounds_Controller_JDG 
