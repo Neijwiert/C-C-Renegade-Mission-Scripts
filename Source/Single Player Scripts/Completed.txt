@@ -192,6 +192,7 @@ M01_Havoc_Out_WarroomZone_JDG
 M01_Havoc_In_WarroomZone_JDG
 M01_HON_Escorts_Warroom_MCT_ZoneController_JDG
 M01_HON_Escorts_Warroom_MCT_Protector01_JDG
+M01_HON_Escorts_Warroom_MCT_Protector02_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
