@@ -338,6 +338,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_HON_Easy_Spawned_Guy_01_JDG.cpp" />
     <ClCompile Include="M01_HON_Easy_Spawned_Guy_02_JDG.cpp" />
     <ClCompile Include="M01_HON_Easy_Spawned_Guy_03_JDG.cpp" />
+    <ClCompile Include="M01_HON_Engineer02_JDG.cpp" />
     <ClCompile Include="M01_HON_Escorts_Warroom_MCT_Commander_JDG.cpp" />
     <ClCompile Include="M01_HON_Escorts_Warroom_MCT_Protector01_JDG.cpp" />
     <ClCompile Include="M01_HON_Escorts_Warroom_MCT_Protector02_JDG.cpp" />
@@ -657,6 +658,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_HON_Easy_Spawned_Guy_01_JDG.h" />
     <ClInclude Include="M01_HON_Easy_Spawned_Guy_02_JDG.h" />
     <ClInclude Include="M01_HON_Easy_Spawned_Guy_03_JDG.h" />
+    <ClInclude Include="M01_HON_Engineer02_JDG.h" />
     <ClInclude Include="M01_HON_Escorts_Warroom_MCT_Commander_JDG.h" />
     <ClInclude Include="M01_HON_Escorts_Warroom_MCT_Protector01_JDG.h" />
     <ClInclude Include="M01_HON_Escorts_Warroom_MCT_Protector02_JDG.h" />
