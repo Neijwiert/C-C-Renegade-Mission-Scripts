@@ -143,7 +143,6 @@ M01_BuggyScript_New_JDG
 M01_BuggyNew_Controller_JDG 
 M01_HON_Engineer02_JDG 
 M01_HON_Escorts_Warroom_MCT_Protector02_JDG 
-M01_HON_Escorts_Warroom_MCT_Protector01_JDG 
 M01_DetentionGDI_Air_Evac_Chopper_JDG 
 M01_DetentionGDI_Air_Evac_Waypath_JDG 
 M01_DetentionPen_Evac_Controller02_JDG 
