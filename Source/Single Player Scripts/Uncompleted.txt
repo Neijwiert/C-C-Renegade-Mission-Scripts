@@ -105,10 +105,10 @@ M01_Whack_A_Mole_Exit_Zone_JDG
 M01_HON_WarroomController_JDG
 M01_HON_Escorts_Warroom_MCT_Commander_JDG
 M01_HON_Engineer02_JDG
+M01_GiveMCTSpeech_Zone_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
-M01_GiveMCTSpeech_Zone_JDG 
 M01_GDI_GuardTower_02_Enter_Zone_JDG 
 M01_GateSwitch_Tutorial_Zone_JDG 
 M01_Mainframe_Tutorial_Zone_JDG 
