@@ -341,6 +341,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG.cpp" />
     <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_04_GDI_JDG.cpp" />
     <ClCompile Include="M01_HON_Commander_Guy.cpp" />
+    <ClCompile Include="M01_HON_Dojo_Trainer_JDG.cpp" />
     <ClCompile Include="M01_HON_Dorm_ChemGuy_JDG.cpp" />
     <ClCompile Include="M01_HON_Dorm_Crapper_JDG.cpp" />
     <ClCompile Include="M01_HON_Dorm_FlameGuy_JDG.cpp" />
@@ -672,6 +673,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG.h" />
     <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_04_GDI_JDG.h" />
     <ClInclude Include="M01_HON_Commander_Guy.h" />
+    <ClInclude Include="M01_HON_Dojo_Trainer_JDG.h" />
     <ClInclude Include="M01_HON_Dorm_ChemGuy_JDG.h" />
     <ClInclude Include="M01_HON_Dorm_Crapper_JDG.h" />
     <ClInclude Include="M01_HON_Dorm_FlameGuy_JDG.h" />

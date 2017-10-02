@@ -1047,6 +1047,9 @@
     <ClCompile Include="M01_Hand_Of_Nod_Dojo_Zone.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_HON_Dojo_Trainer_JDG.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2019,6 +2022,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_Hand_Of_Nod_Dojo_Zone.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_HON_Dojo_Trainer_JDG.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
