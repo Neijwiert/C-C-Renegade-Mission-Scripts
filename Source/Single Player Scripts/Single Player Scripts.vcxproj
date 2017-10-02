@@ -327,6 +327,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Gunboat_Spawn_Hovercraft_Zone_JDG.cpp" />
     <ClCompile Include="M01_HandOfNod_SAMSite_Script.cpp" />
     <ClCompile Include="M01_Hand_of_Nod_Building_Script_JDG.cpp" />
+    <ClCompile Include="M01_Hand_Of_Nod_Dojo_Zone.cpp" />
     <ClCompile Include="M01_Hand_Of_Nod_Exterior_Zone.cpp" />
     <ClCompile Include="M01_Hand_Of_Nod_Grunt_Zone.cpp" />
     <ClCompile Include="M01_Hand_Of_Nod_Interior_Zone.cpp" />
@@ -657,6 +658,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Gunboat_Spawn_Hovercraft_Zone_JDG.h" />
     <ClInclude Include="M01_HandOfNod_SAMSite_Script.h" />
     <ClInclude Include="M01_Hand_of_Nod_Building_Script_JDG.h" />
+    <ClInclude Include="M01_Hand_Of_Nod_Dojo_Zone.h" />
     <ClInclude Include="M01_Hand_Of_Nod_Exterior_Zone.h" />
     <ClInclude Include="M01_Hand_Of_Nod_Grunt_Zone.h" />
     <ClInclude Include="M01_Hand_Of_Nod_Interior_Zone.h" />
