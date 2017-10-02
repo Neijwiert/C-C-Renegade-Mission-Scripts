@@ -24,7 +24,15 @@ M01 -> 101999 102000 101998
 */
 void M01_HON_Paintball_Team_01_JDG::Register_Auto_Save_Variables()
 {
-	
+	Auto_Save_Variable(&this->honPaintballTeam02OfficerObjId, sizeof(this->honPaintballTeam02OfficerObjId), 1);
+	Auto_Save_Variable(&this->innateAggressiveness, sizeof(this->innateAggressiveness), 2);
+	Auto_Save_Variable(&this->innateTakeCoverProbability, sizeof(this->innateTakeCoverProbability), 3);
+	Auto_Save_Variable(&this->maxChangeInnateInterval, sizeof(this->maxChangeInnateInterval), 4);
+	Auto_Save_Variable(&this->minChangeInnateInterval, sizeof(this->minChangeInnateInterval), 5);
+	Auto_Save_Variable(&this->homeRadius, sizeof(this->homeRadius), 6);
+	Auto_Save_Variable(&this->homeLocation, sizeof(this->homeLocation), 7);
+	Auto_Save_Variable(&this->actingOnPaintballer, sizeof(this->actingOnPaintballer), 8);
+	Auto_Save_Variable(&this->awareOfStar, sizeof(this->awareOfStar), 9);
 }
 
 void M01_HON_Paintball_Team_01_JDG::Created(GameObject *obj)
