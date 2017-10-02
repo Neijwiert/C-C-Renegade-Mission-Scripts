@@ -187,6 +187,7 @@ M01_HON_Medlab_DropOff_Guy_JDG
 M01_Lose_Any_HON_Escorts_Zone
 M01_HandOfNod_SAMSite_Script
 M01_Hand_Of_Nod_Exterior_Zone
+M01_Hand_Of_Nod_Interior_Zone
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
