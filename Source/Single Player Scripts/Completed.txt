@@ -196,6 +196,7 @@ M01_HON_Escorts_Warroom_MCT_Protector02_JDG
 M01_Hand_Of_Nod_Grunt_Zone
 M01_Hand_of_Nod_Building_Script_JDG
 M01_Hand_Of_Nod_Dojo_Zone
+M01_Civ_To_Minigunner_Guy_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
