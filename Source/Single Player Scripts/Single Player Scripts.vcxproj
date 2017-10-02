@@ -324,6 +324,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_GuardTower_Sniper_Target_JDG.cpp" />
     <ClCompile Include="M01_GunboatAction_Controller_JDG.cpp" />
     <ClCompile Include="M01_Gunboat_Spawn_Hovercraft_Zone_JDG.cpp" />
+    <ClCompile Include="M01_HandOfNod_SAMSite_Script.cpp" />
     <ClCompile Include="M01_HarvesterScript_New_JDG.cpp" />
     <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG.cpp" />
     <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG.cpp" />
@@ -633,6 +634,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_GuardTower_Sniper_Target_JDG.h" />
     <ClInclude Include="M01_GunboatAction_Controller_JDG.h" />
     <ClInclude Include="M01_Gunboat_Spawn_Hovercraft_Zone_JDG.h" />
+    <ClInclude Include="M01_HandOfNod_SAMSite_Script.h" />
     <ClInclude Include="M01_HarvesterScript_New_JDG.h" />
     <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG.h" />
     <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG.h" />
