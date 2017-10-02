@@ -102,10 +102,10 @@ M01_Church_Interior_Nun_JDG
 M01_ChurchArea_NOD_Commander_JDG
 M01_ChurchArea_Spawner_Controller_JDG
 M01_Whack_A_Mole_Exit_Zone_JDG
+M01_HON_WarroomController_JDG
 
 // Below are not present in the solution yet
 M01_Medlab_Datadisc_JDG 
-M01_HON_WarroomController_JDG 
 M01_GiveMCTSpeech_Zone_JDG 
 M01_GDI_GuardTower_02_Enter_Zone_JDG 
 M01_GateSwitch_Tutorial_Zone_JDG 
