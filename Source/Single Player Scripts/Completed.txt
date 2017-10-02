@@ -189,6 +189,7 @@ M01_HandOfNod_SAMSite_Script
 M01_Hand_Of_Nod_Exterior_Zone
 M01_Hand_Of_Nod_Interior_Zone
 M01_Havoc_Out_WarroomZone_JDG
+M01_Havoc_In_WarroomZone_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

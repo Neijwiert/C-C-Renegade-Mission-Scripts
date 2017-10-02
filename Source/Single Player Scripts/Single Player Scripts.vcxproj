@@ -328,6 +328,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Hand_Of_Nod_Exterior_Zone.cpp" />
     <ClCompile Include="M01_Hand_Of_Nod_Interior_Zone.cpp" />
     <ClCompile Include="M01_HarvesterScript_New_JDG.cpp" />
+    <ClCompile Include="M01_Havoc_In_WarroomZone_JDG.cpp" />
     <ClCompile Include="M01_Havoc_Out_WarroomZone_JDG.cpp" />
     <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG.cpp" />
     <ClCompile Include="M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG.cpp" />
@@ -641,6 +642,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Hand_Of_Nod_Exterior_Zone.h" />
     <ClInclude Include="M01_Hand_Of_Nod_Interior_Zone.h" />
     <ClInclude Include="M01_HarvesterScript_New_JDG.h" />
+    <ClInclude Include="M01_Havoc_In_WarroomZone_JDG.h" />
     <ClInclude Include="M01_Havoc_Out_WarroomZone_JDG.h" />
     <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG.h" />
     <ClInclude Include="M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG.h" />
