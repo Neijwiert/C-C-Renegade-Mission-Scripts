@@ -361,6 +361,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_HON_Medlab_DropOff_Guy_JDG.cpp" />
     <ClCompile Include="M01_HON_Paintball_Team_01_JDG.cpp" />
     <ClCompile Include="M01_HON_Paintball_Team_02_JDG.cpp" />
+    <ClCompile Include="M01_HON_RedKey_Zone_JDG.cpp" />
     <ClCompile Include="M01_HON_WarroomController_JDG.cpp" />
     <ClCompile Include="M01_Hovercraft_Explosion_Controller_JDG.cpp" />
     <ClCompile Include="M01_Hunt_The_Player_JDG.cpp" />
@@ -701,6 +702,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_HON_Medlab_DropOff_Guy_JDG.h" />
     <ClInclude Include="M01_HON_Paintball_Team_01_JDG.h" />
     <ClInclude Include="M01_HON_Paintball_Team_02_JDG.h" />
+    <ClInclude Include="M01_HON_RedKey_Zone_JDG.h" />
     <ClInclude Include="M01_HON_WarroomController_JDG.h" />
     <ClInclude Include="M01_Hovercraft_Explosion_Controller_JDG.h" />
     <ClInclude Include="M01_Hunt_The_Player_JDG.h" />
