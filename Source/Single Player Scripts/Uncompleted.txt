@@ -119,7 +119,6 @@ M01_PaintballRoom_ChatterController_JDG
 M01_Interrogation_Room_Surprise_Guy_JDG
 
 // Below are not present in the solution yet
-M01_Medlab_Datadisc_JDG 
 M01_GDI_GuardTower_02_Enter_Zone_JDG 
 M01_GateSwitch_Tutorial_Zone_JDG 
 M01_Mainframe_Tutorial_Zone_JDG 
