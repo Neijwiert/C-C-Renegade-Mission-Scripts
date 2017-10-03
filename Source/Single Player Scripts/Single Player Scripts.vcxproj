@@ -431,6 +431,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_TurretBeach_Engineer_JDG.cpp" />
     <ClCompile Include="M01_TurretBeach_FodderHovercraft_Controller_JDG.cpp" />
     <ClCompile Include="M01_TurretBeach_Turret_01_Script_JDG.cpp" />
+    <ClCompile Include="M01_UnScramble_Radar_Zone.cpp" />
     <ClCompile Include="M01_Use_Ladder_Zone_JDG.cpp" />
     <ClCompile Include="M01_Visceroid01_JDG.cpp" />
     <ClCompile Include="M01_Visceroid02_JDG.cpp" />
@@ -773,6 +774,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_TurretBeach_Engineer_JDG.h" />
     <ClInclude Include="M01_TurretBeach_FodderHovercraft_Controller_JDG.h" />
     <ClInclude Include="M01_TurretBeach_Turret_01_Script_JDG.h" />
+    <ClInclude Include="M01_UnScramble_Radar_Zone.h" />
     <ClInclude Include="M01_Use_Ladder_Zone_JDG.h" />
     <ClInclude Include="M01_Visceroid01_JDG.h" />
     <ClInclude Include="M01_Visceroid02_JDG.h" />
