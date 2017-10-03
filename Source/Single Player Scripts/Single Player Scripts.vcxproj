@@ -280,6 +280,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Commander_Shack_Zone_JDG.cpp" />
     <ClCompile Include="M01_CommCenter_Evacuator_JDG.cpp" />
     <ClCompile Include="M01_CommCenter_SAMSite_Script.cpp" />
+    <ClCompile Include="M01_Comm_Base_Commander_Conv_Start_Zone_JDG.cpp" />
     <ClCompile Include="M01_Comm_Center_Building_Script_JDG.cpp" />
     <ClCompile Include="M01_Comm_Center_Exterior_Zone.cpp" />
     <ClCompile Include="M01_Comm_Center_Interior_Zone.cpp" />
@@ -637,6 +638,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Commander_Shack_Zone_JDG.h" />
     <ClInclude Include="M01_CommCenter_Evacuator_JDG.h" />
     <ClInclude Include="M01_CommCenter_SAMSite_Script.h" />
+    <ClInclude Include="M01_Comm_Base_Commander_Conv_Start_Zone_JDG.h" />
     <ClInclude Include="M01_Comm_Center_Building_Script_JDG.h" />
     <ClInclude Include="M01_Comm_Center_Exterior_Zone.h" />
     <ClInclude Include="M01_Comm_Center_Interior_Zone.h" />
