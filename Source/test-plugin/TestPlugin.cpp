@@ -221,7 +221,7 @@ void TestPlugin::OnLoadLevel()
 			DamageableGameObjDef *damageableDef = static_cast<DamageableGameObjDef *>(def);
 			int encyId = damageableDef->Get_Encyclopedia_ID();
 
-			if (encyId == 4 || encyId == 2  )
+			if (encyId == 12)
 			{
 				Console_Output("%s: %d\n", def->Get_Name(), damageableDef->Get_Encyclopedia_ID());
 			}

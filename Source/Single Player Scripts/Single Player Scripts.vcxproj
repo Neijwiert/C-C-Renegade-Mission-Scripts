@@ -402,6 +402,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Nod_GuardTower_01_Enter_Zone_JDG.cpp" />
     <ClCompile Include="M01_Nod_GuardTower_03_Enter_Zone_JDG.cpp" />
     <ClCompile Include="M01_Nod_Truck_JDG.cpp" />
+    <ClCompile Include="M01_Obelisk_UpdateDisc_JDG.cpp" />
     <ClCompile Include="M01_Objective_Pog_Controller_JDG.cpp" />
     <ClCompile Include="M01_PaintballRoom_ChatterController_JDG.cpp" />
     <ClCompile Include="M01_PlayerEntering_BarnArea_Zone_JDG.cpp" />
@@ -763,6 +764,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Nod_GuardTower_01_Enter_Zone_JDG.h" />
     <ClInclude Include="M01_Nod_GuardTower_03_Enter_Zone_JDG.h" />
     <ClInclude Include="M01_Nod_Truck_JDG.h" />
+    <ClInclude Include="M01_Obelisk_UpdateDisc_JDG.h" />
     <ClInclude Include="M01_Objective_Pog_Controller_JDG.h" />
     <ClInclude Include="M01_PaintballRoom_ChatterController_JDG.h" />
     <ClInclude Include="M01_PlayerEntering_BarnArea_Zone_JDG.h" />

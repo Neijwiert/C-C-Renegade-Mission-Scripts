@@ -217,6 +217,7 @@ M01_Comm_Mainframe_PogZone_03_JDG
 M01_Comm_Base_Commander_Conv_Start_Zone_JDG
 M01_Comm_Base_Commander_JDG
 M11_Temple_Hologram_01_JDG
+M01_Obelisk_UpdateDisc_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
