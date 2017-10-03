@@ -212,6 +212,7 @@ M01_CommCenter_SAMSite_Script
 M01_Comm_Center_Exterior_Zone
 M01_Comm_Center_Interior_Zone
 M01_Comm_Mainframe_PogZone_01_JDG
+M01_Comm_Mainframe_PogZone_02_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
