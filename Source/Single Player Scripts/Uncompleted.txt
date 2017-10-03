@@ -171,4 +171,3 @@ M01_Flamethrower_Point_Guard_JDG
 M01_Announce_Barn_Objective_Zone 
 M01_HON_BackDoor_Evacuator_JDG 
 M01_COMM_Commander_Guy 
-M11_Temple_Hologram_01_JDG

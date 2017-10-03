@@ -73,6 +73,12 @@
     <Filter Include="Resource Files\Cinematic Files\M01">
       <UniqueIdentifier>{462727f4-1c67-4ca9-9988-9208b5f8bb3a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\M11">
+      <UniqueIdentifier>{76de0b4c-4b4a-42b0-8635-2789f3e8b85f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\M11">
+      <UniqueIdentifier>{7510d6da-46d1-4f4b-8a7b-fdeccdec1225}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -1131,6 +1137,9 @@
     <ClCompile Include="M01_Comm_Base_Commander_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M11_Temple_Hologram_01_JDG.cpp">
+      <Filter>Source Files\M11</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2188,6 +2197,9 @@
     </ClInclude>
     <ClInclude Include="M01_Comm_Base_Commander_JDG.h">
       <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M11_Temple_Hologram_01_JDG.h">
+      <Filter>Header Files\M11</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
