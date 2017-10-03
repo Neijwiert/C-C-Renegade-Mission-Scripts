@@ -207,6 +207,7 @@ M01_UnScramble_Radar_Zone
 M01_Scramble_Radar_Zone
 M01_Lose_Any_HON_Escorts_Zone_02
 M01_Announce_Prisoner_Objective_Zone
+M01_Comm_Center_Building_Script_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
