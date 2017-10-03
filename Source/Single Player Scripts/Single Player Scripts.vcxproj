@@ -314,6 +314,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_FP_NodBase_NorthSouth_Contoller_JDG.cpp" />
     <ClCompile Include="M01_FP_NodBase_SouthNorth_Contoller_JDG.cpp" />
     <ClCompile Include="M01_FP_NodBase_WestEast_Contoller_JDG.cpp" />
+    <ClCompile Include="M01_GateSwitch_Tutorial_Zone_JDG.cpp" />
     <ClCompile Include="M01_GDIBaseCommander_Air_Evac_Chopper_JDG.cpp" />
     <ClCompile Include="M01_GDIBaseCommander_Air_Evac_Rope_JDG.cpp" />
     <ClCompile Include="M01_GDIBaseCommander_Air_Evac_Waypath_JDG.cpp" />
@@ -679,6 +680,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_FP_NodBase_NorthSouth_Contoller_JDG.h" />
     <ClInclude Include="M01_FP_NodBase_SouthNorth_Contoller_JDG.h" />
     <ClInclude Include="M01_FP_NodBase_WestEast_Contoller_JDG.h" />
+    <ClInclude Include="M01_GateSwitch_Tutorial_Zone_JDG.h" />
     <ClInclude Include="M01_GDIBaseCommander_Air_Evac_Chopper_JDG.h" />
     <ClInclude Include="M01_GDIBaseCommander_Air_Evac_Rope_JDG.h" />
     <ClInclude Include="M01_GDIBaseCommander_Air_Evac_Waypath_JDG.h" />
