@@ -205,6 +205,7 @@ M01_HON_RedKey_Zone_JDG
 M01_Medlab_Datadisc_JDG
 M01_UnScramble_Radar_Zone
 M01_Scramble_Radar_Zone
+M01_Lose_Any_HON_Escorts_Zone_02
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

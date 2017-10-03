@@ -1086,6 +1086,9 @@
     <ClCompile Include="M01_Scramble_Radar_Zone.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_Lose_Any_HON_Escorts_Zone_02.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2097,6 +2100,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_Scramble_Radar_Zone.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_Lose_Any_HON_Escorts_Zone_02.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
