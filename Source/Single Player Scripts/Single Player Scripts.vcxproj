@@ -285,6 +285,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Comm_Center_Building_Script_JDG.cpp" />
     <ClCompile Include="M01_Comm_Center_Exterior_Zone.cpp" />
     <ClCompile Include="M01_Comm_Center_Interior_Zone.cpp" />
+    <ClCompile Include="M01_Comm_Center_Pen_Gate.cpp" />
     <ClCompile Include="M01_Comm_Center_Player_Terminal_Zone.cpp" />
     <ClCompile Include="M01_COMM_Chinook_Spawned_Soldier_GDI.cpp" />
     <ClCompile Include="M01_Comm_ComputerRoom_Tech_JDG.cpp" />
@@ -651,6 +652,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Comm_Center_Building_Script_JDG.h" />
     <ClInclude Include="M01_Comm_Center_Exterior_Zone.h" />
     <ClInclude Include="M01_Comm_Center_Interior_Zone.h" />
+    <ClInclude Include="M01_Comm_Center_Pen_Gate.h" />
     <ClInclude Include="M01_Comm_Center_Player_Terminal_Zone.h" />
     <ClInclude Include="M01_COMM_Chinook_Spawned_Soldier_GDI.h" />
     <ClInclude Include="M01_Comm_ComputerRoom_Tech_JDG.h" />

@@ -1158,6 +1158,9 @@
     <ClCompile Include="M01_GateSwitch_Tutorial_Zone_JDG.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_Comm_Center_Pen_Gate.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2235,6 +2238,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_GateSwitch_Tutorial_Zone_JDG.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_Comm_Center_Pen_Gate.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
