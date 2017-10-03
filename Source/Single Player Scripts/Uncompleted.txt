@@ -125,7 +125,6 @@ M01_GDI_GuardTower_02_Enter_Zone_JDG
 M01_GateSwitch_Tutorial_Zone_JDG 
 M01_Mainframe_Tutorial_Zone_JDG 
 M01_ConYard_Dropoff_Dude_JDG  
-M01_CommCenter_SAMSite_Script 
 M01_Comm_Center_Pen_Gate 
 M01_Obelisk_UpdateDisc_JDG 
 M01_GDI_BaseCommander_Backside_EntryZone_JDG 
