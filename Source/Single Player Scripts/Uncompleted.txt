@@ -127,7 +127,6 @@ M01_Comm_ComputerRoom_Tech_JDG
 // Below are not present in the solution yet
 M01_GDI_GuardTower_02_Enter_Zone_JDG 
 M01_GateSwitch_Tutorial_Zone_JDG 
-M01_Mainframe_Tutorial_Zone_JDG 
 M01_ConYard_Dropoff_Dude_JDG  
 M01_Comm_Center_Pen_Gate 
 M01_GDI_BaseCommander_Backside_EntryZone_JDG 
