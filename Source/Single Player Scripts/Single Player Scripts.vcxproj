@@ -253,6 +253,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Beach_Datadisc_JDG.cpp" />
     <ClCompile Include="M01_Billys_Conversation_Zone_JDG.cpp" />
     <ClCompile Include="M01_BuggyNew_Controller_JDG.cpp" />
+    <ClCompile Include="M01_BuggyScript_New_JDG.cpp" />
     <ClCompile Include="M01_C130_Dropoff_Dude_JDG.cpp" />
     <ClCompile Include="M01_C4_TutorialScript_JDG.cpp" />
     <ClCompile Include="M01_C4_Tutorial_Zone_JDG.cpp" />
@@ -600,6 +601,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Beach_Datadisc_JDG.h" />
     <ClInclude Include="M01_Billys_Conversation_Zone_JDG.h" />
     <ClInclude Include="M01_BuggyNew_Controller_JDG.h" />
+    <ClInclude Include="M01_BuggyScript_New_JDG.h" />
     <ClInclude Include="M01_C130_Dropoff_Dude_JDG.h" />
     <ClInclude Include="M01_C4_TutorialScript_JDG.h" />
     <ClInclude Include="M01_C4_Tutorial_Zone_JDG.h" />
