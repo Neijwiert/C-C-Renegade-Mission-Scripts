@@ -220,6 +220,7 @@ M11_Temple_Hologram_01_JDG
 M01_Obelisk_UpdateDisc_JDG
 M01_Mainframe_Tutorial_Zone_JDG
 M01_Detention_GuardTower_Enter_Zone_JDG
+M01_MovieProjector_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

@@ -403,6 +403,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Medlab_Datadisc_JDG.cpp" />
     <ClCompile Include="M01_MiniGunner_Point_Guard_JDG.cpp" />
     <ClCompile Include="M01_Mission_Controller_JDG.cpp" />
+    <ClCompile Include="M01_MovieProjector_JDG.cpp" />
     <ClCompile Include="M01_Nod_Chinook_Reinforcement_Guy_JDG.cpp" />
     <ClCompile Include="M01_Nod_Commander_Conversation_Controller_GDI.cpp" />
     <ClCompile Include="M01_Nod_GuardTower_01_Enter_Zone_JDG.cpp" />
@@ -771,6 +772,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Medlab_Datadisc_JDG.h" />
     <ClInclude Include="M01_MiniGunner_Point_Guard_JDG.h" />
     <ClInclude Include="M01_Mission_Controller_JDG.h" />
+    <ClInclude Include="M01_MovieProjector_JDG.h" />
     <ClInclude Include="M01_Nod_Chinook_Reinforcement_Guy_JDG.h" />
     <ClInclude Include="M01_Nod_Commander_Conversation_Controller_GDI.h" />
     <ClInclude Include="M01_Nod_GuardTower_01_Enter_Zone_JDG.h" />
