@@ -289,6 +289,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Comm_Mainframe_PogZone_01_JDG.cpp" />
     <ClCompile Include="M01_Comm_Mainframe_PogZone_02_JDG.cpp" />
     <ClCompile Include="M01_Comm_Mainframe_PogZone_03_JDG.cpp" />
+    <ClCompile Include="M01_Comm_Repair_Engineer_JDG.cpp" />
     <ClCompile Include="M01_Comm_Stationary_Tech_JDG.cpp" />
     <ClCompile Include="M01_Comm_Upstairs_Guard_JDG.cpp" />
     <ClCompile Include="M01_ConDropZone_JDG.cpp" />
@@ -649,6 +650,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Comm_Mainframe_PogZone_01_JDG.h" />
     <ClInclude Include="M01_Comm_Mainframe_PogZone_02_JDG.h" />
     <ClInclude Include="M01_Comm_Mainframe_PogZone_03_JDG.h" />
+    <ClInclude Include="M01_Comm_Repair_Engineer_JDG.h" />
     <ClInclude Include="M01_Comm_Stationary_Tech_JDG.h" />
     <ClInclude Include="M01_Comm_Upstairs_Guard_JDG.h" />
     <ClInclude Include="M01_ConDropZone_JDG.h" />
