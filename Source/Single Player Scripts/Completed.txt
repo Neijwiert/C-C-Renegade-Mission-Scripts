@@ -238,3 +238,4 @@ M01_GDI_GuardTower_02_Enter_Zone_JDG
 M01_ConYard_Dropoff_Dude_JDG
 M01_GDI_BaseCommander_Backside_EntryZone_JDG
 M01_GDIBase_BackPath_NodGuy_JDG
+M01_GDIBase_LightTank_PastTunnelZone_JDG

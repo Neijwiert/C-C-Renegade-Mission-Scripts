@@ -133,10 +133,7 @@ M01_DetentionPen_GDIDeathMonitor
 M01_PrisonPen_POW_JDG
 M01_TurretBeach_GDI_Guy_01_JDG
 
-// Below are scripts that are not used, but they are present
-
 // Below are not present in the solution yet
-M01_GDIBase_LightTank_PastTunnelZone_JDG 
 M01_BarnArea_NOD_Commander_Trigger_Zone_JDG 
 M01_GDIBase_FirstChinookFlamethrowerGuy_JDG 
 M01_GDIBase_FirstChinook_Script_JDG 
