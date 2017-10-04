@@ -426,6 +426,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Priest_Conversation_Zone_JDG.cpp" />
     <ClCompile Include="M01_Priest_Datadisc_JDG.cpp" />
     <ClCompile Include="M01_PrisonPen_Civilian_JDG.cpp" />
+    <ClCompile Include="M01_Propaganda_Sounds_Controller_JDG.cpp" />
     <ClCompile Include="M01_QuickSave_Zone_JDG.cpp" />
     <ClCompile Include="M01_RealLightTank_TriggerZone_JDG.cpp" />
     <ClCompile Include="M01_Right_Interrogation_Room_Enter_Zone_JDG.cpp" />
@@ -797,6 +798,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Priest_Conversation_Zone_JDG.h" />
     <ClInclude Include="M01_Priest_Datadisc_JDG.h" />
     <ClInclude Include="M01_PrisonPen_Civilian_JDG.h" />
+    <ClInclude Include="M01_Propaganda_Sounds_Controller_JDG.h" />
     <ClInclude Include="M01_QuickSave_Zone_JDG.h" />
     <ClInclude Include="M01_RealLightTank_TriggerZone_JDG.h" />
     <ClInclude Include="M01_Right_Interrogation_Room_Enter_Zone_JDG.h" />
