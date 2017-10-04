@@ -132,6 +132,3 @@ M01_Propaganda_Sounds_Controller_JDG
 M01_DetentionPen_GDIDeathMonitor
 M01_PrisonPen_POW_JDG
 M01_TurretBeach_GDI_Guy_01_JDG
-
-// Below are not present in the solution yet
-M01_COMM_Commander_Guy

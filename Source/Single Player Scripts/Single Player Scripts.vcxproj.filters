@@ -1281,6 +1281,9 @@
     <ClCompile Include="M01_Announce_Barn_Objective_Zone.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M01_COMM_Commander_Guy.cpp">
+      <Filter>Source Files\M01</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2481,6 +2484,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M01_Announce_Barn_Objective_Zone.h">
+      <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M01_COMM_Commander_Guy.h">
       <Filter>Header Files\M01</Filter>
     </ClInclude>
   </ItemGroup>
