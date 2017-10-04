@@ -254,3 +254,4 @@ M01_Nod_GuardTower_02_Enter_Zone_JDG
 M01_TailgunRun_Spawner_Guy_JDG
 M01_GDI_Base_Spawner_Guy_JDG
 M01_GDI_Toolshed_PatrolGuy_JDG
+M01_Comm_MCT_Placeholder_JDG
