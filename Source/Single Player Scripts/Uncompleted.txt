@@ -130,6 +130,7 @@ M01_DetentionPen_CivDeathMonitor
 M01_PrisonPen_Civilian_JDG
 M01_Propaganda_Sounds_Controller_JDG
 M01_DetentionPen_GDIDeathMonitor
+M01_PrisonPen_POW_JDG
 
 // Below are not present in the solution yet
 M01_GDI_GuardTower_02_Enter_Zone_JDG 
@@ -138,7 +139,6 @@ M01_GDI_BaseCommander_Backside_EntryZone_JDG
 M01_GDIBase_BackPath_NodGuy_JDG 
 M01_GDIBase_LightTank_PastTunnelZone_JDG 
 M01_BarnArea_NOD_Commander_Trigger_Zone_JDG 
-M01_PrisonPen_POW_JDG 
 M01_GDIBase_FirstChinookFlamethrowerGuy_JDG 
 M01_GDIBase_FirstChinook_Script_JDG 
 M01_Nod_GuardTower_Tailgun_JDG 
