@@ -63,9 +63,59 @@ namespace ScriptUsageFinder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] always {
+            get {
+                object obj = ResourceManager.GetObject("always", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] always2 {
+            get {
+                object obj = ResourceManager.GetObject("always2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] always3 {
+            get {
+                object obj = ResourceManager.GetObject("always3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] M00_Tutorial {
+            get {
+                object obj = ResourceManager.GetObject("M00_Tutorial", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] m01 {
             get {
                 object obj = ResourceManager.GetObject("m01", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] M011 {
+            get {
+                object obj = ResourceManager.GetObject("M011", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -83,9 +133,29 @@ namespace ScriptUsageFinder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] M021 {
+            get {
+                object obj = ResourceManager.GetObject("M021", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] m03 {
             get {
                 object obj = ResourceManager.GetObject("m03", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] M031 {
+            get {
+                object obj = ResourceManager.GetObject("M031", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -103,9 +173,29 @@ namespace ScriptUsageFinder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] M041 {
+            get {
+                object obj = ResourceManager.GetObject("M041", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] m05 {
             get {
                 object obj = ResourceManager.GetObject("m05", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] M051 {
+            get {
+                object obj = ResourceManager.GetObject("M051", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -123,9 +213,29 @@ namespace ScriptUsageFinder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] M061 {
+            get {
+                object obj = ResourceManager.GetObject("M061", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] m07 {
             get {
                 object obj = ResourceManager.GetObject("m07", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] M071 {
+            get {
+                object obj = ResourceManager.GetObject("M071", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -143,9 +253,29 @@ namespace ScriptUsageFinder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] M081 {
+            get {
+                object obj = ResourceManager.GetObject("M081", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] m09 {
             get {
                 object obj = ResourceManager.GetObject("m09", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] M091 {
+            get {
+                object obj = ResourceManager.GetObject("M091", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -163,6 +293,16 @@ namespace ScriptUsageFinder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] M101 {
+            get {
+                object obj = ResourceManager.GetObject("M101", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] m11 {
             get {
                 object obj = ResourceManager.GetObject("m11", resourceCulture);
@@ -173,9 +313,29 @@ namespace ScriptUsageFinder.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] M111 {
+            get {
+                object obj = ResourceManager.GetObject("M111", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] m13 {
             get {
                 object obj = ResourceManager.GetObject("m13", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] M131 {
+            get {
+                object obj = ResourceManager.GetObject("M131", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -196,6 +356,16 @@ namespace ScriptUsageFinder.Properties {
         internal static byte[] objects {
             get {
                 object obj = ResourceManager.GetObject("objects", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Skirmish00 {
+            get {
+                object obj = ResourceManager.GetObject("Skirmish00", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -1,0 +1,90 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 1: Hovercraft troop drop at turret beach  ************************
+
+
+
+; ****************************** Tajectory
+
+-1	Create_Object,		1, "X1E_Trajectory",			0, 0, 0, 0, 
+-1	Play_Animation,		1, "X1E_Trajectory.X1E_Trajectory",1
+-500	destroy_object,		1
+
+; ****************************** Hovercraft
+
+;-1	Create_Object,		2, "v_ag_HCraft",			0, 0, 0, 0, 
+-1	Create_Real_Object,	2, "GDI_Hovercraft", 1, "BN_HCraft_Traj"
+-1	Play_Animation,		2, "v_GDI_Hcraft.X1E_Hcraft",1
+-1	Attach_to_Bone,		2,1,"BN_HCraft_Traj"
+-1	Play_Audio,		"gdi_hovercraft_idle_01", 2, "Fan_bone1"
+-190	Play_Audio,		"gdi_hovercraft_door_01", 2, "Ramp_bone"
+-240	Play_Audio,		"Metal_Thunk_01", 2, "Ramp_bone"
+-325	Play_Audio,		"gdi_hovercraft_door_01", 2, "Ramp_bone"
+-385	Play_Audio,		"Metal_Thunk_01", 2, "Ramp_bone"
+
+-500	destroy_object,		2
+
+
+; ****************************** Troop Bone
+
+-1	Create_Object,		3, "x1e_troops",			0, 0, 0, 0, 
+-1	Play_Animation,		3, "x1e_troops.x1e_troops",1
+-325	destroy_object,		3
+
+; ****************************** Troops
+
+-1	Create_Real_Object,	4, "GDI_Minigunner_0", 3, "bn_human00"
+-1    	Attach_Script,          4, "M01_TurretBeach_GDI_Guy_01_JDG", ""
+-1	Attach_to_Bone,		4,3,"bn_human00"
+-260	Play_Animation,		4, "S_A_Human.H_A_X1E_Run",0
+-320	Attach_to_Bone,		4,-1,"bn_human00"
+
+; ****************************** Troops
+
+-1	Create_Real_Object,	5, "GDI_Minigunner_0", 3, "bn_human01"
+-1    	Attach_Script,          5, "M01_TurretBeach_GDI_Guy_02_JDG", ""
+-1	Attach_to_Bone,		5,3,"bn_human01"
+-255	Play_Animation,		5, "S_A_Human.H_A_X1E_Run",0
+-315	Attach_to_Bone,		5,-1,"bn_human01"
+
+; ****************************** Troops
+
+;-1	Create_Real_Object,	6, "GDI_Minigunner_0", 3, "bn_human02"
+;-1    	Attach_Script,          6, "M01_TurretBeach_GDI_Guy_03_JDG", ""
+;-1	Attach_to_Bone,		6,3,"bn_human02"
+;-265	Play_Animation,		6, "S_A_Human.H_A_X1E_Run",0
+;-324	Attach_to_Bone,		6,-1,"bn_human02"
+
+
+
+
+
+
+

@@ -118,46 +118,97 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="always" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\always.dat;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="always2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\always2.dat;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="always3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\always3.dat;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="M00_Tutorial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M00_Tutorial.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="m01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m01.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="M011" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M01.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="m02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m02.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="M021" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M02.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="m03" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m03.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="M031" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M03.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="m04" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m04.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="M041" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M04.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="m05" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m05.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="M051" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M05.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="m06" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m06.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="M061" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M06.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="m07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m07.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="M071" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M07.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="m08" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m08.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="M081" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M08.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="m09" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m09.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="M091" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M09.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="m10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m10.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="M101" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M10.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="m11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m11.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="M111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M11.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="m13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\m13.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="M131" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M13.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="mtu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mtu.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="objects" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\objects.txt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Skirmish00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Skirmish00.mix;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

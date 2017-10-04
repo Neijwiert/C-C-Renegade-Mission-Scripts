@@ -11,13 +11,65 @@ namespace ScriptUsageFinder
         {
             INVALID_MODE = -1,
             ALL_SCRIPTS_MODE,
-            ALL_USAGES_MODE
+            ALL_USAGES_MODE,
+            QUIT_MODE
         }
 
         static void Main(string[] args)
         {
             try
             {
+                MixFile alwaysMixFile = new MixFile(Properties.Resources.always);
+                alwaysMixFile.ParseFile();
+
+                MixFile always2MixFile = new MixFile(Properties.Resources.always2);
+                always2MixFile.ParseFile();
+
+                MixFile always3MixFile = new MixFile(Properties.Resources.always3);
+                always3MixFile.ParseFile();
+
+                MixFile tutorialMixFile = new MixFile(Properties.Resources.M00_Tutorial);
+                tutorialMixFile.ParseFile();
+
+                MixFile skirmishMixFile = new MixFile(Properties.Resources.Skirmish00);
+                skirmishMixFile.ParseFile();
+
+                MixFile m01MixFile = new MixFile(Properties.Resources.M011);
+                m01MixFile.ParseFile();
+
+                MixFile m02MixFile = new MixFile(Properties.Resources.M021);
+                m02MixFile.ParseFile();
+
+                MixFile m03MixFile = new MixFile(Properties.Resources.M031);
+                m03MixFile.ParseFile();
+
+                MixFile m04MixFile = new MixFile(Properties.Resources.M041);
+                m04MixFile.ParseFile();
+
+                MixFile m05MixFile = new MixFile(Properties.Resources.M051);
+                m05MixFile.ParseFile();
+
+                MixFile m06MixFile = new MixFile(Properties.Resources.M061);
+                m06MixFile.ParseFile();
+
+                MixFile m07MixFile = new MixFile(Properties.Resources.M071);
+                m07MixFile.ParseFile();
+
+                MixFile m08MixFile = new MixFile(Properties.Resources.M081);
+                m08MixFile.ParseFile();
+
+                MixFile m09MixFile = new MixFile(Properties.Resources.M091);
+                m09MixFile.ParseFile();
+
+                MixFile m10MixFile = new MixFile(Properties.Resources.M101);
+                m10MixFile.ParseFile();
+
+                MixFile m11MixFile = new MixFile(Properties.Resources.M111);
+                m11MixFile.ParseFile();
+
+                MixFile m13MixFile = new MixFile(Properties.Resources.M131);
+                m13MixFile.ParseFile();
+
                 IDictionary<string, LevelDumpFile> levels = new Dictionary<string, LevelDumpFile>();
 
                 ObjectsDumpFile objectsDumpFile = new ObjectsDumpFile(Properties.Resources.objects);
@@ -75,19 +127,28 @@ namespace ScriptUsageFinder
                 levelDumpFileTu.ParseFile();
                 levels.Add(nameof(Properties.Resources.mtu), levelDumpFileTu);
 
-                Mode mode = GetMode();
-                switch (mode)
+                bool quit = false;
+
+                while (!quit)
                 {
-                    case Mode.ALL_SCRIPTS_MODE:
-                        LevelDumpFile level = GetLevel(levels);
-                        PrintAllScriptsForLevel(level);
+                    Mode mode = GetMode();
+                    switch (mode)
+                    {
+                        case Mode.ALL_SCRIPTS_MODE:
+                            LevelDumpFile level = GetLevel(levels);
+                            PrintAllScriptsForLevel(level);
 
-                        break;
-                    case Mode.ALL_USAGES_MODE:
-                        string script = GetScriptName();
-                        PrintAllReferencesForScript(levels, script);
+                            break;
+                        case Mode.ALL_USAGES_MODE:
+                            string script = GetScriptName();
+                            PrintAllReferencesForScript(levels, script);
 
-                        break;
+                            break;
+                        case Mode.QUIT_MODE:
+                            quit = true;
+
+                            break;
+                    }
                 }
             }
             catch(Exception ex)
@@ -103,7 +164,7 @@ namespace ScriptUsageFinder
             Mode result = Mode.INVALID_MODE;
             while (result == Mode.INVALID_MODE)
             {
-                Console.Write($"What mode ({(int)Mode.ALL_SCRIPTS_MODE} = all scripts for level, {(int)Mode.ALL_USAGES_MODE} = all usages for script): ");
+                Console.Write($"What mode ({(int)Mode.ALL_SCRIPTS_MODE} = all scripts for level, {(int)Mode.ALL_USAGES_MODE} = all usages for script, {(int)Mode.QUIT_MODE} = quit): ");
 
                 string strMode = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(strMode))
@@ -159,8 +220,6 @@ namespace ScriptUsageFinder
 
         private static void PrintAllScriptsForLevel(LevelDumpFile file)
         {
-            Process notepadProcess = StartNotepad();
-
             IDictionary<string, ISet<int>> referencedScripts = new Dictionary<string, ISet<int>>();
             foreach(LevelDumpFile.CreatedObject obj in file.Objects.Values)
             {
@@ -195,7 +254,12 @@ namespace ScriptUsageFinder
                 builder.Append(Environment.NewLine);
             }
 
-            WriteToNotepad(notepadProcess, builder.ToString());
+            string outputStr = builder.ToString();
+            if (!string.IsNullOrWhiteSpace(outputStr))
+            {
+                Process notepadProcess = StartNotepad();
+                WriteToNotepad(notepadProcess, builder.ToString());
+            }
         }
 
         private static string GetScriptName()
@@ -206,7 +270,7 @@ namespace ScriptUsageFinder
                 Console.Write("What script (case-sensitive): ");
 
                 string script = Console.ReadLine();
-                if(PresetDefintions.Instance.HasScript(script))
+                if(Definitions.Instance.HasScript(script))
                 {
                     result = script;
                 }
@@ -217,8 +281,6 @@ namespace ScriptUsageFinder
 
         private static void PrintAllReferencesForScript(IDictionary<string, LevelDumpFile> levels, string scriptName)
         {
-            Process notepadProcess = StartNotepad();
-
             StringBuilder builder = new StringBuilder();
             foreach(KeyValuePair<string, LevelDumpFile> entry in levels)
             {
@@ -248,7 +310,39 @@ namespace ScriptUsageFinder
                 }
             }
 
-            WriteToNotepad(notepadProcess, builder.ToString());
+            if(Definitions.Instance.CinematicScripts.TryGetValue(scriptName, out Definitions.CinematicScript cinematicScript))
+            {
+                foreach(KeyValuePair<string, IReadOnlyCollection<int>> entry in cinematicScript.CinematicOccurences)
+                {
+                    string cinematicFileName = entry.Key;
+
+                    bool prependedCinematicFileName = false;
+
+                    foreach(int frame in entry.Value)
+                    {
+                        if(!prependedCinematicFileName)
+                        {
+                            prependedCinematicFileName = true;
+
+                            builder.Append(cinematicFileName).Append(" at frame(s):");
+                        }
+
+                        builder.Append(' ').Append(frame);
+                    }
+
+                    if (prependedCinematicFileName)
+                    {
+                        builder.Append(Environment.NewLine);
+                    }
+                }
+            }
+
+            string outputStr = builder.ToString();
+            if (!string.IsNullOrWhiteSpace(outputStr))
+            {
+                Process notepadProcess = StartNotepad();
+                WriteToNotepad(notepadProcess, builder.ToString());
+            }
         }
     }
 }

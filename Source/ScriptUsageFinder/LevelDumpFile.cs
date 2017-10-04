@@ -19,7 +19,7 @@ namespace ScriptUsageFinder
 
             public bool AddScript(string script)
             {
-                PresetDefintions.Instance.RegisterScript(script);
+                Definitions.Instance.RegisterScript(script);
 
                 return this.scripts.Add(script);
             }
@@ -56,11 +56,11 @@ namespace ScriptUsageFinder
                 get;
             }
 
-            public PresetDefintions.Preset Preset
+            public Definitions.Preset Preset
             {
                 get
                 {
-                    PresetDefintions.Instance.Presets.TryGetValue(this.PresetId, out PresetDefintions.Preset preset);
+                    Definitions.Instance.Presets.TryGetValue(this.PresetId, out Definitions.Preset preset);
 
                     return preset;
                 }

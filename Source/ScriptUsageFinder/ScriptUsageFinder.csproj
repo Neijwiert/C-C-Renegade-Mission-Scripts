@@ -43,9 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DumpFile.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Imports.cs" />
     <Compile Include="LevelDumpFile.cs" />
-    <Compile Include="PresetDefinitions.cs" />
+    <Compile Include="MixFile.cs" />
+    <Compile Include="Definitions.cs" />
     <Compile Include="ObjectsDumpFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,6 +59,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EmbeddedResource Include="Resources\always.dat" />
+    <EmbeddedResource Include="Resources\always2.dat" />
+    <EmbeddedResource Include="Resources\always3.dat" />
+    <EmbeddedResource Include="Resources\M00_Tutorial.mix" />
+    <EmbeddedResource Include="Resources\M01.mix" />
+    <EmbeddedResource Include="Resources\M02.mix" />
+    <EmbeddedResource Include="Resources\M03.mix" />
+    <EmbeddedResource Include="Resources\M04.mix" />
+    <EmbeddedResource Include="Resources\M05.mix" />
+    <EmbeddedResource Include="Resources\M06.mix" />
+    <EmbeddedResource Include="Resources\M07.mix" />
+    <EmbeddedResource Include="Resources\M08.mix" />
+    <EmbeddedResource Include="Resources\M09.mix" />
+    <EmbeddedResource Include="Resources\M10.mix" />
+    <EmbeddedResource Include="Resources\M11.mix" />
+    <EmbeddedResource Include="Resources\M13.mix" />
+    <EmbeddedResource Include="Resources\Skirmish00.mix" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

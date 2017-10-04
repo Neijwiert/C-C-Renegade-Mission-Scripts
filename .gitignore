@@ -321,3 +321,4 @@ __pycache__/
 *.til
 
 !Scripts2.dll
+Source/ScriptUsageFinder/Resources/always.dat

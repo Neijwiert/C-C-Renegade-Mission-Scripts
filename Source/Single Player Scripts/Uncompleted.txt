@@ -131,6 +131,7 @@ M01_PrisonPen_Civilian_JDG
 M01_Propaganda_Sounds_Controller_JDG
 M01_DetentionPen_GDIDeathMonitor
 M01_PrisonPen_POW_JDG
+M01_TurretBeach_GDI_Guy_01_JDG
 
 // Below are not present in the solution yet
 M01_GDI_GuardTower_02_Enter_Zone_JDG 
@@ -148,8 +149,6 @@ M01_DetentionPen_Evac_Controller02_JDG
 M01_DetentionCiv_Air_Evac_Chopper_JDG 
 M01_DetentionCiv_Air_Evac_Waypath_JDG 
 M01_DetentionPen_Evac_Controller01_JDG 
-M01_TurretBeach_GDI_Guy_02_JDG 
-M01_TurretBeach_GDI_Guy_01_JDG 
 M01_Barn_Point_Guard_02_JDG 
 M01_Nod_GuardTower_02_Enter_Zone_JDG 
 M01_TailgunRun_Spawner_Guy_JDG 
@@ -165,5 +164,9 @@ M01_TailGunner_01_JDG
 M01_Interrogation_Room_L03_Keycard_JDG 
 M01_Flamethrower_Point_Guard_JDG 
 M01_Announce_Barn_Objective_Zone 
-M01_HON_BackDoor_Evacuator_JDG 
 M01_COMM_Commander_Guy 
+
+M01_TurretBeach_GDI_Guy_02_JDG
+
+// Mission controller
+M01_HON_BackDoor_Evacuator_JDG

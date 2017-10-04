@@ -59,7 +59,7 @@ namespace ScriptUsageFinder
 
                     currentPresetId = presetId;
 
-                    PresetDefintions.Instance.RegisterPreset(presetId, presetName);
+                    Definitions.Instance.RegisterPreset(presetId, presetName);
                 }
                 else
                 {
@@ -90,7 +90,7 @@ namespace ScriptUsageFinder
                         throw new IOException("Invalid script name");
                     }
 
-                    PresetDefintions.Instance.RegisterPresetScript(currentPresetId, currentPresetName, scriptName);
+                    Definitions.Instance.RegisterPresetScript(currentPresetId, currentPresetName, scriptName);
                 }
             }
         }
