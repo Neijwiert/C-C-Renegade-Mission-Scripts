@@ -291,6 +291,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Comm_Center_Player_Terminal_Zone.cpp" />
     <ClCompile Include="M01_COMM_Chinook_Spawned_Soldier_GDI.cpp" />
     <ClCompile Include="M01_Comm_ComputerRoom_Tech_JDG.cpp" />
+    <ClCompile Include="M01_Comm_Kane_n_Havoc_Conv_Start_Zone_JDG.cpp" />
     <ClCompile Include="M01_Comm_Mainframe_PogZone_01_JDG.cpp" />
     <ClCompile Include="M01_Comm_Mainframe_PogZone_02_JDG.cpp" />
     <ClCompile Include="M01_Comm_Mainframe_PogZone_03_JDG.cpp" />
@@ -690,6 +691,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Comm_Center_Player_Terminal_Zone.h" />
     <ClInclude Include="M01_COMM_Chinook_Spawned_Soldier_GDI.h" />
     <ClInclude Include="M01_Comm_ComputerRoom_Tech_JDG.h" />
+    <ClInclude Include="M01_Comm_Kane_n_Havoc_Conv_Start_Zone_JDG.h" />
     <ClInclude Include="M01_Comm_Mainframe_PogZone_01_JDG.h" />
     <ClInclude Include="M01_Comm_Mainframe_PogZone_02_JDG.h" />
     <ClInclude Include="M01_Comm_Mainframe_PogZone_03_JDG.h" />
