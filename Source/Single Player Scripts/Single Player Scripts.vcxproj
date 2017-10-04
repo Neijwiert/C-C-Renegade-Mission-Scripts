@@ -466,6 +466,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_TailgunRun_Spawner_Guy_JDG.cpp" />
     <ClCompile Include="M01_TailGun_01_JDG.cpp" />
     <ClCompile Include="M01_TailGun_02_JDG.cpp" />
+    <ClCompile Include="M01_Tailgun_02_SpawnApache_Zone_JDG.cpp" />
     <ClCompile Include="M01_TailGun_03_JDG.cpp" />
     <ClCompile Include="M01_Tailgun_Run_Spawner_Controller_JDG.cpp" />
     <ClCompile Include="M01_Tank_Entering_Tunnel_Zone_JDG.cpp" />
@@ -866,6 +867,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_TailgunRun_Spawner_Guy_JDG.h" />
     <ClInclude Include="M01_TailGun_01_JDG.h" />
     <ClInclude Include="M01_TailGun_02_JDG.h" />
+    <ClInclude Include="M01_Tailgun_02_SpawnApache_Zone_JDG.h" />
     <ClInclude Include="M01_TailGun_03_JDG.h" />
     <ClInclude Include="M01_Tailgun_Run_Spawner_Controller_JDG.h" />
     <ClInclude Include="M01_Tank_Entering_Tunnel_Zone_JDG.h" />
@@ -1146,6 +1148,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x1a_solo_orca_19.txt" />
     <Text Include="x1a_solo_orca_20.txt" />
     <Text Include="x1a_solo_orca_21.txt" />
+    <Text Include="x1a_tailgun_apache_02.txt" />
     <Text Include="x1c_intro.txt" />
     <Text Include="x1d_fodderhover_mtank.txt" />
     <Text Include="x1d_gdipowerupdrop.txt" />

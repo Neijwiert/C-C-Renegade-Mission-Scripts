@@ -29,6 +29,7 @@
 // After 1 cinematic frame in x1a_apache_orca_chase_01/02/03/04.txt
 // After 1 cinematic frame in x1d_gtower_flaredrop.txt
 // After 1 cinematic frame in X1D_GDIPOW_FlareDrop.txt
+// After 1 cinematic frame in x1a_tailgun_apache_02.txt
 void M01_Flyover_Generic_Script_JDG::Created(GameObject *obj)
 {
 	Commands->Disable_Physical_Collisions(obj);
