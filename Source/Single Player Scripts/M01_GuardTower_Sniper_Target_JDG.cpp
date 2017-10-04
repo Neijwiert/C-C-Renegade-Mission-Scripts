@@ -27,6 +27,7 @@ void M01_GuardTower_Sniper_Target_JDG::Register_Auto_Save_Variables()
 
 // When M01_Nod_GuardTower_01_Enter_Zone_JDG is entered
 // When M01_GDI_GuardTower_02_Enter_Zone_JDG is entered
+// When M01_Nod_GuardTower_02_Enter_Zone_JDG is entered
 void M01_GuardTower_Sniper_Target_JDG::Created(GameObject *obj)
 {
 	this->waveLocation = Get_Vector3_Parameter("wave_location");
