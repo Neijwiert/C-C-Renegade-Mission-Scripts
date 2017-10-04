@@ -356,6 +356,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_GDI_GuardTower02_SniperRifle_JDG.cpp" />
     <ClCompile Include="M01_GDI_GuardTower_02_Enter_Zone_JDG.cpp" />
     <ClCompile Include="M01_GDI_GuardTower_NOD_Commander_JDG.cpp" />
+    <ClCompile Include="M01_GDI_Toolshed_PatrolGuy_JDG.cpp" />
     <ClCompile Include="M01_GiveMCTSpeech_Zone_JDG.cpp" />
     <ClCompile Include="M01_GuardTower02_NewSniperTarget_JDG.cpp" />
     <ClCompile Include="M01_GuardTower02_Sniper_Target01_JDG.cpp" />
@@ -752,6 +753,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_GDI_GuardTower02_SniperRifle_JDG.h" />
     <ClInclude Include="M01_GDI_GuardTower_02_Enter_Zone_JDG.h" />
     <ClInclude Include="M01_GDI_GuardTower_NOD_Commander_JDG.h" />
+    <ClInclude Include="M01_GDI_Toolshed_PatrolGuy_JDG.h" />
     <ClInclude Include="M01_GiveMCTSpeech_Zone_JDG.h" />
     <ClInclude Include="M01_GuardTower02_NewSniperTarget_JDG.h" />
     <ClInclude Include="M01_GuardTower02_Sniper_Target01_JDG.h" />
