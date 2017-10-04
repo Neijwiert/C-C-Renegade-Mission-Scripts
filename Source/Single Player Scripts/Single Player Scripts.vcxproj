@@ -221,6 +221,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_AccessDenied_Zone_JDG.cpp" />
     <ClCompile Include="M01_Airstrike_Controller_JDG.cpp" />
     <ClCompile Include="M01_Ambient_Sound_Controller_JDG.cpp" />
+    <ClCompile Include="M01_Announce_Barn_Objective_Zone.cpp" />
     <ClCompile Include="M01_Announce_First_ObjectiveZone_JDG.cpp" />
     <ClCompile Include="M01_Announce_Hand_of_Nod_Zone.cpp" />
     <ClCompile Include="M01_Announce_Prisoner_Objective_Zone.cpp" />
@@ -627,6 +628,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_AccessDenied_Zone_JDG.h" />
     <ClInclude Include="M01_Airstrike_Controller_JDG.h" />
     <ClInclude Include="M01_Ambient_Sound_Controller_JDG.h" />
+    <ClInclude Include="M01_Announce_Barn_Objective_Zone.h" />
     <ClInclude Include="M01_Announce_First_ObjectiveZone_JDG.h" />
     <ClInclude Include="M01_Announce_Hand_of_Nod_Zone.h" />
     <ClInclude Include="M01_Announce_Prisoner_Objective_Zone.h" />
