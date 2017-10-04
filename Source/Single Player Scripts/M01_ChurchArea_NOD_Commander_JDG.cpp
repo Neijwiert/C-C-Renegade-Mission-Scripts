@@ -146,7 +146,7 @@ void M01_ChurchArea_NOD_Commander_JDG::Sound_Heard(GameObject *obj, const Combat
 	Vector3 pos = Commands->Get_Position(obj);
 	GameObject *starObj = Commands->Get_A_Star(pos);
 
-	if (sound.Creator == starObj && sound.sound == 5 && obj	&& !this->killed && !this->starSeen)
+	if (sound.Creator == starObj && sound.sound == SOUND_TYPE_BULLET_HIT && obj	&& !this->killed && !this->starSeen)
 	{
 		Vector3 starPos = Commands->Get_Position(starObj);
 		if (Commands->Get_Distance(pos, starPos) >= 15.0f)

@@ -225,7 +225,7 @@ void M01_GDI_GuardTower_NOD_Commander_JDG::Sound_Heard(GameObject *obj, const Co
 	Vector3 pos = Commands->Get_Position(obj);
 	GameObject *starObj = Commands->Get_A_Star(pos);
 
-	if (sound.Creator == starObj && sound.sound == 5 && obj && !this->killed && !this->enemySeen)
+	if (sound.Creator == starObj && sound.sound == SOUND_TYPE_BULLET_HIT && obj && !this->killed && !this->enemySeen)
 	{
 		Vector3 starPos = Commands->Get_Position(starObj);
 

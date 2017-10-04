@@ -112,14 +112,14 @@ void M01_HON_Easy_Spawned_Guy_01_JDG::Sound_Heard(GameObject *obj, const CombatS
 	{
 		Vector3 starPos = Commands->Get_Position(starObj);
 
-		if (sound.sound == 4)
+		if (sound.sound == SOUND_TYPE_GUNSHOT)
 		{
 			this->noticedStar = true;
 
 			Commands->Action_Reset(obj, 100.0f);
 			Commands->Innate_Force_State_Gunshots_Heard(obj, starPos);
 		}
-		else if (sound.sound == 5)
+		else if (sound.sound == SOUND_TYPE_BULLET_HIT)
 		{
 			this->noticedStar = true;
 
