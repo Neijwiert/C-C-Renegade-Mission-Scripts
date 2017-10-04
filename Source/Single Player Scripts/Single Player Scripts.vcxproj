@@ -233,6 +233,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_BarnArea_AI_ExitZone_JDG.cpp" />
     <ClCompile Include="M01_BarnArea_EvacMonitor_JDG.cpp" />
     <ClCompile Include="M01_BarnArea_NOD_Commander_Trigger_Zone02_JDG.cpp" />
+    <ClCompile Include="M01_BarnArea_NOD_Commander_Trigger_Zone_JDG.cpp" />
     <ClCompile Include="M01_Barn_Babushkas_Conversation_Zone_JDG.cpp" />
     <ClCompile Include="M01_Barn_Door_Guard_JDG.cpp" />
     <ClCompile Include="M01_Barn_EntryZone_JDG.cpp" />
@@ -615,6 +616,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_BarnArea_AI_ExitZone_JDG.h" />
     <ClInclude Include="M01_BarnArea_EvacMonitor_JDG.h" />
     <ClInclude Include="M01_BarnArea_NOD_Commander_Trigger_Zone02_JDG.h" />
+    <ClInclude Include="M01_BarnArea_NOD_Commander_Trigger_Zone_JDG.h" />
     <ClInclude Include="M01_Barn_Babushkas_Conversation_Zone_JDG.h" />
     <ClInclude Include="M01_Barn_Door_Guard_JDG.h" />
     <ClInclude Include="M01_Barn_EntryZone_JDG.h" />
