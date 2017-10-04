@@ -134,7 +134,6 @@ M01_PrisonPen_POW_JDG
 M01_TurretBeach_GDI_Guy_01_JDG
 
 // Below are not present in the solution yet
-M01_GDIBase_FirstChinook_Script_JDG 
 M01_Nod_GuardTower_Tailgun_JDG 
 M01_DetentionGDI_Air_Evac_Chopper_JDG 
 M01_DetentionGDI_Air_Evac_Waypath_JDG 

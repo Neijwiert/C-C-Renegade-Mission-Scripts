@@ -334,6 +334,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_GDIBase_EvacMonitor_JDG.cpp" />
     <ClCompile Include="M01_GDIBase_FirstChinookFlamethrowerGuy_JDG.cpp" />
     <ClCompile Include="M01_GDIBase_FirstChinookMinigunnerGuy_JDG.cpp" />
+    <ClCompile Include="M01_GDIBase_FirstChinook_Script_JDG.cpp" />
     <ClCompile Include="M01_GDIBase_LightTank_JDG.cpp" />
     <ClCompile Include="M01_GDIBase_LightTank_PastTunnelZone_JDG.cpp" />
     <ClCompile Include="M01_GDIBase_POWEncounter02_Controller_JDG.cpp" />
@@ -718,6 +719,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_GDIBase_EvacMonitor_JDG.h" />
     <ClInclude Include="M01_GDIBase_FirstChinookFlamethrowerGuy_JDG.h" />
     <ClInclude Include="M01_GDIBase_FirstChinookMinigunnerGuy_JDG.h" />
+    <ClInclude Include="M01_GDIBase_FirstChinook_Script_JDG.h" />
     <ClInclude Include="M01_GDIBase_LightTank_JDG.h" />
     <ClInclude Include="M01_GDIBase_LightTank_PastTunnelZone_JDG.h" />
     <ClInclude Include="M01_GDIBase_POWEncounter02_Controller_JDG.h" />
