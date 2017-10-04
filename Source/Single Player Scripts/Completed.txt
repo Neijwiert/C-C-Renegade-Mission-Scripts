@@ -245,3 +245,4 @@ M01_GDIBase_FirstChinook_Script_JDG
 M01_Nod_GuardTower_Tailgun_JDG
 M01_DetentionGDI_Air_Evac_Chopper_JDG
 M01_DetentionGDI_Air_Evac_Waypath_JDG
+M01_DetentionPen_Evac_Controller02_JDG
