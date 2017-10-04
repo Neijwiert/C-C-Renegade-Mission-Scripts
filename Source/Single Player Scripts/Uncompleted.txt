@@ -165,6 +165,3 @@ M01_Interrogation_Room_L03_Keycard_JDG
 M01_Flamethrower_Point_Guard_JDG 
 M01_Announce_Barn_Objective_Zone 
 M01_COMM_Commander_Guy
-
-// Mission controller
-M01_HON_BackDoor_Evacuator_JDG
