@@ -43,7 +43,7 @@ void M01_DetentionGDI_Air_Evac_Chopper_JDG::Custom(GameObject *obj, int type, in
 		Commands->Enable_Collisions(obj);
 	}
 
-	// Received after 0 seconds when param 4 is received
+	//  Never received
 	else if (param == 27)
 	{
 		Commands->Set_Animation(obj, "v_GDI_trnspt.XG_EV1_trnsz", false, NULL, 0.0f, -1.0f, false);

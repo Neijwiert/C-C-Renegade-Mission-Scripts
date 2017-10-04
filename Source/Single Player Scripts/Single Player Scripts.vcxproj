@@ -301,6 +301,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_DataDisc_TextController_JDG.cpp" />
     <ClCompile Include="M01_Deco_LightTanks_JDG.cpp" />
     <ClCompile Include="M01_Destroyed_SAMSITE_JDG.cpp" />
+    <ClCompile Include="M01_DetentionCiv_Air_Evac_Chopper_JDG.cpp" />
     <ClCompile Include="M01_DetentionGDI_Air_Evac_Chopper_JDG.cpp" />
     <ClCompile Include="M01_DetentionGDI_Air_Evac_Waypath_JDG.cpp" />
     <ClCompile Include="M01_DetentionPen_CivDeathMonitor.cpp" />
@@ -690,6 +691,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_DataDisc_TextController_JDG.h" />
     <ClInclude Include="M01_Deco_LightTanks_JDG.h" />
     <ClInclude Include="M01_Destroyed_SAMSITE_JDG.h" />
+    <ClInclude Include="M01_DetentionCiv_Air_Evac_Chopper_JDG.h" />
     <ClInclude Include="M01_DetentionGDI_Air_Evac_Chopper_JDG.h" />
     <ClInclude Include="M01_DetentionGDI_Air_Evac_Waypath_JDG.h" />
     <ClInclude Include="M01_DetentionPen_CivDeathMonitor.h" />
