@@ -249,7 +249,7 @@ void MX0_Engineer2::Custom(GameObject *obj, int type, int param, GameObject *sen
 		GameObject *starObj = Commands->Get_A_Star(pos);
 		Vector3 starPos = Commands->Get_Position(starObj);
 
-		float faceAngle = WWMath::Atan2(starPos.X - pos.X, starPos.Y - pos.Y) * 180.0f / static_cast<float>(M_PI);
+		float faceAngle = static_cast<float>(RAD_TO_DEG(WWMath::Atan2(starPos.X - pos.X, starPos.Y - pos.Y)));
 		Commands->Set_Facing(obj, faceAngle);
 
 		Commands->Action_Reset(obj, 100.0f);

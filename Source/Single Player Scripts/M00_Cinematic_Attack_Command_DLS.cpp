@@ -24,8 +24,8 @@ void M00_Cinematic_Attack_Command_DLS::Created(GameObject *obj)
 	float facing = Commands->Get_Facing(obj);
 	Vector3 pos = Commands->Get_Position(obj);
 	
-	pos.X += WWMath::Cos(facing * static_cast<float>(M_PI) / 180.0f) * 10.0f;
-	pos.Y += WWMath::Sin(facing * static_cast<float>(M_PI) / 180.0f) * 10.0f;
+	pos.X += WWMath::Cos(static_cast<float>(DEG_TO_RAD(facing))) * 10.0f;
+	pos.Y += WWMath::Sin(static_cast<float>(DEG_TO_RAD(facing))) * 10.0f;
 	pos.Z += 2.0f;
 
 	ActionParamsStruct params;

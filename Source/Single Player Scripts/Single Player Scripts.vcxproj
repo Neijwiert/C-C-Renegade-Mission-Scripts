@@ -318,6 +318,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Entering_Church_Area_Zone.cpp" />
     <ClCompile Include="M01_Evac_TroopBone_JDG.cpp" />
     <ClCompile Include="M01_First_AutoRifle_JDG.cpp" />
+    <ClCompile Include="M01_Flamethrower_Point_Guard_JDG.cpp" />
     <ClCompile Include="M01_Flyover_Generic_Script_JDG.cpp" />
     <ClCompile Include="M01_FodderHovercraft_Script_JDG.cpp" />
     <ClCompile Include="M01_FP_BaseToBase_NorthSouth_Contoller_JDG.cpp" />
@@ -723,6 +724,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Entering_Church_Area_Zone.h" />
     <ClInclude Include="M01_Evac_TroopBone_JDG.h" />
     <ClInclude Include="M01_First_AutoRifle_JDG.h" />
+    <ClInclude Include="M01_Flamethrower_Point_Guard_JDG.h" />
     <ClInclude Include="M01_Flyover_Generic_Script_JDG.h" />
     <ClInclude Include="M01_FodderHovercraft_Script_JDG.h" />
     <ClInclude Include="M01_FP_BaseToBase_NorthSouth_Contoller_JDG.h" />
