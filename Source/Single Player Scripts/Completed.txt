@@ -259,3 +259,4 @@ M01_HON_MCT_Placeholder_JDG
 M01_Comm_Kane_n_Havoc_Conv_Start_Zone_JDG
 M01_Tailgun_02_SpawnApache_Zone_JDG
 M01_TailGunner_03_JDG
+M01_TailGunner_02_JDG
