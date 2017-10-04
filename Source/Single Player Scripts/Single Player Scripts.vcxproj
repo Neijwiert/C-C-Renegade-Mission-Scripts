@@ -238,6 +238,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Barn_Door_Guard_JDG.cpp" />
     <ClCompile Include="M01_Barn_EntryZone_JDG.cpp" />
     <ClCompile Include="M01_Barn_Point_Guard_01_JDG.cpp" />
+    <ClCompile Include="M01_Barn_Point_Guard_02_JDG.cpp" />
     <ClCompile Include="M01_Barn_Prisoner_01_JDG.cpp" />
     <ClCompile Include="M01_Barn_Prisoner_02_JDG.cpp" />
     <ClCompile Include="M01_Barn_Prisoner_03_JDG.cpp" />
@@ -630,6 +631,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Barn_Door_Guard_JDG.h" />
     <ClInclude Include="M01_Barn_EntryZone_JDG.h" />
     <ClInclude Include="M01_Barn_Point_Guard_01_JDG.h" />
+    <ClInclude Include="M01_Barn_Point_Guard_02_JDG.h" />
     <ClInclude Include="M01_Barn_Prisoner_01_JDG.h" />
     <ClInclude Include="M01_Barn_Prisoner_02_JDG.h" />
     <ClInclude Include="M01_Barn_Prisoner_03_JDG.h" />
