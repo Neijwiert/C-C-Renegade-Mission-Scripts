@@ -462,6 +462,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_SniperRifle_01_Target_JDG.cpp" />
     <ClCompile Include="M01_SniperRifle_02_AirdropZone_JDG.cpp" />
     <ClCompile Include="M01_SniperRifle_02_JDG.cpp" />
+    <ClCompile Include="M01_TailGunner_01_JDG.cpp" />
     <ClCompile Include="M01_TailGunner_02_JDG.cpp" />
     <ClCompile Include="M01_TailGunner_03_JDG.cpp" />
     <ClCompile Include="M01_TailgunRun_NOD_Commander_JDG.cpp" />
@@ -865,6 +866,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_SniperRifle_01_Target_JDG.h" />
     <ClInclude Include="M01_SniperRifle_02_AirdropZone_JDG.h" />
     <ClInclude Include="M01_SniperRifle_02_JDG.h" />
+    <ClInclude Include="M01_TailGunner_01_JDG.h" />
     <ClInclude Include="M01_TailGunner_02_JDG.h" />
     <ClInclude Include="M01_TailGunner_03_JDG.h" />
     <ClInclude Include="M01_TailgunRun_NOD_Commander_JDG.h" />
