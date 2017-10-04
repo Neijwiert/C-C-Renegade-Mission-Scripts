@@ -134,7 +134,6 @@ M01_PrisonPen_POW_JDG
 M01_TurretBeach_GDI_Guy_01_JDG
 
 // Below are not present in the solution yet
-M01_GDI_Base_Spawner_Guy_JDG 
 M01_GDI_Toolshed_PatrolGuy_JDG 
 M01_Comm_MCT_Placeholder_JDG 
 M01_HON_MCT_Placeholder_JDG 
