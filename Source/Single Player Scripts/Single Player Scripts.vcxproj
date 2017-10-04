@@ -296,6 +296,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M01_Comm_Stationary_Tech_JDG.cpp" />
     <ClCompile Include="M01_Comm_Upstairs_Guard_JDG.cpp" />
     <ClCompile Include="M01_ConDropZone_JDG.cpp" />
+    <ClCompile Include="M01_ConYard_Dropoff_Dude_JDG.cpp" />
     <ClCompile Include="M01_DataDisc_TextController_JDG.cpp" />
     <ClCompile Include="M01_Deco_LightTanks_JDG.cpp" />
     <ClCompile Include="M01_Destroyed_SAMSITE_JDG.cpp" />
@@ -674,6 +675,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M01_Comm_Stationary_Tech_JDG.h" />
     <ClInclude Include="M01_Comm_Upstairs_Guard_JDG.h" />
     <ClInclude Include="M01_ConDropZone_JDG.h" />
+    <ClInclude Include="M01_ConYard_Dropoff_Dude_JDG.h" />
     <ClInclude Include="M01_DataDisc_TextController_JDG.h" />
     <ClInclude Include="M01_Deco_LightTanks_JDG.h" />
     <ClInclude Include="M01_Destroyed_SAMSITE_JDG.h" />

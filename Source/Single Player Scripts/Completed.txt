@@ -223,7 +223,6 @@ M01_Detention_GuardTower_Enter_Zone_JDG
 M01_MovieProjector_JDG
 M01_TurretBeach_GDI_Guy_02_JDG
 M01_HON_BackDoor_Evacuator_JDG
-M01_GDI_GuardTower_02_Enter_Zone_JDG
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
@@ -235,3 +234,5 @@ DAK_MX0_Sec_3_Humvee
 MX0_AmbientBattle
 MX0_Kill_Sniper
 MX0_Engineer_Return
+M01_GDI_GuardTower_02_Enter_Zone_JDG
+M01_ConYard_Dropoff_Dude_JDG
