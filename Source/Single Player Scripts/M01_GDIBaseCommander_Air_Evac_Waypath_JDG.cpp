@@ -31,7 +31,6 @@ void M01_GDIBaseCommander_Air_Evac_Waypath_JDG::Created(GameObject *obj)
 	}
 }
 
-// TODO
 void M01_GDIBaseCommander_Air_Evac_Waypath_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_GDIBaseCommander_EvacController_JDG when param 28 is received

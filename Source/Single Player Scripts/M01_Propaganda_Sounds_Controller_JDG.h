@@ -37,7 +37,7 @@ class M01_Propaganda_Sounds_Controller_JDG : public ScriptImpClass
 		int propagandaSound3Id;
 		int propagandaSound2Id;
 		int propagandaSound1Id;
-		bool field_30;
+		bool movieProjectorDestroyed;
 		int propagandaIndex;
 		bool playingPropaganda;
 };

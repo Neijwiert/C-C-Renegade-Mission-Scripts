@@ -31,6 +31,6 @@ class M01_BuggyScript_New_JDG : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 
-		int field_1C;
-		int field_20;
+		int honChinookSpawnedSoldier3GDIObjId;
+		int honChinookSpawnedSoldier4GDIObjId;
 };

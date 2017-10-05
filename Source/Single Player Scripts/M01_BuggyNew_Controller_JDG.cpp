@@ -25,17 +25,16 @@ M01 -> 103367
 void M01_BuggyNew_Controller_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->nodBuggyObjId, sizeof(this->nodBuggyObjId), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
-	Auto_Save_Variable(&this->field_21, sizeof(this->field_21), 3);
+	Auto_Save_Variable(&this->gdiSoldier3MovedToUs, sizeof(this->gdiSoldier3MovedToUs), 2);
+	Auto_Save_Variable(&this->gdiSoldier4MovedToUs, sizeof(this->gdiSoldier4MovedToUs), 3);
 }
 
 void M01_BuggyNew_Controller_JDG::Created(GameObject *obj)
 {
-	this->field_20 = false;
-	this->field_21 = false;
+	this->gdiSoldier3MovedToUs = false;
+	this->gdiSoldier4MovedToUs = false;
 }
 
-// TODO
 void M01_BuggyNew_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_Announce_Hand_of_Nod_Zone when entered 
@@ -51,7 +50,7 @@ void M01_BuggyNew_Controller_JDG::Custom(GameObject *obj, int type, int param, G
 	// Received from M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG when action with id 38 is complete
 	else if (param == 27)
 	{
-		this->field_20 = true;
+		this->gdiSoldier3MovedToUs = true;
 		
 		int honChinookSpawnedSoldier3GDIObjId = Commands->Get_ID(sender);
 		GameObject *nodBuggyObj = Commands->Find_Object(this->nodBuggyObjId);
@@ -65,7 +64,7 @@ void M01_BuggyNew_Controller_JDG::Custom(GameObject *obj, int type, int param, G
 	// Received from M01_HON_Chinook_Spawned_Soldier_04_GDI_JDG when action with id 38 is complete
 	else if (param == 28)
 	{
-		this->field_21 = true;
+		this->gdiSoldier4MovedToUs = true;
 
 		int honChinookSpawnedSoldier4GDIObjId = Commands->Get_ID(sender);
 		GameObject *nodBuggyObj = Commands->Find_Object(this->nodBuggyObjId);

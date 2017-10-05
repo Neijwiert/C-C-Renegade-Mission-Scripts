@@ -37,7 +37,6 @@ void M01_GDIBase_LightTank_JDG::Killed(GameObject *obj, GameObject *killer)
 	Commands->Create_Object("POW_Medal_Armor", pos);
 }
 
-// TODO
 void M01_GDIBase_LightTank_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from ourselves after 3 seconds after this block

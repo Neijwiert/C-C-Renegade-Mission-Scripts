@@ -33,11 +33,11 @@ class M01_BarnArea_EvacMonitor_JDG : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 
-		int field_1C;
+		int rescuedPrisonerCount;
 		int chopperObjId;
 		int waypathObjId;
 		int ropeObjId;
-		bool field_2C;
+		bool thanksConversationDone;
 		int airdropConversationId;
-		bool field_34;
+		bool prisonerKilled;
 };

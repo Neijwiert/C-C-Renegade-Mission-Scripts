@@ -24,26 +24,26 @@ M01 -> 121839
 */
 void M01_Hovercraft_Explosion_Controller_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->beachMediumTankObjId, sizeof(this->beachMediumTankObjId), 1);
 }
 
-// TODO
 void M01_Hovercraft_Explosion_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
 	{
+		// Received from M01_Medium_Tank01_JDG when created
 		if (param == 228)
 		{
-			this->field_1C = Commands->Get_ID(sender);
+			this->beachMediumTankObjId = Commands->Get_ID(sender);
 		}
 
 		// Received from M01_FodderHovercraft_Script_JDG when killed
 		else if (param == 22)
 		{
-			GameObject *field1CObj = Commands->Find_Object(this->field_1C);
-			if (field1CObj)
+			GameObject *beachMediumTankObj = Commands->Find_Object(this->beachMediumTankObjId);
+			if (beachMediumTankObj)
 			{
-				Commands->Apply_Damage(field1CObj, 100000.0f, "Steel", NULL);
+				Commands->Apply_Damage(beachMediumTankObj, 100000.0f, "Steel", NULL);
 			}
 		}
 	}

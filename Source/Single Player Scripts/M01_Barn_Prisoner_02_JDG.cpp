@@ -24,12 +24,12 @@ M01 -> 101444
 */
 void M01_Barn_Prisoner_02_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->evacChopperCreated, sizeof(this->evacChopperCreated), 1);
 }
 
 void M01_Barn_Prisoner_02_JDG::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->evacChopperCreated = false;
 
 	Commands->Innate_Disable(obj);
 
@@ -51,7 +51,6 @@ void M01_Barn_Prisoner_02_JDG::Killed(GameObject *obj, GameObject *killer)
 	}
 }
 
-// TODO
 void M01_Barn_Prisoner_02_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when param 114 is received
@@ -70,7 +69,7 @@ void M01_Barn_Prisoner_02_JDG::Custom(GameObject *obj, int type, int param, Game
 	// Received from M01_BarnArea_Air_Evac_Chopper_JDG when created
 	else if (param == 75)
 	{
-		this->field_1C = true;
+		this->evacChopperCreated = true;
 
 		Commands->Enable_Hibernation(obj, false);
 	}
@@ -97,11 +96,11 @@ void M01_Barn_Prisoner_02_JDG::Custom(GameObject *obj, int type, int param, Game
 	}
 }
 
-// TODO
 void M01_Barn_Prisoner_02_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When we moved to billy's shack, see action id 48
 		if (action_id == 38)
 		{
 			GameObject *M01BillysConversationZoneJDGObj = Commands->Find_Object(101661);
@@ -110,11 +109,13 @@ void M01_Barn_Prisoner_02_JDG::Action_Complete(GameObject *obj, int action_id, A
 				Commands->Send_Custom_Event(obj, M01BillysConversationZoneJDGObj, 0, 16, 0.0f);
 			}
 
-			if (!this->field_1C)
+			if (!this->evacChopperCreated)
 			{
 				Commands->Enable_Hibernation(obj, true);
 			}
 		}
+
+		// When we moved to the evac location, see param 4002
 		else if (action_id == 4001)
 		{
 			Vector3 dropPos = Commands->Get_Position(obj);
@@ -140,6 +141,8 @@ void M01_Barn_Prisoner_02_JDG::Action_Complete(GameObject *obj, int action_id, A
 				Commands->Send_Custom_Event(obj, M01BarnAreaEvacMonitorJDGObj, 0, 10, 0.0f);
 			}
 		}
+
+		// When we finshed animation see param 27
 		else if (action_id == 47)
 		{
 			ActionParamsStruct params;
@@ -151,6 +154,8 @@ void M01_Barn_Prisoner_02_JDG::Action_Complete(GameObject *obj, int action_id, A
 			Commands->Set_Innate_Is_Stationary(obj, true);
 
 		}
+
+		// When we finished animation, see action id 47
 		else if (action_id == 48)
 		{
 			ActionParamsStruct params;

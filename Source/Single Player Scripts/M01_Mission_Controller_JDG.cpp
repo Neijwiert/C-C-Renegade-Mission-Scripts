@@ -25,156 +25,156 @@ M01 -> 100376
 void M01_Mission_Controller_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_1D, sizeof(this->field_1D), 2);
-	Auto_Save_Variable(&this->field_1E, sizeof(this->field_1E), 3);
-	Auto_Save_Variable(&this->field_1F, sizeof(this->field_1F), 4);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 5);
-	Auto_Save_Variable(&this->field_21, sizeof(this->field_21), 6);
-	Auto_Save_Variable(&this->field_22, sizeof(this->field_22), 7);
-	Auto_Save_Variable(&this->field_23, sizeof(this->field_23), 8);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 9);
-	Auto_Save_Variable(&this->field_25, sizeof(this->field_25), 10);
-	Auto_Save_Variable(&this->field_26, sizeof(this->field_26), 11);
-	Auto_Save_Variable(&this->field_27, sizeof(this->field_27), 12);
-	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 13);
-	Auto_Save_Variable(&this->field_29, sizeof(this->field_29), 14);
-	Auto_Save_Variable(&this->field_2A, sizeof(this->field_2A), 15);
-	Auto_Save_Variable(&this->field_2B, sizeof(this->field_2B), 16);
-	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 17);
-	Auto_Save_Variable(&this->field_2D, sizeof(this->field_2D), 18);
-	Auto_Save_Variable(&this->field_2E, sizeof(this->field_2E), 19);
-	Auto_Save_Variable(&this->field_2F, sizeof(this->field_2F), 20);
-	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 21);
-	Auto_Save_Variable(&this->field_31, sizeof(this->field_31), 22);
-	Auto_Save_Variable(&this->field_32, sizeof(this->field_32), 23);
-	Auto_Save_Variable(&this->field_33, sizeof(this->field_33), 24);
+	Auto_Save_Variable(&this->firstTimeHONEntered, sizeof(this->firstTimeHONEntered), 2);
+	Auto_Save_Variable(&this->firstTimeHONGruntZoneEntered, sizeof(this->firstTimeHONGruntZoneEntered), 3);
+	Auto_Save_Variable(&this->firstTimeHONDojoZoneEntered, sizeof(this->firstTimeHONDojoZoneEntered), 4);
+	Auto_Save_Variable(&this->firstTimePrisonerPenSwitchPoked, sizeof(this->firstTimePrisonerPenSwitchPoked), 5);
+	Auto_Save_Variable(&this->firstTimeRadarScrambled, sizeof(this->firstTimeRadarScrambled), 6);
+	Auto_Save_Variable(&this->firstTimeStarLeavingGDIBase, sizeof(this->firstTimeStarLeavingGDIBase), 7);
+	Auto_Save_Variable(&this->prisonerGateLowered, sizeof(this->prisonerGateLowered), 8);
+	Auto_Save_Variable(&this->churchGuardMiniGunnerKilled, sizeof(this->churchGuardMiniGunnerKilled), 9);
+	Auto_Save_Variable(&this->churchLoveShackMiniGunnerKilled, sizeof(this->churchLoveShackMiniGunnerKilled), 10);
+	Auto_Save_Variable(&this->doingChinookReinforcementsPokedConversation, sizeof(this->doingChinookReinforcementsPokedConversation), 11);
+	Auto_Save_Variable(&this->failedChurchEvac, sizeof(this->failedChurchEvac), 12);
+	Auto_Save_Variable(&this->startedChurchEvac, sizeof(this->startedChurchEvac), 13);
+	Auto_Save_Variable(&this->commKilled, sizeof(this->commKilled), 14);
+	Auto_Save_Variable(&this->radarScrambled, sizeof(this->radarScrambled), 15);
+	Auto_Save_Variable(&this->announcedPrisonerObjective, sizeof(this->announcedPrisonerObjective), 16);
+	Auto_Save_Variable(&this->commSAMSiteObjectiveActive, sizeof(this->commSAMSiteObjectiveActive), 17);
+	Auto_Save_Variable(&this->pokedPrisonPenGateSwitch, sizeof(this->pokedPrisonPenGateSwitch), 18);
+	Auto_Save_Variable(&this->honEasySpawnedGuy1Alive, sizeof(this->honEasySpawnedGuy1Alive), 19);
+	Auto_Save_Variable(&this->honEasySpawnedGuy2Alive, sizeof(this->honEasySpawnedGuy2Alive), 20);
+	Auto_Save_Variable(&this->honEasySpawnedGuy3Alive, sizeof(this->honEasySpawnedGuy3Alive), 21);
+	Auto_Save_Variable(&this->beachNodTurret1Destroyed, sizeof(this->beachNodTurret1Destroyed), 22);
+	Auto_Save_Variable(&this->beachNodTurret2Destroyed, sizeof(this->beachNodTurret2Destroyed), 23);
+	Auto_Save_Variable(&this->allBeachTurretsDestroyed, sizeof(this->allBeachTurretsDestroyed), 24);
 	Auto_Save_Variable(&this->field_34, sizeof(this->field_34), 25);
 	Auto_Save_Variable(&this->field_35, sizeof(this->field_35), 26);
 	Auto_Save_Variable(&this->field_36, sizeof(this->field_36), 27);
 	Auto_Save_Variable(&this->field_37, sizeof(this->field_37), 28);
-	Auto_Save_Variable(&this->field_38, sizeof(this->field_38), 29);
+	Auto_Save_Variable(&this->kaneConversationActive, sizeof(this->kaneConversationActive), 29);
 	Auto_Save_Variable(&this->field_39, sizeof(this->field_39), 30);
-	Auto_Save_Variable(&this->field_3A, sizeof(this->field_3A), 31);
-	Auto_Save_Variable(&this->field_3B, sizeof(this->field_3B), 32);
-	Auto_Save_Variable(&this->field_3C, sizeof(this->field_3C), 33);
-	Auto_Save_Variable(&this->field_3D, sizeof(this->field_3D), 34);
+	Auto_Save_Variable(&this->commBaseCommanderKilled, sizeof(this->commBaseCommanderKilled), 31);
+	Auto_Save_Variable(&this->starInChurchArea, sizeof(this->starInChurchArea), 32);
+	Auto_Save_Variable(&this->honWeatherSet, sizeof(this->honWeatherSet), 33);
+	Auto_Save_Variable(&this->gdiBaseEncounterInactive, sizeof(this->gdiBaseEncounterInactive), 34);
 	Auto_Save_Variable(&this->field_3E, sizeof(this->field_3E), 35);
 	Auto_Save_Variable(&this->field_3F, sizeof(this->field_3F), 36);
-	Auto_Save_Variable(&this->field_40, sizeof(this->field_40), 37);
-	Auto_Save_Variable(&this->field_41, sizeof(this->field_41), 38);
-	Auto_Save_Variable(&this->field_42, sizeof(this->field_42), 39);
+	Auto_Save_Variable(&this->barnCivsEvacuated, sizeof(this->barnCivsEvacuated), 37);
+	Auto_Save_Variable(&this->gunboatDestroyed, sizeof(this->gunboatDestroyed), 38);
+	Auto_Save_Variable(&this->destroyedDetentionPenCivs, sizeof(this->destroyedDetentionPenCivs), 39);
 	Auto_Save_Variable(&this->field_44, sizeof(this->field_44), 40);
 	Auto_Save_Variable(&this->whackAMoleNodMinigunnerObjId, sizeof(this->whackAMoleNodMinigunnerObjId), 41);
 	Auto_Save_Variable(&this->nodHonSpawnedSoldier1ObjId, sizeof(this->nodHonSpawnedSoldier1ObjId), 42);
 	Auto_Save_Variable(&this->nodHonSpawnedSoldier2ObjId, sizeof(this->nodHonSpawnedSoldier2ObjId), 43);
 	Auto_Save_Variable(&this->nodHonSpawnedSoldier3ObjId, sizeof(this->nodHonSpawnedSoldier3ObjId), 44);
 	Auto_Save_Variable(&this->field_58, sizeof(this->field_58), 45);
-	Auto_Save_Variable(&this->field_5C, sizeof(this->field_5C), 46);
-	Auto_Save_Variable(&this->field_60, sizeof(this->field_60), 47);
-	Auto_Save_Variable(&this->field_64, sizeof(this->field_64), 48);
+	Auto_Save_Variable(&this->honEasySpawnedGuyCount, sizeof(this->honEasySpawnedGuyCount), 46);
+	Auto_Save_Variable(&this->honEasySpawnedGuyCount2, sizeof(this->honEasySpawnedGuyCount2), 47);
+	Auto_Save_Variable(&this->honEasySpawnedGuySpawnInterval, sizeof(this->honEasySpawnedGuySpawnInterval), 48);
 	Auto_Save_Variable(&this->field_68, sizeof(this->field_68), 49);
-	Auto_Save_Variable(&this->field_6C, sizeof(this->field_6C), 50);
-	Auto_Save_Variable(&this->field_70, sizeof(this->field_70), 51);
-	Auto_Save_Variable(&this->field_74, sizeof(this->field_74), 52);
-	Auto_Save_Variable(&this->field_78, sizeof(this->field_78), 53);
-	Auto_Save_Variable(&this->field_7C, sizeof(this->field_7C), 54);
-	Auto_Save_Variable(&this->field_80, sizeof(this->field_80), 55);
-	Auto_Save_Variable(&this->field_84, sizeof(this->field_84), 56);
-	Auto_Save_Variable(&this->field_88, sizeof(this->field_88), 57);
+	Auto_Save_Variable(&this->kaneHologramObjId, sizeof(this->kaneHologramObjId), 50);
+	Auto_Save_Variable(&this->_00_N000ESoundId, sizeof(this->_00_N000ESoundId), 51);
+	Auto_Save_Variable(&this->_00_N002ESoundId, sizeof(this->_00_N002ESoundId), 52);
+	Auto_Save_Variable(&this->_00_N026ESoundId, sizeof(this->_00_N026ESoundId), 53);
+	Auto_Save_Variable(&this->_00_N028ESoundId, sizeof(this->_00_N028ESoundId), 54);
+	Auto_Save_Variable(&this->_00_N030ESoundId, sizeof(this->_00_N030ESoundId), 55);
+	Auto_Save_Variable(&this->billysConversationConversationId, sizeof(this->billysConversationConversationId), 56);
+	Auto_Save_Variable(&this->babushkasConversationConversationId, sizeof(this->babushkasConversationConversationId), 57);
 	Auto_Save_Variable(&this->field_8C, sizeof(this->field_8C), 58);
 	Auto_Save_Variable(&this->field_90, sizeof(this->field_90), 59);
-	Auto_Save_Variable(&this->field_94, sizeof(this->field_94), 60);
+	Auto_Save_Variable(&this->kaneAndNumber2Conversation1ConversationId, sizeof(this->kaneAndNumber2Conversation1ConversationId), 60);
 	Auto_Save_Variable(&this->field_98, sizeof(this->field_98), 61);
-	Auto_Save_Variable(&this->field_9C, sizeof(this->field_9C), 62);
+	Auto_Save_Variable(&this->kaneAndHavocConversationConversationId, sizeof(this->kaneAndHavocConversationConversationId), 62);
 	Auto_Save_Variable(&this->field_A0, sizeof(this->field_A0), 63);
 	Auto_Save_Variable(&this->field_A4, sizeof(this->field_A4), 64);
 	Auto_Save_Variable(&this->field_A8, sizeof(this->field_A8), 65);
 	Auto_Save_Variable(&this->field_AC, sizeof(this->field_AC), 66);
-	Auto_Save_Variable(&this->field_B0, sizeof(this->field_B0), 67);
+	Auto_Save_Variable(&this->civ3ConversationConversationId, sizeof(this->civ3ConversationConversationId), 67);
 	Auto_Save_Variable(&this->field_B4, sizeof(this->field_B4), 68);
 	Auto_Save_Variable(&this->field_B8, sizeof(this->field_B8), 69);
-	Auto_Save_Variable(&this->field_BC, sizeof(this->field_BC), 70);
-	Auto_Save_Variable(&this->field_C0, sizeof(this->field_C0), 71);
+	Auto_Save_Variable(&this->removeUnlockGateObjectiveConversationId, sizeof(this->removeUnlockGateObjectiveConversationId), 70);
+	Auto_Save_Variable(&this->addTurretsObjectiveConversationId, sizeof(this->addTurretsObjectiveConversationId), 71);
 	Auto_Save_Variable(&this->chinookSpawnedSoldierGDIObjId, sizeof(this->chinookSpawnedSoldierGDIObjId), 72);
 	Auto_Save_Variable(&this->lastDamagedStarEnemyObjId, sizeof(this->lastDamagedStarEnemyObjId), 73);
-	Auto_Save_Variable(&this->field_CC, sizeof(this->field_CC), 74);
-	Auto_Save_Variable(&this->field_D0, sizeof(this->field_D0), 75);
+	Auto_Save_Variable(&this->honTroopDropCount, sizeof(this->honTroopDropCount), 74);
+	Auto_Save_Variable(&this->barnGuardDeathCount, sizeof(this->barnGuardDeathCount), 75);
 	Auto_Save_Variable(&this->field_D4, sizeof(this->field_D4), 76);
-	Auto_Save_Variable(&this->field_F4, sizeof(this->field_F4), 77);
-	Auto_Save_Variable(&this->field_F8, sizeof(this->field_F8), 78);
-	Auto_Save_Variable(&this->field_FC, sizeof(this->field_FC), 79);
+	Auto_Save_Variable(&this->honKilled, sizeof(this->honKilled), 77);
+	Auto_Save_Variable(&this->commKilled, sizeof(this->commKilled), 78);
+	Auto_Save_Variable(&this->starAreaNumber, sizeof(this->starAreaNumber), 79);
 	Auto_Save_Variable(&this->field_D8, sizeof(this->field_D8), 80);
-	Auto_Save_Variable(&this->field_DC, sizeof(this->field_DC), 81);
-	Auto_Save_Variable(&this->field_E0, sizeof(this->field_E0), 82);
-	Auto_Save_Variable(&this->field_E4, sizeof(this->field_E4), 83);
-	Auto_Save_Variable(&this->field_E8, sizeof(this->field_E8), 84);
-	Auto_Save_Variable(&this->field_EC, sizeof(this->field_EC), 85);
-	Auto_Save_Variable(&this->field_F0, sizeof(this->field_F0), 86);
-	Auto_Save_Variable(&this->field_F1, sizeof(this->field_F1), 87);
-	Auto_Save_Variable(&this->field_F2, sizeof(this->field_F2), 88);
-	Auto_Save_Variable(&this->field_F3, sizeof(this->field_F3), 89);
+	Auto_Save_Variable(&this->lockeChurchReminderConversationConversationId, sizeof(this->lockeChurchReminderConversationConversationId), 81);
+	Auto_Save_Variable(&this->remindedStarOfChurchCivs, sizeof(this->remindedStarOfChurchCivs), 82);
+	Auto_Save_Variable(&this->priestReminderConversationConversationId, sizeof(this->priestReminderConversationConversationId), 83);
+	Auto_Save_Variable(&this->remindedStarOfMoreChurchCivs, sizeof(this->remindedStarOfMoreChurchCivs), 84);
+	Auto_Save_Variable(&this->interiorNunConversationConversationId, sizeof(this->interiorNunConversationConversationId), 85);
+	Auto_Save_Variable(&this->remindedStarOfMoreChurchCivs2, sizeof(this->remindedStarOfMoreChurchCivs2), 86);
+	Auto_Save_Variable(&this->starEnteredHONGruntZone, sizeof(this->starEnteredHONGruntZone), 87);
+	Auto_Save_Variable(&this->starInBarn, sizeof(this->starInBarn), 88);
+	Auto_Save_Variable(&this->commSAMSiteDestroyed, sizeof(this->commSAMSiteDestroyed), 89);
 }
 
 void M01_Mission_Controller_JDG::Created(GameObject *obj)
 {
 	Commands->Enable_Hibernation(obj, false);
 
-	this->field_F4 = 0;
-	this->field_F8 = 0;
-	this->field_FC = 0;
+	this->honKilled = 0;
+	this->commKilled = 0;
+	this->starAreaNumber = 0;
 	this->field_1C = true;
-	this->field_1D = true;
-	this->field_1E = true;
-	this->field_1F = true;
-	this->field_20 = true;
-	this->field_21 = true;
-	this->field_22 = true;
-	this->field_3D = true;
-	this->field_24 = false;
-	this->field_25 = false;
-	this->field_26 = false;
-	this->field_28 = false;
-	this->field_27 = false;
-	this->field_29 = false;
-	this->field_2A = false;
-	this->field_2B = false;
-	this->field_2C = false;
-	this->field_2D = false;
-	this->field_2E = false;
-	this->field_2F = false;
-	this->field_30 = false;
-	this->field_31 = false;
-	this->field_32 = false;
-	this->field_33 = false;
+	this->firstTimeHONEntered = true;
+	this->firstTimeHONGruntZoneEntered = true;
+	this->firstTimeHONDojoZoneEntered = true;
+	this->firstTimePrisonerPenSwitchPoked = true;
+	this->firstTimeRadarScrambled = true;
+	this->firstTimeStarLeavingGDIBase = true;
+	this->gdiBaseEncounterInactive = true;
+	this->churchGuardMiniGunnerKilled = false;
+	this->churchLoveShackMiniGunnerKilled = false;
+	this->doingChinookReinforcementsPokedConversation = false;
+	this->startedChurchEvac = false;
+	this->failedChurchEvac = false;
+	this->commKilled = false;
+	this->radarScrambled = false;
+	this->announcedPrisonerObjective = false;
+	this->commSAMSiteObjectiveActive = false;
+	this->pokedPrisonPenGateSwitch = false;
+	this->honEasySpawnedGuy1Alive = false;
+	this->honEasySpawnedGuy2Alive = false;
+	this->honEasySpawnedGuy3Alive = false;
+	this->beachNodTurret1Destroyed = false;
+	this->beachNodTurret2Destroyed = false;
+	this->allBeachTurretsDestroyed = false;
 	this->field_34 = false;
 	this->field_35 = false;
 	this->field_36 = false;
 	this->field_37 = false;
-	this->field_38 = false;
+	this->kaneConversationActive = false;
 	this->field_39 = false;
-	this->field_3A = false;
-	this->field_3B = false;
-	this->field_3C = false;
+	this->commBaseCommanderKilled = false;
+	this->starInChurchArea = false;
+	this->honWeatherSet = false;
 	this->field_3E = false;
 	this->field_3F = false;
-	this->field_40 = false;
-	this->field_41 = false;
-	this->field_42 = false;
-	this->field_23 = false;
+	this->barnCivsEvacuated = false;
+	this->gunboatDestroyed = false;
+	this->destroyedDetentionPenCivs = false;
+	this->prisonerGateLowered = false;
 	this->field_D8 = false;
-	this->field_E0 = false;
-	this->field_E8 = false;
-	this->field_F0 = false;
-	this->field_F1 = false;
-	this->field_F2 = false;
-	this->field_F3 = false;
-	this->field_CC = 0;
-	this->field_5C = 0;
-	this->field_60 = 0;
+	this->remindedStarOfChurchCivs = false;
+	this->remindedStarOfMoreChurchCivs = false;
+	this->remindedStarOfMoreChurchCivs2 = false;
+	this->starEnteredHONGruntZone = false;
+	this->starInBarn = false;
+	this->commSAMSiteDestroyed = false;
+	this->honTroopDropCount = 0;
+	this->honEasySpawnedGuyCount = 0;
+	this->honEasySpawnedGuyCount2 = 0;
 	this->field_68 = 0;
-	this->field_D0 = 0;
+	this->barnGuardDeathCount = 0;
 	this->field_D4 = 0;
-	this->field_64 = 14;
+	this->honEasySpawnedGuySpawnInterval = 14.0f;
 	this->chinookSpawnedSoldierGDIObjId = 0;
 	this->lastDamagedStarEnemyObjId = 0;
 
@@ -212,35 +212,35 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 {
 	if (type == CUSTOM_EVENT_SOUND_ENDED)
 	{
-		if (param == this->field_70)
+		if (param == this->_00_N000ESoundId)
 		{
-			this->field_74 = Commands->Create_Sound("00-N002E", Vector3(0.0f, 0.0f, 0.0f), obj);;
+			this->_00_N002ESoundId = Commands->Create_Sound("00-N002E", Vector3(0.0f, 0.0f, 0.0f), obj);;
 
-			Commands->Monitor_Sound(obj, this->field_74);
+			Commands->Monitor_Sound(obj, this->_00_N002ESoundId);
 		}
-		else if (param == this->field_74)
+		else if (param == this->_00_N002ESoundId)
 		{
-			this->field_78 = Commands->Create_Sound("00-N026E", Vector3(0.0f, 0.0f, 0.0f), obj);
+			this->_00_N026ESoundId = Commands->Create_Sound("00-N026E", Vector3(0.0f, 0.0f, 0.0f), obj);
 
-			Commands->Monitor_Sound(obj, this->field_78);
+			Commands->Monitor_Sound(obj, this->_00_N026ESoundId);
 		}
-		else if (param == this->field_78)
+		else if (param == this->_00_N026ESoundId)
 		{
-			this->field_7C = Commands->Create_Sound("00-N028E", Vector3(0.0f, 0.0f, 0.0f), obj);
+			this->_00_N028ESoundId = Commands->Create_Sound("00-N028E", Vector3(0.0f, 0.0f, 0.0f), obj);
 
-			Commands->Monitor_Sound(obj, this->field_7C);
+			Commands->Monitor_Sound(obj, this->_00_N028ESoundId);
 		}
-		else if (param == this->field_7C)
+		else if (param == this->_00_N028ESoundId)
 		{
-			this->field_80 = Commands->Create_Sound("00-N030E", Vector3(0.0f, 0.0f, 0.0f), obj);
+			this->_00_N030ESoundId = Commands->Create_Sound("00-N030E", Vector3(0.0f, 0.0f, 0.0f), obj);
 
-			Commands->Monitor_Sound(obj, this->field_80);
+			Commands->Monitor_Sound(obj, this->_00_N030ESoundId);
 		}
-		else if (param == this->field_80)
+		else if (param == this->_00_N030ESoundId)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 99, 0.0f);
 
-			this->field_29 = true;
+			this->commKilled = true;
 		}
 	}
 	else  if(!type)
@@ -260,7 +260,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Create_Sound("EVA_Enemy_Structure_Destroyed", Vector3(0.0f, 0.0f, 0.0f), obj);
 			}
 
-			this->field_F4 = 3;
+			this->honKilled = 3;
 
 			Vector3 pos = Commands->Get_Position(obj);
 			GameObject *starObj = Commands->Get_A_Star(pos);
@@ -339,7 +339,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, dojoCiv03Obj, 0, 165, 0.0f);
 			}
 
-			if (this->field_FC != 5 && !this->field_F1)
+			if (this->starAreaNumber != 5 && !this->starEnteredHONGruntZone)
 			{
 				GameObject *M01DestroyedBuilding1Soldier1Obj = Commands->Trigger_Spawner(100712);
 				Commands->Attach_Script(M01DestroyedBuilding1Soldier1Obj, "M01_HON_FrontDoor_Evacuator_JDG", "");
@@ -364,7 +364,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Comm_Center_Building_Script_JDG when killed
 		else if (param == 124)
 		{
-			if (this->field_FC != 9)
+			if (this->starAreaNumber != 9)
 			{
 				GameObject *M01DestroyedBuilding3Soldier1Obj = Commands->Trigger_Spawner(100727);
 				Commands->Attach_Script(M01DestroyedBuilding3Soldier1Obj, "M01_CommCenter_Evacuator_JDG", "");
@@ -382,14 +382,14 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Attach_Script(M01DestroyedBuilding3Soldier5Obj, "M01_CommCenter_Evacuator_JDG", "");
 			}
 
-			if (!this->field_29)
+			if (!this->commKilled)
 			{
 				Commands->Send_Custom_Event(obj, obj, 0, 99, 0.0f);
 
-				this->field_29 = true;
+				this->commKilled = true;
 			}
 
-			if (this->field_2A)
+			if (this->radarScrambled)
 			{
 				Commands->Send_Custom_Event(obj, obj, 0, 202, 0.0f);
 			}
@@ -404,13 +404,13 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Create_Sound("EVA_Nod_Structure_Destroyed", Vector3(0.0f, 0.0f, 0.0f), obj);
 			}
 
-			this->field_F8 = 3;
+			this->commKilled = 3;
 		}
 
 		// Received from M01_Hand_Of_Nod_Interior_Zone when entered
 		else if (param == 135)
 		{
-			this->field_FC = 5;
+			this->starAreaNumber = 5;
 
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			if (M01AmbientSoundControllerJDGObj)
@@ -419,9 +419,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 135, 0.0f);
 			}
 
-			if (this->field_1D)
+			if (this->firstTimeHONEntered)
 			{
-				this->field_1D = false;
+				this->firstTimeHONEntered = false;
 
 				Commands->Send_Custom_Event(obj, obj, 0, 160, 0.0f);
 			}
@@ -430,7 +430,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Hand_Of_Nod_Exterior_Zone when entered
 		else if (param == 138)
 		{
-			this->field_FC = 4;
+			this->starAreaNumber = 4;
 
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 158, 0.0f);
@@ -439,7 +439,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Comm_Center_Interior_Zone when entered
 		else if (param == 141)
 		{
-			this->field_FC = 9;
+			this->starAreaNumber = 9;
 			
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			if (M01AmbientSoundControllerJDGObj)
@@ -494,7 +494,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Comm_Center_Exterior_Zone when entered
 		else if (param == 142)
 		{
-			this->field_FC = 8;
+			this->starAreaNumber = 8;
 
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 158, 0.0f);
@@ -503,7 +503,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Tunnel_Interior_Zone when entered
 		else if (param == 143)
 		{
-			this->field_FC = 11;
+			this->starAreaNumber = 11;
 
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 159, 0.0f);
@@ -512,7 +512,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Tunnel_Exterior_Zone when entered
 		else if (param == 144)
 		{
-			this->field_FC = 10;
+			this->starAreaNumber = 10;
 
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 158, 0.0f);
@@ -521,7 +521,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Waterfall_Interior_Zone when entered
 		else if (param == 145)
 		{
-			this->field_FC = 13;
+			this->starAreaNumber = 13;
 
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 159, 0.0f);
@@ -530,7 +530,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Waterfall_Exterior_Zone when entered
 		else if (param == 146)
 		{
-			this->field_FC = 12;
+			this->starAreaNumber = 12;
 
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 158, 0.0f);
@@ -539,10 +539,10 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Hand_Of_Nod_Grunt_Zone when entered
 		else if (param == 136)
 		{
-			this->field_F1 = true;
-			if (this->field_F4 != 3 && this->field_1E)
+			this->starEnteredHONGruntZone = true;
+			if (this->honKilled != 3 && this->firstTimeHONGruntZoneEntered)
 			{
-				this->field_1E = false;
+				this->firstTimeHONGruntZoneEntered = false;
 
 				GameObject *honCafeteriaEatingDudeObj = Commands->Find_Object(101293);
 				if (honCafeteriaEatingDudeObj)
@@ -597,9 +597,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Hand_Of_Nod_Dojo_Zone when entered
 		else if (param == 137)
 		{
-			if (this->field_F4 != 3 && this->field_1F)
+			if (this->honKilled != 3 && this->firstTimeHONDojoZoneEntered)
 			{
-				this->field_1F = false;
+				this->firstTimeHONDojoZoneEntered = false;
 
 				GameObject *dojoSenseiObj = Commands->Find_Object(102051);
 				if (dojoSenseiObj)
@@ -628,21 +628,21 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_CommCenter_SAMSite_Script when killed
 		else if (param == 125)
 		{
-			this->field_F3 = true;
+			this->commSAMSiteDestroyed = true;
 
-			if (this->field_2C)
+			if (this->commSAMSiteObjectiveActive)
 			{
 				Commands->Send_Custom_Event(obj, obj, 0, 119, 0.0f);
 			}
 
-			if (this->field_29)
+			if (this->commKilled)
 			{
 				// Good job, Havoc - there's hope for you yet.
 				// Push the button next to the gate to open the Detention Center.
-				this->field_BC = Commands->Create_Conversation("M01_Remove_Unlock_Gate_Objective", 100, 1000.0f, false);
-				Commands->Join_Conversation(NULL, this->field_BC, false, false, true);
-				Commands->Start_Conversation(this->field_BC, this->field_BC);
-				Commands->Monitor_Conversation(obj, this->field_BC);
+				this->removeUnlockGateObjectiveConversationId = Commands->Create_Conversation("M01_Remove_Unlock_Gate_Objective", 100, 1000.0f, false);
+				Commands->Join_Conversation(NULL, this->removeUnlockGateObjectiveConversationId, false, false, true);
+				Commands->Start_Conversation(this->removeUnlockGateObjectiveConversationId, this->removeUnlockGateObjectiveConversationId);
+				Commands->Monitor_Conversation(obj, this->removeUnlockGateObjectiveConversationId);
 			}
 			
 			Commands->Send_Custom_Event(obj, obj, 0, 120, 10.0f);
@@ -683,9 +683,11 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			Commands->Set_Facing(invisObj, 130.0f);
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1I_GDI_HON_TroopDrop01b.txt");
 		}
+
+		// Never received
 		else if (param == 172)
 		{
-			if (++this->field_CC == 3)
+			if (++this->honTroopDropCount == 3)
 			{
 				Commands->Send_Custom_Event(obj, obj, 0, 167, 3.0f);
 
@@ -706,9 +708,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Entering_Church_Area_Zone when entered
 		else if (param == 148)
 		{
-			if (!this->field_3B)
+			if (!this->starInChurchArea)
 			{
-				this->field_3B = true;
+				this->starInChurchArea = true;
 
 				Commands->Set_Wind(60.0f, 3.0f, 0.5f, 15.0f);
 				Commands->Set_Rain(0.75f, 30.0f, false);
@@ -838,7 +840,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Church_LoveShack_MiniGunner_JDG when killed
 		else if (param == 174)
 		{
-			this->field_25 = true;
+			this->churchLoveShackMiniGunnerKilled = true;
 
 			GameObject *loveShackNunObj = Commands->Find_Object(101310);
 			if (loveShackNunObj)
@@ -847,7 +849,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, loveShackNunObj, 0, 174, randDelay);
 			}
 
-			if (this->field_25 && this->field_24 && !this->field_28)
+			if (this->churchLoveShackMiniGunnerKilled && this->churchGuardMiniGunnerKilled && !this->startedChurchEvac)
 			{
 				GameObject *M01ChurchEvacControllerJDGObj = Commands->Find_Object(103394);
 				if (M01ChurchEvacControllerJDGObj)
@@ -855,14 +857,14 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 					Commands->Send_Custom_Event(obj, M01ChurchEvacControllerJDGObj, 0, 16, 3.0f);
 				}
 
-				this->field_28 = true;
+				this->startedChurchEvac = true;
 			}
 		}
 
 		// Received from M01_Church_Guard_MiniGunner_JDG when killed
 		else if (param == 173)
 		{
-			this->field_24 = true;
+			this->churchGuardMiniGunnerKilled = true;
 
 			GameObject *churchInteriorNunObj = Commands->Find_Object(101314);
 			if (churchInteriorNunObj)
@@ -878,9 +880,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, churchInteriorPriestObj, 0, 173, randDelay);
 			}
 
-			if (this->field_25 && this->field_24 && !this->field_28)
+			if (this->churchLoveShackMiniGunnerKilled && this->churchGuardMiniGunnerKilled && !this->startedChurchEvac)
 			{
-				this->field_28 = true;
+				this->startedChurchEvac = true;
 
 				GameObject *M01ChurchEvacControllerJDGObj = Commands->Find_Object(103394);
 				if (M01ChurchEvacControllerJDGObj)
@@ -900,9 +902,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			}
 			else
 			{
-				if (!this->field_27)
+				if (!this->failedChurchEvac)
 				{
-					this->field_27 = true;
+					this->failedChurchEvac = true;
 
 					Commands->Send_Custom_Event(obj, obj, 0, 94, 2.0f);
 				}
@@ -951,13 +953,13 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		else if (param == 179)
 		{
 			int senderObjId = Commands->Get_ID(sender);
-			if (this->field_26)
+			if (this->doingChinookReinforcementsPokedConversation)
 			{
-				if (this->field_26 && senderObjId == this->chinookSpawnedSoldierGDIObjId)
+				if (this->doingChinookReinforcementsPokedConversation && senderObjId == this->chinookSpawnedSoldierGDIObjId)
 				{
 					Commands->Send_Custom_Event(obj, sender, 0, 181, 0.0f);
 
-					this->field_26 = false;
+					this->doingChinookReinforcementsPokedConversation = false;
 				}
 			}
 			else
@@ -965,7 +967,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, sender, 0, 180, 0.0f);
 
 				this->chinookSpawnedSoldierGDIObjId = senderObjId;
-				this->field_26 = true;
+				this->doingChinookReinforcementsPokedConversation = true;
 			}
 		}
 
@@ -974,7 +976,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_COMM_Chinook_Spawned_Soldier_GDI when killed
 		else if (param == 182)
 		{
-			this->field_26 = false;
+			this->doingChinookReinforcementsPokedConversation = false;
 		}
 
 		// Received from M01_Barn_Point_Guard_01_JDG or M01_Barn_Point_Guard_02_JDG when damaged by star
@@ -996,7 +998,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_HON_FrontDoor_Evacuator_JDG when damaged by star
 		else if (param == 189)
 		{
-			if (this->field_26)
+			if (this->doingChinookReinforcementsPokedConversation)
 			{
 				this->lastDamagedStarEnemyObjId = Commands->Get_ID(sender);
 
@@ -1009,7 +1011,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Lose_Any_Church_Escorts_Zone when entered
 		else if (param == 149)
 		{
-			if (this->field_26)
+			if (this->doingChinookReinforcementsPokedConversation)
 			{
 				GameObject *chinookSpawnedSoldierGDIObj = Commands->Find_Object(this->chinookSpawnedSoldierGDIObjId);
 				Commands->Send_Custom_Event(obj, chinookSpawnedSoldierGDIObj, 0, 149, 0.0f);
@@ -1019,7 +1021,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Lose_Any_Church_Escorts_Zone_02 when entered
 		else if (param == 150)
 		{
-			if (this->field_26)
+			if (this->doingChinookReinforcementsPokedConversation)
 			{
 				GameObject *chinookSpawnedSoldierGDIObj = Commands->Find_Object(this->chinookSpawnedSoldierGDIObjId);
 				Commands->Send_Custom_Event(obj, chinookSpawnedSoldierGDIObj, 0, 150, 0.0f);
@@ -1029,7 +1031,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Lose_Any_HON_Escorts_Zone when entered
 		else if (param == 151)
 		{
-			if (this->field_26)
+			if (this->doingChinookReinforcementsPokedConversation)
 			{
 				GameObject *chinookSpawnedSoldierGDIObj = Commands->Find_Object(this->chinookSpawnedSoldierGDIObjId);
 				Commands->Send_Custom_Event(obj, chinookSpawnedSoldierGDIObj, 0, 151, 0.0f);
@@ -1039,7 +1041,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Lose_Any_HON_Escorts_Zone_02 when entered
 		else if (param == 152)
 		{
-			if (this->field_26)
+			if (this->doingChinookReinforcementsPokedConversation)
 			{
 				GameObject *chinookSpawnedSoldierGDIObj = Commands->Find_Object(this->chinookSpawnedSoldierGDIObjId);
 				Commands->Send_Custom_Event(obj, chinookSpawnedSoldierGDIObj, 0, 152, 0.0f);
@@ -1049,9 +1051,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received when M01_Player_Is_Crossing_Bridge_Via_Cave_Zone or M01_Player_Is_Crossing_Bridge_Via_Church_Zone or M01_Player_Is_Crossing_Bridge_Zone M01_Player_is_Entering_GDI_Base_Zoneis entered
 		else if (param == 153 || param == 154)
 		{
-			if (!this->field_3B)
+			if (!this->starInChurchArea)
 			{
-				this->field_3B = true;
+				this->starInChurchArea = true;
 
 				Commands->Set_Wind(60.0f, 3.0f, 0.5f, 15.0f);
 				Commands->Set_Rain(0.75f, 30.0f, false);
@@ -1087,9 +1089,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Announce_Hand_of_Nod_Zone when entered
 		else if (param == 103)
 		{
-			if (!this->field_3C)
+			if (!this->honWeatherSet)
 			{
-				this->field_3C = true;
+				this->honWeatherSet = true;
 
 				Commands->Set_Wind(60.0f, 5.0f, 1.0f, 15.0f);
 				Commands->Set_Rain(1.0f, 15.0f, false);
@@ -1123,7 +1125,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Comm_MCT_Placeholder_JDG when killed
 		else if (param == 197)
 		{
-			if (this->field_F8 != 3)
+			if (this->commKilled != 3)
 			{
 				GameObject *nodCommCenterBuildingObj = Commands->Find_Object(153910);
 				Commands->Apply_Damage(nodCommCenterBuildingObj, 100000000.0f, "BlamoKiller", obj);
@@ -1133,7 +1135,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_HON_MCT_Placeholder_JDG when killed
 		else if (param == 196)
 		{
-			if (this->field_F4 != 3)
+			if (this->honKilled != 3)
 			{
 				GameObject *nodHonBuildingObj = Commands->Find_Object(153909);
 				Commands->Apply_Damage(nodHonBuildingObj, 100000000.0f, "BlamoKiller", obj);
@@ -1143,21 +1145,21 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Comm_Center_Player_Terminal_Zone when poked
 		else if (param == 199)
 		{
-			if (!this->field_29)
+			if (!this->commKilled)
 			{
-				this->field_70 = Commands->Create_Sound("00-N000E", Vector3(0.0f, 0.0f, 0.0f), obj);
-				Commands->Monitor_Sound(obj, this->field_70);
+				this->_00_N000ESoundId = Commands->Create_Sound("00-N000E", Vector3(0.0f, 0.0f, 0.0f), obj);
+				Commands->Monitor_Sound(obj, this->_00_N000ESoundId);
 			}
 		}
 
 		// Received when M01_Comm_Center_Pen_Gate is poked
 		else if (param == 200)
 		{
-			if (this->field_29)
+			if (this->commKilled)
 			{
-				if (!this->field_23)
+				if (!this->prisonerGateLowered)
 				{
-					this->field_23 = true;
+					this->prisonerGateLowered = true;
 
 					Commands->Set_Objective_Status(113, OBJECTIVE_STATUS_ACCOMPLISHED);
 					Commands->Static_Anim_Phys_Goto_Last_Frame(157984, 0); // Detention pen gate
@@ -1174,17 +1176,17 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 						Commands->Create_Logical_Sound(obj, 400005, Vector3(-315.383f, 572.805f, 27.622999f), 50.0f);
 					}
 
-					if (!this->field_2D)
+					if (!this->pokedPrisonPenGateSwitch)
 					{
 						Commands->Send_Custom_Event(obj, obj, 0, 100, 0.0f);
 
-						this->field_2D = true;
+						this->pokedPrisonPenGateSwitch = true;
 					}
 				}
 			}
-			else if (this->field_20)
+			else if (this->firstTimePrisonerPenSwitchPoked)
 			{
-				this->field_20 = false;
+				this->firstTimePrisonerPenSwitchPoked = false;
 
 				// Havoc, you should be near the detention center.
 				// Use the mainframe in the Communications Center to unlock the detention gate.
@@ -1210,7 +1212,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 
 			Commands->Send_Custom_Event(obj, obj, 0, 89, 6.0f);
 
-			this->field_2C = true;
+			this->commSAMSiteObjectiveActive = true;
 		}
 
 		// Received by ourselves after 6 seconds when param 107 is received
@@ -1249,7 +1251,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			Commands->Add_Objective(107, OBJECTIVE_TYPE_PRIMARY, OBJECTIVE_STATUS_PENDING, 6218, NULL, 6041);
 			Commands->Set_Objective_HUD_Info_Position(107, 93.0, "POG_M01_1_02.tga", 7599, Vector3(-296.505f, 521.09f, 27.09f)); // Hack
 
-			this->field_2B = true;
+			this->announcedPrisonerObjective = true;
 
 			Commands->Set_HUD_Help_Text(6218, Vector3(0.196f, 0.882f, 0.196f)); // Access Communications Mainframe
 
@@ -1264,21 +1266,21 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received by ourselves when param 124 is received
 		else if (param == 99)
 		{
-			if (this->field_F3)
+			if (this->commSAMSiteDestroyed)
 			{
 				// Good job, Havoc - there's hope for you yet.
 				// Push the button next to the gate to open the Detention Center.
-				this->field_BC = Commands->Create_Conversation("M01_Remove_Unlock_Gate_Objective", 100, 1000.0f, false);
-				Commands->Join_Conversation(NULL, this->field_BC, false, false, true);
-				Commands->Start_Conversation(this->field_BC, this->field_BC);
-				Commands->Monitor_Conversation(obj, this->field_BC);
+				this->removeUnlockGateObjectiveConversationId = Commands->Create_Conversation("M01_Remove_Unlock_Gate_Objective", 100, 1000.0f, false);
+				Commands->Join_Conversation(NULL, this->removeUnlockGateObjectiveConversationId, false, false, true);
+				Commands->Start_Conversation(this->removeUnlockGateObjectiveConversationId, this->removeUnlockGateObjectiveConversationId);
+				Commands->Monitor_Conversation(obj, this->removeUnlockGateObjectiveConversationId);
 			}
 			else
 			{
 				Commands->Send_Custom_Event(obj, obj, 0, 107, 0.0f);
 			}
 
-			if (this->field_2B)
+			if (this->announcedPrisonerObjective)
 			{
 				Commands->Send_Custom_Event(obj, obj, 0, 118, 6.0f);
 			}
@@ -1295,9 +1297,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		{
 			Commands->Set_Objective_Status(108, OBJECTIVE_STATUS_ACCOMPLISHED);
 
-			this->field_2C = false;
+			this->commSAMSiteObjectiveActive = false;
 
-			if (this->field_2D)
+			if (this->pokedPrisonPenGateSwitch)
 			{
 				Commands->Create_Logical_Sound(obj, 400005, Vector3(-315.383f, 572.805f, 27.622999f), 50.0f);
 
@@ -1308,12 +1310,12 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Scramble_Radar_Zone when entered
 		else if (param == 201)
 		{
-			if (this->field_21)
+			if (this->firstTimeRadarScrambled)
 			{
 				GameObject *M01PropagandaSoundsControllerJDGObj = Commands->Find_Object(103099);
 				Commands->Send_Custom_Event(obj, M01PropagandaSoundsControllerJDGObj, 0, 16, 0.0f);
 
-				this->field_21 = false;
+				this->firstTimeRadarScrambled = false;
 
 				// Warning - localized radar jamming detected.
 				// You're approaching the Nod Communications Center, it's scrambling your radar. Stay alert.
@@ -1323,9 +1325,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Start_Conversation(conversationId, conversationId);
 			}
 
-			if (!this->field_2A && this->field_F8 != 3)
+			if (!this->radarScrambled && this->commKilled != 3)
 			{
-				this->field_2A = true;
+				this->radarScrambled = true;
 
 				Commands->Enable_Radar(false);
 			}
@@ -1335,11 +1337,11 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received by ourselves when param 124 is received
 		else if (param == 202)
 		{
-			if (this->field_2A)
+			if (this->radarScrambled)
 			{
 				Commands->Enable_Radar(true);
 
-				this->field_2A = false;
+				this->radarScrambled = false;
 			}
 		}
 
@@ -1369,15 +1371,15 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from ourselves when param 100 is received
 		else if (param == 4)
 		{
-			if (!this->field_2C && this->field_2D)
+			if (!this->commSAMSiteObjectiveActive && this->pokedPrisonPenGateSwitch)
 			{
 				Commands->Set_Wind(0.0f, 0.0f, 0.0f, 5.0f);
 				Commands->Set_Rain(0.0f, 5.0f, false);
 				Commands->Set_Lightning(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 5.0f);
 
-				if (!this->field_42)
+				if (!this->destroyedDetentionPenCivs)
 				{
-					this->field_42 = true;
+					this->destroyedDetentionPenCivs = true;
 
 					GameObject *detentionCiv1Obj = Commands->Find_Object(101929);
 					GameObject *detentionCiv2Obj = Commands->Find_Object(101930);
@@ -1473,59 +1475,59 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from ourselves after this block
 		else if (param == 205)
 		{
-			if (this->field_F4 != 3)
+			if (this->honKilled != 3)
 			{
-				this->field_64 = 21;
+				this->honEasySpawnedGuySpawnInterval = 21.0f;
 
-				if (this->field_60 <= 6)
+				if (this->honEasySpawnedGuyCount2 <= 6)
 				{
-					if (field_FC != 5)
+					if (starAreaNumber != 5)
 					{
-						if (!this->field_2E)
+						if (!this->honEasySpawnedGuy1Alive)
 						{
 							GameObject *nodHonSpawnedSoldier1Obj = Commands->Create_Object("Nod_MiniGunner_0", Vector3(-212.6f, 541.1f, 4.0f));
 							Commands->Attach_Script(nodHonSpawnedSoldier1Obj, "M01_HON_Easy_Spawned_Guy_01_JDG", "");
 
 							this->nodHonSpawnedSoldier1ObjId = Commands->Get_ID(nodHonSpawnedSoldier1Obj);
-							this->field_2E = true;
+							this->honEasySpawnedGuy1Alive = true;
 						}
-						else if (!this->field_2F)
+						else if (!this->honEasySpawnedGuy2Alive)
 						{
 							GameObject *nodHonSpawnedSoldier2Obj = Commands->Create_Object("Nod_MiniGunner_0", Vector3(-217.2f, 540.2f, 4.0f));
 							Commands->Attach_Script(nodHonSpawnedSoldier2Obj, "M01_HON_Easy_Spawned_Guy_02_JDG", "");
 
 							this->nodHonSpawnedSoldier2ObjId = Commands->Get_ID(nodHonSpawnedSoldier2Obj);
-							this->field_2F = true;
+							this->honEasySpawnedGuy2Alive = true;
 						}
-						else if (!this->field_30)
+						else if (!this->honEasySpawnedGuy3Alive)
 						{
 							GameObject *nodHonSpawnedSoldier3Obj = Commands->Create_Object("Nod_FlameThrower_0", Vector3(-217.6f, 533.6f, 4.0f));
 							Commands->Attach_Script(nodHonSpawnedSoldier3Obj, "M01_HON_Easy_Spawned_Guy_03_JDG", "");
 
 							this->nodHonSpawnedSoldier3ObjId = Commands->Get_ID(nodHonSpawnedSoldier3Obj);
-							this->field_30 = true;
+							this->honEasySpawnedGuy3Alive = true;
 						}
 					}
 
-					this->field_5C++;
-					this->field_60++;
+					this->honEasySpawnedGuyCount++;
+					this->honEasySpawnedGuyCount2++;
 				}
 
 				GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
-				Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 205, this->field_64);
+				Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 205, this->honEasySpawnedGuySpawnInterval);
 			}
 		}
 
 		// Received from M01_HON_Easy_Spawned_Guy_03_JDG when action with id 38 is complete
 		else if (param == 206)
 		{
-			if (this->field_5C == 3)
+			if (this->honEasySpawnedGuyCount == 3)
 			{
 				GameObject *nodHonSpawnedSoldier1Obj = Commands->Find_Object(this->nodHonSpawnedSoldier1ObjId);
 				if (nodHonSpawnedSoldier1Obj)
 				{
 					Commands->Send_Custom_Event(obj, nodHonSpawnedSoldier1Obj, 0, 65, 0.0f);
-					this->field_2E = false;
+					this->honEasySpawnedGuy1Alive = false;
 					this->nodHonSpawnedSoldier1ObjId = 0;
 				}
 
@@ -1533,7 +1535,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				if (nodHonSpawnedSoldier2Obj)
 				{
 					Commands->Send_Custom_Event(obj, nodHonSpawnedSoldier2Obj, 0, 65, 0.0f);
-					this->field_2F = false;
+					this->honEasySpawnedGuy2Alive = false;
 					this->nodHonSpawnedSoldier2ObjId = 0;
 				}
 
@@ -1541,53 +1543,53 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				if (nodHonSpawnedSoldier3Obj)
 				{
 					Commands->Send_Custom_Event(obj, nodHonSpawnedSoldier3Obj, 0, 65, 0.0);
-					this->field_30 = false;
+					this->honEasySpawnedGuy3Alive = false;
 					this->nodHonSpawnedSoldier3ObjId = 0;
 				}
 
-				this->field_5C = 0;
+				this->honEasySpawnedGuyCount = 0;
 			}
 		}
 		
 		// Received from M01_HON_Easy_Spawned_Guy_01_JDG when killed
 		else if (param == 208)
 		{
-			this->field_2E = false;
-			this->field_5C--;
+			this->honEasySpawnedGuy1Alive = false;
+			this->honEasySpawnedGuyCount--;
 		}
 
 		// Received from M01_HON_Easy_Spawned_Guy_02_JDG when killed
 		else if (param == 209)
 		{
-			this->field_2F = false;
-			this->field_5C--;
+			this->honEasySpawnedGuy2Alive = false;
+			this->honEasySpawnedGuyCount--;
 		}
 
 		// Received from M01_HON_Easy_Spawned_Guy_03_JDG when killed
 		else if (param == 210)
 		{
-			this->field_30 = false;
-			this->field_5C--;
+			this->honEasySpawnedGuy3Alive = false;
+			this->honEasySpawnedGuyCount--;
 		}
 
 		// Received from M01_HON_Easy_Spawned_Guy_01_JDG or M01_HON_Easy_Spawned_Guy_02_JDG  or M01_HON_Easy_Spawned_Guy_03_JDG when killed
 		else if (param == 207)
 		{
-			this->field_60--;
+			this->honEasySpawnedGuyCount2--;
 		}
 
 		// Received from M01_Church_LoveShack_Nun_JDG when poked
 		// Received from M01_Loveshack_Nun_Conversation_Zone_JDG when entered
 		else if (param == 212)
 		{
-			if (Commands->Find_Object(101310) && !this->field_24 && !this->field_E0) // loveShackNunObj
+			if (Commands->Find_Object(101310) && !this->churchGuardMiniGunnerKilled && !this->remindedStarOfChurchCivs) // loveShackNunObj
 			{
-				this->field_E0 = true;
+				this->remindedStarOfChurchCivs = true;
 
-				this->field_DC = Commands->Create_Conversation("M01_Locke_ChurchReminder_Conversation", 45, 1000.0f, true); // I'm still detecting civilians inside the church.
-				Commands->Join_Conversation(NULL, this->field_DC, false, false, true);
-				Commands->Start_Conversation(this->field_DC, this->field_DC);
-				Commands->Monitor_Conversation(obj, this->field_DC);
+				this->lockeChurchReminderConversationConversationId = Commands->Create_Conversation("M01_Locke_ChurchReminder_Conversation", 45, 1000.0f, true); // I'm still detecting civilians inside the church.
+				Commands->Join_Conversation(NULL, this->lockeChurchReminderConversationConversationId, false, false, true);
+				Commands->Start_Conversation(this->lockeChurchReminderConversationConversationId, this->lockeChurchReminderConversationConversationId);
+				Commands->Monitor_Conversation(obj, this->lockeChurchReminderConversationConversationId);
 			}
 		}
 
@@ -1596,19 +1598,19 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		else if (param == 213)
 		{
 			GameObject *churchInteriorPriestObj = Commands->Find_Object(101315);
-			if (churchInteriorPriestObj && !this->field_25 && !this->field_E8)
+			if (churchInteriorPriestObj && !this->churchLoveShackMiniGunnerKilled && !this->remindedStarOfMoreChurchCivs)
 			{
-				this->field_E8 = true;
+				this->remindedStarOfMoreChurchCivs = true;
 
-				this->field_E4 = Commands->Create_Conversation("M01_PriestReminder_Conversation", 100, 1000.0f, false); // My gratitude, sir. Another member of our clergy is next door.
-				Commands->Join_Conversation(churchInteriorPriestObj, this->field_E4, false, true, true);
+				this->priestReminderConversationConversationId = Commands->Create_Conversation("M01_PriestReminder_Conversation", 100, 1000.0f, false); // My gratitude, sir. Another member of our clergy is next door.
+				Commands->Join_Conversation(churchInteriorPriestObj, this->priestReminderConversationConversationId, false, true, true);
 
 				Vector3 pos = Commands->Get_Position(obj);
 				GameObject *starObj = Commands->Get_A_Star(pos);
 
-				Commands->Join_Conversation(starObj, this->field_E4, false, false, false);
-				Commands->Start_Conversation(this->field_E4, this->field_E4);
-				Commands->Monitor_Conversation(obj, this->field_E4);
+				Commands->Join_Conversation(starObj, this->priestReminderConversationConversationId, false, false, false);
+				Commands->Start_Conversation(this->priestReminderConversationConversationId, this->priestReminderConversationConversationId);
+				Commands->Monitor_Conversation(obj, this->priestReminderConversationConversationId);
 			}
 		}
 
@@ -1617,19 +1619,19 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		else if (param == 211)
 		{
 			GameObject *churchInteriorNunObj = Commands->Find_Object(101314);
-			if (churchInteriorNunObj && !this->field_25 && !this->field_F0)
+			if (churchInteriorNunObj && !this->churchLoveShackMiniGunnerKilled && !this->remindedStarOfMoreChurchCivs2)
 			{
-				this->field_F0 = true;
+				this->remindedStarOfMoreChurchCivs2 = true;
 
-				this->field_EC = Commands->Create_Conversation("M01_Interior_Nun_Conversation", 100, 1000.0f, false); // Thank you.  Our sister is being interrogated next door.
-				Commands->Join_Conversation(churchInteriorNunObj, this->field_EC, false, true, true);
+				this->interiorNunConversationConversationId = Commands->Create_Conversation("M01_Interior_Nun_Conversation", 100, 1000.0f, false); // Thank you.  Our sister is being interrogated next door.
+				Commands->Join_Conversation(churchInteriorNunObj, this->interiorNunConversationConversationId, false, true, true);
 
 				Vector3 pos = Commands->Get_Position(obj);
 				GameObject *starObj = Commands->Get_A_Star(pos);
 
-				Commands->Join_Conversation(starObj, this->field_EC, false, false, false);
-				Commands->Start_Conversation(this->field_EC, this->field_EC);
-				Commands->Monitor_Conversation(obj, this->field_EC);
+				Commands->Join_Conversation(starObj, this->interiorNunConversationConversationId, false, false, false);
+				Commands->Start_Conversation(this->interiorNunConversationConversationId, this->interiorNunConversationConversationId);
+				Commands->Monitor_Conversation(obj, this->interiorNunConversationConversationId);
 			}
 		}
 
@@ -1638,15 +1640,15 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		{
 			if (!Commands->Find_Object(101434))// beachNodTurret1Obj
 			{
-				this->field_31 = true;
+				this->beachNodTurret1Destroyed = true;
 			}
 
 			if (!Commands->Find_Object(101435))// beachNodTurret2Obj
 			{
-				this->field_32 = true;
+				this->beachNodTurret2Destroyed = true;
 			}
 
-			if (this->field_31 && this->field_32)
+			if (this->beachNodTurret1Destroyed && this->beachNodTurret2Destroyed)
 			{
 				Commands->Send_Custom_Event(obj, obj, 0, 112, 0.0f);
 			}
@@ -1655,9 +1657,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from ourselves when param 117 is received
 		else if (param == 219)
 		{
-			if (!this->field_33)
+			if (!this->allBeachTurretsDestroyed)
 			{
-				this->field_33 = true;
+				this->allBeachTurretsDestroyed = true;
 			}
 		}
 
@@ -1689,9 +1691,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Player_is_Leaving_GDI_Base_Zone when entered
 		else if (param == 128)
 		{
-			if (this->field_22)
+			if (this->firstTimeStarLeavingGDIBase)
 			{
-				this->field_22 = false;
+				this->firstTimeStarLeavingGDIBase = false;
 
 				GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
 				if (beachNodTurret1Obj)
@@ -1767,11 +1769,11 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		{
 			// This is Gunboat Tango!  We're taking Nod Turret fire!  All available units please respond!
 			// Take out the turrets to protect the gunboat and we'll land some firepower.
-			this->field_C0 = Commands->Create_Conversation("M01_Add_Turrets_Objective", 100, 1000.0f, false);
-			Commands->Join_Conversation(NULL, this->field_C0, false, false, true);
-			Commands->Join_Conversation(NULL, this->field_C0, false, false, true);
-			Commands->Start_Conversation(this->field_C0, this->field_C0);
-			Commands->Monitor_Conversation(obj, this->field_C0);
+			this->addTurretsObjectiveConversationId = Commands->Create_Conversation("M01_Add_Turrets_Objective", 100, 1000.0f, false);
+			Commands->Join_Conversation(NULL, this->addTurretsObjectiveConversationId, false, false, true);
+			Commands->Join_Conversation(NULL, this->addTurretsObjectiveConversationId, false, false, true);
+			Commands->Start_Conversation(this->addTurretsObjectiveConversationId, this->addTurretsObjectiveConversationId);
+			Commands->Monitor_Conversation(obj, this->addTurretsObjectiveConversationId);
 		}
 
 		// Received from ourselves when conversation ended
@@ -1812,9 +1814,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Initial_Gunboat_Script_JDG when killed
 		else if (param == 113)
 		{
-			if (!this->field_41)
+			if (!this->gunboatDestroyed)
 			{
-				this->field_41 = true;
+				this->gunboatDestroyed = true;
 
 				Commands->Set_Objective_Status(109, OBJECTIVE_STATUS_FAILED);
 			}
@@ -1823,9 +1825,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from ourselves when param 217 is received
 		else if (param == 112)
 		{
-			if (!this->field_41)
+			if (!this->gunboatDestroyed)
 			{
-				this->field_41 = true;
+				this->gunboatDestroyed = true;
 
 				GameObject *gdiGunBoatObj = Commands->Find_Object(101477);
 				if (gdiGunBoatObj)
@@ -1856,9 +1858,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from ourselves when param 227 is received
 		else if (param == 114)
 		{
-			if (!this->field_3E && !this->field_F2)
+			if (!this->field_3E && !this->starInBarn)
 			{
-				this->field_F2 = true;
+				this->starInBarn = true;
 
 				GameObject *barnFemalePrisonerObj = Commands->Find_Object(101442);
 				if (barnFemalePrisonerObj)
@@ -1883,9 +1885,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_BarnArea_Air_Evac_Chopper_JDG when custom param 4 is received
 		else if (param == 115)
 		{
-			if (!this->field_40)
+			if (!this->barnCivsEvacuated)
 			{
-				this->field_40 = true;
+				this->barnCivsEvacuated = true;
 			}
 		}
 
@@ -1913,16 +1915,16 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				// Watch for machine gun and tanks over the hill. Use the small pass behind the house.
 				// My friends need a ride, AT-7. Pick 'em up.
 				// This is Air Transport Seven, we're evacuating your area. Stand by.
-				this->field_84 = Commands->Create_Conversation("M01_Billys_Conversation", 100, 1000.0f, true);;
-				Commands->Join_Conversation(billyObj, this->field_84, true, true, true);
+				this->billysConversationConversationId = Commands->Create_Conversation("M01_Billys_Conversation", 100, 1000.0f, true);;
+				Commands->Join_Conversation(billyObj, this->billysConversationConversationId, true, true, true);
 
 				Vector3 pos = Commands->Get_Position(obj);
 				GameObject *starObj = Commands->Get_A_Star(pos);
 
-				Commands->Join_Conversation(starObj, this->field_84, false, true, true);
-				Commands->Join_Conversation(NULL, this->field_84, false, false, true);
-				Commands->Start_Conversation(this->field_84, this->field_84);
-				Commands->Monitor_Conversation(obj, this->field_84);
+				Commands->Join_Conversation(starObj, this->billysConversationConversationId, false, true, true);
+				Commands->Join_Conversation(NULL, this->billysConversationConversationId, false, false, true);
+				Commands->Start_Conversation(this->billysConversationConversationId, this->billysConversationConversationId);
+				Commands->Monitor_Conversation(obj, this->billysConversationConversationId);
 			}
 		}
 
@@ -1938,16 +1940,16 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				// I hope my family is okay...
 				// My friends need a ride, AT-7. Pick 'em up.
 				// This is Air Transport Seven, we're evacuating your area. Stand by.
-				this->field_88 = Commands->Create_Conversation("M01_Barn_Babushka_Conversation", 100, 1000.0f, true);
-				Commands->Join_Conversation(barnFemalePrisonerObj, this->field_88, true, true, true);
+				this->babushkasConversationConversationId = Commands->Create_Conversation("M01_Barn_Babushka_Conversation", 100, 1000.0f, true);
+				Commands->Join_Conversation(barnFemalePrisonerObj, this->babushkasConversationConversationId, true, true, true);
 
 				Vector3 pos = Commands->Get_Position(obj);
 				GameObject *starObj = Commands->Get_A_Star(pos);
 
-				Commands->Join_Conversation(starObj, this->field_88, false, false, false);
-				Commands->Join_Conversation(NULL, this->field_88, false, false, false);
-				Commands->Start_Conversation(this->field_88, this->field_88);
-				Commands->Monitor_Conversation(obj, this->field_88);
+				Commands->Join_Conversation(starObj, this->babushkasConversationConversationId, false, false, false);
+				Commands->Join_Conversation(NULL, this->babushkasConversationConversationId, false, false, false);
+				Commands->Start_Conversation(this->babushkasConversationConversationId, this->babushkasConversationConversationId);
+				Commands->Monitor_Conversation(obj, this->babushkasConversationConversationId);
 
 				Commands->Send_Custom_Event(obj, barnFemalePrisonerObj, 0, 30, 0.0f);
 
@@ -1962,33 +1964,35 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				// Nope, but Nod will if you don't get on the chopper.
 				// My friends need a ride, AT-7. Pick 'em up.
 				// This is Air Transport Seven, we're evacuating your area. Stand by.
-				this->field_B0 = Commands->Create_Conversation("M01_Civ03_Conversation", 100, 1000.0f, true);
-				Commands->Join_Conversation(barnMalePrisonerPierreObj, this->field_B0, true, true, true);
+				this->civ3ConversationConversationId = Commands->Create_Conversation("M01_Civ03_Conversation", 100, 1000.0f, true);
+				Commands->Join_Conversation(barnMalePrisonerPierreObj, this->civ3ConversationConversationId, true, true, true);
 
 				Vector3 pos = Commands->Get_Position(obj);
 				GameObject *starObj = Commands->Get_A_Star(pos);
 
-				Commands->Join_Conversation(starObj, this->field_B0, false, false, false);
-				Commands->Join_Conversation(NULL, this->field_B0, false, true, true);
-				Commands->Start_Conversation(this->field_B0, this->field_B0);
-				Commands->Monitor_Conversation(obj, this->field_B0);
+				Commands->Join_Conversation(starObj, this->civ3ConversationConversationId, false, false, false);
+				Commands->Join_Conversation(NULL, this->civ3ConversationConversationId, false, true, true);
+				Commands->Start_Conversation(this->civ3ConversationConversationId, this->civ3ConversationConversationId);
+				Commands->Monitor_Conversation(obj, this->civ3ConversationConversationId);
 			}
 		}
 
 		// Received from M01_Barn_Door_Guard_JDG and M01_Barn_Point_Guard_01_JDG or M01_Barn_Point_Guard_02_JDG or M01_Barn_Talk_Guard_01_JDG when killed
 		else if (param == 227)
 		{
-			if (++this->field_D0 > 3)
+			if (++this->barnGuardDeathCount > 3)
 			{
 				Commands->Send_Custom_Event(obj, obj, 0, 114, 0.0f);
 			}
 		}
+
+		// Never received
 		else if (param == 198)
 		{
 			Commands->Debug_Message("***************************Starting the GDI base encounter\n");
-			if (this->field_3D)
+			if (this->gdiBaseEncounterInactive)
 			{
-				this->field_3D = false;
+				this->gdiBaseEncounterInactive = false;
 			}
 		}
 
@@ -2018,12 +2022,12 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Attach_To_Object_Bone(kaneHologramObj, hologramProjectorObj, "KANEBONE");
 				Commands->Set_Loiters_Allowed(kaneHologramObj, false);
 
-				this->field_6C = Commands->Get_ID(kaneHologramObj);
+				this->kaneHologramObjId = Commands->Get_ID(kaneHologramObj);
 
 				GameObject *honHologramNodOfficerObj = Commands->Find_Object(101936);
 				if (honHologramNodOfficerObj)
 				{
-					this->field_38 = true;
+					this->kaneConversationActive = true;
 
 					// Am I to understand GDI has all our test subjects?
 					// Kane, my lord, forgive me.
@@ -2031,10 +2035,10 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 					// But sir, we-
 					// Then report to interrogation for faith restructuring.
 					// Yes my lord. 
-					this->field_94 = Commands->Create_Conversation("M01_Kane_and_Number02_Conversation_01", 100, 1000.0f, true);
-					Commands->Join_Conversation(kaneHologramObj, this->field_94, false, true, true);
-					Commands->Join_Conversation(honHologramNodOfficerObj, this->field_94, false, true, true);
-					Commands->Start_Conversation(this->field_94, this->field_94);
+					this->kaneAndNumber2Conversation1ConversationId = Commands->Create_Conversation("M01_Kane_and_Number02_Conversation_01", 100, 1000.0f, true);
+					Commands->Join_Conversation(kaneHologramObj, this->kaneAndNumber2Conversation1ConversationId, false, true, true);
+					Commands->Join_Conversation(honHologramNodOfficerObj, this->kaneAndNumber2Conversation1ConversationId, false, true, true);
+					Commands->Start_Conversation(this->kaneAndNumber2Conversation1ConversationId, this->kaneAndNumber2Conversation1ConversationId);
 				}
 			}
 		}
@@ -2043,27 +2047,29 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Comm_Kane_n_Havoc_Conv_Start_Zone_JDG when entered
 		else if (param == 216)
 		{
-			if (!this->field_3A)
+			if (!this->commBaseCommanderKilled)
 			{
-				GameObject *field6CObj = Commands->Find_Object(this->field_6C);
-				if (field6CObj)
+				GameObject *kaneHologramObj = Commands->Find_Object(this->kaneHologramObjId);
+				if (kaneHologramObj)
 				{
-					this->field_3A = true;
+					this->commBaseCommanderKilled = true;
 
 					// Why do you interrupt me, GDI?  Hmm?
 					// I got a present for ya!
-					this->field_9C = Commands->Create_Conversation("M01_Kane_and_Havoc_Conversation", 100, 1000.0f, false);
-					Commands->Join_Conversation(field6CObj, this->field_9C, false, true, true);
+					this->kaneAndHavocConversationConversationId = Commands->Create_Conversation("M01_Kane_and_Havoc_Conversation", 100, 1000.0f, false);
+					Commands->Join_Conversation(kaneHologramObj, this->kaneAndHavocConversationConversationId, false, true, true);
 
 					Vector3 pos = Commands->Get_Position(obj);
 					GameObject *starObj = Commands->Get_A_Star(pos);
 
-					Commands->Join_Conversation(starObj, this->field_9C, false, false, true);
-					Commands->Start_Conversation(this->field_9C, this->field_9C);
-					Commands->Monitor_Conversation(obj, this->field_9C);
+					Commands->Join_Conversation(starObj, this->kaneAndHavocConversationConversationId, false, false, true);
+					Commands->Start_Conversation(this->kaneAndHavocConversationConversationId, this->kaneAndHavocConversationConversationId);
+					Commands->Monitor_Conversation(obj, this->kaneAndHavocConversationConversationId);
 				}
 			}
 		}
+
+		// Never received
 		else if (param == 72)
 		{
 			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", Vector3(0.0f, 0.0f, 0.0f), obj);
@@ -2121,11 +2127,11 @@ void M01_Mission_Controller_JDG::Action_Complete(GameObject *obj, int action_id,
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED)
 	{
-		if (action_id == this->field_84)
+		if (action_id == this->billysConversationConversationId)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 75, 0.0f);
 		}
-		else if (action_id == this->field_88)
+		else if (action_id == this->babushkasConversationConversationId)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 75, 0.0f);
 
@@ -2138,17 +2144,17 @@ void M01_Mission_Controller_JDG::Action_Complete(GameObject *obj, int action_id,
 				}
 			}
 		}
-		else if (action_id == this->field_B0)
+		else if (action_id == this->civ3ConversationConversationId)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 75, 0.0f);
 		}
-		else if (action_id == this->field_C0)
+		else if (action_id == this->addTurretsObjectiveConversationId)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 92, 0.0f);
 		}
-		else if (action_id == this->field_94)
+		else if (action_id == this->kaneAndNumber2Conversation1ConversationId)
 		{
-			this->field_38 = false;
+			this->kaneConversationActive = false;
 
 			GameObject *nonExistingObj = Commands->Find_Object(101937);
 			if (nonExistingObj)
@@ -2160,15 +2166,15 @@ void M01_Mission_Controller_JDG::Action_Complete(GameObject *obj, int action_id,
 		{
 			this->field_39 = false;
 		}
-		else if (action_id == this->field_9C)
+		else if (action_id == this->kaneAndHavocConversationConversationId)
 		{
-			GameObject *field6CObj = Commands->Find_Object(this->field_6C);
-			if (field6CObj)
+			GameObject *kaneHologramObj = Commands->Find_Object(this->kaneHologramObjId);
+			if (kaneHologramObj)
 			{
-				Commands->Destroy_Object(field6CObj);
+				Commands->Destroy_Object(kaneHologramObj);
 			}
 		}
-		else if (action_id == this->field_BC)
+		else if (action_id == this->removeUnlockGateObjectiveConversationId)
 		{
 			// Open Detention Center
 			// Access the Detention Center gate by accessing the nearby control panel.
@@ -2183,17 +2189,17 @@ void M01_Mission_Controller_JDG::Action_Complete(GameObject *obj, int action_id,
 
 			Commands->Send_Custom_Event(obj, obj, 0, 5, 3.0f);
 		}
-		else if (action_id == this->field_DC)
+		else if (action_id == this->lockeChurchReminderConversationConversationId)
 		{
-			this->field_E0 = false;
+			this->remindedStarOfChurchCivs = false;
 		}
-		else if (action_id == this->field_E4)
+		else if (action_id == this->priestReminderConversationConversationId)
 		{
-			this->field_E8 = false;
+			this->remindedStarOfMoreChurchCivs = false;
 		}
-		else if (action_id == this->field_EC)
+		else if (action_id == this->interiorNunConversationConversationId)
 		{
-			this->field_F0 = false;
+			this->remindedStarOfMoreChurchCivs2 = false;
 		}
 	}
 }

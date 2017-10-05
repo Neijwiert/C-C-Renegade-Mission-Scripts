@@ -33,7 +33,6 @@ void M01_Nod_Commander_Conversation_Controller_GDI::Created(GameObject *obj)
 	this->canCallForBackup = true;
 }
 
-// TODO
 void M01_Nod_Commander_Conversation_Controller_GDI::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_GDI_GuardTower_NOD_Commander_JDG or M01_TailgunRun_NOD_Commander_JDG when param 66 is received

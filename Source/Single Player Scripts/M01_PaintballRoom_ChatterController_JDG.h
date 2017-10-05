@@ -38,11 +38,11 @@ class M01_PaintballRoom_ChatterController_JDG : public ScriptImpClass
 		int honPaintballTeam01Guy01ObjId;
 		int honPaintballTeam02Guy01ObjId;
 		int honPaintballTeam02Guy02ObjId;
-		bool field_34;
-		bool field_35;
-		bool field_36;
-		bool field_37;
-		bool field_38;
-		bool field_39;
-		bool field_3A;
+		bool team2OfficerKilled;
+		bool team1OfficerKilled;
+		bool team1Guy2Killed;
+		bool team1Guy1Killed;
+		bool team2Guy1Killed;
+		bool team2Guy2Killed;
+		bool anyPaintballerDamagedByStar;
 };

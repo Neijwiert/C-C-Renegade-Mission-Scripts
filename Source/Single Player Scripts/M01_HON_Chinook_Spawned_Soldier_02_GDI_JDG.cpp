@@ -21,17 +21,17 @@
 
 void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_1D, sizeof(this->field_1D), 2);
-	Auto_Save_Variable(&this->field_1E, sizeof(this->field_1E), 3);
+	Auto_Save_Variable(&this->starInWarRoom, sizeof(this->starInWarRoom), 1);
+	Auto_Save_Variable(&this->inWarRoomAndHonIsAlive, sizeof(this->inWarRoomAndHonIsAlive), 2);
+	Auto_Save_Variable(&this->canDropMoreReinforcements, sizeof(this->canDropMoreReinforcements), 3);
 }
 
 // After 489 cinematic frames in X1I_GDI_HON_TroopDrop01a.txt
 void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Created(GameObject *obj)
 {
-	this->field_1C = false;
-	this->field_1D = false;
-	this->field_1E = true;
+	this->starInWarRoom = false;
+	this->inWarRoomAndHonIsAlive = false;
+	this->canDropMoreReinforcements = true;
 
 	Commands->Enable_Hibernation(obj, false);
 	Commands->Innate_Soldier_Enable_Gunshot_Heard(obj, false);
@@ -52,7 +52,7 @@ void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Created(GameObject *obj)
 
 void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Killed(GameObject *obj, GameObject *killer)
 {
-	if (this->field_1E)
+	if (this->canDropMoreReinforcements)
 	{
 		GameObject *M01HONWarRoomControllerJDGObj = Commands->Find_Object(124044);
 		if (M01HONWarRoomControllerJDGObj)
@@ -62,7 +62,6 @@ void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Killed(GameObject *obj, GameObj
 	}
 }
 
-// TODO
 void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (obj && !type)
@@ -70,7 +69,7 @@ void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Custom(GameObject *obj, int typ
 		// Received from ourselves after 5 seconds after this block or animation is complete
 		if (param == 38)
 		{
-			if (!this->field_1C)
+			if (!this->starInWarRoom)
 			{
 				GameObject *nodHonBuildingObj = Commands->Find_Object(153909);
 				if (Commands->Get_Health(nodHonBuildingObj) <= 0.0f)
@@ -94,7 +93,7 @@ void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Custom(GameObject *obj, int typ
 		// Received from M01_GiveMCTSpeech_Zone_JDG when conversation ended
 		else if (param == 25)
 		{
-			this->field_1E = false;
+			this->canDropMoreReinforcements = false;
 
 			Commands->Set_Innate_Is_Stationary(obj, false);
 			Commands->Enable_Hibernation(obj, true);
@@ -112,7 +111,7 @@ void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Custom(GameObject *obj, int typ
 		// Received from M01_HON_WarroomController_JDG when entered
 		else if (param == 16)
 		{
-			this->field_1C = true;
+			this->starInWarRoom = true;
 
 			GameObject *nodHonBuildingObj = Commands->Find_Object(153909);
 			if (Commands->Get_Health(nodHonBuildingObj) <= 0.0f)
@@ -133,9 +132,9 @@ void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Custom(GameObject *obj, int typ
 	}
 }
 
-// TODO
 void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// When done moving in war room, see param 16
 	if (complete_reason == ACTION_COMPLETE_NORMAL && action_id == 39)
 	{
 		GameObject *nodHonBuildingObj = Commands->Find_Object(153909);
@@ -145,7 +144,7 @@ void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Action_Complete(GameObject *obj
 		}
 		else
 		{
-			this->field_1D = true;
+			this->inWarRoomAndHonIsAlive = true;
 
 			Commands->Set_Innate_Is_Stationary(obj, true);
 

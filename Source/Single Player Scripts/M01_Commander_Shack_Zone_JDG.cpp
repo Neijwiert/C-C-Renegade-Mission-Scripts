@@ -24,21 +24,20 @@ M01 -> 115985
 */
 void M01_Commander_Shack_Zone_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->duncanAlive, sizeof(this->duncanAlive), 1);
 	Auto_Save_Variable(&this->starInsideShack, sizeof(this->starInsideShack), 2);
-	Auto_Save_Variable(&this->field_1E, sizeof(this->field_1E), 3);
+	Auto_Save_Variable(&this->starAtDuncanArea, sizeof(this->starAtDuncanArea), 3);
 	Auto_Save_Variable(&this->field_1F, sizeof(this->field_1F), 4);
 }
 
 void M01_Commander_Shack_Zone_JDG::Created(GameObject *obj)
 {
-	this->field_1C = true;
+	this->duncanAlive = true;
 	this->starInsideShack = false;
-	this->field_1E = false;
+	this->starAtDuncanArea = false;
 	this->field_1F = false;
 }
 
-// TODO
 void M01_Commander_Shack_Zone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -46,7 +45,7 @@ void M01_Commander_Shack_Zone_JDG::Custom(GameObject *obj, int type, int param, 
 		// Received from M01_GDIBase_BaseCommander_JDG when param 4 is received
 		if (param == 16)
 		{
-			this->field_1E = true;
+			this->starAtDuncanArea = true;
 
 			Commands->Send_Custom_Event(obj, obj, 0, 27, 0.0f);
 		}
@@ -54,7 +53,7 @@ void M01_Commander_Shack_Zone_JDG::Custom(GameObject *obj, int type, int param, 
 		// Received from M01_GDIBase_BaseCommander_JDG when killed
 		else if (param == 22)
 		{
-			this->field_1C = false;
+			this->duncanAlive = false;
 		}
 
 		// Received from ourselves after param 16 or after this block or entered
@@ -62,7 +61,7 @@ void M01_Commander_Shack_Zone_JDG::Custom(GameObject *obj, int type, int param, 
 		{
 			if (!this->field_1F)
 			{
-				if (this->starInsideShack && this->field_1C && this->field_1E)
+				if (this->starInsideShack && this->duncanAlive && this->starAtDuncanArea)
 				{
 					GameObject *captainDuncanObj = Commands->Find_Object(106050);
 					if (captainDuncanObj)

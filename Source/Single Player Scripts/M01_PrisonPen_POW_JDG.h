@@ -36,9 +36,9 @@ class M01_PrisonPen_POW_JDG : public ScriptImpClass
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 		virtual void Poked(GameObject *obj, GameObject *poker);
 
-		bool field_1C;
-		bool field_1D;
-		bool field_1E;
-		bool field_1F;
+		bool starCanSeeMe;
+		bool gunShotHeard;
+		bool isGateSwitchPokedAndSamAlive;
+		bool isGateSwitchPokedAndSamDead;
 		int detentionSoldier2ObjId;
 };

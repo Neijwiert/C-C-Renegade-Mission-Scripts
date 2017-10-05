@@ -35,6 +35,6 @@ class M01_Barn_Prisoner_01_JDG : public ScriptImpClass
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 		virtual void Animation_Complete(GameObject *obj, const char *animation_name);
 
-		bool field_1C;
-		bool field_1D;
+		bool doingBabushkaConversation;
+		bool evacChopperCreated;
 };

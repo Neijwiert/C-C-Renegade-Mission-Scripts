@@ -25,7 +25,7 @@ M01 -> 102350
 void M01_ChurchArea_Spawner_Controller_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->soldierCount, sizeof(this->soldierCount), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->starNotInChurchArea, sizeof(this->starNotInChurchArea), 2);
 }
 
 void M01_ChurchArea_Spawner_Controller_JDG::Created(GameObject *obj)
@@ -33,10 +33,9 @@ void M01_ChurchArea_Spawner_Controller_JDG::Created(GameObject *obj)
 	Commands->Enable_Hibernation(obj, false);
 
 	this->soldierCount = 0;
-	this->field_20 = true;
+	this->starNotInChurchArea = true;
 }
 
-// TODO
 void M01_ChurchArea_Spawner_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_ChurchArea_Spawner_Guy_JDG when killed
@@ -76,9 +75,9 @@ void M01_ChurchArea_Spawner_Controller_JDG::Custom(GameObject *obj, int type, in
 	else if(param == 68)
 	{
 		int difficultyLevel = Commands->Get_Difficulty_Level();
-		if (this->field_20)
+		if (this->starNotInChurchArea)
 		{
-			this->field_20 = false;
+			this->starNotInChurchArea = false;
 
 			if (!difficultyLevel)
 			{

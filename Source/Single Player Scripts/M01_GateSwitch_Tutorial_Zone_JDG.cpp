@@ -24,29 +24,28 @@ M01 -> 120844
 */
 void M01_GateSwitch_Tutorial_Zone_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->canOpenPrisonerGate, sizeof(this->canOpenPrisonerGate), 1);
 }
 
 void M01_GateSwitch_Tutorial_Zone_JDG::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->canOpenPrisonerGate = false;
 }
 
-// TODO
 void M01_GateSwitch_Tutorial_Zone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_Comm_Center_Building_Script_JDG when killed
 	// Received from M01_Comm_Center_Player_Terminal_Zone when poked
 	if (!type && param == 16)
 	{
-		this->field_1C = true;
+		this->canOpenPrisonerGate = true;
 	}
 }
 
 void M01_GateSwitch_Tutorial_Zone_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
 	Vector3 pos = Commands->Get_Position(obj);
-	if (enterer == Commands->Get_A_Star(pos) && this->field_1C)
+	if (enterer == Commands->Get_A_Star(pos) && this->canOpenPrisonerGate)
 	{
 		Commands->Set_HUD_Help_Text(8567, Vector3(0.196f, 0.882f, 0.196f)); // Press 'E' to Activate the Gate Switch\n
 

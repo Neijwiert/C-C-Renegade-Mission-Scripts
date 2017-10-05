@@ -28,7 +28,7 @@ void M01_HON_Dojo_Civ_01_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->dojoCiv01ObjId, sizeof(this->dojoCiv01ObjId), 2);
 	Auto_Save_Variable(&this->dojoCiv02ObjId, sizeof(this->dojoCiv02ObjId), 3);
 	Auto_Save_Variable(&this->dojoCiv03ObjId, sizeof(this->dojoCiv03ObjId), 4);
-	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 5);
+	Auto_Save_Variable(&this->animationCount, sizeof(this->animationCount), 5);
 	Auto_Save_Variable(&this->dojoThanksConversationId, sizeof(this->dojoThanksConversationId), 6);
 }
 
@@ -37,7 +37,7 @@ void M01_HON_Dojo_Civ_01_JDG::Created(GameObject *obj)
 	this->dojoCiv01ObjId = 102048;
 	this->dojoCiv02ObjId = 102049;
 	this->dojoCiv03ObjId = 102050;
-	this->field_2C = 0;
+	this->animationCount = 0;
 
 	Commands->Innate_Disable(obj);
 
@@ -53,7 +53,6 @@ void M01_HON_Dojo_Civ_01_JDG::Killed(GameObject *obj, GameObject *killer)
 	Commands->Create_Sound("EVA_Civilian_Killed", Vector3(0.0f, 0.0f, 0.0f), obj);
 }
 
-// TODO
 void M01_HON_Dojo_Civ_01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_HON_Dojo_Trainer_JDG when conversation ended
@@ -188,7 +187,6 @@ void M01_HON_Dojo_Civ_01_JDG::Custom(GameObject *obj, int type, int param, GameO
 	}
 }
 
-// TODO
 void M01_HON_Dojo_Civ_01_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED)
@@ -209,9 +207,10 @@ void M01_HON_Dojo_Civ_01_JDG::Action_Complete(GameObject *obj, int action_id, Ac
 	}
 	else if(complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When animation completed, see param 16 or this block
 		if (action_id == 46)
 		{
-			if (this->field_2C >= 2)
+			if (this->animationCount >= 2)
 			{
 				ActionParamsStruct params;
 				params.Set_Basic(this, 100.0f, 47);
@@ -227,9 +226,11 @@ void M01_HON_Dojo_Civ_01_JDG::Action_Complete(GameObject *obj, int action_id, Ac
 
 				Commands->Action_Play_Animation(obj, params);
 
-				this->field_2C++;
+				this->animationCount++;
 			}
 		}
+
+		// When animation completed, see action id 46
 		else if (action_id == 47)
 		{
 			static const char *animations[14] =
@@ -258,6 +259,8 @@ void M01_HON_Dojo_Civ_01_JDG::Action_Complete(GameObject *obj, int action_id, Ac
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When animation ended, see action id 47
 		else if (action_id == 48)
 		{
 			if (this->objId == this->dojoCiv01ObjId)
@@ -276,6 +279,8 @@ void M01_HON_Dojo_Civ_01_JDG::Action_Complete(GameObject *obj, int action_id, Ac
 				Commands->Send_Custom_Event(obj, obj, 0, 27, randDelay);
 			}
 		}
+
+		// When done following waypath, see param 27
 		else if (action_id == 38)
 		{
 			ActionParamsStruct params;
@@ -284,6 +289,8 @@ void M01_HON_Dojo_Civ_01_JDG::Action_Complete(GameObject *obj, int action_id, Ac
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When done doing animation, see action id 38
 		else if (action_id == 49)
 		{
 			Vector3 pos = Commands->Get_Position(obj);

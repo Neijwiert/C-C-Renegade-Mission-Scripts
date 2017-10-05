@@ -35,7 +35,7 @@ class M01_HON_WarroomController_JDG : public ScriptImpClass
 
 		int honChinookSpawnedSoldier1GDIObjId;
 		int honChinookSpawnedSoldier2GDIObjId;
-		bool field_24;
-		bool field_25;
-		int field_28;
+		bool starInWarRoom;
+		bool field_25; // Assigned, but not used
+		int chinookSpawnedGDISoldierDeathCount;
 };

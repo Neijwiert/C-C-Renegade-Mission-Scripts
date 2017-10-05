@@ -45,7 +45,6 @@ void M01_GDIBasePOW_Air_Evac_Chopper_JDG::Damaged(GameObject *obj, GameObject *d
 	Commands->Set_Health(obj, maxHealth);
 }
 
-// TODO
 void M01_GDIBasePOW_Air_Evac_Chopper_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from ourselves after 3 seconds on create

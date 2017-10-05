@@ -22,7 +22,6 @@
 /*
 M01 -> 103270
 */
-// TODO
 void M01_TibField_Guard01_New_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when custom param 148 is received

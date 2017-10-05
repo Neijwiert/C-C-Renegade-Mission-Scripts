@@ -39,5 +39,5 @@ class M01_GDIBase_BaseCommander_JDG : public ScriptImpClass
 		int conversation1Id;
 		bool gaveIonCannonBeacon;
 		int conversation2Id;
-		bool field_28;
+		bool field_28; // Assigned, but not used
 };

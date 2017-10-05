@@ -25,20 +25,19 @@ M01 -> 123645
 void M01_GuardTower02_Sniper_TowerZone_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->starInTower, sizeof(this->starInTower), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->sniperTargetKillCount, sizeof(this->sniperTargetKillCount), 2);
 }
 
 void M01_GuardTower02_Sniper_TowerZone_JDG::Created(GameObject *obj)
 {
 	this->starInTower = false;
-	this->field_20 = 0;
+	this->sniperTargetKillCount = 0;
 }
 
-// TODO
 void M01_GuardTower02_Sniper_TowerZone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_GuardTower02_Sniper_Target01_JDG or M01_GuardTower02_Sniper_Target02_JDG when killed
-	if (!type && param == 22 && this->starInTower && ++this->field_20 == 1)
+	if (!type && param == 22 && this->starInTower && ++this->sniperTargetKillCount == 1)
 	{
 		GameObject *sniperTargetNodMinigunnerObj = Commands->Create_Object("Nod_MiniGunner_0", Vector3(-51.423f, 126.198f, 2.537f));
 		Commands->Attach_Script(sniperTargetNodMinigunnerObj, "M01_GuardTower02_NewSniperTarget_JDG", "");

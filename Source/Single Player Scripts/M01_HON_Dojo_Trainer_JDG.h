@@ -36,6 +36,6 @@ class M01_HON_Dojo_Trainer_JDG : public ScriptImpClass
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 
 		int dojoSenseiConversationId;
-		bool field_20;
-		bool field_21;
+		bool notDamagedByStar;
+		bool honKilled;
 };

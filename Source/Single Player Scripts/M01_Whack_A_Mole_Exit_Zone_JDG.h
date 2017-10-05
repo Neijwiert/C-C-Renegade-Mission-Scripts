@@ -33,5 +33,5 @@ class M01_Whack_A_Mole_Exit_Zone_JDG : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
-		bool field_1C;
+		bool starInWhackAMoleArea;
 };

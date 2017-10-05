@@ -24,13 +24,13 @@ M01 -> 116386
 */
 void M01_Base_POW01_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->powNodSoldierDeathCount, sizeof(this->powNodSoldierDeathCount), 1);
 	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
 }
 
 void M01_Base_POW01_JDG::Created(GameObject *obj)
 {
-	this->field_1C = 0;
+	this->powNodSoldierDeathCount = 0;
 
 	Commands->Set_Obj_Radar_Blip_Color(obj, RADAR_BLIP_COLOR_GDI);
 	Commands->Set_Loiters_Allowed(obj, false);
@@ -61,7 +61,6 @@ void M01_Base_POW01_JDG::Damaged(GameObject *obj, GameObject *damager, float amo
 	}
 }
 
-// TODO
 void M01_Base_POW01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -69,7 +68,7 @@ void M01_Base_POW01_JDG::Custom(GameObject *obj, int type, int param, GameObject
 		// Received from M01_POW_Nod_Minigunner01_JDG when killed
 		if (param == 22)
 		{
-			if (++this->field_1C == 2)
+			if (++this->powNodSoldierDeathCount == 2)
 			{
 				ActionParamsStruct params;
 				params.Set_Basic(this, 100.0f, 47);
@@ -115,11 +114,11 @@ void M01_Base_POW01_JDG::Custom(GameObject *obj, int type, int param, GameObject
 	}
 }
 
-// TODO
 void M01_Base_POW01_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When animation complete, see param 22
 		if (action_id == 47)
 		{
 			ActionParamsStruct params;
@@ -130,6 +129,8 @@ void M01_Base_POW01_JDG::Action_Complete(GameObject *obj, int action_id, ActionC
 
 			Commands->Set_Innate_Is_Stationary(obj, true);
 		}
+
+		// When animation complete, see param 47
 		else if (action_id == 48)
 		{
 			GameObject *M01GDIBasePOWConversationControllerJDGObj = Commands->Find_Object(121237);
@@ -138,6 +139,8 @@ void M01_Base_POW01_JDG::Action_Complete(GameObject *obj, int action_id, ActionC
 				Commands->Send_Custom_Event(obj, M01GDIBasePOWConversationControllerJDGObj, 0, 16, 0.0f);
 			}
 		}
+
+		// When moved to stationary location, see param 4002
 		else if (action_id == 39)
 		{
 			GameObject *M01GDIBaseEvacMonitorJDGObj = Commands->Find_Object(103419);

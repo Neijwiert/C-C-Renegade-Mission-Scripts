@@ -113,6 +113,7 @@ void M01_HON_Paintball_Team_02_JDG::Enemy_Seen(GameObject *obj, GameObject *enem
 
 void M01_HON_Paintball_Team_02_JDG::Timer_Expired(GameObject *obj, int number)
 {
+	// After rand duration, see created or this block
 	if (number == 27)
 	{
 		if (!this->actingOnPaintballer)
@@ -129,6 +130,8 @@ void M01_HON_Paintball_Team_02_JDG::Timer_Expired(GameObject *obj, int number)
 			Commands->Start_Timer(obj, this, randDuration, 27);
 		}
 	}
+
+	// After rand duration, see damaged or this block
 	else if (number == 28)
 	{
 		this->actingOnPaintballer = false;

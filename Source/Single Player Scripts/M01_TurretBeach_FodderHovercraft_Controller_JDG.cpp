@@ -24,13 +24,13 @@ M01 -> 121630
 */
 void M01_TurretBeach_FodderHovercraft_Controller_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 1);
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 2);
+	Auto_Save_Variable(&this->fodderHovercraftAlive, sizeof(this->fodderHovercraftAlive), 1);
+	Auto_Save_Variable(&this->fodderHovercraftObjId, sizeof(this->fodderHovercraftObjId), 2);
 }
 
 void M01_TurretBeach_FodderHovercraft_Controller_JDG::Created(GameObject *obj)
 {
-	this->field_20 = false;
+	this->fodderHovercraftAlive = false;
 }
 
 // TODO
@@ -42,11 +42,11 @@ void M01_TurretBeach_FodderHovercraft_Controller_JDG::Custom(GameObject *obj, in
 		// Received from ourselves after 5 seconds after this block or 15 seconds after param 22
 		if (param == 16)
 		{
-			if (!this->field_20)
+			if (!this->fodderHovercraftAlive)
 			{
-				if (!Commands->Find_Object(this->field_1C))
+				if (!Commands->Find_Object(this->fodderHovercraftObjId))
 				{
-					this->field_20 = true;
+					this->fodderHovercraftAlive = true;
 
 					GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));
 					Commands->Attach_Script(invisObj, "Test_Cinematic", "X1D_FodderHover_MTank.txt");
@@ -59,7 +59,7 @@ void M01_TurretBeach_FodderHovercraft_Controller_JDG::Custom(GameObject *obj, in
 		// Received from M01_FodderHovercraft_Script_JDG when killed
 		else if (param == 22)
 		{
-			this->field_20 = false;
+			this->fodderHovercraftAlive = false;
 
 			Commands->Send_Custom_Event(obj, obj, 0, 16, 15.0f);
 		}
@@ -67,19 +67,19 @@ void M01_TurretBeach_FodderHovercraft_Controller_JDG::Custom(GameObject *obj, in
 		// Received from M01_FodderHovercraft_Script_JDG when created
 		else if (!param)
 		{
-			this->field_1C = Commands->Get_ID(sender);
-			this->field_20 = true;
+			this->fodderHovercraftObjId = Commands->Get_ID(sender);
+			this->fodderHovercraftAlive = true;
 
 			GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
 			if (beachNodTurret1Obj)
 			{
-				Commands->Send_Custom_Event(obj, beachNodTurret1Obj, 218, this->field_1C, 1.0f);
+				Commands->Send_Custom_Event(obj, beachNodTurret1Obj, 218, this->fodderHovercraftObjId, 1.0f);
 			}
 
 			GameObject *beachNodTurret2Obj = Commands->Find_Object(101435);
 			if (beachNodTurret2Obj)
 			{
-				Commands->Send_Custom_Event(obj, beachNodTurret2Obj, 218, this->field_1C, 1.0f);
+				Commands->Send_Custom_Event(obj, beachNodTurret2Obj, 218, this->fodderHovercraftObjId, 1.0f);
 			}
 		}
 	}

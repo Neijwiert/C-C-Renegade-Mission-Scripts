@@ -24,27 +24,26 @@ M01 -> 101679
 */
 void M01_Tank_Entering_Tunnel_Zone_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->beachMediumTankObjId, sizeof(this->beachMediumTankObjId), 1);
 }
 
 void M01_Tank_Entering_Tunnel_Zone_JDG::Created(GameObject *obj)
 {
-	this->field_1C = 0;
+	this->beachMediumTankObjId = 0;
 }
 
-// TODO
 void M01_Tank_Entering_Tunnel_Zone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_Medium_Tank_JDG when created param = its object id
 	if (type == 228)
 	{
-		this->field_1C = param;
+		this->beachMediumTankObjId = param;
 	}
 }
 
 void M01_Tank_Entering_Tunnel_Zone_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
-	if (enterer == Commands->Find_Object(this->field_1C))
+	if (enterer == Commands->Find_Object(this->beachMediumTankObjId))
 	{
 		GameObject *nonExisting1Obj = Commands->Find_Object(101682);
 		if (nonExisting1Obj)

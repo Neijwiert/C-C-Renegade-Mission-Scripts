@@ -24,10 +24,10 @@ M01 -> 103331
 */
 void M01_GDIBase_POWEncounter02_Controller_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_1D, sizeof(this->field_1D), 2);
-	Auto_Save_Variable(&this->field_1E, sizeof(this->field_1E), 3);
-	Auto_Save_Variable(&this->field_1F, sizeof(this->field_1F), 4);
+	Auto_Save_Variable(&this->didDoGDIBasePOWEvacAnim, sizeof(this->didDoGDIBasePOWEvacAnim), 1);
+	Auto_Save_Variable(&this->gdiPOW1Dead, sizeof(this->gdiPOW1Dead), 2);
+	Auto_Save_Variable(&this->gdiPOW2Dead, sizeof(this->gdiPOW2Dead), 3);
+	Auto_Save_Variable(&this->allPOWsDead, sizeof(this->allPOWsDead), 4);
 	Auto_Save_Variable(&this->waypathObjId, sizeof(this->waypathObjId), 5);
 	Auto_Save_Variable(&this->chopperObjId, sizeof(this->chopperObjId), 6);
 	Auto_Save_Variable(&this->ropeObjId, sizeof(this->ropeObjId), 7);
@@ -35,13 +35,12 @@ void M01_GDIBase_POWEncounter02_Controller_JDG::Register_Auto_Save_Variables()
 
 void M01_GDIBase_POWEncounter02_Controller_JDG::Created(GameObject *obj)
 {
-	this->field_1D = false;
-	this->field_1E = false;
-	this->field_1F = false;
-	this->field_1C = false;
+	this->gdiPOW1Dead = false;
+	this->gdiPOW2Dead = false;
+	this->allPOWsDead = false;
+	this->didDoGDIBasePOWEvacAnim = false;
 }
 
-// TODO
 void M01_GDIBase_POWEncounter02_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_Base_POW01_JDG or M01_Base_POW02_JDG when killed
@@ -52,18 +51,18 @@ void M01_GDIBase_POWEncounter02_Controller_JDG::Custom(GameObject *obj, int type
 
 		if (sender == gdiPOW1Obj)
 		{
-			this->field_1D = true;
+			this->gdiPOW1Dead = true;
 		}
 		else if (sender == gdiPOW2Obj)
 		{
-			this->field_1E = true;
+			this->gdiPOW2Dead = true;
 		}
 
-		if (this->field_1D && this->field_1E)
+		if (this->gdiPOW1Dead && this->gdiPOW2Dead)
 		{
 			Commands->Set_Objective_Status(114, OBJECTIVE_STATUS_FAILED);
 
-			this->field_1F = true;
+			this->allPOWsDead = true;
 		}
 	}
 
@@ -110,9 +109,9 @@ void M01_GDIBase_POWEncounter02_Controller_JDG::Custom(GameObject *obj, int type
 	// Received from M01_GDIBase_POW_Conversation_Controller_JDG when the conversation ended
 	else if (param == 27)
 	{
-		if (!this->field_1C)
+		if (!this->didDoGDIBasePOWEvacAnim)
 		{
-			this->field_1C = true;
+			this->didDoGDIBasePOWEvacAnim = true;
 
 			Vector3 pos = Commands->Get_Position(obj);
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", pos);
@@ -141,7 +140,7 @@ void M01_GDIBase_POWEncounter02_Controller_JDG::Custom(GameObject *obj, int type
 			Commands->Send_Custom_Event(obj, ropeObj, 0, 27, 0.0f);
 		}
 
-		if (!this->field_1F)
+		if (!this->allPOWsDead)
 		{
 			Commands->Set_Objective_Status(114, OBJECTIVE_STATUS_ACCOMPLISHED);
 		}

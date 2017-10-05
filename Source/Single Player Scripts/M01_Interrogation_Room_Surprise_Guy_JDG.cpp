@@ -35,7 +35,6 @@ void M01_Interrogation_Room_Surprise_Guy_JDG::Created(GameObject *obj)
 	this->canMoveToInterrogationRoom = true;
 }
 
-// TODO
 void M01_Interrogation_Room_Surprise_Guy_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_Left_Interrogation_Room_Enter_Zone_JDG when entered
@@ -66,7 +65,7 @@ void M01_Interrogation_Room_Surprise_Guy_JDG::Custom(GameObject *obj, int type, 
 		this->canMoveToInterrogationRoom = false;
 	}
 
-	// received from ourselves after 0.5 to 2 seconds when an enemy is seen or 1 to 3 seconds after action with id 38 is complete
+	// Received from ourselves after 0.5 to 2 seconds when an enemy is seen or 1 to 3 seconds after action with id 38 is complete
 	else if (param == 27)
 	{
 		if (obj)
@@ -120,9 +119,9 @@ void M01_Interrogation_Room_Surprise_Guy_JDG::Enemy_Seen(GameObject *obj, GameOb
 	}
 }
 
-// TODO
 void M01_Interrogation_Room_Surprise_Guy_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// When done moving to interrogation room, see param 155/156
 	if (action_id == 38 && complete_reason == ACTION_COMPLETE_NORMAL)
 	{
 		Commands->Create_Sound("TargetHasBeenEngaged_2", this->interrogationRoomLocation, obj);

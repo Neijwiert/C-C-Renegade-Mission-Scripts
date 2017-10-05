@@ -33,6 +33,6 @@ class M01_CantBring_MediumTank_ThroughHereZone_JDG : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
-		bool field_1C;
-		int field_20;
+		bool starInMediumTank;
+		int beachMediumTankObjId;
 };

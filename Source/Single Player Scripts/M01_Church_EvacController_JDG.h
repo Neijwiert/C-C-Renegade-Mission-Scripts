@@ -37,6 +37,6 @@ class M01_Church_EvacController_JDG : public ScriptImpClass
 		int chopperObjId;
 		int ropeObjId;
 		int protectClergyConversationId;
-		int field_2C;
-		bool field_30;
+		int prisonerKilled;
+		bool didChurchAreaEvacAnimCinematic;
 };

@@ -67,7 +67,6 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Damaged(GameObject *obj, GameO
 	}
 }
 
-// TODO
 void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from ourselves after 5 seconds after this block
@@ -194,11 +193,11 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Custom(GameObject *obj, int ty
 	}
 }
 
-// TODO
 void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When movement is done, see param 224
 		if (action_id == 38)
 		{
 			GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
@@ -213,6 +212,8 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Action_Complete(GameObject *ob
 				Commands->Send_Custom_Event(obj, obj, 0, 17, 0.5f);
 			}
 		}
+
+		// When movement is done, see param 224
 		else if (action_id == 39)
 		{
 			GameObject *beachNodTurret2Obj = Commands->Find_Object(101435);
@@ -228,6 +229,8 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Action_Complete(GameObject *ob
 				Commands->Send_Custom_Event(obj, obj, 0, 18, 0.5f);
 			}
 		}
+
+		// Never triggered
 		else if (action_id == 48)
 		{
 			static const char *animations[5] =
@@ -249,12 +252,16 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Action_Complete(GameObject *ob
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When done following waypath, see animation complete
 		else if(action_id == 40)
 		{
 			this->movedOffTheBeach = true;
 
 			Commands->Send_Custom_Event(obj, obj, 0, 224, 1.0f);
 		}
+
+		// Never triggered
 		else if (action_id == 42)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 224, 1.0f);

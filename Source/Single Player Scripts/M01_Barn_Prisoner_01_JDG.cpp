@@ -24,14 +24,14 @@ M01 -> 101442
 */
 void M01_Barn_Prisoner_01_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_1D, sizeof(this->field_1D), 2);
+	Auto_Save_Variable(&this->doingBabushkaConversation, sizeof(this->doingBabushkaConversation), 1);
+	Auto_Save_Variable(&this->evacChopperCreated, sizeof(this->evacChopperCreated), 2);
 }
 
 void M01_Barn_Prisoner_01_JDG::Created(GameObject *obj)
 {
-	this->field_1C = false;
-	this->field_1D = false;
+	this->doingBabushkaConversation = false;
+	this->evacChopperCreated = false;
 
 	Commands->Innate_Disable(obj);
 
@@ -46,7 +46,7 @@ void M01_Barn_Prisoner_01_JDG::Killed(GameObject *obj, GameObject *killer)
 {
 	Commands->Create_Sound("EVA_Civilian_Killed", Vector3(0.0f, 0.0f, 0.0f), obj);
 
-	if (this->field_1C)
+	if (this->doingBabushkaConversation)
 	{
 		GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
 		Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 226, 2.0f);
@@ -59,7 +59,6 @@ void M01_Barn_Prisoner_01_JDG::Killed(GameObject *obj, GameObject *killer)
 	}
 }
 
-// TODO
 void M01_Barn_Prisoner_01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when param 114 is received
@@ -75,19 +74,19 @@ void M01_Barn_Prisoner_01_JDG::Custom(GameObject *obj, int type, int param, Game
 	// Received from M01_mission_Controller_JDG when param 226 is received
 	else if (param == 30)
 	{
-		this->field_1C = true;
+		this->doingBabushkaConversation = true;
 	}
 
 	// Received from M01_mission_Controller_JDG when conversation ended
 	else if (param == 31)
 	{
-		this->field_1C = false;
+		this->doingBabushkaConversation = false;
 	}
 
 	// Received from M01_BarnArea_Air_Evac_Chopper_JDG when created
 	else if (param == 75)
 	{
-		this->field_1D = true;
+		this->evacChopperCreated = true;
 
 		Commands->Enable_Hibernation(obj, false);
 	}
@@ -117,11 +116,11 @@ void M01_Barn_Prisoner_01_JDG::Custom(GameObject *obj, int type, int param, Game
 	}
 }
 
-// TODO
 void M01_Barn_Prisoner_01_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When done moving in babushka's shack. see action_id 48
 		if (action_id == 39)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, true);
@@ -143,11 +142,13 @@ void M01_Barn_Prisoner_01_JDG::Action_Complete(GameObject *obj, int action_id, A
 				Commands->Send_Custom_Event(obj, M01BarnBabushkasConversationZoneJDGObj, 0, 16, 0.0f);
 			}
 
-			if (!this->field_1D)
+			if (!this->evacChopperCreated)
 			{
 				Commands->Enable_Hibernation(obj, true);
 			}
 		}
+
+		// Done moving to evac location, see param 4002
 		else if (action_id == 4001)
 		{
 			Vector3 pos = Commands->Get_Position(obj);
@@ -169,6 +170,8 @@ void M01_Barn_Prisoner_01_JDG::Action_Complete(GameObject *obj, int action_id, A
 				Commands->Send_Custom_Event(obj, M01BarnAreaEvacMonitorJDGObj, 0, 10, 0.0f);
 			}
 		}
+
+		// Done doing animation, see param 27
 		else if (action_id == 47)
 		{
 			ActionParamsStruct params;
@@ -180,6 +183,8 @@ void M01_Barn_Prisoner_01_JDG::Action_Complete(GameObject *obj, int action_id, A
 			Commands->Set_Innate_Is_Stationary(obj, true);
 
 		}
+
+		// Done doing animation, see action id 47
 		else if (action_id == 48)
 		{
 			Commands->Enable_Hibernation(obj, false);

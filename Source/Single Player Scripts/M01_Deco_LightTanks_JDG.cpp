@@ -29,7 +29,6 @@ void M01_Deco_LightTanks_JDG::Created(GameObject *obj)
 	Commands->Action_Attack(obj, params);
 }
 
-// TODO
 void M01_Deco_LightTanks_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)

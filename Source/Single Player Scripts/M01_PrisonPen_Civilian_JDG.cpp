@@ -33,18 +33,18 @@ void M01_PrisonPen_Civilian_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->movementActionIndex, sizeof(this->movementActionIndex), 5);
 	Auto_Save_Variable(&this->minMovementInterval, sizeof(this->minMovementInterval), 6);
 	Auto_Save_Variable(&this->maxMovementInterval, sizeof(this->maxMovementInterval), 7);
-	Auto_Save_Variable(&this->field_B0, sizeof(this->field_B0), 8);
+	Auto_Save_Variable(&this->starCanSeeMe, sizeof(this->starCanSeeMe), 8);
 	Auto_Save_Variable(&this->heardStarShoot, sizeof(this->heardStarShoot), 9);
-	Auto_Save_Variable(&this->field_B2, sizeof(this->field_B2), 10);
-	Auto_Save_Variable(&this->field_B3, sizeof(this->field_B3), 11);
+	Auto_Save_Variable(&this->isGateSwitchPokedAndSamAlive, sizeof(this->isGateSwitchPokedAndSamAlive), 10);
+	Auto_Save_Variable(&this->isGateSwitchPokedAndSamDead, sizeof(this->isGateSwitchPokedAndSamDead), 11);
 }
 
 void M01_PrisonPen_Civilian_JDG::Created(GameObject *obj)
 {
-	this->field_B0 = false;
+	this->starCanSeeMe = false;
 	this->heardStarShoot = false;
-	this->field_B2 = false;
-	this->field_B3 = false;
+	this->isGateSwitchPokedAndSamAlive = false;
+	this->isGateSwitchPokedAndSamDead = false;
 
 	Commands->Innate_Soldier_Enable_Enemy_Seen(obj, false);
 	Commands->Innate_Soldier_Enable_Gunshot_Heard(obj, false);
@@ -95,7 +95,7 @@ void M01_PrisonPen_Civilian_JDG::Custom(GameObject *obj, int type, int param, Ga
 		Commands->Innate_Soldier_Enable_Gunshot_Heard(obj, false);
 		Commands->Innate_Soldier_Enable_Bullet_Heard(obj, false);
 
-		this->field_B0 = false;
+		this->starCanSeeMe = false;
 	}
 
 	// Received from ourselves after 1.25 to 3.5 seconds after param 63
@@ -143,18 +143,17 @@ void M01_PrisonPen_Civilian_JDG::Custom(GameObject *obj, int type, int param, Ga
 		Commands->Innate_Soldier_Enable_Gunshot_Heard(obj, true);
 		Commands->Innate_Soldier_Enable_Bullet_Heard(obj, true);
 
-		this->field_B0 = true;
+		this->starCanSeeMe = true;
 	}
 }
 
-// TODO
 void M01_PrisonPen_Civilian_JDG::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
 	if (sound.sound == 400004)
 	{
-		if (!this->field_B2)
+		if (!this->isGateSwitchPokedAndSamAlive)
 		{
-			this->field_B2 = true;
+			this->isGateSwitchPokedAndSamAlive = true;
 
 			Commands->Action_Reset(obj, 100.0f);
 
@@ -189,7 +188,7 @@ void M01_PrisonPen_Civilian_JDG::Sound_Heard(GameObject *obj, const CombatSound 
 	}
 	else if (sound.sound == 400005)
 	{
-		this->field_B3 = true;
+		this->isGateSwitchPokedAndSamDead = true;
 
 		Commands->Set_Innate_Is_Stationary(obj, false);
 
@@ -223,7 +222,7 @@ void M01_PrisonPen_Civilian_JDG::Sound_Heard(GameObject *obj, const CombatSound 
 	else if (sound.sound == SOUND_TYPE_GUNSHOT || sound.sound == SOUND_TYPE_BULLET_HIT)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
-		if (sound.Creator == Commands->Get_A_Star(pos) && this->field_B0 && !this->heardStarShoot)
+		if (sound.Creator == Commands->Get_A_Star(pos) && this->starCanSeeMe && !this->heardStarShoot)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 63, 0.0f);
 
@@ -232,7 +231,6 @@ void M01_PrisonPen_Civilian_JDG::Sound_Heard(GameObject *obj, const CombatSound 
 	}
 }
 
-// TODO
 void M01_PrisonPen_Civilian_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	static const char *animations[4] =
@@ -243,6 +241,7 @@ void M01_PrisonPen_Civilian_JDG::Action_Complete(GameObject *obj, int action_id,
 		"H_A_J26C"
 	};
 
+	// When done with movement, see timer expired
 	if (action_id == 38)
 	{
 		if (complete_reason == ACTION_COMPLETE_NORMAL)
@@ -251,6 +250,8 @@ void M01_PrisonPen_Civilian_JDG::Action_Complete(GameObject *obj, int action_id,
 			Commands->Start_Timer(obj, this, randDuration, 0);
 		}
 	}
+
+	// Never triggered
 	else if (action_id == 39)
 	{
 		int randAnimationIndex = Commands->Get_Random_Int(0, 4);
@@ -261,6 +262,8 @@ void M01_PrisonPen_Civilian_JDG::Action_Complete(GameObject *obj, int action_id,
 
 		Commands->Action_Play_Animation(obj, params);
 	}
+
+	// Never triggered
 	else if (action_id == 40)
 	{
 		int randAnimationIndex = Commands->Get_Random_Int(0, 4);
@@ -271,10 +274,14 @@ void M01_PrisonPen_Civilian_JDG::Action_Complete(GameObject *obj, int action_id,
 
 		Commands->Action_Play_Animation(obj, params);
 	}
+
+	// When animation is complete, see action id 40
 	else if (action_id == 48)
 	{
 		Commands->Set_Innate_Is_Stationary(obj, true);
 	}
+
+	// Never triggered
 	else if (action_id == 41)
 	{
 		int randAnimationIndex = Commands->Get_Random_Int(0, 4);
@@ -297,6 +304,8 @@ void M01_PrisonPen_Civilian_JDG::Action_Complete(GameObject *obj, int action_id,
 			Commands->Start_Conversation(conversationId, conversationId);
 		}
 	}
+
+	// When animation is complete, see action id 41
 	else if (action_id == 49)
 	{
 		GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
@@ -308,6 +317,8 @@ void M01_PrisonPen_Civilian_JDG::Action_Complete(GameObject *obj, int action_id,
 
 		Commands->Action_Goto(obj, params);
 	}
+
+	// When movement is complete see action id 49
 	else if (action_id == 42)
 	{
 		Commands->Set_Innate_Is_Stationary(obj, true);
@@ -320,7 +331,6 @@ void M01_PrisonPen_Civilian_JDG::Action_Complete(GameObject *obj, int action_id,
 	}
 }
 
-// TODO
 void M01_PrisonPen_Civilian_JDG::Timer_Expired(GameObject *obj, int number)
 {
 	int x;
@@ -381,7 +391,7 @@ void M01_PrisonPen_Civilian_JDG::Timer_Expired(GameObject *obj, int number)
 
 void M01_PrisonPen_Civilian_JDG::Poked(GameObject *obj, GameObject *poker)
 {
-	if (this->field_B2 && !this->field_B3)
+	if (this->isGateSwitchPokedAndSamAlive && !this->isGateSwitchPokedAndSamDead)
 	{
 		GameObject *detentionCiv1Obj = Commands->Find_Object(101929);
 		GameObject *detentionCiv2Obj = Commands->Find_Object(101930);

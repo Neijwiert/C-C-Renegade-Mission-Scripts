@@ -25,7 +25,7 @@ M01 -> 102346
 void M01_Tailgun_Run_Spawner_Controller_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->soldierCount, sizeof(this->soldierCount), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->starFirstTimeEnteredTailgunAlley, sizeof(this->starFirstTimeEnteredTailgunAlley), 2);
 }
 
 void M01_Tailgun_Run_Spawner_Controller_JDG::Created(GameObject *obj)
@@ -33,10 +33,9 @@ void M01_Tailgun_Run_Spawner_Controller_JDG::Created(GameObject *obj)
 	Commands->Enable_Hibernation(obj, false);
 
 	this->soldierCount = 0;
-	this->field_20 = true;
+	this->starFirstTimeEnteredTailgunAlley = true;
 }
 
-// TODO
 void M01_Tailgun_Run_Spawner_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_TailgunRun_Spawner_Guy_JDG when killed
@@ -78,9 +77,9 @@ void M01_Tailgun_Run_Spawner_Controller_JDG::Custom(GameObject *obj, int type, i
 		int difficultyLevel = Commands->Get_Difficulty_Level();
 		if (!difficultyLevel)
 		{
-			if (this->field_20)
+			if (this->starFirstTimeEnteredTailgunAlley)
 			{
-				this->field_20 = false;
+				this->starFirstTimeEnteredTailgunAlley = false;
 
 				Commands->Trigger_Spawner(102343);
 
@@ -96,9 +95,9 @@ void M01_Tailgun_Run_Spawner_Controller_JDG::Custom(GameObject *obj, int type, i
 		}
 		else if (difficultyLevel == 1)
 		{
-			if (this->field_20)
+			if (this->starFirstTimeEnteredTailgunAlley)
 			{
-				this->field_20 = false;
+				this->starFirstTimeEnteredTailgunAlley = false;
 
 				Commands->Trigger_Spawner(102343);
 				Commands->Trigger_Spawner(102344);
@@ -123,9 +122,9 @@ void M01_Tailgun_Run_Spawner_Controller_JDG::Custom(GameObject *obj, int type, i
 		}
 		else if (difficultyLevel == 2)
 		{
-			if (this->field_20)
+			if (this->starFirstTimeEnteredTailgunAlley)
 			{
-				this->field_20 = false;
+				this->starFirstTimeEnteredTailgunAlley = false;
 
 				Commands->Trigger_Spawner(102343);
 				Commands->Trigger_Spawner(102344);

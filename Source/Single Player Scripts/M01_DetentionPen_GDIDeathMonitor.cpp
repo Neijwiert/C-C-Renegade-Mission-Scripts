@@ -54,9 +54,9 @@ void M01_DetentionPen_GDIDeathMonitor::Damaged(GameObject *obj, GameObject *dama
 	}
 }
 
-// TODO
 void M01_DetentionPen_GDIDeathMonitor::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_DetentionGDI_Air_Evac_Chopper_JDG when animation complete
 	if (param == 4002)
 	{
 		GameObject *nonExistingObj = Commands->Find_Object(103380);

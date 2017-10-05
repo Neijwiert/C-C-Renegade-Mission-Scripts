@@ -25,7 +25,7 @@ M01 -> 101434 101435
 void M01_TurretBeach_Turret_01_Script_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->engineerObjId, sizeof(this->engineerObjId), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->fodderHovercraftObjId, sizeof(this->fodderHovercraftObjId), 2);
 }
 
 void M01_TurretBeach_Turret_01_Script_JDG::Created(GameObject *obj)
@@ -73,22 +73,21 @@ void M01_TurretBeach_Turret_01_Script_JDG::Damaged(GameObject *obj, GameObject *
 	}
 }
 
-// TODO
 void M01_TurretBeach_Turret_01_Script_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_TurretBeach_FodderHovercraft_Controller_JDG after custom  type <= 0 and param <= 0 is received with param = hovercraft id
 	if (type == 218)
 	{
-		this->field_20 = param;
+		this->fodderHovercraftObjId = param;
 
-		GameObject *paramObj = Commands->Find_Object(param);
-		if (paramObj)
+		GameObject *fodderHovercraftObj = Commands->Find_Object(param);
+		if (fodderHovercraftObj)
 		{
 			Commands->Action_Reset(obj, 100.0f);
 
 			ActionParamsStruct params;
 			params.Set_Basic(this, 100.0f, 17);
-			params.Set_Attack(paramObj, 3000.0f, 0.0f, true);
+			params.Set_Attack(fodderHovercraftObj, 3000.0f, 0.0f, true);
 			params.AttackCheckBlocked = false;
 
 			Commands->Action_Attack(obj, params);
@@ -129,9 +128,9 @@ void M01_TurretBeach_Turret_01_Script_JDG::Custom(GameObject *obj, int type, int
 	}
 }
 
-// TODO
 void M01_TurretBeach_Turret_01_Script_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// When done attacking the hovercraft, see param 218
 	if (action_id == 17)
 	{
 		GameObject *gdiGunBoatObj = Commands->Find_Object(101477);

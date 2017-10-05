@@ -32,7 +32,6 @@ void M01_GDI_Base_Spawner_Controller_JDG::Created(GameObject *obj)
 	this->soldierCount = 0;
 }
 
-// TODO
 void M01_GDI_Base_Spawner_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_GDI_Base_Spawner_Guy_JDG when killed

@@ -22,13 +22,13 @@
 void M01_GuardTower02_Sniper_Target02_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->guardTower2SniperTarget1ObjId, sizeof(this->guardTower2SniperTarget1ObjId), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->canSendCustomToSniperTarget1, sizeof(this->canSendCustomToSniperTarget1), 2);
 }
 
 // When M01_GuardTower02_Sniper_Target01_JDG is created
 void M01_GuardTower02_Sniper_Target02_JDG::Created(GameObject *obj)
 {
-	this->field_20 = true;
+	this->canSendCustomToSniperTarget1 = true;
 
 	Commands->Enable_Hibernation(obj, false);
 
@@ -47,7 +47,7 @@ void M01_GuardTower02_Sniper_Target02_JDG::Killed(GameObject *obj, GameObject *k
 		Commands->Send_Custom_Event(obj, M01GuardTower02SniperTowerZoneJDGObj, 0, 22, 0.0f);
 	}
 
-	if (this->field_20)
+	if (this->canSendCustomToSniperTarget1)
 	{
 		GameObject *guardTower2SniperTarget1Obj = Commands->Find_Object(this->guardTower2SniperTarget1ObjId);
 		if (guardTower2SniperTarget1Obj)
@@ -57,7 +57,6 @@ void M01_GuardTower02_Sniper_Target02_JDG::Killed(GameObject *obj, GameObject *k
 	}
 }
 
-// TODO
 void M01_GuardTower02_Sniper_Target02_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -65,7 +64,7 @@ void M01_GuardTower02_Sniper_Target02_JDG::Custom(GameObject *obj, int type, int
 		// Received from M01_GuardTower02_Sniper_Target01_JDG when conversation ended
 		if (param == 16)
 		{
-			this->field_20 = false;
+			this->canSendCustomToSniperTarget1 = false;
 
 			Commands->Set_Innate_Is_Stationary(obj, false);
 
@@ -96,15 +95,17 @@ void M01_GuardTower02_Sniper_Target02_JDG::Custom(GameObject *obj, int type, int
 	}
 }
 
-// TODO
 void M01_GuardTower02_Sniper_Target02_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When movement complete, see create or param 16
 		if (action_id == 38)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, true);
 		}
+
+		// When animation complete, see param 22
 		else if (action_id == 46)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, false);

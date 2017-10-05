@@ -32,5 +32,5 @@ class M01_GuardTower02_Sniper_Target02_JDG : public ScriptImpClass
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 
 		int guardTower2SniperTarget1ObjId;
-		bool field_20;
+		bool canSendCustomToSniperTarget1;
 };

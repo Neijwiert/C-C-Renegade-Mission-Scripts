@@ -24,13 +24,13 @@ M01 -> 125661
 */
 void M01_CantBring_MediumTank_ThroughHereZone_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->starInMediumTank, sizeof(this->starInMediumTank), 1);
+	Auto_Save_Variable(&this->beachMediumTankObjId, sizeof(this->beachMediumTankObjId), 2);
 }
 
 void M01_CantBring_MediumTank_ThroughHereZone_JDG::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->starInMediumTank = false;
 }
 
 // TODO
@@ -41,26 +41,26 @@ void M01_CantBring_MediumTank_ThroughHereZone_JDG::Custom(GameObject *obj, int t
 		// Received from M01_Medium_Tank_JDG when entered
 		if (param == 27)
 		{
-			this->field_1C = true;
+			this->starInMediumTank = true;
 		}
 
 		// Received from M01_Medium_Tank_JDG when exited
 		else if (param == 28)
 		{
-			this->field_1C = false;
+			this->starInMediumTank = false;
 		}
 
 		// Received from M01_Medium_Tank_JDG when created
 		else if (param == 29)
 		{
-			this->field_20 = Commands->Get_ID(sender);
+			this->beachMediumTankObjId = Commands->Get_ID(sender);
 		}
 	}
 }
 
 void M01_CantBring_MediumTank_ThroughHereZone_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
-	if (enterer == Commands->Find_Object(this->field_20) && this->field_1C)
+	if (enterer == Commands->Find_Object(this->beachMediumTankObjId) && this->starInMediumTank)
 	{
 		int conversationId = Commands->Create_Conversation("M01_Must_Leave_Tank_Conversation", 100, 100.0f, true); // You can't drive over those barricades. It looks like you'll need to proceed on foot from here, Havoc.
 		Commands->Join_Conversation(NULL, conversationId, true, true, true);

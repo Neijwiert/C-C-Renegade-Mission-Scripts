@@ -27,7 +27,6 @@ void M01_Church_Balcony_MiniGunner_JDG::Created(GameObject *obj)
 	Commands->Innate_Disable(obj);
 }
 
-// TODO
 void M01_Church_Balcony_MiniGunner_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when param 148 is received
@@ -49,7 +48,6 @@ void M01_Church_Balcony_MiniGunner_JDG::Custom(GameObject *obj, int type, int pa
 	}
 }
 
-// TODO
 void M01_Church_Balcony_MiniGunner_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	static const char *animations[14] =
@@ -72,6 +70,7 @@ void M01_Church_Balcony_MiniGunner_JDG::Action_Complete(GameObject *obj, int act
 
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When done following waypath, see param 16 or action id 49
 		if (action_id == 38)
 		{
 			int randAnimationIndex = Commands->Get_Random_Int(0, 14);
@@ -82,6 +81,8 @@ void M01_Church_Balcony_MiniGunner_JDG::Action_Complete(GameObject *obj, int act
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When done with animation, see action id 38
 		else if (action_id == 46)
 		{
 			ActionParamsStruct params;
@@ -93,6 +94,8 @@ void M01_Church_Balcony_MiniGunner_JDG::Action_Complete(GameObject *obj, int act
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// When done following waypath, see action id 46
 		else if (action_id == 39)
 		{
 			int randAnimationIndex = Commands->Get_Random_Int(0, 14);
@@ -103,6 +106,8 @@ void M01_Church_Balcony_MiniGunner_JDG::Action_Complete(GameObject *obj, int act
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When done doing animation, see action id 39
 		else if (action_id == 47 )
 		{
 			ActionParamsStruct params;
@@ -114,6 +119,8 @@ void M01_Church_Balcony_MiniGunner_JDG::Action_Complete(GameObject *obj, int act
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// When done following waypath, see action id 47
 		else if (action_id == 40)
 		{
 			int randAnimationIndex = Commands->Get_Random_Int(0, 14);
@@ -124,6 +131,8 @@ void M01_Church_Balcony_MiniGunner_JDG::Action_Complete(GameObject *obj, int act
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When done doing animation, see action id 40
 		else if (action_id == 48)
 		{
 			ActionParamsStruct params;
@@ -135,6 +144,8 @@ void M01_Church_Balcony_MiniGunner_JDG::Action_Complete(GameObject *obj, int act
 			
 			Commands->Action_Goto(obj, params);
 		}
+
+		// When done following waypath, see action id 48
 		else if (action_id == 41)
 		{
 			int randAnimationIndex = Commands->Get_Random_Int(0, 14);
@@ -145,6 +156,8 @@ void M01_Church_Balcony_MiniGunner_JDG::Action_Complete(GameObject *obj, int act
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When done doing animation, see action id 41
 		else if (action_id == 49)
 		{
 			ActionParamsStruct params;

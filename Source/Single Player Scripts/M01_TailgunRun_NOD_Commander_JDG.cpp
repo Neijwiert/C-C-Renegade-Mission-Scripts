@@ -78,7 +78,6 @@ void M01_TailgunRun_NOD_Commander_JDG::Damaged(GameObject *obj, GameObject *dama
 	}
 }
 
-// TODO
 void M01_TailgunRun_NOD_Commander_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -147,7 +146,6 @@ void M01_TailgunRun_NOD_Commander_JDG::Custom(GameObject *obj, int type, int par
 	}
 }
 
-// TODO
 void M01_TailgunRun_NOD_Commander_JDG::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
 	Vector3 pos = Commands->Get_Position(obj);

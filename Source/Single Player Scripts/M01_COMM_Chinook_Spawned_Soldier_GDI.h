@@ -35,5 +35,5 @@ class M01_COMM_Chinook_Spawned_Soldier_GDI : public ScriptImpClass
 		virtual void Animation_Complete(GameObject *obj, const char *animation_name);
 		virtual void Poked(GameObject *obj, GameObject *poker);
 
-		DWORD field_1C;
+		int commAreaSecure;
 };

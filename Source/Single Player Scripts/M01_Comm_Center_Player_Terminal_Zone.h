@@ -34,5 +34,5 @@ class M01_Comm_Center_Player_Terminal_Zone : public ScriptImpClass
 		virtual void Poked(GameObject *obj, GameObject *poker);
 
 		bool hacked;
-		bool field_1D;
+		bool commKilled;
 };

@@ -40,7 +40,6 @@ void M01_HON_Cafeteria_Walking_Guy_JDG::Damaged(GameObject *obj, GameObject *dam
 	}
 }
 
-// TODO
 void M01_HON_Cafeteria_Walking_Guy_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (obj)
@@ -98,11 +97,11 @@ void M01_HON_Cafeteria_Walking_Guy_JDG::Custom(GameObject *obj, int type, int pa
 	}
 }
 
-// TODO
 void M01_HON_Cafeteria_Walking_Guy_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When done following waypath, see param 16
 		if (action_id == 38)
 		{
 			ActionParamsStruct params;
@@ -111,6 +110,8 @@ void M01_HON_Cafeteria_Walking_Guy_JDG::Action_Complete(GameObject *obj, int act
 
 			Commands->Action_Face_Location(obj, params);
 		}
+
+		// When done facing location, see action id 38
 		else if (action_id == 63)
 		{
 			ActionParamsStruct params;
@@ -119,6 +120,8 @@ void M01_HON_Cafeteria_Walking_Guy_JDG::Action_Complete(GameObject *obj, int act
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When done doing animation, see action id 63
 		else if (action_id == 46)
 		{
 			ActionParamsStruct params;
@@ -130,6 +133,8 @@ void M01_HON_Cafeteria_Walking_Guy_JDG::Action_Complete(GameObject *obj, int act
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// When done following waypath, see action id 46
 		else if (action_id == 39)
 		{
 			ActionParamsStruct params;
@@ -138,10 +143,14 @@ void M01_HON_Cafeteria_Walking_Guy_JDG::Action_Complete(GameObject *obj, int act
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When done moving to random location, see param 165
 		else if (action_id == 4001)
 		{
 			Commands->Enable_Hibernation(obj, true);
 		}
+
+		// When done doing animation, see action id 39
 		else if(action_id == 47)
 		{
 			Commands->Set_Position(obj, Vector3(-176.299f, 532.229f, -4.6f));

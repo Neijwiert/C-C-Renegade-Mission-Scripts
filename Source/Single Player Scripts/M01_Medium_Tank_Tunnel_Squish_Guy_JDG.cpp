@@ -26,9 +26,9 @@ void M01_Medium_Tank_Tunnel_Squish_Guy_JDG::Created(GameObject *obj)
 	Commands->Set_Innate_Soldier_Home_Location(obj, pos, 10.0f);
 }
 
-// TODO
 void M01_Medium_Tank_Tunnel_Squish_Guy_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Never received
 	if (param == 228)
 	{
 		Commands->Set_Innate_Is_Stationary(obj, false);

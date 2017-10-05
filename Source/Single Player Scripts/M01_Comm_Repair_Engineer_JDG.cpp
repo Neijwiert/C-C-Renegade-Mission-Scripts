@@ -35,7 +35,6 @@ void M01_Comm_Repair_Engineer_JDG::Created(GameObject *obj)
 	this->repairingComm = false;
 }
 
-// TODO
 void M01_Comm_Repair_Engineer_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (type == CUSTOM_EVENT_SOUND_ENDED)
@@ -66,9 +65,9 @@ void M01_Comm_Repair_Engineer_JDG::Custom(GameObject *obj, int type, int param, 
 	}
 }
 
-// TODO
 void M01_Comm_Repair_Engineer_JDG::Timer_Expired(GameObject *obj, int number)
 {
+	// After 2 seconds when param 189 is received
 	if (number == 16)
 	{
 		Commands->Enable_Hibernation(obj, true);

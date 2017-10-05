@@ -35,5 +35,5 @@ class M01_CHURCH_Chinook_Spawned_Soldier02_GDI : public ScriptImpClass
 		virtual void Animation_Complete(GameObject *obj, const char *animation_name);
 		virtual void Poked(GameObject *obj, GameObject *poker);
 
-		int field_1C; // Yes, this is an int
+		int churchAreaSecure; // Yes, this is an int
 };

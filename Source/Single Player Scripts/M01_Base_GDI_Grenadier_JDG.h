@@ -38,8 +38,8 @@ class M01_Base_GDI_Grenadier_JDG : public ScriptImpClass
 
 		float health;
 		bool preventDeath;
-		bool field_21;
+		bool duncanGaveIonCannonBeacon;
 		bool canSeeEnemies;
-		bool field_23;
+		bool starInGDIBase;
 		bool attackedByNodMinigunners;
 };

@@ -28,17 +28,16 @@ void M01_Church_EvacController_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->chopperObjId, sizeof(this->chopperObjId), 2);
 	Auto_Save_Variable(&this->ropeObjId, sizeof(this->ropeObjId), 3);
 	Auto_Save_Variable(&this->protectClergyConversationId, sizeof(this->protectClergyConversationId), 4);
-	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 5);
-	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 6);
+	Auto_Save_Variable(&this->prisonerKilled, sizeof(this->prisonerKilled), 5);
+	Auto_Save_Variable(&this->didChurchAreaEvacAnimCinematic, sizeof(this->didChurchAreaEvacAnimCinematic), 6);
 }
 
 void M01_Church_EvacController_JDG::Created(GameObject *obj)
 {
-	this->field_2C = 0;
-	this->field_30 = false;
+	this->prisonerKilled = 0;
+	this->didChurchAreaEvacAnimCinematic = false;
 }
 
-// TODO
 void M01_Church_EvacController_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG after 3 seconds when param 174 or 173 is received
@@ -78,7 +77,7 @@ void M01_Church_EvacController_JDG::Custom(GameObject *obj, int type, int param,
 	// Received from M01_Church_Interior_Nun_JDG or M01_Church_LoveShack_Nun_JDG or M01_Church_Priest_JDG when killed
 	else if (param == 229)
 	{
-		if (++this->field_2C == 3)
+		if (++this->prisonerKilled == 3)
 		{
 			GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
 			Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 95, 0.0f);
@@ -132,14 +131,13 @@ void M01_Church_EvacController_JDG::Custom(GameObject *obj, int type, int param,
 	}
 }
 
-// TODO
 void M01_Church_EvacController_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED && action_id == this->protectClergyConversationId)
 	{
-		if (!this->field_30)
+		if (!this->didChurchAreaEvacAnimCinematic)
 		{
-			this->field_30 = true;
+			this->didChurchAreaEvacAnimCinematic = true;
 
 			Vector3 pos = Commands->Get_Position(obj);
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", pos);

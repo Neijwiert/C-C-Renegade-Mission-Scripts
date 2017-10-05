@@ -33,5 +33,5 @@ class M01_GuardTower02_Sniper_Target01_JDG : public ScriptImpClass
 
 		int sniperTargetNodMinigunnerObjId;
 		int conversationId;
-		bool field_24;
+		bool canSendCustomToSniperTarget2;
 };

@@ -26,21 +26,20 @@ void M01_HON_WarroomController_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->honChinookSpawnedSoldier1GDIObjId, sizeof(this->honChinookSpawnedSoldier1GDIObjId), 1);
 	Auto_Save_Variable(&this->honChinookSpawnedSoldier2GDIObjId, sizeof(this->honChinookSpawnedSoldier2GDIObjId), 2);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
+	Auto_Save_Variable(&this->starInWarRoom, sizeof(this->starInWarRoom), 3);
 	Auto_Save_Variable(&this->field_25, sizeof(this->field_25), 4);
-	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 5);
+	Auto_Save_Variable(&this->chinookSpawnedGDISoldierDeathCount, sizeof(this->chinookSpawnedGDISoldierDeathCount), 5);
 }
 
 void M01_HON_WarroomController_JDG::Created(GameObject *obj)
 {
 	this->honChinookSpawnedSoldier1GDIObjId = 0;
 	this->honChinookSpawnedSoldier2GDIObjId = 0;
-	this->field_24 = false;
+	this->starInWarRoom = false;
 	this->field_25 = false;
-	this->field_28 = 0;
+	this->chinookSpawnedGDISoldierDeathCount = 0;
 }
 
-// TODO
 void M01_HON_WarroomController_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -62,21 +61,21 @@ void M01_HON_WarroomController_JDG::Custom(GameObject *obj, int type, int param,
 			// Received from M01_Havoc_In_WarroomZone_JDG when entered
 			else if (param == 139)
 			{
-				this->field_24 = true;
+				this->starInWarRoom = true;
 			}
 
 			// Received from M01_Havoc_Out_WarroomZone_JDG when entered
 			else if (param == 140)
 			{
-				this->field_24 = false;
+				this->starInWarRoom = false;
 			}
 
 			// Received from M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG or M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG when killed
 			else if (param == 22)
 			{
-				if (++this->field_28 == 2)
+				if (++this->chinookSpawnedGDISoldierDeathCount == 2)
 				{
-					this->field_28 = 0;
+					this->chinookSpawnedGDISoldierDeathCount = 0;
 
 					GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-147.1f, 558.8f, 4.4f));
 					Commands->Set_Facing(invisObj, -130.0f);
@@ -93,7 +92,7 @@ void M01_HON_WarroomController_JDG::Entered(GameObject *obj, GameObject *enterer
 	GameObject *honChinookSpawnedSoldier2GDIObj = Commands->Find_Object(this->honChinookSpawnedSoldier2GDIObjId);
 	if (enterer == honChinookSpawnedSoldier1GDIObj)
 	{
-		if (!this->field_24)
+		if (!this->starInWarRoom)
 		{
 			Commands->Apply_Damage(honChinookSpawnedSoldier1GDIObj, 10000.0f, "STEEL", NULL);
 		}
@@ -107,7 +106,7 @@ void M01_HON_WarroomController_JDG::Entered(GameObject *obj, GameObject *enterer
 	}
 	else if (enterer == honChinookSpawnedSoldier2GDIObj)
 	{
-		if (!this->field_24)
+		if (!this->starInWarRoom)
 		{
 			Commands->Apply_Damage(honChinookSpawnedSoldier2GDIObj, 10000.0f, "STEEL", NULL);
 		}

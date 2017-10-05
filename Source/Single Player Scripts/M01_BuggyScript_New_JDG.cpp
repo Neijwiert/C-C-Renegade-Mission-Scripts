@@ -21,8 +21,8 @@
 
 void M01_BuggyScript_New_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->honChinookSpawnedSoldier3GDIObjId, sizeof(this->honChinookSpawnedSoldier3GDIObjId), 1);
+	Auto_Save_Variable(&this->honChinookSpawnedSoldier4GDIObjId, sizeof(this->honChinookSpawnedSoldier4GDIObjId), 2);
 }
 
 // When M01_BuggyNew_Controller_JDG receives custom type any with param 16
@@ -56,13 +56,12 @@ void M01_BuggyScript_New_JDG::Killed(GameObject *obj, GameObject *killer)
 	Commands->Attach_Script(invisObj, "Test_Cinematic", "X1D_GDIPowerUpDrop.txt");
 }
 
-// TODO
 void M01_BuggyScript_New_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_BuggyNew_Controller_JDG when param 27 is received with param = honChinookSpawnedSoldier3GDIObjId
 	if (type == 28)
 	{
-		this->field_1C = param;
+		this->honChinookSpawnedSoldier3GDIObjId = param;
 
 		Commands->Send_Custom_Event(obj, obj, 0, 30, 0.0f);
 	}
@@ -70,7 +69,7 @@ void M01_BuggyScript_New_JDG::Custom(GameObject *obj, int type, int param, GameO
 	// Received from M01_BuggyNew_Controller_JDG when param 28 is received with param = honChinookSpawnedSoldier4GDIObjId
 	else if (type == 29)
 	{
-		this->field_20 = param;
+		this->honChinookSpawnedSoldier4GDIObjId = param;
 		
 		Commands->Send_Custom_Event(obj, obj, 0, 30, 0.0f);
 	}
@@ -95,25 +94,25 @@ void M01_BuggyScript_New_JDG::Custom(GameObject *obj, int type, int param, GameO
 	// Received from ourselves after 1 second when action with id 38 is complete 
 	else if (param == 30)
 	{
-		GameObject *field1CObj = Commands->Find_Object(this->field_1C);
-		GameObject *field20Obj = Commands->Find_Object(this->field_20);
-		if (field1CObj)
+		GameObject *honChinookSpawnedSoldier3GDIObj = Commands->Find_Object(this->honChinookSpawnedSoldier3GDIObjId);
+		GameObject *honChinookSpawnedSoldier4GDIObj = Commands->Find_Object(this->honChinookSpawnedSoldier4GDIObjId);
+		if (honChinookSpawnedSoldier3GDIObj)
 		{
 			ActionParamsStruct params;
 			params.Set_Basic(this, 100.0f, 38);
 			params.Set_Movement(Vector3(0.0f, 0.0f, 0.0f), 0.5f, 5.0f);
 			params.WaypathID = 103289;
-			params.Set_Attack(field1CObj, 50.0f, 2.0f, true);
+			params.Set_Attack(honChinookSpawnedSoldier3GDIObj, 50.0f, 2.0f, true);
 
 			Commands->Modify_Action(obj, 38, params, false, true);
 		}
-		else if (field20Obj)
+		else if (honChinookSpawnedSoldier4GDIObj)
 		{
 			ActionParamsStruct params;
 			params.Set_Basic(this, 100.0f, 38);
 			params.Set_Movement(Vector3(0.0f, 0.0f, 0.0f), 0.5f, 5.0f);
 			params.WaypathID = 103289;
-			params.Set_Attack(field20Obj, 50.0f, 2.0f, true);
+			params.Set_Attack(honChinookSpawnedSoldier4GDIObj, 50.0f, 2.0f, true);
 
 			Commands->Modify_Action(obj, 38, params, false, true);
 		}
@@ -134,9 +133,9 @@ void M01_BuggyScript_New_JDG::Custom(GameObject *obj, int type, int param, GameO
 	}
 }
 
-// TODO
 void M01_BuggyScript_New_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// When GDI chinook spawned soldier is killed, see param 30
 	if (action_id == 38)
 	{
 		ActionParamsStruct params;

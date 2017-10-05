@@ -94,7 +94,6 @@ void M01_GDIBase_BaseCommander_JDG::Damaged(GameObject *obj, GameObject *damager
 	}
 }
 
-// TODO
 void M01_GDIBase_BaseCommander_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -106,6 +105,8 @@ void M01_GDIBase_BaseCommander_JDG::Custom(GameObject *obj, int type, int param,
 
 			Commands->Send_Custom_Event(obj, obj, 0, 4, 1.0f);
 		}
+
+		// Never received
 		else if (param == 1)
 		{
 			this->field_28 = true;
@@ -191,7 +192,6 @@ void M01_GDIBase_BaseCommander_JDG::Custom(GameObject *obj, int type, int param,
 	}
 }
 
-// TODO
 void M01_GDIBase_BaseCommander_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED)
@@ -215,8 +215,9 @@ void M01_GDIBase_BaseCommander_JDG::Action_Complete(GameObject *obj, int action_
 			}
 		}
 	}
-	else if (complete_reason == ACTION_COMPLETE_NORMAL && action_id != 39)
+	else if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When animation is complete, see conversation ended conversation1Id
 		if (action_id == 46)
 		{
 			Commands->Create_Object("POW_IonCannonBeacon_Player", Vector3(114.848f, 95.401f, 8.923f));
@@ -237,6 +238,8 @@ void M01_GDIBase_BaseCommander_JDG::Action_Complete(GameObject *obj, int action_
 			Commands->Start_Conversation(this->conversation2Id, this->conversation2Id);
 			Commands->Monitor_Conversation(obj, this->conversation2Id);
 		}
+
+		// When movement is complete, see param 9
 		else if (action_id == 9)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, true);
@@ -247,6 +250,8 @@ void M01_GDIBase_BaseCommander_JDG::Action_Complete(GameObject *obj, int action_
 				Commands->Send_Custom_Event(obj, M01GDIBaseCommanderEvacControllerJDGObj, 0, 27, 0.0f);
 			}
 		}
+
+		// When done moving to evac location, see param 4001
 		else if (action_id == 4001)
 		{
 			Vector3 dropPosition = Commands->Get_Position(obj);

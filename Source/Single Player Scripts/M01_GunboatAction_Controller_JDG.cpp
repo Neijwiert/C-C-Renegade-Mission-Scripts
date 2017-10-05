@@ -24,17 +24,16 @@ M01 -> 113325
 */
 void M01_GunboatAction_Controller_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->starInBarnArea, sizeof(this->starInBarnArea), 1);
 	Auto_Save_Variable(&this->engineerObjId, sizeof(this->engineerObjId), 2);
 }
 
 void M01_GunboatAction_Controller_JDG::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->starInBarnArea = false;
 	this->engineerObjId = 101654;
 }
 
-// TODO
 void M01_GunboatAction_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -42,9 +41,9 @@ void M01_GunboatAction_Controller_JDG::Custom(GameObject *obj, int type, int par
 		// Received from M01_PlayerEntering_BarnArea_Zone_JDG when entered
 		if (param == 16)
 		{
-			if (!this->field_1C)
+			if (!this->starInBarnArea)
 			{
-				this->field_1C = true;
+				this->starInBarnArea = true;
 
 				GameObject *gdiGunBoatObj = Commands->Find_Object(101477);
 				GameObject *engineerObj = Commands->Find_Object(this->engineerObjId);
@@ -64,9 +63,9 @@ void M01_GunboatAction_Controller_JDG::Custom(GameObject *obj, int type, int par
 		// Received from M01_PlayerLeaving_BarnArea_Zone_JDG when entered
 		else if (param == 24)
 		{
-			if (this->field_1C)
+			if (this->starInBarnArea)
 			{
-				this->field_1C = false;
+				this->starInBarnArea = false;
 
 				GameObject *gdiGunBoatObj = Commands->Find_Object(101477);
 				GameObject *engineerObj = Commands->Find_Object(this->engineerObjId);

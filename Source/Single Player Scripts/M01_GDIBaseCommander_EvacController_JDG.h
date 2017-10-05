@@ -32,7 +32,7 @@ class M01_GDIBaseCommander_EvacController_JDG : public ScriptImpClass
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		bool field_1C;
+		bool didDoGDIBaseCommanderEvacAnim;
 		int waypathId;
 		int chopperObjId;
 		int ropeObjId;

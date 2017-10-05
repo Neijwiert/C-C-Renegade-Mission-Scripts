@@ -27,7 +27,6 @@ void M01_Visceroid_NodGuy01_JDG::Created(GameObject *obj)
 	Commands->Innate_Disable(obj);
 }
 
-// TODO
 void M01_Visceroid_NodGuy01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_TibCave_StartZone_JDG when entered

@@ -24,17 +24,16 @@ M01 -> 125857
 */
 void M01_Duncan_InHere_ConvController_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->assailantDeathCount, sizeof(this->assailantDeathCount), 1);
+	Auto_Save_Variable(&this->starInDuncanShack, sizeof(this->starInDuncanShack), 2);
 }
 
 void M01_Duncan_InHere_ConvController_JDG::Created(GameObject *obj)
 {
-	this->field_1C = 0;
-	this->field_20 = false;
+	this->assailantDeathCount = 0;
+	this->starInDuncanShack = false;
 }
 
-// TODO
 void M01_Duncan_InHere_ConvController_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -42,7 +41,7 @@ void M01_Duncan_InHere_ConvController_JDG::Custom(GameObject *obj, int type, int
 		// Received from M01_Duncan_Assailer_JDG when killed
 		if (param == 22)
 		{
-			if (++this->field_1C > 3)
+			if (++this->assailantDeathCount > 3)
 			{
 				Commands->Send_Custom_Event(obj, obj, 0, 16, 2.0f);
 			}
@@ -51,13 +50,13 @@ void M01_Duncan_InHere_ConvController_JDG::Custom(GameObject *obj, int type, int
 		// Received from M01_Commander_Shack_Zone_JDG when entered 
 		else if (param == 27)
 		{
-			this->field_20 = true;
+			this->starInDuncanShack = true;
 		}
 
 		// Received from ourselves after 2 seconds when param 22 is received or after 10 seconds after this block
 		else if(param == 16)
 		{
-			if (!this->field_20)
+			if (!this->starInDuncanShack)
 			{
 				GameObject *captainDuncanObj = Commands->Find_Object(106050);
 				if (captainDuncanObj)

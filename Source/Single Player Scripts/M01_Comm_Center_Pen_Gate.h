@@ -33,5 +33,5 @@ class M01_Comm_Center_Pen_Gate : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Poked(GameObject *obj, GameObject *poker);
 
-		bool field_1C;
+		bool starIsAllowedToOpenGate;
 };

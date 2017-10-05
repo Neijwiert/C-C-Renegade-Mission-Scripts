@@ -59,7 +59,6 @@ void M01_Base_POW02_JDG::Damaged(GameObject *obj, GameObject *damager, float amo
 	}
 }
 
-// TODO
 void M01_Base_POW02_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -100,11 +99,11 @@ void M01_Base_POW02_JDG::Custom(GameObject *obj, int type, int param, GameObject
 	}
 }
 
-// TODO
 void M01_Base_POW02_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When animation complete, see param 16
 		if (action_id == 47)
 		{
 			ActionParamsStruct params;
@@ -115,6 +114,8 @@ void M01_Base_POW02_JDG::Action_Complete(GameObject *obj, int action_id, ActionC
 
 			Commands->Set_Innate_Is_Stationary(obj, true);
 		}
+
+		// When animation complete, see action id 47
 		else if (action_id == 48)
 		{
 			static const char *animations[4] =
@@ -133,6 +134,8 @@ void M01_Base_POW02_JDG::Action_Complete(GameObject *obj, int action_id, ActionC
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When animation complete, see action_id 48
 		else if (action_id == 49)
 		{
 			if (!Commands->Find_Object(116386))// gdiPOW01Obj
@@ -144,6 +147,8 @@ void M01_Base_POW02_JDG::Action_Complete(GameObject *obj, int action_id, ActionC
 				}
 			}
 		}
+
+		// When moved to stationary location, see param 4002
 		else if (action_id == 39)
 		{
 			GameObject *M01GDIBaseEvacMonitorJDGObj = Commands->Find_Object(103419);

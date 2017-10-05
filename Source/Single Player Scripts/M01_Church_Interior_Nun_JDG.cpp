@@ -48,7 +48,6 @@ void M01_Church_Interior_Nun_JDG::Killed(GameObject *obj, GameObject *killer)
 	Commands->Send_Custom_Event(obj, M01ChurchEvacControllerJDGObj, 0, 229, 0.0f);
 }
 
-// TODO
 void M01_Church_Interior_Nun_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when param 148 is received
@@ -90,11 +89,11 @@ void M01_Church_Interior_Nun_JDG::Custom(GameObject *obj, int type, int param, G
 	}
 }
 
-// TODO
 void M01_Church_Interior_Nun_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When animation complete, see param 173
 		if (action_id == 46)
 		{
 			ActionParamsStruct params;
@@ -103,6 +102,8 @@ void M01_Church_Interior_Nun_JDG::Action_Complete(GameObject *obj, int action_id
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When animation complete, see action id 46
 		else if (action_id == 47)
 		{
 			ActionParamsStruct params;
@@ -114,6 +115,8 @@ void M01_Church_Interior_Nun_JDG::Action_Complete(GameObject *obj, int action_id
 			Vector3 pos = Commands->Get_Position(obj);
 			Commands->Create_Sound("MX1DSGN_DSGN0022I1DSGN_SND", pos, obj);
 		}
+
+		// When animation complete, see action id 47
 		else if (action_id == 48)
 		{
 			ActionParamsStruct params;
@@ -122,6 +125,8 @@ void M01_Church_Interior_Nun_JDG::Action_Complete(GameObject *obj, int action_id
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// When movement complete see action id 48
 		else if (action_id == 39)
 		{
 			Commands->Enable_Hibernation(obj, true);
@@ -132,6 +137,8 @@ void M01_Church_Interior_Nun_JDG::Action_Complete(GameObject *obj, int action_id
 				Commands->Send_Custom_Event(obj, M01InteriorNunConversationZoneJDGObj, 0, 16, 1.0f);
 			}
 		}
+
+		// When done moving to evac location, see param 4001
 		else if (action_id == 4001)
 		{
 			GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);

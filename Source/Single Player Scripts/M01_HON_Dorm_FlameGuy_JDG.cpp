@@ -42,7 +42,6 @@ void M01_HON_Dorm_FlameGuy_JDG::Damaged(GameObject *obj, GameObject *damager, fl
 	}
 }
 
-// TODO
 void M01_HON_Dorm_FlameGuy_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (obj)
@@ -97,9 +96,9 @@ void M01_HON_Dorm_FlameGuy_JDG::Custom(GameObject *obj, int type, int param, Gam
 	}
 }
 
-// TODO
 void M01_HON_Dorm_FlameGuy_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// When done moving to random location, see param 165
 	if (action_id == 4001 && complete_reason == ACTION_COMPLETE_NORMAL)
 	{
 		Commands->Enable_Hibernation(obj, true);

@@ -32,5 +32,5 @@ class M01_GDIBase_EvacMonitor_JDG : public ScriptImpClass
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		DWORD field_1C;
+		DWORD rescuedPrisonerCount;
 };

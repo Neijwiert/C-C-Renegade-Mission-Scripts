@@ -34,7 +34,6 @@ void M01_HON_Engineer02_JDG::Created(GameObject *obj)
 	Commands->Set_Innate_Is_Stationary(obj, true);
 }
 
-// TODO
 void M01_HON_Engineer02_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when param 26 is received
@@ -53,9 +52,9 @@ void M01_HON_Engineer02_JDG::Custom(GameObject *obj, int type, int param, GameOb
 	}
 }
 
-// TODO
 void M01_HON_Engineer02_JDG::Timer_Expired(GameObject *obj, int number)
 {
+	// After 16 seconds, see param 189
 	if (number == 16)
 	{
 		Commands->Enable_Hibernation(obj, true);
@@ -80,6 +79,8 @@ void M01_HON_Engineer02_JDG::Timer_Expired(GameObject *obj, int number)
 			}
 		}
 	}
+
+	// After 5 seconds, see timer number 16
 	else if (number == 24)
 	{
 		this->doingHealSound = false;

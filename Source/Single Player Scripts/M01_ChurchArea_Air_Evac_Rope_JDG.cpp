@@ -33,7 +33,6 @@ void M01_ChurchArea_Air_Evac_Rope_JDG::Created(GameObject *obj)
 	}
 }
 
-// TODO
 void M01_ChurchArea_Air_Evac_Rope_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_Church_EvacController_JDG when param 15 is received

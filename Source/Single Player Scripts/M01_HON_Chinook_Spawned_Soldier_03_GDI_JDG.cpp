@@ -22,15 +22,15 @@
 // After 401 cinematic frames in X1I_GDI_HON_TroopDrop01b.txt
 void M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->nodBuggyObjId, sizeof(this->nodBuggyObjId), 1);
 }
 
-// TODO
 void M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_BuggyNew_Controller_JDG when param 27 is received with param nodBuggyObjId
 	if (type == 27)
 	{
-		this->field_1C = param;
+		this->nodBuggyObjId = param;
 
 		GameObject *paramObj = Commands->Find_Object(param);
 		if (paramObj)

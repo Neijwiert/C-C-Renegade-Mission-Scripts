@@ -35,7 +35,7 @@ class M01_GiveMCTSpeech_Zone_JDG : public ScriptImpClass
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 		virtual void Exited(GameObject *obj, GameObject *exiter);
 
-		bool field_1C;
+		bool chinookGDISpawnedSoldiersInHonWarRoom;
 		bool starAtHONMCT;
 		int honChinookSpawnedSoldier1GDIObjId;
 		int honChinookSpawnedSoldier2GDIObjId;

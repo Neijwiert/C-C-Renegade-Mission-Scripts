@@ -32,6 +32,6 @@ class M01_Duncan_InHere_ConvController_JDG : public ScriptImpClass
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		int field_1C;
-		bool field_20;
+		int assailantDeathCount;
+		bool starInDuncanShack;
 };

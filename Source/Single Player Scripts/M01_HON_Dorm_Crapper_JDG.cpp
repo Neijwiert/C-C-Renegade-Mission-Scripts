@@ -48,7 +48,6 @@ void M01_HON_Dorm_Crapper_JDG::Damaged(GameObject *obj, GameObject *damager, flo
 	}
 }
 
-// TODO
 void M01_HON_Dorm_Crapper_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (obj)
@@ -97,9 +96,9 @@ void M01_HON_Dorm_Crapper_JDG::Custom(GameObject *obj, int type, int param, Game
 	}
 }
 
-// TODO
 void M01_HON_Dorm_Crapper_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// When done moving to random location, see param 165
 	if (action_id == 4001 && complete_reason == ACTION_COMPLETE_NORMAL)
 	{
 		GameObject *starObj = Commands->Get_A_Star(Vector3(0.0f, 0.0f, 0.0f));

@@ -79,7 +79,6 @@ void M01_GDI_Base_Artillery_Controller_JDG::Created(GameObject *obj)
 	Commands->Send_Custom_Event(obj, obj, 0, 67, 2.0f);
 }
 
-// TODO
 void M01_GDI_Base_Artillery_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (type == CUSTOM_EVENT_SOUND_ENDED)

@@ -38,6 +38,6 @@ class M01_HON_Dojo_Civ_01_JDG : public ScriptImpClass
 		int dojoCiv01ObjId;
 		int dojoCiv02ObjId;
 		int dojoCiv03ObjId;
-		int field_2C;
+		int animationCount;
 		int dojoThanksConversationId;
 };

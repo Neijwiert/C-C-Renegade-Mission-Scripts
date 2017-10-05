@@ -30,13 +30,13 @@ void M01_PaintballRoom_ChatterController_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->honPaintballTeam01Guy01ObjId, sizeof(this->honPaintballTeam01Guy01ObjId), 4);
 	Auto_Save_Variable(&this->honPaintballTeam02Guy01ObjId, sizeof(this->honPaintballTeam02Guy01ObjId), 5);
 	Auto_Save_Variable(&this->honPaintballTeam02Guy02ObjId, sizeof(this->honPaintballTeam02Guy02ObjId), 6);
-	Auto_Save_Variable(&this->field_34, sizeof(this->field_34), 7);
-	Auto_Save_Variable(&this->field_35, sizeof(this->field_35), 8);
-	Auto_Save_Variable(&this->field_36, sizeof(this->field_36), 9);
-	Auto_Save_Variable(&this->field_37, sizeof(this->field_37), 10);
-	Auto_Save_Variable(&this->field_38, sizeof(this->field_38), 11);
-	Auto_Save_Variable(&this->field_39, sizeof(this->field_39), 12);
-	Auto_Save_Variable(&this->field_3A, sizeof(this->field_3A), 13);
+	Auto_Save_Variable(&this->team2OfficerKilled, sizeof(this->team2OfficerKilled), 7);
+	Auto_Save_Variable(&this->team1OfficerKilled, sizeof(this->team1OfficerKilled), 8);
+	Auto_Save_Variable(&this->team1Guy2Killed, sizeof(this->team1Guy2Killed), 9);
+	Auto_Save_Variable(&this->team1Guy1Killed, sizeof(this->team1Guy1Killed), 10);
+	Auto_Save_Variable(&this->team2Guy1Killed, sizeof(this->team2Guy1Killed), 11);
+	Auto_Save_Variable(&this->team2Guy2Killed, sizeof(this->team2Guy2Killed), 12);
+	Auto_Save_Variable(&this->anyPaintballerDamagedByStar, sizeof(this->anyPaintballerDamagedByStar), 13);
 }
 
 void M01_PaintballRoom_ChatterController_JDG::Created(GameObject *obj)
@@ -47,16 +47,15 @@ void M01_PaintballRoom_ChatterController_JDG::Created(GameObject *obj)
 	this->honPaintballTeam01Guy01ObjId = 101999;
 	this->honPaintballTeam02Guy01ObjId = 102002;
 	this->honPaintballTeam02Guy02ObjId = 102003;
-	this->field_34 = false;
-	this->field_35 = false;
-	this->field_36 = false;
-	this->field_37 = false;
-	this->field_38 = false;
-	this->field_39 = false;
-	this->field_3A = false;
+	this->team2OfficerKilled = false;
+	this->team1OfficerKilled = false;
+	this->team1Guy2Killed = false;
+	this->team1Guy1Killed = false;
+	this->team2Guy1Killed = false;
+	this->team2Guy2Killed = false;
+	this->anyPaintballerDamagedByStar = false;
 }
 
-// TODO
 void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -64,13 +63,13 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 		// Received from M01_HON_Paintball_Team_01_JDG or M01_HON_Paintball_Team_02_JDG when damaged by star
 		if (param == 16)
 		{
-			if (!this->field_3A)
+			if (!this->anyPaintballerDamagedByStar)
 			{
-				this->field_3A = true;
+				this->anyPaintballerDamagedByStar = true;
 
-				if (this->field_34)
+				if (this->team2OfficerKilled)
 				{
-					if (!this->field_35)
+					if (!this->team1OfficerKilled)
 					{
 						float randDelay = Commands->Get_Random(1.0f, 2.0f);
 						Commands->Send_Custom_Event(obj, obj, 0, 28, randDelay);
@@ -82,9 +81,9 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 					Commands->Send_Custom_Event(obj, obj, 0, 27, randDelay);
 				}
 
-				if (this->field_36)
+				if (this->team1Guy2Killed)
 				{
-					if (!this->field_37)
+					if (!this->team1Guy1Killed)
 					{
 						float randDelay = Commands->Get_Random(1.0f, 2.0f);
 						Commands->Send_Custom_Event(obj, obj, 0, 30, randDelay);
@@ -96,9 +95,9 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 					Commands->Send_Custom_Event(obj, obj, 0, 29, randDelay);
 				}
 
-				if (this->field_38)
+				if (this->team2Guy1Killed)
 				{
-					if (!this->field_39)
+					if (!this->team2Guy2Killed)
 					{
 						float randDelay = Commands->Get_Random(1.0f, 2.0f);
 						Commands->Send_Custom_Event(obj, obj, 0, 32, randDelay);
@@ -124,27 +123,27 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 
 			if (sender == honPaintballTeam02OfficerObjId)
 			{
-				this->field_34 = true;
+				this->team2OfficerKilled = true;
 			}
 			else if (sender == honPaintballTeam01OfficerObjId)
 			{
-				this->field_35 = true;
+				this->team1OfficerKilled = true;
 			}
 			else if (sender == honPaintballTeam01Guy02ObjId)
 			{
-				this->field_36 = true;
+				this->team1Guy2Killed = true;
 			}
 			else if (sender == honPaintballTeam01Guy01ObjId)
 			{
-				this->field_37 = true;
+				this->team1Guy1Killed = true;
 			}
 			else if (sender == honPaintballTeam02Guy01ObjId)
 			{
-				this->field_38 = true;
+				this->team2Guy1Killed = true;
 			}
 			else if (sender == honPaintballTeam02Guy02ObjId)
 			{
-				this->field_39 = true;
+				this->team2Guy2Killed = true;
 			}
 		}
 

@@ -109,7 +109,6 @@ void M01_Initial_Gunboat_Script_JDG::Damaged(GameObject *obj, GameObject *damage
 	}
 }
 
-// TODO
 void M01_Initial_Gunboat_Script_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from ourselves after 4 to 6 seconds after this block or 0 to 2 seconds after param 16
@@ -215,9 +214,9 @@ void M01_Initial_Gunboat_Script_JDG::Custom(GameObject *obj, int type, int param
 	}
 }
 
-// TODO
 void M01_Initial_Gunboat_Script_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// When done following waypath, see param 112
 	if (action_id == 40)
 	{
 		Commands->Destroy_Object(obj);

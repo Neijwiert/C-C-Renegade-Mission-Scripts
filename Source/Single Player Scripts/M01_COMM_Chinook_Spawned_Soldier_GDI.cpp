@@ -21,18 +21,18 @@
 
 void M01_COMM_Chinook_Spawned_Soldier_GDI::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->commAreaSecure, sizeof(this->commAreaSecure), 1);
 }
 
 // After 401/489 cinematic frames in X1I_GDI_CommCenter_TroopDrop.txt
 void M01_COMM_Chinook_Spawned_Soldier_GDI::Created(GameObject *obj)
 {
-	this->field_1C = 1;
+	this->commAreaSecure = 1;
 }
 
 void M01_COMM_Chinook_Spawned_Soldier_GDI::Killed(GameObject *obj, GameObject *killer)
 {
-	if (!this->field_1C)
+	if (!this->commAreaSecure)
 	{
 		GameObject *M01MissionControllerObj = Commands->Find_Object(100376);
 		Commands->Send_Custom_Event(obj, M01MissionControllerObj, 0, 182, 0.0f);
@@ -41,7 +41,7 @@ void M01_COMM_Chinook_Spawned_Soldier_GDI::Killed(GameObject *obj, GameObject *k
 
 void M01_COMM_Chinook_Spawned_Soldier_GDI::Damaged(GameObject *obj, GameObject *damager, float amount)
 {
-	if (damager && !Commands->Get_Player_Type(damager) && !this->field_1C)
+	if (damager && !Commands->Get_Player_Type(damager) && !this->commAreaSecure)
 	{
 		ActionParamsStruct params;
 		params.Set_Basic(this, 100.0f, 45);
@@ -54,13 +54,12 @@ void M01_COMM_Chinook_Spawned_Soldier_GDI::Damaged(GameObject *obj, GameObject *
 	}
 }
 
-// TODO
 void M01_COMM_Chinook_Spawned_Soldier_GDI::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when param 189 is received with param = lastDamagedStarEnemyObjId
 	if (type == 189)
 	{
-		if (!this->field_1C)
+		if (!this->commAreaSecure)
 		{
 			GameObject *lastDamagedStarEnemyObj = Commands->Find_Object(param);
 			if (lastDamagedStarEnemyObj)
@@ -82,7 +81,7 @@ void M01_COMM_Chinook_Spawned_Soldier_GDI::Custom(GameObject *obj, int type, int
 		// Received from ourselves after 10 to 60 seconds after this block or animation is complete
 		if (param == 67)
 		{
-			if (this->field_1C)
+			if (this->commAreaSecure)
 			{
 				Commands->Action_Reset(obj, 100.0f);
 
@@ -146,7 +145,7 @@ void M01_COMM_Chinook_Spawned_Soldier_GDI::Custom(GameObject *obj, int type, int
 
 			Commands->Action_Attack(obj, params);
 
-			this->field_1C = 0;
+			this->commAreaSecure = 0;
 		}
 
 		// Received from M01_mission_Controller_JDG when param 179 is received
@@ -157,14 +156,14 @@ void M01_COMM_Chinook_Spawned_Soldier_GDI::Custom(GameObject *obj, int type, int
 			Vector3 pos = Commands->Get_Position(obj);
 			Commands->Set_Innate_Soldier_Home_Location(obj, pos, 5.0f);
 
-			this->field_1C = 1;
+			this->commAreaSecure = 1;
 		}
 	}
 }
 
 void M01_COMM_Chinook_Spawned_Soldier_GDI::Enemy_Seen(GameObject *obj, GameObject *enemy)
 {
-	if (!this->field_1C)
+	if (!this->commAreaSecure)
 	{
 		ActionParamsStruct params;
 		params.Set_Basic(this, 100.0f, 45);
@@ -177,10 +176,10 @@ void M01_COMM_Chinook_Spawned_Soldier_GDI::Enemy_Seen(GameObject *obj, GameObjec
 	}
 }
 
-// TODO
 void M01_COMM_Chinook_Spawned_Soldier_GDI::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
-	if (complete_reason == ACTION_COMPLETE_NORMAL && action_id == 45 && !this->field_1C)
+	// When enemy killed or moved to star, see damaged, enemy seen, param 180/189
+	if (complete_reason == ACTION_COMPLETE_NORMAL && action_id == 45 && !this->commAreaSecure)
 	{
 		ActionParamsStruct params;
 		params.Set_Basic(this, 100.0f, 45);

@@ -22,18 +22,18 @@
 // After 401 cinematic frames in X1I_GDI_Church_TroopDrop.txt
 void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->churchAreaSecure, sizeof(this->churchAreaSecure), 1);
 	Auto_Save_Variable(&this->firstEscortConversationId, sizeof(this->firstEscortConversationId), 2);
 }
 
 void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Created(GameObject *obj)
 {
-	this->field_1C = 1;
+	this->churchAreaSecure = 1;
 }
 
 void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Killed(GameObject *obj, GameObject *killer)
 {
-	if (!this->field_1C)
+	if (!this->churchAreaSecure)
 	{
 		GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
 		Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 182, 0.0f);
@@ -42,7 +42,7 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Killed(GameObject *obj, GameObjec
 
 void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Damaged(GameObject *obj, GameObject *damager, float amount)
 {
-	if (damager && !Commands->Get_Player_Type(damager) && !this->field_1C)
+	if (damager && !Commands->Get_Player_Type(damager) && !this->churchAreaSecure)
 	{
 		ActionParamsStruct params;
 		params.Set_Basic(this, 100.0f, 45);
@@ -55,13 +55,12 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Damaged(GameObject *obj, GameObje
 	}
 }
 
-// TODO
 void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from ourselves after 10 to 60 seconds after this block or when action with id firstEscortConversationId is complete
 	if (param == 67)
 	{
-		if (this->field_1C)
+		if (this->churchAreaSecure)
 		{
 			Commands->Action_Reset(obj, 100.0f);
 
@@ -125,7 +124,7 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type,
 
 		Commands->Action_Attack(obj, params);
 
-		this->field_1C = 0;
+		this->churchAreaSecure = 0;
 	}
 
 	// Received from M01_mission_Controller_JDG when param 179 is received
@@ -136,13 +135,13 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type,
 		Vector3 pos = Commands->Get_Position(obj);
 		Commands->Set_Innate_Soldier_Home_Location(obj, pos, 5.0f);
 
-		this->field_1C = 1;
+		this->churchAreaSecure = 1;
 	}
 
 	// Received from M01_mission_Controller_JDG when param 189 is received with param = lastDamagedStarEnemyObjId
 	else if (param == 189)
 	{
-		if (!this->field_1C)
+		if (!this->churchAreaSecure)
 		{
 			GameObject *lastDamagedStarEnemyObj = Commands->Find_Object(param);
 			if (lastDamagedStarEnemyObj)
@@ -161,7 +160,7 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type,
 	// Received from M01_mission_Controller_JDG when param 149 is received
 	else if (param == 149)
 	{
-		if (!this->field_1C)
+		if (!this->churchAreaSecure)
 		{
 			GameObject *M01GDIEscortConversationControllerGDIObj = Commands->Find_Object(103396);
 			if (M01GDIEscortConversationControllerGDIObj)
@@ -172,7 +171,7 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type,
 			GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
 			Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 182, 0.0f);
 
-			this->field_1C = 1;
+			this->churchAreaSecure = 1;
 
 			Commands->Action_Reset(obj, 100.0f);
 
@@ -205,7 +204,7 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type,
 	// Received from M01_mission_Controller_JDG when param 150 is received
 	else if (param == 150)
 	{
-		if (!this->field_1C)
+		if (!this->churchAreaSecure)
 		{
 			GameObject *M01GDIEscortConversationControllerGDIObj = Commands->Find_Object(103396);
 			if (M01GDIEscortConversationControllerGDIObj)
@@ -216,7 +215,7 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type,
 			GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
 			Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 182, 0.0f);
 
-			this->field_1C = 1;
+			this->churchAreaSecure = 1;
 
 			Commands->Action_Reset(obj, 100.0f);
 
@@ -249,7 +248,7 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type,
 
 void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Enemy_Seen(GameObject *obj, GameObject *enemy)
 {
-	if (!this->field_1C)
+	if (!this->churchAreaSecure)
 	{
 		ActionParamsStruct params;
 		params.Set_Basic(this, 100.0f, 45);
@@ -262,7 +261,6 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Enemy_Seen(GameObject *obj, GameO
 	}
 }
 
-// TODO
 void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED)
@@ -274,6 +272,7 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Action_Complete(GameObject *obj, 
 	}
 	else if(complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When moved to star, see animation complete
 		if (action_id == 38)
 		{
 			if (obj)
@@ -293,9 +292,11 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Action_Complete(GameObject *obj, 
 				}
 			}
 		}
+
+		// When enemy killed or when moved to star, see damaged, enemy seen or param 180/189
 		if (action_id == 45)
 		{
-			if (!this->field_1C)
+			if (!this->churchAreaSecure)
 			{
 				ActionParamsStruct params;
 				params.Set_Basic(this, 100.0f, 45);

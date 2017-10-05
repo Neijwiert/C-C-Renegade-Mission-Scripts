@@ -32,14 +32,14 @@ class M01_Ambient_Sound_Controller_JDG : public ScriptImpClass
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		int field_1C; // Yes, this is an integer
-		int field_20; // Yes, this is an integer
-		int field_24;
+		int honKilled; // Yes, this is an integer
+		int commKilled; // Yes, this is an integer
+		int starAreaNumber;
 		int ccAmbientM01SoundId;
 		DWORD field_2C; // Not initialized nor used
 		int klaxonSoundIndex;
 		int ambientSoundIndex;
-		bool field_38;
-		bool field_39;
+		bool starOutside;
+		bool ambientM01SoundActive;
 		bool field_3A; // Assigned, but not used
 };

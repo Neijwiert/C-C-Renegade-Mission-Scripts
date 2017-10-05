@@ -35,5 +35,5 @@ class M01_GuardTower02_Sniper_TowerZone_JDG : public ScriptImpClass
 		virtual void Exited(GameObject *obj, GameObject *exiter);
 
 		bool starInTower;
-		int field_20;
+		int sniperTargetKillCount;
 };

@@ -27,7 +27,6 @@ void M01_HON_Escorts_Warroom_MCT_Commander_JDG::Created(GameObject *obj)
 	Commands->Set_Innate_Is_Stationary(obj, true);
 }
 
-// TODO
 void M01_HON_Escorts_Warroom_MCT_Commander_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_HON_Escorts_Warroom_MCT_ZoneController_JDG when entered
@@ -43,9 +42,9 @@ void M01_HON_Escorts_Warroom_MCT_Commander_JDG::Custom(GameObject *obj, int type
 	}
 }
 
-// TODO
 void M01_HON_Escorts_Warroom_MCT_Commander_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// When done moving, see param 16
 	if (action_id == 38)
 	{
 		Commands->Set_Innate_Is_Stationary(obj, true);

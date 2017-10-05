@@ -30,5 +30,5 @@ class M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG : public ScriptImpClass
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 		virtual void Animation_Complete(GameObject *obj, const char *animation_name);
 
-		int field_1C;
+		int nodBuggyObjId;
 };

@@ -24,28 +24,27 @@ M01 -> 103395
 */
 void M01_Priest_Conversation_Zone_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->priestAtThisZone, sizeof(this->priestAtThisZone), 1);
 }
 
 void M01_Priest_Conversation_Zone_JDG::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->priestAtThisZone = false;
 }
 
-// TODO
 void M01_Priest_Conversation_Zone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_Church_Priest_JDG when action with id 39 is complete
 	if (param == 16)
 	{
-		this->field_1C = true;
+		this->priestAtThisZone = true;
 	}
 }
 
 void M01_Priest_Conversation_Zone_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
 	Vector3 pos = Commands->Get_Position(obj);
-	if (enterer == Commands->Get_A_Star(pos) && this->field_1C)
+	if (enterer == Commands->Get_A_Star(pos) && this->priestAtThisZone)
 	{
 		GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
 		Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 213, 0.0f);

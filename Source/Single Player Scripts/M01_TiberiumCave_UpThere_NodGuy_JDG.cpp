@@ -28,7 +28,6 @@ void M01_TiberiumCave_UpThere_NodGuy_JDG::Created(GameObject *obj)
 	Commands->Set_Innate_Soldier_Home_Location(obj, pos, 5.0f);
 }
 
-// TODO
 void M01_TiberiumCave_UpThere_NodGuy_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)

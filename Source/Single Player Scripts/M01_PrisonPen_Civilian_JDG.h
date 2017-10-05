@@ -44,8 +44,8 @@ class M01_PrisonPen_Civilian_JDG : public ScriptImpClass
 		int movementActionIndex;
 		float minMovementInterval;
 		float maxMovementInterval;
-		bool field_B0;
+		bool starCanSeeMe;
 		bool heardStarShoot;
-		bool field_B2;
-		bool field_B3;
+		bool isGateSwitchPokedAndSamAlive;
+		bool isGateSwitchPokedAndSamDead;
 };

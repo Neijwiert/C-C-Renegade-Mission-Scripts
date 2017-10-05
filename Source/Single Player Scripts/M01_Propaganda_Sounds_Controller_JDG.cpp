@@ -27,7 +27,7 @@ void M01_Propaganda_Sounds_Controller_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
 	Auto_Save_Variable(&this->propagandaScreenObjId, sizeof(this->propagandaScreenObjId), 2);
 	Auto_Save_Variable(&this->propagandaSound3Id, sizeof(this->propagandaSound3Id), 3);
-	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 4);
+	Auto_Save_Variable(&this->movieProjectorDestroyed, sizeof(this->movieProjectorDestroyed), 4);
 	Auto_Save_Variable(&this->propagandaIndex, sizeof(this->propagandaIndex), 5);
 	Auto_Save_Variable(&this->playingPropaganda, sizeof(this->playingPropaganda), 6);
 	Auto_Save_Variable(&this->propagandaSound2Id, sizeof(this->propagandaSound2Id), 7);
@@ -41,12 +41,11 @@ void M01_Propaganda_Sounds_Controller_JDG::Created(GameObject *obj)
 	this->propagandaSound3Id = 0;
 	this->propagandaSound2Id = 0;
 	this->propagandaSound1Id = 0;
-	this->field_30 = false;
+	this->movieProjectorDestroyed = false;
 	this->propagandaIndex = 0;
 	this->playingPropaganda = false;
 }
 
-// TODO
 void M01_Propaganda_Sounds_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -72,7 +71,7 @@ void M01_Propaganda_Sounds_Controller_JDG::Custom(GameObject *obj, int type, int
 		// Received from M01_mission_Controller_JDG when param 201 is received
 		else if (param == 16)
 		{
-			if (!this->field_30)
+			if (!this->movieProjectorDestroyed)
 			{
 				static const char *propagandaScreens[10] =
 				{
@@ -124,7 +123,7 @@ void M01_Propaganda_Sounds_Controller_JDG::Custom(GameObject *obj, int type, int
 		// Received from M01_mission_Controller_JDG when param 5 is received
 		else if (param == 22)
 		{
-			this->field_30 = true;
+			this->movieProjectorDestroyed = true;
 
 			GameObject *propagandaScreenObj = Commands->Find_Object(this->propagandaScreenObjId);
 			if (propagandaScreenObj)

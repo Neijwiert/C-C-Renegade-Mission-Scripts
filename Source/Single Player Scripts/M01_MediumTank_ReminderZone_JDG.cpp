@@ -24,20 +24,19 @@ M01 -> 122848
 */
 void M01_MediumTank_ReminderZone_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_1D, sizeof(this->field_1D), 2);
+	Auto_Save_Variable(&this->beachMediumTankCreated, sizeof(this->beachMediumTankCreated), 1);
+	Auto_Save_Variable(&this->starInBeachMediumTank, sizeof(this->starInBeachMediumTank), 2);
 	Auto_Save_Variable(&this->objId, sizeof(this->objId), 3);
 	Auto_Save_Variable(&this->getInTankConversationIndex, sizeof(this->getInTankConversationIndex), 4);
 }
 
 void M01_MediumTank_ReminderZone_JDG::Created(GameObject *obj)
 {
-	this->field_1C = false;
-	this->field_1D = false;
+	this->beachMediumTankCreated = false;
+	this->starInBeachMediumTank = false;
 	this->getInTankConversationIndex = 0;
 }
 
-// TODO
 void M01_MediumTank_ReminderZone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -45,7 +44,7 @@ void M01_MediumTank_ReminderZone_JDG::Custom(GameObject *obj, int type, int para
 		// Received from M01_Medium_Tank_JDG when created
 		if (param == 16)
 		{
-			this->field_1C = true;
+			this->beachMediumTankCreated = true;
 
 			Commands->Start_Timer(obj, this, 10.0f, 0);
 
@@ -55,18 +54,17 @@ void M01_MediumTank_ReminderZone_JDG::Custom(GameObject *obj, int type, int para
 		// Received from M01_Medium_Tank_JDG when entered
 		else if (param == 27)
 		{
-			this->field_1D = true;
+			this->starInBeachMediumTank = true;
 		}
 
 		// Received from M01_Medium_Tank_JDG when exited
 		else if (param == 28)
 		{
-			this->field_1D = false;
+			this->starInBeachMediumTank = false;
 		}
 	}
 }
 
-// TODO
 void M01_MediumTank_ReminderZone_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED && action_id == this->getInTankConversationId)
@@ -75,10 +73,9 @@ void M01_MediumTank_ReminderZone_JDG::Action_Complete(GameObject *obj, int actio
 	}
 }
 
-// TODO
 void M01_MediumTank_ReminderZone_JDG::Timer_Expired(GameObject *obj, int number)
 {
-	if (!this->field_1D)
+	if (!this->starInBeachMediumTank)
 	{
 		this->getInTankConversationIndex++;
 		if (Commands->Find_Object(this->objId))
@@ -107,7 +104,7 @@ void M01_MediumTank_ReminderZone_JDG::Timer_Expired(GameObject *obj, int number)
 void M01_MediumTank_ReminderZone_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
 	Vector3 pos = Commands->Get_Position(obj);
-	if (enterer == Commands->Get_A_Star(pos) && this->field_1C && !this->field_1D)
+	if (enterer == Commands->Get_A_Star(pos) && this->beachMediumTankCreated && !this->starInBeachMediumTank)
 	{
 		int conversationId = Commands->Create_Conversation("M01_TunnelTank_Reminder_Conversation", 100, 30.0f, false); // Havoc, I wouldn't take that road without a tank.
 		Commands->Join_Conversation(NULL, conversationId, false, true, true);

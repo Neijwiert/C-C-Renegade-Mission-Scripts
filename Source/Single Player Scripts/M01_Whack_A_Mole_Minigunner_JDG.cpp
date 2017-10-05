@@ -70,7 +70,6 @@ void M01_Whack_A_Mole_Minigunner_JDG::Damaged(GameObject *obj, GameObject *damag
 	}
 }
 
-// TODO
 void M01_Whack_A_Mole_Minigunner_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when param 204 is received
@@ -147,15 +146,17 @@ void M01_Whack_A_Mole_Minigunner_JDG::Custom(GameObject *obj, int type, int para
 	}
 }
 
-// TODO
 void M01_Whack_A_Mole_Minigunner_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When done with animation, see param 46
 		if (action_id == 46)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 67, 0.0f);
 		}
+
+		// When done following waypath, see created, param 67 or action id 39
 		else if (action_id == 38)
 		{
 			ActionParamsStruct params;
@@ -167,6 +168,8 @@ void M01_Whack_A_Mole_Minigunner_JDG::Action_Complete(GameObject *obj, int actio
 
 			this->isFollowingRightWayPath = 0;
 		}
+
+		// When done following waypath, see param 67 or action id 38
 		else if (action_id == 39)
 		{
 			if (this->wasDamagedByStar)
@@ -184,7 +187,6 @@ void M01_Whack_A_Mole_Minigunner_JDG::Action_Complete(GameObject *obj, int actio
 
 				this->isFollowingRightWayPath = 1;
 			}
-			
 		}
 	}
 }

@@ -33,5 +33,5 @@ class M01_TurretBeach_Turret_01_Script_JDG : public ScriptImpClass
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 
 		int engineerObjId;
-		int field_20;
+		int fodderHovercraftObjId;
 };

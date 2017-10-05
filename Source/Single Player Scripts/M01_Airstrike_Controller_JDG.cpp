@@ -29,7 +29,6 @@ void M01_Airstrike_Controller_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->decoNodLightTank3ObjId, sizeof(this->decoNodLightTank3ObjId), 3);
 }
 
-// TODO
 void M01_Airstrike_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -105,6 +104,8 @@ void M01_Airstrike_Controller_JDG::Custom(GameObject *obj, int type, int param, 
 				Commands->Send_Custom_Event(obj, decoNodLightTank3Obj, 0, 17, 0.5f);
 			}
 		}
+
+		// Received from M01_GDIBase_RealLightTank_JDG after 15 seconds when custom param 16 is received
 		else if (param == 27)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 17, 0.0f);

@@ -29,7 +29,6 @@ void M01_BarnArea_AI_ExitZone_JDG::Created(GameObject *obj)
 	this->turretBeachGDIGuy1ObjId = 0;
 }
 
-// TODO
 void M01_BarnArea_AI_ExitZone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_TurretBeach_GDI_Guy_01_JDG when created

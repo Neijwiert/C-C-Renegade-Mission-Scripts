@@ -33,6 +33,6 @@ class M01_BuggyNew_Controller_JDG : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
 		int nodBuggyObjId;
-		bool field_20;
-		bool field_21;
+		bool gdiSoldier3MovedToUs;
+		bool gdiSoldier4MovedToUs;
 };

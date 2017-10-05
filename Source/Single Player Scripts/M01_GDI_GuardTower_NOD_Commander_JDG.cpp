@@ -132,7 +132,6 @@ void M01_GDI_GuardTower_NOD_Commander_JDG::Damaged(GameObject *obj, GameObject *
 	}
 }
 
-// TODO
 void M01_GDI_GuardTower_NOD_Commander_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -226,7 +225,6 @@ void M01_GDI_GuardTower_NOD_Commander_JDG::Custom(GameObject *obj, int type, int
 	}
 }
 
-// TODO
 void M01_GDI_GuardTower_NOD_Commander_JDG::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
 	Vector3 pos = Commands->Get_Position(obj);
@@ -267,7 +265,6 @@ void M01_GDI_GuardTower_NOD_Commander_JDG::Enemy_Seen(GameObject *obj, GameObjec
 	}
 }
 
-// TODO
 void M01_GDI_GuardTower_NOD_Commander_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED && action_id == this->conversationId)

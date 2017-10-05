@@ -36,6 +36,6 @@ class M01_Base_POW01_JDG : public ScriptImpClass
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 		virtual void Animation_Complete(GameObject *obj, const char *animation_name);
 
-		int field_1C;
+		int powNodSoldierDeathCount;
 		bool field_20; // Assigned, but not used
 };

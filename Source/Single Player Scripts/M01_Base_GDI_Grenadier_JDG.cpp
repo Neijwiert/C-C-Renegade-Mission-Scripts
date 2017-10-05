@@ -26,18 +26,18 @@ void M01_Base_GDI_Grenadier_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->health, sizeof(this->health), 1);
 	Auto_Save_Variable(&this->preventDeath, sizeof(this->preventDeath), 2);
-	Auto_Save_Variable(&this->field_21, sizeof(this->field_21), 3);
+	Auto_Save_Variable(&this->duncanGaveIonCannonBeacon, sizeof(this->duncanGaveIonCannonBeacon), 3);
 	Auto_Save_Variable(&this->canSeeEnemies, sizeof(this->canSeeEnemies), 4);
-	Auto_Save_Variable(&this->field_23, sizeof(this->field_23), 5);
+	Auto_Save_Variable(&this->starInGDIBase, sizeof(this->starInGDIBase), 5);
 	Auto_Save_Variable(&this->attackedByNodMinigunners, sizeof(this->attackedByNodMinigunners), 6);
 }
 
 void M01_Base_GDI_Grenadier_JDG::Created(GameObject *obj)
 {
 	this->attackedByNodMinigunners = false;
-	this->field_23 = true;
+	this->starInGDIBase = true;
 	this->preventDeath = true;
-	this->field_21 = false;
+	this->duncanGaveIonCannonBeacon = false;
 	this->health = Commands->Get_Health(obj);
 
 	Commands->Set_Innate_Is_Stationary(obj, true);
@@ -76,7 +76,6 @@ void M01_Base_GDI_Grenadier_JDG::Damaged(GameObject *obj, GameObject *damager, f
 	}
 }
 
-// TODO
 void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -159,7 +158,7 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 		{
 			Commands->Enable_Hibernation(obj, false);
 
-			this->field_21 = true;
+			this->duncanGaveIonCannonBeacon = true;
 
 			Commands->Action_Reset(obj, 100.0f);
 
@@ -193,9 +192,9 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_BackPath_EntranceZone_JDG when custom type <= 0 and param 28 is received
 		else if (param == 32)
 		{
-			if (!this->field_21)
+			if (!this->duncanGaveIonCannonBeacon)
 			{
-				this->field_23 = false;
+				this->starInGDIBase = false;
 
 				Commands->Action_Reset(obj, 100.0f);
 
@@ -213,7 +212,7 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_GDIBase_BaseCommander_JDG when killed
 		else if (param == 22)
 		{
-			if (this->field_23)
+			if (this->starInGDIBase)
 			{
 				this->preventDeath = false;
 
@@ -222,6 +221,7 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 		}
 
 		// Received from ourselves after damaged
+		// Received from ourselves when action with id 40 is complete
 		else if (param == 41)
 		{
 			GameObject *nodMinigunner2Obj = Commands->Find_Object(116387);
@@ -265,11 +265,11 @@ void M01_Base_GDI_Grenadier_JDG::Enemy_Seen(GameObject *obj, GameObject *enemy)
 	}
 }
 
-// TODO
 void M01_Base_GDI_Grenadier_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When movement complete, see param 27
 		if (action_id == 38)
 		{
 			ActionParamsStruct params;
@@ -280,6 +280,8 @@ void M01_Base_GDI_Grenadier_JDG::Action_Complete(GameObject *obj, int action_id,
 
 			Commands->Action_Attack(obj, params);
 		}
+
+		// When animation complete, see param 28
 		else if (action_id == 46)
 		{
 			ActionParamsStruct params;
@@ -288,6 +290,8 @@ void M01_Base_GDI_Grenadier_JDG::Action_Complete(GameObject *obj, int action_id,
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When animation complete, see action id 46
 		else if (action_id == 47)
 		{
 			ActionParamsStruct params;
@@ -296,6 +300,8 @@ void M01_Base_GDI_Grenadier_JDG::Action_Complete(GameObject *obj, int action_id,
 			
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When movement complete, see param 9
 		else if (action_id == 9)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, true);
@@ -306,6 +312,8 @@ void M01_Base_GDI_Grenadier_JDG::Action_Complete(GameObject *obj, int action_id,
 				Commands->Send_Custom_Event(obj, M01GDIBaseCommanderEvacControllerJDGObj, 0, 27, 0.0f);
 			}
 		}
+
+		// When moved to evac location, see param 4001
 		else if (action_id == 4001)
 		{
 			Vector3 pos = Commands->Get_Position(obj);
@@ -327,12 +335,14 @@ void M01_Base_GDI_Grenadier_JDG::Action_Complete(GameObject *obj, int action_id,
 			}
 
 		}
+
+		// When movement complete, see param 29
 		else if (action_id == 40)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 41, 0.0f);
 		}
 
-		// Received from ourselves when action with id 40 is complete
+		// When movement complete, see param 41
 		else if (action_id == 41)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, false);
@@ -343,10 +353,14 @@ void M01_Base_GDI_Grenadier_JDG::Action_Complete(GameObject *obj, int action_id,
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// When movement complete, see action id 41
 		else if (action_id == 42)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, true);
 		}
+
+		// When done attacking enemy, see enmy seen
 		else if (action_id == 43)
 		{
 			ActionParamsStruct params;

@@ -33,5 +33,5 @@ class M01_Tank_Entering_Tunnel_Zone_JDG : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
-		int field_1C;
+		int beachMediumTankObjId;
 };

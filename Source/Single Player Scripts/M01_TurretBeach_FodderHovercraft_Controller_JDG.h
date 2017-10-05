@@ -32,6 +32,6 @@ class M01_TurretBeach_FodderHovercraft_Controller_JDG : public ScriptImpClass
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		int field_1C;
-		bool field_20;
+		int fodderHovercraftObjId;
+		bool fodderHovercraftAlive; // Assigned, but not used
 };

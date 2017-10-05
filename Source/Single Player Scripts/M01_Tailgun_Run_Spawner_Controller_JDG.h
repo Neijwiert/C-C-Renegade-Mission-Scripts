@@ -33,5 +33,5 @@ class M01_Tailgun_Run_Spawner_Controller_JDG : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
 		int soldierCount;
-		bool field_20;
+		bool starFirstTimeEnteredTailgunAlley;
 };

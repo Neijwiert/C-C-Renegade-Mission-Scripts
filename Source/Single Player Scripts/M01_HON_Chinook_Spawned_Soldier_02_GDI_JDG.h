@@ -32,7 +32,7 @@ class M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG : public ScriptImpClass
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 		virtual void Animation_Complete(GameObject *obj, const char *animation_name);
 
-		bool field_1C;
-		bool field_1D;
-		bool field_1E;
+		bool starInWarRoom;
+		bool inWarRoomAndHonIsAlive;
+		bool canDropMoreReinforcements;
 };

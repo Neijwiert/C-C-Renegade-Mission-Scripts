@@ -25,14 +25,14 @@ M01 -> 102051
 void M01_HON_Dojo_Trainer_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->dojoSenseiConversationId, sizeof(this->dojoSenseiConversationId), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
-	Auto_Save_Variable(&this->field_21, sizeof(this->field_21), 3);
+	Auto_Save_Variable(&this->notDamagedByStar, sizeof(this->notDamagedByStar), 2);
+	Auto_Save_Variable(&this->honKilled, sizeof(this->honKilled), 3);
 }
 
 void M01_HON_Dojo_Trainer_JDG::Created(GameObject *obj)
 {
-	this->field_21 = false;
-	this->field_20 = true;
+	this->honKilled = false;
+	this->notDamagedByStar = true;
 
 	Commands->Innate_Disable(obj);
 }
@@ -43,7 +43,7 @@ void M01_HON_Dojo_Trainer_JDG::Killed(GameObject *obj, GameObject *killer)
 	GameObject *dojoCiv02Obj = Commands->Find_Object(102049);
 	GameObject *dojoCiv03Obj = Commands->Find_Object(102050);
 
-	if (this->field_21)
+	if (this->honKilled)
 	{
 		if (dojoCiv01Obj)
 		{
@@ -88,9 +88,9 @@ void M01_HON_Dojo_Trainer_JDG::Killed(GameObject *obj, GameObject *killer)
 void M01_HON_Dojo_Trainer_JDG::Damaged(GameObject *obj, GameObject *damager, float amount)
 {
 	Vector3 pos = Commands->Get_Position(obj);
-	if (damager == Commands->Get_A_Star(pos) && this->field_20)
+	if (damager == Commands->Get_A_Star(pos) && this->notDamagedByStar)
 	{
-		this->field_20 = false;
+		this->notDamagedByStar = false;
 
 		GameObject *dojoCiv01Obj = Commands->Find_Object(102048);
 		if (dojoCiv01Obj)
@@ -115,7 +115,6 @@ void M01_HON_Dojo_Trainer_JDG::Damaged(GameObject *obj, GameObject *damager, flo
 	}
 }
 
-// TODO
 void M01_HON_Dojo_Trainer_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from ourselves after 5 seconds when param 16 is received
@@ -128,7 +127,7 @@ void M01_HON_Dojo_Trainer_JDG::Custom(GameObject *obj, int type, int param, Game
 	// Received from M01_mission_Controller_JDG when param 122 is received
 	else if (param == 165)
 	{
-		this->field_21 = true;
+		this->honKilled = true;
 
 		Commands->Innate_Enable(obj);
 		Commands->Innate_Soldier_Enable_Enemy_Seen(obj, true);
@@ -153,7 +152,6 @@ void M01_HON_Dojo_Trainer_JDG::Custom(GameObject *obj, int type, int param, Game
 	}
 }
 
-// TODO
 void M01_HON_Dojo_Trainer_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED && action_id == this->dojoSenseiConversationId)

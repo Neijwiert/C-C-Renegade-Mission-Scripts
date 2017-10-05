@@ -24,7 +24,7 @@ M01 -> 124260
 */
 void M01_GiveMCTSpeech_Zone_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->chinookGDISpawnedSoldiersInHonWarRoom, sizeof(this->chinookGDISpawnedSoldiersInHonWarRoom), 1);
 	Auto_Save_Variable(&this->starAtHONMCT, sizeof(this->starAtHONMCT), 2);
 	Auto_Save_Variable(&this->honChinookSpawnedSoldier1GDIObjId, sizeof(this->honChinookSpawnedSoldier1GDIObjId), 3);
 	Auto_Save_Variable(&this->honChinookSpawnedSoldier2GDIObjId, sizeof(this->honChinookSpawnedSoldier2GDIObjId), 4);
@@ -35,13 +35,12 @@ void M01_GiveMCTSpeech_Zone_JDG::Register_Auto_Save_Variables()
 void M01_GiveMCTSpeech_Zone_JDG::Created(GameObject *obj)
 {
 	this->starAtHONMCT = false;
-	this->field_1C = false;
+	this->chinookGDISpawnedSoldiersInHonWarRoom = false;
 	this->didMCTConversation = false;
 	this->honChinookSpawnedSoldier1GDIObjId = 0;
 	this->honChinookSpawnedSoldier2GDIObjId = 0;
 }
 
-// TODO
 void M01_GiveMCTSpeech_Zone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -63,7 +62,7 @@ void M01_GiveMCTSpeech_Zone_JDG::Custom(GameObject *obj, int type, int param, Ga
 			// Received from M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG or M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG when action with id 39 is complete
 			else if (param == 16)
 			{
-				this->field_1C = true;
+				this->chinookGDISpawnedSoldiersInHonWarRoom = true;
 
 				Commands->Send_Custom_Event(obj, obj, 0, 27, 0.0f);
 			}
@@ -71,7 +70,7 @@ void M01_GiveMCTSpeech_Zone_JDG::Custom(GameObject *obj, int type, int param, Ga
 			// Received from ourselves when param 16 is received or entered
 			else if (param == 27)
 			{
-				if (this->field_1C && this->starAtHONMCT)
+				if (this->chinookGDISpawnedSoldiersInHonWarRoom && this->starAtHONMCT)
 				{
 					GameObject *honChinookSpawnedSoldier1GDIObj = Commands->Find_Object(this->honChinookSpawnedSoldier1GDIObjId);
 					GameObject *honChinookSpawnedSoldier2GDIObj = Commands->Find_Object(this->honChinookSpawnedSoldier2GDIObjId);
@@ -108,7 +107,6 @@ void M01_GiveMCTSpeech_Zone_JDG::Custom(GameObject *obj, int type, int param, Ga
 	}
 }
 
-// TODO
 void M01_GiveMCTSpeech_Zone_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED && action_id == this->gdiHONMCTConversationId)

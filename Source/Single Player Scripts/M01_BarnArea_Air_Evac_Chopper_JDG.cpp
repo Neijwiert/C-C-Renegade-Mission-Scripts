@@ -64,7 +64,6 @@ void M01_BarnArea_Air_Evac_Chopper_JDG::Damaged(GameObject *obj, GameObject *dam
 	Commands->Set_Health(obj, maxHealth);
 }
 
-// TODO
 void M01_BarnArea_Air_Evac_Chopper_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from ourselves after 3 seconds on create
@@ -112,7 +111,6 @@ void M01_BarnArea_Air_Evac_Chopper_JDG::Custom(GameObject *obj, int type, int pa
 	}
 }
 
-// TODO
 void M01_BarnArea_Air_Evac_Chopper_JDG::Animation_Complete(GameObject *obj, const char *animation_name)
 {
 	if (!_stricmp(animation_name, "v_GDI_trnspt.XG_EV5_trnsA"))

@@ -28,7 +28,6 @@ void M01_Objective_Pog_Controller_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->tutorialConversationId, sizeof(this->tutorialConversationId), 2);
 }
 
-// TODO
 void M01_Objective_Pog_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -97,11 +96,15 @@ void M01_Objective_Pog_Controller_JDG::Custom(GameObject *obj, int type, int par
 			Commands->Set_Objective_HUD_Info_Position(109, 91.0f, "POG_M01_2_02.tga", 7376, objectivePos); // Destroy
 			Commands->Set_HUD_Help_Text(6269, Vector3(0.196f, 0.882f, 0.196f)); // Destroy Nod Turrets
 		}
+
+		// Never received
 		else if (param == 110)
 		{
 			Commands->Set_Objective_HUD_Info_Position(110, 92.0f, "POG_M01_2_03.tga", 7389, Vector3(-49.91f, 183.86f, 0.774f)); // Rescue
 			Commands->Set_HUD_Help_Text(6270, Vector3(0.196f, 0.882f, 0.196f)); // Rescue Civilians
 		}
+
+		// Never received
 		else if (param == 112)
 		{
 			Commands->Set_Objective_HUD_Info_Position(112, 93.0f, "POG_M01_2_04.tga", 7381, Vector3(-54.786f, 213.816f, 6.453f)); // Evacuate

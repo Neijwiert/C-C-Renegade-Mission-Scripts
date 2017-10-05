@@ -32,5 +32,5 @@ class M01_ChurchArea_EvacMonitor_JDG : public ScriptImpClass
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		int field_1C;
+		int rescuedPrisonerCount;
 };

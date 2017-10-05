@@ -32,10 +32,10 @@ class M01_GDIBase_POWEncounter02_Controller_JDG : public ScriptImpClass
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		bool field_1C;
-		bool field_1D;
-		bool field_1E;
-		bool field_1F;
+		bool didDoGDIBasePOWEvacAnim;
+		bool gdiPOW1Dead;
+		bool gdiPOW2Dead;
+		bool allPOWsDead;
 		int waypathObjId;
 		int chopperObjId;
 		int ropeObjId;

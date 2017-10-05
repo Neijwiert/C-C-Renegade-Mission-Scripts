@@ -33,93 +33,93 @@ class M01_Mission_Controller_JDG : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 
-		bool field_1C;
-		bool field_1D;
-		bool field_1E;
-		bool field_1F;
-		bool field_20;
-		bool field_21;
-		bool field_22;
-		bool field_23;
-		bool field_24;
-		bool field_25;
-		bool field_26;
-		bool field_27;
-		bool field_28;
-		bool field_29;
-		bool field_2A;
-		bool field_2B;
-		bool field_2C;
-		bool field_2D;
-		bool field_2E;
-		bool field_2F;
-		bool field_30;
-		bool field_31;
-		bool field_32;
-		bool field_33;
-		bool field_34;
-		bool field_35;
-		bool field_36;
-		bool field_37;
-		bool field_38;
-		bool field_39;
-		bool field_3A;
-		bool field_3B;
-		bool field_3C;
-		bool field_3D;
-		bool field_3E;
-		bool field_3F;
-		bool field_40;
-		bool field_41;
-		bool field_42;
-		DWORD field_44;
+		bool field_1C; // Assigned, but not used
+		bool firstTimeHONEntered;
+		bool firstTimeHONGruntZoneEntered;
+		bool firstTimeHONDojoZoneEntered;
+		bool firstTimePrisonerPenSwitchPoked;
+		bool firstTimeRadarScrambled;
+		bool firstTimeStarLeavingGDIBase;
+		bool prisonerGateLowered;
+		bool churchGuardMiniGunnerKilled;
+		bool churchLoveShackMiniGunnerKilled;
+		bool doingChinookReinforcementsPokedConversation;
+		bool failedChurchEvac;
+		bool startedChurchEvac;
+		bool commKilled;
+		bool radarScrambled;
+		bool announcedPrisonerObjective;
+		bool commSAMSiteObjectiveActive;
+		bool pokedPrisonPenGateSwitch;
+		bool honEasySpawnedGuy1Alive;
+		bool honEasySpawnedGuy2Alive;
+		bool honEasySpawnedGuy3Alive;
+		bool beachNodTurret1Destroyed;
+		bool beachNodTurret2Destroyed;
+		bool allBeachTurretsDestroyed;
+		bool field_34; // Assigned and used, but never changed after create
+		bool field_35; // Assigned and used, but never changed after create
+		bool field_36; // Assigned and used, but never changed after create
+		bool field_37; // Assigned, but not used
+		bool kaneConversationActive; // Assigned, but not used
+		bool field_39; // Assigned, but not used
+		bool commBaseCommanderKilled;
+		bool starInChurchArea;
+		bool honWeatherSet;
+		bool gdiBaseEncounterInactive;
+		bool field_3E; // Assigned and used, but never changed after create
+		bool field_3F; // Assigned, but not used
+		bool barnCivsEvacuated;
+		bool gunboatDestroyed;
+		bool destroyedDetentionPenCivs;
+		DWORD field_44; // Never assigned, but used
 		int whackAMoleNodMinigunnerObjId;
 		int nodHonSpawnedSoldier1ObjId;
 		int nodHonSpawnedSoldier2ObjId;
 		int nodHonSpawnedSoldier3ObjId;
-		DWORD field_58;
-		DWORD field_5C;
-		DWORD field_60;
-		float field_64;
-		DWORD field_68;
-		int field_6C;
-		int field_70;
-		int field_74;
-		int field_78;
-		int field_7C;
-		int field_80;
-		int field_84;
-		int field_88;
-		DWORD field_8C;
-		DWORD field_90;
-		int field_94;
-		int field_98;
-		int field_9C;
-		DWORD field_A0;
-		DWORD field_A4;
-		DWORD field_A8;
-		DWORD field_AC;
-		int field_B0;
-		DWORD field_B4;
-		int field_B8;
-		int field_BC;
-		int field_C0;
+		DWORD field_58; // Never assigned and never used
+		int honEasySpawnedGuyCount;
+		int honEasySpawnedGuyCount2;
+		float honEasySpawnedGuySpawnInterval;
+		DWORD field_68; // Assigned, but not used
+		int kaneHologramObjId;
+		int _00_N000ESoundId;
+		int _00_N002ESoundId;
+		int _00_N026ESoundId;
+		int _00_N028ESoundId;
+		int _00_N030ESoundId;
+		int billysConversationConversationId;
+		int babushkasConversationConversationId;
+		DWORD field_8C; // Never assigned and never used
+		DWORD field_90; // Never assigned and never used
+		int kaneAndNumber2Conversation1ConversationId;
+		int field_98; // Never assigned, but used
+		int kaneAndHavocConversationConversationId;
+		DWORD field_A0; // Never assigned and never used
+		DWORD field_A4; // Never assigned and never used
+		DWORD field_A8; // Never assigned and never used
+		DWORD field_AC; // Never assigned and never used
+		int civ3ConversationConversationId;
+		DWORD field_B4; // Never assigned and never used
+		int field_B8; // Never assigned, but used
+		int removeUnlockGateObjectiveConversationId;
+		int addTurretsObjectiveConversationId;
 		int chinookSpawnedSoldierGDIObjId;
 		int lastDamagedStarEnemyObjId;
-		DWORD field_CC;
-		DWORD field_D0;
-		DWORD field_D4;
-		bool field_D8;
-		int field_DC;
-		bool field_E0;
-		int field_E4;
-		bool field_E8;
-		int field_EC;
-		bool field_F0;
-		bool field_F1;
-		bool field_F2;
-		bool field_F3;
-		DWORD field_F4;
-		DWORD field_F8;
-		DWORD field_FC;
+		int honTroopDropCount;
+		int barnGuardDeathCount;
+		DWORD field_D4; // Assigned, but not used
+		bool field_D8; // Assigned, but not used
+		int lockeChurchReminderConversationConversationId;
+		bool remindedStarOfChurchCivs;
+		int priestReminderConversationConversationId;
+		bool remindedStarOfMoreChurchCivs;
+		int interiorNunConversationConversationId;
+		bool remindedStarOfMoreChurchCivs2;
+		bool starEnteredHONGruntZone;
+		bool starInBarn;
+		bool commSAMSiteDestroyed;
+		int honKilled;
+		int commKilled;
+		int starAreaNumber;
 };

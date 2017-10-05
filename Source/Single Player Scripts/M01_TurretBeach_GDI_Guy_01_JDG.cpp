@@ -45,7 +45,6 @@ void M01_TurretBeach_GDI_Guy_01_JDG::Created(GameObject *obj)
 	}
 }
 
-// TODO
 void M01_TurretBeach_GDI_Guy_01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_BarnArea_AI_ExitZone_JDG when entered
@@ -65,6 +64,7 @@ void M01_TurretBeach_GDI_Guy_01_JDG::Custom(GameObject *obj, int type, int param
 
 void M01_TurretBeach_GDI_Guy_01_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// When done moving to star, see animation complete
 	if (action_id == 65)
 	{
 		this->turnOverTankConversationId = Commands->Create_Conversation("M01_TurretBeach_TurnOverTank_Conversation", 100, 50.0f, true); // This conversation does not exist
@@ -83,6 +83,8 @@ void M01_TurretBeach_GDI_Guy_01_JDG::Action_Complete(GameObject *obj, int action
 			Commands->Action_Goto(obj, params);
 		}
 	}
+
+	// When done with movement, see conversation ended turnOverTankConversationId or custom param 23
 	else if (action_id == 38)
 	{
 		Vector3 pos = Commands->Get_Position(obj);

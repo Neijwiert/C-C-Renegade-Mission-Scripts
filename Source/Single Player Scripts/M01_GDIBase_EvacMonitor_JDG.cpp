@@ -24,19 +24,18 @@ M01 -> 103419
 */
 void M01_GDIBase_EvacMonitor_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->rescuedPrisonerCount, sizeof(this->rescuedPrisonerCount), 1);
 }
 
 void M01_GDIBase_EvacMonitor_JDG::Created(GameObject *obj)
 {
-	this->field_1C = 0;
+	this->rescuedPrisonerCount = 0;
 }
 
-// TODO
 void M01_GDIBase_EvacMonitor_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_Base_POW01_JDG or M01_Base_POW02_JDG when action with id 39 is complete
-	if (param == 4001 && ++this->field_1C == 4)
+	if (param == 4001 && ++this->rescuedPrisonerCount == 4)
 	{
 		int conversationId = Commands->Create_Conversation("M01_AirDrop_Conversation", 100, 1000.0f, false); // Nice work. I'm air-dropping supplies, look for them.
 		Commands->Join_Conversation(NULL, conversationId, false, false, true);

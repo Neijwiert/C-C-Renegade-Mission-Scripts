@@ -46,7 +46,6 @@ void M01_Church_Priest_JDG::Killed(GameObject *obj, GameObject *killer)
 	Commands->Send_Custom_Event(obj, M01ChurchEvacControllerJDGObj, 0, 229, 0.0f);
 }
 
-// TODO
 void M01_Church_Priest_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when param 148 is received
@@ -104,7 +103,6 @@ void M01_Church_Priest_JDG::Custom(GameObject *obj, int type, int param, GameObj
 	}
 }
 
-// TODO
 void M01_Church_Priest_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED)
@@ -133,6 +131,7 @@ void M01_Church_Priest_JDG::Action_Complete(GameObject *obj, int action_id, Acti
 	}
 	else if(complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When done doing animation, see param 16/173
 		if (action_id == 46)
 		{
 			ActionParamsStruct params;
@@ -141,6 +140,8 @@ void M01_Church_Priest_JDG::Action_Complete(GameObject *obj, int action_id, Acti
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+		
+		// When done doing animation, see action id 46
 		else if (action_id == 47)
 		{
 			ActionParamsStruct params;
@@ -149,6 +150,8 @@ void M01_Church_Priest_JDG::Action_Complete(GameObject *obj, int action_id, Acti
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When done doing animation, see action id 47
 		else if (action_id == 48)
 		{
 			ActionParamsStruct params;
@@ -157,6 +160,8 @@ void M01_Church_Priest_JDG::Action_Complete(GameObject *obj, int action_id, Acti
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// When done doing movement, see action id 48
 		else if (action_id == 39)
 		{
 			Commands->Enable_Hibernation(obj, true);
@@ -167,6 +172,8 @@ void M01_Church_Priest_JDG::Action_Complete(GameObject *obj, int action_id, Acti
 				Commands->Send_Custom_Event(obj, M01PriestConversationZoneJDGObj, 0, 16, 0.0f);
 			}
 		}
+
+		// When done moving to evac location, see param 4001
 		else if (action_id == 4001)
 		{
 			GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
@@ -200,6 +207,8 @@ void M01_Church_Priest_JDG::Action_Complete(GameObject *obj, int action_id, Acti
 				Commands->Send_Custom_Event(obj, M01ChurchEvacControllerJDGObj, 0, 10, 0.0f);
 			}
 		}
+
+		// When done doing animation, see conversation complete priestLuckyCharmsConversationId
 		else if (action_id == 49)
 		{
 			GameObject *M01ChurchEvacControllerJDGObj = Commands->Find_Object(103394);

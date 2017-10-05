@@ -32,7 +32,6 @@ void M01_DataDisc_TextController_JDG::Created(GameObject *obj)
 	this->doingTutorialConversation = false;
 }
 
-// TODO
 void M01_DataDisc_TextController_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (type == 1)

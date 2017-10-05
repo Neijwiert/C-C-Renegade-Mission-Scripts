@@ -34,6 +34,6 @@ class M01_Billys_Conversation_Zone_JDG : public ScriptImpClass
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 		virtual void Exited(GameObject *obj, GameObject *exiter);
 
-		bool field_1C;
+		bool billyInShack;
 		bool starInBillysShack;
 };

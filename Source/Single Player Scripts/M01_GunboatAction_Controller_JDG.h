@@ -32,6 +32,6 @@ class M01_GunboatAction_Controller_JDG : public ScriptImpClass
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		bool field_1C;
+		bool starInBarnArea;
 		int engineerObjId;
 };

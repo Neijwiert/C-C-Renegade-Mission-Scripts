@@ -108,7 +108,6 @@ void M01_TurretBeach_Engineer_JDG::Damaged(GameObject *obj, GameObject *damager,
 	}
 }
 
-// TODO
 void M01_TurretBeach_Engineer_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_GunboatAction_Controller_JDG when param 16 is received
@@ -197,6 +196,8 @@ void M01_TurretBeach_Engineer_JDG::Custom(GameObject *obj, int type, int param, 
 			}
 		}
 	}
+
+	// Never received
 	else if (param == 17)
 	{
 		GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
@@ -220,6 +221,8 @@ void M01_TurretBeach_Engineer_JDG::Custom(GameObject *obj, int type, int param, 
 
 		Commands->Action_Goto(obj, params);
 	}
+
+	// Never received
 	else if (param == 18)
 	{
 		GameObject *beachNodTurret2Obj = Commands->Find_Object(101435);
@@ -277,11 +280,11 @@ void M01_TurretBeach_Engineer_JDG::Enemy_Seen(GameObject *obj, GameObject *enemy
 	}
 }
 
-// TODO
 void M01_TurretBeach_Engineer_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When done with movement, see param 189
 		if (action_id == 38)
 		{
 			GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
@@ -297,6 +300,8 @@ void M01_TurretBeach_Engineer_JDG::Action_Complete(GameObject *obj, int action_i
 				Commands->Send_Custom_Event(obj, obj, 0, 17, 1.5f);
 			}
 		}
+
+		// When done with movement, see param 189
 		else if (action_id == 39)
 		{
 			GameObject *beachNodTurret2Obj = Commands->Find_Object(101435);
@@ -312,6 +317,8 @@ void M01_TurretBeach_Engineer_JDG::Action_Complete(GameObject *obj, int action_i
 				Commands->Send_Custom_Event(obj, obj, 0, 18, 0.5f);
 			}
 		}
+
+		// When done with animation, see damaged
 		else if (action_id == 48)
 		{
 			static const char *animations[5] =
@@ -333,6 +340,8 @@ void M01_TurretBeach_Engineer_JDG::Action_Complete(GameObject *obj, int action_i
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When done with movement, see param 17/18
 		else if (action_id == 40)
 		{
 			this->goingToRepairTurret = false;

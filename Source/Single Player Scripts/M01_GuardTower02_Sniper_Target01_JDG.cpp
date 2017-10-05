@@ -23,13 +23,13 @@ void M01_GuardTower02_Sniper_Target01_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->sniperTargetNodMinigunnerObjId, sizeof(this->sniperTargetNodMinigunnerObjId), 1);
 	Auto_Save_Variable(&this->conversationId, sizeof(this->conversationId), 2);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
+	Auto_Save_Variable(&this->canSendCustomToSniperTarget2, sizeof(this->canSendCustomToSniperTarget2), 3);
 }
 
 // When M01_GDI_GuardTower02_SniperRifle_JDG is picked up
 void M01_GuardTower02_Sniper_Target01_JDG::Created(GameObject *obj)
 {
-	this->field_24 = true;
+	this->canSendCustomToSniperTarget2 = true;
 
 	Commands->Enable_Hibernation(obj, false);
 
@@ -53,7 +53,7 @@ void M01_GuardTower02_Sniper_Target01_JDG::Killed(GameObject *obj, GameObject *k
 		Commands->Send_Custom_Event(obj, M01GuardTower02SniperTowerZoneJDGObj, 0, 22, 0.0f);
 	}
 
-	if (this->field_24)
+	if (this->canSendCustomToSniperTarget2)
 	{
 		GameObject *sniperTargetNodMinigunnerObj = Commands->Find_Object(this->sniperTargetNodMinigunnerObjId);
 		if (sniperTargetNodMinigunnerObj)
@@ -63,7 +63,6 @@ void M01_GuardTower02_Sniper_Target01_JDG::Killed(GameObject *obj, GameObject *k
 	}
 }
 
-// TODO
 void M01_GuardTower02_Sniper_Target01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_GuardTower02_Sniper_Target02_JDG when killed
@@ -79,14 +78,13 @@ void M01_GuardTower02_Sniper_Target01_JDG::Custom(GameObject *obj, int type, int
 	}
 }
 
-// TODO
 void M01_GuardTower02_Sniper_Target01_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED)
 	{
 		if (action_id == this->conversationId)
 		{
-			this->field_24 = false;
+			this->canSendCustomToSniperTarget2 = false;
 
 			Commands->Set_Innate_Is_Stationary(obj, false);
 
@@ -105,6 +103,7 @@ void M01_GuardTower02_Sniper_Target01_JDG::Action_Complete(GameObject *obj, int 
 	}
 	else if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When movement is complete, see create
 		if (action_id == 38)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, true);
@@ -123,10 +122,14 @@ void M01_GuardTower02_Sniper_Target01_JDG::Action_Complete(GameObject *obj, int 
 				Commands->Monitor_Conversation(obj, this->conversationId);
 			}
 		}
+
+		// When movement is complete, see conversation complete conversationId
 		else if (action_id == 39)
 		{
 			Commands->Enable_Hibernation(obj, true);
 		}
+
+		// When animation complete, see param 22
 		else if (action_id == 46)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, false);

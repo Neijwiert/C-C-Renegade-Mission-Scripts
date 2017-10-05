@@ -24,15 +24,15 @@ M01 -> 100253
 */
 void M01_Ambient_Sound_Controller_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
+	Auto_Save_Variable(&this->honKilled, sizeof(this->honKilled), 1);
+	Auto_Save_Variable(&this->commKilled, sizeof(this->commKilled), 2);
+	Auto_Save_Variable(&this->starAreaNumber, sizeof(this->starAreaNumber), 3);
 	Auto_Save_Variable(&this->ccAmbientM01SoundId, sizeof(this->ccAmbientM01SoundId), 4);
 	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 5);
 	Auto_Save_Variable(&this->klaxonSoundIndex, sizeof(this->klaxonSoundIndex), 6);
 	Auto_Save_Variable(&this->ambientSoundIndex, sizeof(this->ambientSoundIndex), 7);
-	Auto_Save_Variable(&this->field_38, sizeof(this->field_38), 8);
-	Auto_Save_Variable(&this->field_39, sizeof(this->field_39), 9);
+	Auto_Save_Variable(&this->starOutside, sizeof(this->starOutside), 8);
+	Auto_Save_Variable(&this->ambientM01SoundActive, sizeof(this->ambientM01SoundActive), 9);
 	Auto_Save_Variable(&this->field_3A, sizeof(this->field_3A), 10);
 }
 
@@ -40,14 +40,14 @@ void M01_Ambient_Sound_Controller_JDG::Created(GameObject *obj)
 {
 	Commands->Enable_Hibernation(obj, false);
 
-	this->field_1C = 0;
-	this->field_20 = 0;
+	this->honKilled = 0;
+	this->commKilled = 0;
 	this->klaxonSoundIndex = 0;
 	this->ambientSoundIndex = 0;
-	this->field_38 = false;
-	this->field_39 = false;
+	this->starOutside = false;
+	this->ambientM01SoundActive = false;
 	this->field_3A = false;
-	this->field_24 = 5;
+	this->starAreaNumber = 5;
 
 	Commands->Send_Custom_Event(obj, obj, 0, 158, 0.0f);
 }
@@ -59,17 +59,17 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 	// Received from M01_mission_Controller_JDG when param 138 or 142 or 144 or 146 is received
 	if (param == 158)
 	{
-		if (!this->field_38)
+		if (!this->starOutside)
 		{
-			this->field_24 = 5;
-			this->field_38 = true;
+			this->starAreaNumber = 5;
+			this->starOutside = true;
 
-			if (this->field_39)
+			if (this->ambientM01SoundActive)
 			{
 				Commands->Stop_Sound(this->ccAmbientM01SoundId, true);
 			}
 
-			this->field_39 = false;
+			this->ambientM01SoundActive = false;
 			this->field_3A = false;
 		}
 	}
@@ -77,44 +77,48 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 	// Received by M01_mission_Controller_JDG when param 135 or 141 or 143 or 145 is received
 	else if (param == 159)
 	{
-		if (this->field_38)
+		if (this->starOutside)
 		{
-			this->field_38 = false;
+			this->starOutside = false;
 		}
 	}
 
 	// Received from M01_Hand_of_Nod_Building_Script_JDG when killed
 	else if (param == 122)
 	{
-		this->field_1C = 1;
+		this->honKilled = 1;
 	}
 
 	// Received from M01_Comm_Center_Building_Script_JDG when killed
 	else if (param == 124)
 	{
-		this->field_20 = 1;
+		this->commKilled = 1;
 	}
+
+	// Never received
 	else if (param == 130)
 	{
-		this->field_24 = 0;
+		this->starAreaNumber = 0;
 	}
+
+	// Never received
 	else if (param == 132)
 	{
-		this->field_24 = 1;
+		this->starAreaNumber = 1;
 	}
 
 	// Received from M01_mission_Controller_JDG when param 141 is received
 	else if (param == 141)
 	{
-		this->field_24 = 4;
+		this->starAreaNumber = 4;
 
-		if (!this->field_20 && !this->field_39)
+		if (!this->commKilled && !this->ambientM01SoundActive)
 		{
 
 			Commands->Debug_Message("**********************turning on active Comm Center ambient noise\n");
 
 			this->ccAmbientM01SoundId = Commands->Create_Sound("CC_Ambient_M01", Vector3(0.0f, 0.0f, 0.0f), obj);
-			this->field_39 = true;
+			this->ambientM01SoundActive = true;
 
 			float randDelay = Commands->Get_Random(5.0, 10.0);
 			Commands->Send_Custom_Event(obj, obj, 0, 105, randDelay);
@@ -124,18 +128,18 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 	// Received by M01_mission_Controller_JDG when param 135 is received
 	else if (param == 135)
 	{
-		this->field_24 = 2;
+		this->starAreaNumber = 2;
 
-		if (!this->field_1C && !this->field_39)
+		if (!this->honKilled && !this->ambientM01SoundActive)
 		{
-			this->field_39 = true;
+			this->ambientM01SoundActive = true;
 		}
 	}
 
 	// Received from ourselves when param 105 is received
 	else if (param == 106)
 	{
-		if (this->field_24 == 4 && !this->field_20)
+		if (this->starAreaNumber == 4 && !this->commKilled)
 		{
 			GameObject *starObj = Commands->Get_A_Star(Vector3(0.0f, 0.0f, 0.0f));
 			if (starObj)
@@ -165,7 +169,7 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 	// Received from ourselves after 1.5 seconds when param 106 is received or param 105
 	else if (param == 107)
 	{
-		if (this->field_24 == 4 && !this->field_20)
+		if (this->starAreaNumber == 4 && !this->commKilled)
 		{
 			GameObject *starObj = Commands->Get_A_Star(Vector3(0.0f, 0.0f, 0.0f));
 			if (starObj)
@@ -209,7 +213,7 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 	// Received from ourselves after 5 to 10 seconds when param 141 is received or when param 107 is received
 	else if (param == 105)
 	{
-		if (this->field_24 == 4 && !this->field_20)
+		if (this->starAreaNumber == 4 && !this->commKilled)
 		{
 			float rand = Commands->Get_Random(0.5, 15.5);
 

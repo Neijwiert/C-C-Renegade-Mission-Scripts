@@ -34,8 +34,8 @@ class M01_Commander_Shack_Zone_JDG : public ScriptImpClass
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 		virtual void Exited(GameObject *obj, GameObject *exiter);
 
-		bool field_1C;
+		bool duncanAlive;
 		bool starInsideShack;
-		bool field_1E;
+		bool starAtDuncanArea;
 		bool field_1F;
 };

@@ -73,7 +73,6 @@ void M01_HON_Easy_Spawned_Guy_03_JDG::Damaged(GameObject *obj, GameObject *damag
 	}
 }
 
-// TODO
 void M01_HON_Easy_Spawned_Guy_03_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from ourselves after 30 seconds after this block
@@ -103,7 +102,6 @@ void M01_HON_Easy_Spawned_Guy_03_JDG::Custom(GameObject *obj, int type, int para
 	}
 }
 
-// TODO
 void M01_HON_Easy_Spawned_Guy_03_JDG::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
 	Vector3 pos = Commands->Get_Position(obj);

@@ -24,28 +24,27 @@ M01 -> 101370
 */
 void M01_Interior_Nun_Conversation_Zone_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->interiorNunMovedToThisZone, sizeof(this->interiorNunMovedToThisZone), 1);
 }
 
 void M01_Interior_Nun_Conversation_Zone_JDG::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->interiorNunMovedToThisZone = false;
 }
 
-// TODO
 void M01_Interior_Nun_Conversation_Zone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_Church_Interior_Nun_JDG when action with id 39 is complete
 	if (param == 16)
 	{
-		this->field_1C = true;
+		this->interiorNunMovedToThisZone = true;
 	}
 }
 
 void M01_Interior_Nun_Conversation_Zone_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
 	Vector3 pos = Commands->Get_Position(obj);
-	if (enterer == Commands->Get_A_Star(pos) && this->field_1C)
+	if (enterer == Commands->Get_A_Star(pos) && this->interiorNunMovedToThisZone)
 	{
 		GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
 		Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 211, 0.0f);

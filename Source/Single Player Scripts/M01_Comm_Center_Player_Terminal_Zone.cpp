@@ -25,12 +25,12 @@ M01 -> 107809
 void M01_Comm_Center_Player_Terminal_Zone::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->hacked, sizeof(this->hacked), 1);
-	Auto_Save_Variable(&this->field_1D, sizeof(this->field_1D), 2);
+	Auto_Save_Variable(&this->commKilled, sizeof(this->commKilled), 2);
 }
 
 void M01_Comm_Center_Player_Terminal_Zone::Created(GameObject *obj)
 {
-	this->field_1D = false;
+	this->commKilled = false;
 
 	Commands->Enable_HUD_Pokable_Indicator(obj, true);
 	Commands->Display_Health_Bar(obj, false);
@@ -38,7 +38,6 @@ void M01_Comm_Center_Player_Terminal_Zone::Created(GameObject *obj)
 	this->hacked = false;
 }
 
-// TODO
 void M01_Comm_Center_Player_Terminal_Zone::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (!type)
@@ -53,7 +52,7 @@ void M01_Comm_Center_Player_Terminal_Zone::Custom(GameObject *obj, int type, int
 		// Received from M01_Comm_Center_Building_Script_JDG when killed
 		else if (param == 124)
 		{
-			this->field_1D = true;
+			this->commKilled = true;
 
 			Commands->Enable_HUD_Pokable_Indicator(obj, false);
 		}
@@ -63,7 +62,7 @@ void M01_Comm_Center_Player_Terminal_Zone::Custom(GameObject *obj, int type, int
 void M01_Comm_Center_Player_Terminal_Zone::Poked(GameObject *obj, GameObject *poker)
 {
 	Vector3 pos = Commands->Get_Position(obj);
-	if (poker == Commands->Get_A_Star(pos) && !this->hacked && !this->field_1D)
+	if (poker == Commands->Get_A_Star(pos) && !this->hacked && !this->commKilled)
 	{
 		this->hacked = true;
 

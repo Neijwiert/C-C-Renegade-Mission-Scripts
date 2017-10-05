@@ -29,21 +29,21 @@ void M01_Base_GDI_Minigunner_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->health, sizeof(this->health), 3);
 	Auto_Save_Variable(&this->preventDeath, sizeof(this->preventDeath), 4);
 	Auto_Save_Variable(&this->pathConversationId, sizeof(this->pathConversationId), 5);
-	Auto_Save_Variable(&this->field_2D, sizeof(this->field_2D), 6);
-	Auto_Save_Variable(&this->field_2E, sizeof(this->field_2E), 7);
-	Auto_Save_Variable(&this->field_2F, sizeof(this->field_2F), 8);
+	Auto_Save_Variable(&this->duncanGaveIonCannonBeacon, sizeof(this->duncanGaveIonCannonBeacon), 6);
+	Auto_Save_Variable(&this->duncanInDanger, sizeof(this->duncanInDanger), 7);
+	Auto_Save_Variable(&this->powPrisonersInDanger, sizeof(this->powPrisonersInDanger), 8);
 	Auto_Save_Variable(&this->attackedByNodMinigunners, sizeof(this->attackedByNodMinigunners), 9);
-	Auto_Save_Variable(&this->field_31, sizeof(this->field_31), 10);
+	Auto_Save_Variable(&this->starLeftGDIBase, sizeof(this->starLeftGDIBase), 10);
 }
 
 void M01_Base_GDI_Minigunner_JDG::Created(GameObject *obj)
 {
-	this->field_31 = false;
+	this->starLeftGDIBase = false;
 	this->attackedByNodMinigunners = false;
 	this->preventDeath = true;
-	this->field_2D = false;
-	this->field_2F = true;
-	this->field_2E = false;
+	this->duncanGaveIonCannonBeacon = false;
+	this->powPrisonersInDanger = true;
+	this->duncanInDanger = false;
 	this->health = Commands->Get_Health(obj);
 
 	GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));
@@ -196,8 +196,8 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 		{
 			Commands->Enable_Hibernation(obj, false);
 
-			this->field_2D = true;
-			this->field_2E = false;
+			this->duncanGaveIonCannonBeacon = true;
+			this->duncanInDanger = false;
 
 			Commands->Action_Reset(obj, 100.0f);
 
@@ -234,15 +234,15 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 		// Received from M01_GDIBase_POW_Conversation_Controller_JDG after 2 seconds when the conversation ended
 		else if (param == 31)
 		{
-			if (!this->field_2E)
+			if (!this->duncanInDanger)
 			{
-				if (this->field_31)
+				if (this->starLeftGDIBase)
 				{
-					this->field_2F = false;
+					this->powPrisonersInDanger = false;
 
 					Commands->Action_Reset(obj, 100.0f);
 
-					this->field_2E = true;
+					this->duncanInDanger = true;
 
 					ActionParamsStruct params;
 					params.Set_Basic(this, 100.0f, 43);
@@ -275,16 +275,16 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 		// Received from M01_BackPath_EntranceZone_JDG when custom type <= 0 and param 27 is received
 		else if (param == 32)
 		{
-			if (!this->field_2D)
+			if (!this->duncanGaveIonCannonBeacon)
 			{
-				this->field_31 = true;
+				this->starLeftGDIBase = true;
 			}
 		}
 
 		// Received from M01_GDIBase_BaseCommander_JDG when killed
 		else if (param == 22)
 		{
-			if (this->field_2F)
+			if (this->powPrisonersInDanger)
 			{
 				this->preventDeath = false;
 
@@ -325,7 +325,7 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 
 void M01_Base_GDI_Minigunner_JDG::Enemy_Seen(GameObject *obj, GameObject *enemy)
 {
-	if (this->field_2E)
+	if (this->duncanInDanger)
 	{
 		ActionParamsStruct params;
 		params.Set_Basic(this, 100.0f, 43);
@@ -337,7 +337,6 @@ void M01_Base_GDI_Minigunner_JDG::Enemy_Seen(GameObject *obj, GameObject *enemy)
 	}
 }
 
-// TODO
 void M01_Base_GDI_Minigunner_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED)
@@ -381,6 +380,7 @@ void M01_Base_GDI_Minigunner_JDG::Action_Complete(GameObject *obj, int action_id
 	}
 	else if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When movement complete, see param 27
 		if (action_id == 38)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, true);
@@ -395,6 +395,8 @@ void M01_Base_GDI_Minigunner_JDG::Action_Complete(GameObject *obj, int action_id
 
 			Commands->Send_Custom_Event(obj, obj, 0, 28, 2.0f);
 		}
+
+		// When movement complete, see param 28
 		else if (action_id == 39)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, true);
@@ -407,10 +409,14 @@ void M01_Base_GDI_Minigunner_JDG::Action_Complete(GameObject *obj, int action_id
 
 			Commands->Action_Attack(obj, params);
 		}
+
+		// When nod minigunner 3 killed, see param 17
 		else if (action_id == 17)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 29, 0.0f);
 		}
+
+		// When movement complete, see param 9
 		else if (action_id == 9)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, true);
@@ -421,6 +427,8 @@ void M01_Base_GDI_Minigunner_JDG::Action_Complete(GameObject *obj, int action_id
 				Commands->Send_Custom_Event(obj, M01GDIBaseCommanderEvacControllerJDGObj, 0, 27, 0.0f);
 			}
 		}
+
+		// When moved to evac location, see param 4001
 		else if (action_id == 4001)
 		{
 			Vector3 pos = Commands->Get_Position(obj);
@@ -441,10 +449,14 @@ void M01_Base_GDI_Minigunner_JDG::Action_Complete(GameObject *obj, int action_id
 				Commands->Send_Custom_Event(obj, M01GDIBaseCommanderEvacControllerJDGObj, 0, 10, 0.0f);
 			}
 		}
+
+		// When movement complete, see baseDestroyedConversationId finished
 		else if (action_id == 40)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 41, 0.0f);
 		}
+
+		// When movement complete, see param 41
 		else if (action_id == 41)
 		{
 			ActionParamsStruct params;
@@ -453,10 +465,14 @@ void M01_Base_GDI_Minigunner_JDG::Action_Complete(GameObject *obj, int action_id
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// When movement complete, see action id 41
 		else if (action_id == 42)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, true);
 		}
+
+		// When enemy killed, see enemy seen
 		else if (action_id == 43)
 		{
 			ActionParamsStruct params;

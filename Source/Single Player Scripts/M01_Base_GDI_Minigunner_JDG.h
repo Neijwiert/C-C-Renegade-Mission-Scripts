@@ -41,9 +41,9 @@ class M01_Base_GDI_Minigunner_JDG : public ScriptImpClass
 		int pathConversationId;
 		float health;
 		bool preventDeath;
-		bool field_2D;
-		bool field_2E;
-		bool field_2F;
+		bool duncanGaveIonCannonBeacon;
+		bool duncanInDanger;
+		bool powPrisonersInDanger;
 		bool attackedByNodMinigunners;
-		bool field_31;
+		bool starLeftGDIBase;
 };

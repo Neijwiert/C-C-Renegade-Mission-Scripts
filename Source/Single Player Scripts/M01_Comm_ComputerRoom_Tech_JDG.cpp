@@ -34,7 +34,6 @@ void M01_Comm_ComputerRoom_Tech_JDG::Created(GameObject *obj)
 	Commands->Innate_Disable(obj);
 }
 
-// TODO
 void M01_Comm_ComputerRoom_Tech_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when param 141 is received
@@ -52,11 +51,11 @@ void M01_Comm_ComputerRoom_Tech_JDG::Custom(GameObject *obj, int type, int param
 	}
 }
 
-// TODO
 void M01_Comm_ComputerRoom_Tech_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When done moving to spawn location, see param 141 or action id 46
 		if (action_id == 38)
 		{
 			ActionParamsStruct params;
@@ -65,6 +64,8 @@ void M01_Comm_ComputerRoom_Tech_JDG::Action_Complete(GameObject *obj, int action
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// When done doing animation, see action id 38
 		else if (action_id == 46)
 		{
 			ActionParamsStruct params;

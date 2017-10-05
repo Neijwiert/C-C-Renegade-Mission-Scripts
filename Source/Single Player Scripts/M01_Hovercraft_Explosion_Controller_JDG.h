@@ -31,5 +31,5 @@ class M01_Hovercraft_Explosion_Controller_JDG : public ScriptImpClass
 	private:
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		int field_1C;
+		int beachMediumTankObjId;
 };

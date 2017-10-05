@@ -24,7 +24,7 @@ M01 -> 106694
 */
 void M01_GDIBaseCommander_EvacController_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->didDoGDIBaseCommanderEvacAnim, sizeof(this->didDoGDIBaseCommanderEvacAnim), 1);
 	Auto_Save_Variable(&this->waypathId, sizeof(this->waypathId), 2);
 	Auto_Save_Variable(&this->chopperObjId, sizeof(this->chopperObjId), 3);
 	Auto_Save_Variable(&this->ropeObjId, sizeof(this->ropeObjId), 4);
@@ -32,7 +32,7 @@ void M01_GDIBaseCommander_EvacController_JDG::Register_Auto_Save_Variables()
 
 void M01_GDIBaseCommander_EvacController_JDG::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->didDoGDIBaseCommanderEvacAnim = false;
 
 	Commands->Enable_Hibernation(obj, false);
 }
@@ -68,9 +68,9 @@ void M01_GDIBaseCommander_EvacController_JDG::Custom(GameObject *obj, int type, 
 		// Received from M01_Base_GDI_Grenadier_JDG or M01_Base_GDI_Minigunner_JDG or M01_GDIBase_BaseCommander_JDG when action with id 9 is complete
 		else if (param == 27)
 		{
-			if (!this->field_1C)
+			if (!this->didDoGDIBaseCommanderEvacAnim)
 			{
-				this->field_1C = true;
+				this->didDoGDIBaseCommanderEvacAnim = true;
 				
 				Vector3 pos = Commands->Get_Position(obj);
 				GameObject *invisObj = Commands->Create_Object("Invisible_Object", pos);
@@ -81,7 +81,7 @@ void M01_GDIBaseCommander_EvacController_JDG::Custom(GameObject *obj, int type, 
 		// Received from M01_GDIBaseCommander_Air_Evac_Chopper_JDG when custom param 4 is received
 		else if (param == 28)
 		{
-			if (this->field_1C)
+			if (this->didDoGDIBaseCommanderEvacAnim)
 			{
 				GameObject *chopperObj = Commands->Find_Object(this->chopperObjId);
 				GameObject *waypath = Commands->Find_Object(this->waypathId);

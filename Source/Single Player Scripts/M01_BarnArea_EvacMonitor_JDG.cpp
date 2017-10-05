@@ -24,23 +24,22 @@ M01 -> 103420
 */
 void M01_BarnArea_EvacMonitor_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->rescuedPrisonerCount, sizeof(this->rescuedPrisonerCount), 1);
 	Auto_Save_Variable(&this->chopperObjId, sizeof(this->chopperObjId), 2);
 	Auto_Save_Variable(&this->waypathObjId, sizeof(this->waypathObjId), 3);
 	Auto_Save_Variable(&this->ropeObjId, sizeof(this->ropeObjId), 4);
-	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 5);
+	Auto_Save_Variable(&this->thanksConversationDone, sizeof(this->thanksConversationDone), 5);
 	Auto_Save_Variable(&this->airdropConversationId, sizeof(this->airdropConversationId), 6);
-	Auto_Save_Variable(&this->field_34, sizeof(this->field_34), 7);
+	Auto_Save_Variable(&this->prisonerKilled, sizeof(this->prisonerKilled), 7);
 }
 
 void M01_BarnArea_EvacMonitor_JDG::Created(GameObject *obj)
 {
-	this->field_1C = 0;
-	this->field_2C = false;
-	this->field_34 = false;
+	this->rescuedPrisonerCount = 0;
+	this->thanksConversationDone = false;
+	this->prisonerKilled = false;
 }
 
-// TODO
 void M01_BarnArea_EvacMonitor_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_Barn_Prisoner_01_JDG or M01_Barn_Prisoner_02_JDG or M01_Barn_Prisoner_03_JDG when killed
@@ -52,14 +51,14 @@ void M01_BarnArea_EvacMonitor_JDG::Custom(GameObject *obj, int type, int param, 
 
 		if (sender == barnFemalePrisonerObj || sender == billyObj || sender == barnMalePrisonerPierreObj)
 		{
-			this->field_34 = true;
+			this->prisonerKilled = true;
 		}
 	}
 
 	// Received from M01_Barn_Prisoner_01_JDG or M01_Barn_Prisoner_02_JDG or M01_Barn_Prisoner_03_JDG when action with id 4001 is complete
 	else if (param == 4001)
 	{
-		if (++this->field_1C == 3 && !this->field_34)
+		if (++this->rescuedPrisonerCount == 3 && !this->prisonerKilled)
 		{
 			this->airdropConversationId = Commands->Create_Conversation("M01_AirDrop_Conversation", 100, 1000.0f, false); // Nice work. I'm air-dropping supplies, look for them.
 			Commands->Join_Conversation(NULL, this->airdropConversationId, false, false, true);
@@ -120,9 +119,9 @@ void M01_BarnArea_EvacMonitor_JDG::Custom(GameObject *obj, int type, int param, 
 	// Received from M01_mission_Controller_JDG when param 75 is received
 	else if (param == 75)
 	{
-		if (!this->field_2C)
+		if (!this->thanksConversationDone)
 		{
-			this->field_2C = true;
+			this->thanksConversationDone = true;
 
 			Vector3 pos = Commands->Get_Position(obj);
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", pos);
@@ -153,7 +152,7 @@ void M01_BarnArea_EvacMonitor_JDG::Custom(GameObject *obj, int type, int param, 
 			Commands->Send_Custom_Event(obj, ropeObj, 0, 27, 0.0f);
 		}
 
-		if (this->field_34)
+		if (this->prisonerKilled)
 		{
 			int conversationId = Commands->Create_Conversation("M01_HandOfNod_Alerted_Conversation", 100, 1000.0f, false); // That firefight alerted the Nod base. Destroy the Hand of Nod to stop further reinforcements.
 			Commands->Join_Conversation(NULL, conversationId, false, false, true);
@@ -162,7 +161,6 @@ void M01_BarnArea_EvacMonitor_JDG::Custom(GameObject *obj, int type, int param, 
 	}
 }
 
-// TODO
 void M01_BarnArea_EvacMonitor_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED && action_id == this->airdropConversationId)

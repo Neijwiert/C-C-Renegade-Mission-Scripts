@@ -27,7 +27,6 @@ void M01_Comm_Upstairs_Guard_JDG::Created(GameObject *obj)
 	Commands->Innate_Disable(obj);
 }
 
-// TODO
 void M01_Comm_Upstairs_Guard_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when param 141 is received
@@ -48,16 +47,18 @@ void M01_Comm_Upstairs_Guard_JDG::Custom(GameObject *obj, int type, int param, G
 	}
 }
 
-// TODO
 void M01_Comm_Upstairs_Guard_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When done following waypath, see param 141 or timer 38
 		if (action_id == 38)
 		{
 			float randDuration = Commands->Get_Random(1.0f, 10.0f);
 			Commands->Start_Timer(obj, this, randDuration, 38);
 		}
+
+		// When done following waypath, see timer 39
 		else if (action_id == 39)
 		{
 			float randDuration = Commands->Get_Random(1.0f, 10.0f);
@@ -66,9 +67,9 @@ void M01_Comm_Upstairs_Guard_JDG::Action_Complete(GameObject *obj, int action_id
 	}
 }
 
-// TODO
 void M01_Comm_Upstairs_Guard_JDG::Timer_Expired(GameObject *obj, int number)
 {
+	// After 1 to 10 seconds, see action id 38
 	if (number == 38)
 	{
 		ActionParamsStruct params;
@@ -80,6 +81,8 @@ void M01_Comm_Upstairs_Guard_JDG::Timer_Expired(GameObject *obj, int number)
 
 		Commands->Action_Goto(obj, params);
 	}
+
+	// After 1 to 10 seconds, see action id 39
 	else if (number == 39)
 	{
 		ActionParamsStruct params;

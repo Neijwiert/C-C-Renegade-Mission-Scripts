@@ -35,8 +35,8 @@ class M01_MediumTank_ReminderZone_JDG : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
-		bool field_1C;
-		bool field_1D;
+		bool beachMediumTankCreated;
+		bool starInBeachMediumTank;
 		int getInTankConversationId;
 		int objId;
 		int getInTankConversationIndex;

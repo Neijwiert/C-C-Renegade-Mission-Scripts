@@ -41,7 +41,6 @@ void M01_Church_LoveShack_Nun_JDG::Killed(GameObject *obj, GameObject *killer)
 	}
 }
 
-// TODO
 void M01_Church_LoveShack_Nun_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from M01_mission_Controller_JDG when param 148 is received
@@ -88,11 +87,11 @@ void M01_Church_LoveShack_Nun_JDG::Custom(GameObject *obj, int type, int param, 
 	}
 }
 
-// TODO
 void M01_Church_LoveShack_Nun_JDG::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// When done moving to evac location, see param 4001
 		if (action_id == 4001)
 		{
 			GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
@@ -126,6 +125,8 @@ void M01_Church_LoveShack_Nun_JDG::Action_Complete(GameObject *obj, int action_i
 				Commands->Send_Custom_Event(obj, M01ChurchEvacControllerJDGObj, 0, 10, 0.0f);
 			}
 		}
+
+		// When done following waypath, see param 174
 		else if (action_id == 39)
 		{
 			Commands->Enable_Hibernation(obj, true);
