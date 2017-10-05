@@ -109,6 +109,8 @@ void M01_GDIBase_BaseCommander_JDG::Custom(GameObject *obj, int type, int param,
 		{
 			this->field_28 = true;
 		}
+
+		// Received from ourselves after 1 second after param 16 or after thsi block
 		else if (param == 4)
 		{
 			GameObject *nodAssailant1Obj = Commands->Find_Object(101399);
@@ -134,6 +136,8 @@ void M01_GDIBase_BaseCommander_JDG::Custom(GameObject *obj, int type, int param,
 				}
 			}
 		}
+
+		// Received from M01_GDIBase_AI_ExitZone_JDG when entered
 		else if (param == 9)
 		{
 			Commands->Enable_Hibernation(obj, false);
@@ -164,6 +168,8 @@ void M01_GDIBase_BaseCommander_JDG::Custom(GameObject *obj, int type, int param,
 				Commands->Action_Goto(obj, params);
 			}
 		}
+
+		// Received from M01_Commander_Shack_Zone_JDG when param 27 is received
 		else if (param == 27)
 		{
 			// Good timing.  Nod was closing in.

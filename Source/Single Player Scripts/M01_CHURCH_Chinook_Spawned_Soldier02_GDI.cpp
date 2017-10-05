@@ -57,6 +57,7 @@ void M01_CHURCH_Chinook_Spawned_Soldier02_GDI::Damaged(GameObject *obj, GameObje
 // TODO
 void M01_CHURCH_Chinook_Spawned_Soldier02_GDI::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from ourselves after 10 to 60 seconds after this block or when animation is complete
 	if (param == 67)
 	{
 		if (this->field_1C)

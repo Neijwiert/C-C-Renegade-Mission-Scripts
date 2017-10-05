@@ -35,6 +35,7 @@ void M01_Loveshack_Nun_Conversation_Zone_JDG::Created(GameObject *obj)
 // TODO
 void M01_Loveshack_Nun_Conversation_Zone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Church_LoveShack_Nun_JDG when action with id 39 is complete
 	if (param == 16)
 	{
 		this->field_1C = true;

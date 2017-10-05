@@ -78,6 +78,7 @@ void M01_COMM_Chinook_Spawned_Soldier_GDI::Custom(GameObject *obj, int type, int
 	}
 	else
 	{
+		// Received from ourselves after 10 to 60 seconds after this block or animation is complete
 		if (param == 67)
 		{
 			if (this->field_1C)

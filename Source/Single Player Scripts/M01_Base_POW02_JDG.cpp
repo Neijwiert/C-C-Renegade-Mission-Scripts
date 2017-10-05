@@ -64,6 +64,7 @@ void M01_Base_POW02_JDG::Custom(GameObject *obj, int type, int param, GameObject
 {
 	if (!type)
 	{
+		// Received from M01_Base_POW01_JDG when custom type <= 0 and param 22 is received
 		if (param == 16)
 		{
 			ActionParamsStruct params;

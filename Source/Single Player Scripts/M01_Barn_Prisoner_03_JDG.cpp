@@ -80,6 +80,8 @@ void M01_Barn_Prisoner_03_JDG::Custom(GameObject *obj, int type, int param, Game
 
 		Commands->Action_Attack(obj, params);
 	}
+
+	// Received from M01_BarnArea_Air_Evac_Chopper_JDG when created
 	else if (param == 75)
 	{
 		this->field_1C = true;
@@ -87,6 +89,8 @@ void M01_Barn_Prisoner_03_JDG::Custom(GameObject *obj, int type, int param, Game
 		Commands->Enable_Hibernation(obj, false);
 		Commands->Set_Innate_Is_Stationary(obj, false);
 	}
+
+	// Received after 2 seconds when animation is complete
 	else if (param == 4002)
 	{
 		Commands->Debug_Message("***************************barn civ 3 has received evac chopper call--should now be going to evac spot\n");

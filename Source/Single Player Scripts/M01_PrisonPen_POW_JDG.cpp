@@ -55,6 +55,7 @@ void M01_PrisonPen_POW_JDG::Killed(GameObject *obj, GameObject *killer)
 // TODO
 void M01_PrisonPen_POW_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Detention_GuardTower_Enter_Zone_JDG when exited
 	if (param == 24)
 	{
 		Commands->Innate_Soldier_Enable_Gunshot_Heard(obj, false);
@@ -97,6 +98,8 @@ void M01_PrisonPen_POW_JDG::Custom(GameObject *obj, int type, int param, GameObj
 		float randDelay = Commands->Get_Random(0.25f, 2.5f);
 		Commands->Send_Custom_Event(obj, obj, 0, 46, randDelay);
 	}
+
+	// Received from M01_Detention_GuardTower_Enter_Zone_JDG when entered
 	else if (param == 16)
 	{
 		Commands->Innate_Soldier_Enable_Gunshot_Heard(obj, true);

@@ -70,6 +70,8 @@ void M01_Church_Priest_JDG::Custom(GameObject *obj, int type, int param, GameObj
 
 		Commands->Action_Play_Animation(obj, params);
 	}
+
+	// Received from M01_ChurchArea_Air_Evac_Chopper_JDG when animation complete
 	else if (param == 4001)
 	{
 		Vector3 pos = Commands->Get_Position(obj);

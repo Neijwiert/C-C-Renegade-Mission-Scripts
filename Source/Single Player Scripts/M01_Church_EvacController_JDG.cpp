@@ -50,6 +50,8 @@ void M01_Church_EvacController_JDG::Custom(GameObject *obj, int type, int param,
 		Commands->Start_Conversation(this->protectClergyConversationId, this->protectClergyConversationId);
 		Commands->Monitor_Conversation(obj, this->protectClergyConversationId);
 	}
+
+	// Received from M01_ChurchArea_Air_Evac_Chopper_JDG when param 4 is received 
 	else if (param == 15)
 	{
 		GameObject *chopperObj = Commands->Find_Object(this->chopperObjId);
@@ -71,6 +73,8 @@ void M01_Church_EvacController_JDG::Custom(GameObject *obj, int type, int param,
 			Commands->Send_Custom_Event(obj, ropeObj, 0, 27, 0.0f);
 		}
 	}
+
+	// Received from M01_Church_Interior_Nun_JDG or M01_Church_LoveShack_Nun_JDG or M01_Church_Priest_JDG when killed
 	else if (param == 229)
 	{
 		if (++this->field_2C == 3)
@@ -79,24 +83,32 @@ void M01_Church_EvacController_JDG::Custom(GameObject *obj, int type, int param,
 			Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 95, 0.0f);
 		}
 	}
+
+	// Received from M01_ChurchArea_Air_Evac_Chopper_JDG when created
 	else if (param == 14)
 	{
 		this->chopperObjId = Commands->Get_ID(sender);
 
 		Commands->Debug_Message("**********************chopper id received.....%d\n", this->chopperObjId);
 	}
+
+	// Received from M01_ChurchArea_Air_Evac_Waypath_JDG when created
 	else if (param == 13)
 	{
 		this->waypathObjId = Commands->Get_ID(sender);
 
 		Commands->Debug_Message("**********************waypath id received.....%d\n", this->waypathObjId);
 	}
+
+	// Received from M01_ChurchArea_Air_Evac_Rope_JDG when created
 	else if (param == 12)
 	{
 		this->ropeObjId = Commands->Get_ID(sender);
 
 		Commands->Debug_Message("**********************rope id received.....%d\n", this->ropeObjId);
 	}
+
+	// Received from M01_Church_Interior_Nun_JDG or M01_Church_LoveShack_Nun_JDG or M01_Church_Priest_JDG when action with id 4001 is complete
 	else if (param == 10)
 	{
 		Vector3 pos = Commands->Get_Position(obj);

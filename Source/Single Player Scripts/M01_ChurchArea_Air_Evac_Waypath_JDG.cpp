@@ -34,6 +34,7 @@ void M01_ChurchArea_Air_Evac_Waypath_JDG::Created(GameObject *obj)
 // TODO
 void M01_ChurchArea_Air_Evac_Waypath_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Church_EvacController_JDG when param 15 is received
 	if (param == 27)
 	{
 		Commands->Debug_Message("*******************************waypath has received custom to goto exit anim\n");

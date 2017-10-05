@@ -40,7 +40,7 @@ void M01_Base_GDI_Fodder_JDG::Created(GameObject *obj)
 
 void M01_Base_GDI_Fodder_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
-	// Received from ourselves, see created
+	// Received from ourselves after 10 to 15 seconds, see created
 	if (!type && param == 27)
 	{
 		Commands->Apply_Damage(obj, 10000.0f, "BlamoKiller", NULL);

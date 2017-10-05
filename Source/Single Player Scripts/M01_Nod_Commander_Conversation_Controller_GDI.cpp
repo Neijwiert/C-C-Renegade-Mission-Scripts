@@ -36,6 +36,7 @@ void M01_Nod_Commander_Conversation_Controller_GDI::Created(GameObject *obj)
 // TODO
 void M01_Nod_Commander_Conversation_Controller_GDI::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_GDI_GuardTower_NOD_Commander_JDG when param 66 is received
 	if (param == 27)
 	{
 		if (sender == Commands->Find_Object(102360) && this->canCallForBackup) // Entrance barn zone area tower nod officer

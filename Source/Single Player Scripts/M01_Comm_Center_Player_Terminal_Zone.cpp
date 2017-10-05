@@ -48,6 +48,8 @@ void M01_Comm_Center_Player_Terminal_Zone::Custom(GameObject *obj, int type, int
 			Commands->Set_Obj_Radar_Blip_Shape(obj, RADAR_BLIP_SHAPE_OBJECTIVE);
 			Commands->Set_Obj_Radar_Blip_Color(obj, RADAR_BLIP_COLOR_PRIMARY_OBJECTIVE);
 		}
+
+		// Received from M01_Comm_Center_Building_Script_JDG when killed
 		else if (param == 124)
 		{
 			this->field_1D = true;

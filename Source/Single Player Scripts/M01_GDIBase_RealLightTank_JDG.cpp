@@ -48,6 +48,8 @@ void M01_GDIBase_RealLightTank_JDG::Custom(GameObject *obj, int type, int param,
 				Commands->Send_Custom_Event(obj, M01AirstrikeControllerJDGObj, 0, 27, 15.0f);
 			}
 		}
+
+		// Received from M01_Airstrike_Controller_JDG when it receives custom type <= 0 and param <= 0
 		else if (param == 17)
 		{
 			if (obj)

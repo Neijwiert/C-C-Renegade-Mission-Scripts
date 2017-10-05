@@ -99,6 +99,7 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 {
 	if (!type)
 	{
+		// Received from ourselves after 2 seconds when created
 		if (param == 27)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, false);
@@ -114,6 +115,8 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 			Commands->Set_Facing(invisObj, 90.0f);
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X01D_C130Troopdrop.txt");
 		}
+
+		// Received from ourselves when action with id 38 is complete
 		else if (param == 28)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, false);
@@ -125,6 +128,8 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 
 			Commands->Action_Goto(obj, params); // Yes, not Action_Attack
 		}
+
+		// Received from M01_Base_StartZone_JDG when entered
 		else if (param == 17)
 		{
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(34.165f, 41.909f, -10.0f));
@@ -149,6 +154,8 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 				Commands->Send_Custom_Event(obj, obj, 0, 29, 0.0f);
 			}
 		}
+
+		// Received from ourselves when param 17 is received or when action with id 17 is complete
 		else if (param == 29)
 		{
 			Vector3 pos = Commands->Get_Position(obj);
@@ -173,6 +180,8 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 				Commands->Send_Custom_Event(obj, gdiGrenadierObj, 0, 16, 0.0f);
 			}
 		}
+
+		// Received from ourselves after 2 seconds when action with id baseDestroyedConversationId is complete
 		else if (param == 30)
 		{
 			GameObject *M01ObjectivePogControllerJDGObj = Commands->Find_Object(105828);
@@ -216,6 +225,8 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 				Commands->Action_Goto(obj, params);
 			}
 		}
+
+		// Received from ourselves after 5 seconds when action with id pathconversationId is complete
 		else if (param == 31)
 		{
 			if (!this->field_2E)
@@ -255,6 +266,8 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 				}
 			}
 		}
+
+		// Received from M01_BackPath_EntranceZone_JDG when custom type <= 0 and param 27 is received
 		else if (param == 32)
 		{
 			if (!this->field_2D)
@@ -262,6 +275,8 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 				this->field_31 = true;
 			}
 		}
+
+		// Received from M01_GDIBase_BaseCommander_JDG when killed
 		else if (param == 22)
 		{
 			if (this->field_2F)
@@ -271,6 +286,8 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 				Commands->Apply_Damage(obj, 100000.0f, "Steel", NULL);
 			}
 		}
+
+		// Received from ourselves when damaged or when action with id 40 is complete
 		else if (param == 41)
 		{
 			GameObject *nodMinigunner1Obj = Commands->Find_Object(116388);

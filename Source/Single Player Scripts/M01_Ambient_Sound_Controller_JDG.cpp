@@ -55,6 +55,7 @@ void M01_Ambient_Sound_Controller_JDG::Created(GameObject *obj)
 // TODO
 void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from ourselves after create
 	if (param == 158)
 	{
 		if (!this->field_38)
@@ -82,6 +83,8 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 	{
 		this->field_1C = 1;
 	}
+
+	// Received from M01_Comm_Center_Building_Script_JDG when killed
 	else if (param == 124)
 	{
 		this->field_20 = 1;
@@ -119,6 +122,8 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 			this->field_39 = true;
 		}
 	}
+
+	// Received from ourselves when param 105 is received
 	else if (param == 106)
 	{
 		if (this->field_24 == 4 && !this->field_20)
@@ -147,6 +152,8 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 			}
 		}
 	}
+
+	// Received from ourselves after 1.5 seconds when param 106 is received or param 105
 	else if (param == 107)
 	{
 		if (this->field_24 == 4 && !this->field_20)
@@ -189,6 +196,8 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 			}
 		}
 	}
+
+	// Received from ourselves after 5 to 10 seconds when param 141 is received or when param 107 is received
 	else if (param == 105)
 	{
 		if (this->field_24 == 4 && !this->field_20)

@@ -68,6 +68,8 @@ void M01_Church_LoveShack_Nun_JDG::Custom(GameObject *obj, int type, int param, 
 
 		Commands->Action_Goto(obj, params);
 	}
+
+	// Received from M01_ChurchArea_Air_Evac_Chopper_JDG when animation complete
 	else if (param == 4001)
 	{
 		GameObject *M01ChurchEvacControllerJDGObj = Commands->Find_Object(103394);
@@ -148,7 +150,7 @@ void M01_Church_LoveShack_Nun_JDG::Poked(GameObject *obj, GameObject *poker)
 	if (poker == Commands->Get_A_Star(pos))
 	{
 		GameObject *M01MissionControllerJDGObj = Commands->Find_Object(100376);
-		Commands->Send_Custom_Event((ScriptableGameObj *)this, M01MissionControllerJDGObj, 0, 212, 0.0f);
+		Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 212, 0.0f);
 	}
 }
 

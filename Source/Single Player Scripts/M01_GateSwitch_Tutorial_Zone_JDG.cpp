@@ -35,6 +35,8 @@ void M01_GateSwitch_Tutorial_Zone_JDG::Created(GameObject *obj)
 // TODO
 void M01_GateSwitch_Tutorial_Zone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Comm_Center_Building_Script_JDG when killed
+	// Received from M01_Comm_Center_Player_Terminal_Zone when poked
 	if (!type && param == 16)
 	{
 		this->field_1C = true;

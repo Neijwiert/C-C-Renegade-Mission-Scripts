@@ -39,6 +39,7 @@ void M01_ChurchArea_Spawner_Controller_JDG::Created(GameObject *obj)
 // TODO
 void M01_ChurchArea_Spawner_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_ChurchArea_Spawner_Guy_JDG when killed
 	if (param == 69)
 	{
 		this->soldierCount--;
@@ -67,6 +68,8 @@ void M01_ChurchArea_Spawner_Controller_JDG::Custom(GameObject *obj, int type, in
 
 		Commands->Destroy_Object(obj);
 	}
+
+	// Received from ourselves after param 69
 	else if(param == 68)
 	{
 		int difficultyLevel = Commands->Get_Difficulty_Level();

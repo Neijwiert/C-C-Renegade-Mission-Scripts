@@ -38,6 +38,7 @@ void M01_BuggyNew_Controller_JDG::Created(GameObject *obj)
 // TODO
 void M01_BuggyNew_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Announce_Hand_of_Nod_Zone when entered 
 	if (param == 16)
 	{
 		GameObject *nodBuggyObj = Commands->Create_Object("Nod_Buggy", Vector3(-233.946f, 494.424f, 5.234f));

@@ -39,10 +39,13 @@ void M01_Comm_Center_Pen_Gate::Custom(GameObject *obj, int type, int param, Game
 {
 	if (!type)
 	{
+		// Received from M01_CommCenter_SAMSite_Script when killed
 		if (param == 125)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 16, 5.0f);
 		}
+
+		// Received from ourselves after 5 seconds when param 125
 		else if (param == 16)
 		{
 			this->field_1C = true;

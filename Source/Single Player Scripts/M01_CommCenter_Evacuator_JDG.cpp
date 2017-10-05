@@ -51,7 +51,7 @@ void M01_CommCenter_Evacuator_JDG::Damaged(GameObject *obj, GameObject *damager,
 	Vector3 pos = Commands->Get_Position(obj);
 	if (damager == Commands->Get_A_Star(pos))
 	{
-		if (damager)
+		if (obj)
 		{
 			GameObject *M01MissionControllerObj = Commands->Find_Object(100376);
 			Commands->Send_Custom_Event(obj, M01MissionControllerObj, 0, 189, 0.0f);

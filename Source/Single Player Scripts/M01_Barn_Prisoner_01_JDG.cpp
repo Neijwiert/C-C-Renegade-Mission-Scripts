@@ -78,12 +78,16 @@ void M01_Barn_Prisoner_01_JDG::Custom(GameObject *obj, int type, int param, Game
 	{
 		this->field_1C = false;
 	}
+
+	// Received from M01_BarnArea_Air_Evac_Chopper_JDG when created
 	else if (param == 75)
 	{
 		this->field_1D = true;
 
 		Commands->Enable_Hibernation(obj, false);
 	}
+
+	// Received from M01_BarnArea_Air_Evac_Chopper_JDG when animation is complete
 	else if (param == 4002)
 	{
 		Commands->Enable_Hibernation(obj, false);

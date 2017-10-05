@@ -81,6 +81,7 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 {
 	if (!type)
 	{
+		// Received from ourselves after 10 seconds, see create
 		if (param == 27)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, false);
@@ -91,6 +92,8 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// Received from M01_Base_StartZone_JDG when entered
 		else if (param == 17)
 		{
 			GameObject *nodMinigunner3Obj = Commands->Find_Object(116384);
@@ -109,6 +112,8 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Action_Reset(obj, 100.0f);
 			}
 		}
+
+		// Received from M01_Base_GDI_Minigunner_JDG when custom type <= 0 and param 29 is received
 		else if (param == 16)
 		{
 			Commands->Action_Reset(obj, 100.0f);
@@ -126,6 +131,8 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 			float randDelay = Commands->Get_Random(1.0f, 2.0f);
 			Commands->Send_Custom_Event(obj, obj, 0, 28, randDelay);
 		}
+
+		// Received from ourselves after 1 to 2 seconds, see param 16
 		else if (param == 28)
 		{
 			ActionParamsStruct params;
@@ -134,6 +141,8 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// Received from M01_Base_GDI_Minigunner_JDG when action with id baseDestroyedConversationId is complete
 		else if (param == 29)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, false);
@@ -176,6 +185,8 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Action_Goto(obj, params);
 			}
 		}
+
+		// Received from M01_BackPath_EntranceZone_JDG when custom type <= 0 and param 28 is received
 		else if (param == 32)
 		{
 			if (!this->field_21)
@@ -194,6 +205,8 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Action_Attack(obj, params);
 			}
 		}
+
+		// Received from M01_GDIBase_BaseCommander_JDG when killed
 		else if (param == 22)
 		{
 			if (this->field_23)
@@ -203,6 +216,8 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Apply_Damage(obj, 100000.0f, "Steel", NULL);
 			}
 		}
+
+		// Received from ourselves after damaged
 		else if (param == 41)
 		{
 			GameObject *nodMinigunner2Obj = Commands->Find_Object(116387);
@@ -312,6 +327,8 @@ void M01_Base_GDI_Grenadier_JDG::Action_Complete(GameObject *obj, int action_id,
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 41, 0.0f);
 		}
+
+		// Received from ourselves when action with id 40 is complete
 		else if (action_id == 41)
 		{
 			Commands->Set_Innate_Is_Stationary(obj, false);

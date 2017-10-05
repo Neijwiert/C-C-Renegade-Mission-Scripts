@@ -94,6 +94,7 @@ void M01_GDI_Base_Artillery_Controller_JDG::Custom(GameObject *obj, int type, in
 	}
 	else
 	{
+		// Received from M01_GDI_GuardTower_NOD_Commander_JDG when killed
 		if (param == 24)
 		{
 			this->canDoExplosions = false;
@@ -103,6 +104,8 @@ void M01_GDI_Base_Artillery_Controller_JDG::Custom(GameObject *obj, int type, in
 				Commands->Destroy_Object(obj);
 			}
 		}
+
+		// Received from ourselves after 2 seconds on create or when explosion sound is complete or param 16 is received
 		else if (param == 67)
 		{
 			if (this->canDoExplosions)

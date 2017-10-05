@@ -72,6 +72,8 @@ void M01_Church_Interior_Nun_JDG::Custom(GameObject *obj, int type, int param, G
 
 		Commands->Action_Play_Animation(obj, params);
 	}
+
+	// Received from M01_ChurchArea_Air_Evac_Chopper_JDG when animation complete
 	else if (param == 4001)
 	{
 		GameObject *M01ChurchEvacControllerJDGObj = Commands->Find_Object(103394);

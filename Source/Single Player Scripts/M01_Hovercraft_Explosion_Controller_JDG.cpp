@@ -36,6 +36,8 @@ void M01_Hovercraft_Explosion_Controller_JDG::Custom(GameObject *obj, int type, 
 		{
 			this->field_1C = Commands->Get_ID(sender);
 		}
+
+		// Received from M01_FodderHovercraft_Script_JDG when killed
 		else if (param == 22)
 		{
 			GameObject *field1CObj = Commands->Find_Object(this->field_1C);

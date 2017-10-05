@@ -35,6 +35,8 @@ void M01_GDI_Escort_Conversation_Controller_GDI::Created(GameObject *obj)
 // TODO
 void M01_GDI_Escort_Conversation_Controller_GDI::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_CHURCH_Chinook_Spawned_Soldier01_GDI or M01_CHURCH_Chinook_Spawned_Soldier02_GDI when param 180 is received
+	// Received from M01_COMM_Chinook_Spawned_Soldier_GDI when param 180 is received
 	if (param == 27)
 	{
 		const char *conversationName;
@@ -68,6 +70,8 @@ void M01_GDI_Escort_Conversation_Controller_GDI::Custom(GameObject *obj, int typ
 		Commands->Join_Conversation(sender, conversationId, false, false, false);
 		Commands->Start_Conversation(conversationId, conversationId);
 	}
+
+	// Received from M01_CHURCH_Chinook_Spawned_Soldier01_GDI or M01_CHURCH_Chinook_Spawned_Soldier02_GDI when param 149 or 150 is received
 	if (param == 29)
 	{
 		const char *conversationName;

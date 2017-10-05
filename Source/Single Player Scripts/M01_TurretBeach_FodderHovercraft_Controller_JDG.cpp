@@ -53,12 +53,16 @@ void M01_TurretBeach_FodderHovercraft_Controller_JDG::Custom(GameObject *obj, in
 				Commands->Send_Custom_Event(obj, obj, 0, 16, 5.0f);
 			}
 		}
+
+		// Received from M01_FodderHovercraft_Script_JDG when killed
 		else if (param == 22)
 		{
 			this->field_20 = false;
 
 			Commands->Send_Custom_Event(obj, obj, 0, 16, 15.0f);
 		}
+
+		// Received from M01_FodderHovercraft_Script_JDG when created
 		else if (!param)
 		{
 			this->field_1C = Commands->Get_ID(sender);

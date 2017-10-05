@@ -34,6 +34,7 @@ void M01_Deco_LightTanks_JDG::Custom(GameObject *obj, int type, int param, GameO
 {
 	if (!type)
 	{
+		// Received from M01_Airstrike_Controller_JDG after it receives custom type <= 0 and param 17
 		if (param == 17)
 		{
 			ActionParamsStruct params;
@@ -47,6 +48,8 @@ void M01_Deco_LightTanks_JDG::Custom(GameObject *obj, int type, int param, GameO
 
 			Commands->Action_Attack(obj, params);
 		}
+
+		// Received from M01_Airstrike_Controller_JDG after it receives custom type <= 0 and param <= 0
 		else if (param == 18)
 		{
 			if (obj)

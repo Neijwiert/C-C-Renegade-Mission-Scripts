@@ -137,6 +137,7 @@ void M01_GDI_GuardTower_NOD_Commander_JDG::Custom(GameObject *obj, int type, int
 {
 	if (!type)
 	{
+		// Received from ourselves after this block or after 2 or 20 seconds when param 16 
 		if (param == 27)
 		{
 			if (obj)
@@ -161,6 +162,8 @@ void M01_GDI_GuardTower_NOD_Commander_JDG::Custom(GameObject *obj, int type, int
 				Commands->Send_Custom_Event(obj, obj, 0, 27, delay);
 			}
 		}
+
+		// Received from ourselves after this block or after 2 or 20 seconds after param 16
 		else if (param == 66)
 		{
 			if (obj && !this->killed)
@@ -177,6 +180,8 @@ void M01_GDI_GuardTower_NOD_Commander_JDG::Custom(GameObject *obj, int type, int
 				Commands->Send_Custom_Event(obj, obj, 0, 66, randDelay);
 			}
 		}
+
+		// Received from ourselves after param 27
 		else if (param == 71)
 		{
 			if (obj)
@@ -185,6 +190,8 @@ void M01_GDI_GuardTower_NOD_Commander_JDG::Custom(GameObject *obj, int type, int
 				Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 71, 0.0f);
 			}
 		}
+
+		// Received from M01_BarnArea_NOD_Commander_Trigger_Zone_JDG or M01_BarnArea_NOD_Commander_Trigger_Zone02_JDG when entered
 		else if (param == 16)
 		{
 			GameObject *nonExistingObj = Commands->Find_Object(102361);

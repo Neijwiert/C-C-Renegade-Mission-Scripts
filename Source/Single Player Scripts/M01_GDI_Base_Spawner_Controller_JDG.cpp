@@ -35,6 +35,7 @@ void M01_GDI_Base_Spawner_Controller_JDG::Created(GameObject *obj)
 // TODO
 void M01_GDI_Base_Spawner_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_GDI_Base_Spawner_Guy_JDG when killed
 	if (param == 69)
 	{
 		this->soldierCount--;
@@ -65,6 +66,8 @@ void M01_GDI_Base_Spawner_Controller_JDG::Custom(GameObject *obj, int type, int 
 
 		Commands->Destroy_Object(obj);
 	}
+
+	// Received from ourselves when param 69 is received or after 10 seconds after this block
 	else if (param == 68)
 	{
 		Commands->Enable_Hibernation(obj, false);

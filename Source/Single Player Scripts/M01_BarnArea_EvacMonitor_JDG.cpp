@@ -43,6 +43,7 @@ void M01_BarnArea_EvacMonitor_JDG::Created(GameObject *obj)
 // TODO
 void M01_BarnArea_EvacMonitor_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Barn_Prisoner_01_JDG or M01_Barn_Prisoner_02_JDG or M01_Barn_Prisoner_03_JDG when killed
 	if (param == 229)
 	{
 		GameObject *barnFemalePrisonerObj = Commands->Find_Object(101442);
@@ -54,6 +55,8 @@ void M01_BarnArea_EvacMonitor_JDG::Custom(GameObject *obj, int type, int param, 
 			this->field_34 = true;
 		}
 	}
+
+	// Received from M01_Barn_Prisoner_01_JDG or M01_Barn_Prisoner_02_JDG or M01_Barn_Prisoner_03_JDG when action with id 4001 is complete
 	else if (param == 4001)
 	{
 		if (++this->field_1C == 3 && !this->field_34)
@@ -67,24 +70,32 @@ void M01_BarnArea_EvacMonitor_JDG::Custom(GameObject *obj, int type, int param, 
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1D_GDIPowerUpDrop.txt");
 		}
 	}
+
+	// Received from M01_BarnArea_Air_Evac_Chopper_JDG when created
 	else if (param == 14)
 	{
 		this->chopperObjId = Commands->Get_ID(sender);
 
 		Commands->Debug_Message("**********************chopper id received.....%d\n", this->chopperObjId);
 	}
+
+	// Received from M01_BarnArea_Air_Evac_Waypath_JDG when created
 	else if (param == 13)
 	{
 		this->waypathObjId = Commands->Get_ID(sender);
 
 		Commands->Debug_Message("**********************waypath id received.....%d\n", this->waypathObjId);
 	}
+
+	// Received from M01_BarnArea_Air_Evac_Rope_JDG when created
 	else if (param == 12)
 	{
 		this->ropeObjId = Commands->Get_ID(sender);
 
 		Commands->Debug_Message("**********************rope id received.....%d\n", this->ropeObjId);
 	}
+
+	// Received from M01_Barn_Prisoner_01_JDG or M01_Barn_Prisoner_02_JDG or M01_Barn_Prisoner_03_JDG when action with id 4001 is complete
 	else if (param == 10)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
@@ -116,6 +127,8 @@ void M01_BarnArea_EvacMonitor_JDG::Custom(GameObject *obj, int type, int param, 
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "XG_M01_BarnArea_EvacAnim.txt");
 		}
 	}
+
+	// Received from M01_BarnArea_Air_Evac_Chopper_JDG when custom param 4 is received
 	else if (param == 15)
 	{
 		Commands->Debug_Message("*******************************all barn civs on board--custom received by controller\n");

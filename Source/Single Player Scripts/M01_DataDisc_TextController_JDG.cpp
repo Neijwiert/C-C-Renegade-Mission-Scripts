@@ -37,6 +37,8 @@ void M01_DataDisc_TextController_JDG::Custom(GameObject *obj, int type, int para
 {
 	if (type == 1)
 	{
+		// Received from M01_C4_Tutorial_Zone_JDG when entered
+		// Received from M01_C4_TutorialScript_JDG when granted
 		if (param == 1)
 		{
 			if (!this->doingTutorialConversation)
@@ -55,18 +57,24 @@ void M01_DataDisc_TextController_JDG::Custom(GameObject *obj, int type, int para
 				this->doingTutorialConversation = true;
 			}
 		}
+
+		// Received from ourselves after 2 seconds after type 1 param 1
 		else if (param == 2)
 		{
 			Commands->Set_HUD_Help_Text(8281, Vector3(0.196f, 0.882f, 0.196f)); // Left-click your mouse to place C4\n
 
 			Commands->Send_Custom_Event(obj, obj, 1, 3, 2.0f);
 		}
+
+		// Received from ourselves after 2 seconds after type 1 param 2
 		else if (param == 3)
 		{
 			Commands->Set_HUD_Help_Text(8282, Vector3(0.196f, 0.882f, 0.196f)); // Right-click your mouse to Detonate\n
 
 			Commands->Send_Custom_Event(obj, obj, 1, 4, 2.0f);
 		}
+
+		// Received from ourselves after 2 seconds after type 1 param 3
 		else if (param == 4)
 		{
 			this->doingTutorialConversation = false;
@@ -74,6 +82,7 @@ void M01_DataDisc_TextController_JDG::Custom(GameObject *obj, int type, int para
 	}
 	else if (type == 2)
 	{
+		// Received from M01_GDI_GuardTower02_SniperRifle_JDG when granted
 		if (param == 1)
 		{
 			if (!this->doingTutorialConversation)
@@ -92,18 +101,24 @@ void M01_DataDisc_TextController_JDG::Custom(GameObject *obj, int type, int para
 				this->doingTutorialConversation = true;
 			}
 		}
+
+		// Received from ourselves after 2 seconds after type 2 param 1
 		else if (param == 2)
 		{
 			Commands->Set_HUD_Help_Text(8279, Vector3(0.196f, 0.882f, 0.196f)); // Right-click your mouse for Sniper Mode\n
 
 			Commands->Send_Custom_Event(obj, obj, 2, 3, 2.0f);
 		}
+
+		// Received from ourselves after 2 seconds after type 2 param 2
 		else if (param == 3)
 		{
 			Commands->Set_HUD_Help_Text(8280, Vector3(0.196f, 0.882f, 0.196f)); // Use the mouse wheel or 'G' and 'T' to Zoom\n
 
 			Commands->Send_Custom_Event(obj, obj, 2, 4, 2.0f);
 		}
+
+		// Received from ourselves after 2 seconds after type 2 param 3
 		else if (param == 4)
 		{
 			this->doingTutorialConversation = false;
@@ -111,6 +126,7 @@ void M01_DataDisc_TextController_JDG::Custom(GameObject *obj, int type, int para
 	}
 	else if (!type)
 	{
+		// Received from M01_Beach_Datadisc_JDG after 2 seconds when granted
 		if (param == 10)
 		{
 			this->doingTutorialConversation = true;
@@ -123,6 +139,8 @@ void M01_DataDisc_TextController_JDG::Custom(GameObject *obj, int type, int para
 
 			Commands->Send_Custom_Event(obj, obj, 0, 11, 2.0f);
 		}
+
+		// Received from ourselves after 2 seconds after type <= 0 and param 10
 		else
 		{
 			this->doingTutorialConversation = false;

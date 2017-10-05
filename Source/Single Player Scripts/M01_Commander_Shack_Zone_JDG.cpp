@@ -43,16 +43,21 @@ void M01_Commander_Shack_Zone_JDG::Custom(GameObject *obj, int type, int param, 
 {
 	if (!type)
 	{
+		// Received from M01_GDIBase_BaseCommander_JDG when param 4 is received
 		if (param == 16)
 		{
 			this->field_1E = true;
 
 			Commands->Send_Custom_Event(obj, obj, 0, 27, 0.0f);
 		}
+
+		// Received from M01_GDIBase_BaseCommander_JDG when killed
 		else if (param == 22)
 		{
 			this->field_1C = false;
 		}
+
+		// Received from ourselves after param 16 or after this block or entered
 		else if (param == 27)
 		{
 			if (!this->field_1F)

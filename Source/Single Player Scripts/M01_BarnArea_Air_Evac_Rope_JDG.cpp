@@ -36,6 +36,7 @@ void M01_BarnArea_Air_Evac_Rope_JDG::Created(GameObject *obj)
 // TODO
 void M01_BarnArea_Air_Evac_Rope_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_BarnArea_EvacMonitor_JDG when custom param 15 is received
 	if (param == 27)
 	{
 		Commands->Debug_Message("*******************************rope has received custom to goto exit anim\n");

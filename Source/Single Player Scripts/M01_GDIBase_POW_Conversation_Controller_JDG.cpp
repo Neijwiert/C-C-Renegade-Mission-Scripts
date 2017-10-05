@@ -36,6 +36,8 @@ void M01_GDIBase_POW_Conversation_Controller_JDG::Created(GameObject *obj)
 // TODO
 void M01_GDIBase_POW_Conversation_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Base_POW01_JDG when action with id 48 is complete
+	// Received from M01_Base_POW02_JDG when action with id 49 is complete
 	if (!type && param == 16 && !this->doingConversation)
 	{
 		this->doingConversation = true;

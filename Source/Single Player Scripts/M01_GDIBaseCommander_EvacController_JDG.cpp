@@ -42,6 +42,7 @@ void M01_GDIBaseCommander_EvacController_JDG::Custom(GameObject *obj, int type, 
 {
 	if (!type)
 	{
+		// Received from M01_GDIBase_BaseCommander_JDG when converstion ended
 		if (param == 16)
 		{
 			GameObject *captainDuncanObj = Commands->Find_Object(106050);
@@ -63,6 +64,8 @@ void M01_GDIBaseCommander_EvacController_JDG::Custom(GameObject *obj, int type, 
 				Commands->Send_Custom_Event(obj, gdiGrenadierObj, 0, 9, 0.0f);
 			}
 		}
+
+		// Received from M01_Base_GDI_Grenadier_JDG or M01_Base_GDI_Minigunner_JDG or M01_GDIBase_BaseCommander_JDG when action with id 9 is complete
 		else if (param == 27)
 		{
 			if (!this->field_1C)
@@ -121,6 +124,8 @@ void M01_GDIBaseCommander_EvacController_JDG::Custom(GameObject *obj, int type, 
 
 			Commands->Debug_Message("**********************rope id received.....%d\n", this->ropeObjId);
 		}
+
+		// Received from M01_Base_GDI_Grenadier_JDG or M01_Base_GDI_Minigunner_JDG or M01_GDIBase_BaseCommander_JDG when action with id 4001 is complete
 		else if (param == 10)
 		{
 			Vector3 pos = Commands->Get_Position(obj);

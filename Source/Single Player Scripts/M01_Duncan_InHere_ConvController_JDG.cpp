@@ -39,6 +39,7 @@ void M01_Duncan_InHere_ConvController_JDG::Custom(GameObject *obj, int type, int
 {
 	if (!type)
 	{
+		// Received from M01_Duncan_Assailer_JDG when killed
 		if (param == 22)
 		{
 			if (++this->field_1C > 3)
@@ -46,10 +47,14 @@ void M01_Duncan_InHere_ConvController_JDG::Custom(GameObject *obj, int type, int
 				Commands->Send_Custom_Event(obj, obj, 0, 16, 2.0f);
 			}
 		}
+
+		// Received from M01_Commander_Shack_Zone_JDG when entered 
 		else if (param == 27)
 		{
 			this->field_20 = true;
 		}
+
+		// Received from ourselves after 2 seconds when param 22 is received or after 10 seconds after this block
 		else if(param == 16)
 		{
 			if (!this->field_20)

@@ -40,6 +40,7 @@ void M01_GDIBase_LightTank_JDG::Killed(GameObject *obj, GameObject *killer)
 // TODO
 void M01_GDIBase_LightTank_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from ourselves after 3 seconds after this block
 	if (param == 16)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
@@ -80,6 +81,8 @@ void M01_GDIBase_LightTank_JDG::Custom(GameObject *obj, int type, int param, Gam
 			Commands->Send_Custom_Event(obj, obj, 0, 16, 3.0f);
 		}
 	}
+
+	// Received from ourselves after 3 seconds after param 16
 	else if (param == 29)
 	{
 		float moveSpeed;

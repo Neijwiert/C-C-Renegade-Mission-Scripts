@@ -59,18 +59,23 @@ void M01_BuggyScript_New_JDG::Killed(GameObject *obj, GameObject *killer)
 // TODO
 void M01_BuggyScript_New_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_BuggyNew_Controller_JDG when param 27 is received with param = TODO
 	if (type == 28)
 	{
 		this->field_1C = param;
 
 		Commands->Send_Custom_Event(obj, obj, 0, 30, 0.0f);
 	}
+
+	// Received from M01_BuggyNew_Controller_JDG when param 28 is received with param = TODO
 	else if (type == 29)
 	{
 		this->field_20 = param;
 		
 		Commands->Send_Custom_Event(obj, obj, 0, 30, 0.0f);
 	}
+
+	// Received from ourselves after 2 seconds on create
 	else if (param == 27)
 	{
 		ActionParamsStruct params;
@@ -85,6 +90,9 @@ void M01_BuggyScript_New_JDG::Custom(GameObject *obj, int type, int param, GameO
 		
 		Commands->Modify_Action(obj, 38, params, false, true);
 	}
+
+	// Received from ourselves after param 28 or 29
+	// Received from ourselves after 1 second when action with id 38 is complete 
 	else if (param == 30)
 	{
 		GameObject *field1CObj = Commands->Find_Object(this->field_1C);

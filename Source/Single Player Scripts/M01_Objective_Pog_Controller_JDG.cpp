@@ -33,6 +33,7 @@ void M01_Objective_Pog_Controller_JDG::Custom(GameObject *obj, int type, int par
 {
 	if (!type)
 	{
+		// Received from M01_Announce_First_ObjectiveZone_JDG when entered
 		if (param == 102)
 		{
 			this->objectiveConversationId = Commands->Create_Conversation("M01_Start_Mission_Conversation", 100, 1000.0f, false); // Now, locate the Nod Detention Center - the civilians are being held there.
@@ -50,6 +51,7 @@ void M01_Objective_Pog_Controller_JDG::Custom(GameObject *obj, int type, int par
 	}
 	else if (type == 6)
 	{
+		// Received from M01_Base_GDI_Minigunner_JDG when custom type <= 0 and param 30 is received
 		if (param == 114)
 		{
 			// Rescue Prisoners

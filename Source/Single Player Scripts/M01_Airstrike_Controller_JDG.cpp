@@ -80,6 +80,8 @@ void M01_Airstrike_Controller_JDG::Custom(GameObject *obj, int type, int param, 
 			this->decoNodLightTank2ObjId = Commands->Get_ID(decoNodLightTank2Obj);
 			this->decoNodLightTank3ObjId = Commands->Get_ID(decoNodLightTank3Obj);
 		}
+
+		// Received from ourselves after we received custom param 27
 		else if (param == 17)
 		{
 			GameObject *decoNodLightTank1Obj = Commands->Find_Object(this->decoNodLightTank1ObjId);

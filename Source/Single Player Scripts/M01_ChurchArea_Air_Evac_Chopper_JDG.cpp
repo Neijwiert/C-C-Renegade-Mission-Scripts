@@ -48,16 +48,21 @@ void M01_ChurchArea_Air_Evac_Chopper_JDG::Damaged(GameObject *obj, GameObject *d
 // TODO
 void M01_ChurchArea_Air_Evac_Chopper_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from ourselves after 3 seconds when created
 	if (param == 24)
 	{
 		Commands->Enable_Collisions(obj);
 	}
+
+	// Received from M01_Church_EvacController_JDG when param 15 is received
 	else if (param == 27)
 	{
 		Commands->Debug_Message("*******************************helicopter has received custom to goto exit anim\n");
 
 		Commands->Set_Animation(obj, "v_GDI_trnspt.XG_EV5_trnsz", false, NULL, 0.0f, -1.0f, false);
 	}
+
+	// Received from ourselves after 2 seconds after this block or when animation complete
 	else if (param == 4)
 	{
 		GameObject *loveShackNunObj = Commands->Find_Object(101310);

@@ -37,12 +37,16 @@ void M01_Barn_Babushkas_Conversation_Zone_JDG::Created(GameObject *obj)
 // TODO
 void M01_Barn_Babushkas_Conversation_Zone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Barn_Prisoner_01_JDG when action with id 39 is complete
+	// Received from M01_Barn_Prisoner_03_JDG when action with id 38 is complete
 	if (param == 16)
 	{
 		this->field_1C = true;
 
 		Commands->Send_Custom_Event(obj, obj, 0, 226, 0.0f);
 	}
+
+	// Received from ourselves when param 16 is received or when entered
 	else if (param == 226)
 	{
 		if (this->starInBabushkasShack && this->field_1C)

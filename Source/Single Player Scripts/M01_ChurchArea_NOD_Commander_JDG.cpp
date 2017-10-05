@@ -83,6 +83,7 @@ void M01_ChurchArea_NOD_Commander_JDG::Custom(GameObject *obj, int type, int par
 {
 	if (!type)
 	{
+		// Received from ourselves after this block or param 16
 		if (param == 27)
 		{
 			if (obj)
@@ -115,6 +116,8 @@ void M01_ChurchArea_NOD_Commander_JDG::Custom(GameObject *obj, int type, int par
 			Commands->Send_Custom_Event(obj, obj, 0, 27, 0.0f);
 			Commands->Send_Custom_Event(obj, obj, 0, 66, 0.0f);
 		}
+
+		// Received from ourselves after param 16 or after this block
 		else if (param == 66)
 		{
 			if (obj && !this->killed)
@@ -129,6 +132,8 @@ void M01_ChurchArea_NOD_Commander_JDG::Custom(GameObject *obj, int type, int par
 				Commands->Send_Custom_Event(obj, obj, 0, 66, randDelay);
 			}
 		}
+
+		// Received from ourselves after param 27
 		else if (param == 74)
 		{
 			if (obj)

@@ -44,6 +44,7 @@ void M01_GDIBase_POWEncounter02_Controller_JDG::Created(GameObject *obj)
 // TODO
 void M01_GDIBase_POWEncounter02_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Base_POW01_JDG or M01_Base_POW02_JDG when killed
 	if (param == 22)
 	{
 		GameObject *gdiPOW1Obj = Commands->Find_Object(116386);
@@ -77,6 +78,8 @@ void M01_GDIBase_POWEncounter02_Controller_JDG::Custom(GameObject *obj, int type
 	{
 		this->field_28 = Commands->Get_ID(sender);
 	}
+
+	// Received from M01_Base_POW01_JDG or M01_Base_POW02_JDG when action with id 39 is complete
 	else if (param == 10)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
