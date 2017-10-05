@@ -77,6 +77,8 @@ void M01_GDIBaseCommander_EvacController_JDG::Custom(GameObject *obj, int type, 
 				Commands->Attach_Script(invisObj, "Test_Cinematic", "XG_M01_GDIBaseCommander_EvacAnim.txt");
 			}
 		}
+
+		// Received from M01_GDIBaseCommander_Air_Evac_Chopper_JDG when custom param 4 is received
 		else if (param == 28)
 		{
 			if (this->field_1C)
@@ -106,18 +108,24 @@ void M01_GDIBaseCommander_EvacController_JDG::Custom(GameObject *obj, int type, 
 				}
 			}
 		}
+
+		// Received from M01_GDIBaseCommander_Air_Evac_Chopper_JDG when created
 		else if (param == 29)
 		{
 			this->chopperObjId = Commands->Get_ID(sender);
 
 			Commands->Debug_Message("**********************chopper id received.....%d\n", this->chopperObjId);
 		}
+
+		// Received from M01_GDIBaseCommander_Air_Evac_Waypath_JDG when created
 		else if (param == 30)
 		{
 			this->waypathId = Commands->Get_ID(sender);
 
 			Commands->Debug_Message("**********************waypath id received.....%d\n", this->waypathId);
 		}
+
+		// Received from M01_GDIBaseCommander_Air_Evac_Rope_JDG when created
 		else if (param == 31)
 		{
 			this->ropeObjId = Commands->Get_ID(sender);

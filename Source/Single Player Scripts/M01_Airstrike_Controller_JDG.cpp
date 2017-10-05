@@ -61,6 +61,8 @@ void M01_Airstrike_Controller_JDG::Custom(GameObject *obj, int type, int param, 
 				Commands->Send_Custom_Event(obj, decoNodLightTank3Obj, 0, 18, 1.0f);
 			}
 		}
+
+		// Received from M01_GDIBase_RealLightTank_JDG when custom param 16 is received
 		else if (param == 16)
 		{
 			GameObject *decoNodLightTank1Obj = Commands->Create_Object("Nod_Light_Tank_Dec", Vector3(-12.175f, 68.28f, 3.009f));
@@ -82,6 +84,7 @@ void M01_Airstrike_Controller_JDG::Custom(GameObject *obj, int type, int param, 
 		}
 
 		// Received from ourselves after we received custom param 27
+		// Received from M01_GDIBase_RealLightTank_JDG after 15 seconds when custom param 16 is received
 		else if (param == 17)
 		{
 			GameObject *decoNodLightTank1Obj = Commands->Find_Object(this->decoNodLightTank1ObjId);

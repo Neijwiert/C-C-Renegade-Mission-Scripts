@@ -190,6 +190,8 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 				Commands->Send_Custom_Event(obj, M01ObjectivePogControllerJDGObj, 6, 114, 0.0f);
 			}
 		}
+
+		// Received from M01_GDIBaseCommander_EvacController_JDG when param 16 is received
 		else if (param == 9)
 		{
 			Commands->Enable_Hibernation(obj, false);
@@ -207,6 +209,8 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// Received from M01_GDIBaseCommander_Air_Evac_Chopper_JDG after 3 seconds when animation complete
 		else if (param == 4001)
 		{
 			Commands->Action_Reset(obj, 100.0f);
@@ -227,6 +231,7 @@ void M01_Base_GDI_Minigunner_JDG::Custom(GameObject *obj, int type, int param, G
 		}
 
 		// Received from ourselves after 5 seconds when action with id pathconversationId is complete
+		// Received from M01_GDIBase_POW_Conversation_Controller_JDG after 2 seconds when the conversation ended
 		else if (param == 31)
 		{
 			if (!this->field_2E)

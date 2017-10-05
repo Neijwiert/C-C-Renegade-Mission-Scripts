@@ -80,7 +80,7 @@ void M01_HON_Dojo_Trainer_JDG::Killed(GameObject *obj, GameObject *killer)
 		if (dojoCiv03Obj)
 		{
 			float randDelay = Commands->Get_Random(0.0f, 1.0f);
-			Commands->Send_Custom_Event(obj, (ScriptableGameObj *)dojoCiv03Obj, 0, 28, randDelay);
+			Commands->Send_Custom_Event(obj, dojoCiv03Obj, 0, 28, randDelay);
 		}
 	}
 }
@@ -118,11 +118,14 @@ void M01_HON_Dojo_Trainer_JDG::Damaged(GameObject *obj, GameObject *damager, flo
 // TODO
 void M01_HON_Dojo_Trainer_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from ourselves after 5 seconds when param 16 is received
 	if (param == 27)
 	{
 		Commands->Innate_Soldier_Enable_Enemy_Seen(obj, true);
 		Commands->Innate_Soldier_Enable_Footsteps_Heard(obj, true);
 	}
+
+	// Received from M01_mission_Controller_JDG when param 122 is received
 	else if (param == 165)
 	{
 		this->field_21 = true;
@@ -131,6 +134,8 @@ void M01_HON_Dojo_Trainer_JDG::Custom(GameObject *obj, int type, int param, Game
 		Commands->Innate_Soldier_Enable_Enemy_Seen(obj, true);
 		Commands->Innate_Soldier_Enable_Footsteps_Heard(obj, true);
 	}
+
+	// Received from M01_mission_Controller_JDG when param 137 is received
 	else if (param == 16)
 	{
 		Commands->Set_Innate_Aggressiveness(obj, 0.5f);

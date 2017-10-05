@@ -95,6 +95,7 @@ void M01_GDI_Base_Artillery_Controller_JDG::Custom(GameObject *obj, int type, in
 	else
 	{
 		// Received from M01_GDI_GuardTower_NOD_Commander_JDG when killed
+		// Received from M01_mission_Controller_JDG when param 134 is received
 		if (param == 24)
 		{
 			this->canDoExplosions = false;
@@ -124,6 +125,8 @@ void M01_GDI_Base_Artillery_Controller_JDG::Custom(GameObject *obj, int type, in
 				Commands->Monitor_Sound(obj, this->soundId);
 			}
 		}
+
+		// Received from M01_mission_Controller_JDG when param 129 is received
 		else if (param == 16)
 		{
 			this->canDoExplosions = true;

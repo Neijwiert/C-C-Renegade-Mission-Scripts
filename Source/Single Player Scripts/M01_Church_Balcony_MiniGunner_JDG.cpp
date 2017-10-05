@@ -30,6 +30,7 @@ void M01_Church_Balcony_MiniGunner_JDG::Created(GameObject *obj)
 // TODO
 void M01_Church_Balcony_MiniGunner_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_mission_Controller_JDG when param 148 is received
 	if (param == 16)
 	{
 		if (obj)

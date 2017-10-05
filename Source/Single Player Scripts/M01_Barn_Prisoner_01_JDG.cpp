@@ -62,6 +62,7 @@ void M01_Barn_Prisoner_01_JDG::Killed(GameObject *obj, GameObject *killer)
 // TODO
 void M01_Barn_Prisoner_01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_mission_Controller_JDG when param 114 is received
 	if (param == 27)
 	{
 		ActionParamsStruct params;
@@ -70,10 +71,14 @@ void M01_Barn_Prisoner_01_JDG::Custom(GameObject *obj, int type, int param, Game
 
 		Commands->Action_Play_Animation(obj, params);
 	}
+
+	// Received from M01_mission_Controller_JDG when param 226 is received
 	else if (param == 30)
 	{
 		this->field_1C = true;
 	}
+
+	// Received from M01_mission_Controller_JDG when conversation ended
 	else if (param == 31)
 	{
 		this->field_1C = false;

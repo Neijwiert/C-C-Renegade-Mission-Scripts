@@ -37,6 +37,7 @@ void M01_Comm_ComputerRoom_Tech_JDG::Created(GameObject *obj)
 // TODO
 void M01_Comm_ComputerRoom_Tech_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_mission_Controller_JDG when param 141 is received
 	if (param == 141)
 	{
 		Commands->Innate_Enable(obj);

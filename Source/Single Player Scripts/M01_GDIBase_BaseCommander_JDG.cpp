@@ -99,6 +99,7 @@ void M01_GDIBase_BaseCommander_JDG::Custom(GameObject *obj, int type, int param,
 {
 	if (!type)
 	{
+		// Received from M01_TriggerZone_GDIBase_BaseCommander_JDG when entered
 		if (param == 16)
 		{
 			Commands->Set_Player_Type(obj, SCRIPT_PLAYERTYPE_GDI);
@@ -138,6 +139,7 @@ void M01_GDIBase_BaseCommander_JDG::Custom(GameObject *obj, int type, int param,
 		}
 
 		// Received from M01_GDIBase_AI_ExitZone_JDG when entered
+		// Received from M01_GDIBaseCommander_EvacController_JDG when param 16 is received
 		else if (param == 9)
 		{
 			Commands->Enable_Hibernation(obj, false);
@@ -150,6 +152,8 @@ void M01_GDIBase_BaseCommander_JDG::Custom(GameObject *obj, int type, int param,
 			
 			Commands->Action_Goto(obj, params);
 		}
+
+		// Received from M01_GDIBaseCommander_Air_Evac_Chopper_JDG when animation complete 
 		else if (param == 4001)
 		{
 			Commands->Action_Reset(obj, 100.0f);

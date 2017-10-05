@@ -37,6 +37,7 @@ void M01_HON_Engineer02_JDG::Created(GameObject *obj)
 // TODO
 void M01_HON_Engineer02_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_mission_Controller_JDG when param 26 is received
 	if (param == 189)
 	{
 		Commands->Enable_Hibernation(obj, false);

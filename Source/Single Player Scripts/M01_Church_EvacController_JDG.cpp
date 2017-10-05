@@ -41,6 +41,7 @@ void M01_Church_EvacController_JDG::Created(GameObject *obj)
 // TODO
 void M01_Church_EvacController_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_mission_Controller_JDG after 3 seconds when param 174 or 173 is received
 	if (param == 16)
 	{
 		// We're not done - Nod is closing in. Protect the civilians until we can evacuate!

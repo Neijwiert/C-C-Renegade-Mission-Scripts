@@ -73,6 +73,7 @@ void M01_Whack_A_Mole_Minigunner_JDG::Damaged(GameObject *obj, GameObject *damag
 // TODO
 void M01_Whack_A_Mole_Minigunner_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_mission_Controller_JDG when param 204 is received
 	if (param == 204)
 	{
 		if (obj) 
@@ -81,6 +82,8 @@ void M01_Whack_A_Mole_Minigunner_JDG::Custom(GameObject *obj, int type, int para
 			Commands->Innate_Enable(obj);
 		}
 	}
+
+	// Received from ourselves when damaged by star
 	else if (param == 46)
 	{
 		ActionParamsStruct params;
@@ -89,6 +92,8 @@ void M01_Whack_A_Mole_Minigunner_JDG::Custom(GameObject *obj, int type, int para
 
 		Commands->Action_Play_Animation(obj, params);
 	}
+
+	// Received by ourselves when action with id 46 is complete
 	else if (param == 67)
 	{
 		Commands->Action_Reset(obj, 100.0f);
@@ -116,6 +121,8 @@ void M01_Whack_A_Mole_Minigunner_JDG::Custom(GameObject *obj, int type, int para
 			this->isFollowingRightWayPath = 1;
 		}
 	}
+
+	// Received from ourselves when action with id 39 is complete
 	else if (param == 65)
 	{
 		if (obj)

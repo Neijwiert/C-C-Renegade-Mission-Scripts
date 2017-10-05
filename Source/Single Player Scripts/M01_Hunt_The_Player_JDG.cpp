@@ -62,6 +62,7 @@ void M01_Hunt_The_Player_JDG::Timer_Expired(GameObject *obj, int number)
 	}
 
 	// Triggered 5 seconds after create or 5 seconds after this block
+	// Received from M01_Nod_Chinook_Reinforcement_Guy_JDG after 1 second when animation complete
 	else if (number == 65)
 	{
 		if (obj)

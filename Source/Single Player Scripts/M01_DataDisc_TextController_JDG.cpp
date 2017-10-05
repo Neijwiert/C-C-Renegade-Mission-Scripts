@@ -83,6 +83,8 @@ void M01_DataDisc_TextController_JDG::Custom(GameObject *obj, int type, int para
 	else if (type == 2)
 	{
 		// Received from M01_GDI_GuardTower02_SniperRifle_JDG when granted
+		// Received from M01_SniperRifle_01_JDG when granted
+		// Received from M01_SniperRifle_02_JDG when granted
 		if (param == 1)
 		{
 			if (!this->doingTutorialConversation)
@@ -127,6 +129,11 @@ void M01_DataDisc_TextController_JDG::Custom(GameObject *obj, int type, int para
 	else if (!type)
 	{
 		// Received from M01_Beach_Datadisc_JDG after 2 seconds when granted
+		// Received from M01_Medlab_Datadisc_JDG after 2 seconds when granted 
+		// Received from M01_Priest_Datadisc_JDG after 2 seconds when granted
+		// Received from M01_Shed_Datadisc_JDG after 2 seconds when granted
+		// Received from M01_TibCave01_Datadisc_JDG after 2 seconds when granted
+		// Received from M01_TibCave02_Datadisc_JDG after 2 seconds when granted
 		if (param == 10)
 		{
 			this->doingTutorialConversation = true;

@@ -51,6 +51,7 @@ void M01_Church_Interior_Nun_JDG::Killed(GameObject *obj, GameObject *killer)
 // TODO
 void M01_Church_Interior_Nun_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_mission_Controller_JDG when param 148 is received
 	if (param == 16)
 	{
 		ActionParamsStruct params;
@@ -61,6 +62,8 @@ void M01_Church_Interior_Nun_JDG::Custom(GameObject *obj, int type, int param, G
 
 		Commands->Start_Sound(this->soundId);
 	}
+
+	// Received from M01_mission_Controller_JDG after 0 to 2 seconds when param 173 is received
 	else if (param == 173)
 	{
 		Commands->Stop_Sound(this->soundId, true);

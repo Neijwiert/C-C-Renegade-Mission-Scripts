@@ -105,6 +105,8 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type,
 			Commands->Send_Custom_Event(obj, obj, 0, 67, randDelay);
 		}
 	}
+
+	// Received from M01_mission_Controller_JDG when param 179 is received
 	else if (param == 180)
 	{
 		GameObject *M01GDIEscortConversationControllerGDIObj = Commands->Find_Object(103396);
@@ -125,6 +127,8 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type,
 
 		this->field_1C = 0;
 	}
+
+	// Received from M01_mission_Controller_JDG when param 179 is received
 	else if (param == 181)
 	{
 		Commands->Action_Reset(obj, 100.0f);
@@ -134,23 +138,27 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type,
 
 		this->field_1C = 1;
 	}
+
+	// Received from M01_mission_Controller_JDG when param 189 is received with param = lastDamagedStarEnemyObjId
 	else if (param == 189)
 	{
 		if (!this->field_1C)
 		{
-			GameObject *paramObj = Commands->Find_Object(param);
-			if (paramObj)
+			GameObject *lastDamagedStarEnemyObj = Commands->Find_Object(param);
+			if (lastDamagedStarEnemyObj)
 			{
 				ActionParamsStruct params;
 				params.Set_Basic(this, 100.0f, 45);
-				params.Set_Movement(paramObj, 0.8f, 5.0f);
+				params.Set_Movement(lastDamagedStarEnemyObj, 0.8f, 5.0f);
 				params.AttackActive = true;
-				params.Set_Attack(paramObj, 50.0f, 0.0f, true);
+				params.Set_Attack(lastDamagedStarEnemyObj, 50.0f, 0.0f, true);
 
 				Commands->Modify_Action(obj, 45, params, true, true);
 			}
 		}
 	}
+
+	// Received from M01_mission_Controller_JDG when param 149 is received
 	else if (param == 149)
 	{
 		if (!this->field_1C)
@@ -193,6 +201,8 @@ void M01_CHURCH_Chinook_Spawned_Soldier01_GDI::Custom(GameObject *obj, int type,
 			Commands->Action_Goto(obj, params);
 		}
 	}
+
+	// Received from M01_mission_Controller_JDG when param 150 is received
 	else if (param == 150)
 	{
 		if (!this->field_1C)

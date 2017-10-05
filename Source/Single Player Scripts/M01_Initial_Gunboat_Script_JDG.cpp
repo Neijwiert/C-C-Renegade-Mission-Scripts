@@ -112,6 +112,7 @@ void M01_Initial_Gunboat_Script_JDG::Damaged(GameObject *obj, GameObject *damage
 // TODO
 void M01_Initial_Gunboat_Script_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from ourselves after 4 to 6 seconds after this block or 0 to 2 seconds after param 16
 	if (param == 29)
 	{
 		GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
@@ -167,6 +168,9 @@ void M01_Initial_Gunboat_Script_JDG::Custom(GameObject *obj, int type, int param
 			Commands->Send_Custom_Event(obj, obj, 0, 29, randDelay);
 		}
 	}
+
+	// Received from M01_GunboatAction_Controller_JDG when param 16 is received
+	// Received from M01_mission_Controller_JDG when param 128 is received
 	else if (param == 16)
 	{
 		Commands->Debug_Message("***************************gunboat custom received--start acting\n");
@@ -182,12 +186,16 @@ void M01_Initial_Gunboat_Script_JDG::Custom(GameObject *obj, int type, int param
 		float randDelay = Commands->Get_Random(0.0f, 2.0f);
 		Commands->Send_Custom_Event(obj, obj, 0, 29, randDelay);
 	}
+
+	// Received from M01_GunboatAction_Controller_JDG when param 24 is received
 	else if (param == 24)
 	{
 		Commands->Debug_Message("***************************gunboat custom received--STOP acting\n");
 
 		Commands->Enable_Hibernation(obj, true);
 	}
+
+	// Received from M01_mission_Controller_JDG when param 112 is received
 	else if (param == 112)
 	{
 		Commands->Action_Reset(obj, 100.0f);

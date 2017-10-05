@@ -39,6 +39,7 @@ void M01_GunboatAction_Controller_JDG::Custom(GameObject *obj, int type, int par
 {
 	if (!type)
 	{
+		// Received from M01_PlayerEntering_BarnArea_Zone_JDG when entered
 		if (param == 16)
 		{
 			if (!this->field_1C)
@@ -59,6 +60,8 @@ void M01_GunboatAction_Controller_JDG::Custom(GameObject *obj, int type, int par
 				}
 			}
 		}
+
+		// Received from M01_PlayerLeaving_BarnArea_Zone_JDG when entered
 		else if (param == 24)
 		{
 			if (this->field_1C)
@@ -79,6 +82,8 @@ void M01_GunboatAction_Controller_JDG::Custom(GameObject *obj, int type, int par
 				}
 			}
 		}
+
+		// Received from M01_TurretBeach_Chinook_Spawned_Soldier_NOD when created
 		else if (param == 14)
 		{
 			this->engineerObjId = Commands->Get_ID(sender);

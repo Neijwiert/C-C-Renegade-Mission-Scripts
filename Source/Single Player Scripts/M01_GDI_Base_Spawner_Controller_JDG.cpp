@@ -44,6 +44,8 @@ void M01_GDI_Base_Spawner_Controller_JDG::Custom(GameObject *obj, int type, int 
 
 		Commands->Debug_Message("***************************GDI Base spawner has recieved custom that someone is dead\n");
 	}
+
+	// Received from M01_Player_Is_Entering_Tailgun_Alley_Backway_JDG or M01_Player_Is_Entering_Tailgun_Alley_JDG when entered
 	else if (param == 70)
 	{
 		GameObject *backWayAlleySpawner1Obj = Commands->Find_Object(102332);
@@ -68,6 +70,7 @@ void M01_GDI_Base_Spawner_Controller_JDG::Custom(GameObject *obj, int type, int 
 	}
 
 	// Received from ourselves when param 69 is received or after 10 seconds after this block
+	// Received from M01_Player_is_Leaving_GDI_Base_Zone when entered
 	else if (param == 68)
 	{
 		Commands->Enable_Hibernation(obj, false);

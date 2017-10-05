@@ -76,6 +76,7 @@ void M01_TurretBeach_Turret_01_Script_JDG::Damaged(GameObject *obj, GameObject *
 // TODO
 void M01_TurretBeach_Turret_01_Script_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_TurretBeach_FodderHovercraft_Controller_JDG after custom  type <= 0 and param <= 0 is received with param = hovercraft id
 	if (type == 218)
 	{
 		this->field_20 = param;
@@ -95,6 +96,7 @@ void M01_TurretBeach_Turret_01_Script_JDG::Custom(GameObject *obj, int type, int
 	}
 	else if(!type)
 	{
+		// Received from M01_mission_Controller_JDG when param 128 is received
 		if (param == 16)
 		{
 			GameObject *gdiGunBoatObj = Commands->Find_Object(101477);
@@ -108,6 +110,8 @@ void M01_TurretBeach_Turret_01_Script_JDG::Custom(GameObject *obj, int type, int
 				Commands->Action_Attack(obj, params);
 			}
 		}
+
+		// Received from M01_TurretBeach_Engineer_JDG after 1 second when param 189 is received
 		if (param == 221)
 		{
 			GameObject *engineerObj = Commands->Find_Object(this->engineerObjId);
@@ -116,6 +120,8 @@ void M01_TurretBeach_Turret_01_Script_JDG::Custom(GameObject *obj, int type, int
 				Commands->Send_Custom_Event(obj, engineerObj, 0, 189, 1.0f);
 			}
 		}
+
+		// Received from M01_TurretBeach_Chinook_Spawned_Soldier_NOD when created
 		else if (param == 14)
 		{
 			this->engineerObjId = Commands->Get_ID(sender);

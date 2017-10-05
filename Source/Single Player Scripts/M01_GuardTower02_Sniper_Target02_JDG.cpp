@@ -21,7 +21,7 @@
 
 void M01_GuardTower02_Sniper_Target02_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->guardTower2SniperTarget1ObjId, sizeof(this->guardTower2SniperTarget1ObjId), 1);
 	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
 }
 
@@ -49,10 +49,10 @@ void M01_GuardTower02_Sniper_Target02_JDG::Killed(GameObject *obj, GameObject *k
 
 	if (this->field_20)
 	{
-		GameObject *field1CObj = Commands->Find_Object(this->field_1C);
-		if (field1CObj)
+		GameObject *guardTower2SniperTarget1Obj = Commands->Find_Object(this->guardTower2SniperTarget1ObjId);
+		if (guardTower2SniperTarget1Obj)
 		{
-			Commands->Send_Custom_Event(obj, field1CObj, 0, 22, 0.0f);
+			Commands->Send_Custom_Event(obj, guardTower2SniperTarget1Obj, 0, 22, 0.0f);
 		}
 	}
 }
@@ -62,6 +62,7 @@ void M01_GuardTower02_Sniper_Target02_JDG::Custom(GameObject *obj, int type, int
 {
 	if (!type)
 	{
+		// Received from M01_GuardTower02_Sniper_Target01_JDG when conversation ended
 		if (param == 16)
 		{
 			this->field_20 = false;
@@ -74,6 +75,8 @@ void M01_GuardTower02_Sniper_Target02_JDG::Custom(GameObject *obj, int type, int
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// Received from M01_GuardTower02_Sniper_Target01_JDG when killed
 		else if (param == 22)
 		{
 			Commands->Action_Reset(obj, 100.0f);
@@ -84,9 +87,11 @@ void M01_GuardTower02_Sniper_Target02_JDG::Custom(GameObject *obj, int type, int
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// Received from M01_GuardTower02_Sniper_Target01_JDG after 1 second when created
 		else if (param == 14)
 		{
-			this->field_1C = Commands->Get_ID(sender);
+			this->guardTower2SniperTarget1ObjId = Commands->Get_ID(sender);
 		}
 	}
 }

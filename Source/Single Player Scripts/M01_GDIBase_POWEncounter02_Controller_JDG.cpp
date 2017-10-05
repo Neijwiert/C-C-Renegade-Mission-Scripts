@@ -28,9 +28,9 @@ void M01_GDIBase_POWEncounter02_Controller_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_1D, sizeof(this->field_1D), 2);
 	Auto_Save_Variable(&this->field_1E, sizeof(this->field_1E), 3);
 	Auto_Save_Variable(&this->field_1F, sizeof(this->field_1F), 4);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 5);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 6);
-	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 7);
+	Auto_Save_Variable(&this->waypathObjId, sizeof(this->waypathObjId), 5);
+	Auto_Save_Variable(&this->chopperObjId, sizeof(this->chopperObjId), 6);
+	Auto_Save_Variable(&this->ropeObjId, sizeof(this->ropeObjId), 7);
 }
 
 void M01_GDIBase_POWEncounter02_Controller_JDG::Created(GameObject *obj)
@@ -66,17 +66,23 @@ void M01_GDIBase_POWEncounter02_Controller_JDG::Custom(GameObject *obj, int type
 			this->field_1F = true;
 		}
 	}
+
+	// Received from M01_GDIBasePOW_Air_Evac_Chopper_JDG on create
 	else if (param == 14)
 	{
-		this->field_24 = Commands->Get_ID(sender);
+		this->chopperObjId = Commands->Get_ID(sender);
 	}
+
+	// Received from M01_GDIBasePOW_Air_Evac_Waypath_JDG on create
 	else if (param == 13)
 	{
-		this->field_20 = Commands->Get_ID(sender);
+		this->waypathObjId = Commands->Get_ID(sender);
 	}
+
+	// Received from M01_GDIBasePOW_Air_Evac_Rope_JDG on create
 	else if (param == 12)
 	{
-		this->field_28 = Commands->Get_ID(sender);
+		this->ropeObjId = Commands->Get_ID(sender);
 	}
 
 	// Received from M01_Base_POW01_JDG or M01_Base_POW02_JDG when action with id 39 is complete
@@ -100,6 +106,8 @@ void M01_GDIBase_POWEncounter02_Controller_JDG::Custom(GameObject *obj, int type
 
 		Commands->Set_Animation(sender, "S_A_Human.XG_EV5_troop", false, NULL, 0.0f, -1.0f, false);
 	}
+
+	// Received from M01_GDIBase_POW_Conversation_Controller_JDG when the conversation ended
 	else if (param == 27)
 	{
 		if (!this->field_1C)
@@ -111,24 +119,26 @@ void M01_GDIBase_POWEncounter02_Controller_JDG::Custom(GameObject *obj, int type
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "XG_M01_GDIBasePow_EvacAnim.txt");
 		}
 	}
+
+	// Received from M01_GDIBasePOW_Air_Evac_Chopper_JDG when custom param 4 is received 
 	else if (param == 31)
 	{
-		GameObject *field20Obj = Commands->Find_Object(this->field_20);
-		if (field20Obj)
+		GameObject *waypathObj = Commands->Find_Object(this->waypathObjId);
+		if (waypathObj)
 		{
-			Commands->Send_Custom_Event(obj, field20Obj, 0, 27, 0.0f);
+			Commands->Send_Custom_Event(obj, waypathObj, 0, 27, 0.0f);
 		}
 
-		GameObject *field24Obj = Commands->Find_Object(this->field_24);
-		if (field24Obj)
+		GameObject *chopperObj = Commands->Find_Object(this->chopperObjId);
+		if (chopperObj)
 		{
-			Commands->Send_Custom_Event(obj, field24Obj, 0, 27, 0.0f);
+			Commands->Send_Custom_Event(obj, chopperObj, 0, 27, 0.0f);
 		}
 
-		GameObject *field28Obj = Commands->Find_Object(this->field_28);
-		if (field24Obj) // This is not a mistake
+		GameObject *ropeObj = Commands->Find_Object(this->ropeObjId);
+		if (chopperObj) // This is not a mistake
 		{
-			Commands->Send_Custom_Event(obj, field28Obj, 0, 27, 0.0f);
+			Commands->Send_Custom_Event(obj, ropeObj, 0, 27, 0.0f);
 		}
 
 		if (!this->field_1F)

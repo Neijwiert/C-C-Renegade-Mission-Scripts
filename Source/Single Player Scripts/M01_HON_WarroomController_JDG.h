@@ -33,8 +33,8 @@ class M01_HON_WarroomController_JDG : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
-		int field_1C;
-		int field_20;
+		int honChinookSpawnedSoldier1GDIObjId;
+		int honChinookSpawnedSoldier2GDIObjId;
 		bool field_24;
 		bool field_25;
 		int field_28;

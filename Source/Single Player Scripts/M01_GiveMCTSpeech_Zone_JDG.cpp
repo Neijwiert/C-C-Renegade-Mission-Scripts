@@ -26,8 +26,8 @@ void M01_GiveMCTSpeech_Zone_JDG::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
 	Auto_Save_Variable(&this->starAtHONMCT, sizeof(this->starAtHONMCT), 2);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 3);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 4);
+	Auto_Save_Variable(&this->honChinookSpawnedSoldier1GDIObjId, sizeof(this->honChinookSpawnedSoldier1GDIObjId), 3);
+	Auto_Save_Variable(&this->honChinookSpawnedSoldier2GDIObjId, sizeof(this->honChinookSpawnedSoldier2GDIObjId), 4);
 	Auto_Save_Variable(&this->didMCTConversation, sizeof(this->didMCTConversation), 5);
 	Auto_Save_Variable(&this->gdiHONMCTConversationId, sizeof(this->gdiHONMCTConversationId), 6);
 }
@@ -37,8 +37,8 @@ void M01_GiveMCTSpeech_Zone_JDG::Created(GameObject *obj)
 	this->starAtHONMCT = false;
 	this->field_1C = false;
 	this->didMCTConversation = false;
-	this->field_20 = 0;
-	this->field_24 = 0;
+	this->honChinookSpawnedSoldier1GDIObjId = 0;
+	this->honChinookSpawnedSoldier2GDIObjId = 0;
 }
 
 // TODO
@@ -48,28 +48,35 @@ void M01_GiveMCTSpeech_Zone_JDG::Custom(GameObject *obj, int type, int param, Ga
 	{
 		if (obj)
 		{
+			// Received from M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG when created
 			if (param == 12)
 			{
-				this->field_20 = Commands->Get_ID(sender);
+				this->honChinookSpawnedSoldier1GDIObjId = Commands->Get_ID(sender);
 			}
+
+			// Received from M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG when created
 			else if (param == 13)
 			{
-				this->field_24 = Commands->Get_ID(sender);
+				this->honChinookSpawnedSoldier2GDIObjId = Commands->Get_ID(sender);
 			}
+
+			// Received from M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG or M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG when action with id 39 is complete
 			else if (param == 16)
 			{
 				this->field_1C = true;
 
 				Commands->Send_Custom_Event(obj, obj, 0, 27, 0.0f);
 			}
+
+			// Received from ourselves when param 16 is received or entered
 			else if (param == 27)
 			{
 				if (this->field_1C && this->starAtHONMCT)
 				{
-					GameObject *field20Obj = Commands->Find_Object(this->field_20);
-					GameObject *field24Obj = Commands->Find_Object(this->field_24);
+					GameObject *honChinookSpawnedSoldier1GDIObj = Commands->Find_Object(this->honChinookSpawnedSoldier1GDIObjId);
+					GameObject *honChinookSpawnedSoldier2GDIObj = Commands->Find_Object(this->honChinookSpawnedSoldier2GDIObjId);
 
-					if (field20Obj || field24Obj)
+					if (honChinookSpawnedSoldier1GDIObj || honChinookSpawnedSoldier2GDIObj)
 					{
 						if (!this->didMCTConversation)
 						{
@@ -78,13 +85,13 @@ void M01_GiveMCTSpeech_Zone_JDG::Custom(GameObject *obj, int type, int param, Ga
 							// This is the Master Control Terminal. Destroy it and we're done!
 							this->gdiHONMCTConversationId = Commands->Create_Conversation("M01_GDI_HON_MCT", 100, 1000.0f, false);
 
-							if (field20Obj)
+							if (honChinookSpawnedSoldier1GDIObj)
 							{
-								Commands->Join_Conversation(field20Obj, this->gdiHONMCTConversationId, false, true, true);
+								Commands->Join_Conversation(honChinookSpawnedSoldier1GDIObj, this->gdiHONMCTConversationId, false, true, true);
 							}
 							else
 							{
-								Commands->Join_Conversation(field24Obj, this->gdiHONMCTConversationId, false, true, true);
+								Commands->Join_Conversation(honChinookSpawnedSoldier2GDIObj, this->gdiHONMCTConversationId, false, true, true);
 							}
 
 							Vector3 pos = Commands->Get_Position(obj);
@@ -106,17 +113,17 @@ void M01_GiveMCTSpeech_Zone_JDG::Action_Complete(GameObject *obj, int action_id,
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED && action_id == this->gdiHONMCTConversationId)
 	{
-		GameObject *field20Obj = Commands->Find_Object(this->field_20);
-		GameObject *field24Obj = Commands->Find_Object(this->field_24);
+		GameObject *honChinookSpawnedSoldier1GDIObj = Commands->Find_Object(this->honChinookSpawnedSoldier1GDIObjId);
+		GameObject *honChinookSpawnedSoldier2GDIObj = Commands->Find_Object(this->honChinookSpawnedSoldier2GDIObjId);
 
-		if (field20Obj)
+		if (honChinookSpawnedSoldier1GDIObj)
 		{
-			Commands->Send_Custom_Event(obj, field20Obj, 0, 25, 0.0f);
+			Commands->Send_Custom_Event(obj, honChinookSpawnedSoldier1GDIObj, 0, 25, 0.0f);
 		}
 
-		if (field24Obj)
+		if (honChinookSpawnedSoldier2GDIObj)
 		{
-			Commands->Send_Custom_Event(obj, field24Obj, 0, 25, 0.0f);
+			Commands->Send_Custom_Event(obj, honChinookSpawnedSoldier2GDIObj, 0, 25, 0.0f);
 		}
 
 		Commands->Destroy_Object(obj);

@@ -21,29 +21,30 @@
 
 void M01_BarnArea_AI_ExitZone_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->turretBeachGDIGuy1ObjId, sizeof(this->turretBeachGDIGuy1ObjId), 1);
 }
 
 void M01_BarnArea_AI_ExitZone_JDG::Created(GameObject *obj)
 {
-	this->field_1C = 0;
+	this->turretBeachGDIGuy1ObjId = 0;
 }
 
 // TODO
 void M01_BarnArea_AI_ExitZone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_TurretBeach_GDI_Guy_01_JDG when created
 	if (type == 12)
 	{
-		this->field_1C = param;
+		this->turretBeachGDIGuy1ObjId = param;
 	}
 }
 
 void M01_BarnArea_AI_ExitZone_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
-	GameObject *paramObj = Commands->Find_Object(this->field_1C);
-	if (paramObj)
+	GameObject *turretBeachGDIGuy1Obj = Commands->Find_Object(this->turretBeachGDIGuy1ObjId);
+	if (turretBeachGDIGuy1Obj)
 	{
-		if (enterer == paramObj)
+		if (enterer == turretBeachGDIGuy1Obj)
 		{
 			Commands->Send_Custom_Event(obj, enterer, 0, 23, 0.0f);
 		}

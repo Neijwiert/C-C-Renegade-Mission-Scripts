@@ -24,8 +24,8 @@ M01 -> 124044
 */
 void M01_HON_WarroomController_JDG::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->honChinookSpawnedSoldier1GDIObjId, sizeof(this->honChinookSpawnedSoldier1GDIObjId), 1);
+	Auto_Save_Variable(&this->honChinookSpawnedSoldier2GDIObjId, sizeof(this->honChinookSpawnedSoldier2GDIObjId), 2);
 	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
 	Auto_Save_Variable(&this->field_25, sizeof(this->field_25), 4);
 	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 5);
@@ -33,8 +33,8 @@ void M01_HON_WarroomController_JDG::Register_Auto_Save_Variables()
 
 void M01_HON_WarroomController_JDG::Created(GameObject *obj)
 {
-	this->field_1C = 0;
-	this->field_20 = 0;
+	this->honChinookSpawnedSoldier1GDIObjId = 0;
+	this->honChinookSpawnedSoldier2GDIObjId = 0;
 	this->field_24 = false;
 	this->field_25 = false;
 	this->field_28 = 0;
@@ -47,22 +47,31 @@ void M01_HON_WarroomController_JDG::Custom(GameObject *obj, int type, int param,
 	{
 		if (obj)
 		{
+			// Received from M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG when created
 			if (param == 12)
 			{
-				this->field_1C = Commands->Get_ID(sender);
+				this->honChinookSpawnedSoldier1GDIObjId = Commands->Get_ID(sender);
 			}
+
+			// Received from M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG when created
 			else if (param == 13)
 			{
-				this->field_20 = Commands->Get_ID(sender);
+				this->honChinookSpawnedSoldier2GDIObjId = Commands->Get_ID(sender);
 			}
+
+			// Received from M01_Havoc_In_WarroomZone_JDG when entered
 			else if (param == 139)
 			{
 				this->field_24 = true;
 			}
+
+			// Received from M01_Havoc_Out_WarroomZone_JDG when entered
 			else if (param == 140)
 			{
 				this->field_24 = false;
 			}
+
+			// Received from M01_HON_Chinook_Spawned_Soldier_01_GDI_JDG or M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG when killed
 			else if (param == 22)
 			{
 				if (++this->field_28 == 2)
@@ -80,33 +89,33 @@ void M01_HON_WarroomController_JDG::Custom(GameObject *obj, int type, int param,
 
 void M01_HON_WarroomController_JDG::Entered(GameObject *obj, GameObject *enterer)
 {
-	GameObject *field1CObj = Commands->Find_Object(this->field_1C);
-	GameObject *field20Obj = Commands->Find_Object(this->field_20);
-	if (enterer == field1CObj)
+	GameObject *honChinookSpawnedSoldier1GDIObj = Commands->Find_Object(this->honChinookSpawnedSoldier1GDIObjId);
+	GameObject *honChinookSpawnedSoldier2GDIObj = Commands->Find_Object(this->honChinookSpawnedSoldier2GDIObjId);
+	if (enterer == honChinookSpawnedSoldier1GDIObj)
 	{
 		if (!this->field_24)
 		{
-			Commands->Apply_Damage(field1CObj, 10000.0f, "STEEL", NULL);
+			Commands->Apply_Damage(honChinookSpawnedSoldier1GDIObj, 10000.0f, "STEEL", NULL);
 		}
 		else
 		{
-			if (field1CObj)
+			if (honChinookSpawnedSoldier1GDIObj)
 			{
-				Commands->Send_Custom_Event(obj, field1CObj, 0, 16, 0.0f);
+				Commands->Send_Custom_Event(obj, honChinookSpawnedSoldier1GDIObj, 0, 16, 0.0f);
 			}
 		}
 	}
-	else if (enterer == field20Obj)
+	else if (enterer == honChinookSpawnedSoldier2GDIObj)
 	{
 		if (!this->field_24)
 		{
-			Commands->Apply_Damage(field20Obj, 10000.0f, "STEEL", NULL);
+			Commands->Apply_Damage(honChinookSpawnedSoldier2GDIObj, 10000.0f, "STEEL", NULL);
 		}
 		else
 		{
-			if (field20Obj)
+			if (honChinookSpawnedSoldier2GDIObj)
 			{
-				Commands->Send_Custom_Event(obj, field20Obj, 0, 16, 0.0f);
+				Commands->Send_Custom_Event(obj, honChinookSpawnedSoldier2GDIObj, 0, 16, 0.0f);
 			}
 		}
 	}

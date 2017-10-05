@@ -38,6 +38,8 @@ void M01_TurretBeach_FodderHovercraft_Controller_JDG::Custom(GameObject *obj, in
 {
 	if (!type)
 	{
+		// Received from M01_PlayerEntering_BarnArea_Zone_JDG after 10 seconds when entered
+		// Received from ourselves after 5 seconds after this block or 15 seconds after param 22
 		if (param == 16)
 		{
 			if (!this->field_20)

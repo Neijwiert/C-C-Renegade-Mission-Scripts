@@ -47,6 +47,7 @@ void M01_Comm_Repair_Engineer_JDG::Custom(GameObject *obj, int type, int param, 
 	}
 	else if (!type)
 	{
+		// Received from M01_mission_Controller_JDG when param 26 is received
 		if (param == 189 && !this->repairingComm)
 		{
 			this->repairingComm = true;

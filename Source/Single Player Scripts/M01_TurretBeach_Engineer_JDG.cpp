@@ -111,18 +111,25 @@ void M01_TurretBeach_Engineer_JDG::Damaged(GameObject *obj, GameObject *damager,
 // TODO
 void M01_TurretBeach_Engineer_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_GunboatAction_Controller_JDG when param 16 is received
+	// Received from M01_mission_Controller_JDG when param 128 is received
 	if (param == 16)
 	{
 		Commands->Debug_Message("***************************original engineer custom received--start acting\n");
 
 		Commands->Enable_Hibernation(obj, false);
 	}
+
+	// Received from M01_GunboatAction_Controller_JDG when param 24 is received
 	else if (param == 24)
 	{
 		Commands->Debug_Message("***************************original engineer custom received--STOP acting\n");
 
 		Commands->Enable_Hibernation(obj, true);
 	}
+
+	// Received from M01_TurretBeach_Turret_01_Script_JDG when damaged
+	// Received from M01_TurretBeach_Turret_01_Script_JDG after 1 second when custom type <= 0 and param 221 is received
 	else if (param == 189)
 	{
 		if (this->goingToRepairTurret)
@@ -234,6 +241,8 @@ void M01_TurretBeach_Engineer_JDG::Custom(GameObject *obj, int type, int param, 
 
 		Commands->Action_Goto(obj, params);
 	}
+
+	// Received from M01_TurretBeach_Turret_01_Script_JDG when killed
 	else if (param == 217)
 	{
 		GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);

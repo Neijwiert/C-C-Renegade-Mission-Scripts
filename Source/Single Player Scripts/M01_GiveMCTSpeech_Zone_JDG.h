@@ -37,8 +37,8 @@ class M01_GiveMCTSpeech_Zone_JDG : public ScriptImpClass
 
 		bool field_1C;
 		bool starAtHONMCT;
-		int field_20;
-		int field_24;
+		int honChinookSpawnedSoldier1GDIObjId;
+		int honChinookSpawnedSoldier2GDIObjId;
 		bool didMCTConversation;
 		int gdiHONMCTConversationId;
 };

@@ -42,6 +42,7 @@ void M01_MediumTank_ReminderZone_JDG::Custom(GameObject *obj, int type, int para
 {
 	if (!type)
 	{
+		// Received from M01_Medium_Tank_JDG when created
 		if (param == 16)
 		{
 			this->field_1C = true;
@@ -50,10 +51,14 @@ void M01_MediumTank_ReminderZone_JDG::Custom(GameObject *obj, int type, int para
 
 			this->objId = Commands->Get_ID(obj); // Yes, for some reason it is storing this object's id
 		}
+
+		// Received from M01_Medium_Tank_JDG when entered
 		else if (param == 27)
 		{
 			this->field_1D = true;
 		}
+
+		// Received from M01_Medium_Tank_JDG when exited
 		else if (param == 28)
 		{
 			this->field_1D = false;

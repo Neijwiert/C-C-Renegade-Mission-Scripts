@@ -46,6 +46,7 @@ void M01_Church_LoveShack_MiniGunner_JDG::Damaged(GameObject *obj, GameObject *d
 // TODO
 void M01_Church_LoveShack_MiniGunner_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_mission_Controller_JDG when param 148 is received
 	if (param == 16)
 	{
 		Commands->Innate_Enable(obj);

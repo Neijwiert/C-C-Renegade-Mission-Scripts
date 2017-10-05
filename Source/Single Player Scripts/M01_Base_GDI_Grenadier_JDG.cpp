@@ -153,6 +153,8 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// Received from M01_GDIBaseCommander_EvacController_JDG when param 16 is received
 		else if (param == 9)
 		{
 			Commands->Enable_Hibernation(obj, false);
@@ -167,6 +169,8 @@ void M01_Base_GDI_Grenadier_JDG::Custom(GameObject *obj, int type, int param, Ga
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// Received from M01_GDIBaseCommander_Air_Evac_Chopper_JDG after 6 seconds after animation complete
 		else if (param == 4001)
 		{
 			Commands->Action_Reset(obj, 100.0f);

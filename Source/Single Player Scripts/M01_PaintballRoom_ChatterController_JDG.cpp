@@ -61,6 +61,7 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 {
 	if (!type)
 	{
+		// Received from M01_HON_Paintball_Team_01_JDG or M01_HON_Paintball_Team_02_JDG when damaged by star
 		if (param == 16)
 		{
 			if (!this->field_3A)
@@ -110,6 +111,8 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 				}
 			}
 		}
+
+		// Received from M01_HON_Paintball_Team_01_JDG or M01_HON_Paintball_Team_02_JDG when killed
 		else if (param == 22)
 		{
 			GameObject *honPaintballTeam02OfficerObjId = Commands->Find_Object(this->honPaintballTeam02OfficerObjId);
@@ -144,6 +147,8 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 				this->field_39 = true;
 			}
 		}
+
+		// Received from ourselves after 1 to 2 seconds when param 16 is received
 		else if (param == 27)
 		{
 			GameObject *honPaintballTeam02OfficerObj = Commands->Find_Object(this->honPaintballTeam02OfficerObjId);
@@ -154,6 +159,8 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 				Commands->Start_Conversation(conversationId, conversationId);
 			}
 		}
+
+		// Received from ourselves after 1 to 2 seconds when param 16 is received
 		else if (param == 28)
 		{
 			GameObject *honPaintballTeam01OfficerObj = Commands->Find_Object(this->honPaintballTeam01OfficerObjId);
@@ -164,6 +171,8 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 				Commands->Start_Conversation(conversationId, conversationId);
 			}
 		}
+
+		// Received from ourselves after 1 to 2 seconds when param 16 is received
 		else if (param == 29)
 		{
 			GameObject *honPaintballTeam01Guy02Obj = Commands->Find_Object(this->honPaintballTeam01Guy02ObjId);
@@ -174,6 +183,8 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 				Commands->Start_Conversation(conversationId, conversationId);
 			}
 		}
+
+		// Received from ourselves after 1 to 2 seconds when param 16 is received
 		else if (param == 30)
 		{
 			GameObject *honPaintballTeam01Guy01Obj = Commands->Find_Object(this->honPaintballTeam01Guy01ObjId);
@@ -184,6 +195,8 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 				Commands->Start_Conversation(conversationId, conversationId);
 			}
 		}
+
+		// Received from ourselves after 1 to 2 seconds when param 16 is received
 		else if (param == 31)
 		{
 			GameObject *honPaintballTeam02Guy01Obj = Commands->Find_Object(this->honPaintballTeam02Guy01ObjId);
@@ -194,6 +207,8 @@ void M01_PaintballRoom_ChatterController_JDG::Custom(GameObject *obj, int type, 
 				Commands->Start_Conversation(conversationId, conversationId);
 			}
 		}
+
+		// Received from ourselves after 1 to 2 seconds when param 16 is received
 		else if(param == 32)
 		{
 			GameObject *honPaintballTeam02Guy02Obj = Commands->Find_Object(this->honPaintballTeam02Guy02ObjId);

@@ -33,5 +33,5 @@ class M01_BarnArea_AI_ExitZone_JDG : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
-		int field_1C;
+		int turretBeachGDIGuy1ObjId;
 };

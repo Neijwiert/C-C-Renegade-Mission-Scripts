@@ -70,6 +70,8 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Damaged(GameObject *obj, GameO
 // TODO
 void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from ourselves after 5 seconds after this block
+	// Received from ourselves after 5 seconds when animation is complete
 	if (param == 40)
 	{
 		if (!this->movedOffTheBeach)
@@ -86,6 +88,8 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Custom(GameObject *obj, int ty
 			}
 		}
 	}
+
+	// Received from M01_GunboatAction_Controller_JDG when param 16 is received
 	else if (param == 16)
 	{
 		Commands->Debug_Message("***************************new engineer custom received--start acting\n");
@@ -94,12 +98,17 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Custom(GameObject *obj, int ty
 
 		Commands->Send_Custom_Event(obj, obj, 0, 224, 1.0f);
 	}
+
+	// Received from M01_GunboatAction_Controller_JDG when param 24 is received
 	else if (param == 24)
 	{
 		Commands->Debug_Message("***************************new engineer custom received--STOP acting\n");
 
 		Commands->Enable_Hibernation(obj, true);
 	}
+
+	// Received from ourselves after 1 second after param 16 or 1 second after this block
+	// Received from ourselves after 1 second after action with id 40 or 42 is complete
 	else if (param == 224)
 	{
 		GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
@@ -144,6 +153,8 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Custom(GameObject *obj, int ty
 			Commands->Send_Custom_Event(obj, obj, 0, 224, 1.0f);
 		}
 	}
+
+	// Received from ourselves after 0.5 seconds after action with id 38 is complete
 	else if (param == 17)
 	{
 		GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
@@ -158,6 +169,8 @@ void M01_TurretBeach_Chinook_Spawned_Soldier_NOD::Custom(GameObject *obj, int ty
 
 		Commands->Debug_Message("***************************turret engineer has fixed turret one--going back to hiding spot\n");
 	}
+
+	// Received from ourselves after 0.5 seconds after action with id 39 is complete
 	else if (param == 18)
 	{
 		GameObject *beachNodTurret2Obj = Commands->Find_Object(101435);

@@ -38,6 +38,7 @@ void M01_Interrogation_Room_Surprise_Guy_JDG::Created(GameObject *obj)
 // TODO
 void M01_Interrogation_Room_Surprise_Guy_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Left_Interrogation_Room_Enter_Zone_JDG when entered
 	if (param == 155)
 	{
 		this->interrogationRoomLocation = Vector3(-182.199f, 529.167f, -31.13f);
@@ -50,6 +51,8 @@ void M01_Interrogation_Room_Surprise_Guy_JDG::Custom(GameObject *obj, int type, 
 
 		this->canMoveToInterrogationRoom = false;
 	}
+
+	// Received from M01_Right_Interrogation_Room_Enter_Zone_JDG when entered
 	else if (param == 156)
 	{
 		this->interrogationRoomLocation = Vector3(-182.753f, 539.906f, -31.13f);
@@ -62,6 +65,8 @@ void M01_Interrogation_Room_Surprise_Guy_JDG::Custom(GameObject *obj, int type, 
 
 		this->canMoveToInterrogationRoom = false;
 	}
+
+	// received from ourselves after 0.5 to 2 seconds when an enemy is seen or 1 to 3 seconds after action with id 38 is complete
 	else if (param == 27)
 	{
 		if (obj)

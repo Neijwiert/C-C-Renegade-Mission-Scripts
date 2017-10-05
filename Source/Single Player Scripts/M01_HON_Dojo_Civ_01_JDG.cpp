@@ -56,6 +56,7 @@ void M01_HON_Dojo_Civ_01_JDG::Killed(GameObject *obj, GameObject *killer)
 // TODO
 void M01_HON_Dojo_Civ_01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_HON_Dojo_Trainer_JDG when conversation ended
 	if (param == 16)
 	{
 		ActionParamsStruct params;
@@ -64,6 +65,8 @@ void M01_HON_Dojo_Civ_01_JDG::Custom(GameObject *obj, int type, int param, GameO
 
 		Commands->Action_Play_Animation(obj, params);
 	}
+
+	// Received from ourselves after 0 to 3 seconds when action with id 48 is complete
 	else if (param == 27)
 	{
 		ActionParamsStruct params;
@@ -75,6 +78,8 @@ void M01_HON_Dojo_Civ_01_JDG::Custom(GameObject *obj, int type, int param, GameO
 
 		Commands->Action_Goto(obj, params);
 	}
+
+	// Received from M01_HON_Dojo_Trainer_JDG when damaged by star
 	else if (param == 189)
 	{
 		Commands->Action_Reset(obj, 100.0f);
@@ -90,6 +95,8 @@ void M01_HON_Dojo_Civ_01_JDG::Custom(GameObject *obj, int type, int param, GameO
 		
 		Commands->Action_Goto(obj, params);
 	}
+
+	// Received from M01_HON_Dojo_Trainer_JDG when killed
 	else if (param == 28)
 	{
 		ActionParamsStruct params;
@@ -105,6 +112,8 @@ void M01_HON_Dojo_Civ_01_JDG::Custom(GameObject *obj, int type, int param, GameO
 		float randDelay = Commands->Get_Random(0.0f, 1.0f);
 		Commands->Send_Custom_Event(obj, obj, 0, 30, randDelay);
 	}
+
+	// Received from ourselves after 0 to 4 seconds when param 30 is received
 	else if (param == 29)
 	{
 		if (obj)
@@ -119,6 +128,8 @@ void M01_HON_Dojo_Civ_01_JDG::Custom(GameObject *obj, int type, int param, GameO
 			Commands->Monitor_Conversation(obj, this->dojoThanksConversationId);
 		}
 	}
+
+	// Received from ourselves after 0 to 1 seconds when param 28 is received
 	else if (param == 30)
 	{
 		float delay;
@@ -140,6 +151,8 @@ void M01_HON_Dojo_Civ_01_JDG::Custom(GameObject *obj, int type, int param, GameO
 
 		Commands->Send_Custom_Event(obj, obj, 0, 29, delay);
 	}
+
+	// Received from ourselves after 10 seconds after this block or 10 seconds after param 165 or 10 seconds after conversation ended
 	else if (param == 67)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
@@ -158,6 +171,9 @@ void M01_HON_Dojo_Civ_01_JDG::Custom(GameObject *obj, int type, int param, GameO
 			}
 		}
 	}
+
+	// Received from M01_HON_Dojo_Trainer_JDG when killed
+	// Received from M01_mission_Controller_JDG when param 122 is received
 	else if (param == 165)
 	{
 		Commands->Action_Reset(obj, 100.0f);
@@ -177,7 +193,7 @@ void M01_HON_Dojo_Civ_01_JDG::Action_Complete(GameObject *obj, int action_id, Ac
 {
 	if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED)
 	{
-		if (complete_reason == 6 && action_id == this->dojoThanksConversationId)
+		if (complete_reason == ACTION_COMPLETE_CONVERSATION_ENDED && action_id == this->dojoThanksConversationId)
 		{
 			Vector3 pos = Commands->Get_Position(obj);
 			Commands->Create_Sound("M01_GDI_Thanks_Twiddler", pos, obj);

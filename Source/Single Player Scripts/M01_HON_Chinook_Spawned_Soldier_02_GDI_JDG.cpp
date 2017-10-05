@@ -67,6 +67,7 @@ void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Custom(GameObject *obj, int typ
 {
 	if (obj && !type)
 	{
+		// Received from ourselves after 5 seconds after this block or animation is complete
 		if (param == 38)
 		{
 			if (!this->field_1C)
@@ -88,6 +89,9 @@ void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Custom(GameObject *obj, int typ
 				}
 			}
 		}
+
+		// Received from ourselves after param 38 or 5 seconds after this block or after param 16 or action with id 39 is complete
+		// Received from M01_GiveMCTSpeech_Zone_JDG when conversation ended
 		else if (param == 25)
 		{
 			this->field_1E = false;
@@ -103,6 +107,9 @@ void M01_HON_Chinook_Spawned_Soldier_02_GDI_JDG::Custom(GameObject *obj, int typ
 
 			Commands->Send_Custom_Event(obj, obj, 0, 25, 5.0f);
 		}
+
+		// Received from ourselves after 5 seconds after this block
+		// Received from M01_HON_WarroomController_JDG when entered
 		else if (param == 16)
 		{
 			this->field_1C = true;

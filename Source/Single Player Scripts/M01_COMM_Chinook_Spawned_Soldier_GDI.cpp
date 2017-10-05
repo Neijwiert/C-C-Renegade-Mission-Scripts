@@ -57,18 +57,19 @@ void M01_COMM_Chinook_Spawned_Soldier_GDI::Damaged(GameObject *obj, GameObject *
 // TODO
 void M01_COMM_Chinook_Spawned_Soldier_GDI::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_mission_Controller_JDG when param 189 is received with param = lastDamagedStarEnemyObjId
 	if (type == 189)
 	{
 		if (!this->field_1C)
 		{
-			GameObject *paramObj = Commands->Find_Object(param);
-			if (paramObj)
+			GameObject *lastDamagedStarEnemyObj = Commands->Find_Object(param);
+			if (lastDamagedStarEnemyObj)
 			{
 				ActionParamsStruct params;
 				params.Set_Basic(this, 100.0f, 45);
-				params.Set_Movement(paramObj, 0.8f, 5.0f);
+				params.Set_Movement(lastDamagedStarEnemyObj, 0.8f, 5.0f);
 				params.AttackActive = true;
-				params.Set_Attack(paramObj, 50.0f, 0.0f, true);
+				params.Set_Attack(lastDamagedStarEnemyObj, 50.0f, 0.0f, true);
 
 				Commands->Modify_Action(obj, 45, params, true, true);
 
@@ -125,6 +126,8 @@ void M01_COMM_Chinook_Spawned_Soldier_GDI::Custom(GameObject *obj, int type, int
 				Commands->Send_Custom_Event(obj, obj, 0, 67, randDelay);
 			}
 		}
+
+		// Received from M01_mission_Controller_JDG when param 179 is received
 		else if (param == 180)
 		{
 			GameObject *M01GDIEscortConversationControllerGDIObj = Commands->Find_Object(103396);
@@ -145,6 +148,8 @@ void M01_COMM_Chinook_Spawned_Soldier_GDI::Custom(GameObject *obj, int type, int
 
 			this->field_1C = 0;
 		}
+
+		// Received from M01_mission_Controller_JDG when param 179 is received
 		else if (param == 181)
 		{
 			Commands->Action_Reset(obj, 100.0f);

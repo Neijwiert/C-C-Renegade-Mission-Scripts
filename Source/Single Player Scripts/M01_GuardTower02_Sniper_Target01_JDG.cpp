@@ -66,6 +66,7 @@ void M01_GuardTower02_Sniper_Target01_JDG::Killed(GameObject *obj, GameObject *k
 // TODO
 void M01_GuardTower02_Sniper_Target01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_GuardTower02_Sniper_Target02_JDG when killed
 	if (!type && param == 22)
 	{
 		Commands->Action_Reset(obj, 100.0f);

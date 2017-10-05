@@ -47,27 +47,31 @@ void M01_BuggyNew_Controller_JDG::Custom(GameObject *obj, int type, int param, G
 
 		this->nodBuggyObjId = Commands->Get_ID(nodBuggyObj);
 	}
+
+	// Received from M01_HON_Chinook_Spawned_Soldier_03_GDI_JDG when action with id 38 is complete
 	else if (param == 27)
 	{
 		this->field_20 = true;
 		
-		int senderId = Commands->Get_ID(sender);
+		int honChinookSpawnedSoldier3GDIObjId = Commands->Get_ID(sender);
 		GameObject *nodBuggyObj = Commands->Find_Object(this->nodBuggyObjId);
 		if (nodBuggyObj)
 		{
-			Commands->Send_Custom_Event(obj, nodBuggyObj, 28, senderId, 0.0f);
+			Commands->Send_Custom_Event(obj, nodBuggyObj, 28, honChinookSpawnedSoldier3GDIObjId, 0.0f);
 			Commands->Send_Custom_Event(obj, sender, 27, this->nodBuggyObjId, 0.0f);
 		}
 	}
+
+	// Received from M01_HON_Chinook_Spawned_Soldier_04_GDI_JDG when action with id 38 is complete
 	else if (param == 28)
 	{
 		this->field_21 = true;
 
-		int senderId = Commands->Get_ID(sender);
+		int honChinookSpawnedSoldier4GDIObjId = Commands->Get_ID(sender);
 		GameObject *nodBuggyObj = Commands->Find_Object(this->nodBuggyObjId);
 		if (nodBuggyObj)
 		{
-			Commands->Send_Custom_Event(obj, nodBuggyObj, 29, senderId, 0.0f);
+			Commands->Send_Custom_Event(obj, nodBuggyObj, 29, honChinookSpawnedSoldier4GDIObjId, 0.0f);
 			Commands->Send_Custom_Event(obj, sender, 27, this->nodBuggyObjId, 0.0f);
 		}
 	}

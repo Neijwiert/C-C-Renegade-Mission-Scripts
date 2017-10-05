@@ -30,6 +30,7 @@ void M01_Visceroid_NodGuy01_JDG::Created(GameObject *obj)
 // TODO
 void M01_Visceroid_NodGuy01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_TibCave_StartZone_JDG when entered
 	if (!type && param == 16)
 	{
 		Commands->Innate_Enable(obj);

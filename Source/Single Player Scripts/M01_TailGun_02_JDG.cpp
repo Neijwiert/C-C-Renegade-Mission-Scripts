@@ -25,6 +25,7 @@ M01 -> 108708
 // TODO
 void M01_TailGun_02_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Player_Is_Entering_Tailgun_Alley_Backway_JDG or M01_Player_Is_Entering_Tailgun_Alley_JDG when entered
 	if (param == 16)
 	{
 		ActionParamsStruct params;

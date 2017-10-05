@@ -48,6 +48,7 @@ void M01_TurretBeach_GDI_Guy_01_JDG::Created(GameObject *obj)
 // TODO
 void M01_TurretBeach_GDI_Guy_01_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_BarnArea_AI_ExitZone_JDG when entered
 	if (!type && param == 23)
 	{
 		Commands->Action_Reset(obj, 100.0f);

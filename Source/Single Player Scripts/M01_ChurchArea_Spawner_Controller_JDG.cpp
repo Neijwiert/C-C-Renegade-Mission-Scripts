@@ -46,6 +46,8 @@ void M01_ChurchArea_Spawner_Controller_JDG::Custom(GameObject *obj, int type, in
 
 		Commands->Send_Custom_Event(obj, obj, 0, 68, 0.0f);
 	}
+
+	// Received from M01_Turn_on_the_Hand_of_Nod_Zone_JDG when entered
 	else if (param == 70)
 	{
 		GameObject *churchAreaMinigunnerSpawner1Obj = Commands->Find_Object(102347);
@@ -70,6 +72,7 @@ void M01_ChurchArea_Spawner_Controller_JDG::Custom(GameObject *obj, int type, in
 	}
 
 	// Received from ourselves after param 69
+	// Received from M01_Player_Is_Crossing_Bridge_Via_Cave_Zone or M01_Player_Is_Crossing_Bridge_Via_Church_Zone or M01_Player_Is_Crossing_Bridge_Zone when entered
 	else if(param == 68)
 	{
 		int difficultyLevel = Commands->Get_Difficulty_Level();

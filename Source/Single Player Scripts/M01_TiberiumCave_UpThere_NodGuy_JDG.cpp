@@ -33,6 +33,7 @@ void M01_TiberiumCave_UpThere_NodGuy_JDG::Custom(GameObject *obj, int type, int 
 {
 	if (!type)
 	{
+		// Received from M01_Tiberium_Cave_Helicopter_JDG when entered
 		if (param == 16)
 		{
 			ActionParamsStruct params;
@@ -47,6 +48,8 @@ void M01_TiberiumCave_UpThere_NodGuy_JDG::Custom(GameObject *obj, int type, int 
 
 			Commands->Send_Custom_Event(obj, obj, 0, 27, 3.0f);
 		}
+
+		// Received from ourselves 3 seconds after param 16 is received
 		else if (param == 27)
 		{
 			Vector3 pos = Commands->Get_Position(obj);

@@ -38,14 +38,19 @@ void M01_CantBring_MediumTank_ThroughHereZone_JDG::Custom(GameObject *obj, int t
 {
 	if (!type)
 	{
+		// Received from M01_Medium_Tank_JDG when entered
 		if (param == 27)
 		{
 			this->field_1C = true;
 		}
+
+		// Received from M01_Medium_Tank_JDG when exited
 		else if (param == 28)
 		{
 			this->field_1C = false;
 		}
+
+		// Received from M01_Medium_Tank_JDG when created
 		else if (param == 29)
 		{
 			this->field_20 = Commands->Get_ID(sender);

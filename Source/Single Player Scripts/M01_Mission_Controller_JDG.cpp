@@ -64,10 +64,10 @@ void M01_Mission_Controller_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_41, sizeof(this->field_41), 38);
 	Auto_Save_Variable(&this->field_42, sizeof(this->field_42), 39);
 	Auto_Save_Variable(&this->field_44, sizeof(this->field_44), 40);
-	Auto_Save_Variable(&this->field_48, sizeof(this->field_48), 41);
-	Auto_Save_Variable(&this->field_4C, sizeof(this->field_4C), 42);
-	Auto_Save_Variable(&this->field_50, sizeof(this->field_50), 43);
-	Auto_Save_Variable(&this->field_54, sizeof(this->field_54), 44);
+	Auto_Save_Variable(&this->whackAMoleNodMinigunnerObjId, sizeof(this->whackAMoleNodMinigunnerObjId), 41);
+	Auto_Save_Variable(&this->nodHonSpawnedSoldier1ObjId, sizeof(this->nodHonSpawnedSoldier1ObjId), 42);
+	Auto_Save_Variable(&this->nodHonSpawnedSoldier2ObjId, sizeof(this->nodHonSpawnedSoldier2ObjId), 43);
+	Auto_Save_Variable(&this->nodHonSpawnedSoldier3ObjId, sizeof(this->nodHonSpawnedSoldier3ObjId), 44);
 	Auto_Save_Variable(&this->field_58, sizeof(this->field_58), 45);
 	Auto_Save_Variable(&this->field_5C, sizeof(this->field_5C), 46);
 	Auto_Save_Variable(&this->field_60, sizeof(this->field_60), 47);
@@ -95,8 +95,8 @@ void M01_Mission_Controller_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_B8, sizeof(this->field_B8), 69);
 	Auto_Save_Variable(&this->field_BC, sizeof(this->field_BC), 70);
 	Auto_Save_Variable(&this->field_C0, sizeof(this->field_C0), 71);
-	Auto_Save_Variable(&this->field_C4, sizeof(this->field_C4), 72);
-	Auto_Save_Variable(&this->field_C8, sizeof(this->field_C8), 73);
+	Auto_Save_Variable(&this->chinookSpawnedSoldierGDIObjId, sizeof(this->chinookSpawnedSoldierGDIObjId), 72);
+	Auto_Save_Variable(&this->lastDamagedStarEnemyObjId, sizeof(this->lastDamagedStarEnemyObjId), 73);
 	Auto_Save_Variable(&this->field_CC, sizeof(this->field_CC), 74);
 	Auto_Save_Variable(&this->field_D0, sizeof(this->field_D0), 75);
 	Auto_Save_Variable(&this->field_D4, sizeof(this->field_D4), 76);
@@ -175,8 +175,8 @@ void M01_Mission_Controller_JDG::Created(GameObject *obj)
 	this->field_D0 = 0;
 	this->field_D4 = 0;
 	this->field_64 = 14;
-	this->field_C4 = 0;
-	this->field_C8 = 0;
+	this->chinookSpawnedSoldierGDIObjId = 0;
+	this->lastDamagedStarEnemyObjId = 0;
 
 	Commands->Set_Wind(0.0f, 0.0f, 0.0f, 0.0f);
 	Commands->Set_Rain(0.0f, 0.0f, true);
@@ -245,6 +245,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 	}
 	else  if(!type)
 	{
+		// Received from M01_Hand_of_Nod_Building_Script_JDG when killed
 		if (param == 122)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 98, 2.0f);
@@ -405,6 +406,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 
 			this->field_F8 = 3;
 		}
+
+		// Received from M01_Hand_Of_Nod_Interior_Zone when entered
 		else if (param == 135)
 		{
 			this->field_FC = 5;
@@ -423,6 +426,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, obj, 0, 160, 0.0f);
 			}
 		}
+
+		// Received from M01_Hand_Of_Nod_Exterior_Zone when entered
 		else if (param == 138)
 		{
 			this->field_FC = 4;
@@ -494,6 +499,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 158, 0.0f);
 		}
+
+		// Received from M01_Tunnel_Interior_Zone when entered
 		else if (param == 143)
 		{
 			this->field_FC = 11;
@@ -501,6 +508,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 159, 0.0f);
 		}
+
+		// Received from M01_Tunnel_Exterior_Zone when entered
 		else if (param == 144)
 		{
 			this->field_FC = 10;
@@ -508,6 +517,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 158, 0.0f);
 		}
+
+		// Received from M01_Waterfall_Interior_Zone when entered
 		else if (param == 145)
 		{
 			this->field_FC = 13;
@@ -515,6 +526,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 159, 0.0f);
 		}
+
+		// Received from M01_Waterfall_Exterior_Zone when entered
 		else if (param == 146)
 		{
 			this->field_FC = 12;
@@ -522,6 +535,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			GameObject *M01AmbientSoundControllerJDGObj = Commands->Find_Object(100253);
 			Commands->Send_Custom_Event(obj, M01AmbientSoundControllerJDGObj, 0, 158, 0.0f);
 		}
+
+		// Received from M01_Hand_Of_Nod_Grunt_Zone when entered
 		else if (param == 136)
 		{
 			this->field_F1 = true;
@@ -578,6 +593,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				}
 			}
 		}
+
+		// Received from M01_Hand_Of_Nod_Dojo_Zone when entered
 		else if (param == 137)
 		{
 			if (this->field_F4 != 3 && this->field_1F)
@@ -591,6 +608,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				}
 			}
 		}
+
+		// Received from M01_HandOfNod_SAMSite_Script when killed
 		else if (param == 123)
 		{
 			GameObject *honBuildingObj = Commands->Find_Object(153909);
@@ -634,22 +653,30 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		{
 			Commands->Create_Sound("00-N036E", Vector3(0.0f, 0.0f, 0.0f), obj);
 		}
+
+		// Received from ourselves after 3 seconds when param 123 or 172 is received
 		else if (param == 167)
 		{
 			Commands->Create_Sound("00-N180E", Vector3(0.0f, 0.0f, 0.0f), obj);
 		}
+
+		// Received from ourselves after 10 seconds when param 125 is received
 		else if (param == 120)
 		{
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-296.388f, 497.455f, 29.122f));
 			Commands->Set_Facing(invisObj, -130.0f);
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1I_GDI_CommCenter_TroopDrop.txt");
 		}
+
+		// Received from ourselves after 0 to 2 seconds when param 123 or 172 is received
 		else if (param == 168)
 		{
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-147.1f, 558.8f, 4.4000001f));
 			Commands->Set_Facing(invisObj, -130.0f);
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1I_GDI_HON_TroopDrop01a.txt");
 		}
+
+		// Received from ourselves after 2 to 4 seconds seconds when param 123 or 172 is received
 		else if (param == 169)
 		{
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-154.679f, 519.009f, 4.9699998f));
@@ -663,15 +690,15 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, obj, 0, 167, 3.0f);
 
 				float rand = Commands->Get_Random(0.5f, 2.5f);
-				if (rand < 0.5f || rand >= 1.5f)
+				if (rand >= 0.5f && rand < 1.5f)
 				{
 					float randDelay = Commands->Get_Random(0.0f, 2.0f);
-					Commands->Send_Custom_Event(obj, obj, 0, 169, randDelay);
+					Commands->Send_Custom_Event(obj, obj, 0, 168, randDelay);
 				}
 				else
 				{
 					float randDelay = Commands->Get_Random(0.0f, 2.0f);
-					Commands->Send_Custom_Event(obj, obj, 0, 168, randDelay);
+					Commands->Send_Custom_Event(obj, obj, 0, 169, randDelay);
 				}
 			}
 		}
@@ -745,6 +772,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, churchInteriorPriestObj, 0, 16, 0.0f);
 			}
 		}
+
+		// Received from ourselves after 8 seconds when param 148 is received
 		else if (param == 83)
 		{
 			// Rescue Clergy
@@ -780,16 +809,21 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		}
 
 		// Received from M01_GDI_GuardTower_NOD_Commander_JDG after 5 seconds when killed
+		// Received from ourselves after 3 seconds when param 93 is received
 		else if (param == 101)
 		{
 			Commands->Set_Objective_Status(104, OBJECTIVE_STATUS_ACCOMPLISHED);
 
 			this->field_D8 = true;
 		}
+
+		// Received by ourselves after 2 seconds when custom type <= 0 and param = 122 is received
 		else if (param == 98)
 		{
 			Commands->Set_Objective_Status(103, OBJECTIVE_STATUS_ACCOMPLISHED);
 		}
+
+		// Received from ourselves after 2 seconds when param 177 is received
 		else if (param == 94)
 		{
 			Commands->Set_Objective_Status(100, OBJECTIVE_STATUS_ACCOMPLISHED);
@@ -857,6 +891,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		}
 
 		// Received from M01_Church_Interior_Nun_JDG or M01_Church_LoveShack_Nun_JDG or M01_Church_Priest_JDG after 1 second when action with id 4001 is complete
+		// Received from ourselves after 2 seconds after this block
 		else if (param == 177)
 		{
 			if (Commands->Find_Object(101310) || Commands->Find_Object(101314) || Commands->Find_Object(this->field_44) || Commands->Find_Object(101315)) // loveShackNunObj, churchInteriorNunObj, churchInteriorPriesObj
@@ -876,6 +911,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 
 		// Received from M01_Church_LoveShack_MiniGunner_JDG when killed
 		// Received from M01_COMM_Commander_Guy when killed
+		// Received from M01_HON_Commander_Guy when killed
+		// Received from M01_HON_Dorm_Crapper_JDG when killed
 		else if (param == 178)
 		{
 			Vector3 pos = Commands->Get_Position(obj);
@@ -916,7 +953,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			int senderObjId = Commands->Get_ID(sender);
 			if (this->field_26)
 			{
-				if (this->field_26 && senderObjId == this->field_C4)
+				if (this->field_26 && senderObjId == this->chinookSpawnedSoldierGDIObjId)
 				{
 					Commands->Send_Custom_Event(obj, sender, 0, 181, 0.0f);
 
@@ -927,7 +964,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			{
 				Commands->Send_Custom_Event(obj, sender, 0, 180, 0.0f);
 
-				this->field_C4 = senderObjId;
+				this->chinookSpawnedSoldierGDIObjId = senderObjId;
 				this->field_26 = true;
 			}
 		}
@@ -944,49 +981,72 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_CommCenter_Evacuator_JDG when damaged by star
 		// Received from M01_CommCenter_SAMSite_Script when damaged by star
 		// Received from M01_Flamethrower_Point_Guard_JDG when damaged by star
+		// Received from M01_HandOfNod_SAMSite_Script when damaged by star
+		// Received from M01_HON_BackDoor_Evacuator_JDG when damaged by star
+		// Received from M01_HON_Cafeteria_Eating_Guy_JDG when damaged by star
+		// Received from M01_HON_Cafeteria_Walking_Guy_JDG when damaged by star
+		// Received from M01_HON_Dorm_ChemGuy_JDG when damaged by star
+		// Received from M01_HON_Dorm_Crapper_JDG when damaged by star
+		// Received from M01_HON_Dorm_FlameGuy_JDG when damaged by star
+		// Received from M01_HON_Dorm_MiniGunner_JDG when damaged by star
+		// Received from M01_HON_Dorm_RocketGuy_JDG when damaged by star
+		// Received from M01_HON_Easy_Spawned_Guy_01_JDG when damaged by star
+		// Received from M01_HON_Easy_Spawned_Guy_02_JDG when damaged by star
+		// Received from M01_HON_Easy_Spawned_Guy_03_JDG when damaged by star
+		// Received from M01_HON_FrontDoor_Evacuator_JDG when damaged by star
 		else if (param == 189)
 		{
 			if (this->field_26)
 			{
-				this->field_C8 = Commands->Get_ID(sender);
+				this->lastDamagedStarEnemyObjId = Commands->Get_ID(sender);
 
 				float randDelay = Commands->Get_Random(0.0f, 1.0f);
-				GameObject *fieldC4Obj = Commands->Find_Object(this->field_C4);
-				Commands->Send_Custom_Event(obj, fieldC4Obj, 189, this->field_C8, randDelay);
+				GameObject *chinookSpawnedSoldierGDIObj = Commands->Find_Object(this->chinookSpawnedSoldierGDIObjId);
+				Commands->Send_Custom_Event(obj, chinookSpawnedSoldierGDIObj, 189, this->lastDamagedStarEnemyObjId, randDelay);
 			}
 		}
+
+		// Received from M01_Lose_Any_Church_Escorts_Zone when entered
 		else if (param == 149)
 		{
 			if (this->field_26)
 			{
-				GameObject *fieldC4Obj = Commands->Find_Object(this->field_C4);
-				Commands->Send_Custom_Event(obj, fieldC4Obj, 0, 149, 0.0f);
+				GameObject *chinookSpawnedSoldierGDIObj = Commands->Find_Object(this->chinookSpawnedSoldierGDIObjId);
+				Commands->Send_Custom_Event(obj, chinookSpawnedSoldierGDIObj, 0, 149, 0.0f);
 			}
 		}
+
+		// Received from M01_Lose_Any_Church_Escorts_Zone_02 when entered
 		else if (param == 150)
 		{
 			if (this->field_26)
 			{
-				GameObject *fieldC4Obj = Commands->Find_Object(this->field_C4);
-				Commands->Send_Custom_Event(obj, fieldC4Obj, 0, 150, 0.0f);
+				GameObject *chinookSpawnedSoldierGDIObj = Commands->Find_Object(this->chinookSpawnedSoldierGDIObjId);
+				Commands->Send_Custom_Event(obj, chinookSpawnedSoldierGDIObj, 0, 150, 0.0f);
 			}
 		}
+
+		// Received from M01_Lose_Any_HON_Escorts_Zone when entered
 		else if (param == 151)
 		{
 			if (this->field_26)
 			{
-				GameObject *fieldC4Obj = Commands->Find_Object(this->field_C4);
-				Commands->Send_Custom_Event(obj, fieldC4Obj, 0, 151, 0.0f);
+				GameObject *chinookSpawnedSoldierGDIObj = Commands->Find_Object(this->chinookSpawnedSoldierGDIObjId);
+				Commands->Send_Custom_Event(obj, chinookSpawnedSoldierGDIObj, 0, 151, 0.0f);
 			}
 		}
+
+		// Received from M01_Lose_Any_HON_Escorts_Zone_02 when entered
 		else if (param == 152)
 		{
 			if (this->field_26)
 			{
-				GameObject *fieldC4Obj = Commands->Find_Object(this->field_C4);
-				Commands->Send_Custom_Event(obj, fieldC4Obj, 0, 152, 0.0f);
+				GameObject *chinookSpawnedSoldierGDIObj = Commands->Find_Object(this->chinookSpawnedSoldierGDIObjId);
+				Commands->Send_Custom_Event(obj, chinookSpawnedSoldierGDIObj, 0, 152, 0.0f);
 			}
 		}
+
+		// Received when M01_Player_Is_Crossing_Bridge_Via_Cave_Zone or M01_Player_Is_Crossing_Bridge_Via_Church_Zone or M01_Player_Is_Crossing_Bridge_Zone M01_Player_is_Entering_GDI_Base_Zoneis entered
 		else if (param == 153 || param == 154)
 		{
 			if (!this->field_3B)
@@ -1015,6 +1075,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, canyonTowerNodOfficerObj, 0, 16, 0.0f);
 			}
 		}
+
+		// Received from M01_Tiberium_Cave_Helicopter_JDG when entered
 		else if (param == 195)
 		{
 			GameObject *nodApacheObj = Commands->Create_Object("NOD_Apache", Vector3(-40.708f, 375.387f, 30.275f));
@@ -1042,6 +1104,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			
 			Commands->Send_Custom_Event(obj, obj, 0, 91, 10.0f);
 		}
+
+		// Received from ourselves after 10 seconds when param 103 is received
 		else if (param == 91)
 		{
 			// Disable Hand of Nod
@@ -1065,6 +1129,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Apply_Damage(nodCommCenterBuildingObj, 100000000.0f, "BlamoKiller", obj);
 			}
 		}
+
+		// Received from M01_HON_MCT_Placeholder_JDG when killed
 		else if (param == 196)
 		{
 			if (this->field_F4 != 3)
@@ -1132,6 +1198,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Create_Sound("00-N008E", Vector3(0.0f, 0.0f, 0.0f), obj);
 			}
 		}
+
+		// Received by ourselves when param 200 is received
+		// Received from ourselves when param 99 is received
 		else if (param == 107)
 		{
 			// We can't extract until the SAM Site is destroyed.
@@ -1143,6 +1212,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 
 			this->field_2C = true;
 		}
+
+		// Received by ourselves after 6 seconds when param 107 is received
 		else if (param == 89)
 		{
 			GameObject *commCenterNodSAMSiteObj = Commands->Find_Object(100034);
@@ -1169,6 +1240,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			Commands->Join_Conversation(0, conversationId, false, false, true);
 			Commands->Start_Conversation(conversationId, 0);
 		}
+
+		// Received from ourselves after 10 seconds when param 105 is received
 		else if (param == 88)
 		{
 			// Access Communications Mainframe
@@ -1186,6 +1259,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, M01CommCenterMainFramePokeObj, 0, 108, 0.0f);
 			}
 		}
+
+		// Received by ourselves when sound ended of field TODO
+		// Received by ourselves when param 124 is received
 		else if (param == 99)
 		{
 			if (this->field_F3)
@@ -1207,10 +1283,14 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, obj, 0, 118, 6.0f);
 			}
 		}
+
+		// Received from ourselves after 6 seconds when param 99 is received
 		else if (param == 118)
 		{
 			Commands->Set_Objective_Status(107, OBJECTIVE_STATUS_ACCOMPLISHED);
 		}
+
+		// Received from ourselves when param 125 is received
 		else if (param == 119)
 		{
 			Commands->Set_Objective_Status(108, OBJECTIVE_STATUS_ACCOMPLISHED);
@@ -1224,6 +1304,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, obj, 0, 4, 60.0f);
 			}
 		}
+
+		// Received from M01_Scramble_Radar_Zone when entered
 		else if (param == 201)
 		{
 			if (this->field_21)
@@ -1248,6 +1330,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Enable_Radar(false);
 			}
 		}
+
+		// Received from M01_UnScramble_Radar_Zone when entered
+		// Received by ourselves when param 124 is received
 		else if (param == 202)
 		{
 			if (this->field_2A)
@@ -1272,10 +1357,16 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 
 			Commands->Set_Objective_Status(106, OBJECTIVE_STATUS_ACCOMPLISHED);
 		}
+
+		// Received by ourselves when param 200 is received
 		else if (param == 100)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 4, 0.0f);
 		}
+
+		// Received from M01_PrisonPen_Civilian_JDG or M01_PrisonPen_POW_JDG after 5 seconds when action id 49 or 42 is complete
+		// Received from ourselves after 60 seconds when param 119 is received
+		// Received from ourselves when param 100 is received
 		else if (param == 4)
 		{
 			if (!this->field_2C && this->field_2D)
@@ -1339,6 +1430,9 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				}
 			}
 		}
+
+		// Received from ourselves after 20 seconds when param 4 is received
+		// Received from ourselves after 3 seconds when conversation ended
 		else if (param == 5)
 		{
 			GameObject *M01PropagandaSoundsControllerJDGObj = Commands->Find_Object(103099);
@@ -1355,21 +1449,28 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		{
 			Commands->Mission_Complete(true);
 		}
+
+		// Received from M01_Whack_A_Mole_Enter_Zone_JDG when entered
 		else if (param == 203)
 		{
 			GameObject *whackAMoleNodMinigunnerObj = Commands->Create_Object("Nod_MiniGunner_1Off", Vector3(-198.088f, 525.828f, 10.035f));
 			Commands->Attach_Script(whackAMoleNodMinigunnerObj, "M01_Whack_A_Mole_Minigunner_JDG", "");
 
-			this->field_48 = Commands->Get_ID(whackAMoleNodMinigunnerObj);
+			this->whackAMoleNodMinigunnerObjId = Commands->Get_ID(whackAMoleNodMinigunnerObj);
 		}
+
+		// Received from M01_Whack_A_Mole_Exit_Zone_JDG when entered
 		else if (param == 204)
 		{
-			GameObject *field48Obj = Commands->Find_Object(this->field_48);
-			if (field48Obj)
+			GameObject *whackAMoleNodMinigunnerObj = Commands->Find_Object(this->whackAMoleNodMinigunnerObjId);
+			if (whackAMoleNodMinigunnerObj)
 			{
-				Commands->Send_Custom_Event(obj, field48Obj, 0, 204, 0.0f);
+				Commands->Send_Custom_Event(obj, whackAMoleNodMinigunnerObj, 0, 204, 0.0f);
 			}
 		}
+
+		// Received from M01_Turn_on_the_Hand_of_Nod_Zone_JDG when entered
+		// Received from ourselves after this block
 		else if (param == 205)
 		{
 			if (this->field_F4 != 3)
@@ -1385,7 +1486,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 							GameObject *nodHonSpawnedSoldier1Obj = Commands->Create_Object("Nod_MiniGunner_0", Vector3(-212.6f, 541.1f, 4.0f));
 							Commands->Attach_Script(nodHonSpawnedSoldier1Obj, "M01_HON_Easy_Spawned_Guy_01_JDG", "");
 
-							this->field_4C = Commands->Get_ID(nodHonSpawnedSoldier1Obj);
+							this->nodHonSpawnedSoldier1ObjId = Commands->Get_ID(nodHonSpawnedSoldier1Obj);
 							this->field_2E = true;
 						}
 						else if (!this->field_2F)
@@ -1393,7 +1494,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 							GameObject *nodHonSpawnedSoldier2Obj = Commands->Create_Object("Nod_MiniGunner_0", Vector3(-217.2f, 540.2f, 4.0f));
 							Commands->Attach_Script(nodHonSpawnedSoldier2Obj, "M01_HON_Easy_Spawned_Guy_02_JDG", "");
 
-							this->field_50 = Commands->Get_ID(nodHonSpawnedSoldier2Obj);
+							this->nodHonSpawnedSoldier2ObjId = Commands->Get_ID(nodHonSpawnedSoldier2Obj);
 							this->field_2F = true;
 						}
 						else if (!this->field_30)
@@ -1401,7 +1502,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 							GameObject *nodHonSpawnedSoldier3Obj = Commands->Create_Object("Nod_FlameThrower_0", Vector3(-217.6f, 533.6f, 4.0f));
 							Commands->Attach_Script(nodHonSpawnedSoldier3Obj, "M01_HON_Easy_Spawned_Guy_03_JDG", "");
 
-							this->field_54 = Commands->Get_ID(nodHonSpawnedSoldier3Obj);
+							this->nodHonSpawnedSoldier3ObjId = Commands->Get_ID(nodHonSpawnedSoldier3Obj);
 							this->field_30 = true;
 						}
 					}
@@ -1414,58 +1515,69 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 205, this->field_64);
 			}
 		}
+
+		// Received from M01_HON_Easy_Spawned_Guy_03_JDG when action with id 38 is complete
 		else if (param == 206)
 		{
 			if (this->field_5C == 3)
 			{
-				GameObject *field4CObj = Commands->Find_Object(this->field_4C);
-				if (field4CObj)
+				GameObject *nodHonSpawnedSoldier1Obj = Commands->Find_Object(this->nodHonSpawnedSoldier1ObjId);
+				if (nodHonSpawnedSoldier1Obj)
 				{
-					Commands->Send_Custom_Event(obj, field4CObj, 0, 65, 0.0f);
+					Commands->Send_Custom_Event(obj, nodHonSpawnedSoldier1Obj, 0, 65, 0.0f);
 					this->field_2E = false;
-					this->field_4C = 0;
+					this->nodHonSpawnedSoldier1ObjId = 0;
 				}
 
-				GameObject *field50Obj = Commands->Find_Object(this->field_50);
-				if (field50Obj)
+				GameObject *nodHonSpawnedSoldier2Obj = Commands->Find_Object(this->nodHonSpawnedSoldier2ObjId);
+				if (nodHonSpawnedSoldier2Obj)
 				{
-					Commands->Send_Custom_Event(obj, field50Obj, 0, 65, 0.0f);
+					Commands->Send_Custom_Event(obj, nodHonSpawnedSoldier2Obj, 0, 65, 0.0f);
 					this->field_2F = false;
-					this->field_50 = 0;
+					this->nodHonSpawnedSoldier2ObjId = 0;
 				}
 
-				GameObject *field54Obj = Commands->Find_Object(this->field_54);
-				if (field54Obj)
+				GameObject *nodHonSpawnedSoldier3Obj = Commands->Find_Object(this->nodHonSpawnedSoldier3ObjId);
+				if (nodHonSpawnedSoldier3Obj)
 				{
-					Commands->Send_Custom_Event(obj, field54Obj, 0, 65, 0.0);
+					Commands->Send_Custom_Event(obj, nodHonSpawnedSoldier3Obj, 0, 65, 0.0);
 					this->field_30 = false;
-					this->field_54 = 0;
+					this->nodHonSpawnedSoldier3ObjId = 0;
 				}
 
 				this->field_5C = 0;
 			}
 		}
+		
+		// Received from M01_HON_Easy_Spawned_Guy_01_JDG when killed
 		else if (param == 208)
 		{
 			this->field_2E = false;
 			this->field_5C--;
 		}
+
+		// Received from M01_HON_Easy_Spawned_Guy_02_JDG when killed
 		else if (param == 209)
 		{
 			this->field_2F = false;
 			this->field_5C--;
 		}
+
+		// Received from M01_HON_Easy_Spawned_Guy_03_JDG when killed
 		else if (param == 210)
 		{
 			this->field_30 = false;
 			this->field_5C--;
 		}
+
+		// Received from M01_HON_Easy_Spawned_Guy_01_JDG or M01_HON_Easy_Spawned_Guy_02_JDG  or M01_HON_Easy_Spawned_Guy_03_JDG when killed
 		else if (param == 207)
 		{
 			this->field_60--;
 		}
 
 		// Received from M01_Church_LoveShack_Nun_JDG when poked
+		// Received from M01_Loveshack_Nun_Conversation_Zone_JDG when entered
 		else if (param == 212)
 		{
 			if (Commands->Find_Object(101310) && !this->field_24 && !this->field_E0) // loveShackNunObj
@@ -1480,6 +1592,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		}
 
 		// When M01_Church_Priest_JDG is poked
+		// Received from M01_Priest_Conversation_Zone_JDG when entered
 		else if (param == 213)
 		{
 			GameObject *churchInteriorPriestObj = Commands->Find_Object(101315);
@@ -1500,6 +1613,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		}
 
 		// Received from M01_Church_Interior_Nun_JDG when poked
+		// Received from M01_Interior_Nun_Conversation_Zone_JDG when entered
 		else if (param == 211)
 		{
 			GameObject *churchInteriorNunObj = Commands->Find_Object(101314);
@@ -1518,6 +1632,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Monitor_Conversation(obj, this->field_EC);
 			}
 		}
+
+		// Received from M01_TurretBeach_Turret_01_Script_JDG after 5 seconds when killed
 		else if (param == 217)
 		{
 			if (!Commands->Find_Object(101434))// beachNodTurret1Obj
@@ -1535,6 +1651,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, obj, 0, 112, 0.0f);
 			}
 		}
+
+		// Received from ourselves when param 117 is received
 		else if (param == 219)
 		{
 			if (!this->field_33)
@@ -1567,6 +1685,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				}
 			}
 		}
+
+		// Received from M01_Player_is_Leaving_GDI_Base_Zone when entered
 		else if (param == 128)
 		{
 			if (this->field_22)
@@ -1609,6 +1729,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Set_Rain(0.5f, 120.0f, false);
 			}
 		}
+
+		// Received from M01_Player_Is_Entering_Tailgun_Alley_Backway_JDG or M01_Player_Is_Entering_Tailgun_Alley_JDG when entered
 		else if (param == 134)
 		{
 			GameObject *riverBridgeNodOfficerObj = Commands->Find_Object(102358);
@@ -1629,6 +1751,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, openAreaNodLightTankObj, 0, 16, 0.0f);
 			}
 		}
+
+		// Received from M01_Player_is_Entering_GDI_Base_Zone when entered
 		else if (param == 129)
 		{
 			GameObject *M01GDIBaseArtilleryControllerJDGObj = Commands->Find_Object(102294);
@@ -1637,6 +1761,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Send_Custom_Event(obj, M01GDIBaseArtilleryControllerJDGObj, 0, 16, 0.0f);
 			}
 		}
+
+		// Received from ourselves when param 128 is received
 		else if (param == 110)
 		{
 			// This is Gunboat Tango!  We're taking Nod Turret fire!  All available units please respond!
@@ -1647,6 +1773,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			Commands->Start_Conversation(this->field_C0, this->field_C0);
 			Commands->Monitor_Conversation(obj, this->field_C0);
 		}
+
+		// Received from ourselves when conversation ended
 		else if (param == 92)
 		{
 			// Destroy Nod Turrets
@@ -1680,6 +1808,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-82.786f, 113.665f, 2.221f));
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1D_GTower_FlareDrop.txt");
 		}
+
+		// Received from M01_Initial_Gunboat_Script_JDG when killed
 		else if (param == 113)
 		{
 			if (!this->field_41)
@@ -1689,6 +1819,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Set_Objective_Status(109, OBJECTIVE_STATUS_FAILED);
 			}
 		}
+
+		// Received from ourselves when param 217 is received
 		else if (param == 112)
 		{
 			if (!this->field_41)
@@ -1710,6 +1842,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				}
 			}
 		}
+
+		// Received from ourselves after 5 seconds when param 112 is received
 		else if (param == 117)
 		{
 			Commands->Set_Objective_Status(109, OBJECTIVE_STATUS_ACCOMPLISHED);
@@ -1719,6 +1853,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		}
 
 		// Received from M01_Barn_EntryZone_JDG when entered
+		// Received from ourselves when param 227 is received
 		else if (param == 114)
 		{
 			if (!this->field_3E && !this->field_F2)
@@ -1753,6 +1888,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				this->field_40 = true;
 			}
 		}
+
+		// Received from M01_TurretBeach_Chinook_Spawned_Soldier_NOD or M01_TurretBeach_Engineer_JDG when killed
 		else if (param == 222)
 		{
 			GameObject *beachNodTurret1Obj = Commands->Find_Object(101434);
@@ -1855,7 +1992,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			}
 		}
 
-		// Received from M01_Comm_Center_Building_Script_JDG when killed
+		// Received from M01_Comm_Center_Building_Script_JDG when damaged
+		// Received from M01_Hand_of_Nod_Building_Script_JDG when damaged
 		else if (param == 26)
 		{
 			if (sender == Commands->Find_Object(153909)) // nodHonBuildingObj
@@ -1936,6 +2074,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		}
 
 		// Received from M01_GDI_GuardTower_NOD_Commander_JDG when param 71 is received
+		// Received from M01_Nod_Commander_Conversation_Controller_GDI when conversation ended
 		else if (param == 71)
 		{
 			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", Vector3(0.0f, 0.0f, 0.0f), obj);
@@ -1944,6 +2083,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			Commands->Set_Facing(invisObj, -130.0f);
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1I_EasyNodChinook01.txt");
 		}
+
+		// Received from M01_TailgunRun_NOD_Commander_JDG when param 73 is received
 		else if (param == 73)
 		{
 			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", Vector3(0.0f, 0.0f, 0.0f), obj);
@@ -1954,6 +2095,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		}
 
 		// Received from M01_ChurchArea_NOD_Commander_JDG when param 74 is received
+		// Received from ourselves after 10 seconds when param 153 or 154 is received
 		else if (param == 74)
 		{
 			Commands->Create_Sound("M01EVAG_DSGN0268I1EVAG_SND", Vector3(0.0f, 0.0f, 0.0f), obj);
@@ -1962,6 +2104,8 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 			Commands->Set_Facing(invisObj, 0.0f);
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X1I_EasyNodChinook.txt");
 		}
+
+		// Received from ourselves when conversation ended
 		else if (param == 75)
 		{
 			GameObject *M01BarnAreaEvacMonitorJDGObj = Commands->Find_Object(103420); 

@@ -36,7 +36,7 @@ class M01_GDIBase_POWEncounter02_Controller_JDG : public ScriptImpClass
 		bool field_1D;
 		bool field_1E;
 		bool field_1F;
-		int field_20;
-		int field_24;
-		int field_28;
+		int waypathObjId;
+		int chopperObjId;
+		int ropeObjId;
 };

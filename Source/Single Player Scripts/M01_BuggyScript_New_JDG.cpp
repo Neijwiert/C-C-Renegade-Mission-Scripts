@@ -59,7 +59,7 @@ void M01_BuggyScript_New_JDG::Killed(GameObject *obj, GameObject *killer)
 // TODO
 void M01_BuggyScript_New_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
-	// Received from M01_BuggyNew_Controller_JDG when param 27 is received with param = TODO
+	// Received from M01_BuggyNew_Controller_JDG when param 27 is received with param = honChinookSpawnedSoldier3GDIObjId
 	if (type == 28)
 	{
 		this->field_1C = param;
@@ -67,7 +67,7 @@ void M01_BuggyScript_New_JDG::Custom(GameObject *obj, int type, int param, GameO
 		Commands->Send_Custom_Event(obj, obj, 0, 30, 0.0f);
 	}
 
-	// Received from M01_BuggyNew_Controller_JDG when param 28 is received with param = TODO
+	// Received from M01_BuggyNew_Controller_JDG when param 28 is received with param = honChinookSpawnedSoldier4GDIObjId
 	else if (type == 29)
 	{
 		this->field_20 = param;

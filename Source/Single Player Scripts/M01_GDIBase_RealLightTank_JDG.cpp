@@ -32,6 +32,7 @@ void M01_GDIBase_RealLightTank_JDG::Custom(GameObject *obj, int type, int param,
 {
 	if (!type)
 	{
+		// Received from M01_RealLightTank_TriggerZone_JDG when entered
 		if (param == 16)
 		{
 			ActionParamsStruct params;

@@ -31,6 +31,6 @@ class M01_GuardTower02_Sniper_Target02_JDG : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 
-		int field_1C;
+		int guardTower2SniperTarget1ObjId;
 		bool field_20;
 };

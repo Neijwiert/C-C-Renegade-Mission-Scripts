@@ -45,6 +45,7 @@ void M01_HON_Cafeteria_Walking_Guy_JDG::Custom(GameObject *obj, int type, int pa
 {
 	if (obj)
 	{
+		// Received from M01_mission_Controller_JDG when param 136 is received
 		if (param == 16)
 		{
 			Commands->Innate_Enable(obj);
@@ -58,6 +59,8 @@ void M01_HON_Cafeteria_Walking_Guy_JDG::Custom(GameObject *obj, int type, int pa
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// Received from M01_mission_Controller_JDG when param 122 is received
 		else if (param == 165)
 		{
 			Commands->Innate_Enable(obj);

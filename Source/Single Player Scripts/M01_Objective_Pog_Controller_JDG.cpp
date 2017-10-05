@@ -41,6 +41,8 @@ void M01_Objective_Pog_Controller_JDG::Custom(GameObject *obj, int type, int par
 			Commands->Start_Conversation(this->objectiveConversationId, this->objectiveConversationId);
 			Commands->Monitor_Conversation(obj, this->objectiveConversationId);
 		}
+
+		// Received from ourselves after 2 seconds when custom type 6 with param 114 is received
 		else if (param == 27)
 		{
 			this->tutorialConversationId = Commands->Create_Conversation("M01_Press_ESC_For_Objectives_Conversation", 100, 1000.0f, false); // Press 'O' for Mission Objectives
@@ -63,6 +65,8 @@ void M01_Objective_Pog_Controller_JDG::Custom(GameObject *obj, int type, int par
 
 			Commands->Send_Custom_Event(obj, obj, 0, 27, 2.0f);
 		}
+
+		// Received from M01_mission_Controller_JDG when param 93 is received
 		else if (param == 104)
 		{
 			GameObject *entranceBarnAreaTowerNodOfficerObj = Commands->Find_Object(102360);
@@ -73,6 +77,8 @@ void M01_Objective_Pog_Controller_JDG::Custom(GameObject *obj, int type, int par
 				Commands->Set_HUD_Help_Text(6268, Vector3(0.196f, 0.882f, 0.196f)); // Eliminate Nod Officer
 			}
 		}
+
+		// Received from M01_mission_Controller_JDG when param 92 is received
 		else if (param == 109)
 		{
 			GameObject *beachNodTurrer1Obj = Commands->Find_Object(101434);
@@ -101,6 +107,8 @@ void M01_Objective_Pog_Controller_JDG::Custom(GameObject *obj, int type, int par
 			Commands->Set_Objective_HUD_Info_Position(112, 93.0f, "POG_M01_2_04.tga", 7381, Vector3(-54.786f, 213.816f, 6.453f)); // Evacuate
 			Commands->Set_HUD_Help_Text(6271, Vector3(0.196f, 0.882f, 0.196f)); // Evacuate Civilians
 		}
+
+		// Received from M01_mission_Controller_JDG when param 83 is received
 		else if (param == 100)
 		{
 			GameObject *churchPriestObj = Commands->Find_Object(101315);
@@ -109,11 +117,15 @@ void M01_Objective_Pog_Controller_JDG::Custom(GameObject *obj, int type, int par
 			Commands->Set_Objective_HUD_Info_Position(100, 94.0f, "POG_M01_2_06.tga", 7389, churchPriestObjPos); // Rescue
 			Commands->Set_HUD_Help_Text(6272, Vector3(0.196f, 0.882f, 0.196f)); // Rescue Clergy
 		}
+
+		// Received from M01_mission_Controller_JDG when param 91 is received
 		else if (param == 103)
 		{
 			Commands->Set_Objective_HUD_Info_Position(103, 95.0f, "POG_M02_2_01.tga", 7376, Vector3(-179.3f, 541.9f, 3.518f)); // Destroy
 			Commands->Set_HUD_Help_Text(6274, Vector3(0.196f, 0.882f, 0.196f)); // Disable Hand of Nod
 		}
+
+		// Received from M01_mission_Controller_JDG when param 89 is received
 		else if (param == 108)
 		{
 			Commands->Set_Objective_HUD_Info_Position(108, 96.0f, "POG_M01_1_04.tga", 7376, Vector3(-337.169f, 549.232f, 31.949f)); // Destroy
@@ -122,6 +134,7 @@ void M01_Objective_Pog_Controller_JDG::Custom(GameObject *obj, int type, int par
 	}
 	else if (type == 7)
 	{
+		// Received from M01_GDIBase_POW_Conversation_Controller_JDG when the conversation ended
 		if (param == 102)
 		{
 			if (Commands->Find_Object(106050)) // Captain Duncan in the shed
@@ -141,6 +154,8 @@ void M01_Objective_Pog_Controller_JDG::Custom(GameObject *obj, int type, int par
 				Commands->Set_HUD_Help_Text(7502, Vector3(0.196f, 0.882f, 0.196f)); // Contact GDI Commander
 			}
 		}
+
+		// Received from M01_TurretBeach_Turret_01_Script_JDG when killed
 		else if (param == 109)
 		{
 			Vector3 objectivePos;

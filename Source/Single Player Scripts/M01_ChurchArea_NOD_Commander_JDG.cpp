@@ -111,6 +111,8 @@ void M01_ChurchArea_NOD_Commander_JDG::Custom(GameObject *obj, int type, int par
 				Commands->Send_Custom_Event(obj, obj, 0, 27, delay);
 			}
 		}
+
+		// Received from M01_mission_Controller_JDG when custom param 153 or 154 is received
 		else if (param == 16)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 27, 0.0f);

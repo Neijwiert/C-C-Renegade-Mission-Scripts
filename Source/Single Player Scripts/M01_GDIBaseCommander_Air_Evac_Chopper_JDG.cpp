@@ -48,16 +48,21 @@ void M01_GDIBaseCommander_Air_Evac_Chopper_JDG::Damaged(GameObject *obj, GameObj
 // TODO
 void M01_GDIBaseCommander_Air_Evac_Chopper_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from ourselves after 3 seconds after create
 	if (param == 24)
 	{
 		Commands->Enable_Collisions(obj);
 	}
+
+	// Received from M01_GDIBaseCommander_EvacController_JDG when param 28 is received
 	else if (param == 27)
 	{
 		Commands->Debug_Message("*******************************helicopter has received custom to goto exit anim\n");
 
 		Commands->Set_Animation(obj, "v_GDI_trnspt.XG_EV5_trnsz", false, NULL, 0.0f, -1.0f, false);
 	}
+
+	// Received from ourselves after 1 second after this block or 2 seconds after animation complete
 	else if (param == 4)
 	{
 		GameObject *captainDuncanObj = Commands->Find_Object(106050);

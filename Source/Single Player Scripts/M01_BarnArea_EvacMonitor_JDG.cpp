@@ -116,6 +116,8 @@ void M01_BarnArea_EvacMonitor_JDG::Custom(GameObject *obj, int type, int param, 
 
 		Commands->Set_Animation(sender, "S_A_Human.XG_EV5_troop", false, NULL, 0.0f, -1.0f, false);
 	}
+
+	// Received from M01_mission_Controller_JDG when param 75 is received
 	else if (param == 75)
 	{
 		if (!this->field_2C)

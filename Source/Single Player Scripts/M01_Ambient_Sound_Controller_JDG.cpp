@@ -56,6 +56,7 @@ void M01_Ambient_Sound_Controller_JDG::Created(GameObject *obj)
 void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	// Received from ourselves after create
+	// Received from M01_mission_Controller_JDG when param 138 or 142 or 144 or 146 is received
 	if (param == 158)
 	{
 		if (!this->field_38)
@@ -72,6 +73,8 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 			this->field_3A = false;
 		}
 	}
+
+	// Received by M01_mission_Controller_JDG when param 135 or 141 or 143 or 145 is received
 	else if (param == 159)
 	{
 		if (this->field_38)
@@ -79,6 +82,8 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 			this->field_38 = false;
 		}
 	}
+
+	// Received from M01_Hand_of_Nod_Building_Script_JDG when killed
 	else if (param == 122)
 	{
 		this->field_1C = 1;
@@ -97,6 +102,8 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 	{
 		this->field_24 = 1;
 	}
+
+	// Received from M01_mission_Controller_JDG when param 141 is received
 	else if (param == 141)
 	{
 		this->field_24 = 4;
@@ -113,6 +120,8 @@ void M01_Ambient_Sound_Controller_JDG::Custom(GameObject *obj, int type, int par
 			Commands->Send_Custom_Event(obj, obj, 0, 105, randDelay);
 		}
 	}
+
+	// Received by M01_mission_Controller_JDG when param 135 is received
 	else if (param == 135)
 	{
 		this->field_24 = 2;

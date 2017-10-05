@@ -43,6 +43,7 @@ void M01_Comm_Center_Player_Terminal_Zone::Custom(GameObject *obj, int type, int
 {
 	if (!type)
 	{
+		// Received from M01_mission_Controller_JDG when param 88 is received
 		if (param == 108)
 		{
 			Commands->Set_Obj_Radar_Blip_Shape(obj, RADAR_BLIP_SHAPE_OBJECTIVE);

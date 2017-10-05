@@ -54,6 +54,7 @@ void M01_Barn_Prisoner_02_JDG::Killed(GameObject *obj, GameObject *killer)
 // TODO
 void M01_Barn_Prisoner_02_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_mission_Controller_JDG when param 114 is received
 	if (param == 27)
 	{
 		Commands->Enable_Hibernation(obj, false);

@@ -63,6 +63,8 @@ void M01_PrisonPen_POW_JDG::Custom(GameObject *obj, int type, int param, GameObj
 
 		this->field_1C = false;
 	}
+
+	// Received from ourselves after 0.25 to 2.5 seconds after param 63
 	else if (param == 46)
 	{
 		static const char *animations[4] =
@@ -81,6 +83,8 @@ void M01_PrisonPen_POW_JDG::Custom(GameObject *obj, int type, int param, GameObj
 
 		Commands->Action_Play_Animation(obj, params);
 	}
+
+	// Received from ourselves when bullet sound is heard
 	else if (param == 63)
 	{
 		Commands->Innate_Disable(obj);

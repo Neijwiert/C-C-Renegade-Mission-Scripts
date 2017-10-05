@@ -30,6 +30,7 @@ void M01_HON_Escorts_Warroom_MCT_Commander_JDG::Created(GameObject *obj)
 // TODO
 void M01_HON_Escorts_Warroom_MCT_Commander_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_HON_Escorts_Warroom_MCT_ZoneController_JDG when entered
 	if (param == 16)
 	{
 		Commands->Set_Innate_Is_Stationary(obj, false);

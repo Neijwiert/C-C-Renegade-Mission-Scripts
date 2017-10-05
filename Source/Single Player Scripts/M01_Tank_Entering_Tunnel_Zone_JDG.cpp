@@ -35,6 +35,7 @@ void M01_Tank_Entering_Tunnel_Zone_JDG::Created(GameObject *obj)
 // TODO
 void M01_Tank_Entering_Tunnel_Zone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Medium_Tank_JDG when created param = its object id
 	if (type == 228)
 	{
 		this->field_1C = param;

@@ -73,10 +73,10 @@ class M01_Mission_Controller_JDG : public ScriptImpClass
 		bool field_41;
 		bool field_42;
 		DWORD field_44;
-		int field_48;
-		int field_4C;
-		int field_50;
-		int field_54;
+		int whackAMoleNodMinigunnerObjId;
+		int nodHonSpawnedSoldier1ObjId;
+		int nodHonSpawnedSoldier2ObjId;
+		int nodHonSpawnedSoldier3ObjId;
 		DWORD field_58;
 		DWORD field_5C;
 		DWORD field_60;
@@ -104,8 +104,8 @@ class M01_Mission_Controller_JDG : public ScriptImpClass
 		int field_B8;
 		int field_BC;
 		int field_C0;
-		int field_C4;
-		int field_C8;
+		int chinookSpawnedSoldierGDIObjId;
+		int lastDamagedStarEnemyObjId;
 		DWORD field_CC;
 		DWORD field_D0;
 		DWORD field_D4;

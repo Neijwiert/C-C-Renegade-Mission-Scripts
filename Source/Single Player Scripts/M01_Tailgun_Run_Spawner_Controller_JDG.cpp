@@ -39,12 +39,15 @@ void M01_Tailgun_Run_Spawner_Controller_JDG::Created(GameObject *obj)
 // TODO
 void M01_Tailgun_Run_Spawner_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_TailgunRun_Spawner_Guy_JDG when killed
 	if (param == 69)
 	{
 		this->soldierCount--;
 
 		Commands->Send_Custom_Event(obj, obj, 0, 68, 0.0f);
 	}
+
+	// Received from M01_Player_Is_Crossing_Bridge_Via_Cave_Zone or M01_Player_Is_Crossing_Bridge_Via_Church_Zone or M01_Player_Is_Crossing_Bridge_Zone when entered
 	else if (param == 70)
 	{
 		GameObject *tailGunRunSpawner1Obj = Commands->Find_Object(102343);
@@ -67,6 +70,9 @@ void M01_Tailgun_Run_Spawner_Controller_JDG::Custom(GameObject *obj, int type, i
 
 		Commands->Destroy_Object(obj);
 	}
+
+	// Received from M01_Player_Is_Entering_Tailgun_Alley_Backway_JDG or M01_Player_Is_Entering_Tailgun_Alley_JDG when entered
+	// Received from ourselves when param 69 is received
 	else if(param == 68)
 	{
 		int difficultyLevel = Commands->Get_Difficulty_Level();

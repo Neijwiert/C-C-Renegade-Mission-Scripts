@@ -83,11 +83,14 @@ void M01_TailgunRun_NOD_Commander_JDG::Custom(GameObject *obj, int type, int par
 {
 	if (!type)
 	{
+		// Received from M01_mission_Controller_JDG after 8 seconds when param 134 is received
 		if (param == 16)
 		{
 			Commands->Send_Custom_Event(obj, obj, 0, 27, 0.0f);
 			Commands->Send_Custom_Event(obj, obj, 0, 66, 0.0f);
 		}
+
+		// Received from ourselves when param 16 is received or 60 to 120 seconds after this block
 		else if (param == 27)
 		{
 			if (obj)
@@ -115,6 +118,8 @@ void M01_TailgunRun_NOD_Commander_JDG::Custom(GameObject *obj, int type, int par
 				Commands->Send_Custom_Event(obj, obj, 0, 27, delay);
 			}
 		}
+
+		// Received from ourselves after 60 to 120 seconds after param 27 is received
 		else if (param == 73)
 		{
 			if (obj)
@@ -123,6 +128,8 @@ void M01_TailgunRun_NOD_Commander_JDG::Custom(GameObject *obj, int type, int par
 				Commands->Send_Custom_Event(obj, M01MissionControllerJDGObj, 0, 73, 0.0f);
 			}
 		}
+
+		// Received from ourselves when param 16 is received or 15 to 30 seconds after this block
 		else if (param == 66)
 		{
 			if (obj && !this->killed)

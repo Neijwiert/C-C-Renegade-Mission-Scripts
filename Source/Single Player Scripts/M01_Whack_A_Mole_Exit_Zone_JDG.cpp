@@ -35,6 +35,7 @@ void M01_Whack_A_Mole_Exit_Zone_JDG::Created(GameObject *obj)
 // TODO
 void M01_Whack_A_Mole_Exit_Zone_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M01_Whack_A_Mole_Enter_Zone_JDG when entered
 	if (param == 203)
 	{
 		this->field_1C = true;

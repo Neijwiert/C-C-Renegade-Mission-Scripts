@@ -73,6 +73,8 @@ void M01_Base_POW02_JDG::Custom(GameObject *obj, int type, int param, GameObject
 
 			Commands->Action_Play_Animation(obj, params);
 		}
+
+		// Received from M01_GDIBase_POWEncounter02_Controller_JDG when animation complete
 		else if (param == 4002)
 		{
 			Commands->Enable_Hibernation(obj, false);
@@ -87,6 +89,8 @@ void M01_Base_POW02_JDG::Custom(GameObject *obj, int type, int param, GameObject
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// Received from M01_GDIBase_POW_Conversation_Controller_JDG when custom type <= 0 and param 16 is received
 		else if (param == 25)
 		{
 			this->field_1C = false;

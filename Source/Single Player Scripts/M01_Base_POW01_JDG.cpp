@@ -66,6 +66,7 @@ void M01_Base_POW01_JDG::Custom(GameObject *obj, int type, int param, GameObject
 {
 	if (!type)
 	{
+		// Received from M01_POW_Nod_Minigunner01_JDG when killed
 		if (param == 22)
 		{
 			if (++this->field_1C == 2)
@@ -87,6 +88,8 @@ void M01_Base_POW01_JDG::Custom(GameObject *obj, int type, int param, GameObject
 				Commands->Attach_Script(invisObj, "Test_Cinematic", "X1D_GDIPOW_FlareDrop.txt");
 			}
 		}
+
+		// Received from M01_GDIBase_POWEncounter02_Controller_JDG after 3 seconds when animation complete
 		else if (param == 4002)
 		{
 			Commands->Enable_Hibernation(obj, false);
@@ -101,6 +104,8 @@ void M01_Base_POW01_JDG::Custom(GameObject *obj, int type, int param, GameObject
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// Received from M01_GDIBase_POW_Conversation_Controller_JDG when custom type <= 0 and param 16 is received
 		else if (param == 25)
 		{
 			this->field_20 = false;

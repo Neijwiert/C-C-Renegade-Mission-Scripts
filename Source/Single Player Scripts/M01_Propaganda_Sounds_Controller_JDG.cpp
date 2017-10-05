@@ -51,6 +51,7 @@ void M01_Propaganda_Sounds_Controller_JDG::Custom(GameObject *obj, int type, int
 {
 	if (!type)
 	{
+		// Received from ourselves after 10 seconds when param 16 is received
 		if (param == 27)
 		{
 			if (obj)
@@ -66,6 +67,9 @@ void M01_Propaganda_Sounds_Controller_JDG::Custom(GameObject *obj, int type, int
 				Commands->Send_Custom_Event(obj, obj, 0, 16, 2.0f);
 			}
 		}
+
+		// Received from ourselves after 2 seconds when param 27 is received
+		// Received from M01_mission_Controller_JDG when param 201 is received
 		else if (param == 16)
 		{
 			if (!this->field_30)
@@ -115,6 +119,9 @@ void M01_Propaganda_Sounds_Controller_JDG::Custom(GameObject *obj, int type, int
 				Commands->Send_Custom_Event(obj, obj, 0, 27, 10.0f);
 			}
 		}
+
+		// Received from M01_MovieProjector_JDG when damaged by star
+		// Received from M01_mission_Controller_JDG when param 5 is received
 		else if (param == 22)
 		{
 			this->field_30 = true;
