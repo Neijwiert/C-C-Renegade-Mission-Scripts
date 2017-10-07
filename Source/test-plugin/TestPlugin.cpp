@@ -147,8 +147,8 @@ void TestPlugin::OnLoadLevel()
 
 	//Console_Output("%ls\n", Get_Wide_Translated_String(7587));
 
-	//RawFileClass newScriptsFile("C:\\Users\\guido\\Desktop\\newscripts.txt");
-	//newScriptsFile.Open(2);
+	RawFileClass newScriptsFile("C:\\Users\\guido\\Desktop\\newscripts.txt");
+	newScriptsFile.Open(2);
 
 	int scriptCount = GetScriptCount();
 	for (int x = 0; x < scriptCount; x++)
@@ -169,16 +169,14 @@ void TestPlugin::OnLoadLevel()
 			}
 		}
 
-		if (!isAKnownScript && (strstr(scriptNameUpper.Peek_Buffer(), "M01")))
+		if (!isAKnownScript && (strstr(scriptNameUpper.Peek_Buffer(), "M03")))
 		{
 			//Console_Output("%s\n", scriptName);
 
-			/*
 			static char NEW_LINE[] = { '\r', '\n' };
 
 			newScriptsFile.Write(scriptName.Peek_Buffer(), scriptName.Get_Length() * sizeof(char) + sizeof(char));
 			newScriptsFile.Write(NEW_LINE, sizeof(NEW_LINE));
-			*/
 		}
 	}
 
@@ -223,7 +221,7 @@ void TestPlugin::OnLoadLevel()
 
 			if (encyId == 12)
 			{
-				Console_Output("%s: %d\n", def->Get_Name(), damageableDef->Get_Encyclopedia_ID());
+				//Console_Output("%s: %d\n", def->Get_Name(), damageableDef->Get_Encyclopedia_ID());
 			}
 		}
 	}
