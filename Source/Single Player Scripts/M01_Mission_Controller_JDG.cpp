@@ -101,7 +101,7 @@ void M01_Mission_Controller_JDG::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->barnGuardDeathCount, sizeof(this->barnGuardDeathCount), 75);
 	Auto_Save_Variable(&this->field_D4, sizeof(this->field_D4), 76);
 	Auto_Save_Variable(&this->honKilled, sizeof(this->honKilled), 77);
-	Auto_Save_Variable(&this->commKilled, sizeof(this->commKilled), 78);
+	Auto_Save_Variable(&this->buildingKillStatus, sizeof(this->buildingKillStatus), 78);
 	Auto_Save_Variable(&this->starAreaNumber, sizeof(this->starAreaNumber), 79);
 	Auto_Save_Variable(&this->field_D8, sizeof(this->field_D8), 80);
 	Auto_Save_Variable(&this->lockeChurchReminderConversationConversationId, sizeof(this->lockeChurchReminderConversationConversationId), 81);
@@ -120,7 +120,7 @@ void M01_Mission_Controller_JDG::Created(GameObject *obj)
 	Commands->Enable_Hibernation(obj, false);
 
 	this->honKilled = 0;
-	this->commKilled = 0;
+	this->buildingKillStatus = 0;
 	this->starAreaNumber = 0;
 	this->field_1C = true;
 	this->firstTimeHONEntered = true;
@@ -404,7 +404,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Create_Sound("EVA_Nod_Structure_Destroyed", Vector3(0.0f, 0.0f, 0.0f), obj);
 			}
 
-			this->commKilled = 3;
+			this->buildingKillStatus = 3;
 		}
 
 		// Received from M01_Hand_Of_Nod_Interior_Zone when entered
@@ -1125,7 +1125,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 		// Received from M01_Comm_MCT_Placeholder_JDG when killed
 		else if (param == 197)
 		{
-			if (this->commKilled != 3)
+			if (this->buildingKillStatus != 3)
 			{
 				GameObject *nodCommCenterBuildingObj = Commands->Find_Object(153910);
 				Commands->Apply_Damage(nodCommCenterBuildingObj, 100000000.0f, "BlamoKiller", obj);
@@ -1325,7 +1325,7 @@ void M01_Mission_Controller_JDG::Custom(GameObject *obj, int type, int param, Ga
 				Commands->Start_Conversation(conversationId, conversationId);
 			}
 
-			if (!this->radarScrambled && this->commKilled != 3)
+			if (!this->radarScrambled && this->buildingKillStatus != 3)
 			{
 				this->radarScrambled = true;
 

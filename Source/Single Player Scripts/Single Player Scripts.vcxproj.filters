@@ -1284,6 +1284,9 @@
     <ClCompile Include="M01_COMM_Commander_Guy.cpp">
       <Filter>Source Files\M01</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Cine_Explosion.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2488,6 +2491,9 @@
     </ClInclude>
     <ClInclude Include="M01_COMM_Commander_Guy.h">
       <Filter>Header Files\M01</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Cine_Explosion.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

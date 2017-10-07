@@ -120,6 +120,6 @@ class M01_Mission_Controller_JDG : public ScriptImpClass
 		bool starInBarn;
 		bool commSAMSiteDestroyed;
 		int honKilled;
-		int commKilled;
+		int buildingKillStatus;
 		int starAreaNumber;
 };
