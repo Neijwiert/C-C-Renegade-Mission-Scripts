@@ -9,6 +9,7 @@ MX0_A02_Controller
 M03_Goto_Star
 M00_Nod_Obelisk
 M03_Cine_Explosion
+M03_Beach_Scenario_Controller
 
 // Below are not present in the solution yet
 M03_DataDiscMessage 
@@ -41,7 +42,6 @@ M03_Power_Plant
 M03_Protect_The_MCT 
 M03_Beach_Radio 
 M03_Sakura_Explosion 
-M03_Beach_Scenario_Controller 
 M03_Structure_Powerup_Drop 
 M03_Destroyed_Turret 
 M03_Beach_Turret 

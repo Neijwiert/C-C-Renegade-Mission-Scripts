@@ -1287,6 +1287,9 @@
     <ClCompile Include="M03_Cine_Explosion.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Beach_Scenario_Controller.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2493,6 +2496,9 @@
       <Filter>Header Files\M01</Filter>
     </ClInclude>
     <ClInclude Include="M03_Cine_Explosion.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Beach_Scenario_Controller.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
