@@ -77,8 +77,9 @@ namespace ScriptUsageFinder
 
         public static readonly Regex presetIdRegex = new Regex(@"(?<= defintion id )(\d+)$", RegexOptions.Compiled);
         public static readonly Regex objectIdRegex = new Regex(@"(?<= id )(\d+)(?= defintion id )", RegexOptions.Compiled);
-        public static readonly Regex scriptNameRegex = new Regex(@"(?<=\t)(.*)(?= )", RegexOptions.Compiled);
-        public static readonly Regex scriptNameRegex2 = new Regex(@"(?<=\t)(.*)$", RegexOptions.Compiled);
+        //public static readonly Regex scriptNameRegex = new Regex(@"(?<=\t)(.*)(?= )", RegexOptions.Compiled);
+        //public static readonly Regex scriptNameRegex2 = new Regex(@"(?<=\t)(.*)$", RegexOptions.Compiled);
+        public static readonly Regex scriptNameRegex = new Regex(@"([^\s]+)", RegexOptions.Compiled);
 
         private readonly IDictionary<int, CreatedObject> objects;
 
@@ -146,11 +147,11 @@ namespace ScriptUsageFinder
                     Match scriptNameMatch = scriptNameRegex.Match(line);
                     if(!scriptNameMatch.Success)
                     {
-                        scriptNameMatch = scriptNameRegex2.Match(line);
-                        if (!scriptNameMatch.Success)
-                        {
+                        //scriptNameMatch = scriptNameRegex2.Match(line);
+                        //if (!scriptNameMatch.Success)
+                        //{
                             throw new IOException("Expected a script name");
-                        }
+                        //}
                     }
 
                     string scriptName = scriptNameMatch.Value;

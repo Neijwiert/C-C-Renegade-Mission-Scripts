@@ -7,8 +7,9 @@ namespace ScriptUsageFinder
     {
         public static readonly Regex presetNameRegex = new Regex(@"(?<=name )(.*)(?= id)", RegexOptions.Compiled);
         public static readonly Regex presetIdRegex = new Regex(@"(?<=id )(\d+)$", RegexOptions.Compiled);
-        public static readonly Regex scriptNameRegex = new Regex(@"(?<=\t)(.*)(?= )", RegexOptions.Compiled);
-        public static readonly Regex scriptNameRegex2 = new Regex(@"(?<=\t)(.*)$", RegexOptions.Compiled);
+        //public static readonly Regex scriptNameRegex = new Regex(@"(?<=\t)(.*)(?= )", RegexOptions.Compiled);
+        //public static readonly Regex scriptNameRegex2 = new Regex(@"(?<=\t)(.*)$", RegexOptions.Compiled);
+        public static readonly Regex scriptNameRegex = new Regex(@"([^\s]+)", RegexOptions.Compiled);
         public static readonly Regex scriptParamsOnNewLineRegex = new Regex(@"\d+$", RegexOptions.Compiled);
 
         public ObjectsDumpFile(byte[] rawFileData) : base(rawFileData)
@@ -68,20 +69,22 @@ namespace ScriptUsageFinder
                         throw new IOException("Expected a preset block, got script instead");
                     }
 
+                    Match scriptParamsOnNewLineMatch = scriptParamsOnNewLineRegex.Match(line);
+                    if (scriptParamsOnNewLineMatch.Success)
+                    {
+                        continue;
+                    }
+
                     Match scriptNameMatch = scriptNameRegex.Match(line);
                     if(!scriptNameMatch.Success)
                     {
-                        scriptNameMatch = scriptNameRegex2.Match(line);
-                        if (!scriptNameMatch.Success)
-                        {
-                            Match scriptParamsOnNewLineMatch = scriptParamsOnNewLineRegex.Match(line);
-                            if (scriptParamsOnNewLineMatch.Success)
-                            {
-                                continue;
-                            }
+                        //scriptNameMatch = scriptNameRegex2.Match(line);
+                        //if (!scriptNameMatch.Success)
+                        //{
+                           
 
-                            continue;
-                        }
+                        throw new IOException("Expected a script name");
+                        //}
                     }
 
                     string scriptName = scriptNameMatch.Value;

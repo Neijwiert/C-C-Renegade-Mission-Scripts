@@ -210,6 +210,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Nod_Turret.cpp" />
     <ClCompile Include="M00_No_Falling_Damage_DME.cpp" />
     <ClCompile Include="M00_Obelisk_Weapon.cpp" />
+    <ClCompile Include="M00_Object_Create_RMV.cpp" />
     <ClCompile Include="M00_Play_Sound.cpp" />
     <ClCompile Include="M00_Play_Sound_Object_Bone_DAY.cpp" />
     <ClCompile Include="M00_Powerup_Destroy.cpp" />
@@ -620,6 +621,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Nod_Turret.h" />
     <ClInclude Include="M00_No_Falling_Damage_DME.h" />
     <ClInclude Include="M00_Obelisk_Weapon.h" />
+    <ClInclude Include="M00_Object_Create_RMV.h" />
     <ClInclude Include="M00_Play_Sound.h" />
     <ClInclude Include="M00_Play_Sound_Object_Bone_DAY.h" />
     <ClInclude Include="M00_Powerup_Destroy.h" />
@@ -1227,6 +1229,8 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x2i_para03_area09.txt" />
     <Text Include="x2i_para03_area21.txt" />
     <Text Include="x2k_midtro.txt" />
+    <Text Include="x3b_hoverxplode.txt" />
+    <Text Include="x3i_troopdrop1.txt" />
     <Text Include="xg_a03_humveedrop_b.txt" />
     <Text Include="xg_a03_tank_drop.txt" />
     <Text Include="xg_ap_vs_trn.txt" />

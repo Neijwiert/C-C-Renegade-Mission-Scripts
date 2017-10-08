@@ -1,0 +1,94 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 3: HOVERCRAFT EXPLODE AT BEACH  ************************
+
+
+
+; ****************************** Commanche Trajectory
+
+
+-1	Create_Object,		0, "X3b_Comm_Traj",			0, 0, 0, 0, 
+-1	Play_Animation,		0, "X3b_Comm_Traj.X3b_Comm_Traj",0
+-1	Play_Audio,		"SFX.X3B_HoverXplode"
+-680	destroy_object,		0
+
+; ****************************** Commanche
+
+-1	Create_Real_Object,	1, "M03_Cinematic_Boss",		0, 0, 0, 0, 
+-1	Play_Animation,		1, "v_nod_heli.X3b_Commanche",0
+-1	Attach_to_Bone,		1,0,"BN_Trajectory"
+-680	destroy_object,		1
+
+
+; ****************************** HoverCraft Trajectory
+
+
+-1	Create_Object,		2, "X3b_Hover_Traj",			0, 0, 0, 0, 
+-1	Play_Animation,		2, "X3b_Hover_Traj.X3b_Hover_Traj",0
+-450	destroy_object,		2
+
+
+; ****************************** Hovercraft Beach
+
+
+-1	Create_Real_Object,	3, "GDI_Hovercraft",			0, 0, 0, 0
+-1	Play_Animation,		3, "V_GDI_Hcraft.X3B_HoverBeach",0
+-1	Attach_to_Bone,		3,2,"BN_Trajectory"
+-480	destroy_object,		3
+
+; ****************************** Hovercraft Foam
+
+
+;-1	Create_Object,		4, "X3B_AG_HvFoam",			0, 0, 0, 0
+;-1	Play_Animation,		4, "X3B_HvFoam.X3B_HvFoam",0
+;-445	destroy_object,		4
+
+
+; ****************************** Hovercraft Explode
+
+-445	Create_Object,		5, "X3B_AG_HvXplode",		0, 0, 0, 0,
+-445	Play_Animation,		5, "X3B_HoverXplode.X3B_HoverXplode",0
+-505	destroy_object,		5
+
+
+
+; ****************************** Missiles
+
+-395	Create_Object,		6, "X3B_AG_Missile",		0, 0, 0, 0,
+-395	Play_Animation,		6, "X3B_Missiles.X3B_Missiles"
+-445	Send_Custom,		1212283,	600,	0,	0.0
+-447	Send_Custom,		1212284,	600,	0,	0.0
+-450	Destroy_object,		6
+
+
+
+
+
+

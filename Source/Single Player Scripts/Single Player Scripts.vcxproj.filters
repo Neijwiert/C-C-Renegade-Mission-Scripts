@@ -79,6 +79,9 @@
     <Filter Include="Source Files\M11">
       <UniqueIdentifier>{7510d6da-46d1-4f4b-8a7b-fdeccdec1225}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Cinematic Files\M03">
+      <UniqueIdentifier>{79070e23-a3c3-421c-b648-91a2091c65d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -1289,6 +1292,9 @@
     </ClCompile>
     <ClCompile Include="M03_Beach_Scenario_Controller.cpp">
       <Filter>Source Files\M03</Filter>
+    </ClCompile>
+    <ClCompile Include="M00_Object_Create_RMV.cpp">
+      <Filter>Source Files\M00</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2501,6 +2507,9 @@
     <ClInclude Include="M03_Beach_Scenario_Controller.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
+    <ClInclude Include="M00_Object_Create_RMV.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -3140,6 +3149,12 @@
     </Text>
     <Text Include="x1a_tailgun_apache_02.txt">
       <Filter>Resource Files\Cinematic Files\M01</Filter>
+    </Text>
+    <Text Include="x3i_troopdrop1.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="x3b_hoverxplode.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
   </ItemGroup>
 </Project>

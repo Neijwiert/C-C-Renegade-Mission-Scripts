@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 
 namespace ScriptUsageFinder
@@ -205,6 +206,7 @@ namespace ScriptUsageFinder
                 Console.Write("What level (examples: mtu or m01): ");
 
                 string level = Console.ReadLine();
+
                 if(string.IsNullOrWhiteSpace(level))
                 {
                     continue;
@@ -270,7 +272,8 @@ namespace ScriptUsageFinder
                 Console.Write("What script (case-sensitive): ");
 
                 string script = Console.ReadLine();
-                if(Definitions.Instance.HasScript(script))
+
+                if (Definitions.Instance.HasScript(script))
                 {
                     result = script;
                 }

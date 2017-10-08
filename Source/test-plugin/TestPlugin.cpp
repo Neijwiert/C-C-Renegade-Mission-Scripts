@@ -182,6 +182,10 @@ void TestPlugin::OnLoadLevel()
 
 	for (DefinitionClass *def = DefinitionMgrClass::Get_First(); def; def = DefinitionMgrClass::Get_Next(def))
 	{
+		if (def->Get_Class_ID() == 12308)
+		{
+			Console_Output("%s\n", def->Get_Name());
+		}
 		// 20480 - sounds
 		// 45057 - weapons
 		// 12289 - soldiers
