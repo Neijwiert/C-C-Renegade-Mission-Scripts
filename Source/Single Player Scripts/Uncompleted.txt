@@ -8,14 +8,12 @@ MX0_A02_ACTOR
 MX0_A02_Controller
 M03_Goto_Star
 M00_Nod_Obelisk
-M03_Cine_Explosion
 M03_Beach_Scenario_Controller
-M00_Object_Create_RMV -> check parameters
+M00_Object_Create_RMV
 
 // Below are not present in the solution yet
 M03_DataDiscMessage 
 M03_ConYardSeen 
-M03_Damage_Modifier_All 
 M03_Paratrooper_Run 
 M03_Technician_Work 
 M03_AggAndCover 

@@ -1296,6 +1296,9 @@
     <ClCompile Include="M00_Object_Create_RMV.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Damage_Modifier_All.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2509,6 +2512,9 @@
     </ClInclude>
     <ClInclude Include="M00_Object_Create_RMV.h">
       <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Damage_Modifier_All.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

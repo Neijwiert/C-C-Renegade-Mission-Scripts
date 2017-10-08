@@ -22,9 +22,9 @@
 /*
 M03 -> 1212284 1212283
 */
-// TODO
 void M03_Cine_Explosion::Custom(GameObject *obj, int type, int param, GameObject *sender)
-{
+{	
+	// Received after 445/447 cinematic frames in X3B_HoverXplode.txt
 	if (type == 600)
 	{
 		Vector3 pos = Commands->Get_Position(obj);
