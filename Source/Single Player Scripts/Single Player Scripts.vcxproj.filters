@@ -1299,6 +1299,9 @@
     <ClCompile Include="M03_Damage_Modifier_All.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Intro_Substitute.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2514,6 +2517,9 @@
       <Filter>Header Files\M00</Filter>
     </ClInclude>
     <ClInclude Include="M03_Damage_Modifier_All.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Intro_Substitute.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
