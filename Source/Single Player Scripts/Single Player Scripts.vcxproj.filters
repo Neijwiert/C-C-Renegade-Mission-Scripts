@@ -1305,6 +1305,9 @@
     <ClCompile Include="M00_Put_Script_On_Commando.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Damaged_Warning.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2526,6 +2529,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M00_Put_Script_On_Commando.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Damaged_Warning.h">
       <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
