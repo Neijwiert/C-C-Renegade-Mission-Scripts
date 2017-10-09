@@ -544,6 +544,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Goto_Star.cpp" />
     <ClCompile Include="M03_Initial_Powerups.cpp" />
     <ClCompile Include="M03_Intro_Substitute.cpp" />
+    <ClCompile Include="M03_Objective_Controller.cpp" />
     <ClCompile Include="M03_SAM_Site_Logic.cpp" />
     <ClCompile Include="M07_Disable_Hibernation.cpp" />
     <ClCompile Include="M08_Petra_C_Helo.cpp" />
@@ -961,6 +962,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Goto_Star.h" />
     <ClInclude Include="M03_Initial_Powerups.h" />
     <ClInclude Include="M03_Intro_Substitute.h" />
+    <ClInclude Include="M03_Objective_Controller.h" />
     <ClInclude Include="M03_SAM_Site_Logic.h" />
     <ClInclude Include="M07_Disable_Hibernation.h" />
     <ClInclude Include="M08_Petra_C_Helo.h" />
@@ -1242,6 +1244,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x2i_para03_area21.txt" />
     <Text Include="x2k_midtro.txt" />
     <Text Include="x3b_hoverxplode.txt" />
+    <Text Include="x3i_gdi_drop_powerup.txt" />
     <Text Include="x3i_troopdrop1.txt" />
     <Text Include="xg_a03_humveedrop_b.txt" />
     <Text Include="xg_a03_tank_drop.txt" />

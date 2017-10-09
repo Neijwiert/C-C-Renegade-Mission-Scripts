@@ -1314,6 +1314,9 @@
     <ClCompile Include="M03_Commando_Script.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Objective_Controller.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2546,6 +2549,9 @@
     <ClInclude Include="M03_Commando_Script.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
+    <ClInclude Include="M03_Objective_Controller.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -3190,6 +3196,9 @@
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
     <Text Include="x3b_hoverxplode.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="x3i_gdi_drop_powerup.txt">
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
   </ItemGroup>
