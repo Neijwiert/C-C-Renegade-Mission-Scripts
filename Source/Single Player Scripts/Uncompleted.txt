@@ -11,6 +11,7 @@ M00_Nod_Obelisk
 M03_Beach_Scenario_Controller
 M00_Object_Create_RMV
 M03_Intro_Substitute
+M00_Put_Script_On_Commando
 
 // Below are not present in the solution yet
 M03_DataDiscMessage 
@@ -104,7 +105,6 @@ M00_BUILDING_EXPLODE_NO_DAMAGE_DAK
 RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
 RMV_Engineer_Wander_Terminal
-M00_Put_Script_On_Commando
 RMV_Temp_EVA_Dialogue
 M00_Object_Destroy_Self_RMV
 M10_Elevator_All_Zone

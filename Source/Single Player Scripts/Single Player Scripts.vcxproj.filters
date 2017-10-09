@@ -1302,6 +1302,9 @@
     <ClCompile Include="M03_Intro_Substitute.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Put_Script_On_Commando.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2521,6 +2524,9 @@
     </ClInclude>
     <ClInclude Include="M03_Intro_Substitute.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Put_Script_On_Commando.h">
+      <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
