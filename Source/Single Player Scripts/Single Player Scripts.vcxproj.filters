@@ -1308,6 +1308,9 @@
     <ClCompile Include="M00_Damaged_Warning.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Initial_Powerups.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2533,6 +2536,9 @@
     </ClInclude>
     <ClInclude Include="M00_Damaged_Warning.h">
       <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Initial_Powerups.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

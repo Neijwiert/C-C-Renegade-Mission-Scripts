@@ -13,6 +13,7 @@ M00_Object_Create_RMV
 M03_Intro_Substitute
 M00_Put_Script_On_Commando
 M00_Damaged_Warning
+M03_Initial_Powerups
 
 // Below are not present in the solution yet
 M03_DataDiscMessage 
@@ -77,7 +78,6 @@ M03_Inlet_Soldier_GDI
 M03_Chinook_Drop_Soldiers_GDI 
 M03_Move_Commando_To_Start 
 M03_Commando_Script 
-M03_Initial_Powerups 
 M03_Announce_CommCenter_Controller_JDG 
 M03_Announce_Refinery_Controller_JDG 
 M03_Announce_PowerPlant_Controller_JDG 
