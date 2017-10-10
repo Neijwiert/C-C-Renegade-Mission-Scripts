@@ -1329,6 +1329,9 @@
     <ClCompile Include="M03_Killed_Sound.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="DLS_Volcano_Stumble.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2575,6 +2578,9 @@
     </ClInclude>
     <ClInclude Include="M03_Killed_Sound.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="DLS_Volcano_Stumble.h">
+      <Filter>Header Files\Misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -19,6 +19,7 @@ M03_Objective_Controller
 M03_Objective_Tracker
 M03_Chinook_Reinforcements
 M03_Gunboat_Controller_RMV
+DLS_Volcano_Stumble
 
 // Below are not present in the solution yet
 M03_DataDiscMessage 
@@ -87,7 +88,6 @@ M03_CommCenter_SateliteDish_Controller_JDG
 RMV_M03_Comm_Center_Terminal 
 M03_Outro_Cinematic 
 M03_A05_Evac_Zone 
-DLS_Volcano_Stumble
 M00_InnateIsStationary
 M09_Attack_Blocked_False
 M00_Reveal_Enc_Character_DAY
