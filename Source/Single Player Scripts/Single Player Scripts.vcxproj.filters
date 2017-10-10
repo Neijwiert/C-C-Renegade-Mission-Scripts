@@ -1332,6 +1332,9 @@
     <ClCompile Include="DLS_Volcano_Stumble.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="RMV_Trigger_Killed.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2580,6 +2583,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="DLS_Volcano_Stumble.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="RMV_Trigger_Killed.h">
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
   </ItemGroup>

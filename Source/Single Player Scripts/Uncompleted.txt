@@ -93,7 +93,6 @@ M09_Attack_Blocked_False
 M00_Reveal_Enc_Character_DAY
 M10_Stationary
 RMV_Home_Point
-RMV_Trigger_Killed
 M06_Activate_Secret_Door
 M10_Pokeable_Item_OnePoke
 RMV_Trigger_Zone_2
