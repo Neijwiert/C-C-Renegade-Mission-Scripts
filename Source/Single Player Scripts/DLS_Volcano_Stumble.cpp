@@ -73,17 +73,7 @@ void DLS_Volcano_Stumble::Action_Complete(GameObject *obj, int action_id, Action
 
 		Commands->Action_Play_Animation(obj, params);
 	}
-	else if (action_id == 3)
-	{
-		this->field_1C = false;
-
-		ActionParamsStruct params;
-		params.Set_Basic(this, 70.0f, 4);
-		params.Set_Movement(Vector3(-288.02f, 78.11f, 9.51f), 1.0f, 15.0f);
-
-		Commands->Action_Goto(obj, params);
-	}
-	else if (action_id == 2 || action_id == 5)
+	else if (action_id == 2 || action_id == 3 || action_id == 5)
 	{
 		this->field_1C = false;
 
