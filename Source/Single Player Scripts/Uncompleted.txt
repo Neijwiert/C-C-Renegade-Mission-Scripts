@@ -17,6 +17,7 @@ M03_Initial_Powerups
 M03_Commando_Script
 M03_Objective_Controller
 M03_Objective_Tracker
+M03_Chinook_Reinforcements
 
 // Below are not present in the solution yet
 M03_DataDiscMessage 
@@ -74,7 +75,6 @@ M03_Destroyed_Chinook
 M03_Flyover_Controller 
 M03_Alternate_Sam_Site 
 M03_Chinook_Spawned_Soldier_GDI 
-M03_Chinook_Reinforcements 
 M03_Beach_Soldier_GDI 
 M03_Inlet_Soldier_GDI 
 M03_Chinook_Drop_Soldiers_GDI 
@@ -106,7 +106,6 @@ M00_BUILDING_EXPLODE_NO_DAMAGE_DAK
 RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
 RMV_Engineer_Wander_Terminal
-RMV_Temp_EVA_Dialogue
 M00_Object_Destroy_Self_RMV
 M10_Elevator_All_Zone
 M09_Innate_Disable

@@ -1320,6 +1320,9 @@
     <ClCompile Include="M03_Objective_Tracker.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Chinook_Reinforcements.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2556,6 +2559,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Objective_Tracker.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Chinook_Reinforcements.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
