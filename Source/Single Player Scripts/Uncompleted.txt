@@ -16,6 +16,7 @@ M00_Damaged_Warning
 M03_Initial_Powerups
 M03_Commando_Script
 M03_Objective_Controller
+M03_Objective_Tracker
 
 // Below are not present in the solution yet
 M03_DataDiscMessage 
@@ -72,7 +73,6 @@ M03_Chinook_Fodder_Creator
 M03_Destroyed_Chinook 
 M03_Flyover_Controller 
 M03_Alternate_Sam_Site 
-M03_Objective_Tracker 
 M03_Chinook_Spawned_Soldier_GDI 
 M03_Chinook_Reinforcements 
 M03_Beach_Soldier_GDI 
