@@ -147,8 +147,8 @@ void TestPlugin::OnLoadLevel()
 
 	//Console_Output("%ls\n", Get_Wide_Translated_String(7587));
 
-	RawFileClass newScriptsFile("C:\\Users\\guido\\Desktop\\newscripts.txt");
-	newScriptsFile.Open(2);
+	//RawFileClass newScriptsFile("C:\\Users\\guido\\Desktop\\newscripts.txt");
+	//newScriptsFile.Open(2);
 
 	int scriptCount = GetScriptCount();
 	for (int x = 0; x < scriptCount; x++)
@@ -175,17 +175,25 @@ void TestPlugin::OnLoadLevel()
 
 			static char NEW_LINE[] = { '\r', '\n' };
 
-			newScriptsFile.Write(scriptName.Peek_Buffer(), scriptName.Get_Length() * sizeof(char) + sizeof(char));
-			newScriptsFile.Write(NEW_LINE, sizeof(NEW_LINE));
+			//newScriptsFile.Write(scriptName.Peek_Buffer(), scriptName.Get_Length() * sizeof(char) + sizeof(char));
+			//newScriptsFile.Write(NEW_LINE, sizeof(NEW_LINE));
 		}
 	}
 
 	for (DefinitionClass *def = DefinitionMgrClass::Get_First(); def; def = DefinitionMgrClass::Get_Next(def))
 	{
-		if (def->Get_Class_ID() == 12308)
+		/*
+		if (strcmp(def->Get_Name(), "Chinook Troop Drop - Beach") == 0)
+		{
+			Console_Output("%u\n", def->Get_Class_ID());
+		}
+		*/
+
+		if (def->Get_Class_ID() == 12292)
 		{
 			Console_Output("%s\n", def->Get_Name());
 		}
+
 		// 20480 - sounds
 		// 45057 - weapons
 		// 12289 - soldiers

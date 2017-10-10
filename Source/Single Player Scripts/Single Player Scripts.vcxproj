@@ -543,6 +543,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Damage_Modifier_All.cpp" />
     <ClCompile Include="M03_Destroyed_SAM_Site.cpp" />
     <ClCompile Include="M03_Goto_Star.cpp" />
+    <ClCompile Include="M03_Gunboat_Controller_RMV.cpp" />
     <ClCompile Include="M03_Initial_Powerups.cpp" />
     <ClCompile Include="M03_Intro_Substitute.cpp" />
     <ClCompile Include="M03_Objective_Controller.cpp" />
@@ -963,6 +964,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Damage_Modifier_All.h" />
     <ClInclude Include="M03_Destroyed_SAM_Site.h" />
     <ClInclude Include="M03_Goto_Star.h" />
+    <ClInclude Include="M03_Gunboat_Controller_RMV.h" />
     <ClInclude Include="M03_Initial_Powerups.h" />
     <ClInclude Include="M03_Intro_Substitute.h" />
     <ClInclude Include="M03_Objective_Controller.h" />
@@ -1250,6 +1252,8 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x3b_hoverxplode.txt" />
     <Text Include="x3i_gdi_drop_powerup.txt" />
     <Text Include="x3i_troopdrop1.txt" />
+    <Text Include="x3i_troopdrop2.txt" />
+    <Text Include="x3i_troopdrop3.txt" />
     <Text Include="xg_a03_humveedrop_b.txt" />
     <Text Include="xg_a03_tank_drop.txt" />
     <Text Include="xg_ap_vs_trn.txt" />

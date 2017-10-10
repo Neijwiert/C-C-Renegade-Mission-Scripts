@@ -1323,6 +1323,9 @@
     <ClCompile Include="M03_Chinook_Reinforcements.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Gunboat_Controller_RMV.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2564,6 +2567,9 @@
     <ClInclude Include="M03_Chinook_Reinforcements.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
+    <ClInclude Include="M03_Gunboat_Controller_RMV.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -3211,6 +3217,12 @@
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
     <Text Include="x3i_gdi_drop_powerup.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="x3i_troopdrop2.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="x3i_troopdrop3.txt">
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
   </ItemGroup>
