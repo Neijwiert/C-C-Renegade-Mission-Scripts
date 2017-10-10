@@ -546,6 +546,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Gunboat_Controller_RMV.cpp" />
     <ClCompile Include="M03_Initial_Powerups.cpp" />
     <ClCompile Include="M03_Intro_Substitute.cpp" />
+    <ClCompile Include="M03_Killed_Sound.cpp" />
     <ClCompile Include="M03_Objective_Controller.cpp" />
     <ClCompile Include="M03_Objective_Tracker.cpp" />
     <ClCompile Include="M03_SAM_Site_Logic.cpp" />
@@ -967,6 +968,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Gunboat_Controller_RMV.h" />
     <ClInclude Include="M03_Initial_Powerups.h" />
     <ClInclude Include="M03_Intro_Substitute.h" />
+    <ClInclude Include="M03_Killed_Sound.h" />
     <ClInclude Include="M03_Objective_Controller.h" />
     <ClInclude Include="M03_Objective_Tracker.h" />
     <ClInclude Include="M03_SAM_Site_Logic.h" />

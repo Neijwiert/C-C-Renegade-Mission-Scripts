@@ -32,7 +32,6 @@ M03_Engineer_Repair
 M03_Engineer_Target 
 M03_Past_Pillbox 
 M03_Beach_Reinforce 
-M03_Killed_Sound 
 M03_KaneHead_JDG 
 M03_Holograph_EntryZone_JDG 
 M03_Conversation_Zone 

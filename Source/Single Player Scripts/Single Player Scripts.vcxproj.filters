@@ -1326,6 +1326,9 @@
     <ClCompile Include="M03_Gunboat_Controller_RMV.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Killed_Sound.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2568,6 +2571,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Gunboat_Controller_RMV.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Killed_Sound.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
