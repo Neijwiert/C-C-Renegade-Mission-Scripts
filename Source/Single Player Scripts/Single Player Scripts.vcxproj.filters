@@ -1335,6 +1335,9 @@
     <ClCompile Include="RMV_Trigger_Killed.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Beach_Reinforce.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2587,6 +2590,9 @@
     </ClInclude>
     <ClInclude Include="RMV_Trigger_Killed.h">
       <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Beach_Reinforce.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
