@@ -1368,6 +1368,9 @@
     <ClCompile Include="M03_No_More_Parachute.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Paratrooper_Run.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2646,6 +2649,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_No_More_Parachute.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Paratrooper_Run.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
