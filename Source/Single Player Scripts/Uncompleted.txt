@@ -49,7 +49,6 @@ M03_Power_Plant
 M03_Protect_The_MCT 
 M03_Sakura_Explosion 
 M03_Structure_Powerup_Drop 
-M03_Destroyed_Turret 
 M03_Staged_Conversation_Soldier 
 M03_Staged_Conversation_1 
 M03_Key_Card 
