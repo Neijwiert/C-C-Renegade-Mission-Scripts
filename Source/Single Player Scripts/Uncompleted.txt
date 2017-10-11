@@ -27,7 +27,6 @@ M03_DataDiscMessage
 M03_ConYardSeen 
 M03_Paratrooper_Run 
 M03_Technician_Work 
-M03_AggAndCover 
 M03_Radar_UnScramble 
 M03_Radar_Scramble 
 M03_Engineer_Repair 

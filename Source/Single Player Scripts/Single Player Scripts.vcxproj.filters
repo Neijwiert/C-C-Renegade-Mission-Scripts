@@ -1338,6 +1338,9 @@
     <ClCompile Include="M03_Beach_Reinforce.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_AggAndCover.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2592,6 +2595,9 @@
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
     <ClInclude Include="M03_Beach_Reinforce.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_AggAndCover.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

@@ -351,6 +351,7 @@ M03_Cine_Explosion
 M03_Damage_Modifier_All
 M03_Killed_Sound
 RMV_Trigger_Killed
+M03_AggAndCover
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
