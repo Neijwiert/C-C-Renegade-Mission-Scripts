@@ -21,6 +21,7 @@
 
 /*
 M03 -> 1147534 1147533 1147532 1147531 1147530 1147529 1147527 1146701 1146700 300009 300028 300032 1141162 1144451 1144448 1144731 1144732 300010
+When timer number 4/5/6 triggers in M03_Chinook_ParaDrop
 */
 void M03_Killed_Sound::Killed(GameObject *obj, GameObject *killer)
 {

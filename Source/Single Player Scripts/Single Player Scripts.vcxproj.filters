@@ -1359,6 +1359,9 @@
     <ClCompile Include="M03_Past_Pillbox.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Chinook_ParaDrop.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2628,6 +2631,9 @@
       <Filter>Header Files\M10</Filter>
     </ClInclude>
     <ClInclude Include="M03_Past_Pillbox.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Chinook_ParaDrop.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
