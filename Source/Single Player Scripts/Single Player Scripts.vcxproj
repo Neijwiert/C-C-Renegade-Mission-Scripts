@@ -556,6 +556,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_SAM_Site_Logic.cpp" />
     <ClCompile Include="M07_Disable_Hibernation.cpp" />
     <ClCompile Include="M08_Petra_C_Helo.cpp" />
+    <ClCompile Include="M10_Pokeable_Item_OnePoke.cpp" />
     <ClCompile Include="M11_Temple_Hologram_01_JDG.cpp" />
     <ClCompile Include="MX0_A02_ACTOR.cpp" />
     <ClCompile Include="MX0_A02_Controller.cpp" />
@@ -984,6 +985,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_SAM_Site_Logic.h" />
     <ClInclude Include="M07_Disable_Hibernation.h" />
     <ClInclude Include="M08_Petra_C_Helo.h" />
+    <ClInclude Include="M10_Pokeable_Item_OnePoke.h" />
     <ClInclude Include="M11_Temple_Hologram_01_JDG.h" />
     <ClInclude Include="MX0_A02_ACTOR.h" />
     <ClInclude Include="MX0_A02_Controller.h" />

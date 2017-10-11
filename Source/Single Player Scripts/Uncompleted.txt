@@ -91,7 +91,6 @@ M09_Attack_Blocked_False
 M00_Reveal_Enc_Character_DAY
 M10_Stationary
 M06_Activate_Secret_Door
-M10_Pokeable_Item_OnePoke
 RMV_Trigger_Zone_2
 RMV_Test_Big_Gun_Turning
 M00_Trigger_When_Killed_RMV

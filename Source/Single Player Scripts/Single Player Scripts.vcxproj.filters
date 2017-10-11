@@ -82,6 +82,12 @@
     <Filter Include="Resource Files\Cinematic Files\M03">
       <UniqueIdentifier>{79070e23-a3c3-421c-b648-91a2091c65d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\M10">
+      <UniqueIdentifier>{d0c5d179-ac8b-48de-8539-258b29f1f5da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\M10">
+      <UniqueIdentifier>{51bf0fb5-078e-4e67-b9a8-f72250f9340e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -1347,6 +1353,9 @@
     <ClCompile Include="M03_Beach_Radio.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M10_Pokeable_Item_OnePoke.cpp">
+      <Filter>Source Files\M10</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2611,6 +2620,9 @@
     </ClInclude>
     <ClInclude Include="M03_Beach_Radio.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M10_Pokeable_Item_OnePoke.h">
+      <Filter>Header Files\M10</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
