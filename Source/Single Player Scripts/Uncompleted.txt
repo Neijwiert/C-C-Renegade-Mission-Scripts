@@ -47,7 +47,6 @@ M03_Area_Troop_Counter
 M03_Refinery 
 M03_Power_Plant 
 M03_Protect_The_MCT 
-M03_Beach_Radio 
 M03_Sakura_Explosion 
 M03_Structure_Powerup_Drop 
 M03_Destroyed_Turret 
