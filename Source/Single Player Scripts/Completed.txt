@@ -357,6 +357,7 @@ M03_Beach_Radio
 M10_Pokeable_Item_OnePoke
 M03_Past_Pillbox
 M03_Reinforcement_Chinook
+M03_No_More_Parachute
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

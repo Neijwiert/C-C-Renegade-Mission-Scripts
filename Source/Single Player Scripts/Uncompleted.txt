@@ -53,7 +53,6 @@ M03_Destroyed_Turret
 M03_Beach_Turret 
 M03_Staged_Conversation_Soldier 
 M03_Staged_Conversation_1 
-M03_No_More_Parachute 
 M03_Key_Card 
 M03_Officer_With_Key_Card2 
 M03_Officer_With_Key_Card 

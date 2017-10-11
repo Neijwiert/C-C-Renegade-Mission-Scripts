@@ -552,6 +552,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Initial_Powerups.cpp" />
     <ClCompile Include="M03_Intro_Substitute.cpp" />
     <ClCompile Include="M03_Killed_Sound.cpp" />
+    <ClCompile Include="M03_No_More_Parachute.cpp" />
     <ClCompile Include="M03_Objective_Controller.cpp" />
     <ClCompile Include="M03_Objective_Tracker.cpp" />
     <ClCompile Include="M03_Past_Pillbox.cpp" />
@@ -984,6 +985,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Initial_Powerups.h" />
     <ClInclude Include="M03_Intro_Substitute.h" />
     <ClInclude Include="M03_Killed_Sound.h" />
+    <ClInclude Include="M03_No_More_Parachute.h" />
     <ClInclude Include="M03_Objective_Controller.h" />
     <ClInclude Include="M03_Objective_Tracker.h" />
     <ClInclude Include="M03_Past_Pillbox.h" />

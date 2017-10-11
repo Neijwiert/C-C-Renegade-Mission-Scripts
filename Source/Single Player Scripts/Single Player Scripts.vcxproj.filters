@@ -1365,6 +1365,9 @@
     <ClCompile Include="M03_Reinforcement_Chinook.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_No_More_Parachute.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2640,6 +2643,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Reinforcement_Chinook.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_No_More_Parachute.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
