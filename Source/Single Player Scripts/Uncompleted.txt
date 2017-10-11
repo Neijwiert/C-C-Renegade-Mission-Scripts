@@ -31,7 +31,6 @@ M03_Radar_UnScramble
 M03_Radar_Scramble 
 M03_Engineer_Repair 
 M03_Engineer_Target 
-M03_Past_Pillbox 
 M03_KaneHead_JDG 
 M03_Holograph_EntryZone_JDG 
 M03_Conversation_Zone 

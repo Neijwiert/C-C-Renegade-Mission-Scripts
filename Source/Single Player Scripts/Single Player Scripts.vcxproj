@@ -553,6 +553,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Killed_Sound.cpp" />
     <ClCompile Include="M03_Objective_Controller.cpp" />
     <ClCompile Include="M03_Objective_Tracker.cpp" />
+    <ClCompile Include="M03_Past_Pillbox.cpp" />
     <ClCompile Include="M03_SAM_Site_Logic.cpp" />
     <ClCompile Include="M07_Disable_Hibernation.cpp" />
     <ClCompile Include="M08_Petra_C_Helo.cpp" />
@@ -982,6 +983,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Killed_Sound.h" />
     <ClInclude Include="M03_Objective_Controller.h" />
     <ClInclude Include="M03_Objective_Tracker.h" />
+    <ClInclude Include="M03_Past_Pillbox.h" />
     <ClInclude Include="M03_SAM_Site_Logic.h" />
     <ClInclude Include="M07_Disable_Hibernation.h" />
     <ClInclude Include="M08_Petra_C_Helo.h" />

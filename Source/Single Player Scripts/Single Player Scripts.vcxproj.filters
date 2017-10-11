@@ -1356,6 +1356,9 @@
     <ClCompile Include="M10_Pokeable_Item_OnePoke.cpp">
       <Filter>Source Files\M10</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Past_Pillbox.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2623,6 +2626,9 @@
     </ClInclude>
     <ClInclude Include="M10_Pokeable_Item_OnePoke.h">
       <Filter>Header Files\M10</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Past_Pillbox.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
