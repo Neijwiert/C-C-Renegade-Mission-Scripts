@@ -1458,6 +1458,9 @@
     <ClCompile Include="M03_Tiberium_Cave_Stay_Put.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="RMV_Test_Big_Gun_Turning.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2822,6 +2825,9 @@
     <ClInclude Include="M03_Tiberium_Cave_Stay_Put.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
+    <ClInclude Include="RMV_Test_Big_Gun_Turning.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -3475,6 +3481,12 @@
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
     <Text Include="x3i_troopdrop3.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="x3c_bigguns.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="x3c_bigguns2.txt">
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
   </ItemGroup>

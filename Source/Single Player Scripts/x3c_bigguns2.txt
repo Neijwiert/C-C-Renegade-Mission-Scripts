@@ -1,0 +1,73 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 3: ORCA STRIKE on BIGGUNS  ************************
+
+
+
+
+
+; ****************************** Orca
+
+;-1	Create_Object,		1, "v_gdi_orca"
+;-1	Play_Animation,		1, "v_gdi_orca.X3C_Orca",0
+
+
+; ****************************** Missiles
+
+
+;-405	Create_Object,		2, "X3c_AG_Missiles",		0, 0, 0, 0
+;-405	Play_Animation,		2, "X3c_Missiles.X3c_Missiles", 0
+
+
+; ****************************** Turret Explode
+
+
+-000	Send_Custom, 		1100002, 2450, 2450
+-000	Create_Object,		3, "X3c_AG_Biggun",		0, 0, 0, 0
+-000	Play_Animation,		3, "X3c_Biggun.X3c_Biggun", 0
+-000	Send_Custom,		1100004, 306, 1
+
+; ****************************** Turret Debris + smoke
+
+
+-010	Create_Object,		3, "X3c_AG_Debris",		0, 0, 0, 0
+
+
+-000	Play_Audio,		"Explosion_Small_04", 3, "BN_Pieces004"
+-000	Play_Audio,		"Explosion_Large_01", 3, "BN_Pieces005"
+-000	Play_Audio,		"Explosion_Large_09", 3, "BN_Pieces009"
+-000	Play_Audio,		"Explosion_Small_06", 3, "BN_Pieces012"
+-000	Play_Audio,		"Explosion_Large_01", 3, "BN_Xplode000"
+-000	Play_Audio,		"Explosion_Large_01", 3, "BN_Xplode002"
+
+;-435	Play_Audio,		"orca_fire", 2, "X0_missile03"
+;-405	Play_Audio,		"orca_fire", 2, "X0_missile00"
+;-416	Play_Audio,		"orca_fire", 2, "X0_missile01"
+;-425	Play_Audio,		"orca_fire", 2, "X0_missile02"

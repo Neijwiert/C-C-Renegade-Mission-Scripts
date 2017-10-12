@@ -32,6 +32,7 @@ M03_Chinook_Fodder_Creator
 M03_Inlet_Nod_Reinforcements
 M00_Object_Destroy_Self_RMV
 M03_Engineer_Target
+RMV_Test_Big_Gun_Turning
 
 // Below are not present in the solution yet
 M03_ConYardSeen 
@@ -79,7 +80,6 @@ M03_A05_Evac_Zone
 M00_InnateIsStationary
 M09_Attack_Blocked_False
 M06_Activate_Secret_Door
-RMV_Test_Big_Gun_Turning
 RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
 RMV_Engineer_Wander_Terminal

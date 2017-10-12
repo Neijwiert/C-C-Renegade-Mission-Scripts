@@ -637,6 +637,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_Vehicle_DLS.cpp" />
     <ClCompile Include="RMV_Home_Point.cpp" />
     <ClCompile Include="RMV_Hostage_Rescue_Point.cpp" />
+    <ClCompile Include="RMV_Test_Big_Gun_Turning.cpp" />
     <ClCompile Include="RMV_Trigger_Killed.cpp" />
     <ClCompile Include="RMV_Trigger_Zone.cpp" />
     <ClCompile Include="RMV_Trigger_Zone_2.cpp" />
@@ -1098,6 +1099,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_Vehicle_DLS.h" />
     <ClInclude Include="RMV_Home_Point.h" />
     <ClInclude Include="RMV_Hostage_Rescue_Point.h" />
+    <ClInclude Include="RMV_Test_Big_Gun_Turning.h" />
     <ClInclude Include="RMV_Trigger_Killed.h" />
     <ClInclude Include="RMV_Trigger_Zone.h" />
     <ClInclude Include="RMV_Trigger_Zone_2.h" />
@@ -1330,6 +1332,8 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x2i_para03_area21.txt" />
     <Text Include="x2k_midtro.txt" />
     <Text Include="x3b_hoverxplode.txt" />
+    <Text Include="x3c_bigguns.txt" />
+    <Text Include="x3c_bigguns2.txt" />
     <Text Include="x3i_gdi_drop_powerup.txt" />
     <Text Include="x3i_troopdrop1.txt" />
     <Text Include="x3i_troopdrop2.txt" />

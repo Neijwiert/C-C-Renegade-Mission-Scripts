@@ -68,6 +68,8 @@ void M03_Objective_Controller::Custom(GameObject *obj, int type, int param, Game
 			}
 		}
 
+		// Received after 500 cinematic frames in X3C_Bigguns.txt with type = 306
+		// Received after 0 cinematic frames in X3C_Bigguns2.txt with type = 306
 		if (param == 1)
 		{
 			Complete_Mission_Objective(type + 700);
