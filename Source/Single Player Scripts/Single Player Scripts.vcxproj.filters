@@ -1428,6 +1428,9 @@
     <ClCompile Include="M00_Controller_Trigger_RMV.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Structure_Powerup_Drop.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2761,6 +2764,9 @@
     </ClInclude>
     <ClInclude Include="M00_Controller_Trigger_RMV.h">
       <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Structure_Powerup_Drop.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

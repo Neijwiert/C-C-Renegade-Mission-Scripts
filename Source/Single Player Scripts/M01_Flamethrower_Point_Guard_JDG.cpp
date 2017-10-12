@@ -67,7 +67,7 @@ void M01_Flamethrower_Point_Guard_JDG::Custom(GameObject *obj, int type, int par
 		float randFaceLocation = Commands->Get_Random(this->facingLeft, this->facingRight);
 		float randFaceDuration = Commands->Get_Random(5.0f, 10.0f);
 
-		float radiansFacing = static_cast<float>(DEG_TO_RAD(randFaceLocation));
+		float radiansFacing = DEG_TO_RADF(randFaceLocation);
 
 		ActionParamsStruct params;
 		params.Set_Basic(this, 45.0f, 20);

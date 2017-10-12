@@ -42,7 +42,7 @@ void M03_Paratrooper_Run::Damaged(GameObject *obj, GameObject *damager, float am
 		float randMoveOffset = Commands->Get_Random(-12.0f, 12.0f);
 		Vector3 pos = Commands->Get_Position(obj);
 
-		float facing = static_cast<float>(DEG_TO_RAD(Commands->Get_Facing(obj)));
+		float facing = DEG_TO_RADF(Commands->Get_Facing(obj));
 		pos.X += WWMath::Cos(facing) * randMoveOffset;
 		pos.Y += WWMath::Sin(facing) * randMoveOffset;
 
