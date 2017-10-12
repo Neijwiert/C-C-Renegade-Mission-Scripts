@@ -562,6 +562,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Past_Pillbox.cpp" />
     <ClCompile Include="M03_Reinforcement_Chinook.cpp" />
     <ClCompile Include="M03_SAM_Site_Logic.cpp" />
+    <ClCompile Include="M03_Staged_Conversation_1.cpp" />
     <ClCompile Include="M03_Wheres_The_Star.cpp" />
     <ClCompile Include="M07_Disable_Hibernation.cpp" />
     <ClCompile Include="M08_Petra_C_Helo.cpp" />
@@ -1001,6 +1002,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Past_Pillbox.h" />
     <ClInclude Include="M03_Reinforcement_Chinook.h" />
     <ClInclude Include="M03_SAM_Site_Logic.h" />
+    <ClInclude Include="M03_Staged_Conversation_1.h" />
     <ClInclude Include="M03_Wheres_The_Star.h" />
     <ClInclude Include="M07_Disable_Hibernation.h" />
     <ClInclude Include="M08_Petra_C_Helo.h" />

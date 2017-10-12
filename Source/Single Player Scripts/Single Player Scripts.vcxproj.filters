@@ -1386,6 +1386,9 @@
     <ClCompile Include="RMV_Trigger_Zone.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Staged_Conversation_1.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2683,6 +2686,9 @@
     </ClInclude>
     <ClInclude Include="RMV_Trigger_Zone.h">
       <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Staged_Conversation_1.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -24,6 +24,7 @@ M03_Beach_Reinforce
 M03_Chinook_ParaDrop
 M03_Paratrooper_Run
 M03_Conversation_Zone
+M03_Staged_Conversation_1
 
 // Below are not present in the solution yet
 M03_DataDiscMessage 
@@ -50,7 +51,6 @@ M03_Protect_The_MCT
 M03_Sakura_Explosion 
 M03_Structure_Powerup_Drop 
 M03_Staged_Conversation_Soldier 
-M03_Staged_Conversation_1 
 M03_Key_Card 
 M03_Officer_With_Key_Card2 
 M03_Officer_With_Key_Card 
