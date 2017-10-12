@@ -541,6 +541,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M02_Respawn_Controller.cpp" />
     <ClCompile Include="M02_Stationary_Vehicle.cpp" />
     <ClCompile Include="M03_AggAndCover.cpp" />
+    <ClCompile Include="M03_Alternate_Sam_Site.cpp" />
     <ClCompile Include="M03_Beach_Radio.cpp" />
     <ClCompile Include="M03_Beach_Reinforce.cpp" />
     <ClCompile Include="M03_Beach_Scenario_Controller.cpp" />
@@ -993,6 +994,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M02_Respawn_Controller.h" />
     <ClInclude Include="M02_Stationary_Vehicle.h" />
     <ClInclude Include="M03_AggAndCover.h" />
+    <ClInclude Include="M03_Alternate_Sam_Site.h" />
     <ClInclude Include="M03_Beach_Radio.h" />
     <ClInclude Include="M03_Beach_Reinforce.h" />
     <ClInclude Include="M03_Beach_Scenario_Controller.h" />

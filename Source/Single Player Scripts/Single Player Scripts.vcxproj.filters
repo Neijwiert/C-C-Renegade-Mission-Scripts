@@ -1431,6 +1431,9 @@
     <ClCompile Include="M03_Structure_Powerup_Drop.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Alternate_Sam_Site.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2766,6 +2769,9 @@
       <Filter>Header Files\M00</Filter>
     </ClInclude>
     <ClInclude Include="M03_Structure_Powerup_Drop.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Alternate_Sam_Site.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
