@@ -617,6 +617,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_Vehicle_DLS.cpp" />
     <ClCompile Include="RMV_Home_Point.cpp" />
     <ClCompile Include="RMV_Trigger_Killed.cpp" />
+    <ClCompile Include="RMV_Trigger_Zone.cpp" />
     <ClCompile Include="SinglePlayerScripts.cpp" />
     <ClCompile Include="General.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -1055,6 +1056,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_Vehicle_DLS.h" />
     <ClInclude Include="RMV_Home_Point.h" />
     <ClInclude Include="RMV_Trigger_Killed.h" />
+    <ClInclude Include="RMV_Trigger_Zone.h" />
     <ClInclude Include="SinglePlayerScripts.h" />
     <ClInclude Include="General.h" />
     <ClInclude Include="MX0_Engineer_Goto.h" />

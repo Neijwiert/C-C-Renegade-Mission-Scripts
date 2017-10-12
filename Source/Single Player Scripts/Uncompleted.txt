@@ -89,7 +89,6 @@ RMV_Trigger_Zone_2
 RMV_Test_Big_Gun_Turning
 M00_Trigger_When_Killed_RMV
 RMV_Hostage_Rescue_Point
-RMV_Trigger_Zone
 RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
 RMV_Engineer_Wander_Terminal

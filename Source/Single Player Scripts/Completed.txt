@@ -361,6 +361,7 @@ M03_No_More_Parachute
 M03_Beach_Turret
 M03_Destroyed_Turret
 M03_Wheres_The_Star
+RMV_Trigger_Zone
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
