@@ -41,7 +41,6 @@ M03_Mct_Poke
 M03_CommCenter_Arrow 
 M03_PowerPlant_Warning 
 M03_CommCenter_Warning 
-M03_Killed_Disabled_Spawner 
 M03_Mission_Complete_Zone 
 M03_Area_Troop_Counter 
 M03_Refinery 

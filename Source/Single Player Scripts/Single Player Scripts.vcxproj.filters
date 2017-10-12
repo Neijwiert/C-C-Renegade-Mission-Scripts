@@ -1416,6 +1416,9 @@
     <ClCompile Include="M03_Zone_Enabled_Spawner.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Killed_Disabled_Spawner.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2736,6 +2739,9 @@
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
     <ClInclude Include="M03_Zone_Enabled_Spawner.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Killed_Disabled_Spawner.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
