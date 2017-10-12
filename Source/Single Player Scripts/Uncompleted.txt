@@ -28,6 +28,7 @@ M03_Staged_Conversation_1
 M09_Innate_Disable
 M00_Trigger_When_Killed_RMV
 M03_Alternate_Sam_Site
+M03_Chinook_Fodder_Creator
 
 // Below are not present in the solution yet
 M03_ConYardSeen 
@@ -62,7 +63,6 @@ M03_Tiberium_Cave_Stay_Put
 M03_Tailgun_Fodder 
 M03_Tailgun_Fodder_Zone 
 M03_Tailgun 
-M03_Chinook_Fodder_Creator 
 M03_Flyover_Controller 
 M03_Chinook_Spawned_Soldier_GDI 
 M03_Beach_Soldier_GDI 

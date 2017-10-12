@@ -546,6 +546,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Beach_Reinforce.cpp" />
     <ClCompile Include="M03_Beach_Scenario_Controller.cpp" />
     <ClCompile Include="M03_Beach_Turret.cpp" />
+    <ClCompile Include="M03_Chinook_Fodder_Creator.cpp" />
     <ClCompile Include="M03_Chinook_ParaDrop.cpp" />
     <ClCompile Include="M03_Chinook_Reinforcements.cpp" />
     <ClCompile Include="M03_Cine_Explosion.cpp" />
@@ -1000,6 +1001,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Beach_Reinforce.h" />
     <ClInclude Include="M03_Beach_Scenario_Controller.h" />
     <ClInclude Include="M03_Beach_Turret.h" />
+    <ClInclude Include="M03_Chinook_Fodder_Creator.h" />
     <ClInclude Include="M03_Chinook_ParaDrop.h" />
     <ClInclude Include="M03_Chinook_Reinforcements.h" />
     <ClInclude Include="M03_Cine_Explosion.h" />
