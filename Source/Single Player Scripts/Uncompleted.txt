@@ -86,7 +86,6 @@ M10_Stationary
 M06_Activate_Secret_Door
 RMV_Test_Big_Gun_Turning
 M00_Trigger_When_Killed_RMV
-RMV_Hostage_Rescue_Point
 RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
 RMV_Engineer_Wander_Terminal
