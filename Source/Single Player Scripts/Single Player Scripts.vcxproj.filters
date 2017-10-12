@@ -1413,6 +1413,9 @@
     <ClCompile Include="RMV_Hostage_Rescue_Point.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Zone_Enabled_Spawner.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2731,6 +2734,9 @@
     </ClInclude>
     <ClInclude Include="RMV_Hostage_Rescue_Point.h">
       <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Zone_Enabled_Spawner.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
