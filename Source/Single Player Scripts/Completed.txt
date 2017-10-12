@@ -373,6 +373,7 @@ M10_Stationary
 M03_Structure_Powerup_Drop
 M03_Destroyed_Chinook
 M08_Nod_Turret
+M03_Engineer_Repair
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
