@@ -560,6 +560,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Goto_Star.cpp" />
     <ClCompile Include="M03_Gunboat_Controller_RMV.cpp" />
     <ClCompile Include="M03_Initial_Powerups.cpp" />
+    <ClCompile Include="M03_Inlet_Nod_Reinforcements.cpp" />
     <ClCompile Include="M03_Intro_Substitute.cpp" />
     <ClCompile Include="M03_Killed_Disabled_Spawner.cpp" />
     <ClCompile Include="M03_Killed_Sound.cpp" />
@@ -1015,6 +1016,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Goto_Star.h" />
     <ClInclude Include="M03_Gunboat_Controller_RMV.h" />
     <ClInclude Include="M03_Initial_Powerups.h" />
+    <ClInclude Include="M03_Inlet_Nod_Reinforcements.h" />
     <ClInclude Include="M03_Intro_Substitute.h" />
     <ClInclude Include="M03_Killed_Disabled_Spawner.h" />
     <ClInclude Include="M03_Killed_Sound.h" />

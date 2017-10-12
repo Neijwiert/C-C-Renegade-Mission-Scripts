@@ -27,6 +27,7 @@ void M03_Chinook_ParaDrop::Register_Auto_Save_Variables()
 }
 
 // See M03_Beach_Reinforce::Reinforce_Beach, M03_Beach_Reinforce::Reinforce_Inlet and M03_Beach_Reinforce::Reinforce_Base
+// In M03_Inlet_Nod_Reinforcements when timer number <= 0/1/2 triggers
 void M03_Chinook_ParaDrop::Created(GameObject *obj)
 {
 	Vector3 pos = Commands->Get_Position(obj);

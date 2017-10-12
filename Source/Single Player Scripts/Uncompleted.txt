@@ -29,6 +29,7 @@ M09_Innate_Disable
 M00_Trigger_When_Killed_RMV
 M03_Alternate_Sam_Site
 M03_Chinook_Fodder_Creator
+M03_Inlet_Nod_Reinforcements
 
 // Below are not present in the solution yet
 M03_ConYardSeen 
@@ -57,7 +58,6 @@ M03_Officer_With_Key_Card
 M03_Reinforce_Area 
 M03_Base_Harvester 
 M03_Base_Patrol 
-M03_Inlet_Nod_Reinforcements 
 M03_Big_Gun_Explosion 
 M03_Tiberium_Cave_Stay_Put 
 M03_Tailgun_Fodder 

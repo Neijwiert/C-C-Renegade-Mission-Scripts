@@ -1440,6 +1440,9 @@
     <ClCompile Include="M03_Chinook_Fodder_Creator.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Inlet_Nod_Reinforcements.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2784,6 +2787,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Chinook_Fodder_Creator.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Inlet_Nod_Reinforcements.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
