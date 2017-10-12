@@ -55,7 +55,6 @@ M03_Key_Card
 M03_Officer_With_Key_Card2 
 M03_Officer_With_Key_Card 
 M03_Reinforce_Area 
-M03_Wheres_The_Star 
 M03_Base_Harvester 
 M03_Base_Patrol 
 M03_Inlet_Nod_Reinforcements 

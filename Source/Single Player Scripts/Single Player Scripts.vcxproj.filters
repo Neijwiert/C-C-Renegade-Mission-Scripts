@@ -1380,6 +1380,9 @@
     <ClCompile Include="M03_Conversation_Zone.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Wheres_The_Star.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2670,6 +2673,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Conversation_Zone.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Wheres_The_Star.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
