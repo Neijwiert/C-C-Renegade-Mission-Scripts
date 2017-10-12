@@ -1407,6 +1407,9 @@
     <ClCompile Include="RMV_Trigger_Zone_2.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="M09_Innate_Disable.cpp">
+      <Filter>Source Files\M09</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2719,6 +2722,9 @@
     </ClInclude>
     <ClInclude Include="RMV_Trigger_Zone_2.h">
       <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="M09_Innate_Disable.h">
+      <Filter>Header Files\M09</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

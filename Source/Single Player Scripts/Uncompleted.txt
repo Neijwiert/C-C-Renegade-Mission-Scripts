@@ -25,6 +25,7 @@ M03_Chinook_ParaDrop
 M03_Paratrooper_Run
 M03_Conversation_Zone
 M03_Staged_Conversation_1
+M09_Innate_Disable
 
 // Below are not present in the solution yet
 M03_ConYardSeen 
@@ -91,7 +92,6 @@ RMV_Volcano_And_Lava_Ball_Creator
 RMV_Engineer_Wander_Terminal
 M00_Object_Destroy_Self_RMV
 M10_Elevator_All_Zone
-M09_Innate_Disable
 DLS_Volcano_Active
 M08_Nod_Turret
 M10_Elevator_All_Controller
