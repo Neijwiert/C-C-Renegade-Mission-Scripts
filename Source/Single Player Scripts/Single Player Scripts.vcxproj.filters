@@ -1455,6 +1455,9 @@
     <ClCompile Include="M03_Engineer_Repair.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Tiberium_Cave_Stay_Put.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2814,6 +2817,9 @@
       <Filter>Header Files\M08</Filter>
     </ClInclude>
     <ClInclude Include="M03_Engineer_Repair.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Tiberium_Cave_Stay_Put.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

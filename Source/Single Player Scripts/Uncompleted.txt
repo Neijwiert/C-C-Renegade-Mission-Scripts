@@ -59,7 +59,6 @@ M03_Reinforce_Area
 M03_Base_Harvester 
 M03_Base_Patrol 
 M03_Big_Gun_Explosion 
-M03_Tiberium_Cave_Stay_Put 
 M03_Tailgun_Fodder 
 M03_Tailgun_Fodder_Zone 
 M03_Tailgun 
