@@ -1434,6 +1434,9 @@
     <ClCompile Include="M03_Alternate_Sam_Site.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Destroyed_Chinook.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2772,6 +2775,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Alternate_Sam_Site.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Destroyed_Chinook.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
