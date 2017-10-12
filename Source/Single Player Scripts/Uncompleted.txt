@@ -30,6 +30,7 @@ M00_Trigger_When_Killed_RMV
 M03_Alternate_Sam_Site
 M03_Chinook_Fodder_Creator
 M03_Inlet_Nod_Reinforcements
+M00_Object_Destroy_Self_RMV
 
 // Below are not present in the solution yet
 M03_ConYardSeen 
@@ -84,7 +85,6 @@ RMV_Test_Big_Gun_Turning
 RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
 RMV_Engineer_Wander_Terminal
-M00_Object_Destroy_Self_RMV
 M10_Elevator_All_Zone
 DLS_Volcano_Active
 M08_Nod_Turret

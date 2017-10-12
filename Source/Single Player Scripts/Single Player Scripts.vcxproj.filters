@@ -1443,6 +1443,9 @@
     <ClCompile Include="M03_Inlet_Nod_Reinforcements.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Object_Destroy_Self_RMV.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2791,6 +2794,9 @@
     </ClInclude>
     <ClInclude Include="M03_Inlet_Nod_Reinforcements.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Object_Destroy_Self_RMV.h">
+      <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
