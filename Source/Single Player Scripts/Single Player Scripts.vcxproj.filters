@@ -88,6 +88,12 @@
     <Filter Include="Source Files\M10">
       <UniqueIdentifier>{51bf0fb5-078e-4e67-b9a8-f72250f9340e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\M09">
+      <UniqueIdentifier>{814d1283-c0df-49c1-ad2f-91a72adb28ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\M09">
+      <UniqueIdentifier>{21e6f725-7f9c-48a0-8cce-833fcd3032a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -1389,6 +1395,9 @@
     <ClCompile Include="M03_Staged_Conversation_1.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M09_Innate_Activate.cpp">
+      <Filter>Source Files\M09</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2689,6 +2698,9 @@
     </ClInclude>
     <ClInclude Include="M03_Staged_Conversation_1.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M09_Innate_Activate.h">
+      <Filter>Header Files\M09</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

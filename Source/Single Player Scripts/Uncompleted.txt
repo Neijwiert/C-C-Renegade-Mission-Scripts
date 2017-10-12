@@ -95,7 +95,6 @@ RMV_Engineer_Wander_Terminal
 M00_Object_Destroy_Self_RMV
 M10_Elevator_All_Zone
 M09_Innate_Disable
-M09_Innate_Activate
 DLS_Volcano_Active
 M08_Nod_Turret
 M10_Elevator_All_Controller
