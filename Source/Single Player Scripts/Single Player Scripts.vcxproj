@@ -201,6 +201,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_C130_Explosion.cpp" />
     <ClCompile Include="M00_Cinematic_Attack_Command_DLS.cpp" />
     <ClCompile Include="M00_Cinematic_Kill_Object_DAY.cpp" />
+    <ClCompile Include="M00_Controller_Trigger_RMV.cpp" />
     <ClCompile Include="M00_Damaged_Warning.cpp" />
     <ClCompile Include="M00_Damage_Modifier_DME.cpp" />
     <ClCompile Include="M00_Disable_Loiter_DAY.cpp" />
@@ -221,6 +222,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Send_Object_ID.cpp" />
     <ClCompile Include="M00_Soldier_Powerup_Disable.cpp" />
     <ClCompile Include="M00_Soldier_Powerup_Grant.cpp" />
+    <ClCompile Include="M00_Trigger_When_Killed_RMV.cpp" />
     <ClCompile Include="M00_Vehicle_Regen_DAK.cpp" />
     <ClCompile Include="M00_VisceroidInnate_DAY.cpp" />
     <ClCompile Include="M01_AccessDenied_Zone_JDG.cpp" />
@@ -650,6 +652,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_C130_Explosion.h" />
     <ClInclude Include="M00_Cinematic_Attack_Command_DLS.h" />
     <ClInclude Include="M00_Cinematic_Kill_Object_DAY.h" />
+    <ClInclude Include="M00_Controller_Trigger_RMV.h" />
     <ClInclude Include="M00_Damaged_Warning.h" />
     <ClInclude Include="M00_Damage_Modifier_DME.h" />
     <ClInclude Include="M00_Disable_Loiter_DAY.h" />
@@ -670,6 +673,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Send_Object_ID.h" />
     <ClInclude Include="M00_Soldier_Powerup_Disable.h" />
     <ClInclude Include="M00_Soldier_Powerup_Grant.h" />
+    <ClInclude Include="M00_Trigger_When_Killed_RMV.h" />
     <ClInclude Include="M00_Vehicle_Regen_DAK.h" />
     <ClInclude Include="M00_VisceroidInnate_DAY.h" />
     <ClInclude Include="M01_AccessDenied_Zone_JDG.h" />

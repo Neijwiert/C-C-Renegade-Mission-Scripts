@@ -26,6 +26,7 @@ M03_Paratrooper_Run
 M03_Conversation_Zone
 M03_Staged_Conversation_1
 M09_Innate_Disable
+M00_Trigger_When_Killed_RMV
 
 // Below are not present in the solution yet
 M03_ConYardSeen 
@@ -82,7 +83,6 @@ M00_InnateIsStationary
 M09_Attack_Blocked_False
 M06_Activate_Secret_Door
 RMV_Test_Big_Gun_Turning
-M00_Trigger_When_Killed_RMV
 RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
 RMV_Engineer_Wander_Terminal

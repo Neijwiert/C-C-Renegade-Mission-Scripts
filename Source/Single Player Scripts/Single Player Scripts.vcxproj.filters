@@ -1422,6 +1422,12 @@
     <ClCompile Include="M10_Stationary.cpp">
       <Filter>Source Files\M10</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Trigger_When_Killed_RMV.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
+    <ClCompile Include="M00_Controller_Trigger_RMV.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2749,6 +2755,12 @@
     </ClInclude>
     <ClInclude Include="M10_Stationary.h">
       <Filter>Header Files\M10</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Trigger_When_Killed_RMV.h">
+      <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Controller_Trigger_RMV.h">
+      <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
