@@ -1401,6 +1401,9 @@
     <ClCompile Include="M00_Reveal_Enc_Character_DAY.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M03_DataDiscMessage.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2707,6 +2710,9 @@
     </ClInclude>
     <ClInclude Include="M00_Reveal_Enc_Character_DAY.h">
       <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_DataDiscMessage.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
