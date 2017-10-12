@@ -217,6 +217,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Play_Sound_Object_Bone_DAY.cpp" />
     <ClCompile Include="M00_Powerup_Destroy.cpp" />
     <ClCompile Include="M00_Put_Script_On_Commando.cpp" />
+    <ClCompile Include="M00_Reveal_Enc_Character_DAY.cpp" />
     <ClCompile Include="M00_Send_Object_ID.cpp" />
     <ClCompile Include="M00_Soldier_Powerup_Disable.cpp" />
     <ClCompile Include="M00_Soldier_Powerup_Grant.cpp" />
@@ -658,6 +659,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Play_Sound_Object_Bone_DAY.h" />
     <ClInclude Include="M00_Powerup_Destroy.h" />
     <ClInclude Include="M00_Put_Script_On_Commando.h" />
+    <ClInclude Include="M00_Reveal_Enc_Character_DAY.h" />
     <ClInclude Include="M00_Send_Object_ID.h" />
     <ClInclude Include="M00_Soldier_Powerup_Disable.h" />
     <ClInclude Include="M00_Soldier_Powerup_Grant.h" />

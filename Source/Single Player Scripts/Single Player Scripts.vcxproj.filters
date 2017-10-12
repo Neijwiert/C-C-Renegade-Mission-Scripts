@@ -1398,6 +1398,9 @@
     <ClCompile Include="M09_Innate_Activate.cpp">
       <Filter>Source Files\M09</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Reveal_Enc_Character_DAY.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2701,6 +2704,9 @@
     </ClInclude>
     <ClInclude Include="M09_Innate_Activate.h">
       <Filter>Header Files\M09</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Reveal_Enc_Character_DAY.h">
+      <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

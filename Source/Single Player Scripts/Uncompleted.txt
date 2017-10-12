@@ -82,7 +82,6 @@ M03_Outro_Cinematic
 M03_A05_Evac_Zone 
 M00_InnateIsStationary
 M09_Attack_Blocked_False
-M00_Reveal_Enc_Character_DAY
 M10_Stationary
 M06_Activate_Secret_Door
 RMV_Trigger_Zone_2
