@@ -31,6 +31,7 @@ M03_Alternate_Sam_Site
 M03_Chinook_Fodder_Creator
 M03_Inlet_Nod_Reinforcements
 M00_Object_Destroy_Self_RMV
+M03_Engineer_Target
 
 // Below are not present in the solution yet
 M03_ConYardSeen 
@@ -38,7 +39,6 @@ M03_Technician_Work
 M03_Radar_UnScramble 
 M03_Radar_Scramble 
 M03_Engineer_Repair 
-M03_Engineer_Target 
 M03_KaneHead_JDG 
 M03_Holograph_EntryZone_JDG 
 M03_Comm_Killed 

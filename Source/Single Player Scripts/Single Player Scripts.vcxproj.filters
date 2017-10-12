@@ -1446,6 +1446,9 @@
     <ClCompile Include="M00_Object_Destroy_Self_RMV.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Engineer_Target.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2797,6 +2800,9 @@
     </ClInclude>
     <ClInclude Include="M00_Object_Destroy_Self_RMV.h">
       <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Engineer_Target.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
