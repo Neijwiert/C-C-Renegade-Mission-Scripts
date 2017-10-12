@@ -87,7 +87,6 @@ RMV_Volcano_And_Lava_Ball_Creator
 RMV_Engineer_Wander_Terminal
 M10_Elevator_All_Zone
 DLS_Volcano_Active
-M08_Nod_Turret
 M10_Elevator_All_Controller
 RMV_Camera_Behavior
 RMV_Trigger_Poked

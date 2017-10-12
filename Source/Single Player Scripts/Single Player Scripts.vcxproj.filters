@@ -1449,6 +1449,9 @@
     <ClCompile Include="M03_Engineer_Target.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M08_Nod_Turret.cpp">
+      <Filter>Source Files\M08</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2803,6 +2806,9 @@
     </ClInclude>
     <ClInclude Include="M03_Engineer_Target.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M08_Nod_Turret.h">
+      <Filter>Header Files\M08</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
