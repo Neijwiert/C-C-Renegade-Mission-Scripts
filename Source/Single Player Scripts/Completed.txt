@@ -365,6 +365,7 @@ RMV_Trigger_Zone
 M09_Innate_Activate
 M00_Reveal_Enc_Character_DAY
 M03_DataDiscMessage
+RMV_Trigger_Zone_2
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
