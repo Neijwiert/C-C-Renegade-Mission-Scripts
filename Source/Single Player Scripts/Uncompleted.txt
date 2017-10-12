@@ -23,6 +23,7 @@ DLS_Volcano_Stumble
 M03_Beach_Reinforce
 M03_Chinook_ParaDrop
 M03_Paratrooper_Run
+M03_Conversation_Zone
 
 // Below are not present in the solution yet
 M03_DataDiscMessage 
@@ -34,7 +35,6 @@ M03_Engineer_Repair
 M03_Engineer_Target 
 M03_KaneHead_JDG 
 M03_Holograph_EntryZone_JDG 
-M03_Conversation_Zone 
 M03_Comm_Killed 
 M03_Mct_Poke 
 M03_CommCenter_Arrow 
