@@ -1476,6 +1476,9 @@
     <ClCompile Include="M10_Elevator_All_Controller.cpp">
       <Filter>Source Files\M10</Filter>
     </ClCompile>
+    <ClCompile Include="M03_ConYardSeen.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2857,6 +2860,9 @@
     </ClInclude>
     <ClInclude Include="M10_Elevator_All_Controller.h">
       <Filter>Header Files\M10</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_ConYardSeen.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
