@@ -1471,7 +1471,10 @@
       <Filter>Source Files\M03</Filter>
     </ClCompile>
     <ClCompile Include="M10_Elevator_All_Zone.cpp">
-      <Filter>Source Files\M03</Filter>
+      <Filter>Source Files\M10</Filter>
+    </ClCompile>
+    <ClCompile Include="M10_Elevator_All_Controller.cpp">
+      <Filter>Source Files\M10</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2850,7 +2853,10 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M10_Elevator_All_Zone.h">
-      <Filter>Header Files\M03</Filter>
+      <Filter>Header Files\M10</Filter>
+    </ClInclude>
+    <ClInclude Include="M10_Elevator_All_Controller.h">
+      <Filter>Header Files\M10</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
