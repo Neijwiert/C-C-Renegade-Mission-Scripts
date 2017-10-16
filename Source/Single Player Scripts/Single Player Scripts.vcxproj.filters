@@ -1461,6 +1461,9 @@
     <ClCompile Include="RMV_Test_Big_Gun_Turning.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Ambient_Birdcall_Controller_JDG.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2827,6 +2830,9 @@
     </ClInclude>
     <ClInclude Include="RMV_Test_Big_Gun_Turning.h">
       <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Ambient_Birdcall_Controller_JDG.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

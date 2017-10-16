@@ -72,7 +72,6 @@ M03_Move_Commando_To_Start
 M03_Announce_CommCenter_Controller_JDG 
 M03_Announce_Refinery_Controller_JDG 
 M03_Announce_PowerPlant_Controller_JDG 
-M03_Ambient_Birdcall_Controller_JDG 
 M03_CommCenter_SateliteDish_Controller_JDG 
 RMV_M03_Comm_Center_Terminal 
 M03_Outro_Cinematic 
