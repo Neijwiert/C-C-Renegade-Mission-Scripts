@@ -81,7 +81,6 @@ M06_Activate_Secret_Door
 RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
 RMV_Engineer_Wander_Terminal
-M10_Elevator_All_Zone
 DLS_Volcano_Active
 M10_Elevator_All_Controller
 RMV_Camera_Behavior

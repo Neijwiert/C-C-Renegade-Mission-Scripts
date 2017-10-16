@@ -1470,6 +1470,9 @@
     <ClCompile Include="M03_Radar_Scramble.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M10_Elevator_All_Zone.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2844,6 +2847,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Radar_Scramble.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M10_Elevator_All_Zone.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

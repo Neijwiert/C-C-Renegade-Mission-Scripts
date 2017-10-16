@@ -587,6 +587,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M08_Petra_C_Helo.cpp" />
     <ClCompile Include="M09_Innate_Activate.cpp" />
     <ClCompile Include="M09_Innate_Disable.cpp" />
+    <ClCompile Include="M10_Elevator_All_Zone.cpp" />
     <ClCompile Include="M10_Pokeable_Item_OnePoke.cpp" />
     <ClCompile Include="M10_Stationary.cpp" />
     <ClCompile Include="M11_Temple_Hologram_01_JDG.cpp" />
@@ -1052,6 +1053,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M08_Petra_C_Helo.h" />
     <ClInclude Include="M09_Innate_Activate.h" />
     <ClInclude Include="M09_Innate_Disable.h" />
+    <ClInclude Include="M10_Elevator_All_Zone.h" />
     <ClInclude Include="M10_Pokeable_Item_OnePoke.h" />
     <ClInclude Include="M10_Stationary.h" />
     <ClInclude Include="M11_Temple_Hologram_01_JDG.h" />
