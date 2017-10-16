@@ -376,6 +376,7 @@ M08_Nod_Turret
 M03_Engineer_Repair
 M03_Tiberium_Cave_Stay_Put
 M03_Ambient_Birdcall_Controller_JDG
+M03_Radar_UnScramble
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

@@ -37,7 +37,6 @@ RMV_Test_Big_Gun_Turning
 // Below are not present in the solution yet
 M03_ConYardSeen 
 M03_Technician_Work 
-M03_Radar_UnScramble 
 M03_Radar_Scramble 
 M03_KaneHead_JDG 
 M03_Holograph_EntryZone_JDG 
