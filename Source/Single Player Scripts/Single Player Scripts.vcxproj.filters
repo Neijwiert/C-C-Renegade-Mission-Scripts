@@ -1467,6 +1467,9 @@
     <ClCompile Include="M03_Radar_UnScramble.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Radar_Scramble.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2838,6 +2841,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Radar_UnScramble.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Radar_Scramble.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

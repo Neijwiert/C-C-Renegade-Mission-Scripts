@@ -573,6 +573,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Objective_Tracker.cpp" />
     <ClCompile Include="M03_Paratrooper_Run.cpp" />
     <ClCompile Include="M03_Past_Pillbox.cpp" />
+    <ClCompile Include="M03_Radar_Scramble.cpp" />
     <ClCompile Include="M03_Radar_UnScramble.cpp" />
     <ClCompile Include="M03_Reinforcement_Chinook.cpp" />
     <ClCompile Include="M03_SAM_Site_Logic.cpp" />
@@ -1037,6 +1038,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Objective_Tracker.h" />
     <ClInclude Include="M03_Paratrooper_Run.h" />
     <ClInclude Include="M03_Past_Pillbox.h" />
+    <ClInclude Include="M03_Radar_Scramble.h" />
     <ClInclude Include="M03_Radar_UnScramble.h" />
     <ClInclude Include="M03_Reinforcement_Chinook.h" />
     <ClInclude Include="M03_SAM_Site_Logic.h" />

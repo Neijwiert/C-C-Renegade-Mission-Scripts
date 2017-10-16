@@ -33,11 +33,11 @@ M03_Inlet_Nod_Reinforcements
 M00_Object_Destroy_Self_RMV
 M03_Engineer_Target
 RMV_Test_Big_Gun_Turning
+M03_Radar_Scramble
 
 // Below are not present in the solution yet
 M03_ConYardSeen 
 M03_Technician_Work 
-M03_Radar_Scramble 
 M03_KaneHead_JDG 
 M03_Holograph_EntryZone_JDG 
 M03_Comm_Killed 
