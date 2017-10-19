@@ -1482,6 +1482,9 @@
     <ClCompile Include="M03_PowerPlant_Warning.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Announce_PowerPlant_Controller_JDG.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2868,6 +2871,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_PowerPlant_Warning.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Announce_PowerPlant_Controller_JDG.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

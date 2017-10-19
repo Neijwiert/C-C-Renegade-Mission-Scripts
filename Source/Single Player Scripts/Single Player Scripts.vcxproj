@@ -544,6 +544,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_AggAndCover.cpp" />
     <ClCompile Include="M03_Alternate_Sam_Site.cpp" />
     <ClCompile Include="M03_Ambient_Birdcall_Controller_JDG.cpp" />
+    <ClCompile Include="M03_Announce_PowerPlant_Controller_JDG.cpp" />
     <ClCompile Include="M03_Beach_Radio.cpp" />
     <ClCompile Include="M03_Beach_Reinforce.cpp" />
     <ClCompile Include="M03_Beach_Scenario_Controller.cpp" />
@@ -1013,6 +1014,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_AggAndCover.h" />
     <ClInclude Include="M03_Alternate_Sam_Site.h" />
     <ClInclude Include="M03_Ambient_Birdcall_Controller_JDG.h" />
+    <ClInclude Include="M03_Announce_PowerPlant_Controller_JDG.h" />
     <ClInclude Include="M03_Beach_Radio.h" />
     <ClInclude Include="M03_Beach_Reinforce.h" />
     <ClInclude Include="M03_Beach_Scenario_Controller.h" />
