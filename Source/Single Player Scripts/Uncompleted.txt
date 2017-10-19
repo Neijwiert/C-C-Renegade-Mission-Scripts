@@ -50,7 +50,6 @@ M03_CommCenter_Warning
 M03_Mission_Complete_Zone 
 M03_Area_Troop_Counter 
 M03_Refinery 
-M03_Power_Plant 
 M03_Protect_The_MCT 
 M03_Sakura_Explosion 
 M03_Staged_Conversation_Soldier 
