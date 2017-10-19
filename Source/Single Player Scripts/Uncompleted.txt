@@ -36,6 +36,7 @@ RMV_Test_Big_Gun_Turning
 M03_Radar_Scramble
 M10_Elevator_All_Controller
 M03_ConYardSeen
+M03_PowerPlant_Warning
 
 // Below are not present in the solution yet
 M03_Technician_Work 
@@ -44,7 +45,6 @@ M03_Holograph_EntryZone_JDG
 M03_Comm_Killed 
 M03_Mct_Poke 
 M03_CommCenter_Arrow 
-M03_PowerPlant_Warning 
 M03_CommCenter_Warning 
 M03_Mission_Complete_Zone 
 M03_Area_Troop_Counter 

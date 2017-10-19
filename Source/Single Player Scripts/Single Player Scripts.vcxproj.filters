@@ -1479,6 +1479,9 @@
     <ClCompile Include="M03_ConYardSeen.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_PowerPlant_Warning.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2862,6 +2865,9 @@
       <Filter>Header Files\M10</Filter>
     </ClInclude>
     <ClInclude Include="M03_ConYardSeen.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_PowerPlant_Warning.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
