@@ -1491,6 +1491,9 @@
     <ClCompile Include="M03_Area_Troop_Counter.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Reinforce_Area.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2886,6 +2889,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Area_Troop_Counter.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Reinforce_Area.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

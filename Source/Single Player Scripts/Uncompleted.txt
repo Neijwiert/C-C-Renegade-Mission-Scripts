@@ -39,6 +39,7 @@ M03_ConYardSeen
 M03_PowerPlant_Warning
 M03_Announce_PowerPlant_Controller_JDG
 M03_Area_Troop_Counter
+M03_Reinforce_Area
 
 // Below are not present in the solution yet
 M03_Technician_Work 
@@ -56,7 +57,6 @@ M03_Staged_Conversation_Soldier
 M03_Key_Card 
 M03_Officer_With_Key_Card2 
 M03_Officer_With_Key_Card 
-M03_Reinforce_Area 
 M03_Base_Harvester 
 M03_Base_Patrol 
 M03_Big_Gun_Explosion 
