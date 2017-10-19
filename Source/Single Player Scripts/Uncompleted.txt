@@ -38,6 +38,7 @@ M10_Elevator_All_Controller
 M03_ConYardSeen
 M03_PowerPlant_Warning
 M03_Announce_PowerPlant_Controller_JDG
+M03_Area_Troop_Counter
 
 // Below are not present in the solution yet
 M03_Technician_Work 
@@ -48,7 +49,6 @@ M03_Mct_Poke
 M03_CommCenter_Arrow 
 M03_CommCenter_Warning 
 M03_Mission_Complete_Zone 
-M03_Area_Troop_Counter 
 M03_Refinery 
 M03_Protect_The_MCT 
 M03_Sakura_Explosion 
