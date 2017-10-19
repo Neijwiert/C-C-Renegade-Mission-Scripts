@@ -379,6 +379,7 @@ M03_Ambient_Birdcall_Controller_JDG
 M03_Radar_UnScramble
 M10_Elevator_All_Zone
 M03_Power_Plant
+M03_Base_Patrol
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

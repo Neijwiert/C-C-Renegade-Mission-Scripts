@@ -58,7 +58,6 @@ M03_Key_Card
 M03_Officer_With_Key_Card2 
 M03_Officer_With_Key_Card 
 M03_Base_Harvester 
-M03_Base_Patrol 
 M03_Big_Gun_Explosion 
 M03_Tailgun_Fodder 
 M03_Tailgun_Fodder_Zone 
