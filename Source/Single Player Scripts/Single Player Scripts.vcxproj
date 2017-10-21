@@ -580,6 +580,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_No_More_Parachute.cpp" />
     <ClCompile Include="M03_Objective_Controller.cpp" />
     <ClCompile Include="M03_Objective_Tracker.cpp" />
+    <ClCompile Include="M03_Officer_With_Key_Card2.cpp" />
     <ClCompile Include="M03_Paratrooper_Run.cpp" />
     <ClCompile Include="M03_Past_Pillbox.cpp" />
     <ClCompile Include="M03_PowerPlant_Warning.cpp" />
@@ -1065,6 +1066,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_No_More_Parachute.h" />
     <ClInclude Include="M03_Objective_Controller.h" />
     <ClInclude Include="M03_Objective_Tracker.h" />
+    <ClInclude Include="M03_Officer_With_Key_Card2.h" />
     <ClInclude Include="M03_Paratrooper_Run.h" />
     <ClInclude Include="M03_Past_Pillbox.h" />
     <ClInclude Include="M03_PowerPlant_Warning.h" />

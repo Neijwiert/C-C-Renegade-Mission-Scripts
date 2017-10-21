@@ -387,6 +387,7 @@ M03_Mct_Poke
 RMV_M03_Comm_Center_Terminal
 Sakura_Killed
 M03_Sakura_Explosion
+M03_Officer_With_Key_Card2
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
