@@ -20,7 +20,7 @@
 #include "M03_Protect_The_MCT.h"
 
 /*
-M03 -> 300047, 300048, 300049, 300045
+M03 -> 300047, 300048, 300049, 300045, 300042
 */
 void M03_Protect_The_MCT::Register_Auto_Save_Variables()
 {

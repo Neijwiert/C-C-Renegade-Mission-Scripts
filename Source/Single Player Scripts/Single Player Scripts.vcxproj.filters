@@ -1542,6 +1542,9 @@
     <ClCompile Include="M06_Activate_Secret_Door.cpp">
       <Filter>Source Files\M06</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Holograph_EntryZone_JDG.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2983,6 +2986,9 @@
     </ClInclude>
     <ClInclude Include="M06_Activate_Secret_Door.h">
       <Filter>Header Files\M06</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Holograph_EntryZone_JDG.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
