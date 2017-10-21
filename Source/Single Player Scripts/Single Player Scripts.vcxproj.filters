@@ -1503,6 +1503,9 @@
     <ClCompile Include="M03_CommCenter_Arrow.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_CommCenter_Warning.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2910,6 +2913,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_CommCenter_Arrow.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_CommCenter_Warning.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
