@@ -1509,6 +1509,9 @@
     <ClCompile Include="M03_Comm_Killed.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="RMV_Camera_Behavior.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2923,6 +2926,9 @@
     </ClInclude>
     <ClInclude Include="M03_Comm_Killed.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="RMV_Camera_Behavior.h">
+      <Filter>Header Files\Misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

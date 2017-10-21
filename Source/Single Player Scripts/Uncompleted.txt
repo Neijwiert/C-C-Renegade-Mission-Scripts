@@ -79,5 +79,4 @@ M06_Activate_Secret_Door
 RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
 DLS_Volcano_Active
-RMV_Camera_Behavior
 RMV_Trigger_Poked

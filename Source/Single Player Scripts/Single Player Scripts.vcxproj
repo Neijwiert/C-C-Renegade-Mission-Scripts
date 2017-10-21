@@ -651,6 +651,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="MX0_SAM_DLS.cpp" />
     <ClCompile Include="MX0_SniperAction.cpp" />
     <ClCompile Include="MX0_Vehicle_DLS.cpp" />
+    <ClCompile Include="RMV_Camera_Behavior.cpp" />
     <ClCompile Include="RMV_Home_Point.cpp" />
     <ClCompile Include="RMV_Hostage_Rescue_Point.cpp" />
     <ClCompile Include="RMV_Test_Big_Gun_Turning.cpp" />
@@ -1129,6 +1130,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="MX0_SAM_DLS.h" />
     <ClInclude Include="MX0_SniperAction.h" />
     <ClInclude Include="MX0_Vehicle_DLS.h" />
+    <ClInclude Include="RMV_Camera_Behavior.h" />
     <ClInclude Include="RMV_Home_Point.h" />
     <ClInclude Include="RMV_Hostage_Rescue_Point.h" />
     <ClInclude Include="RMV_Test_Big_Gun_Turning.h" />
