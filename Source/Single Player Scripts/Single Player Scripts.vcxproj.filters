@@ -1518,6 +1518,9 @@
     <ClCompile Include="M03_Announce_CommCenter_Controller_JDG.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Mct_Poke.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2940,6 +2943,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Announce_CommCenter_Controller_JDG.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Mct_Poke.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

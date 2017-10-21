@@ -383,6 +383,7 @@ M03_Base_Patrol
 M03_Protect_The_MCT
 RMV_Camera_Behavior
 M03_Technician_Work
+M03_Mct_Poke
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
