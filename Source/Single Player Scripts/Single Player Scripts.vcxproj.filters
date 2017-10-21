@@ -1545,6 +1545,9 @@
     <ClCompile Include="M03_Holograph_EntryZone_JDG.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_KaneHead_JDG.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2988,6 +2991,9 @@
       <Filter>Header Files\M06</Filter>
     </ClInclude>
     <ClInclude Include="M03_Holograph_EntryZone_JDG.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_KaneHead_JDG.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

@@ -46,7 +46,6 @@ M03_Comm_Killed
 M03_Announce_CommCenter_Controller_JDG
 
 // Below are not present in the solution yet
-M03_KaneHead_JDG 
 M03_Mission_Complete_Zone 
 M03_Refinery 
 M03_Staged_Conversation_Soldier 
