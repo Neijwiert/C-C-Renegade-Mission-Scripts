@@ -1527,6 +1527,9 @@
     <ClCompile Include="Sakura_Killed.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Sakura_Explosion.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2959,6 +2962,9 @@
     </ClInclude>
     <ClInclude Include="Sakura_Killed.h">
       <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Sakura_Explosion.h">
+      <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
