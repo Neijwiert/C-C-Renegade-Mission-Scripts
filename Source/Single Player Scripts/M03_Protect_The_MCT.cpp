@@ -39,7 +39,7 @@ void M03_Protect_The_MCT::Enemy_Seen(GameObject *obj, GameObject *enemy)
 		this->starSeen = true;
 
 		int building = Get_Int_Parameter("Building");
-		if (building == 1) // Comms?
+		if (building == 1) // Comms
 		{
 			Commands->Set_Innate_Soldier_Home_Location(obj, Vector3(-124.763f, 41.308f, -1.948f), 10.0f);
 		}

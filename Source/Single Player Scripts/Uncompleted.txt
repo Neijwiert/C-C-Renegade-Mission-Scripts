@@ -43,6 +43,7 @@ M03_Reinforce_Area
 M03_CommCenter_Arrow
 M03_CommCenter_Warning
 M03_Comm_Killed
+M03_Announce_CommCenter_Controller_JDG
 
 // Below are not present in the solution yet
 M03_KaneHead_JDG 
@@ -66,7 +67,6 @@ M03_Beach_Soldier_GDI
 M03_Inlet_Soldier_GDI 
 M03_Chinook_Drop_Soldiers_GDI 
 M03_Move_Commando_To_Start 
-M03_Announce_CommCenter_Controller_JDG 
 M03_Announce_Refinery_Controller_JDG 
 M03_CommCenter_SateliteDish_Controller_JDG 
 RMV_M03_Comm_Center_Terminal 
