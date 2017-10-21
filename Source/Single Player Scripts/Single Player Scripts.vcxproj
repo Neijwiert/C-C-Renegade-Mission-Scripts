@@ -556,6 +556,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Chinook_Reinforcements.cpp" />
     <ClCompile Include="M03_Cine_Explosion.cpp" />
     <ClCompile Include="M03_Commando_Script.cpp" />
+    <ClCompile Include="M03_CommCenter_Arrow.cpp" />
     <ClCompile Include="M03_Conversation_Zone.cpp" />
     <ClCompile Include="M03_ConYardSeen.cpp" />
     <ClCompile Include="M03_Damage_Modifier_All.cpp" />
@@ -1031,6 +1032,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Chinook_Reinforcements.h" />
     <ClInclude Include="M03_Cine_Explosion.h" />
     <ClInclude Include="M03_Commando_Script.h" />
+    <ClInclude Include="M03_CommCenter_Arrow.h" />
     <ClInclude Include="M03_Conversation_Zone.h" />
     <ClInclude Include="M03_ConYardSeen.h" />
     <ClInclude Include="M03_Damage_Modifier_All.h" />

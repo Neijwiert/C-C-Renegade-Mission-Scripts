@@ -21,7 +21,7 @@
 #include <scripts.h>
 
 /*
-M03 -> 300047
+M03 -> 300047, 300048, 300049
 */
 class M03_Protect_The_MCT : public ScriptImpClass
 {
