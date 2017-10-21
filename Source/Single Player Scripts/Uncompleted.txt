@@ -51,7 +51,6 @@ M03_CommCenter_Arrow
 M03_CommCenter_Warning 
 M03_Mission_Complete_Zone 
 M03_Refinery 
-M03_Protect_The_MCT 
 M03_Sakura_Explosion 
 M03_Staged_Conversation_Soldier 
 M03_Key_Card 
@@ -79,7 +78,6 @@ M09_Attack_Blocked_False
 M06_Activate_Secret_Door
 RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
-RMV_Engineer_Wander_Terminal
 DLS_Volcano_Active
 RMV_Camera_Behavior
 RMV_Trigger_Poked

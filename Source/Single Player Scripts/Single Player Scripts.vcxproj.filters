@@ -1497,6 +1497,9 @@
     <ClCompile Include="M03_Base_Patrol.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Protect_The_MCT.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2898,6 +2901,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Base_Patrol.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Protect_The_MCT.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
