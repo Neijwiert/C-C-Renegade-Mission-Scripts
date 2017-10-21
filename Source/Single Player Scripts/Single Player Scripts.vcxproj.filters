@@ -1524,6 +1524,9 @@
     <ClCompile Include="RMV_M03_Comm_Center_Terminal.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="Sakura_Killed.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2954,6 +2957,9 @@
     <ClInclude Include="RMV_M03_Comm_Center_Terminal.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
+    <ClInclude Include="Sakura_Killed.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -3613,6 +3619,9 @@
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
     <Text Include="x3c_bigguns2.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="x3d_sakuracrash.txt">
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
   </ItemGroup>

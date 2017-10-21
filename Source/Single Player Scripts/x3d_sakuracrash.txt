@@ -1,0 +1,86 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+
+; ****************************** camera
+
+-0	Create_Object,		0, "X3D_Camera"
+-0	Play_Animation,		0, "X3D_Camera.X3D_Camera", 0
+-0	Control_Camera,		0
+;-356	Create_Object,		6, "Daves Arrow"
+;-356	Attach_Script,          6, "RMV_Volcano_And_Lava_Ball_Creator", ""
+-355	Control_Camera,		-1
+;-1	Send_Custom,	1100100,	600,	600,	0.0
+-356	Send_Custom,	1001001,	500,	500,	0.0
+
+; ****************************** Sakura
+
+;-0	Create_Object,		1, "CX_AG_SAKURA",		0, 0, 0, 0
+;-0	Play_Animation,		1, "s_b_head.testtalkhavoc", 	0, "c_test_head"
+;-0	Play_Animation,		1, "s_b_hand_l.testhandL", 	0, "hand_l"
+;-0	Play_Animation,		1, "s_b_hand_r.testhandr", 	0, "hand_r"
+;-0	Play_Animation,		1, "s_b_human.X3D_Sakura", 	0
+
+
+; ****************************** Commanche
+
+-0	Create_Object,		2, "VX_AG_NOD_Heli",		0, 0, 0, 0, 
+-1	Attach_Script,          2, "M03_Sakura_Explosion", ""	
+-0	Play_Animation,		2, "V_NOD_Heli.X3D_ComCrash",	0
+
+
+; ****************************** Pipping Explosion
+
+
+-150	Create_Object,		3, "X3D_AG_Pipping",		0, 0, 0, 0
+-150	Play_Animation,		3, "X3D_Pipping.X3D_Pipping",0
+
+; ****************************** Broken Coupling
+
+
+-392	Create_Object,		4, "X_O_Brkcoupling",		0, 0, 0, 0
+-392	Play_Animation,		4, "X_O_Brkcoupling.X_O_Brkcoupling", 1
+
+
+; ****************************** Lava-Smoke
+
+-405	Create_Object,		5, "X3D_AG_Volcano"
+-405	Play_Animation,		5, "X3D_VolcXplode.X3D_VolcXplode", 1
+
+-0	Play_Audio,		"comanche_crash", 2, "ROTOR00"
+-150	Play_Audio,		"Explosion_Large_01", 3, "bone_exp1"
+-160	Play_Audio,		"Explosion_Small_04", 3, "bone_exp2"
+-172	Play_Audio,		"Explosion_Small_04", 3, "bone_exp3"
+-187	Play_Audio,		"Explosion_Small_04", 3, "bone_exp4"
+-205	Play_Audio,		"Explosion_Small_04", 3, "bone_exp5"
+-216	Play_Audio,		"Explosion_Small_04", 3, "bone_exp6"
+-235	Play_Audio,		"Explosion_Large_01", 3, "bone_exp7"
+-320	Play_Audio,		"volcano_erupt_01", 3, "bone_erupt1"
+
+
