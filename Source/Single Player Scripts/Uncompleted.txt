@@ -45,7 +45,6 @@ M03_CommCenter_Warning
 M03_Comm_Killed
 
 // Below are not present in the solution yet
-M03_Technician_Work 
 M03_KaneHead_JDG 
 M03_Holograph_EntryZone_JDG 
 M03_Mct_Poke 
