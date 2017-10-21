@@ -70,7 +70,6 @@ M03_Outro_Cinematic
 M03_A05_Evac_Zone 
 M00_InnateIsStationary
 M09_Attack_Blocked_False
-M06_Activate_Secret_Door
 RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
 DLS_Volcano_Active

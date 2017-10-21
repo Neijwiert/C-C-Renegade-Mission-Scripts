@@ -94,6 +94,12 @@
     <Filter Include="Source Files\M09">
       <UniqueIdentifier>{21e6f725-7f9c-48a0-8cce-833fcd3032a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\M06">
+      <UniqueIdentifier>{f2bd923c-755f-45a9-9baa-281e208fd745}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\M06">
+      <UniqueIdentifier>{4df8d35e-da15-4e92-8b4a-ac8b37d86188}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="General.cpp">
@@ -1533,6 +1539,9 @@
     <ClCompile Include="M03_Officer_With_Key_Card2.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M06_Activate_Secret_Door.cpp">
+      <Filter>Source Files\M06</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2971,6 +2980,9 @@
     </ClInclude>
     <ClInclude Include="M03_Officer_With_Key_Card2.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M06_Activate_Secret_Door.h">
+      <Filter>Header Files\M06</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
