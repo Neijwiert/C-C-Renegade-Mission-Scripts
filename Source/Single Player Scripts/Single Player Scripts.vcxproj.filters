@@ -1521,6 +1521,9 @@
     <ClCompile Include="M03_Mct_Poke.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="RMV_M03_Comm_Center_Terminal.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -2946,6 +2949,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Mct_Poke.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="RMV_M03_Comm_Center_Terminal.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

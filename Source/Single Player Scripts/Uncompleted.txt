@@ -68,7 +68,6 @@ M03_Chinook_Drop_Soldiers_GDI
 M03_Move_Commando_To_Start 
 M03_Announce_Refinery_Controller_JDG 
 M03_CommCenter_SateliteDish_Controller_JDG 
-RMV_M03_Comm_Center_Terminal 
 M03_Outro_Cinematic 
 M03_A05_Evac_Zone 
 M00_InnateIsStationary
@@ -78,3 +77,4 @@ RMV_Engineer_Wander
 RMV_Volcano_And_Lava_Ball_Creator
 DLS_Volcano_Active
 RMV_Trigger_Poked
+Sakura_Killed

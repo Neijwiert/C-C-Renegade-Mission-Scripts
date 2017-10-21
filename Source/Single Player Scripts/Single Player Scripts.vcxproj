@@ -657,6 +657,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="RMV_Camera_Behavior.cpp" />
     <ClCompile Include="RMV_Home_Point.cpp" />
     <ClCompile Include="RMV_Hostage_Rescue_Point.cpp" />
+    <ClCompile Include="RMV_M03_Comm_Center_Terminal.cpp" />
     <ClCompile Include="RMV_Test_Big_Gun_Turning.cpp" />
     <ClCompile Include="RMV_Trigger_Killed.cpp" />
     <ClCompile Include="RMV_Trigger_Zone.cpp" />
@@ -1139,6 +1140,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="RMV_Camera_Behavior.h" />
     <ClInclude Include="RMV_Home_Point.h" />
     <ClInclude Include="RMV_Hostage_Rescue_Point.h" />
+    <ClInclude Include="RMV_M03_Comm_Center_Terminal.h" />
     <ClInclude Include="RMV_Test_Big_Gun_Turning.h" />
     <ClInclude Include="RMV_Trigger_Killed.h" />
     <ClInclude Include="RMV_Trigger_Zone.h" />
