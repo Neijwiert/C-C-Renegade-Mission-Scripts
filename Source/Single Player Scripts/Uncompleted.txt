@@ -48,6 +48,7 @@ M03_Flyover_Controller
 M03_Base_Harvester
 RMV_Engineer_Wander
 M03_Announce_Refinery_Controller_JDG
+DLS_Volcano_Active
 
 // Below are not present in the solution yet
 M03_Mission_Complete_Zone 
@@ -64,5 +65,4 @@ M03_Move_Commando_To_Start
 M03_CommCenter_SateliteDish_Controller_JDG 
 M03_Outro_Cinematic 
 M03_A05_Evac_Zone 
-DLS_Volcano_Active
 RMV_Trigger_Poked

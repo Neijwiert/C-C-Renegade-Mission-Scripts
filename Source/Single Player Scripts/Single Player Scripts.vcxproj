@@ -191,6 +191,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DAK_MX0_Sec_3_Humvee.cpp" />
+    <ClCompile Include="DLS_Volcano_Active.cpp" />
     <ClCompile Include="DLS_Volcano_Stumble.cpp" />
     <ClCompile Include="DLS_Where_Am_I.cpp" />
     <ClCompile Include="Havoc_Script.cpp" />
@@ -691,6 +692,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DAK_MX0_Sec_3_Humvee.h" />
+    <ClInclude Include="DLS_Volcano_Active.h" />
     <ClInclude Include="DLS_Volcano_Stumble.h" />
     <ClInclude Include="DLS_Where_Am_I.h" />
     <ClInclude Include="Havoc_Script.h" />

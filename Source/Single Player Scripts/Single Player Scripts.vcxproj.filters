@@ -1581,6 +1581,9 @@
     <ClCompile Include="M09_Attack_Blocked_False.cpp">
       <Filter>Source Files\M09</Filter>
     </ClCompile>
+    <ClCompile Include="DLS_Volcano_Active.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3061,6 +3064,9 @@
     </ClInclude>
     <ClInclude Include="M09_Attack_Blocked_False.h">
       <Filter>Header Files\M09</Filter>
+    </ClInclude>
+    <ClInclude Include="DLS_Volcano_Active.h">
+      <Filter>Header Files\Misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
