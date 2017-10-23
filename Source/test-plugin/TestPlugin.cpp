@@ -188,11 +188,12 @@ void TestPlugin::OnLoadLevel()
 			Console_Output("%u\n", def->Get_Class_ID());
 		}
 		*/
-
+		/*
 		if (def->Get_Class_ID() == 12292)
 		{
 			Console_Output("%s\n", def->Get_Name());
 		}
+		*/
 
 		// 20480 - sounds
 		// 45057 - weapons
@@ -226,14 +227,14 @@ void TestPlugin::OnLoadLevel()
 		}
 		*/
 
-		if (classId == 53249)
+		if (classId == 12289 || classId == 12304)
 		{
 			DamageableGameObjDef *damageableDef = static_cast<DamageableGameObjDef *>(def);
 			int encyId = damageableDef->Get_Encyclopedia_ID();
 
-			if (encyId == 12)
+			if (encyId == 39 || encyId == 31)
 			{
-				//Console_Output("%s: %d\n", def->Get_Name(), damageableDef->Get_Encyclopedia_ID());
+				Console_Output("%s: %d\n", def->Get_Name(), damageableDef->Get_Encyclopedia_ID());
 			}
 		}
 	}

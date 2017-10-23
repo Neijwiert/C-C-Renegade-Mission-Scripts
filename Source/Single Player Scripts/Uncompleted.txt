@@ -44,6 +44,7 @@ M03_CommCenter_Arrow
 M03_CommCenter_Warning
 M03_Comm_Killed
 M03_Announce_CommCenter_Controller_JDG
+RMV_Volcano_And_Lava_Ball_Creator
 
 // Below are not present in the solution yet
 M03_Mission_Complete_Zone 
@@ -69,6 +70,5 @@ M03_A05_Evac_Zone
 M00_InnateIsStationary
 M09_Attack_Blocked_False
 RMV_Engineer_Wander
-RMV_Volcano_And_Lava_Ball_Creator
 DLS_Volcano_Active
 RMV_Trigger_Poked
