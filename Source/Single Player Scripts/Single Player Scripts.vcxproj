@@ -611,6 +611,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M07_Disable_Hibernation.cpp" />
     <ClCompile Include="M08_Nod_Turret.cpp" />
     <ClCompile Include="M08_Petra_C_Helo.cpp" />
+    <ClCompile Include="M09_Attack_Blocked_False.cpp" />
     <ClCompile Include="M09_Innate_Activate.cpp" />
     <ClCompile Include="M09_Innate_Disable.cpp" />
     <ClCompile Include="M10_Elevator_All_Controller.cpp" />
@@ -1110,6 +1111,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M07_Disable_Hibernation.h" />
     <ClInclude Include="M08_Nod_Turret.h" />
     <ClInclude Include="M08_Petra_C_Helo.h" />
+    <ClInclude Include="M09_Attack_Blocked_False.h" />
     <ClInclude Include="M09_Innate_Activate.h" />
     <ClInclude Include="M09_Innate_Disable.h" />
     <ClInclude Include="M10_Elevator_All_Controller.h" />

@@ -64,6 +64,5 @@ M03_Move_Commando_To_Start
 M03_CommCenter_SateliteDish_Controller_JDG 
 M03_Outro_Cinematic 
 M03_A05_Evac_Zone 
-M09_Attack_Blocked_False
 DLS_Volcano_Active
 RMV_Trigger_Poked

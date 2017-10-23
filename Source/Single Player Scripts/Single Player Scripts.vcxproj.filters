@@ -1578,6 +1578,9 @@
     <ClCompile Include="M00_InnateIsStationary.cpp">
       <Filter>Source Files\M00</Filter>
     </ClCompile>
+    <ClCompile Include="M09_Attack_Blocked_False.cpp">
+      <Filter>Source Files\M09</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3055,6 +3058,9 @@
     </ClInclude>
     <ClInclude Include="M00_InnateIsStationary.h">
       <Filter>Header Files\M00</Filter>
+    </ClInclude>
+    <ClInclude Include="M09_Attack_Blocked_False.h">
+      <Filter>Header Files\M09</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
