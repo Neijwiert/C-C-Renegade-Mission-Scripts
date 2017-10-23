@@ -20,6 +20,7 @@
 
 #include <scripts.h>
 
+// This script is never used
 class M03_Goto_Star : public ScriptImpClass
 {
 	private:

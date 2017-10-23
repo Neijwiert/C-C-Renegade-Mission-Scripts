@@ -19,7 +19,7 @@
 #include "General.h"
 #include "M03_Goto_Star.h"
 
-// TODO (When created?)
+// This script is never used
 void M03_Goto_Star::Created(GameObject *obj)
 {
 	Commands->Start_Timer(obj, this, 3.5f, 20000);
@@ -27,6 +27,7 @@ void M03_Goto_Star::Created(GameObject *obj)
 
 void M03_Goto_Star::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered after 3.5 seconds after create
 	if (number == 20000)
 	{
 		ActionParamsStruct params;
