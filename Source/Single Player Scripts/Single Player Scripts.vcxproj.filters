@@ -1557,6 +1557,9 @@
     <ClCompile Include="M03_Flyover_Controller.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Base_Harvester.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3012,6 +3015,9 @@
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
     <ClInclude Include="M03_Flyover_Controller.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Base_Harvester.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

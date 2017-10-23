@@ -45,6 +45,7 @@ M03_CommCenter_Warning
 M03_Comm_Killed
 M03_Announce_CommCenter_Controller_JDG
 M03_Flyover_Controller
+M03_Base_Harvester
 
 // Below are not present in the solution yet
 M03_Mission_Complete_Zone 
@@ -52,7 +53,6 @@ M03_Refinery
 M03_Staged_Conversation_Soldier 
 M03_Key_Card 
 M03_Officer_With_Key_Card 
-M03_Base_Harvester 
 M03_Big_Gun_Explosion 
 M03_Tailgun_Fodder 
 M03_Tailgun_Fodder_Zone 
