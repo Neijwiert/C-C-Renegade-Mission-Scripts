@@ -1,0 +1,45 @@
+;_________________________________________
+;
+; Available Cinematic Script Commands
+;
+; time/frame	Create_Object,	id (slot), preset_name, x, y, z, facing, animation
+; id can be -1 to mean do not store this object, and do not destroy
+; 0 Create_Object, 0, .44 Magnum, 0, 0, 0, 180, "Human.jump"
+;
+; time/frame	Destroy_Object, id (slot)
+; 0 Destroy_Object, 0
+;
+; time/frame	Play_Animation, id (slot), animation_name, looping, sub_obj_name
+; 0 Play_Animation, 0, "Human.Jump", false
+;
+; time/frame	Control_Camera,	id ( slot )
+; use id -1 for disabling control;
+; note this will also disable star control and disbale the hud
+; 0 Control_Camera,	0
+;
+;_________________________________________
+
+;*******************  CHEAT SHEET ******************************
+
+;Start frame	create_object	slot number	model	x,y,z,facing	animation name( model*hierarchy*.anim )
+;Start frame	Play_Animation 	slot number	anim name ( model*hierarchy*.anim )	looping		Sub Object
+;Start frame	Play_Audio	wave filename	slot number	bone name
+;								* no slot # / bone name = 2D Audio
+;0= NO LOOP ( kills object when finshed )	1= LOOP
+
+;************************* LEVEL 3: HOVERCRAFT EXPLODE AT BEACH  ************************
+
+
+
+; ****************************** Character Bone
+
+-1	Create_Real_Object,	1, "GDI_A10_Flyover"
+-1	Play_Animation,		1, "vf_gdi a10.vf_gdi a10", 1
+-600	destroy_object,		1
+
+; ****************************** Path
+
+-1	Create_Object,		2, "X3_a10_strk4",			0, 0, 0, 0
+-1	Play_Animation,		2, "X3_a10_strk4.X3_a10_strk4", 1
+-600 	Destroy_Object,		2
+-1	Attach_To_Bone,		1, 2, "BN_a-10_003"

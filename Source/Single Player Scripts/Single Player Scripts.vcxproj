@@ -569,6 +569,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Destroyed_Turret.cpp" />
     <ClCompile Include="M03_Engineer_Repair.cpp" />
     <ClCompile Include="M03_Engineer_Target.cpp" />
+    <ClCompile Include="M03_Flyover_Controller.cpp" />
     <ClCompile Include="M03_Goto_Star.cpp" />
     <ClCompile Include="M03_Gunboat_Controller_RMV.cpp" />
     <ClCompile Include="M03_Holograph_EntryZone_JDG.cpp" />
@@ -1060,6 +1061,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Destroyed_Turret.h" />
     <ClInclude Include="M03_Engineer_Repair.h" />
     <ClInclude Include="M03_Engineer_Target.h" />
+    <ClInclude Include="M03_Flyover_Controller.h" />
     <ClInclude Include="M03_Goto_Star.h" />
     <ClInclude Include="M03_Gunboat_Controller_RMV.h" />
     <ClInclude Include="M03_Holograph_EntryZone_JDG.h" />
@@ -1188,11 +1190,23 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <None Include="mx0_c130troopdrop2.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="a-10_1.txt" />
+    <Text Include="a-10_2.txt" />
+    <Text Include="a-10_3.txt" />
+    <Text Include="a-10_4.txt" />
+    <Text Include="a-10_5.txt" />
+    <Text Include="a-10_6.txt" />
     <Text Include="Completed.txt" />
     <Text Include="mx0_a03_gdi_troopdrop.txt" />
     <Text Include="mx0_a03_nod_ledgedrop.txt" />
     <Text Include="mx0_gdi_reinforce_area4.txt" />
     <Text Include="mx0_gdi_troopdrop_area4.txt" />
+    <Text Include="orca_1.txt" />
+    <Text Include="orca_2.txt" />
+    <Text Include="orca_3.txt" />
+    <Text Include="orca_4.txt" />
+    <Text Include="orca_5.txt" />
+    <Text Include="orca_6.txt" />
     <Text Include="Uncompleted.txt" />
     <Text Include="x01d_c130troopdrop.txt" />
     <Text Include="x0c_flyovers_01.txt" />

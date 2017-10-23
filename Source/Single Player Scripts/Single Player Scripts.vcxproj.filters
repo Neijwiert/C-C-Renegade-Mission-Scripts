@@ -1554,6 +1554,9 @@
     <ClCompile Include="RMV_Engine_Sound.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Flyover_Controller.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3008,6 +3011,9 @@
     <ClInclude Include="RMV_Engine_Sound.h">
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
+    <ClInclude Include="M03_Flyover_Controller.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -3673,6 +3679,42 @@
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
     <Text Include="x3d_volcano.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="a-10_1.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="a-10_2.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="a-10_3.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="a-10_4.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="a-10_5.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="a-10_6.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="orca_1.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="orca_2.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="orca_3.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="orca_4.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="orca_5.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="orca_6.txt">
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
   </ItemGroup>
