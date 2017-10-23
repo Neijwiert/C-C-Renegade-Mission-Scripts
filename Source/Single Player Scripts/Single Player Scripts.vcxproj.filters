@@ -1587,6 +1587,9 @@
     <ClCompile Include="M03_Mission_Complete_Zone.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="RMV_Trigger_Poked.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3073,6 +3076,9 @@
     </ClInclude>
     <ClInclude Include="M03_Mission_Complete_Zone.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="RMV_Trigger_Poked.h">
+      <Filter>Header Files\Misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
