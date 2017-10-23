@@ -392,6 +392,7 @@ M06_Activate_Secret_Door
 M03_Holograph_EntryZone_JDG
 M03_KaneHead_JDG
 RMV_Volcano_And_Lava_Ball_Creator
+RMV_Engine_Sound
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
