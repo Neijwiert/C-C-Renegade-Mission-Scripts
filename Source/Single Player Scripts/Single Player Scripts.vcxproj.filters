@@ -1572,6 +1572,9 @@
     <ClCompile Include="M03_Key_Card.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Announce_Refinery_Controller_JDG.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3042,6 +3045,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Key_Card.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Announce_Refinery_Controller_JDG.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>
