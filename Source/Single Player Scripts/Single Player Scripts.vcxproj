@@ -209,6 +209,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Disable_Transition.cpp" />
     <ClCompile Include="M00_Generic_Conv_DME.cpp" />
     <ClCompile Include="M00_HealthMedal_TextMessage.cpp" />
+    <ClCompile Include="M00_InnateIsStationary.cpp" />
     <ClCompile Include="M00_Nod_Obelisk.cpp" />
     <ClCompile Include="M00_Nod_Turret.cpp" />
     <ClCompile Include="M00_No_Falling_Damage_DME.cpp" />
@@ -707,6 +708,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Disable_Transition.h" />
     <ClInclude Include="M00_Generic_Conv_DME.h" />
     <ClInclude Include="M00_HealthMedal_TextMessage.h" />
+    <ClInclude Include="M00_InnateIsStationary.h" />
     <ClInclude Include="M00_Nod_Obelisk.h" />
     <ClInclude Include="M00_Nod_Turret.h" />
     <ClInclude Include="M00_No_Falling_Damage_DME.h" />
