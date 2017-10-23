@@ -592,6 +592,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Protect_The_MCT.cpp" />
     <ClCompile Include="M03_Radar_Scramble.cpp" />
     <ClCompile Include="M03_Radar_UnScramble.cpp" />
+    <ClCompile Include="M03_Refinery.cpp" />
     <ClCompile Include="M03_Reinforcement_Chinook.cpp" />
     <ClCompile Include="M03_Reinforce_Area.cpp" />
     <ClCompile Include="M03_Sakura_Explosion.cpp" />
@@ -1085,6 +1086,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Protect_The_MCT.h" />
     <ClInclude Include="M03_Radar_Scramble.h" />
     <ClInclude Include="M03_Radar_UnScramble.h" />
+    <ClInclude Include="M03_Refinery.h" />
     <ClInclude Include="M03_Reinforcement_Chinook.h" />
     <ClInclude Include="M03_Reinforce_Area.h" />
     <ClInclude Include="M03_Sakura_Explosion.h" />

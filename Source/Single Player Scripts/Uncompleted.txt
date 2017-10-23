@@ -49,7 +49,6 @@ M03_Base_Harvester
 
 // Below are not present in the solution yet
 M03_Mission_Complete_Zone 
-M03_Refinery 
 M03_Staged_Conversation_Soldier 
 M03_Key_Card 
 M03_Officer_With_Key_Card 
