@@ -34,9 +34,9 @@ void RMV_Volcano_And_Lava_Ball_Creator::Created(GameObject *obj)
 	Commands->Enable_Cinematic_Freeze(obj, false);
 }
 
-// TODO
 void RMV_Volcano_And_Lava_Ball_Creator::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received after 356 frames in x3d_sakuracrash.txt
 	if (type == 500 && param == 500)
 	{
 		Commands->Reveal_Encyclopedia_Character(39); // Nod_Minigunner_3Boss
@@ -70,9 +70,9 @@ void RMV_Volcano_And_Lava_Ball_Creator::Custom(GameObject *obj, int type, int pa
 	}
 }
 
-// TODO
 void RMV_Volcano_And_Lava_Ball_Creator::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// Triggered when done with conversation, see custom
 	if (action_id == 100010)
 	{
 		GameObject *M03ObjectiveControllerObj = Commands->Find_Object(1100004);
@@ -80,9 +80,9 @@ void RMV_Volcano_And_Lava_Ball_Creator::Action_Complete(GameObject *obj, int act
 	}
 }
 
-// TODO
 void RMV_Volcano_And_Lava_Ball_Creator::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered after 0.1 seconds or 5 to 7 seconds, see action complete or this block
 	if (number == 1001)
 	{
 		int rand = static_cast<int>(Commands->Get_Random(0.0f, 1.0f) * 20.0f);

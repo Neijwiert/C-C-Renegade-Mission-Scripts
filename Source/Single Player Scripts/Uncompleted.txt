@@ -44,7 +44,6 @@ M03_CommCenter_Arrow
 M03_CommCenter_Warning
 M03_Comm_Killed
 M03_Announce_CommCenter_Controller_JDG
-RMV_Volcano_And_Lava_Ball_Creator
 
 // Below are not present in the solution yet
 M03_Mission_Complete_Zone 
