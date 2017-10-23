@@ -394,6 +394,7 @@ M03_KaneHead_JDG
 RMV_Volcano_And_Lava_Ball_Creator
 RMV_Engine_Sound
 M03_Refinery
+M03_Officer_With_Key_Card
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF

@@ -52,7 +52,6 @@ RMV_Engineer_Wander
 M03_Mission_Complete_Zone 
 M03_Staged_Conversation_Soldier 
 M03_Key_Card 
-M03_Officer_With_Key_Card 
 M03_Big_Gun_Explosion 
 M03_Tailgun_Fodder 
 M03_Tailgun_Fodder_Zone 
