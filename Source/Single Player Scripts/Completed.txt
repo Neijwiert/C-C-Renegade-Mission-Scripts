@@ -398,6 +398,7 @@ M03_Officer_With_Key_Card
 M03_Key_Card
 M00_InnateIsStationary
 M09_Attack_Blocked_False
+M03_Mission_Complete_Zone
 
 // Below are scripts that are not used, but they are present
 MX0_A02_DEFAULT_OFF
