@@ -1569,6 +1569,9 @@
     <ClCompile Include="M03_Officer_With_Key_Card.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Key_Card.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3036,6 +3039,9 @@
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
     <ClInclude Include="M03_Officer_With_Key_Card.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Key_Card.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

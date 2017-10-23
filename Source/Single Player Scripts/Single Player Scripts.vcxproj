@@ -578,6 +578,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Inlet_Nod_Reinforcements.cpp" />
     <ClCompile Include="M03_Intro_Substitute.cpp" />
     <ClCompile Include="M03_KaneHead_JDG.cpp" />
+    <ClCompile Include="M03_Key_Card.cpp" />
     <ClCompile Include="M03_Killed_Disabled_Spawner.cpp" />
     <ClCompile Include="M03_Killed_Sound.cpp" />
     <ClCompile Include="M03_Mct_Poke.cpp" />
@@ -1074,6 +1075,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Inlet_Nod_Reinforcements.h" />
     <ClInclude Include="M03_Intro_Substitute.h" />
     <ClInclude Include="M03_KaneHead_JDG.h" />
+    <ClInclude Include="M03_Key_Card.h" />
     <ClInclude Include="M03_Killed_Disabled_Spawner.h" />
     <ClInclude Include="M03_Killed_Sound.h" />
     <ClInclude Include="M03_Mct_Poke.h" />
