@@ -1563,6 +1563,9 @@
     <ClCompile Include="M03_Refinery.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="RMV_Engineer_Wander.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3025,6 +3028,9 @@
     </ClInclude>
     <ClInclude Include="M03_Refinery.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="RMV_Engineer_Wander.h">
+      <Filter>Header Files\Misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
