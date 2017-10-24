@@ -444,3 +444,4 @@ M01_Announce_Barn_Objective_Zone
 M01_COMM_Commander_Guy
 M03_Goto_Star
 M03_Staged_Conversation_Soldier
+M03_Big_Gun_Explosion
