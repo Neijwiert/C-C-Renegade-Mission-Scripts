@@ -582,6 +582,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Holograph_EntryZone_JDG.cpp" />
     <ClCompile Include="M03_Initial_Powerups.cpp" />
     <ClCompile Include="M03_Inlet_Nod_Reinforcements.cpp" />
+    <ClCompile Include="M03_Inlet_Soldier_GDI.cpp" />
     <ClCompile Include="M03_Intro_Substitute.cpp" />
     <ClCompile Include="M03_KaneHead_JDG.cpp" />
     <ClCompile Include="M03_Key_Card.cpp" />
@@ -1092,6 +1093,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Holograph_EntryZone_JDG.h" />
     <ClInclude Include="M03_Initial_Powerups.h" />
     <ClInclude Include="M03_Inlet_Nod_Reinforcements.h" />
+    <ClInclude Include="M03_Inlet_Soldier_GDI.h" />
     <ClInclude Include="M03_Intro_Substitute.h" />
     <ClInclude Include="M03_KaneHead_JDG.h" />
     <ClInclude Include="M03_Key_Card.h" />
