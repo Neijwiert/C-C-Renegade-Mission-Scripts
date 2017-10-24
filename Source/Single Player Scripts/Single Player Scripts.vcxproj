@@ -607,6 +607,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Staged_Conversation_1.cpp" />
     <ClCompile Include="M03_Staged_Conversation_Soldier.cpp" />
     <ClCompile Include="M03_Structure_Powerup_Drop.cpp" />
+    <ClCompile Include="M03_Tailgun.cpp" />
     <ClCompile Include="M03_Tailgun_Fodder.cpp" />
     <ClCompile Include="M03_Tailgun_Fodder_Zone.cpp" />
     <ClCompile Include="M03_Technician_Work.cpp" />
@@ -1114,6 +1115,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Staged_Conversation_1.h" />
     <ClInclude Include="M03_Staged_Conversation_Soldier.h" />
     <ClInclude Include="M03_Structure_Powerup_Drop.h" />
+    <ClInclude Include="M03_Tailgun.h" />
     <ClInclude Include="M03_Tailgun_Fodder.h" />
     <ClInclude Include="M03_Tailgun_Fodder_Zone.h" />
     <ClInclude Include="M03_Technician_Work.h" />
