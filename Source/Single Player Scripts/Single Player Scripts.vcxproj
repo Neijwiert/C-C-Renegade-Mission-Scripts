@@ -566,6 +566,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Cine_Explosion.cpp" />
     <ClCompile Include="M03_Commando_Script.cpp" />
     <ClCompile Include="M03_CommCenter_Arrow.cpp" />
+    <ClCompile Include="M03_CommCenter_SateliteDish_Controller_JDG.cpp" />
     <ClCompile Include="M03_CommCenter_Warning.cpp" />
     <ClCompile Include="M03_Comm_Killed.cpp" />
     <ClCompile Include="M03_Conversation_Zone.cpp" />
@@ -597,6 +598,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Objective_Tracker.cpp" />
     <ClCompile Include="M03_Officer_With_Key_Card.cpp" />
     <ClCompile Include="M03_Officer_With_Key_Card2.cpp" />
+    <ClCompile Include="M03_Outro_Cinematic.cpp" />
     <ClCompile Include="M03_Paratrooper_Run.cpp" />
     <ClCompile Include="M03_Past_Pillbox.cpp" />
     <ClCompile Include="M03_PowerPlant_Warning.cpp" />
@@ -1079,6 +1081,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Cine_Explosion.h" />
     <ClInclude Include="M03_Commando_Script.h" />
     <ClInclude Include="M03_CommCenter_Arrow.h" />
+    <ClInclude Include="M03_CommCenter_SateliteDish_Controller_JDG.h" />
     <ClInclude Include="M03_CommCenter_Warning.h" />
     <ClInclude Include="M03_Comm_Killed.h" />
     <ClInclude Include="M03_Conversation_Zone.h" />
@@ -1110,6 +1113,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Objective_Tracker.h" />
     <ClInclude Include="M03_Officer_With_Key_Card.h" />
     <ClInclude Include="M03_Officer_With_Key_Card2.h" />
+    <ClInclude Include="M03_Outro_Cinematic.h" />
     <ClInclude Include="M03_Paratrooper_Run.h" />
     <ClInclude Include="M03_Past_Pillbox.h" />
     <ClInclude Include="M03_PowerPlant_Warning.h" />

@@ -50,6 +50,4 @@ M03_Announce_Refinery_Controller_JDG
 DLS_Volcano_Active
 
 // Below are not present in the solution yet
-M03_CommCenter_SateliteDish_Controller_JDG 
-M03_Outro_Cinematic 
 M03_A05_Evac_Zone

@@ -1620,6 +1620,12 @@
     <ClCompile Include="M03_Move_Commando_To_Start.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_CommCenter_SateliteDish_Controller_JDG.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
+    <ClCompile Include="M03_Outro_Cinematic.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3138,6 +3144,12 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Move_Commando_To_Start.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_CommCenter_SateliteDish_Controller_JDG.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Outro_Cinematic.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

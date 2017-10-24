@@ -1,0 +1,67 @@
+
+
+
+
+CINEMATIC SCRIPT:	LEVEL 3 FINALE
+
+
+; ****************************** Camera
+
+-0	Create_Object,		0, "x3_cam0-625",		0, 0, 0, 0, "x3_cam0-625.x3_cam0-625"
+-0	Control_Camera,		0
+-625	Control_Camera,		-1
+
+; ****************************** Havoc
+
+-0	Create_Object,		1, "c_havoc",		0, 0, 0, 0
+-0	Play_Animation,		1, "s_a_human.x3_hv0-360", 1
+-440	Play_Animation,		1, "s_a_human.x3_hv440-625", 0
+
+
+; ****************************** NOD guard 1
+
+;-0	Create_Object,		2, "C_Havoc",		0, 0, 0, 0
+;-160	Play_Animation,		2, "s_a_human.x3_nd1_160-270", 0
+
+; ****************************** NOD guard 2
+
+-160	Create_Object,		3, "c_ag_nod_mg",		0, 0, 0, 0
+-160	Play_Animation,		3, "s_a_human.x3_nd2_160-270", 0
+
+; ****************************** GDI prisoner 1
+
+;-160	Create_Object,		4, "c_ag_gdi_pr",		0, 0, 0, 0
+-160	Create_Object,		4, "c_ag_gdi_mg",		0, 0, 0, 0
+-160	Play_Animation,		4, "s_a_human.x3_nd1_160-270", 0
+
+
+; ****************************** sub
+
+-0	Create_Object,		6, "v_submarine",			0, 0, 0, 0
+-0	Play_Animation,		6, "v_submarine.x3_sub0-625", 0
+
+; ****************************** NOD guard 3
+
+-350	Create_Object,		7, "c_ag_nod_mg",		0, 0, 0, 0
+-350	Play_Animation,		7, "s_a_human.x3_nd3_350-439", 0
+
+; ****************************** GDI prisoner 3
+
+;-350	Create_Object,		8, "c_ag_gdi_pr1",		0, 0, 0, 0
+-350	Create_Object,		8, "c_ag_gdi_mg",		0, 0, 0, 0
+-350	Play_Animation,		8, "s_a_human.x3_pr3_350-439", 0
+
+; ****************************** NOD guard 4
+
+-350	Create_Object,		9, "c_ag_nod_mg",		0, 0, 0, 0
+-350	Play_Animation,		9, "s_a_human.x3_nd4_350-439", 0
+
+
+
+
+
+
+
+
+
+
