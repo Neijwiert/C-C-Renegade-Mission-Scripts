@@ -50,7 +50,6 @@ M03_Announce_Refinery_Controller_JDG
 DLS_Volcano_Active
 
 // Below are not present in the solution yet
-M03_Chinook_Spawned_Soldier_GDI 
 M03_Beach_Soldier_GDI 
 M03_Inlet_Soldier_GDI 
 M03_Chinook_Drop_Soldiers_GDI 

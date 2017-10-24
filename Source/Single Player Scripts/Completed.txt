@@ -448,3 +448,4 @@ M03_Big_Gun_Explosion
 M03_Tailgun_Fodder
 M03_Tailgun_Fodder_Zone
 M03_Tailgun
+M03_Chinook_Spawned_Soldier_GDI
