@@ -604,6 +604,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M03_Sakura_Explosion.cpp" />
     <ClCompile Include="M03_SAM_Site_Logic.cpp" />
     <ClCompile Include="M03_Staged_Conversation_1.cpp" />
+    <ClCompile Include="M03_Staged_Conversation_Soldier.cpp" />
     <ClCompile Include="M03_Structure_Powerup_Drop.cpp" />
     <ClCompile Include="M03_Technician_Work.cpp" />
     <ClCompile Include="M03_Tiberium_Cave_Stay_Put.cpp" />
@@ -1107,6 +1108,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M03_Sakura_Explosion.h" />
     <ClInclude Include="M03_SAM_Site_Logic.h" />
     <ClInclude Include="M03_Staged_Conversation_1.h" />
+    <ClInclude Include="M03_Staged_Conversation_Soldier.h" />
     <ClInclude Include="M03_Structure_Powerup_Drop.h" />
     <ClInclude Include="M03_Technician_Work.h" />
     <ClInclude Include="M03_Tiberium_Cave_Stay_Put.h" />
