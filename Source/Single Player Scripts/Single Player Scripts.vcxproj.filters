@@ -1629,6 +1629,9 @@
     <ClCompile Include="M03_A05_Evac_Zone.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M00_Trigger_When_Destroyed_RMV.cpp">
+      <Filter>Source Files\M00</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3157,6 +3160,9 @@
     </ClInclude>
     <ClInclude Include="M03_A05_Evac_Zone.h">
       <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M00_Trigger_When_Destroyed_RMV.h">
+      <Filter>Header Files\M00</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

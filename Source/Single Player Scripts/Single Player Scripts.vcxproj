@@ -225,6 +225,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M00_Send_Object_ID.cpp" />
     <ClCompile Include="M00_Soldier_Powerup_Disable.cpp" />
     <ClCompile Include="M00_Soldier_Powerup_Grant.cpp" />
+    <ClCompile Include="M00_Trigger_When_Destroyed_RMV.cpp" />
     <ClCompile Include="M00_Trigger_When_Killed_RMV.cpp" />
     <ClCompile Include="M00_Vehicle_Regen_DAK.cpp" />
     <ClCompile Include="M00_VisceroidInnate_DAY.cpp" />
@@ -741,6 +742,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M00_Send_Object_ID.h" />
     <ClInclude Include="M00_Soldier_Powerup_Disable.h" />
     <ClInclude Include="M00_Soldier_Powerup_Grant.h" />
+    <ClInclude Include="M00_Trigger_When_Destroyed_RMV.h" />
     <ClInclude Include="M00_Trigger_When_Killed_RMV.h" />
     <ClInclude Include="M00_Vehicle_Regen_DAK.h" />
     <ClInclude Include="M00_VisceroidInnate_DAY.h" />
