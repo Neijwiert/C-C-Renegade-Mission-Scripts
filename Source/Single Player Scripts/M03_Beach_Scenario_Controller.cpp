@@ -24,25 +24,25 @@ M03 -> 1144729
 */
 void M03_Beach_Scenario_Controller::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->beachTargetKilledCount, sizeof(this->beachTargetKilledCount), 1);
 }
 
 void M03_Beach_Scenario_Controller::Created(GameObject *obj)
 {
-	this->field_1C = 0;
+	this->beachTargetKilledCount = 0;
 }
 
-// TODO
 void M03_Beach_Scenario_Controller::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
-	if (++this->field_1C > 3)
+	// Received from RMV_Trigger_Killed after 0 seconds when killed (id = 1144677, 1144448, 1144731, 1144732)
+	if (++this->beachTargetKilledCount > 3)
 	{
-		this->field_1C = 0;
+		this->beachTargetKilledCount = 0;
 
 		GameObject *M03ObjectiveControllerObj = Commands->Find_Object(1100004);
 		if (M03ObjectiveControllerObj)
 		{
-			if (Commands->Find_Object(1100003))     // Gunboat
+			if (Commands->Find_Object(1100003)) // Gunboat
 			{
 				Commands->Send_Custom_Event(obj, M03ObjectiveControllerObj, 301, 3, 0.0f);
 				Commands->Send_Custom_Event(obj, M03ObjectiveControllerObj, 301, 1, 0.0f);

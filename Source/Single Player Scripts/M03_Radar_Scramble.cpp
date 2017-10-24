@@ -32,9 +32,9 @@ void M03_Radar_Scramble::Created(GameObject *obj)
 	this->radarScrambledBefore = false;
 }
 
-// TODO
 void M03_Radar_Scramble::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from ourselves after 0 seconds when entered
 	if (type == 40004)
 	{
 		this->radarScrambledBefore = true;

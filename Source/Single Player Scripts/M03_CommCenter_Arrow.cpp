@@ -25,21 +25,21 @@ M03 -> 2009818
 void M03_CommCenter_Arrow::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_1D, sizeof(this->field_1D), 2);
+	Auto_Save_Variable(&this->commsHacked, sizeof(this->commsHacked), 2);
 }
 
 void M03_CommCenter_Arrow::Created(GameObject *obj)
 {
 	this->field_1C = true;
-	this->field_1D = false;
+	this->commsHacked = false;
 }
 
-// TODO
 void M03_CommCenter_Arrow::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M03_Mct_Poke after 0 seconds when poked
 	if (type == 40002)
 	{
-		this->field_1D = true;
+		this->commsHacked = true;
 
 		GameObject *M03CommCenterWarningScriptZone1Obj = Commands->Find_Object(1208215);
 		Commands->Send_Custom_Event(obj, M03CommCenterWarningScriptZone1Obj, 40002, 0, 0.0f);
@@ -50,21 +50,23 @@ void M03_CommCenter_Arrow::Custom(GameObject *obj, int type, int param, GameObje
 		GameObject *M03CommCenterWarningScriptZone3Obj = Commands->Find_Object(1208217);
 		Commands->Send_Custom_Event(obj, M03CommCenterWarningScriptZone3Obj, 40002, 0, 0.0f);
 
-		GameObject *M03CommCenterWarningScriptZone4Obj = Commands->Find_Object(1208218);
-		Commands->Send_Custom_Event(obj, M03CommCenterWarningScriptZone4Obj, 40002, 0, 0.0f);
-
-		GameObject *M03PowerPlantWarningScriptZone1Obj = Commands->Find_Object(1208219);
+		GameObject *M03PowerPlantWarningScriptZone1Obj = Commands->Find_Object(1208218);
 		Commands->Send_Custom_Event(obj, M03PowerPlantWarningScriptZone1Obj, 40002, 0, 0.0f);
 
-		GameObject *M03PowerPlantWarningScriptZone2Obj = Commands->Find_Object(1208220);
+		GameObject *M03PowerPlantWarningScriptZone2Obj = Commands->Find_Object(1208219);
 		Commands->Send_Custom_Event(obj, M03PowerPlantWarningScriptZone2Obj, 40002, 0, 0.0f);
+
+		GameObject *M03PowerPlantWarningScriptZone3Obj = Commands->Find_Object(1208220);
+		Commands->Send_Custom_Event(obj, M03PowerPlantWarningScriptZone3Obj, 40002, 0, 0.0f);
 	}
+
+	// Received from M03_Comm_Killed after 0 seconds when killed
 	else if (type == 40003)
 	{
 		GameObject *M03ObjectiveControllerObj = Commands->Find_Object(1100004);
 		Commands->Send_Custom_Event(obj, M03ObjectiveControllerObj, 312, 1, 0.0f);
 
-		if (!this->field_1D)
+		if (!this->commsHacked)
 		{
 			Commands->Send_Custom_Event(obj, M03ObjectiveControllerObj, 308, 2, 0.0f);
 
@@ -73,12 +75,14 @@ void M03_CommCenter_Arrow::Custom(GameObject *obj, int type, int param, GameObje
 			Commands->Start_Timer(obj, this, 4.0f, 40025);
 		}
 	}
+
+	// Received from M03_Power_Plant after 0 seconds when killed
 	else if (type == 40010)
 	{
 		GameObject *M03ObjectiveControllerObj = Commands->Find_Object(1100004);
 		Commands->Send_Custom_Event(obj, M03ObjectiveControllerObj, 309, 1, 0.0f);
 
-		if (!this->field_1D)
+		if (!this->commsHacked)
 		{
 			Commands->Send_Custom_Event(obj, M03ObjectiveControllerObj, 308, 2, 0.0);
 
@@ -89,9 +93,9 @@ void M03_CommCenter_Arrow::Custom(GameObject *obj, int type, int param, GameObje
 	}
 }
 
-// TODO
 void M03_CommCenter_Arrow::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered after 4 seconds when custom type 40003 or 40010 is received
 	if (number == 40025)
 	{
 		Commands->Mission_Complete(false);

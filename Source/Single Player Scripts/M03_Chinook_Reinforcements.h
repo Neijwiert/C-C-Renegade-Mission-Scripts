@@ -32,10 +32,10 @@ class M03_Chinook_Reinforcements : public ScriptImpClass
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		int field_1C[3];
-		bool field_28[3];
+		int areaTrooperDeathCount[3];
+		bool areaActive[3];
 		int triggerCount;
 		int field_30;
 		bool field_34;
-		int field_38;
+		int targetKillCount;
 };

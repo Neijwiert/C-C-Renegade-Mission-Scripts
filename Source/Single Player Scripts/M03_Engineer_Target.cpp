@@ -26,7 +26,7 @@ M07 -> 100788 100780 100722 100721 100796 100798 100779
 */
 void M03_Engineer_Target::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 1);
+	Auto_Save_Variable(&this->reppingEngineerObjId, sizeof(this->reppingEngineerObjId), 1);
 	Auto_Save_Variable(&this->initialHealth, sizeof(this->initialHealth), 2);
 }
 
@@ -49,18 +49,18 @@ void M03_Engineer_Target::Damaged(GameObject *obj, GameObject *damager, float am
 	Commands->Start_Timer(obj, this, 3.0f, 40013);
 }
 
-// TODO
 void M03_Engineer_Target::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M03_Engineer_Repair after 0 seconds. param = obj id
 	if (type == 40011)
 	{
-		this->field_20 = param;
+		this->reppingEngineerObjId = param;
 	}
 }
 
-// TODO
 void M03_Engineer_Target::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered after 3 seconds after damaged or this block
 	if (number == 40013)
 	{
 		float health = Commands->Get_Health(obj);

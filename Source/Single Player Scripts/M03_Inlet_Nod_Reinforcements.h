@@ -33,5 +33,5 @@ class M03_Inlet_Nod_Reinforcements : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Timer_Expired(GameObject *obj, int number);
 
-		int field_1C;
+		int inletSamKilledCount;
 };

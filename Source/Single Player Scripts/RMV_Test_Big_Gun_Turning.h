@@ -36,7 +36,7 @@ class RMV_Test_Big_Gun_Turning : public ScriptImpClass
 		virtual void Sound_Heard(GameObject *obj, const CombatSound & sound);
 		virtual void Timer_Expired(GameObject *obj, int number);
 
-		int field_1C;
+		int bigGunSamKilledCount;
 		bool field_20;
-		bool field_21;
+		bool deathCinematicStarted;
 };

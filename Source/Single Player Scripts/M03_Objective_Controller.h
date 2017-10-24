@@ -37,14 +37,14 @@ class M03_Objective_Controller : public ScriptImpClass
 		void Add_Mission_Objective(int objectiveId);
 		void Complete_Mission_Objective(int objectiveId);
 
-		int field_1C;
-		int field_20;
-		bool field_24;
+		int inletSamKilledCount;
+		int bigGunSamKilledCount;
+		bool starAtDestroyedPropPlane;
 		bool field_25;
-		bool field_26;
-		bool field_27;
-		bool field_28;
-		int field_2C;
-		int field_30;
-		int field_34;
+		bool beachHeadSecure;
+		bool inletSamsKilled;
+		bool bigGunSamsKilled;
+		int field_2C; // Never used
+		int field_30; // Never used
+		int field_34; // Initialized, but not used
 };

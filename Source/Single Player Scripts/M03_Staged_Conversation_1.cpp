@@ -22,9 +22,9 @@
 /*
 M03 -> 1144674
 */
-// TODO
 void M03_Staged_Conversation_1::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from RMV_Trigger_Zone after 0 seconds when entered. type = 1000, param = 1000 (id = 1144675)
 	if (type == 1000 && param == 1000)
 	{
 		const char *strSoldier1Id = Get_Parameter(0);

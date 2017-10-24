@@ -24,58 +24,60 @@ M03 -> 1144444
 */
 void M03_Area_Troop_Counter::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(this->field_28, sizeof(this->field_28), 2);
+	Auto_Save_Variable(this->areasTroopCounter, sizeof(this->areasTroopCounter), 1);
+	Auto_Save_Variable(this->areasTroopKilledCounter, sizeof(this->areasTroopKilledCounter), 2);
 }
 
 void M03_Area_Troop_Counter::Created(GameObject *obj)
 {
-	this->field_1C[0] = 2;
-	this->field_1C[1] = 4;
-	this->field_1C[2] = 6;
+	this->areasTroopCounter[0] = 2;
+	this->areasTroopCounter[1] = 4;
+	this->areasTroopCounter[2] = 6;
 
-	this->field_28[2] = 0;
-	this->field_28[1] = 0;
-	this->field_28[0] = 0;
+	this->areasTroopKilledCounter[2] = 0;
+	this->areasTroopKilledCounter[1] = 0;
+	this->areasTroopKilledCounter[0] = 0;
 }
 
-// TODO
 void M03_Area_Troop_Counter::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from RMV_Trigger_Killed after 0 seconds when killed (id = 1146701, 1146700, 300009, 300028, 300032, 1141162, 1144451, 300010 or soldier from paradrop in M03_Chinook_ParaDrop)
 	if (type == 1000)
 	{
 		if (param == 1000)
 		{
-			int index = -1;
-			int intVar = -1;
-			Commands->Send_Custom_Event(obj, obj, 5000, reinterpret_cast<int>(&index), 0.0f); // Yes, get reference
-			Commands->Send_Custom_Event(obj, obj, 6300, reinterpret_cast<int>(&intVar), 0.0f); // Yes, get reference
+			int currentActiveArea = -1;
+			int reinforcedTroopKilledCounter = -1;
+			Commands->Send_Custom_Event(obj, obj, 5000, reinterpret_cast<int>(&currentActiveArea), 0.0f); // Yes, get reference
+			Commands->Send_Custom_Event(obj, obj, 6300, reinterpret_cast<int>(&reinforcedTroopKilledCounter), 0.0f); // Yes, get reference
 
-			if (index >= 0 && index <= 2)
+			if (currentActiveArea >= 0 && currentActiveArea <= 2)
 			{
-				this->field_1C[index]--;
+				this->areasTroopCounter[currentActiveArea]--;
 
-				if (++this->field_28[index] % intVar)
+				if (++this->areasTroopKilledCounter[currentActiveArea] % reinforcedTroopKilledCounter)
 				{
-					if (this->field_1C[index] <= 0)
+					if (this->areasTroopCounter[currentActiveArea] <= 0)
 					{
-						if (this->field_1C[index] < 0)
+						if (this->areasTroopCounter[currentActiveArea] < 0)
 						{
-							this->field_1C[index] = 0;
+							this->areasTroopCounter[currentActiveArea] = 0;
 						}
 
 						Commands->Send_Custom_Event(obj, obj, 6000, 6000, 0.0f);
 						
-						this->field_1C[index] += Commands->Get_Difficulty_Level();
+						this->areasTroopCounter[currentActiveArea] += Commands->Get_Difficulty_Level();
 					}
 				}
 			}
 		}
 	}
+
+	// Received from M03_Reinforce_Area after 0 seconds when timer number 60000 expired. param = 1
 	else if (type == 7000)
 	{
-		this->field_1C[param] += Commands->Get_Difficulty_Level() + 1;
-		this->field_28[param] = 0;
+		this->areasTroopCounter[param] += Commands->Get_Difficulty_Level() + 1;
+		this->areasTroopKilledCounter[param] = 0;
 	}
 }
 

@@ -7,23 +7,22 @@ When timer number 4/5/6 triggers in M03_Chinook_ParaDrop
 */
 void DLS_Volcano_Stumble::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->volcanoErupting, sizeof(this->volcanoErupting), 1);
 }
 
 void DLS_Volcano_Stumble::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->volcanoErupting = false;
 
 	Commands->Set_Innate_Take_Cover_Probability(obj, 100.0f);
 	Commands->Set_Innate_Aggressiveness(obj, 100.0f);
 }
 
-// TODO
 void DLS_Volcano_Stumble::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
-	if (sound.sound == 1001 && !this->field_1C)
+	if (sound.sound == 1001 && !this->volcanoErupting)
 	{
-		this->field_1C = true;
+		this->volcanoErupting = true;
 
 		Commands->Action_Reset(obj, 97.0f);
 
@@ -55,7 +54,6 @@ void DLS_Volcano_Stumble::Sound_Heard(GameObject *obj, const CombatSound & sound
 	}
 }
 
-// TODO
 void DLS_Volcano_Stumble::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (action_id == 0)
@@ -76,7 +74,7 @@ void DLS_Volcano_Stumble::Action_Complete(GameObject *obj, int action_id, Action
 	}
 	else if (action_id == 2 || action_id == 3 || action_id == 5)
 	{
-		this->field_1C = false;
+		this->volcanoErupting = false;
 
 		ActionParamsStruct params;
 		params.Set_Basic(this, 70.0f, 4);

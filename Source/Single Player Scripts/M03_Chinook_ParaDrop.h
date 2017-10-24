@@ -31,6 +31,6 @@ class M03_Chinook_ParaDrop : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 
 		int nodTransportHelicopterObjId;
-		bool field_20;
-		int field_24;
+		bool chinookKilled;
+		int paratrooperIndex;
 };

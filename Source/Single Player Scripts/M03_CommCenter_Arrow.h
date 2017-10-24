@@ -34,5 +34,5 @@ class M03_CommCenter_Arrow : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 
 		bool field_1C; // Assigned, but not used
-		bool field_1D;
+		bool commsHacked;
 };

@@ -25,7 +25,7 @@ M03 -> 1100003
 void M03_Gunboat_Controller_RMV::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->areaIndex, sizeof(this->areaIndex), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->currentArea, sizeof(this->currentArea), 2);
 	Auto_Save_Variable(&this->beachDestination, sizeof(this->beachDestination), 3);
 	Auto_Save_Variable(&this->villageStart, sizeof(this->villageStart), 4);
 	Auto_Save_Variable(&this->villageDestination, sizeof(this->villageDestination), 5);
@@ -43,10 +43,10 @@ void M03_Gunboat_Controller_RMV::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->downToHalfHealth, sizeof(this->downToHalfHealth), 17);
 	Auto_Save_Variable(&this->downToQuarterHealth, sizeof(this->downToQuarterHealth), 18);
 	Auto_Save_Variable(&this->field_DF, sizeof(this->field_DF), 19);
-	Auto_Save_Variable(&this->field_E8, sizeof(this->field_E8), 20);
-	Auto_Save_Variable(&this->field_E0, sizeof(this->field_E0), 21);
+	Auto_Save_Variable(&this->inletTargetKilledCount, sizeof(this->inletTargetKilledCount), 20);
+	Auto_Save_Variable(&this->inletTargetsAlive, sizeof(this->inletTargetsAlive), 21);
 	Auto_Save_Variable(&this->damagedByBigGunCount, sizeof(this->damagedByBigGunCount), 22);
-	Auto_Save_Variable(&this->field_E1, sizeof(this->field_E1), 23);
+	Auto_Save_Variable(&this->bigGunKilled, sizeof(this->bigGunKilled), 23);
 }
 
 void M03_Gunboat_Controller_RMV::Created(GameObject *obj)
@@ -76,8 +76,8 @@ void M03_Gunboat_Controller_RMV::Created(GameObject *obj)
 	this->cannonAttackLocations[0] = Vector3(91.0f, 42.0f, 27.0f);
 	this->cannonAttackLocations[1] = Vector3(66.0f, 71.0f, 17.0f);
 	this->cannonAttackLocations[2] = Vector3(52.558f, 51.739f, 28.88f);
-	this->field_E8 = 0;
-	this->field_E0 = true;
+	this->inletTargetKilledCount = 0;
+	this->inletTargetsAlive = true;
 	this->areaIndex = 0;
 
 	ActionParamsStruct params;
@@ -106,7 +106,7 @@ void M03_Gunboat_Controller_RMV::Created(GameObject *obj)
 
 	Commands->Start_Timer(obj, this, 3.5f, 1);
 
-	this->field_E1 = false;
+	this->bigGunKilled = false;
 	this->damagedByBigGunCount = 0;
 }
 
@@ -208,9 +208,9 @@ void M03_Gunboat_Controller_RMV::Damaged(GameObject *obj, GameObject *damager, f
 	}
 }
 
-// TODO
 void M03_Gunboat_Controller_RMV::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Never received
 	if (type == 8000 && param == 8000)
 	{
 		ActionParamsStruct params;
@@ -224,39 +224,49 @@ void M03_Gunboat_Controller_RMV::Custom(GameObject *obj, int type, int param, Ga
 		ActionParamsStruct params;
 		params.Set_Basic(this, 90.0f, 0);
 
+		// Received from RMV_Test_Big_Gun_Turning after 0 seconds when killed.
 		if (type == 40027)
 		{
-			this->field_E1 = true;
+			this->bigGunKilled = true;
 
 			Commands->Action_Reset(obj, 100.0f);
 		}
+
+		// Received from RMV_Trigger_Killed after 0 seconds when killed (id = 300056, 1100020, 1144678, 1144679))
 		else if (type == 7000)
 		{
 			if (param == 7000)
 			{
-				if (++this->field_E8 >= 4)
+				if (++this->inletTargetKilledCount >= 4)
 				{
-					this->field_E0 = false;
+					this->inletTargetsAlive = false;
 				}
 			}
 		}
+
 		else if (type == Get_Int_Parameter("Receive_Type"))
 		{
+			// Never received
 			if (param == Get_Int_Parameter("Receive_Param_Destroy"))
 			{
 				Commands->Destroy_Object(obj);
 			}
+
+			// Received from RMV_Trigger_Zone after 0 seconds when entered. type = 2000, param = 1 (id = 1100000)
+			// Received from M03_Objective_Controller after 0 seconds when objective completed with id 1001 type = 2000, param = 1
 			else if (param == Get_Int_Parameter("Receive_Param_For_Village"))
 			{
 				params.Set_Movement(this->villageStart, 1.0f, 3.0f);
 
-				this->field_20 = 0;
+				this->currentArea = 0;
 			}
+
+			// Received from RMV_Trigger_Zone after 0 seconds when entered. type = 2000, param = 2 (id = 1100001, 1100014)
 			else if (param == Get_Int_Parameter("Receive_Param_For_Cannon"))
 			{
 				params.Set_Movement(this->cannonStart, 1.0f, 3.0f);
 
-				this->field_20 = 1;
+				this->currentArea = 1;
 			}
 		}
 
@@ -266,9 +276,9 @@ void M03_Gunboat_Controller_RMV::Custom(GameObject *obj, int type, int param, Ga
 	}
 }
 
-// TODO
 void M03_Gunboat_Controller_RMV::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// Triggered when done moving to new area
 	if (action_id != 40 && complete_reason == ACTION_COMPLETE_NORMAL && !action_id)
 	{
 		if (this->areaIndex == 3)
@@ -276,13 +286,13 @@ void M03_Gunboat_Controller_RMV::Action_Complete(GameObject *obj, int action_id,
 			ActionParamsStruct params;
 			params.Set_Basic(this, 90.0f, 0);
 
-			if (!this->field_20)
+			if (!this->currentArea)
 			{
 				params.Set_Movement(this->villageDestination, 0.25f, 3.0f);
 
 				this->areaIndex = 1;
 			}
-			else if (this->field_20 == 1)
+			else if (this->currentArea == 1)
 			{
 				params.Set_Movement(this->cannonDestination, 0.25f, 3.0f);
 
@@ -298,10 +308,10 @@ void M03_Gunboat_Controller_RMV::Action_Complete(GameObject *obj, int action_id,
 	}
 }
 
-// TODO
 void M03_Gunboat_Controller_RMV::Timer_Expired(GameObject *obj, int number)
 {
-	if (number == 1 && !this->field_E1)
+	// Triggered after 3.5 seconds or 1.5 seconds, see create or this block
+	if (number == 1 && !this->bigGunKilled)
 	{
 		ActionParamsStruct params;
 		params.Set_Basic(this, 90.0f, 0);
@@ -348,7 +358,7 @@ void M03_Gunboat_Controller_RMV::Timer_Expired(GameObject *obj, int number)
 			params.Set_Attack(this->villageAttackLocations[static_cast<int>(this->attackLocationIndex)], 500.0f, this->villageAttackError, true);
 
 
-			if (!this->field_E0)
+			if (!this->inletTargetsAlive)
 			{
 				params.AttackActive = false;
 			}
@@ -377,11 +387,11 @@ void M03_Gunboat_Controller_RMV::Timer_Expired(GameObject *obj, int number)
 		}
 		else if (this->areaIndex == 3)
 		{
-			if (this->field_20 == 1)
+			if (this->currentArea == 1)
 			{
 				params.Set_Movement(this->cannonStart, 0.5f, 3.0f);
 			}
-			else if (!this->field_20)
+			else if (!this->currentArea)
 			{
 				params.Set_Movement(this->villageStart, 0.5f, 3.0f);
 
@@ -397,11 +407,11 @@ void M03_Gunboat_Controller_RMV::Timer_Expired(GameObject *obj, int number)
 		{
 			Commands->Action_Reset(obj, 100.0f);
 
-			if (this->field_20 == 1)
+			if (this->currentArea == 1)
 			{
 				params.Set_Movement(this->cannonStart, 0.5f, 3.0f);
 			}
-			else if(!this->field_20)
+			else if(!this->currentArea)
 			{
 				params.Set_Movement(this->villageStart, 0.5f, 3.0f);
 

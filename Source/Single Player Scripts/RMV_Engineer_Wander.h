@@ -44,5 +44,5 @@ class RMV_Engineer_Wander : public ScriptImpClass
 		bool field_30;
 		bool field_31;
 		bool field_32;
-		bool field_33;
+		bool evacuationStarted;
 };

@@ -53,9 +53,9 @@ void M10_Elevator_All_Controller::Created(GameObject *obj)
 	Commands->Static_Anim_Phys_Goto_Last_Frame(1300881, "cave_lift.cave_lift");
 }
 
-// TODO
 void M10_Elevator_All_Controller::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M10_Elevator_All_Zone after 0 seconds when entered (id = 1100005 1148346)
 	if (type == 40022)
 	{
 		Commands->Start_Timer(obj, this, 5.0f, 333);
@@ -100,9 +100,9 @@ void M10_Elevator_All_Controller::Custom(GameObject *obj, int type, int param, G
 	}
 }
 
-// TODO
 void M10_Elevator_All_Controller::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered after 5 seconds after custom type 40022 is received
 	if (number == 333)
 	{
 		GameObject *elevatorAllScriptZoneObj = Commands->Find_Object(1148346);

@@ -63,9 +63,9 @@ void M09_Innate_Disable::Damaged(GameObject *obj, GameObject *damager, float amo
 	}
 }
 
-// TODO
 void M09_Innate_Disable::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M09_Innate_Activate after 0 seconds when entered
 	if (type == 40057)
 	{
 		Commands->Innate_Enable(obj);

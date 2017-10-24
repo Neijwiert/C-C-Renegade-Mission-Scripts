@@ -42,7 +42,6 @@ void M00_Object_Destroy_Self_RMV::Created(GameObject *obj)
 	this->receiveParamActivate = Get_Int_Parameter("Receive_Param_Activate");
 }
 
-// TODO
 void M00_Object_Destroy_Self_RMV::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (this->debugMode)
@@ -74,6 +73,10 @@ void M00_Object_Destroy_Self_RMV::Custom(GameObject *obj, int type, int param, G
 			}
 		}
 
+		// Received from RMV_Trigger_Zone after 0 seconds when entered. type = 200, param = 200 (id = 1100015)
+		// Received from RMV_Trigger_Zone after 0 seconds when entered. type = 3, param = 3 (id = 1100001)
+		// Received from RMV_Trigger_Zone after 0 seconds when entered. type = 200, param = 200 (id = 1100007)
+		// Received from RMV_Trigger_Zone after 0 seconds when entered. type = 3, param = 3 (id = 1100014)
 		if (param == this->receiveParamActivate && this->startNow)
 		{
 			if (this->debugMode)

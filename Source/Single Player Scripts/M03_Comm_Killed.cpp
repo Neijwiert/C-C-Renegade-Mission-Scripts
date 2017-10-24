@@ -24,13 +24,13 @@ M03 -> 1150002
 */
 void M03_Comm_Killed::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->commsLocated, sizeof(this->commsLocated), 1);
 	Auto_Save_Variable(&this->initialHealth, sizeof(this->initialHealth), 2);
 }
 
 void M03_Comm_Killed::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->commsLocated = false;
 	this->initialHealth = Commands->Get_Health(obj);
 }
 
@@ -44,18 +44,18 @@ void M03_Comm_Killed::Killed(GameObject *obj, GameObject *killer)
 
 void M03_Comm_Killed::Damaged(GameObject *obj, GameObject *damager, float amount)
 {
-	if (!this->field_1C)
+	if (!this->commsLocated)
 	{
 		Commands->Set_Health(obj, this->initialHealth);
 	}
 }
 
-// TODO
 void M03_Comm_Killed::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M03_Objective_Controller after 0 seconds when objective completed with id 1000
 	if (type == 40023)
 	{
-		this->field_1C = true;
+		this->commsLocated = true;
 	}
 }
 

@@ -72,11 +72,11 @@ void M03_Announce_PowerPlant_Controller_JDG::Killed(GameObject *obj, GameObject 
 
 }
 
-// TODO
 void M03_Announce_PowerPlant_Controller_JDG::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (param != this->field_2C)
 	{
+		// Received by ourselves after 0 seconds, see create
 		if (param == this->startupParam)
 		{
 			if (obj)
@@ -84,6 +84,8 @@ void M03_Announce_PowerPlant_Controller_JDG::Custom(GameObject *obj, int type, i
 				Commands->Send_Custom_Event(obj, obj, 0, this->soundIndexerParam, 0.0f);
 			}
 		}
+
+		// Received by ourselves after 0 seconds, see custom soundIndexerParam
 		else if (param == this->sound1Param)
 		{
 			static const char *sounds1[2] =
@@ -106,6 +108,9 @@ void M03_Announce_PowerPlant_Controller_JDG::Custom(GameObject *obj, int type, i
 				Commands->Send_Custom_Event(obj, obj, 0, this->sound2Param, 1.25f);
 			}
 		}
+
+		// Received by ourselves after 1.25 seconds, see custom sound1Param
+		// Received by ourselves after 0 seconds, see custom soundIndexerParam
 		else if (param == this->sound2Param)
 		{
 			static const char *sounds2[19] =
@@ -146,6 +151,8 @@ void M03_Announce_PowerPlant_Controller_JDG::Custom(GameObject *obj, int type, i
 				Commands->Send_Custom_Event(obj, obj, 0, this->soundIndexerParam, randDelay);
 			}
 		}
+
+		// Received by ourselves after 0 seconds, see custom startupParam or minSound2Delay to maxSound2Delay seconds, see custom sound2Param
 		else if (param == this->soundIndexerParam)
 		{
 			float maxRand = static_cast<float>(this->soundIndexerMaxRandom) + 0.5f;

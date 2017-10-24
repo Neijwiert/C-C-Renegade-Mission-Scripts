@@ -27,18 +27,18 @@ void M00_Put_Script_On_Commando::Created(GameObject *obj)
 	Commands->Start_Timer(obj, this, 0.2f, 0);
 }
 
-// TODO
 void M00_Put_Script_On_Commando::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M03_Commando_Script after 0 seconds when destroyed
 	if (type == 12176 && param == 12176)
 	{
 		Commands->Start_Timer(obj, this, 2.0f, 0);
 	}
 }
 
-// TODO
 void M00_Put_Script_On_Commando::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered after 2 seconds, see custom
 	if (!number)
 	{
 		Vector3 pos = Commands->Get_Position(obj);

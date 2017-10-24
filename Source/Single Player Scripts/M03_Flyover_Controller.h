@@ -34,5 +34,5 @@ class M03_Flyover_Controller : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 
 		int lastFlyoverCinematicIndex;
-		bool field_20;
+		bool active;
 };

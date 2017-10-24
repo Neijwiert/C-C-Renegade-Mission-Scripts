@@ -27,8 +27,8 @@ void M03_Intro_Substitute::Created(GameObject *obj)
 	GameObject *introCinematicsObj = Commands->Find_Object(1111000);
 	if (introCinematicsObj)
 	{
-		Commands->Send_Custom_Event(obj, introCinematicsObj, 100, 100, 0.0f);
-		Commands->Send_Custom_Event(obj, introCinematicsObj, 200, 200, 14.0f);
+		Commands->Send_Custom_Event(obj, introCinematicsObj, 100, 100, 0.0f); // Create hovercraft controller
+		Commands->Send_Custom_Event(obj, introCinematicsObj, 200, 200, 14.0f); // Create chinook troop drop - beach
 
 		Commands->Start_Timer(obj, this, 14.0f, 0);
 	}
@@ -39,18 +39,18 @@ void M03_Intro_Substitute::Created(GameObject *obj)
 	}
 }
 
-// TODO
 void M03_Intro_Substitute::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M03_Objective_Controller after 0 seconds when custom type 100063 is received
 	if (type == 999)
 	{
 		Commands->Start_Timer(obj, this, 3.0f, 9998);
 	}
 }
 
-// TODO
 void M03_Intro_Substitute::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// Triggered when locke said need to find scientist's whereabouts, see action id 100039
 	if (action_id == 100001)
 	{
 		GameObject *M03ObjectiveControllerObj = Commands->Find_Object(1100004);
@@ -66,6 +66,8 @@ void M03_Intro_Substitute::Action_Complete(GameObject *obj, int action_id, Actio
 		Commands->Start_Conversation(conversationId, 100012);
 		Commands->Monitor_Conversation(obj, conversationId);
 	}
+
+	// Triggered when locke said nice landing, see timer expired
 	else if (action_id == 100039)
 	{
 		// Havoc - nice landing. We'll need info on the scientist's whereabouts. Find the Nod Communications Center and download the information.
@@ -80,6 +82,8 @@ void M03_Intro_Substitute::Action_Complete(GameObject *obj, int action_id, Actio
 		Commands->Start_Conversation(conversationId, 100001);
 		Commands->Monitor_Conversation(obj, conversationId);
 	}
+
+	// Triggered when gunboat called for help, see action id 100001
 	else if (action_id == 100012)
 	{
 		GameObject *M03ObjectiveControllerObj = Commands->Find_Object(1100004);
@@ -89,6 +93,7 @@ void M03_Intro_Substitute::Action_Complete(GameObject *obj, int action_id, Actio
 
 void M03_Intro_Substitute::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered after 8.5 seconds, see create
 	if (number == 9997)
 	{
 		// Nice landing Nicky. Figured your friends could use a welcoming party.

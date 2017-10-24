@@ -24,37 +24,39 @@ M03 -> 2018061
 */
 void M03_Beach_Reinforce::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 1);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 2);
-	Auto_Save_Variable(&this->field_28, sizeof(this->field_28), 3);
-	Auto_Save_Variable(&this->field_2C, sizeof(this->field_2C), 4);
-	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 5);
-	Auto_Save_Variable(&this->field_34, sizeof(this->field_34), 6);
-	Auto_Save_Variable(&this->field_38, sizeof(this->field_38), 7);
-	Auto_Save_Variable(&this->field_3C, sizeof(this->field_3C), 8);
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 9);
+	Auto_Save_Variable(&this->deathsLeftBeforeReinforce, sizeof(this->deathsLeftBeforeReinforce), 1);
+	Auto_Save_Variable(&this->reinforceLocationIndex, sizeof(this->reinforceLocationIndex), 2);
+	Auto_Save_Variable(&this->area0TrooperKilledCount, sizeof(this->area0TrooperKilledCount), 3);
+	Auto_Save_Variable(&this->area1TrooperKilledCount, sizeof(this->area1TrooperKilledCount), 4);
+	Auto_Save_Variable(&this->area2TrooperKilledCount, sizeof(this->area2TrooperKilledCount), 5);
+	Auto_Save_Variable(&this->beachReinforcementsLeft, sizeof(this->beachReinforcementsLeft), 6);
+	Auto_Save_Variable(&this->inletReinforcementsLeft, sizeof(this->inletReinforcementsLeft), 7);
+	Auto_Save_Variable(&this->baseReinforcementsLeft, sizeof(this->baseReinforcementsLeft), 8);
+	Auto_Save_Variable(&this->lastTrooperKilledArea, sizeof(this->lastTrooperKilledArea), 9);
 }
 
 void M03_Beach_Reinforce::Created(GameObject *obj)
 {
-	this->field_1C = 0;
-	this->field_20 = 2;
-	this->field_24 = 0;
-	this->field_28 = 0;
-	this->field_2C = 0;
-	this->field_30 = 0;
-	this->field_34 = Commands->Get_Difficulty_Level() + 2;
-	this->field_38 = Commands->Get_Difficulty_Level() + 3;
-	this->field_3C = Commands->Get_Difficulty_Level() + 4;
+	this->lastTrooperKilledArea = 0;
+	this->deathsLeftBeforeReinforce = 2;
+	this->reinforceLocationIndex = 0;
+	this->area0TrooperKilledCount = 0;
+	this->area1TrooperKilledCount = 0;
+	this->area2TrooperKilledCount = 0;
+	this->beachReinforcementsLeft = Commands->Get_Difficulty_Level() + 2;
+	this->inletReinforcementsLeft = Commands->Get_Difficulty_Level() + 3;
+	this->baseReinforcementsLeft = Commands->Get_Difficulty_Level() + 4;
 }
 
-// TODO
 void M03_Beach_Reinforce::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M03_Killed_Sound after 0 seconds when killed. param = location
 	if (type == 40021)
 	{
-		this->field_1C = param;
+		this->lastTrooperKilledArea = param;
 	}
+
+	// Received from M03_Reinforce_Area after 0 seconds when custom type 40017 is received
 	else if (type == 40018)
 	{
 		if (param == 1)
@@ -62,6 +64,8 @@ void M03_Beach_Reinforce::Custom(GameObject *obj, int type, int param, GameObjec
 			Reinforce_Base();
 		}
 	}
+
+	// Received from M03_Reinforce_Area after 0 seconds when custom type 40017 is received
 	else if (type == 40020)
 	{
 		if (param == 1)
@@ -69,6 +73,8 @@ void M03_Beach_Reinforce::Custom(GameObject *obj, int type, int param, GameObjec
 			Reinforce_Beach();
 		}
 	}
+
+	// Received from M03_Reinforce_Area after 0 seconds when custom type 40017 is received
 	else if (type == 40019)
 	{
 		if (param == 1)
@@ -76,60 +82,64 @@ void M03_Beach_Reinforce::Custom(GameObject *obj, int type, int param, GameObjec
 			Reinforce_Inlet();
 		}
 	}
+
+	// Received from M03_Killed_Sound after 0 seconds when killed. param = officer
 	else if (type == 40008)
 	{
 		if (param == 1)
 		{
-			if (!this->field_1C)
+			if (!this->lastTrooperKilledArea)
 			{
-				this->field_28++;
+				this->area0TrooperKilledCount++;
 			}
-			else if (this->field_1C == 1)
+			else if (this->lastTrooperKilledArea == 1)
 			{
-				this->field_2C++;
+				this->area1TrooperKilledCount++;
 			}
-			else if (this->field_1C == 2)
+			else if (this->lastTrooperKilledArea == 2)
 			{
-				this->field_30++;
+				this->area2TrooperKilledCount++;
 			}
 		}
 
-		if (--this->field_20 <= 0)
+		if (--this->deathsLeftBeforeReinforce <= 0)
 		{
-			this->field_20 = 5 - Commands->Get_Difficulty_Level();
+			this->deathsLeftBeforeReinforce = 5 - Commands->Get_Difficulty_Level();
 
 			GameObject *powerPlantNodChinookReinforcementsObj = Commands->Find_Object(1144444);
 			Commands->Send_Custom_Event(obj, powerPlantNodChinookReinforcementsObj, 40017, 0, 0.0f);
 		}
 	}
+
+	// Received from M03_Past_Pillbox after 0 seconds when entered
 	else if (type == 40009)
 	{
-		this->field_24 = 10;
+		this->reinforceLocationIndex = 10;
 	}
 }
 
 void M03_Beach_Reinforce::Reinforce_Beach()
 {
-	if (this->field_28 <= 2 && this->field_34 > 0)
+	if (this->area0TrooperKilledCount <= 2 && this->beachReinforcementsLeft > 0)
 	{
-		this->field_34--;
+		this->beachReinforcementsLeft--;
 
-		if (!this->field_24 )
+		if (!this->reinforceLocationIndex )
 		{
-			this->field_24++;
+			this->reinforceLocationIndex++;
 
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-95.656f, -68.236f, 1.433f));
 			Commands->Set_Facing(invisObj, -180.0f);
 			Commands->Attach_Script(invisObj, "M03_Chinook_ParaDrop", "M03_Paratrooper");
 		}
-		else if (this->field_24 == 1)
+		else if (this->reinforceLocationIndex == 1)
 		{
-			this->field_24 = 0;
+			this->reinforceLocationIndex = 0;
 
 			Commands->Trigger_Spawner(2018881);
 			Commands->Trigger_Spawner(2018880);
 		}
-		else if (this->field_24 > 1)
+		else if (this->reinforceLocationIndex > 1)
 		{
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-95.656f, -68.236f, 1.433f));
 			Commands->Set_Facing(invisObj, -180.0f);
@@ -140,13 +150,13 @@ void M03_Beach_Reinforce::Reinforce_Beach()
 
 void M03_Beach_Reinforce::Reinforce_Inlet()
 {
-	if (this->field_2C <= 2 && this->field_38 > 0)
+	if (this->area1TrooperKilledCount <= 2 && this->inletReinforcementsLeft > 0)
 	{
-		this->field_38--;
+		this->inletReinforcementsLeft--;
 
-		if (this->field_24 <= 0)
+		if (this->reinforceLocationIndex <= 0)
 		{
-			this->field_24 = 1;
+			this->reinforceLocationIndex = 1;
 
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(51.0f, -91.0f, 2.0f));
 			Commands->Set_Facing(invisObj, 75.0f);
@@ -154,7 +164,7 @@ void M03_Beach_Reinforce::Reinforce_Inlet()
 		}
 		else
 		{
-			this->field_24--;
+			this->reinforceLocationIndex--;
 
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(99.85f, -49.51f, 2.0f));
 			Commands->Set_Facing(invisObj, 170.0f);
@@ -165,13 +175,13 @@ void M03_Beach_Reinforce::Reinforce_Inlet()
 
 void M03_Beach_Reinforce::Reinforce_Base()
 {
-	if (this->field_30 <= 2 && this->field_3C > 0)
+	if (this->area2TrooperKilledCount <= 2 && this->baseReinforcementsLeft > 0)
 	{
-		this->field_3C--;
+		this->baseReinforcementsLeft--;
 
-		if (this->field_24 > 0)
+		if (this->reinforceLocationIndex > 0)
 		{
-			this->field_24 = 0;
+			this->reinforceLocationIndex = 0;
 
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-79.0f, 59.0f, 9.5f));
 			Commands->Set_Facing(invisObj, -120.0f);
@@ -179,7 +189,7 @@ void M03_Beach_Reinforce::Reinforce_Base()
 		}
 		else
 		{
-			this->field_24++;
+			this->reinforceLocationIndex++;
 
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(-138.0f, 50.0f, 9.5f));
 			Commands->Set_Facing(invisObj, -30.0f);

@@ -22,8 +22,8 @@
 void M03_Chinook_ParaDrop::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->nodTransportHelicopterObjId, sizeof(this->nodTransportHelicopterObjId), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 3);
+	Auto_Save_Variable(&this->chinookKilled, sizeof(this->chinookKilled), 2);
+	Auto_Save_Variable(&this->paratrooperIndex, sizeof(this->paratrooperIndex), 3);
 }
 
 // See M03_Beach_Reinforce::Reinforce_Beach, M03_Beach_Reinforce::Reinforce_Inlet and M03_Beach_Reinforce::Reinforce_Base
@@ -43,8 +43,8 @@ void M03_Chinook_ParaDrop::Created(GameObject *obj)
 	Commands->Set_Animation(nodTransportHelicopterObj, "v_Nod_trnspt.XG_RTN_TrnsptA", true, NULL, 0.0f, -1.0f, false);
 	Commands->Attach_To_Object_Bone(nodTransportHelicopterObj, trajectoryObj, "BN_Chinook_1");
 
-	this->field_20 = false;
-	this->field_24 = 0;
+	this->chinookKilled = false;
+	this->paratrooperIndex = 0;
 
 	int objId = Commands->Get_ID(obj);
 	char buffer[16];
@@ -62,30 +62,32 @@ void M03_Chinook_ParaDrop::Created(GameObject *obj)
 	Commands->Start_Timer(obj, this, 165 / 30.0f, 6);
 }
 
-// TODO
 void M03_Chinook_ParaDrop::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M03_Reinforcement_Chinook after 0 seconds when killed
 	if (type == 23000 && param == 23000)
 	{
-		this->field_20 = true;
+		this->chinookKilled = true;
 	}
 }
 
-// TODO
 void M03_Chinook_ParaDrop::Timer_Expired(GameObject *obj, int number)
 {
 	Vector3 pos = Commands->Get_Position(obj);
 	const char *preset = Get_Parameter("Preset");
 	float facing = Commands->Get_Facing(obj);
 	
+	// Triggered after 280 / 30.0f seconds, see created
 	if (number == 0)
 	{
 		GameObject *nodTransportHelicopterObj = Commands->Find_Object(this->nodTransportHelicopterObjId);
 		Commands->Destroy_Object(nodTransportHelicopterObj);
 	}
+
+	// Triggered after 169 / 30.0f seconds, see created
 	else if (number == 1)
 	{
-		if (this->field_24 > 0)
+		if (this->paratrooperIndex > 0)
 		{
 			GameObject *cinObj = Commands->Create_Object("Generic_Cinematic", pos);
 			Commands->Set_Facing(cinObj, facing);
@@ -95,9 +97,11 @@ void M03_Chinook_ParaDrop::Timer_Expired(GameObject *obj, int number)
 			Commands->Attach_Script(cinObj, "M03_No_More_Parachute", "");
 		}
 	}
+
+	// Triggered after 179 / 30.0f seconds, see created
 	else if (number == 2)
 	{
-		if (this->field_24 > 1)
+		if (this->paratrooperIndex > 1)
 		{
 			GameObject *cinObj = Commands->Create_Object("Generic_Cinematic", pos);
 			Commands->Set_Facing(cinObj, facing);
@@ -107,9 +111,11 @@ void M03_Chinook_ParaDrop::Timer_Expired(GameObject *obj, int number)
 			Commands->Attach_Script(cinObj, "M03_No_More_Parachute", "");
 		}
 	}
+
+	// Triggered after 198 / 30.0f seconds, see created
 	else if (number == 3)
 	{
-		if (this->field_24 == 3)
+		if (this->paratrooperIndex == 3)
 		{
 			GameObject *cinObj = Commands->Create_Object("Generic_Cinematic", pos);
 			Commands->Set_Facing(cinObj, facing);
@@ -119,9 +125,11 @@ void M03_Chinook_ParaDrop::Timer_Expired(GameObject *obj, int number)
 			Commands->Attach_Script(cinObj, "M03_No_More_Parachute", "");
 		}
 	}
+
+	// Triggered after 145 / 30.0f seconds, see created
 	else if (number == 4)
 	{
-		if (!this->field_20)
+		if (!this->chinookKilled)
 		{
 			GameObject *trajectoryObj = Commands->Create_Object("Generic_Cinematic", pos);
 			Commands->Set_Model(trajectoryObj, "X5D_Box01");
@@ -137,12 +145,14 @@ void M03_Chinook_ParaDrop::Timer_Expired(GameObject *obj, int number)
 			Commands->Attach_To_Object_Bone(presetObj, trajectoryObj, "Box01");
 			Commands->Set_Animation(presetObj, "s_a_human.H_A_X5D_ParaT_1", false, NULL, 0.0f, -1.0f, false);
 
-			this->field_24++;
+			this->paratrooperIndex++;
 		}
 	}
+
+	// Triggered after 155 / 30.0f seconds, see created
 	else if (number == 5)
 	{
-		if (!this->field_20)
+		if (!this->chinookKilled)
 		{
 			GameObject *trajectoryObj = Commands->Create_Object("Generic_Cinematic", pos);
 			Commands->Set_Model(trajectoryObj, "X5D_Box02");
@@ -158,12 +168,14 @@ void M03_Chinook_ParaDrop::Timer_Expired(GameObject *obj, int number)
 			Commands->Set_Animation(presetObj, "s_a_human.H_A_X5D_ParaT_2", false, NULL, 0.0f, -1.0f, false);
 			Commands->Attach_To_Object_Bone(presetObj, trajectoryObj, "Box02");
 
-			this->field_24++;
+			this->paratrooperIndex++;
 		}
 	}
+
+	// Triggered after 165 / 30.0f seconds, see created
 	else if (number == 6)
 	{
-		if (!this->field_20)
+		if (!this->chinookKilled)
 		{
 			GameObject *trajectoryObj = Commands->Create_Object("Generic_Cinematic", pos);
 			Commands->Set_Model(trajectoryObj, "X5D_Box03");
@@ -179,7 +191,7 @@ void M03_Chinook_ParaDrop::Timer_Expired(GameObject *obj, int number)
 			Commands->Set_Animation(presetObj, "s_a_human.H_A_X5D_ParaT_3", false, NULL, 0.0f, -1.0f, false);
 			Commands->Attach_To_Object_Bone(presetObj, trajectoryObj, "Box03");
 
-			this->field_24++;
+			this->paratrooperIndex++;
 		}
 	}
 }

@@ -24,7 +24,6 @@
 /*
 M03 -> 300059 300058 300056 1150001 1100020
 */
-
 void M00_Trigger_When_Killed_RMV::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->startNow, sizeof(this->startNow), 1);
@@ -60,7 +59,6 @@ void M00_Trigger_When_Killed_RMV::Killed(GameObject *obj, GameObject *killer)
 	}
 }
 
-// TODO
 void M00_Trigger_When_Killed_RMV::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (type == 9000 || type == 9001 || type == Get_Int_Parameter("Receive_Type"))

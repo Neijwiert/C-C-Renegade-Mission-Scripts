@@ -34,6 +34,6 @@ class M03_Comm_Killed : public ScriptImpClass
 		virtual void Damaged(GameObject *obj, GameObject *damager, float amount);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		bool field_1C;
+		bool commsLocated;
 		float initialHealth;
 };

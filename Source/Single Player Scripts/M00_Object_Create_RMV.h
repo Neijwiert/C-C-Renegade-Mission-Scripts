@@ -14,5 +14,5 @@ class M00_Object_Create_RMV : public ScriptImpClass
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		bool field_1C;
+		bool field_1C; // Never used
 };

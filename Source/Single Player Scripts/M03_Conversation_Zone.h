@@ -35,6 +35,6 @@ class M03_Conversation_Zone : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 		virtual void Entered(GameObject *obj, GameObject *enterer);
 
-		bool field_1C;
-		bool field_1D;
+		bool troubleEnteringComms;
+		bool gaveStarRefKey;
 };

@@ -24,15 +24,15 @@ M03 -> 1100002
 */
 void RMV_Test_Big_Gun_Turning::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->bigGunSamKilledCount, sizeof(this->bigGunSamKilledCount), 1);
 	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
-	Auto_Save_Variable(&this->field_21, sizeof(this->field_21), 3);
+	Auto_Save_Variable(&this->deathCinematicStarted, sizeof(this->deathCinematicStarted), 3);
 }
 
 void RMV_Test_Big_Gun_Turning::Created(GameObject *obj)
 {
-	this->field_21 = false;
-	this->field_1C = 0;
+	this->deathCinematicStarted = false;
+	this->bigGunSamKilledCount = 0;
 	this->field_20 = false;
 }
 
@@ -51,7 +51,7 @@ void RMV_Test_Big_Gun_Turning::Killed(GameObject *obj, GameObject *killer)
 
 void RMV_Test_Big_Gun_Turning::Damaged(GameObject *obj, GameObject *damager, float amount)
 {
-	if (this->field_21)
+	if (this->deathCinematicStarted)
 	{
 		float health = Commands->Get_Health(obj);
 		if (health < 1.0f)
@@ -61,15 +61,17 @@ void RMV_Test_Big_Gun_Turning::Damaged(GameObject *obj, GameObject *damager, flo
 	}
 }
 
-// TODO
 void RMV_Test_Big_Gun_Turning::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Never received
 	if (type == 40026)
 	{
 		Commands->Action_Reset(obj, 100.0f);
 
 		Commands->Enable_Enemy_Seen(obj, false);
 	}
+
+	// Received from RMV_Trigger_Zone after 0 seconds when entered. (id = 1100007, 1100015)
 	else if (type == 1000)
 	{
 		if (param == 1000)
@@ -85,9 +87,11 @@ void RMV_Test_Big_Gun_Turning::Custom(GameObject *obj, int type, int param, Game
 			Commands->Action_Attack(obj, params);
 		}
 	}
+
+	// Received from M00_Trigger_When_Killed_RMV after 0 seconds when killed. (id = 300059, 300058)
 	else if (type == 2000)
 	{
-		if (param == 2000 && ++this->field_1C == 2)
+		if (param == 2000 && ++this->bigGunSamKilledCount == 2)
 		{
 			if (Commands->Find_Object(1100003)) // GDI Gunboat
 			{
@@ -126,9 +130,9 @@ void RMV_Test_Big_Gun_Turning::Sound_Heard(GameObject *obj, const CombatSound & 
 	}
 }
 
-// TODO
 void RMV_Test_Big_Gun_Turning::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered after 2 seconds when custom type 2000 is received
 	if (number == 40024)
 	{
 		if (Commands->Find_Object(1100002)) // Big Gun
@@ -136,7 +140,7 @@ void RMV_Test_Big_Gun_Turning::Timer_Expired(GameObject *obj, int number)
 			GameObject *invisObj = Commands->Create_Object("Invisible_Object", Vector3(0.0f, 0.0f, 0.0f));
 			Commands->Attach_Script(invisObj, "Test_Cinematic", "X3C_Bigguns.txt");
 
-			this->field_21 = true;
+			this->deathCinematicStarted = true;
 		}
 	}
 }

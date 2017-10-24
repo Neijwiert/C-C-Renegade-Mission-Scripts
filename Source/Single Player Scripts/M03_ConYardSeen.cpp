@@ -24,28 +24,28 @@ M03 -> 1144636
 */
 void M03_ConYardSeen::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->starSawComms, sizeof(this->starSawComms), 1);
 }
 
 void M03_ConYardSeen::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->starSawComms = false;
 }
 
-// TODO
 void M03_ConYardSeen::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from RMV_Trigger_Zone after 0 seconds when entered. type = 900, param = 0 (id = 1100005)
 	if (type == 900)
 	{
-		this->field_1C = true;
+		this->starSawComms = true;
 	}
 }
 
 void M03_ConYardSeen::Entered(GameObject *obj, GameObject *enterer)
 {
-	if (!this->field_1C)
+	if (!this->starSawComms)
 	{
-		this->field_1C = true;
+		this->starSawComms = true;
 
 		GameObject *M03MissionControllerObj = Commands->Find_Object(1100004);
 		Commands->Send_Custom_Event(obj, M03MissionControllerObj, 300, 1, 0.0f);

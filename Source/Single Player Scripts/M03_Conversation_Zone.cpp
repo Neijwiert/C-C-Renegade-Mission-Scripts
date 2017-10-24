@@ -24,34 +24,37 @@ M03 -> 2014713 2013087 2013086 1100001 1100005 1100013 1144502 2013899 2013900 2
 */
 void M03_Conversation_Zone::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_1D, sizeof(this->field_1D), 2);
+	Auto_Save_Variable(&this->troubleEnteringComms, sizeof(this->troubleEnteringComms), 1);
+	Auto_Save_Variable(&this->gaveStarRefKey, sizeof(this->gaveStarRefKey), 2);
 }
 
 void M03_Conversation_Zone::Created(GameObject *obj)
 {
-	this->field_1C = false;
-	this->field_1D = false;
+	this->troubleEnteringComms = false;
+	this->gaveStarRefKey = false;
 }
 
-// TODO
 void M03_Conversation_Zone::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from ourselves after 0 seconds when entered and convNum = 2 or 3 or 4 or 7
+	// Received from M03_Objective_Controller after 0 seconds when objective completed with id 1002.
 	if (type == 40004)
 	{
-		this->field_1C = true;
+		this->troubleEnteringComms = true;
 	}
 }
 
-// TODO
 void M03_Conversation_Zone::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
+	// Triggered when notified of comms on the right conversation, see timer number 100000
 	if (action_id == 100002)
 	{
 		GameObject *M03ObjectiveControllerObj = Commands->Find_Object(1100004);
 		Commands->Send_Custom_Event(obj, M03ObjectiveControllerObj, 300, 1, 0.0f);
 		Commands->Send_Custom_Event(obj, M03ObjectiveControllerObj, 308, 3, 0.0f);
 	}
+
+	// Triggered when notified of approaching comms, see entered convNum = 3
 	if (action_id == 100003)
 	{
 		GameObject *M03ObjectiveControllerObj = Commands->Find_Object(1100004);
@@ -59,6 +62,8 @@ void M03_Conversation_Zone::Action_Complete(GameObject *obj, int action_id, Acti
 
 		Commands->Start_Timer(obj, this, 3.0f, 100000);
 	}
+
+	// Triggered when notified of locked up comms, see convNum = 4
 	if (action_id == 100004)
 	{
 		GameObject *M03ObjectiveControllerObj = Commands->Find_Object(1100004);
@@ -69,9 +74,9 @@ void M03_Conversation_Zone::Action_Complete(GameObject *obj, int action_id, Acti
 	}
 }
 
-// TODO
 void M03_Conversation_Zone::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered after 3 or 2 seconds, see action 100003 or entered convNum = 2
 	if (number == 100000)
 	{
 		int conversationId = Commands->Create_Conversation("M03CON002", 99, 2000.0f, true); // That building on the right is the Communications Center.
@@ -85,16 +90,16 @@ void M03_Conversation_Zone::Entered(GameObject *obj, GameObject *enterer)
 {
 	int convNum = Get_Int_Parameter("Conv_Num");
 
-	if (this->field_1C)
+	if (this->troubleEnteringComms)
 	{
 		if (convNum == 4)
 		{
 			Vector3 pos = Commands->Get_Position(obj);
 			GameObject *starObj = Commands->Get_A_Star(pos);
 
-			if (!Commands->Has_Key(starObj, 1) && !this->field_1D)
+			if (!Commands->Has_Key(starObj, 1) && !this->gaveStarRefKey)
 			{
-				this->field_1D = true;
+				this->gaveStarRefKey = true;
 
 				// Locke, I'm having a tough time finding a security card.
 				// Check inside the Tiberium Refinery, I'm picking up officer communications from there.
@@ -110,7 +115,7 @@ void M03_Conversation_Zone::Entered(GameObject *obj, GameObject *enterer)
 	{
 		if (convNum == 2)
 		{
-			this->field_1C = true;
+			this->troubleEnteringComms = true;
 
 			GameObject *garageElevatorTopScriptZoneObj = Commands->Find_Object(1144502);
 			Commands->Send_Custom_Event(obj, garageElevatorTopScriptZoneObj, 40004, 0, 0.0);
@@ -123,7 +128,7 @@ void M03_Conversation_Zone::Entered(GameObject *obj, GameObject *enterer)
 		}
 		else if (convNum == 3)
 		{
-			this->field_1C = true;
+			this->troubleEnteringComms = true;
 
 			GameObject *ppGateInsideBaseScriptZoneObj = Commands->Find_Object(1100005);
 			Commands->Send_Custom_Event(obj, ppGateInsideBaseScriptZoneObj, 40004, 0, 0.0f);
@@ -146,7 +151,7 @@ void M03_Conversation_Zone::Entered(GameObject *obj, GameObject *enterer)
 			GameObject *starObj = Commands->Get_A_Star(pos);
 			if (!Commands->Has_Key(starObj, 1))
 			{
-				this->field_1C = true;
+				this->troubleEnteringComms = true;
 
 				GameObject *commCenterMCTScriptZoneObj = Commands->Find_Object(2013086);
 				Commands->Send_Custom_Event(obj, commCenterMCTScriptZoneObj, 40004, 0, 0.0f);
@@ -169,7 +174,7 @@ void M03_Conversation_Zone::Entered(GameObject *obj, GameObject *enterer)
 			GameObject *starObj = Commands->Get_A_Star(pos);
 			if (Commands->Has_Key(starObj, 1))
 			{
-				this->field_1C = true;
+				this->troubleEnteringComms = true;
 
 				GameObject *commCenterElevatorEntranceScriptZoneObj = Commands->Find_Object(2013901);
 				Commands->Send_Custom_Event(obj, commCenterElevatorEntranceScriptZoneObj, 40004, 0, 0.0f);
@@ -192,7 +197,7 @@ void M03_Conversation_Zone::Entered(GameObject *obj, GameObject *enterer)
 			GameObject *starObj = Commands->Get_A_Star(pos);
 			if (Commands->Has_Key(starObj, 1))
 			{
-				this->field_1C = true;
+				this->troubleEnteringComms = true;
 
 				int conversationId = Commands->Create_Conversation("M03CON009", 99, 2000.0f, true); // You're getting closer to the mainframe. It should be downstairs on your left.
 				Commands->Join_Conversation(NULL, conversationId, true, true, true);
@@ -206,7 +211,7 @@ void M03_Conversation_Zone::Entered(GameObject *obj, GameObject *enterer)
 			GameObject *starObj = Commands->Get_A_Star(pos);
 			if (Commands->Has_Key(starObj, 20) != 1)
 			{
-				this->field_1C = true;
+				this->troubleEnteringComms = true;
 				
 				int conversationId = Commands->Create_Conversation("M03CON016", 99, 2000.0f, true); //This is GDI gunboat captain Soanso, we've still got resistance on the beachhead. I'm not going to last out here without support!
 				Commands->Join_Conversation(NULL, conversationId, true, true, true);
@@ -216,7 +221,7 @@ void M03_Conversation_Zone::Entered(GameObject *obj, GameObject *enterer)
 		}
 		else if (convNum == 22)
 		{
-			this->field_1C = true;
+			this->troubleEnteringComms = true;
 
 			// Commando, don't leave me hanging! Take out those SAM Sites!
 			// Affirmative.
@@ -232,7 +237,7 @@ void M03_Conversation_Zone::Entered(GameObject *obj, GameObject *enterer)
 		}
 		else if (convNum == 61)
 		{
-			this->field_1C = true;
+			this->troubleEnteringComms = true;
 
 			// You are quite the pest, GDI.  Let me see... Ah, Captain Parker, code name Havoc. Hmm... how cliché.
 			// <signature laugh>

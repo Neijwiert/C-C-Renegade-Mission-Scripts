@@ -32,12 +32,12 @@ void RMV_Engineer_Wander::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->field_30, sizeof(this->field_30), 6);
 	Auto_Save_Variable(&this->field_31, sizeof(this->field_31), 7);
 	Auto_Save_Variable(&this->field_32, sizeof(this->field_32), 8);
-	Auto_Save_Variable(&this->field_33, sizeof(this->field_33), 9);
+	Auto_Save_Variable(&this->evacuationStarted, sizeof(this->evacuationStarted), 9);
 }
 
 void RMV_Engineer_Wander::Created(GameObject *obj)
 {
-	this->field_33 = false;
+	this->evacuationStarted = false;
 	this->field_32 = false;
 	this->field_31 = false;
 	this->field_30 = false;
@@ -46,9 +46,9 @@ void RMV_Engineer_Wander::Created(GameObject *obj)
 	this->customParam2 = Get_Int_Parameter("Custom_Param_2");
 }
 
-// TODO
 void RMV_Engineer_Wander::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Never received
 	if (type == this->customType)
 	{
 		this->field_30 = true;
@@ -74,10 +74,10 @@ void RMV_Engineer_Wander::Custom(GameObject *obj, int type, int param, GameObjec
 	}
 }
 
-// TODO
+// Never heard
 void RMV_Engineer_Wander::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
-	if (!this->field_33)
+	if (!this->evacuationStarted)
 	{
 		if (sound.sound == 1002)
 		{
@@ -121,7 +121,6 @@ void RMV_Engineer_Wander::Sound_Heard(GameObject *obj, const CombatSound & sound
 	}
 }
 
-// TODO
 void RMV_Engineer_Wander::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (action_id)
@@ -168,7 +167,7 @@ void RMV_Engineer_Wander::Evacuate()
 
 	Commands->Action_Reset(Owner(), 99.0f);
 
-	this->field_33 = true;
+	this->evacuationStarted = true;
 
 	if (_stricmp(evacObj, "None"))
 	{

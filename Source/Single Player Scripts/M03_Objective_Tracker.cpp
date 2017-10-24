@@ -24,29 +24,35 @@ M03 -> 1100004
 */
 void M03_Objective_Tracker::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->missionStatusCounter, sizeof(this->missionStatusCounter), 1);
 }
 
 void M03_Objective_Tracker::Created(GameObject *obj)
 {
-	this->field_1C = 0;
+	this->missionStatusCounter = 0;
 }
 
-// TODO
 void M03_Objective_Tracker::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M03_CommCenter_Arrow after 0 seconds when custom type 40010 is received, type = 309, param = 1
+	// Received from M03_Conversation_Zone after 0 seconds when action id 100002 is completed. type = 300, param = 1
+	// Received from M03_Conversation_Zone after 0 seconds when action id 100003 is completed. type = 300, param = 1
+	// Received from M03_Conversation_Zone after 0 seconds when entered. type = 300, param = 1
+	// Received from RMV_M03_Comm_Center_Terminal after 0 seconds when poked. type = 308, param = 1
 	if (type == 300 || type == 308 || type == 309)
 	{
 		if (param == 1)
 		{
-			this->field_1C++;
+			this->missionStatusCounter++;
 		}
 	}
+
+	// Never received
 	if (type == 8000)
 	{
 		if (param == 8000 && sender)
 		{
-			Commands->Send_Custom_Event(obj, sender, 8000, this->field_1C, 0.0f);
+			Commands->Send_Custom_Event(obj, sender, 8000, this->missionStatusCounter, 0.0f);
 		}
 	}
 }

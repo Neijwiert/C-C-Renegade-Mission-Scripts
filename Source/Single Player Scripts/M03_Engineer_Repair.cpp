@@ -39,6 +39,7 @@ void M03_Engineer_Repair::Created(GameObject *obj)
 
 void M03_Engineer_Repair::Sound_Heard(GameObject *obj, const CombatSound & sound)
 {
+	// Received from M03_Engineer_Target when damaged or timer number 40013 expired
 	if (sound.sound == 40012)
 	{
 		if (!this->reppingTarget)

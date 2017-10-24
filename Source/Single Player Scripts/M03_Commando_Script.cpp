@@ -60,9 +60,9 @@ void M03_Commando_Script::Killed(GameObject *obj, GameObject *killer)
 	}
 }
 
-// TODO
 void M03_Commando_Script::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Never received
 	if (type == 3000)
 	{
 		if (this->field_1C)
@@ -79,6 +79,8 @@ void M03_Commando_Script::Custom(GameObject *obj, int type, int param, GameObjec
 			this->field_20 = Commands->Get_ID(sender);
 		}
 	}
+
+	// Never received
 	else if (type == 3100)
 	{
 		if (param == 3100 && Commands->Get_ID(sender) == this->field_20)

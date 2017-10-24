@@ -38,5 +38,5 @@ class M03_Engineer_Target : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 
 		float initialHealth;
-		int field_20;
+		int reppingEngineerObjId;
 };

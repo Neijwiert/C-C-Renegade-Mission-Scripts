@@ -36,9 +36,9 @@ class M03_Base_Harvester : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 		virtual void Animation_Complete(GameObject *obj, const char *animation_name);
 
-		int field_1C;
-		int field_20;
-		bool field_24;
-		bool field_25;
-		bool field_26;
+		int harvestCount;
+		int harvestAnimationCount;
+		bool sakuraComancheCreated;
+		bool harvying;
+		bool powerPlantKilled;
 };

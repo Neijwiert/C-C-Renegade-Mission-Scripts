@@ -32,7 +32,7 @@ void M03_Alternate_Sam_Site::Created(GameObject *obj)
 	this->field_1C = false;
 }
 
-// TODO
+// Never receives a custom
 void M03_Alternate_Sam_Site::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
 	if (Commands->Find_Object(1100003)) // GDI Gunboat

@@ -42,8 +42,8 @@ class DLS_Volcano_Active : public ScriptImpClass
 		float explosionDelayMax;
 		float rumbleDelayMin;
 		float rumbleDelayMax;
-		bool field_3C;
-		bool field_3D;
+		bool volcanoErupting;
+		bool field_3D; // Never used
 		float explosionDelay;
 		float rumbleDelay;
 		Vector3 explosionLocations[16];

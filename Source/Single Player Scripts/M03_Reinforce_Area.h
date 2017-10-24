@@ -33,13 +33,13 @@ class M03_Reinforce_Area : public ScriptImpClass
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 		virtual void Timer_Expired(GameObject *obj, int number);
 
-		bool field_1C;
-		bool field_1D;
-		bool field_1E;
-		bool field_1F;
-		bool field_20;
-		int field_24;
-		int field_28[3];
-		int field_34[3];
-		int field_40[3]; // Initialized, but not used
+		bool starAtInlet;
+		bool starAtBase;
+		bool starAtBeach;
+		bool dropAfterBridge;
+		bool areaActive;
+		int troopKilledCount;
+		int areasTroopKilledCounter[3];
+		int areaTroopKilledCount[3];
+		int field_40[3];
 };

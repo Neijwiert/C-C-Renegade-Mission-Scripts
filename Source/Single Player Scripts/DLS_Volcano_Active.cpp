@@ -32,7 +32,7 @@ void DLS_Volcano_Active::Register_Auto_Save_Variables()
 	Auto_Save_Variable(&this->explosionDelayMax, sizeof(this->explosionDelayMax), 6);
 	Auto_Save_Variable(&this->rumbleDelayMin, sizeof(this->rumbleDelayMin), 7);
 	Auto_Save_Variable(&this->rumbleDelayMax, sizeof(this->rumbleDelayMax), 8);
-	Auto_Save_Variable(&this->field_3C, sizeof(this->field_3C), 9);
+	Auto_Save_Variable(&this->volcanoErupting, sizeof(this->volcanoErupting), 9);
 	Auto_Save_Variable(&this->field_3D, sizeof(this->field_3D), 10);
 	Auto_Save_Variable(&this->explosionDelay, sizeof(this->explosionDelay), 11);
 	Auto_Save_Variable(&this->rumbleDelay, sizeof(this->rumbleDelay), 12);
@@ -49,7 +49,7 @@ void DLS_Volcano_Active::Created(GameObject *obj)
 	this->explosionDelayMax = Get_Float_Parameter("Explosion_Delay_Max");
 	this->rumbleDelayMin = Get_Float_Parameter("Rumble_Delay_Min");
 	this->rumbleDelayMax = Get_Float_Parameter("Rumble_Delay_Max");
-	this->field_3C = false;
+	this->volcanoErupting = false;
 	this->explosionLocations[0] = Vector3(11.53f, 20.95f, 50.73f);
 	this->explosionLocations[1] = Vector3(9.8f, 11.69f, 53.99f);
 	this->explosionLocations[2] = Vector3(4.24f, 8.67f, 40.85f);
@@ -68,14 +68,14 @@ void DLS_Volcano_Active::Created(GameObject *obj)
 	this->explosionLocations[15] = Vector3(-68.42f, 22.18f, 20.73f);
 }
 
-// TODO
 void DLS_Volcano_Active::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from Sakura_Killed after 0 seconds when killed. type = 6000, param = 6600
 	if (type == this->receiveType && param == this->receiveParam)
 	{
 		Commands->Start_Timer(obj, this, 5.0f, 60001);
 
-		this->field_3C = true;
+		this->volcanoErupting = true;
 
 		this->explosionDelay = Commands->Get_Random(this->explosionDelayMin, this->explosionDelayMax);
 		Commands->Start_Timer(obj, this, this->explosionDelay, 6701);
@@ -90,9 +90,9 @@ void DLS_Volcano_Active::Custom(GameObject *obj, int type, int param, GameObject
 	}
 }
 
-// TODO
 void DLS_Volcano_Active::Timer_Expired(GameObject *obj, int number)
 {
+	// Triggered after 5 seconds, see custom
 	if (number == 60001)
 	{
 		GameObject *M03MissionControllerObj = Commands->Find_Object(1100004);
@@ -103,6 +103,8 @@ void DLS_Volcano_Active::Timer_Expired(GameObject *obj, int number)
 		Commands->Start_Timer(obj, this, 55.0f, 40005);
 		Commands->Start_Timer(obj, this, 10.0f, 40007);
 	}
+
+	// Triggered after 55 seconds, see timer number 60001
 	else if (number == 40005)
 	{
 		// You don't have much time! Get to the submarine and get off the island!
@@ -117,6 +119,8 @@ void DLS_Volcano_Active::Timer_Expired(GameObject *obj, int number)
 		Commands->Start_Conversation(conversationId, 100011);
 		Commands->Monitor_Conversation(obj, conversationId);
 	}
+
+	// Triggered after 10 or 30 seconds, see timer number 60001 or this block
 	else if (number == 40007)
 	{
 		int conversationId = Commands->Create_Conversation("M03CON048", 99, 2000.0f, true); // Warning - Unstable seizmic activity detected. All personnel evacuate immediately.
@@ -126,9 +130,11 @@ void DLS_Volcano_Active::Timer_Expired(GameObject *obj, int number)
 
 		Commands->Start_Timer(obj, this, 30.0f, 40007);
 	}
+
+	// Triggered after explosionDelay, see custom or this block
 	else if (number == 6701)
 	{
-		if (this->field_3C)
+		if (this->volcanoErupting)
 		{
 			int randExplosionIndex = static_cast<int>(Commands->Get_Random(0.0f, 15.9999f));
 			if (randExplosionIndex > 15)
@@ -141,9 +147,11 @@ void DLS_Volcano_Active::Timer_Expired(GameObject *obj, int number)
 			Commands->Start_Timer(obj, this, this->explosionDelay, 6701);
 		}
 	}
+
+	// Triggered after rumbleDelay, see custom or this block
 	else if (number == 6702)
 	{
-		if (this->field_3C)
+		if (this->volcanoErupting)
 		{
 			float cameraShakeIntensity = Commands->Get_Random(0.050000001f, 0.1f);
 			float cameraShakeDuration = Commands->Get_Random(4.0f, 8.0f);
@@ -156,18 +164,20 @@ void DLS_Volcano_Active::Timer_Expired(GameObject *obj, int number)
 			Commands->Create_Sound("earthquake_large_01", Vector3(0.0f, 0.0f, 0.0f), obj);
 		}
 	}
+
+	// Triggered after volcanoDelay, see custom
 	else if (number == this->volcanoTimerId)
 	{
-		if (this->field_3C)
+		if (this->volcanoErupting)
 		{
-			this->field_3C = false;
+			this->volcanoErupting = false;
 		}
 	}
 }
 
 void DLS_Volcano_Active::Entered(GameObject *obj, GameObject *enterer)
 {
-	this->field_3C = false;
+	this->volcanoErupting = false;
 }
 
 ScriptRegistrant<DLS_Volcano_Active> DLS_Volcano_ActiveRegistrant("DLS_Volcano_Active", "Receive_Type=0:int, Receive_Param=0:int, Volcano_Timer_Id=0:int, Volcano_Delay=0.0:float, Explosion_Delay_Min=0.0:float, Explosion_Delay_Max=0.0:float, Rumble_Delay_Min=0.0:float, Rumble_Delay_Max=0.0:float, Debug_Mode=0:int");

@@ -24,28 +24,29 @@ M03 -> 1208217 1208216 1208215
 */
 void M03_CommCenter_Warning::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
+	Auto_Save_Variable(&this->commsEnteredOrHacked, sizeof(this->commsEnteredOrHacked), 1);
 	Auto_Save_Variable(&this->zoneEntered, sizeof(this->zoneEntered), 2);
 }
 
 void M03_CommCenter_Warning::Created(GameObject *obj)
 {
-	this->field_1C = false;
+	this->commsEnteredOrHacked = false;
 	this->zoneEntered = false;
 }
 
-// TODO
 void M03_CommCenter_Warning::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from M03_CommCenter_Arrow after 0 seconds when custom type 40002 is received
+	// Received from M03_CommCenter_Warning after 0 seconds when entered
 	if (type == 40002)
 	{
-		this->field_1C = true;
+		this->commsEnteredOrHacked = true;
 	}
 }
 
 void M03_CommCenter_Warning::Entered(GameObject *obj, GameObject *enterer)
 {
-	if (!this->field_1C && !this->zoneEntered)
+	if (!this->commsEnteredOrHacked && !this->zoneEntered)
 	{
 		this->zoneEntered = true;
 

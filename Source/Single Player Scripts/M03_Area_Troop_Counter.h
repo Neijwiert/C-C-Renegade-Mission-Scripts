@@ -32,6 +32,6 @@ class M03_Area_Troop_Counter : public ScriptImpClass
 		virtual void Created(GameObject *obj);
 		virtual void Custom(GameObject *obj, int type, int param, GameObject *sender);
 
-		int field_1C[3];
-		int field_28[3];
+		int areasTroopCounter[3];
+		int areasTroopKilledCounter[3];
 };

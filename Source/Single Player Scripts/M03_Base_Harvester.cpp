@@ -25,20 +25,20 @@ M10 -> 2004537
 */
 void M03_Base_Harvester::Register_Auto_Save_Variables()
 {
-	Auto_Save_Variable(&this->field_1C, sizeof(this->field_1C), 1);
-	Auto_Save_Variable(&this->field_24, sizeof(this->field_24), 2);
-	Auto_Save_Variable(&this->field_25, sizeof(this->field_25), 3);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 4);
-	Auto_Save_Variable(&this->field_26, sizeof(this->field_26), 5);
+	Auto_Save_Variable(&this->harvestCount, sizeof(this->harvestCount), 1);
+	Auto_Save_Variable(&this->sakuraComancheCreated, sizeof(this->sakuraComancheCreated), 2);
+	Auto_Save_Variable(&this->harvying, sizeof(this->harvying), 3);
+	Auto_Save_Variable(&this->harvestAnimationCount, sizeof(this->harvestAnimationCount), 4);
+	Auto_Save_Variable(&this->powerPlantKilled, sizeof(this->powerPlantKilled), 5);
 }
 
 void M03_Base_Harvester::Created(GameObject *obj)
 {
-	this->field_1C = 0;
-	this->field_24 = false;
-	this->field_25 = false;
-	this->field_20 = 0;
-	this->field_26 = false;
+	this->harvestCount = 0;
+	this->sakuraComancheCreated = false;
+	this->harvying = false;
+	this->harvestAnimationCount = 0;
+	this->powerPlantKilled = false;
 
 	ActionParamsStruct params;
 	params.Set_Basic(this, 99.0f, 0);
@@ -50,9 +50,9 @@ void M03_Base_Harvester::Created(GameObject *obj)
 	Commands->Action_Goto(obj, params);
 }
 
-// TODO
 void M03_Base_Harvester::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Received from Sakura_Killed after 0 seconds when created
 	if (type == 622)
 	{
 		if (param == 622)
@@ -68,9 +68,11 @@ void M03_Base_Harvester::Custom(GameObject *obj, int type, int param, GameObject
 			Commands->Action_Dock(obj, params);
 		}
 	}
+
+	// Received from M00_Trigger_When_Killed_RMV after 0 seconds when killed. (id = 1150001)
 	else if (type == 722)
 	{
-		if (param == 722 && !this->field_24)
+		if (param == 722 && !this->sakuraComancheCreated)
 		{
 			Commands->Set_Animation(obj, "V_NOD_HRVSTR.V_NOD_HRVSTR", true, NULL, 0.0f, -1.0f, false);
 
@@ -87,20 +89,22 @@ void M03_Base_Harvester::Custom(GameObject *obj, int type, int param, GameObject
 			Commands->Action_Goto(obj, params);
 		}
 	}
+
+	// Received from M03_Power_Plant after 0 seconds when killed
 	else if (type == 7800)
 	{
 		if (param == 7800)
 		{
-			this->field_26 = true;
+			this->powerPlantKilled = true;
 		}
 	}
 }
 
-// TODO
 void M03_Base_Harvester::Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason)
 {
 	if (complete_reason == ACTION_COMPLETE_NORMAL)
 	{
+		// Triggered when moved to tiberium loc, see created and timer expired
 		if (!action_id)
 		{
 			ActionParamsStruct params;
@@ -115,10 +119,12 @@ void M03_Base_Harvester::Action_Complete(GameObject *obj, int action_id, ActionC
 
 			Commands->Action_Goto(obj, params);
 		}
+
+		// Triggered when docked, see animation complete
 		else if (action_id == 2)
 		{
 			float randInterval;
-			if (this->field_26)
+			if (this->powerPlantKilled)
 			{
 				randInterval = 55.0f;
 			}
@@ -129,20 +135,23 @@ void M03_Base_Harvester::Action_Complete(GameObject *obj, int action_id, ActionC
 
 			Commands->Start_Timer(obj, this, randInterval, 5);
 		}
+
+		// Triggered when moved to a random harvest location, see !action_id or animation complete
 		else if (action_id == 1)
 		{
 			Commands->Set_Animation(obj, "V_NOD_HRVSTR.V_NOD_HRVSTR", false, NULL, 0.0f, -1.0f, false);
 
-			this->field_25 = true;
+			this->harvying = true;
 		}
+
+		// Triggered when docked when sakura_killed is created, see custom type 622
 		else if (action_id == 3)
 		{
-			this->field_24 = true;
+			this->sakuraComancheCreated = true;
 		}
 	}
 }
 
-// TODO
 void M03_Base_Harvester::Timer_Expired(GameObject *obj, int number)
 {
 	ActionParamsStruct params;
@@ -157,22 +166,22 @@ void M03_Base_Harvester::Timer_Expired(GameObject *obj, int number)
 
 void M03_Base_Harvester::Animation_Complete(GameObject *obj, const char *animation_name)
 {
-	if (this->field_25)
+	if (this->harvying)
 	{
-		if (++this->field_20 <= 2)
+		if (++this->harvestAnimationCount <= 2)
 		{
 			Commands->Set_Animation(obj, "V_NOD_HRVSTR.V_NOD_HRVSTR", false, NULL, 0.0f, -1.0f, false);
 
 			return;
 		}
 
-		this->field_25 = false;
-		this->field_20 = 0;
+		this->harvying = false;
+		this->harvestAnimationCount = 0;
 	}
 
-	if (this->field_1C <= 3)
+	if (this->harvestCount <= 3)
 	{
-		this->field_1C++;
+		this->harvestCount++;
 
 		ActionParamsStruct params;
 		params.Set_Basic(this, 99.0f, 1);
@@ -188,7 +197,7 @@ void M03_Base_Harvester::Animation_Complete(GameObject *obj, const char *animati
 	}
 	else
 	{
-		this->field_1C = 0;
+		this->harvestCount = 0;
 
 		ActionParamsStruct params;
 		params.Set_Basic(this, 99.0f, 2);

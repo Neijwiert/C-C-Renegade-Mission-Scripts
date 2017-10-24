@@ -25,7 +25,7 @@ M03 -> 1141163
 void M03_Flyover_Controller::Register_Auto_Save_Variables()
 {
 	Auto_Save_Variable(&this->lastFlyoverCinematicIndex, sizeof(this->lastFlyoverCinematicIndex), 1);
-	Auto_Save_Variable(&this->field_20, sizeof(this->field_20), 2);
+	Auto_Save_Variable(&this->active, sizeof(this->active), 2);
 }
 
 void M03_Flyover_Controller::Created(GameObject *obj)
@@ -33,29 +33,30 @@ void M03_Flyover_Controller::Created(GameObject *obj)
 	Commands->Start_Timer(obj, this, 25.0f, 0);
 
 	this->lastFlyoverCinematicIndex = 21;
-	this->field_20 = true;
+	this->active = true;
 }
 
-// TODO
 void M03_Flyover_Controller::Custom(GameObject *obj, int type, int param, GameObject *sender)
 {
+	// Never received
 	if (type == 511)
 	{
 		if (param == 511)
 		{
-			this->field_20 = false;
+			this->active = false;
 		}
 	}
+
+	// Never received
 	else if (type == 512)
 	{
 		if (param == 512)
 		{
-			this->field_20 = true;
+			this->active = true;
 		}
 	}
 }
 
-// TODO
 void M03_Flyover_Controller::Timer_Expired(GameObject *obj, int number)
 {
 	static const char *flyoverCinematicFiles[17] =
@@ -80,7 +81,7 @@ void M03_Flyover_Controller::Timer_Expired(GameObject *obj, int number)
 	};
 
 	int rand = static_cast<int>(Commands->Get_Random(0.0f, 16.999901f));
-	if (this->field_20 || rand <= 5 || rand > 10)
+	if (this->active || rand <= 5 || rand > 10)
 	{
 		while (rand == this->lastFlyoverCinematicIndex)
 		{

@@ -15,5 +15,5 @@ class DLS_Volcano_Stumble : public ScriptImpClass
 		virtual void Sound_Heard(GameObject *obj, const CombatSound & sound);
 		virtual void Action_Complete(GameObject *obj, int action_id, ActionCompleteReason complete_reason);
 
-		bool field_1C;
+		bool volcanoErupting;
 };

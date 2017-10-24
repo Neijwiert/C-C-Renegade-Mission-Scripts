@@ -37,7 +37,7 @@ class M03_Gunboat_Controller_RMV : public ScriptImpClass
 		virtual void Timer_Expired(GameObject *obj, int number);
 
 		int areaIndex;
-		int field_20;
+		int currentArea;
 		Vector3 beachDestination;
 		Vector3 villageStart;
 		Vector3 villageDestination;
@@ -54,9 +54,9 @@ class M03_Gunboat_Controller_RMV : public ScriptImpClass
 		bool downToHalfHealth;
 		bool downToQuarterHealth;
 		bool field_DF;
-		bool field_E0;
-		bool field_E1;
+		bool inletTargetsAlive;
+		bool bigGunKilled;
 		float currentHealth;
-		int field_E8;
+		int inletTargetKilledCount;
 		int damagedByBigGunCount;
 };
