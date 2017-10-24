@@ -1626,6 +1626,9 @@
     <ClCompile Include="M03_Outro_Cinematic.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_A05_Evac_Zone.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3152,6 +3155,9 @@
     <ClInclude Include="M03_Outro_Cinematic.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
+    <ClInclude Include="M03_A05_Evac_Zone.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mx0_c130troopdrop.txt">
@@ -3853,6 +3859,9 @@
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
     <Text Include="orca_6.txt">
+      <Filter>Resource Files\Cinematic Files\M03</Filter>
+    </Text>
+    <Text Include="x3_finale.txt">
       <Filter>Resource Files\Cinematic Files\M03</Filter>
     </Text>
   </ItemGroup>

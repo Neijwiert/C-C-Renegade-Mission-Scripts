@@ -455,3 +455,4 @@ M03_Chinook_Drop_Soldiers_GDI
 M03_Move_Commando_To_Start
 M03_CommCenter_SateliteDish_Controller_JDG
 M03_Outro_Cinematic
+M03_A05_Evac_Zone

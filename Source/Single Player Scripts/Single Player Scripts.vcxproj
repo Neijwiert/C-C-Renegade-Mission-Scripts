@@ -543,6 +543,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClCompile Include="M02_Reset_Spawn.cpp" />
     <ClCompile Include="M02_Respawn_Controller.cpp" />
     <ClCompile Include="M02_Stationary_Vehicle.cpp" />
+    <ClCompile Include="M03_A05_Evac_Zone.cpp" />
     <ClCompile Include="M03_AggAndCover.cpp" />
     <ClCompile Include="M03_Alternate_Sam_Site.cpp" />
     <ClCompile Include="M03_Ambient_Birdcall_Controller_JDG.cpp" />
@@ -1058,6 +1059,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <ClInclude Include="M02_Reset_Spawn.h" />
     <ClInclude Include="M02_Respawn_Controller.h" />
     <ClInclude Include="M02_Stationary_Vehicle.h" />
+    <ClInclude Include="M03_A05_Evac_Zone.h" />
     <ClInclude Include="M03_AggAndCover.h" />
     <ClInclude Include="M03_Alternate_Sam_Site.h" />
     <ClInclude Include="M03_Ambient_Birdcall_Controller_JDG.h" />
@@ -1458,6 +1460,7 @@ copy "$(TargetPath)" "%RenServerPath%\$(TargetFileName)"
     <Text Include="x3i_troopdrop1.txt" />
     <Text Include="x3i_troopdrop2.txt" />
     <Text Include="x3i_troopdrop3.txt" />
+    <Text Include="x3_finale.txt" />
     <Text Include="xg_a03_humveedrop_b.txt" />
     <Text Include="xg_a03_tank_drop.txt" />
     <Text Include="xg_ap_vs_trn.txt" />
