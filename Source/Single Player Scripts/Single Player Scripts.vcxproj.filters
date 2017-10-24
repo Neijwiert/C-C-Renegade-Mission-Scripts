@@ -1614,6 +1614,9 @@
     <ClCompile Include="M03_Inlet_Soldier_GDI.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Chinook_Drop_Soldiers_GDI.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3126,6 +3129,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Inlet_Soldier_GDI.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Chinook_Drop_Soldiers_GDI.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

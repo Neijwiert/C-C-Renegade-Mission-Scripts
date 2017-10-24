@@ -451,3 +451,4 @@ M03_Tailgun
 M03_Chinook_Spawned_Soldier_GDI
 M03_Beach_Soldier_GDI
 M03_Inlet_Soldier_GDI
+M03_Chinook_Drop_Soldiers_GDI
