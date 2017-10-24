@@ -1599,6 +1599,9 @@
     <ClCompile Include="M03_Tailgun_Fodder.cpp">
       <Filter>Source Files\M03</Filter>
     </ClCompile>
+    <ClCompile Include="M03_Tailgun_Fodder_Zone.cpp">
+      <Filter>Source Files\M03</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="General.h">
@@ -3096,6 +3099,9 @@
       <Filter>Header Files\M03</Filter>
     </ClInclude>
     <ClInclude Include="M03_Tailgun_Fodder.h">
+      <Filter>Header Files\M03</Filter>
+    </ClInclude>
+    <ClInclude Include="M03_Tailgun_Fodder_Zone.h">
       <Filter>Header Files\M03</Filter>
     </ClInclude>
   </ItemGroup>

@@ -31,7 +31,7 @@ void M03_Tailgun_Fodder::Created(GameObject *obj)
 	{
 		ActionParamsStruct params;
 		params.Set_Basic(this, 99.0f, 0);
-		params.Set_Attack(starObj, 200.0f, Commands->Get_Difficulty_Level(), true);
+		params.Set_Attack(starObj, 200.0f, static_cast<float>(Commands->Get_Difficulty_Level()), true);
 		params.Set_Movement(starObj, 0.8f, 5.0f);
 
 		Commands->Action_Attack(obj, params);
